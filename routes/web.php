@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\MyEmail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get(
+    '/testEmail',
+    function () {
+        $name = "ahmed";
+       Mail::to('ah12ed34@gmail.com')->send(new MyEmail($name));
+    });
