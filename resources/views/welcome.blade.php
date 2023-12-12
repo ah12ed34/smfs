@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>StudentClub</title>
+        <title>SC</title>
         
     </head>
     <body >
-        <h1> كامل الفودعي </h1>
+        <h1 style="color: cyan"> Welcome back from laravel</h1>
         <h2>...............</h2>
     </body>
 </html>
