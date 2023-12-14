@@ -9,6 +9,7 @@
     </head>
     <body >
         <h1 style="color: cyan"> Welcome back from laravel</h1>
+        <h2>...............</h2>
     </body>
 </html> --}}
 
