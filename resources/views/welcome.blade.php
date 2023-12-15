@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <h1 style="color: cyan"> Welcome back from laravel and kamel al-fwdeey</h1>
+    <h1 style="color: cyan"> Welcome back from laravel </h1>
 
     <div class="slider-container">
         <div id="slide-number" class="slide-number"></div>
