@@ -278,7 +278,7 @@ body {
         paginationcCreatedUl.children[currentSlide - 1].classList.add('active');
 
         paginationcCreatedUl.children[currentSlide - 1].classList.add('active');
-        if (currentSlide == 1) {
+        if (currentSlide <= 1) {
             prevtButton.classList.add('disabled');
         } else {
             prevtButton.classList.remove('disabled');
