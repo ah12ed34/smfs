@@ -30,11 +30,11 @@
 
     <div class="slider-container">
         <div id="slide-number" class="slide-number"></div>
-        <img src="/image/p1.jpg" alt="">
-        <img src="/image/p2.jpg" alt="">
-        <img src="/image/p3.jpg" alt="">
-        <img src="/image/p4.jpg" alt="">
-        <img src="/image/p5.jpg" alt="">
+        <img src="{{ asset('image/p1.jpg')}}" alt="">
+        <img src="{{ asset('image/p2.jpg')}}" alt="">
+        <img src="{{ asset('image/p3.jpg')}}" alt="">
+        <img src="{{ asset('image/p4.jpg')}}" alt="">
+        <img src="{{ asset('image/p5.jpg')}}" alt="">
     </div>
     <div class="slider-controls">
         <span id="prev" class="prev" onclick="ProvtSlide()">Previous</span>
