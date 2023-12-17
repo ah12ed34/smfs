@@ -168,7 +168,7 @@ body {
 
     </style>
 </body>
-{{-- <script>
+<script>
     // document.getElementById("demo").innerHTML = "Hello JavaScript";
 
     var sliderImage = Array.from(document.querySelectorAll('.slider-container img'));
@@ -309,9 +309,11 @@ body {
             bullets.classList.remove('active');
         })
     }
-</script> --}}
+    document.querySelector("h2").style.color = "red";
+document.querySelector("h2").style.textAlign = "center";
+</script>
 
-<script src="main.js"></script>
+{{-- <script src="main.js"></script> --}}
 </html>
 
 </html>
