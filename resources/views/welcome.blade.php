@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>SC</title>
-        
+
     </head>
     <body >
         <h1 style="color: cyan"> Welcome back from laravel</h1>
@@ -27,20 +27,20 @@
 
 <body>
     <h1 style="color: cyan"> Welcome back from laravel and kamel al-fwdeey</h1>
-
+<h2>Welcome to from laravel </h2>
     <div class="slider-container">
         <div id="slide-number" class="slide-number"></div>
-        <img src="p1.jpg" alt="">
-        <img src="p2.jpg" alt="">
-        <img src="p3.jpg" alt="">
-        <img src="p4.jpg" alt="">
-        <img src="p5.jpg" alt="">
+        <img src="image/p1.jpg" alt="">
+        <img src="image/p2.jpg" alt="">
+        <img src="image/p3.jpg" alt="">
+        <img src="image/p4.jpg" alt="">
+        <img src="image/p5.jpg" alt="">
     </div>
     <div class="slider-controls">
         <span id="prev" class="prev" onclick="ProvtSlide()">Previous</span>
 
         <span id="indicators" class="indicators" onclick="cli()">
-        
+
         </span>
         <span id="next" class="next" onclick="nextSlide()">Next</span>
 
@@ -168,7 +168,7 @@ body {
 
     </style>
 </body>
-<script>
+{{-- <script>
     // document.getElementById("demo").innerHTML = "Hello JavaScript";
 
     var sliderImage = Array.from(document.querySelectorAll('.slider-container img'));
@@ -192,6 +192,7 @@ body {
     console.log(typeof Array.from === 'function');
     console.log(typeof Array.length === 'function');
     console.log(typeof createElement === 'function');
+    console.log(typeof on === 'function');
 
 
     // إنشاء عنصر div جديد
@@ -308,9 +309,9 @@ body {
             bullets.classList.remove('active');
         })
     }
-</script>
+</script> --}}
 
-
+<script src="main.js"></script>
 </html>
 
 </html>
