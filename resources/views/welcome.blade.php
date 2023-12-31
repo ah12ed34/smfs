@@ -8,6 +8,13 @@
         @vite(['resources/js/app.js','resources/sass/app.scss'])
     </head>
     <body >
-        <h1 class="wl"> Welcome back from laravel</h1>
+        <div>
+            <center>
+                <span class=" border-bottom rounded-top border-primary btn"><---></span>
+            </center>
+            <form action="" method="POST" >
+                @csrf
+            </form>
+        </div>
     </body>
 </html>
