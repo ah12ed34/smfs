@@ -1,5 +1,3 @@
-import { formToJSON } from "axios";
-
 window.toggleSidebar =
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
