@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 50px;
+    right: -170px;
+    /* Adjust to hide initially */
+    background-color: #03174C;
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #bbb;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+}
+
+.toggle-btn {
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+}
+
+.hdr2 {
+    background-color: rgb(255, 255, 255);
+    height: 50px;
+    width: 100%;
+    color: #0E70F2;
+    box-shadow: 0px 0px 5px 0px rgb(72, 72, 72);
+    margin-left: -10px;
+    box-sizing: border-box;
+    margin-top: 2px;
+}
+
+.content {
+    margin-right: 60px;
+    /* Adjust to match the min-width of the sidebar */
+    transition: margin-right 0.5s;
+    text-align: center;
+}
+
+@media screen and (max-width: 300px) {
+    .sidebar {
+        width: 50px;
+    }
+    .sidebar .toggle-btn {
+        display: block;
+    }
+    .content {
+        margin-right: 50px;
+    }
+
+
+.hdr2 {
+    margin-right: 50px;
+    position: fixed;
+}
+
+.sidebar {
+    right: -170px;
+    /* Adjust to hide initially, and float to the right */
+}
+
+.content {
+    margin-right: 50px;
+}
+
+
+}

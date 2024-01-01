@@ -1,0 +1,33 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-ec353889.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/images/dashboard (1).png": {
+    "file": "assets/dashboard (1)-6486eb66.png",
+    "src": "resources/images/dashboard (1).png"
+  },
+  "resources/images/exit.png": {
+    "file": "assets/exit-8d5a8c41.png",
+    "src": "resources/images/exit.png"
+  },
+  "resources/images/user (10).png": {
+    "file": "assets/user (10)-9d9e3eef.png",
+    "src": "resources/images/user (10).png"
+  },
+  "resources/images/user (4).png": {
+    "file": "assets/user (4)-2873f8cd.png",
+    "src": "resources/images/user (4).png"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-8cec5384.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-041e359a.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  }
+}

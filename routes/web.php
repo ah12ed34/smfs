@@ -25,3 +25,6 @@ Route::get(
         $name = "ahmed";
        Mail::to('ah12ed34@gmail.com')->send(new MyEmail($name));
     });
+Route::get(
+    '/home',function () {     return view('home');
+    });

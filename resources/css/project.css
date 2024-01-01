@@ -1,0 +1,346 @@
+* {
+    margin: 0px;
+    padding: 0pxs;
+}
+
+.header {
+    background-color: rgb(0, 0, 255);
+    max-height: 50px;
+    max-width: 100%;
+    padding: 10px;
+}
+
+
+/*button{
+    
+  background-color:rgb(0, 0, 255);
+  max-width: 180px;
+  max-height: 33px;
+    text-align: left;
+    border: 1px solid white;
+    border-radius: 20px;
+    border: 0px;
+    color: aliceblue;
+    font-size: 10px;    
+}*/
+
+.user {
+    font-size: 9px;
+    float: right;
+    padding: 3px;
+    margin-top: -24px;
+    margin-right: 40px;
+}
+
+.user-icon {
+    float: right;
+    height: 29px;
+    width: 29px;
+    border-radius: 100%;
+    margin-left: 100px;
+    margin-top: -5px;
+}
+
+@media screen and (max-width: 310px) {
+    .user {
+        display: none;
+    }
+    .user-icon {
+        margin-right: 70px;
+        margin-left: 5px;
+    }
+}
+
+.img10 {
+    float: right;
+    margin-left: 15px;
+}
+
+.hdr2 {
+    background-color: rgb(255, 255, 255);
+    height: 50px;
+    width: 100%;
+    box-shadow: 0px 0px 5px 0px rgb(72, 72, 72);
+    color: #0E70F2;
+    box-sizing: border-box;
+    margin-top: 2px;
+}
+
+div.card {
+    width: 220px;
+    height: 220px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    padding-top: 00px;
+    margin-top: 60px;
+    margin-left: 15px;
+    display: inline-block;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.img1manu {
+    float: right;
+    margin-top: 9px;
+    margin-left: 80%;
+}
+
+.btn-group2 .button2 {
+    background-color: #ffffff;
+    border: none;
+    height: 35px;
+    color: #0E70F2;
+    padding: 5px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+    margin-top: -49px;
+}
+
+.btn-group2 .button:hover2 {
+    background-color: #B4DAF6;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.button:active {
+    background-color: #A0C6F9;
+    opacity: 21%;
+}
+
+#active {
+    background-color: #a9cbf7;
+    text-decoration: none;
+    border-bottom: 4px solid #2f81ec;
+}
+
+label {
+    margin-left: 89%;
+    margin-top: 9px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    position: relative;
+    top: 15px;
+    left: 36%;
+    width: 50%;
+    max-height: 50px;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+li {
+    float: left;
+    display: block;
+}
+
+li a {
+    display: block;
+    color: #0E70F2;
+    text-align: center;
+    padding: 8px 9px;
+    text-decoration: none;
+    width: 90px;
+    height: 35px;
+    font-size: 14px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+li a:hover:not(.active) {
+    background-color: #B4DAF6;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.active {
+    background-color: #a9cbf7;
+    text-decoration: none;
+    border-bottom: 4px solid #2f81ec;
+}
+
+@media screen and (max-width: 310px) {
+    ul {
+        width: 70%;
+        height: 30px;
+        margin-right: 40px;
+        margin-left: -80px;
+        top: 20px;
+    }
+    li {
+        float: left;
+    }
+    li a {
+        display: inline-block;
+        color: #0E70F2;
+        text-align: center;
+        padding: 8px 9px;
+        text-decoration: none;
+        width: 70px;
+        height: 40px;
+        font-size: 10px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+    li a:hover:not(.active) {
+        background-color: #B4DAF6;
+        color: #ffffff;
+    }
+    .active {
+        background-color: #a9cbf7;
+        border-bottom: 2px solid #2f81ec;
+    }
+}
+
+.mainbox {
+    display: inline;
+}
+
+
+/* sidebar css code
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+}
+
+.sidebar {
+    
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    right: -170px; /* Adjust to hide initially */
+
+
+/* background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #bbb;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+}
+
+.toggle-btn {
+    
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+}
+
+.content .hdr2 {
+    margin-right: 60px; /* Adjust to match the min-width of the sidebar */
+
+
+/*transition: margin-right 0.5s;
+    padding: 16px;
+    text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar {
+        width: 50px;
+    }
+
+    .sidebar .toggle-btn {
+        display: block;
+    }
+
+    .content {
+        margin-right: 50px;
+    }
+    .sidebar {
+        right: -170px; /* Adjust to hide initially, and float to the right */
+
+
+/* }
+
+    .content {
+        margin-right: 50px;
+    }
+  }*/
+
+.btn-group .button {
+    background-color: #04AA6D;
+    /* Green */
+    border: 1px solid green;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 150px;
+    display: table;
+    float: right;
+}
+
+.btn-group .button:not(:last-child) {
+    border-bottom: none;
+    /* Prevent double borders */
+}
+
+.btn-group .button:hover {
+    background-color: #3e8e41;
+}
+
+.button {
+    background-color: #03174C;
+    color: white;
+    font-size: 16;
+    font-weight: bold;
+    height: 40px;
+    border: none;
+}
+
+button:hover {
+    background-color: #3B5AAC;
+}
