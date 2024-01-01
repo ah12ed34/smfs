@@ -19,19 +19,21 @@
             </button>
 
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">الحساب<img src="{{ Vite::asset("resources/images/user (10).png")}}" class="img10" width="26px"></a>
+                <a class="dropdown-item" href="#">الحساب<img src="{{ Vite::asset("resources/images/user (10).png")}}" class="img10" width="26px"></a> 
                 <a class="dropdown-item" href="#">تسجيل خروج<img src="{{ Vite::image('exit.png') }}" class="img10" width="24px"></a>
 
             </div>
         </div>
+        <div class="notification"><img src="{{ Vite::image('bell.png')}}" width="22px"></div>
+        <img src="{{ Vite::image('Group 912.png')}}" width="40px" style="float: right; margin-top:-100px; margin-right:0px;"></div>
         <div id="sidebar" class="sidebar">
             <div class="toggle-btn" onclick="toggleSidebar()">&#9776;</div>
 
 
-            <button class="button">Button</button>
-            <button class="button">Button</button>
-            <button class="button">Button</button>
-            <button class="button">Button</button>
+            <button class="button-sidebar"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="">القائمة الرئيسية </label></button>
+            <button class="button-sidebar"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="">الجدول الدراسي</label></button>
+            <button class="button-sidebar"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="">الأرشيف</label></button>
+            <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}n" class="sidebaricon" width="26px"><label class="">الإعدادات</label></button>
         </div>
     </div>
     <div class="hdr2" style=" box-shadow: 10px;">
@@ -52,7 +54,7 @@
        @yield('content')
     </div>
     @vite('resources/js/app.js')
-    {{-- <script src="{{ mix('js/sidebar.js') }}" defer></script> --}}
-    {{-- <script src="sidebar.js"></script> --}}
+    {{-- <script src="{{ mix('js/sidebar.js') }}" defer></script> 
+     <script src="sidebar.js"></script> --}}
     </body>
 </html>

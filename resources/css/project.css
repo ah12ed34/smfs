@@ -6,22 +6,24 @@
 .header {
     background-color: rgb(0, 0, 255);
     max-height: 50px;
-    max-width: 100%;
+    top: 0;
+    width: 100%;
     padding: 10px;
+    position: fixed;
 }
 
 
 /*button{
-    
-  background-color:rgb(0, 0, 255);
-  max-width: 180px;
-  max-height: 33px;
-    text-align: left;
-    border: 1px solid white;
-    border-radius: 20px;
-    border: 0px;
-    color: aliceblue;
-    font-size: 10px;    
+
+background-color:rgb(0, 0, 255);
+max-width: 180px;
+max-height: 33px;
+text-align: left;
+border: 1px solid white;
+border-radius: 20px;
+border: 0px;
+color: aliceblue;
+font-size: 10px;    
 }*/
 
 .user {
@@ -41,12 +43,22 @@
     margin-top: -5px;
 }
 
-@media screen and (max-width: 310px) {
+.notification {
+    margin-left: 170px;
+    margin-top: -36px;
+    margin-bottom: 70px;
+    padding-top: -20px;
+}
+
+@media screen and (max-width: 500px) {
+    #button-header {
+        width: 80px;
+    }
     .user {
         display: none;
     }
     .user-icon {
-        margin-right: 70px;
+        margin-right: 10px;
         margin-left: 5px;
     }
 }
@@ -56,23 +68,12 @@
     margin-left: 15px;
 }
 
-.hdr2 {
-    background-color: rgb(255, 255, 255);
-    height: 50px;
-    width: 100%;
-    box-shadow: 0px 0px 5px 0px rgb(72, 72, 72);
-    color: #0E70F2;
-    box-sizing: border-box;
-    margin-top: 2px;
-}
-
 div.card {
     width: 220px;
     height: 220px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
-    padding-top: 00px;
-    margin-top: 60px;
+    margin-top: 10px;
     margin-left: 15px;
     display: inline-block;
 }
@@ -140,20 +141,14 @@ div.card {
     border-bottom: 4px solid #2f81ec;
 }
 
-label {
-    margin-left: 89%;
-    margin-top: 9px;
-}
-
 ul {
     list-style-type: none;
     padding: 0;
-    overflow: hidden;
     background-color: #ffffff;
     position: relative;
     top: 15px;
     left: 36%;
-    width: 50%;
+    width: 30%;
     max-height: 50px;
     box-shadow: none;
     text-decoration: none;
@@ -189,12 +184,15 @@ li a:hover:not(.active) {
     border-bottom: 4px solid #2f81ec;
 }
 
-@media screen and (max-width: 310px) {
+@media screen and (max-width: 899px) {
+    .header {
+        z-index: 2;
+    }
     ul {
-        width: 70%;
+        width: 220px;
         height: 30px;
-        margin-right: 40px;
-        margin-left: -80px;
+        margin-left: -40px;
+        margin-bottom: 30px;
         top: 20px;
     }
     li {
@@ -207,10 +205,11 @@ li a:hover:not(.active) {
         padding: 8px 9px;
         text-decoration: none;
         width: 70px;
-        height: 40px;
+        height: 30px;
         font-size: 10px;
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
+        right: 20px;
     }
     li a:hover:not(.active) {
         background-color: #B4DAF6;
@@ -228,87 +227,87 @@ li a:hover:not(.active) {
 
 
 /* sidebar css code
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+body {
+margin: 0;
+font-family: Arial, sans-serif;
 
 }
 
 .sidebar {
-    
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    top: 0;
-    right: -170px; /* Adjust to hide initially */
+
+height: 100%;
+width: 200px;
+position: fixed;
+top: 0;
+right: -170px; /* Adjust to hide initially */
 
 
 /* background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    display: flex;
-    flex-direction: column;
+overflow-x: hidden;
+transition: 0.5s;
+display: flex;
+flex-direction: column;
 }
 
 .sidebar ul {
-    list-style-type: none;
-    padding: 0;
+list-style-type: none;
+padding: 0;
 }
 
 .sidebar li {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #bbb;
+padding: 10px;
+text-align: center;
+border-bottom: 1px solid #bbb;
 }
 
 .sidebar a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    display: block;
+text-decoration: none;
+color: white;
+font-size: 18px;
+display: block;
 }
 
 .toggle-btn {
-    
-    font-size: 20px;
-    cursor: pointer;
-    color: white;
-    padding: 10px;
+
+font-size: 20px;
+cursor: pointer;
+color: white;
+padding: 10px;
 }
 
 .content .hdr2 {
-    margin-right: 60px; /* Adjust to match the min-width of the sidebar */
+margin-right: 60px; /* Adjust to match the min-width of the sidebar */
 
 
 /*transition: margin-right 0.5s;
-    padding: 16px;
-    text-align: center;
+padding: 16px;
+text-align: center;
 }
 
 @media screen and (max-width: 400px) {
-    .sidebar {
-        width: 50px;
-    }
+.sidebar {
+width: 50px;
+}
 
-    .sidebar .toggle-btn {
-        display: block;
-    }
+.sidebar .toggle-btn {
+display: block;
+}
 
-    .content {
-        margin-right: 50px;
-    }
-    .sidebar {
-        right: -170px; /* Adjust to hide initially, and float to the right */
+.content {
+margin-right: 50px;
+}
+.sidebar {
+right: -170px; /* Adjust to hide initially, and float to the right */
 
 
 /* }
 
-    .content {
-        margin-right: 50px;
-    }
-  }*/
+.content {
+margin-right: 50px;
+}
+}*/
 
-.btn-group .button {
+.btn-group .button-sidebar {
     background-color: #04AA6D;
     /* Green */
     border: 1px solid green;
@@ -323,24 +322,25 @@ li a:hover:not(.active) {
     float: right;
 }
 
-.btn-group .button:not(:last-child) {
+.btn-group .button-sidebar:not(:last-child) {
     border-bottom: none;
     /* Prevent double borders */
 }
 
-.btn-group .button:hover {
+.btn-group .button-sidebar:hover {
     background-color: #3e8e41;
 }
 
-.button {
+.button-sidebar {
     background-color: #03174C;
     color: white;
     font-size: 16;
     font-weight: bold;
     height: 40px;
     border: none;
+    text-align: center;
 }
 
-button:hover {
+.button-sidebar:hover {
     background-color: #3B5AAC;
 }

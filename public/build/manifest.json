@@ -8,9 +8,21 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-ec353889.css",
+    "file": "assets/app-7544ae66.css",
     "isEntry": true,
     "src": "resources/css/app.css"
+  },
+  "resources/images/Group 912.png": {
+    "file": "assets/Group 912-05c07297.png",
+    "src": "resources/images/Group 912.png"
+  },
+  "resources/images/bell.png": {
+    "file": "assets/bell-77314ab4.png",
+    "src": "resources/images/bell.png"
+  },
+  "resources/images/calendar (3).png": {
+    "file": "assets/calendar (3)-d89fdbf1.png",
+    "src": "resources/images/calendar (3).png"
   },
   "resources/images/dashboard (1).png": {
     "file": "assets/dashboard (1)-6486eb66.png",
@@ -19,6 +31,18 @@
   "resources/images/exit.png": {
     "file": "assets/exit-8d5a8c41.png",
     "src": "resources/images/exit.png"
+  },
+  "resources/images/home (1).png": {
+    "file": "assets/home (1)-d2886832.png",
+    "src": "resources/images/home (1).png"
+  },
+  "resources/images/portfolio (2).png": {
+    "file": "assets/portfolio (2)-e3e4d9e0.png",
+    "src": "resources/images/portfolio (2).png"
+  },
+  "resources/images/setting (2).png": {
+    "file": "assets/setting (2)-ab567baf.png",
+    "src": "resources/images/setting (2).png"
   },
   "resources/images/user (10).png": {
     "file": "assets/user (10)-9d9e3eef.png",
@@ -29,7 +53,7 @@
     "src": "resources/images/user (4).png"
   },
   "resources/js/app.js": {
-    "file": "assets/app-8cec5384.js",
+    "file": "assets/app-a1395472.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
