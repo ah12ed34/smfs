@@ -1,5 +1,6 @@
 @extends('layouts.home')
 
+@section('title', 'Home|SFMS')
 @section('content')
 <div class="responsive"></div>
 <div class="card"></div>
