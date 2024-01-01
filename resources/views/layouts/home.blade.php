@@ -6,7 +6,7 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
         {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> --}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-        <title>SC</title>
+        <title>@yield('title',"CS")</title>
 
         @vite(['resources/sass/app.scss','resources/css/app.css'])
     </head>
@@ -41,9 +41,9 @@
           <button class="button" >الرئيسية </button>
 </div-->
         <ul>
-            <li><a href="stastic.html">الإحصائيات</a></li>
-            <li><a href="permissions.html">الصلاحيات</a></li>
-            <li><a class="active" href="#contact" style="text-decoration: none; float:right;">الرئيسية</a></li>
+            <li><a href="#">الإحصائيات</a></li>
+            <li><a href="#">الصلاحيات</a></li>
+            <li><a class="active" href="#" style="text-decoration: none; float:right;">الرئيسية</a></li>
 
         </ul>
     </div>
