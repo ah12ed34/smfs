@@ -9,6 +9,7 @@ body {
     position: fixed;
     top: 50px;
     right: 0px;
+    padding-top: 3px;
     /* Adjust to hide initially */
     background-color: #03174C;
     overflow-x: hidden;

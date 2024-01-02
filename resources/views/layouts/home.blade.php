@@ -27,8 +27,6 @@
         <div class="notification"><img src="{{ Vite::image('bell.png')}}" width="22px"></div>
         <img src="{{ Vite::image('Group 912.png')}}" width="40px" style="float: right; margin-top:-100px; margin-right:0px;"></div>
         <div id="sidebar" class="sidebar">
-            <div class="toggle-btn" onclick="toggleSidebar()">&#9776;</div>
-
 
             <button class="button-sidebar"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >القائمة الرئيسية </label></button>
             <button class="button-sidebar"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >الجدول الدراسي</label></button>
@@ -63,4 +61,5 @@
     {{-- <script src="{{ mix('js/sidebar.js') }}" defer></script> 
      <script src="sidebar.js"></script> --}}
     </body>
+    @yield('script')
 </html>
