@@ -15,7 +15,7 @@ body {
     transition: 0.5s;
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    z-index: 2;
 }
 
 .sidebar ul {
@@ -62,21 +62,26 @@ body {
     box-shadow: 0px 0px 5px 0px rgb(72, 72, 72);
     transition: margin-right 0.5s;
     text-align: center;
-    margin-right: 50px;
-    margin-top: 50px;
-    position: static;
+    margin-top: -50px;
+    position: fixed;
     z-index: 1;
 }
 
 .content {
+    height: 100%;
     margin-right: 150px;
     /*Adjusttomatchthemin-widthofthesidebar*/
     transition: - 0.5s;
     text-align: center;
     background-color: #E9EEEF;
-    padding-top: 10px;
-    margin-top: 2px;
-    height: 100%;
+    top: 95px;
+    padding-top: 20px;
+    margin-top: 95px;
+    padding-bottom: 200px;
+    -webkit-transition: - 0.5s;
+    -moz-transition: - 0.5s;
+    -ms-transition: - 0.5s;
+    -o-transition: - 0.5s;
 }
 
 
@@ -153,6 +158,12 @@ body {
         top: 0px;
         display: inline;
     }
+    /* .custom-width-icon {
+        width: 20px !important;
+        /* Use !important to ensure the style takes precedence */
+    /* height: auto; */
+    /* Maintain the aspect ratio */
+    /* } */
     .bottomNavbartext {
         bottom: 0;
         margin-top: -20px;
