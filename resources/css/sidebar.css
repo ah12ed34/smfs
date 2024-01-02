@@ -5,10 +5,10 @@ body {
 
 .sidebar {
     height: 100%;
-    width: 180px;
+    width: 170px;
     position: fixed;
     top: 50px;
-    right: -130px;
+    right: 0px;
     /* Adjust to hide initially */
     background-color: #03174C;
     overflow-x: hidden;
@@ -46,8 +46,12 @@ body {
 
 .sidebaricon {
     float: right;
-    margin-left: 15px;
-    margin-top: 5px;
+    margin-left: -8px;
+    margin-top: -5px;
+}
+
+.sidebartext {
+    font-size: 16px;
 }
 
 .hdr2 {
@@ -65,9 +69,9 @@ body {
 }
 
 .content {
-    margin-right: 50px;
-    /* Adjust to match the min-width of the sidebar */
-    transition: margin-right 0.5s;
+    margin-right: 150px;
+    /*Adjusttomatchthemin-widthofthesidebar*/
+    transition: - 0.5s;
     text-align: center;
     background-color: #E9EEEF;
     padding-top: 10px;
@@ -75,7 +79,8 @@ body {
     height: 100%;
 }
 
-@media screen and (max-width: 300px) {
+
+/* @media screen and (max-width: 300px) {
     .sidebar {
         width: 50px;
     }
@@ -94,8 +99,65 @@ body {
     .sidebar {
         right: -130px;
         /* Adjust to hide initially, and float to the right */
-    }
+
+
+/* }
     .content {
         margin-right: 50px;
+    }
+} */
+
+.btn-bottomNavbar {
+    display: none;
+}
+
+.bottombaricon {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .bottomNavbar {
+        background-color: #03174C;
+        height: 40px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        position: fixed;
+        bottom: 0;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 10px;
+    }
+    .btn-bottomNavbar {
+        background-color: #03174C;
+        color: white;
+        width: 70px;
+        font-size: 8px;
+        font-weight: bold;
+        height: 30px;
+        margin-top: 5px;
+        position: relative;
+        border: none;
+        display: inline;
+    }
+    .bottombaricon {
+        width: 15px;
+        height: 15px;
+        padding-top: -10px;
+        top: 0px;
+        display: inline;
+    }
+    .bottomNavbartext {
+        bottom: 0;
+        margin-top: -20px;
+    }
+    .btn-bottomNavbar:hover {
+        background-color: #3B5AAC;
+    }
+    .content {
+        margin-right: 0px;
+    }
+    .sidebar {
+        display: none;
     }
 }

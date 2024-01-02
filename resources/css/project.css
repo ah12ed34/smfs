@@ -88,10 +88,15 @@ div.card {
     .responsive {
         width: 49.99999%;
         margin: 6px 0;
+        transition: 2;
+        -webkit-transition: 2;
+        -moz-transition: 2;
+        -ms-transition: 2;
+        -o-transition: 2;
     }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
     .responsive {
         width: 100%;
     }
@@ -315,7 +320,7 @@ margin-right: 50px;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
     width: 150px;
     display: table;
@@ -334,11 +339,12 @@ margin-right: 50px;
 .button-sidebar {
     background-color: #03174C;
     color: white;
-    font-size: 16;
+    font-size: 12px;
     font-weight: bold;
     height: 40px;
     border: none;
     text-align: center;
+    padding-top: 12px;
 }
 
 .button-sidebar:hover {
