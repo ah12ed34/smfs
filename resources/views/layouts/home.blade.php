@@ -49,7 +49,7 @@
 
         </ul>
     </div>
-    <div></div>
+   
     <div class="content">
        @yield('content')
     </div>

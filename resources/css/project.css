@@ -10,6 +10,7 @@
     width: 100%;
     padding: 10px;
     position: fixed;
+    z-index: 2;
 }
 
 
@@ -189,7 +190,7 @@ li a:hover:not(.active) {
     border-bottom: 4px solid #2f81ec;
 }
 
-@media screen and (max-width: 899px) {
+@media screen and (max-width: 915px) {
     .header {
         z-index: 2;
     }
