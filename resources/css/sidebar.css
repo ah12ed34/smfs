@@ -134,11 +134,17 @@ body {
         width: 70px;
         font-size: 8px;
         font-weight: bold;
-        height: 30px;
-        margin-top: 5px;
+        height: 35px;
+        margin-top: 1px;
+        padding: 5px;
         position: relative;
         border: none;
         display: inline;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
     }
     .bottombaricon {
         width: 15px;
