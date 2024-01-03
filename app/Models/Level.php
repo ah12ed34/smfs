@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Level extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'id',
+        'name',
+        'department_id',
+    ];
 }

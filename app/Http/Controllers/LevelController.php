@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class LevelController extends Controller
 {
+    public function getLevelsByDepartment($departmentId)
+    {
+        // استرجاع المستويات التي تنتمي إلى القسم المحدد
+        $levels = Level::where('department_id', $departmentId)->get();
+
+        return response()->json($levels);
+    }
     /**
      * Display a listing of the resource.
      */

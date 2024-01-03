@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string("username")->unique();
             $table->string("phone")->unique()->nullable();
             $table->string('email')->unique()->nullable();
-            $table->string('profile_photo_path')->nullable();
-            $table->enum("gender",['femial','male']);
+            $table->string('photo')->nullable();
+            $table->enum("gender",['male','femial',]);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

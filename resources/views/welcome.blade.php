@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -19,4 +19,31 @@
     
 
     </body>
-</html>
+</html> --}}
+@extends('layouts.home')
+@section('content')
+<header>
+    <div class="container">
+      <img src="logo.png" alt="شعار الجمعية">
+      <h1>جمعية الحاسوب العلمية</h1>
+    </div>
+  </header>
+  <main class="container">
+    <form action="/login" method="post">
+      <div class="form-group">
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">كلمة المرور</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">تسجيل دخول</button>
+    </form>
+  </main>
+  <footer>
+    <div class="container">
+      <a href="#">حول الموقع</a>
+    </div>
+  </footer>
+@endsection

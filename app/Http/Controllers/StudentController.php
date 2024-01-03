@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\studying;
+use App\Models\Department;
+use App\Models\Level;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -21,6 +24,9 @@ class StudentController extends Controller
     public function create()
     {
         //
+        $departments = Department::all();
+        $levels =  Level::where('department_id', $departments->first()->id)->get();
+        return view('student.create', compact('departments', 'levels'));
     }
 
     /**
@@ -28,9 +34,28 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        // 
+        $request->validate([
+            'id'=>'required|numeric',
+            'name' => 'required|string',
+            'last_name' => 'required|string',
+            'username' => 'nullable',
+            'email' => 'nullable|email',
+            'password' => 'required',
+            'department_id' => 'required|numeric',
+            'level_id' => 'required|numeric'
+            ,]);
+        try{
+            if($request->hasFile('image'))
+            $request['photo'] = $request->file('image')->store('images/profile', 'public');
+            Student::create_student($request);
 
+            return redirect()->route('student.create')->with('success', 'Student created successfully.');
+
+        }catch(\Exception $e){
+            echo($e->getMessage());
+        }
+            }
     /**
      * Display the specified resource.
      */
