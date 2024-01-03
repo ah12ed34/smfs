@@ -8,13 +8,17 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-d5e73536.css",
+    "file": "assets/app-d7b0c865.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/images/Group 912.png": {
     "file": "assets/Group 912-05c07297.png",
     "src": "resources/images/Group 912.png"
+  },
+  "resources/images/allocation (1).png": {
+    "file": "assets/allocation (1)-e7be0c63.png",
+    "src": "resources/images/allocation (1).png"
   },
   "resources/images/bell.png": {
     "file": "assets/bell-77314ab4.png",
