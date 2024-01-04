@@ -45,6 +45,7 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         //
+        Role::find(1)->Permissions()->attach(1);
     }
 
     /**

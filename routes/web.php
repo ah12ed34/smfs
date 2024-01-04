@@ -28,7 +28,7 @@ Route::get('/', function () {
 //     });
 Route::get(
     '/home',function () {     return view('home');
-    });
+    })->name('home');
 
     Route::prefix('student')->group(function () {
         // Route::get('/create', 'StudentController@create')->name('student.create');
@@ -55,10 +55,13 @@ Route::get(
            
         });
     });
+    Route::get('admin', function () {
+        return "welcome to admin";
+    })->name('admin');
     Route::prefix('/academic')->group(function () {
         Route::prefix('student')->group(function () {
             Route::get('/index', function(){return view('');})->name('student.index');
-            Route::get('/create', 'StudentController@create')->name('student.create');
+            Route::get('/create', 'StudentController@create')->name('student.create')->middleware('perm:addstudent');
             Route::post('/store', 'StudentController@store')->name('student.store');
             Route::get('/edit/{id}', 'StudentController@edit')->name('student.edit');
             Route::put('/update/{id}', 'StudentController@update')->name('student.update');

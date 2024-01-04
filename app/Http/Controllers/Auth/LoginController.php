@@ -7,6 +7,11 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use App\Models\User;
+
+
 class LoginController extends Controller
 {
     /*
@@ -20,15 +25,13 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
-
+    use AuthenticatesUsers ;
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
     // protected function redirectTo()
     // {
     //     if (Auth::user()->role == 'admin') {
@@ -57,6 +60,16 @@ class LoginController extends Controller
         return $this->username = filter_var(request()->input('username'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
     }
 
+    // public function redirectPath()
+    // {
+    //     if (Auth::check() && Auth::user()->isAdmin()) {
+    //         return redirect()->route('admin');
+    //     }
+    
+    //     return redirect()->route('home');
+    // }
+
+    
 //     protected function authenticated(Request $request, $user)
 // {
 //     // إليك مكان إضافة البيانات الإضافية التي تريد
