@@ -4,6 +4,7 @@ use App\Mail\MyEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,12 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get(
-    '/testEmail',
-    function () {
-        $name = "ahmed";
-       Mail::to('ah12ed34@gmail.com')->send(new MyEmail($name));
-    });
+// Route::get(
+//     '/testEmail',
+//     function () {
+//         $name = "ahmed";
+//        Mail::to('ah12ed34@gmail.com')->send(new MyEmail($name));
+//     });
 Route::get(
     '/home',function () {     return view('home');
     });
@@ -39,6 +40,6 @@ Route::get(
     });
     Route::get('/api/levels/{departmentId}', [LevelController::class, 'getLevelsByDepartment']);
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
