@@ -14,13 +14,24 @@
         
     <div class="header">
         <div class="dropdown">
-            <button id="button-header" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style=" background-color:rgb(0, 0, 255);  border: 0px;">
-              <div class="user-icon"><img src="{{ Vite::asset('resources/images/user (4).png') }}" width="29px"> <div class="user">Ahmed AL-Wajeeh </div></div> 
-            </button>
-
+            @guest
+                
+                <button id="button-header" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style=" background-color:rgb(0, 0, 255);  border: 0px;">
+                    <div class="user-icon"><img src="{{ Vite::asset('resources/images/user (4).png') }}" width="29px"> <div class="user">اسم المستخدم</div></div> 
+                </button>
+            @else
+                <button id="button-header" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style=" background-color:rgb(0, 0, 255);  border: 0px;">
+                    <div class="user-icon"><img src="{{ Vite::asset('resources/images/user (4).png') }}" width="29px"> <div class="user">{{ Auth::user()->name." ".Auth::user()->last_name}}</div></div> 
+                </button>
+            @endguest
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">الحساب<img src="{{ Vite::asset("resources/images/user (10).png")}}" class="img10" width="26px"></a> 
-                <a class="dropdown-item" href="#">تسجيل خروج<img src="{{ Vite::image('exit.png') }}" class="img10" width="24px"></a>
+                <a class="dropdown-item" href="{{ route('login') }}">الحساب<img src="{{ Vite::asset("resources/images/user (10).png")}}" class="img10" width="26px"></a> 
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">{{__('layout.logout')}}<img src="{{ Vite::image('exit.png') }}" class="img10" width="24px"></a>
+                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
 
             </div>
         </div>
@@ -28,10 +39,10 @@
         <img src="{{ Vite::image('Group 912.png')}}" width="40px" style="float: right; margin-top:-100px; margin-right:0px;"></div>
         <div id="sidebar" class="sidebar">
 
-            <button class="button-sidebar"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >القائمة الرئيسية </label></button>
-            <button class="button-sidebar"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >الجدول الدراسي</label></button>
-            <button class="button-sidebar"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >الأرشيف</label></button>
-            <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >الإعدادات</label></button>
+            <button class="button-sidebar"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
+            <button class="button-sidebar"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.schaudule_std')}} </button>
+            <button class="button-sidebar"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.archives')}} </label></button>
+            <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
         </div>
     </div>
     <div class="hdr2" style=" box-shadow: 10px;">
@@ -41,9 +52,9 @@
           <button class="button" >الرئيسية </button>
 </div-->
         <ul>
-            <li><a href="#">الإحصائيات</a></li>
-            <li><a href="#">الصلاحيات</a></li>
-            <li><a class="active" href="#" style="text-decoration: none; float:right;">الرئيسية</a></li>
+            <li><a href="#">{{__('layout.statistics')}}</a></li>
+            <li><a href="#">{{__('layout.permissions')}}</a></li>
+            <li><a class="active" href="#" style="text-decoration: none; float:right;">{{__('layout.home')}}</a></li>
 
         </ul>
     </div>
