@@ -21,6 +21,8 @@ class DepartmentController extends Controller
     public function create()
     {
         //
+        
+        return view('department.create');
     }
 
     /**
@@ -29,6 +31,14 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'dep_id' => 'required|unique:departments,id',
+            'name' => 'required|unique:departments,name',
+        ]);
+        $request->replace($request->except('dep_id')+['id' => $request->dep_id] );
+        // dd($request->all());
+        Department::create($request->all());
+        return redirect()->route('department.create');
     }
 
     /**

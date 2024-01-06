@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\projectGroup;
+use App\Models\ProjectChat;
 use Illuminate\Http\Request;
 
-class ProjectGroupController extends Controller
+class ProjectChatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class ProjectGroupController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(projectGroup $projectGroup)
+    public function show(ProjectChat $ProjectChat)
     {
         //
     }
@@ -42,7 +42,7 @@ class ProjectGroupController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(projectGroup $projectGroup)
+    public function edit(ProjectChat $ProjectChat)
     {
         //
     }
@@ -50,7 +50,7 @@ class ProjectGroupController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, projectGroup $projectGroup)
+    public function update(Request $request, ProjectChat $ProjectChat)
     {
         //
     }
@@ -58,7 +58,7 @@ class ProjectGroupController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(projectGroup $projectGroup)
+    public function destroy(ProjectChat $ProjectChat)
     {
         //
     }

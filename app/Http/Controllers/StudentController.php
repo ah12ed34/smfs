@@ -25,7 +25,11 @@ class StudentController extends Controller
     {
         //
         $departments = Department::all();
+        if($departments->isEmpty())
+            return redirect()->route('department.create')->with('error',trans('error.create_department_first'));
         $levels =  Level::where('department_id', $departments->first()->id)->get();
+        if($levels->isEmpty())
+            return redirect()->route('level.create')->with('error',trans('error.create_level_first'));
         return view('student.create', compact('departments', 'levels'));
     }
 

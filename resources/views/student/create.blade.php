@@ -116,6 +116,9 @@
                 url: '/api/levels/' + departmentId, // قد تحتاج إلى تعديل هذا الرابط حسب تنظيم مشروعك
                 success: function (data) {
                     // ملء الخيارات في قائمة المستويات
+                    if (data.error) {
+                        location.href = "{{  route('level.create') }}?error=" + encodeURIComponent(data.error)+"&dep_id="+departmentId;
+                    }
                     $.each(data, function (key, value) {
                         $('#level_id').append('<option value="' + value.id + '">' + value.name + '</option>');
                     });

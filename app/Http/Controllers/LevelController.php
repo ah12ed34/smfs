@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Level;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,11 @@ class LevelController extends Controller
     {
         // استرجاع المستويات التي تنتمي إلى القسم المحدد
         $levels = Level::where('department_id', $departmentId)->get();
+        if ($levels->isEmpty()) {
+            // return redirect()->route('level.create')->with('error', __('sysmass.create_level_first'));
+            return response()->json(['error' => __('sysmass.create_level_first')]);
 
+        }
         return response()->json($levels);
     }
     /**
@@ -28,6 +33,12 @@ class LevelController extends Controller
     public function create()
     {
         //
+        $dep = Department::all();
+        if($dep->isEmpty())return redirect()->route('department.create')->with('error',trans('sysmass.create_department_first'));
+        $request = request(['error', 'dep_id']);
+        if (isset($request))
+        session()->put($request);
+        return view('level.create', compact('dep'));
     }
 
     /**
@@ -36,6 +47,15 @@ class LevelController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'level_id' => 'unique:levels,id',
+            'level_name' => 'required|unique:levels,name',
+            'department_id' => 'required|exists:departments,id',
+        ]);
+        $request->replace($request->except('level_id','level_name') + ['id' => $request->level_id, 'name' => $request->level_name]);
+        Level::create($request->all());
+        return redirect()->route('level.create')->with('success', trans('sysmass.success_add'));
+
     }
 
     /**

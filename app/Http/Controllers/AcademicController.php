@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Academic;
 use Illuminate\Http\Request;
-
+use App\Models\Department;
 class AcademicController extends Controller
 {
     /**
@@ -21,6 +21,8 @@ class AcademicController extends Controller
     public function create()
     {
         //
+        $departments = Department::all();
+        return view('academic.create',compact('departments'));
     }
 
     /**
@@ -29,6 +31,16 @@ class AcademicController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'last_name' => 'required',
+            'username' => 'required|unique:users,username',
+            'email' => 'nullable|email',
+            'password' => 'required',
+            'department_id' => 'required|exists:departments,id',
+        ]);
+        Academic::create($request);
+        return redirect()->route('academic.create');
     }
 
     /**
