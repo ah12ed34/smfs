@@ -38,7 +38,7 @@ class LevelController extends Controller
         $request = request(['error', 'dep_id']);
         if (isset($request))
         session()->put($request);
-        return view('level.create', compact('dep'));
+        return view('academic.level.create', compact('dep'));
     }
 
     /**

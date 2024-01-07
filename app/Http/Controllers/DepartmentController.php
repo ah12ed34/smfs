@@ -22,7 +22,7 @@ class DepartmentController extends Controller
     {
         //
         
-        return view('department.create');
+        return view('academic.department.create');
     }
 
     /**

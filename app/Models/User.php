@@ -87,5 +87,12 @@ class User extends Authenticatable
     
     }
 
+    public function isStudent(): bool{
+        return DB::table('students')->where('user_id',$this->id)->exists();
+    }
+    public function isAcademic(): bool{
+        return DB::table('academics')->where('user_id',$this->id)->exists();
+    }
+
 
 }

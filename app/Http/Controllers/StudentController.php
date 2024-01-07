@@ -13,9 +13,14 @@ class StudentController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('role:student')->only('index');
+    }
     public function index()
     {
         //
+        return 'student home';
     }
 
     /**
@@ -30,7 +35,7 @@ class StudentController extends Controller
         $levels =  Level::where('department_id', $departments->first()->id)->get();
         if($levels->isEmpty())
             return redirect()->route('level.create')->with('error',trans('error.create_level_first'));
-        return view('student.create', compact('departments', 'levels'));
+        return view('academic.student.create', compact('departments', 'levels'));
     }
 
     /**

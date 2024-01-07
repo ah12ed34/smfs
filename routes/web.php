@@ -16,34 +16,16 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-// Route::get(
-//     '/testEmail',
-//     function () {
-//         $name = "ahmed";
-//        Mail::to('ah12ed34@gmail.com')->send(new MyEmail($name));
-//     });
-Route::get(
-    '/home',function () {     return view('home');
-    })->name('home');
 
-    Route::prefix('student')->group(function () {
-        // Route::get('/create', 'StudentController@create')->name('student.create');
-        // Route::post('/store', 'StudentController@store')->name('student.store');
-        // Route::get('/index', 'StudentController@index')->name('student.index');
-        // Route::get('/edit/{id}', 'StudentController@edit')->name('student.edit');
-        // Route::post('/update/{id}', 'StudentController@update')->name('student.update');
-        // Route::get('/delete/{id}', 'StudentController@delete')->name('student.delete');
-    });
     Route::get('/api/levels/{departmentId}', [LevelController::class, 'getLevelsByDepartment']);
 
     Auth::routes(['register' => false]);
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')
+    ->middleware('auth');
     Route::prefix('/student')->group(function () {
+        Route::get('/', 'StudentController@index')->name('student.index');
         Route::prefix('/subject')->group(function () {
             
 
@@ -54,7 +36,7 @@ Route::get(
         Route::prefix('/assignment')->group(function () {
            
         });
-    });
+    })->middleware('auth');
     Route::get('admin', function () {
         return "welcome to admin";
     })->name('admin');
@@ -99,13 +81,13 @@ Route::get(
             Route::put('/update/{id}', 'RoleController@update')->name('role.update');
             Route::delete('/delete/{id}', 'RoleController@delete')->name('role.delete');
         });
-        Route::prefix('primmision')->group(function () {
-            Route::get('/index', 'PrimmisionController@index')->name('primmision.index');
-            Route::get('/create', 'PrimmisionController@create')->name('primmision.create');
-            Route::post('/store', 'PrimmisionController@store')->name('primmision.store');
-            Route::get('/edit/{id}', 'PrimmisionController@edit')->name('primmision.edit');
-            Route::put('/update/{id}', 'PrimmisionController@update')->name('primmision.update');
-            Route::delete('/delete/{id}', 'PrimmisionController@delete')->name('primmision.delete');
+        Route::prefix('Permission')->group(function () {
+            Route::get('/index', 'PermissionController@index')->name('primmision.index');
+            Route::get('/create', 'PermissionController@create')->name('primmision.create');
+            Route::post('/store', 'PermissionController@store')->name('primmision.store');
+            Route::get('/edit/{id}', 'PermissionController@edit')->name('primmision.edit');
+            Route::put('/update/{id}', 'PermissionController@update')->name('primmision.update');
+            Route::delete('/delete/{id}', 'PermissionController@delete')->name('primmision.delete');
         });
 
         Route::prefix('project')->group(function () {
@@ -121,7 +103,14 @@ Route::get(
         Route::prefix('groupSubject')->group(function () {
             
         });
+       
         Route::get('/create', 'AcademicController@create')->middleware('perm:addacademic')->name('academic.create');
         Route::post('/store', 'AcademicController@store')->middleware('perm:addacademic')->name('academic.store');
-    });
+        Route::group(['middleware' => ['role:academic']], function () {
+            route::get('/', 'AcademicController@index')->name('academic.home');
+        });
+    })->middleware('auth');
 
+Route::get('/', function () {
+    return redirect()->route('login');
+});

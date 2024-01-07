@@ -60,6 +60,23 @@ class LoginController extends Controller
         return $this->username = filter_var(request()->input('username'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
     }
 
+protected $redirectTo = '/'; // المسار الافتراضي
+
+    public static function redirectTo() : string
+    {
+        // تخصيص المسار بناءً على نوع الحساب
+        if (auth::user()->isAdmin()) {
+            return '/admin/dashboard';
+        } elseif (auth::user()->isAcademic() ) {
+            return '/academic';
+        } elseif (auth::user()->isStudent()) {
+            return '/student';
+        } else {
+            return '/home';
+        }
+    }
+    
+
     // public function redirectPath()
     // {
     //     if (Auth::check() && Auth::user()->isAdmin()) {
