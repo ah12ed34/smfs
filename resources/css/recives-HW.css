@@ -1,0 +1,394 @@
+            #btn-groups-hw {
+                font-size: 12px;
+                font-weight: normal;
+                padding-left: 5px;
+                margin-left: 60px;
+                margin-top: -30px;
+                position: fixed;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+            }
+            
+            @media screen and (max-width:991px) {
+                #btn-groups-hw {
+                    margin-left: 30px;
+                }
+            }
+            
+            @media screen and (max-width:891px) {
+                #btn-groups-hw {
+                    margin-left: 20px;
+                }
+            }
+            
+            @media screen and (max-width:850px) {
+                #btn-groups-hw {
+                    margin-left: 100px;
+                }
+            }
+            
+            @media screen and (max-width:777px) {
+                #btn-groups-hw {
+                    width: 100px;
+                    height: 30px;
+                    font-size: 10px;
+                    margin-left: 80px;
+                }
+            }
+            
+            .textdrop2 {
+                float: right;
+                margin-left: 14px;
+            }
+            
+            .hr3 {
+                background-color: #ffffff;
+                border: none;
+                width: 100%;
+                height: 40px;
+                margin-top: -20px;
+                padding-top: 4px;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                position: fixed;
+            }
+            
+            #input-group {
+                width: 300px;
+                margin-left: 450px;
+                height: 30px;
+                box-shadow: 2px rgb(72, 72, 72);
+                position: fixed;
+            }
+            
+            .form-control {
+                height: 33px;
+            }
+            
+            #form-control {
+                height: 33px;
+                box-shadow: 1px rgb(72, 72, 72);
+            }
+            
+            @media screen and (max-width: 1000px) {
+                #input-group {
+                    margin-left: 300px;
+                }
+            }
+            
+            @media screen and (max-width: 890px) {
+                #input-group {
+                    margin-left: 270px;
+                }
+            }
+            
+            @media screen and (max-width: 840px) {
+                #input-group {
+                    margin-left: 200px;
+                }
+            }
+            
+            @media screen and (max-width: 740px) {
+                #input-group {
+                    margin-left: 180px;
+                }
+            }
+            
+            @media screen and (max-width: 550px) {
+                #input-group {
+                    width: 230px;
+                    margin-top: 5px;
+                    margin-left: 140px;
+                }
+                .form-control {
+                    height: 28px;
+                }
+                #form-control {
+                    width: 30px;
+                    height: 28px;
+                }
+                #spaces {
+                    width: 40px;
+                }
+            }
+            
+            @media screen and (max-width: 425px) {
+                #input-group {
+                    width: 220px;
+                    margin-top: 5px;
+                    margin-left: 100px;
+                }
+            }
+            
+            @media screen and (max-width: 370px) {
+                #input-group {
+                    width: 180px;
+                    margin-top: 5px;
+                    margin-left: 100px;
+                }
+            }
+            
+            #spacesbtn {
+                margin-top: 3px;
+                width: 214px;
+                height: 33px;
+                padding-left: 2px;
+            }
+            
+            #spaces1 {
+                margin-top: -5px;
+                float: left;
+                margin-left: 4px;
+            }
+            
+            @media screen and (max-width: 700px) {
+                #spacesbtn {
+                    width: 50px;
+                }
+            }
+            
+            @media screen and (max-width: 550px) {
+                #spaces1 {
+                    float: right;
+                    margin-left: 17px;
+                }
+                #spacesbtn {
+                    padding-left: 10px;
+                    width: 40px;
+                    height: 30px;
+                }
+            }
+            
+            #spaces2 {
+                margin-top: -6px;
+                width: 22px;
+                box-shadow: 1px rgb(72, 72, 72);
+            }
+            
+            @media screen and (max-width: 550px) {
+                #spaces2 {
+                    width: 17px;
+                    margin-left: -6px;
+                    margin-top: -10px;
+                }
+            }
+            
+            .btn-group {
+                margin-left: 27%;
+                margin-top: -52px;
+                position: fixed;
+            }
+            
+            .btn-projctsNavbar {
+                background-color: white;
+                color: #0E70F2;
+                top: -80px;
+                text-align: center;
+                padding: 6px 9px;
+                width: 90px;
+                height: 35px;
+                font-size: 12px;
+                border: none;
+                border-top-right-radius: 5px;
+                border-top-left-radius: 5px;
+            }
+            
+            .btn-projctsNavbar:hover {
+                background-color: #B4DAF6;
+                color: #ffffff;
+            }
+            
+            @media screen and (max-width: 992px) {
+                .btn-group {
+                    margin-left: 26%;
+                    margin-top: -50px;
+                }
+                .btn-projctsNavbar {
+                    width: 80px;
+                    height: 30px;
+                    padding: 6px 9px;
+                    font-size: 10px;
+                }
+            }
+            
+            @media screen and (max-width: 970px) {
+                .btn-group {
+                    margin-left: 27%;
+                    margin-top: -47px;
+                }
+                .btn-projctsNavbar {
+                    width: 80px;
+                    height: 30px;
+                    padding: 6px 9px;
+                    font-size: 10px;
+                }
+            }
+            
+            @media screen and (max-width: 947px) {
+                .btn-group {
+                    margin-left: 24%;
+                    margin-top: -50px;
+                }
+                .btn-projctsNavbar {
+                    width: 80px;
+                    height: 30px;
+                    padding: 6px 9px;
+                    font-size: 10px;
+                }
+            }
+            
+            @media screen and (max-width: 882px) {
+                .btn-group {
+                    margin-left: 22%;
+                    margin-top: -50px;
+                    position: fixed;
+                }
+            }
+            
+            @media screen and (max-width: 857px) {
+                .btn-projctsNavbar {
+                    display: none;
+                }
+            }
+            
+            #btn-navbar-hw {
+                display: none;
+                position: fixed;
+            }
+            
+            @media screen and (max-width: 856px) {
+                #btn-navbar-hw {
+                    font-size: 12px;
+                    font-weight: normal;
+                    padding-left: 5px;
+                    margin-left: 40%;
+                    margin-top: -30px;
+                    display: inline;
+                    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                    z-index: 2;
+                    position: absolute;
+                }
+            }
+            
+            @media screen and (max-width:777px) {
+                #btn-navbar-hw {
+                    width: 90px;
+                    height: 30px;
+                    font-size: 10px;
+                    margin-left: 40%;
+                }
+            }
+            
+            @media screen and (max-width:768px) {
+                #btn-navbar-hw {
+                    margin-left: 40%;
+                }
+            }
+            
+            @media screen and (max-width:700px) {
+                #btn-navbar-hw {
+                    margin-left: 61%;
+                }
+            }
+            
+            @media screen and (max-width:550px) {
+                #btn-navbar-hw {
+                    margin-left: 62%;
+                }
+            }
+            /* @media screen and (max-width: 788px) {
+    .btn-group {
+        margin-left: 26%;
+        margin-top: -50px;
+    }
+}
+
+@media screen and (max-width: 773px) {
+    .btn-group {
+        margin-left: 24%;
+        margin-top: -47px;
+    }
+    .btn-projctsNavbar {
+        width: 60px;
+        height: 27px;
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .btn-group {
+        margin-left: 18%;
+        margin-top: -57px;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 738px) {
+    .btn-group {
+        margin-left: 16%;
+        margin-top: -57px;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 738px) {
+    .btn-group {
+        margin-left: 14%;
+        margin-top: -57px;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 711px) {
+    .btn-group {
+        margin-left: 14%;
+        margin-top: -60px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .btn-group {
+        margin-left: 37%;
+        margin-top: -45px;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 632px) {
+    .btn-group {
+        margin-left: 33%;
+        margin-top: -47px;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .btn-group {
+        margin-left: 33%;
+        margin-top: -47px;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .btn-group {
+        margin-left: 33%;
+        margin-top: -60px;
+        position: fixed;
+    }
+} */
+            
+            .table {
+                margin-top: 21px;
+                font-size: 12px;
+                font-weight: normal;
+            }
+            
+            #table-lightid {
+                box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+                margin-top: 5px;
+            }
+            
+            .table-light {
+                box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+                margin-top: 5px;
+            }

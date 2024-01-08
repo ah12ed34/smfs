@@ -1,0 +1,401 @@
+    #btn-groups-hw {
+        font-size: 12px;
+        font-weight: normal;
+        padding-left: 5px;
+        margin-left: 40%;
+        margin-top: -30px;
+        position: fixed;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    }
+    
+    @media screen and (max-width:777px) {
+        #btn-groups-hw {
+            margin-left: 28%;
+        }
+    }
+    
+    @media screen and (max-width:700px) {
+        #btn-groups-hw {
+            margin-left: 50%;
+            position: fixed;
+        }
+    }
+    
+    @media screen and (max-width:550px) {
+        #btn-groups-hw {
+            width: 100px;
+            margin-top: -25px;
+            font-size: 10px;
+        }
+    }
+    
+    .textdrop2 {
+        float: right;
+        margin-left: 14px;
+    }
+    
+    #btn-addHW {
+        font-size: 12px;
+        font-weight: normal;
+        padding-left: 5px;
+        margin-left: 7%;
+        margin-top: -28px;
+        position: fixed;
+    }
+    
+    @media screen and (max-width:650px) {
+        #btn-addHW {
+            margin-left: 14%;
+        }
+    }
+    
+    @media screen and (max-width:777px) {
+        #btn-addHW {
+            margin-top: -28px;
+        }
+    }
+    
+    @media screen and (max-width:550px) {
+        #btn-addHW {
+            margin-left: 20%;
+            margin-top: -24px;
+            font-size: 10px;
+        }
+    }
+    
+    .hr3 {
+        background-color: #ffffff;
+        border: none;
+        width: 100%;
+        height: 40px;
+        margin-top: -20px;
+        padding-top: 4px;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        position: fixed;
+    }
+    
+    #input-group {
+        width: 300px;
+        margin-left: 450px;
+        height: 30px;
+        box-shadow: 2px rgb(72, 72, 72);
+        position: fixed;
+    }
+    
+    .form-control {
+        height: 33px;
+    }
+    
+    #form-control {
+        height: 33px;
+        box-shadow: 1px rgb(72, 72, 72);
+    }
+    
+    @media screen and (max-width: 1000px) {
+        #input-group {
+            margin-left: 300px;
+        }
+    }
+    
+    @media screen and (max-width: 890px) {
+        #input-group {
+            margin-left: 270px;
+        }
+    }
+    
+    @media screen and (max-width: 840px) {
+        #input-group {
+            margin-left: 200px;
+        }
+    }
+    
+    @media screen and (max-width: 740px) {
+        #input-group {
+            margin-left: 180px;
+        }
+    }
+    
+    @media screen and (max-width: 550px) {
+        #input-group {
+            width: 230px;
+            margin-top: 5px;
+            margin-left: 140px;
+        }
+        .form-control {
+            height: 28px;
+        }
+        #form-control {
+            width: 30px;
+            height: 28px;
+        }
+        #spaces {
+            width: 40px;
+        }
+    }
+    
+    @media screen and (max-width: 425px) {
+        #input-group {
+            width: 200px;
+            margin-top: 5px;
+            margin-left: 100px;
+        }
+    }
+    
+    @media screen and (max-width: 370px) {
+        #input-group {
+            width: 180px;
+            margin-top: 5px;
+            margin-left: 100px;
+        }
+    }
+    
+    #spacesbtn {
+        margin-top: 3px;
+        width: 214px;
+        height: 33px;
+        padding-left: 2px;
+    }
+    
+    #spaces1 {
+        margin-top: -5px;
+        float: left;
+        margin-left: 4px;
+    }
+    
+    @media screen and (max-width: 700px) {
+        #spacesbtn {
+            width: 50px;
+        }
+    }
+    
+    @media screen and (max-width: 550px) {
+        #spaces1 {
+            float: right;
+            margin-left: 17px;
+        }
+        #spacesbtn {
+            padding-left: 10px;
+            width: 40px;
+            height: 30px;
+        }
+    }
+    
+    #spaces2 {
+        margin-top: -6px;
+        width: 22px;
+        box-shadow: 1px rgb(72, 72, 72);
+    }
+    
+    @media screen and (max-width: 550px) {
+        #spaces2 {
+            width: 17px;
+            margin-left: -6px;
+            margin-top: -10px;
+        }
+    }
+    
+    #inputtext {
+        border: none;
+        box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+        text-align: right;
+        font-size: 12px;
+        color: rgb(67, 111, 206);
+    }
+    
+    #comment {
+        border: none;
+        box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+        margin-top: 8px;
+        text-align: right;
+        font-size: 12px;
+        color: rgb(67, 111, 206);
+    }
+    
+    #file {
+        border: none;
+        box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+        text-align: right;
+        font-size: 12px;
+        background-color: #ffffff;
+        color: rgb(67, 111, 206);
+    }
+    
+    .modal-footer {
+        height: 50px;
+    }
+    
+    .modal-body {
+        height: 330px;
+        padding-bottom: 10px;
+    }
+    
+    #modheader {
+        height: 50px;
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+        padding-left: 200px;
+        color: rgb(67, 111, 206);
+    }
+    
+    @media screen and (max-width:550px) {
+        #modheader {
+            font-size: 12px;
+            font-weight: normal;
+            text-align: center;
+            padding-left: 200px;
+        }
+    }
+    
+    @media screen and (max-width:450px) {
+        #modheader {
+            font-size: 12px;
+            font-weight: normal;
+            text-align: center;
+            padding-left: 140px;
+        }
+    }
+    
+    @media screen and (max-width:360px) {
+        #modheader {
+            font-size: 11px;
+            font-weight: normal;
+            text-align: center;
+            padding-left: 120px;
+        }
+    }
+    /* .modal-header {
+    height: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 100px;
+} */
+    
+    #modal-content {
+        height: 450px;
+        background-color: #F6F7FA;
+        color: rgb(67, 111, 206);
+    }
+    
+    #btnsave {
+        margin-right: 300px;
+        width: 90px;
+    }
+    
+    @media screen and (max-width:450px) {
+        #btnsave {
+            margin-right: 200px;
+        }
+    }
+    
+    @media screen and (max-width:360px) {
+        #btnsave {
+            margin-right: 170px;
+        }
+    }
+    
+    #btncancel {
+        width: 90px;
+    }
+    
+    #card-HW {
+        width: 95%;
+        height: 200px;
+        margin-top: 50px;
+        color: #0E70F2;
+        text-align: right;
+        font-size: 13px;
+        font-weight: normal;
+    }
+    
+    @media screen and (max-width:600px) {
+        #card-HW {
+            font-size: 10px;
+        }
+    }
+    
+    @media screen and (max-width:800px) {
+        #card-HW {
+            font-size: 12px;
+        }
+    }
+    
+    .text-hw {
+        text-align: right;
+    }
+    
+    @media screen and (max-width:770px) {
+        .text-hw {
+            margin-left: 100px;
+        }
+    }
+    
+    @media screen and (max-width:530px) {
+        .text-hw {
+            position: fixed;
+        }
+    }
+    
+    @media screen and (max-width:520px) {
+        .text-hw {
+            margin-left: 38px;
+        }
+    }
+    
+    @media screen and (max-width:430px) {
+        .text-hw {
+            font-size: 10px;
+        }
+    }
+    
+    @media screen and (max-width:400px) {
+        .text-hw {
+            margin-left: -10px;
+        }
+    }
+    
+    .btn-HW {
+        float: left;
+    }
+    
+    #btn-recive-hw {
+        margin-top: 5px;
+        font-size: 13px;
+        font-weight: normal;
+        width: 90px;
+        height: 33px;
+        display: block;
+        z-index: 3;
+    }
+    
+    @media screen and (max-width:530px) {
+        #btn-recive-hw {
+            margin-top: 145px;
+            display: inline;
+            width: 70px;
+            font-size: 12px;
+            height: 30px;
+        }
+    }
+    
+    .btn-group {
+        margin-left: 30%;
+        margin-top: -52px;
+        position: absolute;
+    }
+    
+    .btn-projctsNavbar {
+        background-color: white;
+        color: #0E70F2;
+        top: -80px;
+        text-align: center;
+        padding: 6px 9px;
+        width: 70px;
+        margin-left: 3px;
+        height: 35px;
+        font-size: 12px;
+        border: none;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }

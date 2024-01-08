@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-d7b0c865.css",
+    "file": "assets/app-91bb5efb.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -20,9 +20,17 @@
     "file": "assets/calendar (3)-d89fdbf1.png",
     "src": "resources/images/calendar (3).png"
   },
+  "resources/images/conversation (3).png": {
+    "file": "assets/conversation (3)-f7bf26ed.png",
+    "src": "resources/images/conversation (3).png"
+  },
   "resources/images/dashboard (1).png": {
     "file": "assets/dashboard (1)-6486eb66.png",
     "src": "resources/images/dashboard (1).png"
+  },
+  "resources/images/edit.png": {
+    "file": "assets/edit-edd1fca1.png",
+    "src": "resources/images/edit.png"
   },
   "resources/images/exit.png": {
     "file": "assets/exit-8d5a8c41.png",
@@ -32,13 +40,57 @@
     "file": "assets/home (1)-d2886832.png",
     "src": "resources/images/home (1).png"
   },
+  "resources/images/homework (3).png": {
+    "file": "assets/homework (3)-61effed2.png",
+    "src": "resources/images/homework (3).png"
+  },
+  "resources/images/it.png": {
+    "file": "assets/it-fbb655bb.png",
+    "src": "resources/images/it.png"
+  },
+  "resources/images/left-arrow.png": {
+    "file": "assets/left-arrow-b007cb2a.png",
+    "src": "resources/images/left-arrow.png"
+  },
+  "resources/images/magnifying-glass (2).png": {
+    "file": "assets/magnifying-glass (2)-86dabd36.png",
+    "src": "resources/images/magnifying-glass (2).png"
+  },
+  "resources/images/open-book.png": {
+    "file": "assets/open-book-431303bd.png",
+    "src": "resources/images/open-book.png"
+  },
+  "resources/images/paper-plane.png": {
+    "file": "assets/paper-plane-876c1872.png",
+    "src": "resources/images/paper-plane.png"
+  },
+  "resources/images/plus.png": {
+    "file": "assets/plus-a9290ee4.png",
+    "src": "resources/images/plus.png"
+  },
   "resources/images/portfolio (2).png": {
     "file": "assets/portfolio (2)-e3e4d9e0.png",
     "src": "resources/images/portfolio (2).png"
   },
+  "resources/images/project-management.png": {
+    "file": "assets/project-management-ccb71f91.png",
+    "src": "resources/images/project-management.png"
+  },
+  "resources/images/routine.png": {
+    "file": "assets/routine-6b7067ab.png",
+    "src": "resources/images/routine.png"
+  },
+  "resources/images/send.png": {
+    "file": "assets/send-7d8a65a9.png",
+    "src": "resources/images/send.png"
+  },
   "resources/images/setting (2).png": {
     "file": "assets/setting (2)-ab567baf.png",
     "src": "resources/images/setting (2).png"
+  },
+  "resources/images/students.png": {
+    "file": "assets/students-f245b45f.png",
+    "src": "resources/images/students.png"
   },
   "resources/images/user (10).png": {
     "file": "assets/user (10)-9d9e3eef.png",

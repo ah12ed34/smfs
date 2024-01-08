@@ -13,6 +13,7 @@ class SubjectController extends Controller
     public function index()
     {
         //
+        return view('academic.subject.subject');
     }
 
     /**

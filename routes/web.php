@@ -106,8 +106,15 @@ use Illuminate\Support\Facades\Auth;
        
         Route::get('/create', 'AcademicController@create')->middleware('perm:addacademic')->name('academic.create');
         Route::post('/store', 'AcademicController@store')->middleware('perm:addacademic')->name('academic.store');
+        
         Route::group(['middleware' => ['role:academic']], function () {
             route::get('/', 'AcademicController@index')->name('academic.home');
+            Route::prefix("subject")->group(function(){
+                Route::get("/",'SubjectController@index')->name("subject.index");
+            });
+            Route::prefix("project")->group(function(){
+                Route::get("/","projectController@index")->name("projects");
+            });
         });
     })->middleware('auth');
 

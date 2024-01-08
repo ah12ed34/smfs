@@ -45,6 +45,7 @@
             <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
         </div>
     </div>
+    @section('nav')
     <div class="hdr2" style=" box-shadow: 10px;">
         <!--div class="btn-group" style="margin-top: 17px; margin-left:40%; background-color:rgb(255, 255, 255);  color: rgb(13, 24, 176);  ">
           <button class="button" href="./Untitled-1.html"><a class="link" href="./Untitled-1.html" style="text-decoration: none; :hover{  background-color: #B4DAF6;   color:white;}" >الإحصائيات</a> </button>
@@ -58,6 +59,7 @@
 
         </ul>
     </div>
+    @show
    
     <div class="content">
        @yield('content')
