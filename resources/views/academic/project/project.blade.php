@@ -28,7 +28,7 @@
 </div>
 @endsection
 @section("content")
-<div class="content">
+<div class="content" >
 
     <div class="hr3">
         <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button>
@@ -41,14 +41,14 @@
         <button class="Addbtn-projctsNavbar" data-toggle="modal" data-target="#myModal"><label class="proNavbartext">إنشاء مشروع</label><img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button>
 
     </div>
-
+    
     <div class="responsive"></div>
 
-
-    <div class="container">
-
+<div class="container" id="container-project" style="  padding-top: 30px;" >
+   
+   
         <div class="table-responsive-xl">
-            <table class="table" style=" width:100%;">
+            <table class="table" id="table" style=" margin-right: -30px; " >
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
                         <th>تعديل</th>
@@ -112,12 +112,12 @@
             </table>
         </div>
     </div>
-
+</div>
 
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
-            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
+            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:500px;">
 
                 <!-- Modal Header -->
                 <div class="modal-header" id="modheader">
@@ -187,9 +187,15 @@
             </div>
 
             <!-- Modal footer -->
-            <div class="modal-footer" style="padding-right: 120px;">
-                <input type="text" class="form-control" id="sendmessa" name="username" placeholder="اكتب ...">
-                <img src="{{Vite::image("send.png")}}" id="send-png" width="25px">
+            <div class="modal-footer" >
+                {{-- <input type="text" class="form-control" id="sendmessa" name="username" placeholder="اكتب ...">
+                <img src="{{Vite::image("send.png")}}" id="send-png" width="25px"> --}}
+                <div  class="input-group mb-3">
+                    <input id="send-input" type="text" class="form-control" placeholder="اكتب..." style="height: 35px;margin-top: -10px;">
+                    <div class="input-group-append">
+                        <button  class="btn btn-light" type="submit"  style="margin-top: -10px;height: 35px;margin-left:5px"><img src="{{Vite::image("send.png")}}"   width="24px" ></button>
+                    </div>
+                </div>
                 <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button> -->
             </div>
 
