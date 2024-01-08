@@ -117,7 +117,7 @@
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
-            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:500px;">
+            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:550px;">
 
                 <!-- Modal Header -->
                 <div class="modal-header" id="modheader">
@@ -131,13 +131,13 @@
                         <div class="form-group">
                             <!-- <label for="usr">Name:</label> -->
                             <input type="text" class="form-control" id="inputtext" name="username" placeholder="اسم المشروع " style="height: 30px; margin-top:-6px">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="الدرجة " style="height: 30px; margin-top:8px">
-                            <textarea style="height: 80px;" class="form-control" rows="3" id="comment" placeholder=" وصف المشروع " style=" margin-top:8px"></textarea>
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder=" تاريخ التسليم " style="height: 30px; margin-top:8px">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder=" الحد الأقصى للطلاب " style="height: 30px; margin-top:8px">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="الحد الأدنى للطلاب " style="height: 30px; margin-top:8px">
-                            <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="ملاحظة " style="height: 30px; margin-top:8px">
+                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="الدرجة " style="height: 30px; margin-top:10px">
+                            <textarea style="height: 80px;" class="form-control" rows="3" id="comment" placeholder=" وصف المشروع " style=" margin-top:10px"></textarea>
+                            <input type="text" class="form-control" id="inputtext" name="username" placeholder=" تاريخ التسليم " style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" name="username" placeholder=" الحد الأقصى للطلاب " style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="الحد الأدنى للطلاب " style="height: 30px; margin-top:10px">
+                            <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="ملاحظة " style="height: 30px; margin-top:10px">
                         </div>
                         <!-- <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -168,7 +168,7 @@
 <!-- The Modal1 -->
 <div class="modal fade" id="myModal1">
     <div class="modal-dialog">
-        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
+        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height:600px;">
 
             <!-- Modal Header -->
             <div class="modal-header" id="modheader">
