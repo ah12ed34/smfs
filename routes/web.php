@@ -113,7 +113,7 @@ use Illuminate\Support\Facades\Auth;
                 Route::get("/",'SubjectController@index')->name("subject.index");
             });
             Route::prefix("project")->group(function(){
-                Route::get("/","projectController@index")->name("projects");
+                Route::get("/","ProjectController@index")->name("projects");
             });
         });
     })->middleware('auth');
