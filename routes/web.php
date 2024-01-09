@@ -4,6 +4,7 @@ use App\Mail\MyEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
+use App\Models\group;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -120,6 +121,9 @@ use Illuminate\Support\Facades\Auth;
             });
             route::prefix("recive-assignments")->group(function(){
                 route::get("/",'ReciveAssignmentController@index')->name("recive-assignments");
+            });
+            route::prefix('students')->group(function(){
+                route::get("/",'StudentsController@index')->name("students");
             });
         });
     })->middleware('auth');
