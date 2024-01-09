@@ -27,6 +27,8 @@ return [
 'close'=>'إغلاق',
 'back'=>'رجوع',
 'actions'=>'العمليات',
+'create_student'=>'إنشاء طالب',
+'create_academic'=>'إنشاء أكاديمي',
 'yes'=>'نعم',
 'no'=>'لا',
 'are_you_sure'=>'هل أنت متأكد؟',

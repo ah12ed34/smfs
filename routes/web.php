@@ -37,9 +37,9 @@ use Illuminate\Support\Facades\Auth;
            
         });
     })->middleware('auth');
-    Route::get('admin', function () {
-        return "welcome to admin";
-    })->name('admin');
+    Route::get('admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin')->middleware('role:admin');
     Route::prefix('/academic')->group(function () {
         Route::prefix('student')->group(function () {
             Route::get('/index', function(){return view('');})->name('student.index');
