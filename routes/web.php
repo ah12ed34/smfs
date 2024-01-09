@@ -118,6 +118,9 @@ use Illuminate\Support\Facades\Auth;
             Route::prefix('assignment')->group(function(){
                 Route::get("/",'AssignmentController@index')->name("assignment");
             });
+            route::prefix("recive-assignments")->group(function(){
+                route::get("/",'ReciveAssignmentController@index')->name("recive-assignments");
+            });
         });
     })->middleware('auth');
 

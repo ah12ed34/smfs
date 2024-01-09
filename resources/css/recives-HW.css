@@ -35,6 +35,16 @@
                 }
             }
             
+            @media screen and (max-width:550px) {
+                #btn-groups-hw {
+                    width: 100px;
+                    height: 30px;
+                    font-size: 10px;
+                    margin-left: 80px;
+                    background-color: #ffffff;
+                }
+            }
+            
             .textdrop2 {
                 float: right;
                 margin-left: 14px;
@@ -173,14 +183,14 @@
             
             .btn-group {
                 margin-left: 27%;
-                margin-top: -52px;
+                margin-top: -29px;
                 position: fixed;
             }
             
-            .btn-projctsNavbar {
+            .btn-projctsNavbar-reciv-assigne {
                 background-color: white;
                 color: #0E70F2;
-                top: -80px;
+                top: -100px;
                 text-align: center;
                 padding: 6px 9px;
                 width: 90px;
@@ -191,17 +201,17 @@
                 border-top-left-radius: 5px;
             }
             
-            .btn-projctsNavbar:hover {
+            .btn-projctsNavbar-reciv-assigne:hover {
                 background-color: #B4DAF6;
                 color: #ffffff;
             }
             
             @media screen and (max-width: 992px) {
                 .btn-group {
-                    margin-left: 26%;
-                    margin-top: -50px;
+                    margin-left: 22%;
+                    margin-top: -24px;
                 }
-                .btn-projctsNavbar {
+                .btn-projctsNavbar-reciv-assigne {
                     width: 80px;
                     height: 30px;
                     padding: 6px 9px;
@@ -209,42 +219,46 @@
                 }
             }
             
-            @media screen and (max-width: 970px) {
+            @media screen and (max-width: 991px) {
+                .btn-group {
+                    margin-left: 17%;
+                    margin-top: -24px;
+                }
+            }
+            /* @media screen and (max-width: 970px) {
                 .btn-group {
                     margin-left: 27%;
                     margin-top: -47px;
                 }
-                .btn-projctsNavbar {
+                .btn-projctsNavbar-reciv-assigne {
                     width: 80px;
                     height: 30px;
                     padding: 6px 9px;
                     font-size: 10px;
                 }
-            }
-            
-            @media screen and (max-width: 947px) {
+            } */
+            /* @media screen and (max-width: 947px) {
                 .btn-group {
                     margin-left: 24%;
                     margin-top: -50px;
                 }
-                .btn-projctsNavbar {
+                .btn-projctsNavbar-reciv-assigner {
                     width: 80px;
                     height: 30px;
                     padding: 6px 9px;
                     font-size: 10px;
                 }
-            }
-            
-            @media screen and (max-width: 882px) {
+            } */
+            /* @media screen and (max-width: 882px) {
                 .btn-group {
                     margin-left: 22%;
                     margin-top: -50px;
                     position: fixed;
                 }
-            }
+            } */
             
             @media screen and (max-width: 857px) {
-                .btn-projctsNavbar {
+                .btn-projctsNavbar-reciv-assigne {
                     display: none;
                 }
             }
@@ -292,6 +306,13 @@
             @media screen and (max-width:550px) {
                 #btn-navbar-hw {
                     margin-left: 62%;
+                    background-color: #ffffff;
+                }
+            }
+            
+            @media screen and (max-width:400px) {
+                #btn-navbar-hw {
+                    margin-left: 58%;
                 }
             }
             /* @media screen and (max-width: 788px) {

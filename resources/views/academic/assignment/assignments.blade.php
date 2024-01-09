@@ -36,7 +36,7 @@
         <div id="card-HW" class="card bg-light text-dark" style=" color: #0E70F2;">
             <div class="card-body">
                 <div class="btn-HW">
-                    <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button>
+                    <a href="{{route("recive-assignments")}}">        <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button></a>
                     <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">تعديل </button>
                     <button type="submit" class="btn btn-danger " id="btn-recive-hw" data-toggle="" data-target="#">إيقاف </button>
                 </div>
