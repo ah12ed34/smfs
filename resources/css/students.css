@@ -64,10 +64,14 @@
 
 @media screen and (max-width: 860px) {
     #btn-group-students {
+        margin-left: 12%;
+    }
+    #btn-studentsNavbar {
         padding: 5px 8px;
         width: 70px;
-        margin-left: 17%;
-        top: 84px;
+        height: 30px;
+        font-size: 9px;
+        top: -45px;
     }
 }
 
@@ -400,11 +404,12 @@
     border-top-left-radius: 5px;
 } */
 
-@media screen and (max-width: 857px) {
+
+/* @media screen and (max-width: 857px) {
     .btn-projctsNavbar {
         display: none;
     }
-}
+} */
 
 #btn-uploade-grades {
     font-size: 12px;
@@ -498,21 +503,16 @@
 
 @media (max-width: 550px) {
     #btn-groups-students {
-        font-size: 9px;
-        width: 90px;
-        margin-left: 24%;
-        margin-top: -44px;
-        position: fixed;
-        z-index: 2;
-        background-color: #ffffff;
+        display: none;
     }
 }
 
-@media (max-width: 550px) {
+
+/* @media (max-width: 550px) {
     #btn-groups-students {
         margin-left: 26%;
     }
-}
+} */
 
 @media screen and (max-width:992px) {
     #btn-uploade-grades {
@@ -521,7 +521,8 @@
     }
 }
 
-@media (max-width: 550px) {
+
+/* @media (max-width: 550px) {
     #header2mobile {
         z-index: 0;
     }
@@ -529,12 +530,11 @@
 
 @media (max-width: 550px) {
     #hdr-students-mobile {
-        z-index: 0;
         margin-top: 2px;
         box-shadow: 0px 1px 0px rgb(72, 72, 72);
         border: none;
     }
-}
+} */
 
 
 /* @media screen and (max-width: 799px) {
@@ -571,6 +571,28 @@
 @media screen and (max-width: 380px) {
     #btn-studentsdropdown {
         margin-left: 57%;
+    }
+}
+
+#btn-groups-student2 {
+    display: none;
+}
+
+@media screen and (max-width: 550px) {
+    #btn-groups-student2 {
+        font-size: 10px;
+        width: 90px;
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        width: 90px;
+        margin-left: 24%;
+        position: fixed;
+        background-color: #ffffff;
+        margin-top: -28px;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        color: black;
     }
 }
 
@@ -616,22 +638,23 @@
 } */
 
 #modal-content2 {
-    height: 250px;
+    height: 200px;
     background-color: #F6F7FA;
     color: rgb(67, 111, 206);
 }
 
 #btnsave-file {
-    margin-right: 70%;
+    margin-right: 60%;
     width: 80px;
     font-size: 10px;
     font-weight: normal;
-    position: fixed;
+    margin-top: -3px;
 }
 
 @media screen and (max-width: 420px) {
     #btnsave-file {
-        margin-right: 65%;
+        position: absolute;
+        margin-top: 5px;
     }
 }
 
@@ -639,4 +662,5 @@
     width: 80px;
     font-size: 10px;
     font-weight: normal;
+    position: fixed;
 }

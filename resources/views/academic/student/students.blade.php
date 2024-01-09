@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('nav')
 
-<div id="header2mobile" class="hdr2" style=" box-shadow: 10px;">
+<div  class="hdr2" style=" box-shadow: 10px;">
     <button class="spaces"> <label  class="subjectname"> الطلاب </label><img src="{{Vite::image("students.png")}}" id="subject-icon-hdr2" width="40px">
     </button>
     <div class="dep-sub-name"> نظم موزعة </div>
@@ -30,8 +30,23 @@
         <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:45px; "> الإحصائيات</a>
     </div>
 
+    <div class="dropdown">
+    <button id="btn-groups-student2" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
+        <div class="textdrop2">  جميع المجموعات</div>
+       </button>
+    <div id="dropdown-menulist" class="dropdown-menu">
+        <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">(1)المجموعة</a>
+        <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:30px; "> المجموعة(2)</a>
+        <a id="dropdown-students-itemlist" class="dropdown-item" href="#"> المجموعة(3)</a>
+    </div>
 </div>
-<div id="hdr-students-mobile" class="hr3-students">
+</div>
+
+
+
+
+
+<div  class="hr3-students">
     <a href="{{route("subject.index")}}">    <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
     <button id="btn-groups-students" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
         <div class="textdrop2">  جميع المجموعات</div>
@@ -130,7 +145,7 @@
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
-            <div class="modal-content" id="modal-content2 ">
+            <div class="modal-content" id="modal-content2">
 
                 <!-- Modal Header -->
                 <div class="modal-header" id="modheader">
@@ -155,7 +170,7 @@
                 <!-- Modal footer -->
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnsave-file" style="float: left; margin-left:30px;">حفظ</button>
+                    <button type="submit" class="btn btn-primary" id="btnsave-file" >حفظ</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel-file">إلغاء</button>
                 </div>
             </div>
@@ -172,73 +187,10 @@
 
 </div>
 
-<!-- The Modal1 -->
-<div class="modal fade" id="myModal1">
-    <div class="modal-dialog">
-        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
-
-            <!-- Modal Header -->
-            <div class="modal-header" id="modheader">
-                <div class="projectchattitle">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id="" width="25px"></div>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body" id="projectchating">
 
 
 
 
-
-
-            </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer" style="padding-right: 120px;">
-                <input type="text" class="form-control" id="sendmessa" name="username" placeholder="اكتب ...">
-                <img src="{{Vite::image("send.png")}}" id="" width="25px">
-                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button> -->
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-<!-- The Modal2 -->
-<div class="modal fade" id="myModal2">
-    <div class="modal-dialog">
-        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:550px;">
-
-            <!-- Modal Header -->
-            <div class="modal-header" id="modheader">
-                <div class="projectchattitle">تفاصيل المشروع <img src="{{Vite::image("routine.png")}}" id="" width="25px"></div>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-
-            <div class="modal-body" id="projectdetails">
-
-
-                <label class="textdetailsproj" for=""> اسم المشروع</label><br>
-                <label class="textdetailsproj" for=""> رئيس المشروع</label><br>
-                <label class="textdetailsproj" for="">  تاريخ التسليم</label><br>
-                <label class="textdetailsproj" for="">  الوصف</label><br><br><br>
-                <label class="textdetailsproj" for="">  الدرجة</label><br>
-                <div class=" rectanglesprojects"><label for="">  اللفات المرفقة</label></div><br>
-                <div class="rectanglesprojects"><label for="">   فريق المشروع</label></div>
-
-
-
-
-            </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer" style="padding-right: 120px;">
-
-                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button> -->
-            </div>
 
         </div>
     </div>
