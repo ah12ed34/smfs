@@ -19,9 +19,11 @@
     <div class="cards-child"><img src="{{Vite::image("students.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">الطلاب</div>
     </div>
+    <a href="{{route("assignment")}}">
     <div class="cards-child"><img src="{{Vite::image("homework (3).png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">التكاليف</div>
     </div>
+</a>
     <a href="{{route("projects")}}">
     <div class="cards-child"><img src="{{Vite::image("project-management.png")}}" class="" width="100px" style="margin-left: -18px; margin-top:10px;">
         <div class="cards-child-child">المشاريع</div>
@@ -31,12 +33,12 @@
 </div>
 
 
-<div class="bottomNavbar">
+{{-- <div class="bottomNavbar">
     <button class="btn-bottomNavbar"><img src="{{Vite::image("setting (2).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
     <button class="btn-bottomNavbar"><img src="{{Vite::image("portfolio (2).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
     <button class="btn-bottomNavbar"><img src="{{Vite::image("calendar (3).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الجدول </label></button>
-    <button class="btn-bottomNavbar"><img src="{{Vite::image("home (1).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
+ <button class="btn-bottomNavbar" onclick="location.href='{{route('home')}}'"><img src="{{Vite::image("home (1).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
 
 
-</div>
+</div> --}}
 @endsection

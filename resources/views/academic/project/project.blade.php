@@ -28,10 +28,10 @@
 </div>
 @endsection
 @section("content")
-<div class="content">
+<div class="content" >
 
     <div class="hr3">
-        <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button>
+        <a href="{{route("subject.index")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
         <div id="input-group" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">
             <div class="input-group-append">
@@ -41,14 +41,14 @@
         <button class="Addbtn-projctsNavbar" data-toggle="modal" data-target="#myModal"><label class="proNavbartext">إنشاء مشروع</label><img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button>
 
     </div>
-
+    
     <div class="responsive"></div>
 
-
-    <div class="container">
-
+<div class="container" id="container-project" style="  padding-top: 30px;" >
+   
+   
         <div class="table-responsive-xl">
-            <table class="table" style=" width:100%;">
+            <table class="table" id="table" style=" margin-right: -30px; " >
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
                         <th>تعديل</th>
@@ -112,12 +112,12 @@
             </table>
         </div>
     </div>
-
+</div>
 
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
-            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
+            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:550px;">
 
                 <!-- Modal Header -->
                 <div class="modal-header" id="modheader">
@@ -131,13 +131,13 @@
                         <div class="form-group">
                             <!-- <label for="usr">Name:</label> -->
                             <input type="text" class="form-control" id="inputtext" name="username" placeholder="اسم المشروع " style="height: 30px; margin-top:-6px">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="الدرجة " style="height: 30px; margin-top:8px">
-                            <textarea style="height: 80px;" class="form-control" rows="3" id="comment" placeholder=" وصف المشروع " style=" margin-top:8px"></textarea>
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder=" تاريخ التسليم " style="height: 30px; margin-top:8px">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder=" الحد الأقصى للطلاب " style="height: 30px; margin-top:8px">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="الحد الأدنى للطلاب " style="height: 30px; margin-top:8px">
-                            <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="ملاحظة " style="height: 30px; margin-top:8px">
+                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="الدرجة " style="height: 30px; margin-top:10px">
+                            <textarea style="height: 80px;" class="form-control" rows="3" id="comment" placeholder=" وصف المشروع " style=" margin-top:10px"></textarea>
+                            <input type="text" class="form-control" id="inputtext" name="username" placeholder=" تاريخ التسليم " style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" name="username" placeholder=" الحد الأقصى للطلاب " style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="الحد الأدنى للطلاب " style="height: 30px; margin-top:10px">
+                            <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="ملاحظة " style="height: 30px; margin-top:10px">
                         </div>
                         <!-- <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -168,7 +168,7 @@
 <!-- The Modal1 -->
 <div class="modal fade" id="myModal1">
     <div class="modal-dialog">
-        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
+        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height:600px;">
 
             <!-- Modal Header -->
             <div class="modal-header" id="modheader">
@@ -187,9 +187,15 @@
             </div>
 
             <!-- Modal footer -->
-            <div class="modal-footer" style="padding-right: 120px;">
-                <input type="text" class="form-control" id="sendmessa" name="username" placeholder="اكتب ...">
-                <img src="{{Vite::image("send.png")}}" id="send-png" width="25px">
+            <div class="modal-footer" >
+                {{-- <input type="text" class="form-control" id="sendmessa" name="username" placeholder="اكتب ...">
+                <img src="{{Vite::image("send.png")}}" id="send-png" width="25px"> --}}
+                <div  class="input-group mb-3">
+                    <input id="send-input" type="text" class="form-control" placeholder="اكتب..." style="height: 35px;margin-top: -10px;">
+                    <div class="input-group-append">
+                        <button  class="btn btn-light" type="submit"  style="margin-top: -10px;height: 35px;margin-left:5px"><img src="{{Vite::image("send.png")}}"   width="24px" ></button>
+                    </div>
+                </div>
                 <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button> -->
             </div>
 
@@ -241,7 +247,7 @@
     <button class="btn-bottomNavbar"><img src="{{Vite::image("setting (2).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
     <button class="btn-bottomNavbar"><img src="{{Vite::image("portfolio (2).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
     <button class="btn-bottomNavbar"><img src="{{Vite::image("calendar (3).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الجدول </label></button>
-    <button class="btn-bottomNavbar"><img src="{{Vite::image("home (1).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
+    <a href="{{route("academic.home")}}"> <button class="btn-bottomNavbar"><img src="{{Vite::image("home (1).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button></a>
 
     <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
     <label class="bottomNavbartext">القائمة</label>
