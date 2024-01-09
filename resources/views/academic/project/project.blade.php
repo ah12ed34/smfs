@@ -5,12 +5,12 @@
     </button>
     <div class="dep-sub-name"> نظم موزعة </div>
 
-    <div class="btn-group">
+    <div id="btn-group-proj" class="btn-group">
         <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
-        <button class="btn-projctsNavbar2"><label class="proNavbartext">الإحصائيات</label></button>
-        <button class="btn-projctsNavbar2"><label class="proNavbartext"> غير منجزة</label></button>
-        <button class="btn-projctsNavbar2"><label class="proNavbartext"> منجزة </label></button>
-        <button class="btn-projctsNavbar2"><label class="proNavbartext">الكل</label></button>
+        <button class="btn-projctsNavbarproj"><label class="proNavbartext">الإحصائيات</label></button>
+        <button class="btn-projctsNavbarproj"><label class="proNavbartext"> غير منجزة</label></button>
+        <button class="btn-projctsNavbarproj"><label class="proNavbartext"> منجزة </label></button>
+        <button class="btn-projctsNavbarproj"><label class="proNavbartext">الكل</label></button>
     </div>
     <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
         <label class="bottomNavbartext">القائمة</label>
