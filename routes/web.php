@@ -115,6 +115,9 @@ use Illuminate\Support\Facades\Auth;
             Route::prefix("project")->group(function(){
                 Route::get("/","ProjectController@index")->name("projects");
             });
+            Route::prefix('assignment')->group(function(){
+                Route::get("/",'AssignmentController@index')->name("assignment");
+            });
         });
     })->middleware('auth');
 

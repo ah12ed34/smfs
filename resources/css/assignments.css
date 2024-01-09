@@ -1,4 +1,4 @@
-    #btn-groups-hw {
+    #btn-groups-assigne {
         font-size: 12px;
         font-weight: normal;
         padding-left: 5px;
@@ -9,23 +9,24 @@
     }
     
     @media screen and (max-width:777px) {
-        #btn-groups-hw {
+        #btn-groups-assigne {
             margin-left: 28%;
         }
     }
     
     @media screen and (max-width:700px) {
-        #btn-groups-hw {
+        #btn-groups-assigne {
             margin-left: 50%;
             position: fixed;
         }
     }
     
     @media screen and (max-width:550px) {
-        #btn-groups-hw {
+        #btn-groups-assigne {
             width: 100px;
             margin-top: -25px;
             font-size: 10px;
+            background-color: #ffffff;
         }
     }
     
@@ -41,6 +42,7 @@
         margin-left: 7%;
         margin-top: -28px;
         position: fixed;
+        height: 30px;
     }
     
     @media screen and (max-width:650px) {
@@ -58,8 +60,15 @@
     @media screen and (max-width:550px) {
         #btn-addHW {
             margin-left: 20%;
-            margin-top: -24px;
+            margin-top: -25px;
             font-size: 10px;
+            height: 29px;
+        }
+    }
+    
+    @media screen and (max-width:350px) {
+        #btn-addHW {
+            margin-left: 22%;
         }
     }
     
