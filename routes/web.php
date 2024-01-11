@@ -125,6 +125,18 @@ use Illuminate\Support\Facades\Auth;
             route::prefix('students')->group(function(){
                 route::get("/",'StudentsController@index')->name("students");
             });
+            route::prefix("students-persents")->group(function(){
+                route::get("/",'StudentspersentsController@index')->name("students-persents");
+            });
+            route::prefix("projectsgrades-stu")->group(function(){
+                route::get("/",'ProjectssGrdesStuController@index')->name("projectsgrades-stu");
+            });
+            route::prefix("midexam")->group(function(){
+                route::get("/",'MidexamController@index')->name("midexam");
+            });
+            route::prefix("assignmentsgrdes-stu")->group(function (){
+                route::get("/",'AssignmentsGrdesStuController@index')->name("assignmentsgrdes-stu");
+            });
         });
     })->middleware('auth');
 

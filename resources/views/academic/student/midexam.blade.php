@@ -9,27 +9,27 @@
     <div id="btn-group-students" class="btn-group">
         <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
         <button id="btn-studentsNavbar" class="btn btn-light"  onclick="location.href='{{route('home')}}'"><label class="proNavbartext">الإحصائيات</label></button>
-        <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('projectsgrades-stu')}}'"><label class="proNavbartext">   المشاريع</label></button>
+        <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('projectsgrades-stu')}}'" ><label class="proNavbartext">   المشاريع</label></button>
             <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('assignmentsgrdes-stu')}}'"><label class="proNavbartext">   التكاليف</label></button>
-              <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('midexam')}}'"><label class="proNavbartext">   النصفي</label></button>
+              <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('midexam')}}'" style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label class="proNavbartext">   النصفي</label></button>
                   <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('students-persents')}}'"><label class="proNavbartext"> الحضور والغياب </label></button>
-        <button id="btn-studentsNavbar" class="btn btn-light" style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"onclick="location.href='{{route('students')}}'"><label class="proNavbartext"> قائمة الطلاب</label></button>
+                     <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('students')}}'"><label class="proNavbartext"> قائمة الطلاب</label></button>
     </div>
     <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
         <label class="bottomNavbartext">القائمة</label>
         </button> -->
 
     <button id="btn-studentsdropdown" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
-    
-        <div class="textstudentsdrop">    قائمة الطلاب</div>
-    </button>
-<div id="dropdown-menulist" class="dropdown-menu" style="width:100px;  ">
-<a  href="{{route("students-persents")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">  الحضور والغياب</a>
-<a  href="{{route("midexam")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">  الاختبار النصفي</a>
-<a   href="{{route("assignmentsgrdes-stu")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:47px; ">التكاليف</a>
-<a   href="{{route("projectsgrades-stu")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:47px; "> المشاريع</a>
-<a   id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:45px; "> الإحصائيات</a>
-</div>
+             <div class="textstudentsdrop">    الاختبار النصفي</div>
+            </button>
+    <div id="dropdown-menulist" class="dropdown-menu" style="width:100px;  ">
+        <a  href="{{route("students")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">  قائمة الطلاب</a>
+        <a  href="{{route("students-persents")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">  الحضور والغياب</a>
+        <a   href="{{route("assignmentsgrdes-stu")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:47px; ">التكاليف</a>
+        <a   href="{{route("projectsgrades-stu")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:47px; "> المشاريع</a>
+        <a   id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:45px; "> الإحصائيات</a>
+    </div>
+
     <div class="dropdown">
     <button id="btn-groups-student2" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
         <div class="textdrop2">  جميع المجموعات</div>
@@ -76,32 +76,21 @@
     <div class="responsive"></div>
 
 
-    <div class="container" id="container-project" style="  padding-top: 30px;" >
+    <div class="container" id="container-project" style="  padding-top: 30px;">
 
         <div class="table-responsive-xl">
             <table class="table" style=" width:100%;">
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
                         <th>ملاحظة</th>
-                        <th>التقدير</th>
-                        <th>المجموع</th>
-                        <th>المشاريع </th>
-                        <th>التكاليف</th>
-                        <th>النصفي</th>
-                        <th>المشاركة </th>
-                        <th>الحضور </th>
+                        <th>الدرجة </th>
                         <th>اسم الطالب</th>
                         <th>الرقم الأكاديمي </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                        <td>*******</td>
-                        <td>*****</td>
-                        <td> ****</td>
-                        <td>*******</td>
-                        <td>*******</td>
-                        <td>******</td>
+
                         <td> ******</td>
                         <td>*******</td>
                         <td>احمد الوجيه</td>
@@ -109,24 +98,14 @@
                     </tr>
 
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                        <td>*******</td>
-                        <td>*****</td>
-                        <td> ****</td>
-                        <td>*******</td>
-                        <td>*******</td>
-                        <td>******</td>
+
                         <td> ******</td>
                         <td>*******</td>
                         <td>احمد الوجيه</td>
                         <td>2164093</td>
                     </tr>
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                        <td>*******</td>
-                        <td>*****</td>
-                        <td> ****</td>
-                        <td>*******</td>
-                        <td>*******</td>
-                        <td>******</td>
+
                         <td> ******</td>
                         <td>*******</td>
                         <td>احمد الوجيه</td>
@@ -170,32 +149,14 @@
                 <!-- Modal footer -->
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnsave-file" >حفظ</button>
+                    <button type="submit" class="btn btn-primary" id="btnsave-file" style="float: left; margin-left:30px;">حفظ</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel-file">إلغاء</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <img src="{{Vite::image("allocation (1).png")}}" class="" width="150px">
-        <div class="card-child-1"> Distributed System نظم تشغيل <br> تقنية معلومات - مستوى رابع<br>أ.منال العريقي
-        </div>
-    </div>
-    <div class="card" style="margin-left: 22px;">
-        <img src="{{Vite::image("allocation (1).png")}}" class="" width="150px">
-        <div class="card-child-1"> Networks Management إدارة شبكات <br> تقنية معلومات - مستوى رابع<br>أ.منال العريقي
-        </div> -->
+
 
 </div>
-
-
-
-
-
-
-        </div>
-    </div>
-</div>
-
-
 
 @endsection
