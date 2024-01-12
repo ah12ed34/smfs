@@ -146,6 +146,9 @@ use Illuminate\Support\Facades\Auth;
             route::prefix("sendnotification")->group(function(){
                 route::get("/",'SendnotificationController@index')->name("sendnotification");
             });
+            route::prefix("studyingschedule")->group(function(){
+                route::get("/",'StudyingScheduleController@index')->name("studyingschedule");
+            });
         });
     })->middleware('auth');
 

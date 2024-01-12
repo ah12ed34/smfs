@@ -44,6 +44,10 @@
     "file": "assets/calendar (3)-d89fdbf1.png",
     "src": "resources/images/calendar (3).png"
   },
+  "resources/images/calendar (4).png": {
+    "file": "assets/calendar (4)-a8a0a513.png",
+    "src": "resources/images/calendar (4).png"
+  },
   "resources/images/chapter (2).png": {
     "file": "assets/chapter (2)-287d5e64.png",
     "src": "resources/images/chapter (2).png"
@@ -135,6 +139,10 @@
   "resources/images/students.png": {
     "file": "assets/students-f245b45f.png",
     "src": "resources/images/students.png"
+  },
+  "resources/images/studyingScheule.png": {
+    "file": "assets/studyingScheule-4ce10d05.png",
+    "src": "resources/images/studyingScheule.png"
   },
   "resources/images/user (10).png": {
     "file": "assets/user (10)-9d9e3eef.png",
