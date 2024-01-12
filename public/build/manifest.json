@@ -8,13 +8,29 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-11372a53.css",
+    "file": "assets/app-558c15c0.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/images/Group 912.png": {
     "file": "assets/Group 912-05c07297.png",
     "src": "resources/images/Group 912.png"
+  },
+  "resources/images/M.L.H DS Mid exams_page-0001.jpg": {
+    "file": "assets/M.L.H DS Mid exams_page-0001-0fe177af.jpg",
+    "src": "resources/images/M.L.H DS Mid exams_page-0001.jpg"
+  },
+  "resources/images/M.L.H DS Mid exams_page-0002.jpg": {
+    "file": "assets/M.L.H DS Mid exams_page-0002-f807a38c.jpg",
+    "src": "resources/images/M.L.H DS Mid exams_page-0002.jpg"
+  },
+  "resources/images/M.L.H DS Mid exams_page-0003.jpg": {
+    "file": "assets/M.L.H DS Mid exams_page-0003-ce23dc58.jpg",
+    "src": "resources/images/M.L.H DS Mid exams_page-0003.jpg"
+  },
+  "resources/images/M.L.H DS Mid exams_page-0004.jpg": {
+    "file": "assets/M.L.H DS Mid exams_page-0004-22b56b26.jpg",
+    "src": "resources/images/M.L.H DS Mid exams_page-0004.jpg"
   },
   "resources/images/allocation (1).png": {
     "file": "assets/allocation (1)-e7be0c63.png",
@@ -28,6 +44,22 @@
     "file": "assets/calendar (3)-d89fdbf1.png",
     "src": "resources/images/calendar (3).png"
   },
+  "resources/images/chapter (2).png": {
+    "file": "assets/chapter (2)-287d5e64.png",
+    "src": "resources/images/chapter (2).png"
+  },
+  "resources/images/chapter 3.png": {
+    "file": "assets/chapter 3-40a47dd5.png",
+    "src": "resources/images/chapter 3.png"
+  },
+  "resources/images/chapter 4.png": {
+    "file": "assets/chapter 4-659f0cbf.png",
+    "src": "resources/images/chapter 4.png"
+  },
+  "resources/images/chapter.png": {
+    "file": "assets/chapter-8d55d8b9.png",
+    "src": "resources/images/chapter.png"
+  },
   "resources/images/conversation (3).png": {
     "file": "assets/conversation (3)-f7bf26ed.png",
     "src": "resources/images/conversation (3).png"
@@ -35,6 +67,10 @@
   "resources/images/dashboard (1).png": {
     "file": "assets/dashboard (1)-6486eb66.png",
     "src": "resources/images/dashboard (1).png"
+  },
+  "resources/images/delete (1).png": {
+    "file": "assets/delete (1)-58b1e793.png",
+    "src": "resources/images/delete (1).png"
   },
   "resources/images/edit.png": {
     "file": "assets/edit-edd1fca1.png",

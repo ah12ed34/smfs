@@ -137,6 +137,12 @@ use Illuminate\Support\Facades\Auth;
             route::prefix("assignmentsgrdes-stu")->group(function (){
                 route::get("/",'AssignmentsGrdesStuController@index')->name("assignmentsgrdes-stu");
             });
+            route::prefix("studyingbooks")->group(function(){
+                route::get("/",'StudyingbooksController@index')->name("studyingbooks");
+            });
+            route::prefix("forms-quiz")->group(function(){
+                route::get("/",'FormsquizController@index')->name("forms-quiz");
+            });
         });
     })->middleware('auth');
 
