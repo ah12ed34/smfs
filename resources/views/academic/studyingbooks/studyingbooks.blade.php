@@ -55,7 +55,7 @@
             <div id="card-studyingbooks" class="card">
 
                 <div id="card-studyingbooks-child">
-                    <img src="{{Vite::image("chapter.png")}}" class="chapters" width="170px">
+                    <img src="{{Vite::image("chapter.png")}}" class="chapters" width="200px">
 
                     <!-- <div id="card-studyingbooks-child-2"> -->
                     <label class="texttitlechapter">Lecture 1</label>
@@ -78,7 +78,7 @@
 
             <div id="card-studyingbooks" class="card">
                 <div id="card-studyingbooks-child">
-                    <img src="{{Vite::image("chapter (2).png")}}" class="chapters" width="170px">
+                    <img src="{{Vite::image("chapter (2).png")}}" class="chapters" width="200px">
 
                     <!-- <div id="card-studyingbooks-child-2"> -->
                     <label class="texttitlechapter">Lecture 2
@@ -103,7 +103,7 @@
 
             <div id="card-studyingbooks" class="card">
                 <div id="card-studyingbooks-child">
-                    <img src="{{Vite::image("chapter 3.png")}}" class="chapters" width="170px">
+                    <img src="{{Vite::image("chapter 3.png")}}" class="chapters" width="200px">
                     <!-- <div id="card-studyingbooks-child-2"> -->
                     <label class="texttitlechapter">Lecture 3
                         System Models 2
@@ -130,7 +130,7 @@
 
             <div id="card-studyingbooks" class="card">
                 <div id="card-studyingbooks-child">
-                    <img src="{{Vite::image("chapter 4.png")}}" class="chapters" width="170px">
+                    <img src="{{Vite::image("chapter 4.png")}}" class="chapters" width="200px">
 
                     <!-- <div id="card-studyingbooks-child-2"> -->
                     <label class="texttitlechapter">Lecture 4
