@@ -34,7 +34,7 @@
             <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
         </div>
     </div>
-    <td><button type="submit" class="btn btn-primary btn-sm" id="btn-uploade-grades" data-toggle="modal" data-target="#myModal"> رفع ملف<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> </td>
+    <td><button type="submit" class="btn btn-primary btn-sm" id="btn-uploade-grades" data-toggle="modal" data-target="#myModal"> رفع نموذج<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> </td>
 
 </div>
 
@@ -156,7 +156,7 @@
             <form action="" style="display: block;">
                 <div class="form-group">
                     <!-- <label for="usr">Name:</label> -->
-                    <input type="text" class="form-control" id="inputtextfile" name="username" placeholder="اسم نموذج" style="height: 30px; margin-top:-6px">
+                    <input type="text" class="form-control" id="inputtextfile" name="username" placeholder="اسم النموذج" style="height: 30px; margin-top:-6px">
 
                     <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px">
                 </div>
