@@ -171,7 +171,7 @@
         <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height:600px;">
 
             <!-- Modal Header -->
-            <div class="modal-header" id="modheader">
+            <div class="modal-header" id="modheader-proj">
                 <div class="projectchattitle">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id="" width="25px"></div>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
@@ -210,7 +210,7 @@
         <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:550px;">
 
             <!-- Modal Header -->
-            <div class="modal-header" id="modheader">
+            <div class="modal-header" id="modheader-proj">
                 <div class="projectchattitle">تفاصيل المشروع <img src="{{Vite::image("routine.png")}}" id="" width="25px"></div>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
