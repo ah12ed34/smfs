@@ -143,6 +143,9 @@ use Illuminate\Support\Facades\Auth;
             route::prefix("forms-quiz")->group(function(){
                 route::get("/",'FormsquizController@index')->name("forms-quiz");
             });
+            route::prefix("sendnotification")->group(function(){
+                route::get("/",'SendnotificationController@index')->name("sendnotification");
+            });
         });
     })->middleware('auth');
 
