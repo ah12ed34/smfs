@@ -48,7 +48,7 @@
 <div class="content">
     <div class="hr3">
         <a href="{{route("assignment")}}">     <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
-        <div id="input-group" class="input-group mb-3">
+        <div id="input-group-reciv-assign" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">
             <div class="input-group-append">
                 <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
