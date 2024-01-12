@@ -255,7 +255,7 @@
 @media screen and (max-width: 550px) {
     #input-group {
         width: 150px;
-        margin-top: 1px;
+        margin-top: 5px;
         margin-left: 180px;
     }
     .form-control {
