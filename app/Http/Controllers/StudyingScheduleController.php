@@ -8,6 +8,6 @@ class StudyingScheduleController extends Controller
 {
     //
     public function index(){
-        return view("academic.studyingschedule.studying-schedule");
+        return view("academic.studyingschedule.studyingschedule");
     }
 }
