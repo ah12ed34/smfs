@@ -256,8 +256,8 @@
 @media screen and (max-width: 550px) {
     #input-group-proj {
         width: 170px;
-        margin-top: 5px;
-        margin-left: 180px;
+        margin-top: 1px;
+        margin-left: 140px;
     }
     .form-control {
         height: 28px;
