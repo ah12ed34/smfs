@@ -10,9 +10,10 @@
 @section("content")
 <div class="content">
     <div class="responsive"></div>
-    <div class="cards-child"><img src="{{Vite::image("paper-plane.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
+    <a href="{{route("sendnotification")}}">   <div class="cards-child"><img src="{{Vite::image("paper-plane.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">الإشعارات</div>
     </div>
+</a>
     <a href="{{route("studyingbooks")}}"> <div class="cards-child"><img src="{{Vite::image("open-book.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">المقرر الدراسي</div>
     </div>

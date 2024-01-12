@@ -10,7 +10,7 @@
 
 
 <div class="hr3-academic">
-    <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
+    <a href="{{route("subject.index")}}">   <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button></a>
     <button id="btn-groups-sentnotifications" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
         <div class="textdrop2">  جميع المجموعات</div>
        </button>
