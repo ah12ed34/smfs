@@ -43,7 +43,7 @@
 
 @section("content")
 
-<div class="container" style=" padding-top: 10px; ">
+<div class="container" style=" padding-top: 30px; ">
 
 
     <div id="card-sentnotifications" class="card">
@@ -56,7 +56,7 @@
         <div class="input-group mb-3">
             <input id="input-sentnotifications" type="text" class="form-control" placeholder="اكتب...">
             <div class="input-group-append">
-                <button id="btn-send" class="btn btn-light" type="submit"><img src="{{Vite::image("send.png "   width="24px" ></button>
+                <button id="btn-send" class="btn btn-light" type="submit"><img src="{{Vite::image("send.png")}}"   width="24px" ></button>
             </div>
         </div>
     </div>
