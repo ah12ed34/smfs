@@ -8,12 +8,12 @@
 
     <div id="btn-group-students" class="btn-group">
         <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
-        <button id="btn-studentsNavbar" class="btn btn-light"  onclick="location.href='{{route('home')}}'"><label class="proNavbartext">الإحصائيات</label></button>
+        <button id="btn-studentsNavbar" class="btn btn-light"  onclick="location.href='{{route('studentsworksStastics')}}'"><label class="proNavbartext">الإحصائيات</label></button>
         <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('projectsgrades-stu')}}'"><label class="proNavbartext">   المشاريع</label></button>
             <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('assignmentsgrdes-stu')}}'"><label class="proNavbartext">   التكاليف</label></button>
               <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('midexam')}}'"><label class="proNavbartext">   النصفي</label></button>
                   <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('students-persents')}}'"><label class="proNavbartext"> الحضور والغياب </label></button>
-        <button id="btn-studentsNavbar" class="btn btn-light" style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"onclick="location.href='{{route('students')}}'"><label class="proNavbartext"> قائمة الطلاب</label></button>
+        <button id="btn-studentsNavbar" class="btn btn-light"  style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"onclick="location.href='{{route('students')}}'"><label class="proNavbartext"> قائمة الطلاب</label></button>
     </div>
     <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
         <label class="bottomNavbartext">القائمة</label>
@@ -24,12 +24,13 @@
         <div class="textstudentsdrop">    قائمة الطلاب</div>
     </button>
 <div id="dropdown-menulist" class="dropdown-menu" style="width:100px;  ">
-<a  href="{{route("students-persents")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">  الحضور والغياب</a>
-<a  href="{{route("midexam")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">  الاختبار النصفي</a>
-<a   href="{{route("assignmentsgrdes-stu")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:47px; ">التكاليف</a>
-<a   href="{{route("projectsgrades-stu")}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:47px; "> المشاريع</a>
-<a   id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:45px; "> الإحصائيات</a>
+<a  href="{{route("students-persents")}}" id="dropdown-students-itemlist" class="dropdown-item" style="padding-left:40px; ">  الحضور والغياب</a>
+<a  href="{{route("midexam")}}" id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:40px; ">  الاختبار النصفي</a>
+<a   href="{{route("assignmentsgrdes-stu")}}" id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:47px; ">التكاليف</a>
+<a   href="{{route("projectsgrades-stu")}}" id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:47px; "> المشاريع</a>
+<a  href="{{route("studentsworksStastics")}}"   id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:45px; "> الإحصائيات</a>
 </div>
+
     <div class="dropdown">
     <button id="btn-groups-student2" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
         <div class="textdrop2">  جميع المجموعات</div>
