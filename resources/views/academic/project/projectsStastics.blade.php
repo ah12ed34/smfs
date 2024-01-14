@@ -51,25 +51,25 @@
         <label class="cards-child-title">المشاريع غير منجزة
         </label>
         <div class="cards-child-numbers">0</div>
-        <img src="../images/project-management.png" class="image-stastic" width="50px">
+        <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
     </div>
 
     <div class="cards-child-stastics">
         <label class="cards-child-title">المشاريع المتأخرة</label>
         <div class="cards-child-numbers">0</div>
-        <img src="../images/project-management.png" class="image-stastic" width="50px">
+        <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
     </div>
 
     <div class="cards-child-stastics">
         <label class="cards-child-title"> المشاريع المنجزة</label>
         <div class="cards-child-numbers">0</div>
-        <img src="../images/project-management.png" class="image-stastic" width="50px">
+        <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
     </div>
 
     <div class="cards-child-stastics">
         <label class="cards-child-title">جميع المشاريع</label>
         <div class="cards-child-numbers">0</div>
-        <img src="../images/project-management.png" class="image-stastic" width="50px">
+        <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
     </div>
 
 
