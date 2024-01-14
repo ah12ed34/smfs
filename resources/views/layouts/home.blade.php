@@ -53,7 +53,7 @@
           <button class="button" >الرئيسية </button>
 </div-->
         <ul>
-            <li><a href="#">{{__('layout.statistics')}}</a></li>
+            <li><a href="{{route("stasticsallsubject")}}">{{__('layout.statistics')}}</a></li>
             <li><a href="#">{{__('layout.permissions')}}</a></li>
             <li><a class="active" href="#" style="text-decoration: none; float:right;">{{__('layout.home')}}</a></li>
 
