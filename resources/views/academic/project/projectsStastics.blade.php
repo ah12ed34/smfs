@@ -7,7 +7,7 @@
 
     <div id="btn-group-proj" class="btn-group">
         <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
-        <a href="{{route("projectsStastics")}}">  <button class="btn-projctsNavbarproj"><label class="proNavbartext">الإحصائيات</label></button></a>
+        <a href="{{route("projectsStastics")}}">  <button class="btn-projctsNavbarproj" style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label class="proNavbartext">الإحصائيات</label></button></a>
         <button class="btn-projctsNavbarproj"><label class="proNavbartext"> غير منجزة</label></button>
         <button class="btn-projctsNavbarproj"><label class="proNavbartext"> منجزة </label></button>
         <a href="{{route("projects")}}">  <button class="btn-projctsNavbarproj"><label class="proNavbartext">الكل</label></button></a>
