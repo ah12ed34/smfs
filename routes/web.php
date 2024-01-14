@@ -149,6 +149,9 @@ use Illuminate\Support\Facades\Auth;
             route::prefix("studyingschedule")->group(function(){
                 route::get("/",'StudyingScheduleController@index')->name("studyingschedule");
             });
+            route::prefix(("projectsStastics"))->group(function(){
+                route::get("/",'ProjectsStasticsController@index')->name("projectsStastics");
+            });
         });
     })->middleware('auth');
 
