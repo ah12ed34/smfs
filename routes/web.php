@@ -155,6 +155,9 @@ use Illuminate\Support\Facades\Auth;
             route::prefix("studentsworksStastics")->group(function(){
                 route::get("/",'StudentsworksStasticsController@index')->name("studentsworksStastics");
             });
+            route::prefix("stasticsallsubject")->group(function(){
+                route::get("/",'StasticsallsubjectController@index')->name("stasticsallsubject");
+            });
         });
     })->middleware('auth');
 
