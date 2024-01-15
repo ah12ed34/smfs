@@ -179,6 +179,74 @@
             <!-- Modal body -->
             <div class="modal-body" id="projectchating">
 
+                <div class="senders">
+
+                    <div class="card" id="sendersMessages"> السلام عليكم ورحمة الله وبركاته
+                        <div class="sendingdate">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div>
+                <div class="recivers">
+
+                    <div class="card" id="reciversMessages">وعليكم السلام ورحمة الله وبركاته
+                        <div class="recivinggdate">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div>
+                <div class="recivers">
+
+                    <div class="card" id="reciversMessages"> وعليكم السلام ورحمة الله وبركاته قد يسوق الله لك أمانيك من أمر لم تكن تتوقعه ولم يكن في بالك بالحسبان، قد تتوقع منفذ واسع يأتيك منه قطار محمل بما تتمنى ويُسيّر الله لك أمانيك، قلبك ذاك يملك أملًا وثقة بالله لا تتنازل عن هذه الثقة
+                        <div class="recivinggdate">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="senders">
+
+                    <div class="card" id="sendersMessages"> السلام عليكم ورحمة الله وبركاته
+                        <div class="sendingdate">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div>
+                <div class="recivers">
+
+                    <div class="card" id="reciversMessages">وعليكم السلام ورحمة الله وبركاته
+                        <div class="recivinggdate">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="senders">
+
+                    <div class="card" id="sendersMessages"> السلام عليكم ورحمة الله وبركاته
+                        <div class="sendingdate">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="senders">
+
+                    <div class="card" id="sendersMessages"> السلام عليكم ورحمة الله وبركاته
+                        <div class="sendingdate">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div>
 
 
 
@@ -191,7 +259,7 @@
                 {{-- <input type="text" class="form-control" id="sendmessa" name="username" placeholder="اكتب ...">
                 <img src="{{Vite::image("send.png")}}" id="send-png" width="25px"> --}}
                 <div  class="input-group mb-3">
-                    <input id="send-input" type="text" class="form-control" placeholder="اكتب..." style="height: 35px;margin-top: -10px;">
+                    <textarea id="send-input"  class="form-control" placeholder="اكتب..." style="height: 35px;margin-top: -10px;"></textarea>
                     <div class="input-group-append">
                         <button  class="btn btn-light" type="submit"  style="margin-top: -10px;height: 35px;margin-left:5px"><img src="{{Vite::image("send.png")}}"   width="24px" ></button>
                     </div>

@@ -539,4 +539,67 @@
         -moz-border-radius: 20px;
         -ms-border-radius: 20px;
         -o-border-radius: 20px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+    
+    .senders {
+        margin-top: 2%;
+    }
+    
+    #sendersMessages {
+        width: 46%;
+        background-color: #c4e0f4;
+        font-size: 11px;
+        font-weight: normal;
+        height: 10%;
+        box-shadow: 1px rgb(211, 222, 248);
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -ms-border-radius: 7px;
+        -o-border-radius: 7px;
+        color: black;
+        padding: 5px;
+        text-align: right;
+        left: 50%;
+    }
+    
+    .recivers {
+        margin-top: 5%;
+    }
+    
+    #reciversMessages {
+        width: 46%;
+        background-color: #f8fcfe;
+        font-size: 11px;
+        font-weight: normal;
+        height: 10%;
+        box-shadow: 1px rgb(211, 222, 248);
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -ms-border-radius: 7px;
+        -o-border-radius: 7px;
+        padding: 5px;
+        text-align: right;
+        color: black;
+        left: 0%;
+        margin-top: -17px;
+    }
+    
+    .sendingdate {
+        float: left;
+        font-size: 12px;
+        color: #5b5b5c;
+        position: absolute;
+        bottom: 0%;
+    }
+    
+    .recivinggdate {
+        float: left;
+        font-size: 12px;
+        color: #5b5b5c;
+        position: absolute;
+        bottom: 0%;
     }
