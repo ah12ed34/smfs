@@ -4,7 +4,7 @@
 
     <ul>
         <li><a class="active" href="{{route("stasticsallsubject")}}">{{__('layout.statistics')}}</a></li>
-        <li><a href="#">{{__('layout.permissions')}}</a></li>
+        <li><a href="{{route("permissions")}}">{{__('layout.permissions')}}</a></li>
         <li><a  href="{{route("home")}}" style="text-decoration: none; float:right;">{{__('layout.home')}}</a></li>
 
     </ul>

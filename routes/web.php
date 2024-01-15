@@ -158,6 +158,9 @@ use Illuminate\Support\Facades\Auth;
             route::prefix("stasticsallsubject")->group(function(){
                 route::get("/",'StasticsallsubjectController@index')->name("stasticsallsubject");
             });
+            route::prefix("permissions")->group(function(){
+                route::get("/",'PermissionController@index')->name("permissions");
+            });
         });
     })->middleware('auth');
 
