@@ -9,6 +9,17 @@
 
     </ul>
 </div>
+<div id="hdr3-mobile" class="hr3-students">
+
+    <div id="input-groupspermission" class="input-group mb-3" style="margin-top:0px;height: 32px; ">
+        <input type="text" class="form-control" placeholder="Search" style="height: 32px; ">
+        <div class="input-group-append">
+            <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
+        </div>
+    </div>
+    <td><button type="submit" class="btn btn-primary btn-sm" id="btn-uploade-permission" data-toggle="modal" data-target="#myModal">  إضافة مستخدم<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> </td>
+
+</div>
     @endsection
 @section('content')
 
