@@ -148,7 +148,7 @@
                 <!-- Modal footer -->
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left; margin-left:30px;">حفظ</button>
+                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left; ">حفظ</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
                 </div>
             </div>
