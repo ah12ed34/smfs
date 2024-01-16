@@ -291,8 +291,7 @@
         margin-right: 300px;
         width: 90px;
     }
-    
-    @media screen and (max-width:450px) {
+    /* @media screen and (max-width:450px) {
         #btnsave {
             margin-right: 200px;
         }
@@ -302,7 +301,7 @@
         #btnsave {
             margin-right: 170px;
         }
-    }
+    } */
     
     #btncancel {
         width: 90px;
