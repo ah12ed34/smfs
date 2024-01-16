@@ -25,7 +25,7 @@
 
 
 
-<div class="container" id="container-project" style="  padding-top: 20px;">
+<div class="container" id="container-project" style="  padding-top: 30px;">
 
     <div class="table-responsive">
 
@@ -223,7 +223,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header" id="modheader">
-                إضافة  صلاحية مستخدم
+                إضافة مستخدم
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
