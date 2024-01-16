@@ -122,7 +122,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header" id="modheader">
                     انشاء مشروع جديد
-                    <button type="button"  class="close"  data-dismiss="modal" style="position: static;"><img src="{{Vite::image("cancelbtn.png")}}"   width="20px" style="position: static;" ></button>
+                    <button type="button"  class="close"  data-dismiss="modal" ><img src="{{Vite::image("cancelbtn.png")}}"   width="20px"  ></button>
 
                 </div>
 
