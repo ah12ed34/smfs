@@ -122,7 +122,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header" id="modheader">
                     انشاء مشروع جديد
-                    <button type="button" class="close" data-dismiss="modal"><img src="{{Vite::image("cancel.png")}}"   width="20px" ></button>
+                    <button type="button" class="close" data-dismiss="modal"><img src="{{Vite::image("cancel .png")}}"   width="20px" ></button>
 
                 </div>
 
@@ -155,14 +155,7 @@
             </div>
         </div>
     </div>
-    <!-- <img src="{{Vite::image("allocation (1).png")}}" class="" width="150px">
-        <div class="card-child-1"> Distributed System نظم تشغيل <br> تقنية معلومات - مستوى رابع<br>أ.منال العريقي
-        </div>
-    </div>
-    <div class="card" style="margin-left: 22px;">
-        <img src="{{Vite::image("allocation (1).png")}}" class="" width="150px">
-        <div class="card-child-1"> Networks Management إدارة شبكات <br> تقنية معلومات - مستوى رابع<br>أ.منال العريقي
-        </div> -->
+   
 
 </div>
 
