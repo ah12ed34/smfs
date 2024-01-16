@@ -72,7 +72,7 @@
                             <input type="text" class="form-control" id="inputtext" name="username" placeholder="الدرجة " style="height: 30px; margin-top:8px">
                             <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder=" وصف التكليف" style=" margin-top:8px"></textarea>
                             <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px" placeholder="ارفق ملف">
-                            <input type="date" class="form-control" id="inputtext" name="username" placeholder=" " style="height: 30px; margin-top:8px">
+                            <input type="date" class="form-control" id="inputtext" name="date" placeholder=" تاريخ التسليم " style="height: 30px; margin-top:8px">
                             <input type="text" class="form-control" id="inputtext" name="username" placeholder="ملاحظة " style="height: 30px; margin-top:8px">
                         </div>
                         <!-- <div class="form-group">
