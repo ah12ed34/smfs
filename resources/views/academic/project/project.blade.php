@@ -120,9 +120,9 @@
             <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:550px;">
 
                 <!-- Modal Header -->
-                <div class="modal-header" id="modheader">
+                <div class="modal-header" id="modheader" style="text-align: center;">
                     انشاء مشروع جديد
-                    <button type="button"  class="close"  data-dismiss="modal" ><img src="{{Vite::image("cancelbtn.png")}}"   width="20px"  ></button>
+                    <button type="button"  class="close"  data-dismiss="modal" ><img src="{{Vite::image("cancelbtn.png")}}"   width="20px" style="position: static;" ></button>
 
                 </div>
 
