@@ -290,6 +290,7 @@
     #btnsave {
         margin-right: 300px;
         width: 90px;
+        position: static;
     }
     /* @media screen and (max-width:450px) {
         #btnsave {
