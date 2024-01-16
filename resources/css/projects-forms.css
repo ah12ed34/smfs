@@ -392,10 +392,19 @@
     }
     
     #btnsave {
-        margin-right: 70%;
+        margin-right: 80%;
         width: 90px;
         margin-top: 3px;
         height: 32px;
+    }
+    
+    @media screen and (max-width:450px) {
+        #btnsave {
+            margin-right: 70%;
+            width: 90px;
+            margin-top: 3px;
+            height: 32px;
+        }
     }
     
     #btncancel {
