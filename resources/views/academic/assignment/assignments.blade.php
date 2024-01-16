@@ -59,8 +59,8 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header" id="modheader">
-                    إضافة تكليف جديد
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div id="titlemodel">   إضافة تكليف جديد</div>
+                    <button type="button" class="close" data-dismiss="modal"><img src="{{Vite::image("cancelbtn.png")}}"   width="20px" style="position: static;" ></button>
                 </div>
 
                 <!-- Modal body -->
