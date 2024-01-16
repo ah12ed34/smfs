@@ -25,7 +25,7 @@
 
 
 
-<div class="container" id="container-project" style="  padding-top: 10px;">
+<div class="container" id="container-project" style="  padding-top: 20px;">
 
     <div class="table-responsive">
 
@@ -216,7 +216,41 @@
         </table>
     </div>
 </div>
+ <!-- The Modal -->
+ <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-content2">
 
+            <!-- Modal Header -->
+            <div class="modal-header" id="modheader">
+                إضافة  صلاحية مستخدم
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="" style="display: block;">
+                    <div class="form-group">
+                        <!-- <label for="usr">Name:</label> -->
+                        <input type="text" class="form-control" id="inputtext" name="username" placeholder="اسم المستخدم " style="height: 30px; margin-top:-6px">
+
+                        {{-- <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px"> --}}
+                    </div>
+                    <!-- <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div> -->
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="btnsave-file" style="float: left; margin-left:30px;">حفظ</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel-file">إلغاء</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     @endsection
