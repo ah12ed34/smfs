@@ -80,7 +80,7 @@
         <div class="table-responsive">
 
 
-            <table class="table table-bordered" style="font-size:10px; ">
+            <table class="table table-bordered" style="font-size:10px;border:1px solid rgb(72, 72, 72); ">
 
 
 

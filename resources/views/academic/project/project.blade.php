@@ -232,7 +232,34 @@
 
                 </div>
 
+                <div class="recivers">
 
+                    <div class="card" id="reciversMessages">وعليكم السلام ورحمة الله وبركاته
+                        <div class="recivinggdate">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="senders">
+
+                    <div class="card" id="sendersMessages"> السلام عليكم ورحمة الله وبركاته
+                        <div class="sendingdate">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div>
+                <div class="recivers">
+
+                    <div class="card" id="reciversMessages">وعليكم السلام ورحمة الله وبركاته
+                        <div class="recivinggdate">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div>
 
                 <div class="senders">
 
@@ -244,8 +271,15 @@
 
                 </div>
 
+                <div class="recivers">
 
+                    <div class="card" id="reciversMessages">وعليكم السلام ورحمة الله وبركاته
+                        <div class="recivinggdate">
+                            pm.10:24
+                        </div>
+                    </div>
 
+                </div>
 
 
             </div>
