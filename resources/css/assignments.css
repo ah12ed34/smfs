@@ -83,7 +83,7 @@
         position: fixed;
     }
     
-    #input-group {
+    #input-group-assign {
         width: 300px;
         margin-left: 450px;
         height: 30px;
@@ -101,33 +101,33 @@
     }
     
     @media screen and (max-width: 1000px) {
-        #input-group {
+        #input-group-assign {
             margin-left: 300px;
         }
     }
     
     @media screen and (max-width: 890px) {
-        #input-group {
+        #input-group-assign {
             margin-left: 270px;
         }
     }
     
     @media screen and (max-width: 840px) {
-        #input-group {
+        #input-group-assign {
             margin-left: 200px;
         }
     }
     
     @media screen and (max-width: 740px) {
-        #input-group {
+        #input-group-assign {
             margin-left: 180px;
         }
     }
     
     @media screen and (max-width: 550px) {
-        #input-group {
+        #input-group-assign {
             width: 230px;
-            margin-top: 5px;
+            margin-top: 1px;
             margin-left: 140px;
         }
         .form-control {
@@ -143,17 +143,17 @@
     }
     
     @media screen and (max-width: 425px) {
-        #input-group {
+        #input-group-assign {
             width: 200px;
-            margin-top: 5px;
+            margin-top: 1px;
             margin-left: 100px;
         }
     }
     
     @media screen and (max-width: 370px) {
-        #input-group {
+        #input-group-assign {
             width: 180px;
-            margin-top: 5px;
+            margin-top: 1px;
             margin-left: 100px;
         }
     }
@@ -243,7 +243,6 @@
         font-size: 13px;
         font-weight: bold;
         text-align: center;
-        padding-left: 200px;
         color: rgb(67, 111, 206);
     }
     
@@ -251,8 +250,8 @@
         #modheader {
             font-size: 12px;
             font-weight: normal;
-            text-align: center;
-            padding-left: 200px;
+            text-align: left;
+            padding-left: -50px;
         }
     }
     
@@ -288,11 +287,11 @@
     }
     
     #btnsave {
-        margin-right: 300px;
         width: 90px;
+        position: static;
+        left: 0%
     }
-    
-    @media screen and (max-width:450px) {
+    /* @media screen and (max-width:450px) {
         #btnsave {
             margin-right: 200px;
         }
@@ -302,7 +301,7 @@
         #btnsave {
             margin-right: 170px;
         }
-    }
+    } */
     
     #btncancel {
         width: 90px;

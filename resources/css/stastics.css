@@ -1,0 +1,275 @@
+    .cards-child-stastics {
+        background-color: white;
+        width: 200px;
+        height: 100px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+        margin-top: 30px;
+        margin-left: 5px;
+        display: inline-block;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        padding-top: 4px;
+        border-left: 5px solid #2863ec;
+    }
+    
+    .cards-child-title {
+        color: #424243;
+        font-size: 14px;
+    }
+    
+    .cards-child-numbers {
+        margin-top: 2%;
+        color: #0E70F2;
+        font-size: 30px;
+        margin-left: 46%;
+    }
+    
+    .image-stastic {
+        margin-left: -130px;
+        margin-top: -70px;
+    }
+    
+    @media screen and (max-width:444px) {
+        .cards-child-stastics {
+            width: 150px;
+            height: 80px;
+            padding-top: 1px;
+        }
+        .image-stastic {
+            margin-left: -100px;
+            width: 40px;
+            margin-top: -50px;
+        }
+        .cards-child-title {
+            color: #424243;
+            font-size: 11px;
+        }
+        .cards-child-numbers {
+            margin-top: 2%;
+            color: #0E70F2;
+            font-size: 20px;
+            margin-left: 40%;
+        }
+    }
+    
+    #statistics-container {
+        height: 350px;
+        margin-top: 100px;
+        width: 500px;
+        background-color: #D6E8EC;
+        padding-bottom: 20px;
+        font-size: 14px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        padding-top: 10px;
+        position: static;
+    }
+    
+    #card-stastic {
+        width: 30px;
+        background-color: #3498db;
+        margin-left: 31px;
+        margin-top: 50px;
+        border-radius: 3px;
+        font-weight: normal;
+        padding-bottom: 20px;
+        position: static;
+    }
+    
+    #labelstatisc {
+        margin-top: -20px;
+        margin-left: 27px;
+        color: #2f81ec;
+        font-size: 15px;
+    }
+    
+    #card-stastic-numbers {
+        width: 40px;
+        background-color: #D6E8EC;
+        margin-top: -10px;
+        border-radius: 3px;
+        margin-left: -7px;
+        box-shadow: none;
+        color: #2f81ec;
+        font-size: 10px;
+        border: none;
+        position: relative;
+    }
+    
+    #card-stastic-2 {
+        width: 15px;
+        background-color: #078FB3;
+        margin-left: 5px;
+        margin-top: 50px;
+        border-radius: 2px;
+        font-weight: normal;
+        padding-bottom: 20px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -o-border-radius: 2px;
+        position: static;
+    }
+    
+    #labelstatisc-2 {
+        margin-top: -20px;
+        margin-left: 6px;
+        color: #2f81ec;
+        font-size: 15px;
+    }
+    
+    @media screen and (max-width:550px) {
+        #statistics-container {
+            width: 335px;
+        }
+    }
+    
+    @media screen and (max-width:550px) {
+        #card-stastic {
+            width: 30px;
+            background-color: #3498db;
+            margin-left: 15px;
+            margin-top: 50px;
+            border-radius: 3px;
+            font-weight: normal;
+            padding-bottom: 20px;
+            position: static;
+        }
+        #labelstatisc {
+            margin-top: -20px;
+            margin-left: 11px;
+            color: #2f81ec;
+            font-size: 15px;
+        }
+    }
+    
+    @media screen and (max-width:444px) {
+        #statistics-container {
+            margin-left: -8px;
+        }
+    }
+    
+    #input-groupspermission {
+        width: 300px;
+        margin-left: 450px;
+        height: 30px;
+        box-shadow: 2px rgb(72, 72, 72);
+        position: fixed;
+    }
+    
+    .form-control {
+        height: 33px;
+    }
+    
+    #form-control {
+        height: 33px;
+        box-shadow: 1px rgb(72, 72, 72);
+    }
+    
+    @media screen and (max-width: 1100px) {
+        #input-groupspermission {
+            margin-left: 350px;
+            width: 250px;
+            position: fixed;
+        }
+    }
+    
+    @media screen and (max-width: 930px) {
+        #input-groupspermission {
+            margin-left: 280px;
+            width: 250px;
+            position: fixed;
+        }
+    }
+    
+    @media screen and (max-width: 900px) {
+        #input-groupspermission {
+            margin-left: 230px;
+        }
+    }
+    /* @media screen and (max-width: 829px) {
+            #input-groupstudyingbooks {
+                margin-left: 150px;
+                width: 220px;
+            }
+        } */
+    
+    @media screen and (max-width: 750px) {
+        #input-groupspermission {
+            margin-left: 220px;
+            width: 220px;
+        }
+    }
+    
+    @media screen and (max-width: 700px) {
+        #input-groupspermission {
+            margin-left: 260px;
+            width: 220px;
+        }
+    }
+    
+    @media screen and (max-width: 600px) {
+        #input-groupspermission {
+            margin-left: 200px;
+            width: 220px;
+        }
+    }
+    
+    @media screen and (max-width: 550px) {
+        #input-groupspermission {
+            width: 200px;
+            margin-top: 3px;
+            margin-left: 200px;
+        }
+    }
+    
+    @media screen and (max-width: 500px) {
+        #input-groupspermission {
+            width: 200px;
+            margin-top: 3px;
+            margin-left: 180px;
+        }
+    }
+    
+    @media screen and (max-width: 450px) {
+        #input-groupspermission {
+            margin-left: 150px;
+            width: 180px;
+        }
+    }
+    
+    @media screen and (max-width: 390px) {
+        #input-groupspermission {
+            margin-left: 120px;
+            width: 180px;
+        }
+    }
+    /* @media screen and (max-width: 350px) {
+        #input-groupspermission {
+            width: 180px;
+        }
+    } */
+    
+    #btn-uploade-permission {
+        font-size: 12px;
+        font-weight: normal;
+        padding-left: 5px;
+        margin-left: 4%;
+        margin-top: 0px;
+        position: fixed;
+    }
+    /* @media screen and (max-width:992px) {
+        #btn-uploade-permission {
+            top: 130px;
+        }
+    } */
+    
+    @media screen and (max-width:550px) {
+        #btn-uploade-permission {
+            font-size: 10px;
+        }
+    }

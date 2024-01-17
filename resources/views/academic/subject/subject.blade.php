@@ -6,19 +6,25 @@
     </button>
     <div class="dep-sub-name">نظم موزعة </div>
 </div>
+
 @endsection
+
 @section("content")
-<div class="content">
+
     <div class="responsive"></div>
-    <div class="cards-child"><img src="{{Vite::image("paper-plane.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
+    <a href="{{route("sendnotification")}}">   <div class="cards-child"><img src="{{Vite::image("paper-plane.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">الإشعارات</div>
     </div>
-    <div class="cards-child"><img src="{{Vite::image("open-book.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
+</a>
+    <a href="{{route("studyingbooks")}}"> <div class="cards-child"><img src="{{Vite::image("open-book.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">المقرر الدراسي</div>
     </div>
+</a>
+    <a href="{{route("students")}}">
     <div class="cards-child"><img src="{{Vite::image("students.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">الطلاب</div>
     </div>
+</a>
     <a href="{{route("assignment")}}">
     <div class="cards-child"><img src="{{Vite::image("homework (3).png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">التكاليف</div>
@@ -30,7 +36,7 @@
     </div>
     </a>
 
-</div>
+
 
 
 {{-- <div class="bottomNavbar">

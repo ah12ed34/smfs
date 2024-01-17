@@ -4,6 +4,7 @@ use App\Mail\MyEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
+use App\Models\group;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -122,6 +123,45 @@ use Illuminate\Support\Facades\Auth;
             });
             route::prefix("recive-assignments")->group(function(){
                 route::get("/",'ReciveAssignmentController@index')->name("recive-assignments");
+            });
+            route::prefix('students')->group(function(){
+                route::get("/",'StudentsController@index')->name("students");
+            });
+            route::prefix("students-persents")->group(function(){
+                route::get("/",'StudentspersentsController@index')->name("students-persents");
+            });
+            route::prefix("projectsgrades-stu")->group(function(){
+                route::get("/",'ProjectssGrdesStuController@index')->name("projectsgrades-stu");
+            });
+            route::prefix("midexam")->group(function(){
+                route::get("/",'MidexamController@index')->name("midexam");
+            });
+            route::prefix("assignmentsgrdes-stu")->group(function (){
+                route::get("/",'AssignmentsGrdesStuController@index')->name("assignmentsgrdes-stu");
+            });
+            route::prefix("studyingbooks")->group(function(){
+                route::get("/",'StudyingbooksController@index')->name("studyingbooks");
+            });
+            route::prefix("forms-quiz")->group(function(){
+                route::get("/",'FormsquizController@index')->name("forms-quiz");
+            });
+            route::prefix("sendnotification")->group(function(){
+                route::get("/",'SendnotificationController@index')->name("sendnotification");
+            });
+            route::prefix("studyingschedule")->group(function(){
+                route::get("/",'StudyingScheduleController@index')->name("studyingschedule");
+            });
+            route::prefix(("projectsStastics"))->group(function(){
+                route::get("/",'ProjectsStasticsController@index')->name("projectsStastics");
+            });
+            route::prefix("studentsworksStastics")->group(function(){
+                route::get("/",'StudentsworksStasticsController@index')->name("studentsworksStastics");
+            });
+            route::prefix("stasticsallsubject")->group(function(){
+                route::get("/",'StasticsallsubjectController@index')->name("stasticsallsubject");
+            });
+            route::prefix("permissions")->group(function(){
+                route::get("/",'PermissionController@index')->name("permissions");
             });
         });
     })->middleware('auth');

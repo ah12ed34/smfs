@@ -5,13 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
         {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> --}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <title>@yield('title',"CS")</title>
         
         @vite(['resources/sass/app.scss','resources/css/app.css'])
         @yield('style')
     </head>
-    <body >
+    <body style=" background-color: #E9EEEF;">
         
     <div class="header">
         <div class="dropdown">
@@ -41,7 +42,7 @@
         <div id="sidebar" class="sidebar">
 
             <button class="button-sidebar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
-            <button class="button-sidebar"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.schaudule_std')}} </button>
+            <button class="button-sidebar" onclick="location.href='{{route('studyingschedule')}}'"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.schaudule_std')}} </button>
             <button class="button-sidebar"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.archives')}} </label></button>
             <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
         </div>
@@ -54,9 +55,9 @@
           <button class="button" >الرئيسية </button>
 </div-->
         <ul>
-            <li><a href="#">{{__('layout.statistics')}}</a></li>
-            <li><a href="#">{{__('layout.permissions')}}</a></li>
-            <li><a class="active" href="#" style="text-decoration: none; float:right;">{{__('layout.home')}}</a></li>
+            <li><a href="{{route("stasticsallsubject")}}">{{__('layout.statistics')}}</a></li>
+            <li><a href="{{route("permissions")}}">{{__('layout.permissions')}}</a></li>
+            <li><a class="active" href="{{route("home")}}" style="text-decoration: none; float:right;">{{__('layout.home')}}</a></li>
 
         </ul>
     </div>
@@ -89,7 +90,7 @@
     <div class="bottomNavbar">
         <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
         <button class="btn-bottomNavbar"><img src="{{ Vite::image('portfolio (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
-        <button class="btn-bottomNavbar"><img src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الجدول </label></button>
+        <button class="btn-bottomNavbar" onclick="location.href='{{route('studyingschedule')}}'"><img src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الجدول </label></button>
         <button class="btn-bottomNavbar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
     </div>
     {{-- @vite('resources/js/app.js') --}}

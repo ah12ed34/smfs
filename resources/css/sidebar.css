@@ -67,7 +67,6 @@
     }
     
     .content {
-        height: 100%;
         margin-right: 150px;
         /*Adjusttomatchthemin-widthofthesidebar*/
         transition: - 0.5s;
@@ -78,7 +77,9 @@
         -moz-transition: - 0.5s;
         -ms-transition: - 0.5s;
         -o-transition: - 0.5s;
-        margin-bottom: 50px;
+        bottom: 200px;
+        height: 100%;
+        padding-bottom: 30px;
     }
     /* @media screen and (max-width: 300px) {
     .sidebar {

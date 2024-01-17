@@ -20,10 +20,10 @@
 
 @section("content")
 
-<div class="content">
+
     <div class="hr3">
         <a href="{{route("subject.index")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
-        <div id="input-group" class="input-group mb-3">
+        <div id="input-group-assign" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">
             <div class="input-group-append">
                 <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
@@ -59,8 +59,8 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header" id="modheader">
-                    إضافة تكليف جديد
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div id="titlemodel">   إضافة تكليف جديد</div>
+                    <button type="button" class="close" data-dismiss="modal"><img src="{{Vite::image("cancelbtn.png")}}"   width="20px" style="position: static;" ></button>
                 </div>
 
                 <!-- Modal body -->
@@ -72,7 +72,7 @@
                             <input type="text" class="form-control" id="inputtext" name="username" placeholder="الدرجة " style="height: 30px; margin-top:8px">
                             <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder=" وصف التكليف" style=" margin-top:8px"></textarea>
                             <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px" placeholder="ارفق ملف">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder=" تاريخ التسليم " style="height: 30px; margin-top:8px">
+                            <input type="date" class="form-control" id="inputtext" name="date" placeholder="تاريخ التسليم" style="height: 30px; margin-top:8px">
                             <input type="text" class="form-control" id="inputtext" name="username" placeholder="ملاحظة " style="height: 30px; margin-top:8px">
                         </div>
                         <!-- <div class="form-group">
@@ -84,7 +84,7 @@
                 <!-- Modal footer -->
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left; margin-left:30px;">حفظ</button>
+                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left;">حفظ</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
                 </div>
             </div>
