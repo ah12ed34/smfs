@@ -7,8 +7,9 @@
         {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> --}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <title>@yield('title',"CS")</title>
-
+        
         @vite(['resources/sass/app.scss','resources/css/app.css'])
+        @yield('style')
     </head>
     <body >
         
@@ -62,7 +63,28 @@
     @show
    
     <div class="content">
-       @yield('content')
+        @if (session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            <strong>{{ session()->get('success') }}</strong>
+        </div>
+        @endif
+        @if (session()->has('error'))
+        <div class="alert alert-danger" role="alert">
+            <strong>{{ session()->get('error') }}</strong>
+        </div>
+        @endif
+        @if (session()->has('warning'))
+        <div class="alert alert-warning" role="alert">
+            <strong>{{ session()->get('warning') }}</strong>
+        </div>
+        @endif
+        @if (session()->has('info'))
+        <div class="alert alert-info" role="alert">
+            <strong>{{ session()->get('info') }}</strong>
+        </div>
+        @endif
+
+        @yield('content')
     </div>
     <div class="bottomNavbar">
         <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>

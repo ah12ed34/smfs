@@ -23,5 +23,10 @@ return [
     'create_groupSubject_first' => 'يجب إنشاء مجموعة موادة للمجموع أولا',
     'no_levels_department' => 'لا يوجد مستويات مسجلة لهذا القسم',
     'one_level_department' => 'يجب إنشاء مستوى واحد على الأقل لهذا القسم',
+    'no_subjects_level' => 'لا يوجد مواد مسجلة لهذا المستوى',
+    'one_subject_level' => 'يجب إنشاء مادة واحدة على الأقل لهذا المستوى',
+    'no_students_subject' => 'لا يوجد طلاب مسجلين لهذه المادة',
+    'one_student_subject' => 'يجب إنشاء طالب واحد على الأقل لهذه المادة',
+    'create_department_first' => 'يجب إنشاء قسم أولا',
 
 ];

@@ -45,6 +45,8 @@ use Illuminate\Support\Facades\Auth;
             Route::get('/index', function(){return view('');})->name('student.index');
             Route::get('/create', 'StudentController@create')->name('student.create')->middleware('perm:addstudent');
             Route::post('/store', 'StudentController@store')->name('student.store')->middleware('perm:addstudent');
+            Route::get('create-excel', 'StudentController@createExcel')->name('student.create-excel')->middleware('perm:addstudent');
+            Route::post('store-excel', 'StudentController@storeExcel')->name('student.store-excel')->middleware('perm:addstudent');
             Route::get('/edit/{id}', 'StudentController@edit')->name('student.edit');
             Route::put('/update/{id}', 'StudentController@update')->name('student.update');
             Route::delete('/delete/{id}', 'StudentController@delete')->name('student.delete');
@@ -126,4 +128,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return redirect()->route('login');
+});
+Route::get('/test', function () {
+    return view("test");
 });
