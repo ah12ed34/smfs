@@ -21,15 +21,15 @@ class Student extends Model
     public static function create_student($request): bool {
         try {
             $userData = [
-                'id' => $request->id,
-                'phone' => $request->phone ?? null,
-                'photo' => $request->photo ?? null,
-                'name' => $request->name,
-                'gender'=> $request->gender,
-                'last_name' => $request->last_name,
-                'username' => $request->username??$request->id,
-                'email' => $request->email,
-                'password' => $request->password,
+                'id' => $request['id'],
+                'phone' => $request['phone']?? null ,
+                'photo' => $request['photo']?? null,
+                'name' => $request['name'],
+                'gender'=> $request['gender'],
+                'last_name' => $request['last_name'],
+                'username' => $request['username']??$request['id'],
+                'email' => $request['email']??null,
+                'password' => $request['password'],
             ];
     
             $user = User::create($userData);
@@ -37,11 +37,11 @@ class Student extends Model
             if ($user) {
                 $studentData = [
                     'user_id' => $user->id,
-                    'department_id' => $request->department_id,
-                    'level_id' => $request->level_id,
-                    'is_active' => $request->is_active ?? true,
-                    'is_graduated' => $request->is_graduated ?? false,
-                    'is_suspended' => $request->is_suspended ?? false,
+                    'department_id' => $request['department_id'],
+                    'level_id' => $request['level_id'],
+                    'is_active' => $request['is_active'] ?? true,
+                    'is_graduated' => $request['is_graduated'] ?? false,
+                    'is_suspended' => $request['is_suspended'] ?? false,
                 ];
     
                 $student = Student::create($studentData);

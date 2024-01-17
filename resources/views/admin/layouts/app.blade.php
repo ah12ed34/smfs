@@ -70,6 +70,26 @@
     @show
    
     <div class="content">
+        @if (session('success'))
+        <div class="alert alert-success" role="alert">
+            <strong>{{ session()->get('success') }}</strong>
+        </div>
+        @endif
+        @if (session('error'))
+        <div class="alert alert-danger" role="alert">
+            <strong>{{ session()->get('error') }}</strong>
+        </div>
+        @endif
+        @if ($errors->any())
+        <div class="alert alert-danger" role="alert">
+            <strong>{{ $errors->first() }}</strong>
+        </div>
+        @endif
+        @if(session('message'))
+        <div class="alert alert-success" role="alert">
+            <strong>{{ session('message') }}</strong>
+        </div>
+        @endif
        @yield('content')
     </div>
     <div class="bottomNavbar">
