@@ -11,7 +11,7 @@
 
         @vite(['resources/sass/app.scss','resources/css/app.css'])
     </head>
-    <body >
+    <body style=" background-color: #E9EEEF;">
         
     <div class="header">
         <div class="dropdown">

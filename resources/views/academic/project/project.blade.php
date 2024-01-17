@@ -26,21 +26,23 @@
     </div>
 
 </div>
+
+<div class="hr3">
+    <a href="{{route("subject.index")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
+    <div id="input-group-proj" class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search">
+        <div class="input-group-append">
+            <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
+        </div>
+    </div>
+    <button class="Addbtn-projctsNavbar" data-toggle="modal" data-target="#myModal"><label class="proNavbartext">إنشاء مشروع</label><img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button>
+
+</div>
 @endsection
 @section("content")
-<div class="content" >
 
-    <div class="hr3">
-        <a href="{{route("subject.index")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
-        <div id="input-group-proj" class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-append">
-                <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
-            </div>
-        </div>
-        <button class="Addbtn-projctsNavbar" data-toggle="modal" data-target="#myModal"><label class="proNavbartext">إنشاء مشروع</label><img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button>
 
-    </div>
+
     
     <div class="responsive"></div>
 
@@ -112,7 +114,7 @@
             </table>
         </div>
     </div>
-</div>
+
 
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
@@ -155,9 +157,9 @@
             </div>
         </div>
     </div>
-   
 
-</div>
+
+
 
 <!-- The Modal1 -->
 <div class="modal fade" id="myModal1">
@@ -305,14 +307,5 @@
     </div>
 </div>
 
-<div class="bottomNavbar">
-    <button class="btn-bottomNavbar"><img src="{{Vite::image("setting (2).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
-    <button class="btn-bottomNavbar"><img src="{{Vite::image("portfolio (2).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
-    <button class="btn-bottomNavbar"><img src="{{Vite::image("calendar (3).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الجدول </label></button>
-    <a href="{{route("academic.home")}}"> <button class="btn-bottomNavbar"><img src="{{Vite::image("home (1).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button></a>
 
-    <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
-    <label class="bottomNavbartext">القائمة</label>
-    </button> -->
-</div>
 @endsection

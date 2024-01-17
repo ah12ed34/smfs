@@ -70,7 +70,6 @@
 @endsection
 @section("content")
 
-<div class="content">
 
 
     <div class="responsive"></div>
@@ -81,7 +80,7 @@
         <div class="table-responsive">
 
 
-            <table class="table table-bordered" style="font-size:10px;">
+            <table class="table table-bordered" style="font-size:10px; ">
 
 
 
@@ -101,9 +100,9 @@
                         <th id="th1" colspan="4 ">المحاضرة(3) </th>
                         <th id="th1" colspan="4 ">المحاضرة(2)</th>
                         <th id="th1" colspan="4 ">المحاضرة(1) </th>
-                        <th rowspan="2" style="padding-left:40px;padding-right:40px;padding-top:10px;">
+                        <th colspan="5 " rowspan="2" style="padding-left:40px;padding-right:40px;padding-top:10px;">
                             <label style="margin-top:10px;">اسم الطالب</label></th>
-                        <th rowspan="2" style="padding-left:40px;padding-right:40px;padding-top:10px; "> <label style="margin-top:10px;">الرقم الأكاديمي</label></th>
+                        <th colspan="5 " rowspan="2" style="padding-left:40px;padding-right:40px;padding-top:10px; "> <label style="margin-top:10px;">الرقم الأكاديمي</label></th>
 
                     </tr>
                     <tr class="table-light">
@@ -163,156 +162,156 @@
 
 
                 <tbody>
-                    <tr class="table-light" id=" " style="margin-top:7px; ">
+                    <tr class="table-light" id=" " >
 
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture12" /> 
                         </label> </td>
-                        <td> <label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture12" /> 
                         </label> </td>
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture12" /> 
                         </label></td>
-                        <td><label class="group1">
-                            <input type="radio" name="group1" />
+                        <td><label class="absent">
+                            <input type="radio" name="lecture12" />
                         </label></td>
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture11" /> 
                         </label> </td>
-                        <td><label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture11" /> 
                         </label> </td>
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture11" /> 
                         </label></td>
-                        <td><label class="group1">
-                            <input type="radio" name="group1" />
+                        <td><label class="absent">
+                            <input type="radio" name="lecture11" />
                         </label></td>
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture10" /> 
                         </label> </td>
-                        <td><label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture10" /> 
                         </label> </td>
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture10" /> 
                         </label></td>
-                        <td><label class="group1">
-                            <input type="radio" name="group1" />
+                        <td><label class="absent">
+                            <input type="radio" name="lecture10" />
                         </label></td>
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture9" /> 
                         </label> </td>
-                        <td><label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture9" /> 
                         </label> </td>
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture9" /> 
                         </label></td>
-                        <td><label class="group1">
-                            <input type="radio" name="group1" />
+                        <td><label class="absent">
+                            <input type="radio" name="lecture9" />
                         </label></td>
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture8" /> 
                         </label> </td>
-                        <td><label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture8" /> 
                         </label> </td>
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture8" /> 
                         </label></td>
-                        <td><label class="group1">
-                            <input type="radio" name="group1" />
+                        <td><label class="absent">
+                            <input type="radio" name="lecture8" />
                         </label></td>
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture7" /> 
                         </label> </td>
-                        <td><label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture7" /> 
                         </label> </td>
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture7" /> 
                         </label></td>
-                        <td><label class="group1">
-                            <input type="radio" name="group1" />
+                        <td><label class="absent">
+                            <input type="radio" name="lecture7" />
                         </label></td>
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture6" /> 
                         </label> </td>
-                        <td><label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture6" /> 
                         </label> </td>
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture6" /> 
                         </label></td>
-                        <td><label class="group1">
-                            <input type="radio" name="group1" />
+                        <td><label class="absent">
+                            <input type="radio" name="lecture6" />
                         </label></td>
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture5" /> 
                         </label> </td>
-                        <td><label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture5" /> 
                         </label> </td>
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture5" /> 
                         </label></td>
-                        <td><label class="group1">
-                            <input type="radio" name="group1" />
+                        <td><label class="absent">
+                            <input type="radio" name="lecture5" />
                         </label></td>
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture4" /> 
                         </label> </td>
-                        <td><label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture4" /> 
                         </label> </td>
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture4" /> 
                         </label></td>
-                        <td><label class="group1">
-                            <input type="radio" name="group1" />
+                        <td><label class="absent">
+                            <input type="radio" name="lecture4" />
                         </label></td>
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture3" /> 
                         </label> </td>
-                        <td><label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture3" /> 
                         </label> </td>
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture3" /> 
                         </label></td>
-                        <td><label class="group1">
-                            <input type="radio" name="group1" />
+                        <td><label class="absent">
+                            <input type="radio" name="lecture3" />
                         </label></td>
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture2" /> 
                         </label> </td>
-                        <td><label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture2" /> 
                         </label> </td>
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture2" /> 
                         </label></td>
-                        <td> <label class="group1">
-                            <input type="radio" name="group1" />
+                        <td> <label class="absent">
+                            <input type="radio" name="lecture2" />
                         </label></td>
-                        <td><label class="group4">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="persent">
+                            <input type="radio" name="lecture1" /> 
                         </label> </td>
-                        <td><label class="group3">
-                            <input type="radio" name="group1" /> 
+                        <td><label class="late">
+                            <input type="radio" name="lecture1" /> 
                         </label> </td>
 
-                        <td> <label class="group2">
-                            <input type="radio" name="group1" /> 
+                        <td> <label class="permit">
+                            <input type="radio" name="lecture1" /> 
                         </label></td>
 
-                        <td> <label class="group1">
-                            <input type="radio" name="group1" />
+                        <td> <label class="absent">
+                            <input type="radio" name="lecture1" />
                         </label></td>
-                        <td >احمد الوجيه</td>
-                        <td >2164093</td>
+                        <td colspan="5 " style="font-size: 12px;">احمد الوجيه</td>
+                        <td colspan="5 " style="font-size: 12px;">2164093</td>
                     </tr>
 
                 </tbody>
@@ -364,5 +363,5 @@
         <div class="card-child-1"> Networks Management إدارة شبكات <br> تقنية معلومات - مستوى رابع<br>أ.منال العريقي
         </div> -->
 
-</div>
+
 @endsection

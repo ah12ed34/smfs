@@ -71,7 +71,6 @@
 @endsection
 @section("content")
 
-<div class="content">
 
 
     <div class="responsive"></div>
@@ -186,16 +185,7 @@
         <div class="card-child-1"> Networks Management إدارة شبكات <br> تقنية معلومات - مستوى رابع<br>أ.منال العريقي
         </div> -->
 
-</div>
 
-
-
-
-
-
-        </div>
-    </div>
-</div>
 
 
 

@@ -45,7 +45,7 @@
 
 @section("content")
 
-<div class="content">
+
     <div class="hr3">
         <a href="{{route("assignment")}}">     <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
         <div id="input-group-reciv-assign" class="input-group mb-3">
@@ -110,6 +110,6 @@
             </table>
         </div>
     </div>
-</div>
+
 
 @endsection

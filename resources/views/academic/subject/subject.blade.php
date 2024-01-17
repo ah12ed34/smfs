@@ -6,9 +6,11 @@
     </button>
     <div class="dep-sub-name">نظم موزعة </div>
 </div>
+
 @endsection
+
 @section("content")
-<div class="content">
+
     <div class="responsive"></div>
     <a href="{{route("sendnotification")}}">   <div class="cards-child"><img src="{{Vite::image("paper-plane.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">الإشعارات</div>
@@ -34,7 +36,7 @@
     </div>
     </a>
 
-</div>
+
 
 
 {{-- <div class="bottomNavbar">

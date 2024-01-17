@@ -74,7 +74,7 @@
 @section("content")
 
 
-<div class="content">
+
 
 
     <div class="responsive"></div>
@@ -177,7 +177,7 @@
     </div>
 
 
-</div>
+
 
 
 @endsection

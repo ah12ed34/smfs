@@ -684,7 +684,8 @@
     position: fixed;
 }
 
-.group1 input[type="radio"] {
+
+/* .group1 input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -718,9 +719,6 @@
     border-color: #3498db;
 }
 
-
-/* Style for Group 2 */
-
 .group3 input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
@@ -753,4 +751,72 @@
 .group4 input[type="radio"]:checked {
     background-color: #2200ff;
     border-color: #3c3fe7;
+} */
+
+.absent input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #e74c3c;
+    background-color: white;
+    outline: none;
+}
+
+.absent input[type="radio"]:checked {
+    background-color: #ff1900;
+    border-color: #ff1900;
+}
+
+.permit input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #0c05c9;
+    background-color: white;
+    outline: none;
+}
+
+.permit input[type="radio"]:checked {
+    background-color: #0c05c9;
+    border-color: #0c05c9;
+}
+
+.late input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #e7833c;
+    background-color: white;
+    outline: none;
+}
+
+.late input[type="radio"]:checked {
+    background-color: #e7833c;
+    border-color: #e7833c;
+}
+
+.persent input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #13be27;
+    background-color: white;
+    outline: none;
+}
+
+.persent input[type="radio"]:checked {
+    background-color: #13be27;
+    border-color: #13be27;
 }

@@ -26,26 +26,30 @@
     </div>
 
 </div>
-@endsection
-@section("content")
-<div class="content" >
 
-    <div class="hr3">
-        <a href="{{route("subject.index")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
-        <div id="input-group-proj" class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-append">
-                <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
-            </div>
+<div class="hr3">
+    <a href="{{route("subject.index")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
+    <div id="input-group-proj" class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search">
+        <div class="input-group-append">
+            <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
         </div>
-        <button class="Addbtn-projctsNavbar" data-toggle="modal" data-target="#myModal"><label class="proNavbartext">إنشاء مشروع</label><img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button>
-
     </div>
+    <button class="Addbtn-projctsNavbar" data-toggle="modal" data-target="#myModal"><label class="proNavbartext">إنشاء مشروع</label><img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button>
+
+</div>
+
+@endsection
+
+@section("content")
+
+
+
     
     <div class="responsive"></div>
 
 <div class="container" id="container-project" style="padding-top: 30px;" >
-   
+
 
     <div class="cards-child-stastics">
         <label class="cards-child-title">المشاريع غير منجزة
@@ -118,7 +122,6 @@
 </div>
 
 
-</div>
-</div>
+
 
     @endsection
