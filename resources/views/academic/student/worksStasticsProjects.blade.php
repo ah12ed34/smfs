@@ -44,7 +44,7 @@
 
 
 <div  class="hr3-students">
-    <a href="{{route("subject.index")}}">    <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
+    <a href="{{route("studentsworksStastics")}}">    <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
     <button id="btn-groups-students" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
         <div class="textdrop2">  جميع المجموعات</div>
        </button>
@@ -74,105 +74,53 @@
 
 
 
-    <div>
-        <a href="{{route("worksStasticsStudentsSuccess")}}">
-        <div class="cards-child-stastics">
-            <label class="cards-child-title">   الراسبين
-        </label>
-            <div class="cards-child-numbers">0</div>
-            <img src="{{Vite::image("students.png")}}" class="image-stastic" width="50px">
-        </div>
-        </a>
-        <a href="{{route("worksStasticsStudentsSuccess")}}">
-        <div class="cards-child-stastics">
-            <label class="cards-child-title">   الناجحين
-        </label>
-            <div class="cards-child-numbers">0</div>
-            <img src="{{Vite::image("students.png")}}" class="image-stastic" width="50px">
-        </div>
-        </a>
-        <a href="{{route("worksStasticsAssignements")}}">
-        <div class="cards-child-stastics">
-            <label class="cards-child-title">  تكاليف لم يتم تسليمها
-        </label>
-            <div class="cards-child-numbers">0</div>
-            <img src="{{Vite::image("homework (3).png")}}" class="image-stastic" width="50px">
-        </div>
-        </a>
-        <a href="{{route("worksStasticsAssignements")}}">
-        <div class="cards-child-stastics">
-            <label class="cards-child-title"> تكاليف تم تسليمها</label>
-            <div class="cards-child-numbers">0</div>
-            <img src="{{Vite::image("homework (3).png")}}" class="image-stastic" width="50px">
-        </div>
-        </a>
-        <a href="{{route("worksStasticsProjects")}}">
-        <div class="cards-child-stastics">
-            <label class="cards-child-title">  مشاربع لم يتم تسليمها</label>
-            <div class="cards-child-numbers">0</div>
-            <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
-        </div>
-        </a>
-        <a href="{{route("worksStasticsProjects")}}">
-        <div class="cards-child-stastics">
-            <label class="cards-child-title"> مشاربع تم تسليمها</label>
-            <div class="cards-child-numbers">0</div>
-            <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
-        </div>
-        </a>
-    </div>
+    <div class="table-responsive">
+        <table class="table" style=" width:100%;">
+            <thead class="table-header" style="font-size: 12px;">
+                <tr class="table-light" id="modldetials">
+                    <th>ملاحظة </th>
+                    <th>الدرجة</th>
+                    <th>المشروع</th>
+                    <th>تاريخ التسليم</th>
+                    <th> اسم الطالب</th>
+                    <th> الرقم الأكتديمي</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-light" id="modldetials" style="margin-top:7px;">
 
-    <div class="card" id="statistics-container">
-
-        <div style="margin-top:0px">نسبة نجاح الطلاب</div>
-        <div style="float: left; margin-top:45px; margin-left:5px;">100% <br>90% <br>80%<br> 70%<br> 60% <br>50% <br>40% <br>30%<br> 20%<br> 10%</div>
-        <div class="card" id="card-stastic" style="max-height:100%;"></div>
-        <div class="card" id="card-stastic" style="max-height:60%;"></div>
-        <div class="card" id="card-stastic" style="max-height:40%;"></div>
-        <div class="card" id="card-stastic" style="max-height:10%;"></div>
-        <div class="card" id="card-stastic" style="max-height:1%;"></div>
-        <br>
-        <label id="labelstatisc" style="margin-left: 60px;">ممتاز</label>
-        <label id="labelstatisc">جيد جدا</label>
-        <label id="labelstatisc"> جيد </label>
-        <label id="labelstatisc">مقبول </label>
-        <label id="labelstatisc">راسب</label>
+                    <td>*******</td>
+                    <td>10</td>
+                    <td>*******</td>
+                    <td>***** </td>
+                    <td>***** </td>
+                    <td>***** </td>
+                </tr>
+                <tr class="table-light">
+                    <td>*******</td>
+                    <td>10</td>
+                    <td>*******</td>
+                    <td>***** </td>
+                    <td>***** </td>
+                    <td>***** </td>
+                </tr>
+                <tr class="table-light">
+                    <td>*******</td>
+                    <td>10</td>
+                    <td>*******</td>
+                    <td>***** </td>
+                    <td>***** </td>
+                    <td>***** </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
 
-    <div class="card" id="statistics-container">
-        <div style="margin-top:0px"> نسبة حضور الطلاب</div>
 
-        <div style="float: left; margin-top:45px; margin-left:5px;">100% <br>90% <br>80%<br> 70%<br> 60% <br>50% <br>40% <br>30%<br> 20%<br> 10%</div>
-        <div class="card" id="card-stastic-2" style="max-height:100%;margin-left:-10px;"></div>
-        <div class="card" id="card-stastic-2" style="max-height:60%;"></div>
-        <div class="card" id="card-stastic-2" style="max-height:40%;"></div>
-        <div class="card" id="card-stastic-2" style="max-height:10%;"></div>
-        <div class="card" id="card-stastic-2" style="max-height:1%;"></div>
-        <div class="card" id="card-stastic-2" style="max-height:100%;"></div>
-        <div class="card" id="card-stastic-2" style="max-height:60%;"></div>
-        <div class="card" id="card-stastic-2" style="max-height:40%;"></div>
-        <div class="card" id="card-stastic-2" style="max-height:10%;"></div>
-        <div class="card" id="card-stastic-2" style="max-height:1%;"></div>
-        <div class="card" id="card-stastic-2" style="max-height:100%;"></div>
-        <div class="card" id="card-stastic-2" style="max-height:60%;"></div>
-        <br>
-        <!-- <div>1&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 4 5 6 7 8 9 10 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div> -->
-        <label id="labelstatisc-2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</label>
-        <label id="labelstatisc-2"> &nbsp;&nbsp;2 </label>
-        <label id="labelstatisc-2">&nbsp;3&nbsp; </label>
-        <label id="labelstatisc-2">&nbsp;4</label>
-        <label id="labelstatisc-2"> &nbsp;5</label>
-        <label id="labelstatisc-2"> &nbsp;6 </label>
-        <label id="labelstatisc-2">&nbsp;7</label>
-        <label id="labelstatisc-2">&nbsp;&nbsp;8</label>
-        <label id="labelstatisc-2"> &nbsp;9</label>
-        <label id="labelstatisc-2">10 </label>
-        <label id="labelstatisc-2">11</label>
-        <label id="labelstatisc-2">12</label>
 
-    </div>
-</div>
+
+
 
 
 
@@ -183,7 +131,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header" id="modheader">
-                رفع الدرجات
+                ارسال اشعار
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -193,7 +141,7 @@
                     <div class="form-group">
                         <!-- <label for="usr">Name:</label> -->
 
-                        <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px">
+                        <textarea type="text" class="form-control-file border" id="comment" name="comment" style="height: 70px; margin-top:8px"></textarea>
                     </div>
 
                 </form>
@@ -202,11 +150,13 @@
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btnsave-file" style="float: left; margin-left:30px;">حفظ</button>
+                <button type="submit" class="btn btn-primary" id="btnsave-file" style="float: left; margin-left:30px;">ارسال</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel-file">إلغاء</button>
             </div>
         </div>
     </div>
 </div>
+    
 
+</div>
 @endsection
