@@ -163,6 +163,15 @@ use Illuminate\Support\Facades\Auth;
             route::prefix("permissions")->group(function(){
                 route::get("/",'PermissionController@index')->name("permissions");
             });
+            route::prefix("worksStasticsStudentsSuccess")->group(function(){
+                route::get("/",'WorksStasticsStudentsSuccessController@index')->name("worksStasticsStudentsSuccess");
+            });
+            route::prefix("worksStasticsAssignements")->group(function(){
+                route::get("/",'WorksStasticsAssignementsController@index')->name("worksStasticsAssignements");
+            });
+            route::prefix("worksStasticsProjects")->group(function(){
+                route::get("/",'WorksStasticsProjectsController@index')->name("worksStasticsProjects");
+            });
         });
     })->middleware('auth');
 

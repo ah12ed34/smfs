@@ -47,8 +47,7 @@
     <div class="responsive"></div>
 
 <div class="container" id="container-project" style="  padding-top: 30px;" >
-   
-   
+
         <div class="table-responsive-xl">
             <table class="table" id="table" style=" margin-right: -30px; " >
                 <thead class="table-header" style="font-size: 12px;">

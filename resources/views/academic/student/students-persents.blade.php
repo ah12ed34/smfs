@@ -35,9 +35,9 @@
         <div class="textdrop2">  جميع المجموعات</div>
        </button>
     <div id="dropdown-menulist" class="dropdown-menu">
-        <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">(1)المجموعة</a>
-        <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:30px; "> المجموعة(2)</a>
-        <a id="dropdown-students-itemlist" class="dropdown-item" href="#"> المجموعة(3)</a>
+        <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;">(1)المجموعة</a>
+        <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(2)</a>
+        <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(3)</a>
     </div>
 </div>
 </div>
@@ -53,8 +53,8 @@
        </button>
     <div id="dropdown-menulist" class="dropdown-menu">
         <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">(1)المجموعة</a>
-        <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:30px; "> المجموعة(2)</a>
-        <a id="dropdown-students-itemlist" class="dropdown-item" href="#"> المجموعة(3)</a>
+        <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; "> المجموعة(2)</a>
+        <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(3)</a>
     </div>
     <div id="input-groupstudent" class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search">
