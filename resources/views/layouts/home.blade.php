@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <title>@yield('title',"CS")</title>
-        
+        @livewireStyles
         @vite(['resources/sass/app.scss','resources/css/app.css'])
         @yield('style')
     </head>
@@ -96,6 +96,7 @@
     {{-- @vite('resources/js/app.js') --}}
     {{-- <script src="{{ mix('js/sidebar.js') }}" defer></script> 
      <script src="sidebar.js"></script> --}}
+    @livewireScripts
     </body>
     @yield('script')
 </html>

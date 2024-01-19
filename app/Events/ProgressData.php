@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\HistoryQueue;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -17,9 +18,14 @@ class ProgressData
     /**
      * Create a new event instance.
      */
-    public function __construct(public $Data)
+    public $user_id, $file, $Progress, $status, $log;
+    public function __construct(public $data)
     {
-        //
+        $this->user_id = $data['user_id'];
+        $this->file = $data['file'];
+        $this->Progress = $data['Progress'];
+        $this->status = $data['status'];
+        $this->log = $data['log'];
     }
 
     /**

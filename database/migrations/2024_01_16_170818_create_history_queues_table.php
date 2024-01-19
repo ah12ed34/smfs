@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('history_queues', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained("user");
+            $table->foreignId('user_id')->constrained("users", "id");
             $table->text("file");
             $table->decimal("Progress",5,2)->default(0);
             $table->enum("status",['pending','processing','completed','failed'])->default('pending');

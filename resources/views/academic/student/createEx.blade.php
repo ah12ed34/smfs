@@ -15,59 +15,9 @@
     </div>
 @endif
         <br>
-     <div class="file-upload" style="display: none">
-        <form action="{{ route('student.store-excel') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-     
-
-            <div class="form-group">
-                <label for="department_id">القسم</label>
-                <select name="department_id" id="department_id" class="form-control">
-                    @foreach ($departments as $department)
-                        <option value="{{ $department->id }}">{{ $department->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-        
-            <div class="form-group">
-                <label for="level_id">المستوى</label>
-                <select name="level_id" id="level_id" class="form-control">
-                    @foreach ($levels as $level)
-                        <option value="{{ $level->id }}">{{ $level->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="file">تحميل ملف Excel</label>
-                <input type="file" class="form-control-file" id="file" name="file">
-            </div>
-            <button type="submit" class="btn btn-primary">تقديم</button>
-        </form>
-</div>
-
-<div class="file-progress">
-    <br>
-    <br>
-    <br>
-    <br>
-<samp id="fill_name_progress" >اسم الملف</samp>
-<div class="progress">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
-    aria-valuenow="75" 
-    aria-valuemin="10" 
-    aria-valuemax="100" 
-    style="width: 5%;">0%</div>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-</div>
-</div>
+        @livewire('create-exc')
 @endsection
-@section('style')
+{{-- @section('style')
 
 <style>
     .file-progress{
@@ -76,11 +26,11 @@
         justify-content: center;
     }
 </style>
-@endsection
+@endsection --}}
 @section('script')
- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+ {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-   
+
 
     $(document).ready(function () {
         $('#department_id').on('change', function () {
@@ -108,5 +58,5 @@
             });
         });
     });
-</script>
+</script> --}}
 @endsection
