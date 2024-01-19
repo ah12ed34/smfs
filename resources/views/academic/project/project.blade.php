@@ -66,7 +66,7 @@
                 </thead>
                 <tbody>
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModal3">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="myModalEdite" data-target="#myModal3">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2">التفاصيل</button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button> </td>
                         <td>*******</td>
@@ -77,7 +77,7 @@
                         <td>SFMS</td>
                     </tr>
                     <tr class="table-light">
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModal3">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2">التفاصيل</button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button> </td>
                         <td>*******</td>
@@ -88,7 +88,7 @@
                         <td>SFMS</td>
                     </tr>
                     <tr class="table-light">
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModal3">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2">التفاصيل</button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button> </td>
                         <td>*******</td>
@@ -99,7 +99,7 @@
                         <td>SFMS</td>
                     </tr>
                     <tr class="table-light">
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModal3">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2">التفاصيل</button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button> </td>
                         <td>*******</td>
@@ -133,14 +133,14 @@
                     <form action="/action_page.php" style="display: block;">
                         <div class="form-group">
                             <!-- <label for="usr">Name:</label> -->
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="اسم المشروع " style="height: 30px; margin-top:-6px">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="الدرجة " style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" name="projectname" placeholder="اسم المشروع " style="height: 30px; margin-top:-6px">
+                            <input type="text" class="form-control" id="inputtext" name="grades" placeholder="الدرجة " style="height: 30px; margin-top:10px">
                             <textarea style="height: 80px;" class="form-control" rows="3" id="comment" placeholder=" وصف المشروع " style=" margin-top:10px"></textarea>
                             <input type="date" class="form-control" id="inputtext" name="date" placeholder=" تاريخ التسليم " style="height: 30px; margin-top:10px;color:black;">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder=" الحد الأقصى للطلاب " style="height: 30px; margin-top:10px">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="الحد الأدنى للطلاب " style="height: 30px; margin-top:10px">
-                            <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:10px">
-                            <input type="text" class="form-control" id="inputtext" name="username" placeholder="ملاحظة " style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" name="max-numerStudents" placeholder=" الحد الأقصى للطلاب " style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" name="min-numerStudents" placeholder="الحد الأدنى للطلاب " style="height: 30px; margin-top:10px">
+                            <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" name="note" placeholder="ملاحظة " style="height: 30px; margin-top:10px">
                         </div>
                         <!-- <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -315,18 +315,87 @@
 
             <!-- Modal body -->
 
-            <div class="modal-body" id="projectdetails">
+            <div class="modal-body" id="projectdetails" style="overflow: auto;">
+
+                <div class="detils-name">
+                    <label class="textdetailsproj" for=""> اسم المشروع </label>
+                    <div class="projetselements">
+                        <div class="card" id="projetselements-name">
+                            ****************
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detils-name">
+                    <label class="textdetailsproj" for=""> رئيس المشروع</label>
+                    <div class="projetselements">
+                        <div class="card" id="projetselements-name">
+                                    ****************                        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detils-name">
+                    <label class="textdetailsproj" for="">  تاريخ التسليم</label>
+                    <div class="projetselements">
+                        <div class="card" id="projetselements-name">
+                            **********
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detils-name">
+                    <label class="textdetailsproj" for="">  الوصف</label>
+                    <div class="projetselements">
+                        <div class="card" id="projetselements-name">
+                            ********************************************************************************************************************************                     
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detils-name">
+                    <label class="textdetailsproj" for="">  الدرجة</label>
+                    <div class="projetselements">
+                        <div class="card" id="projetselements-name">
+                            ****************
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detils-name">
+                    <label class="textdetailsproj" for="">  ملاحظة</label>
+                    <div class="projetselements">
+                        <div class="card" id="projetselements-name">
+                            **************
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="detils-name">
+                    <label for="" class="textdetailsproj">  الملفات المرفقة   </label>
+                    <div class="attchementfile">
+                        <div class="card" id="attchementfiles-name">
+                            ********************************************************************************************************************************
+                        </div>
+                    </div>
+                </div>
 
 
-                <label class="textdetailsproj" for=""> اسم المشروع</label><br>
-                <label class="textdetailsproj" for=""> رئيس المشروع</label><br>
-                <label class="textdetailsproj" for="">  تاريخ التسليم</label><br>
-                <label class="textdetailsproj" for="">  الوصف</label><br><br><br>
-                <label class="textdetailsproj" for="">  الدرجة</label><br>
-                <div class=" rectanglesprojects"><label for="">  اللفات المرفقة</label></div><br>
-                <div class="rectanglesprojects"><label for="">   فريق المشروع</label></div>
-
-
+                <div class="">
+                    <label for="" class="textdetailsproj">   فريق المشروع</label>
+                    <div class="projectsmembers">
+                        <div class="card" id="projectsmembers-name">
+                            ****************                       
+                            <br> ****************
+                            <br> ****************
+                            <br> ****************
+                            <br>**************** 
+                            <br> ****************
+                            <br>  ****************
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
@@ -337,6 +406,64 @@
                 <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button> -->
             </div>
 
+        </div>
+    </div>
+</div>
+
+
+<!-- The ModalEdite -->
+<div class="modal fade" id="myModalEdite">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height: 630px;">
+
+            <!-- Modal Header -->
+            <div class="modal-header" id="modheader">
+                <div id="titlemodel"> تعديل</div>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" style="overflow: auto;">
+                <form action="/action_page.php" style="display: block;">
+                    <div class="form-group">
+                        <!-- <label for="usr">Name:</label> -->
+                        <div><input type="text" class="form-control" id="inputtext" name="username" placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;"></div>
+                        <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder=" رئيس المشروع" style="height: 30px; margin-top:8px;"></div>
+                        <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder="الدرجة" style="height: 30px; margin-top:8px;"></div>
+                        <div> <input type="date" class="form-control" id="inputtext" name="username" placeholder=" تاريخ التسليم" style="height: 30px; margin-top:8px;"></div>
+                        <div> <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder=" وصف المشروع" style=" margin-top:8px"></textarea></div>
+                        <!-- <input type="text" class="form-control" id="inputtext" name="username" placeholder=" الحد الأقصى للطلاب" style="height: 30px; margin-top:8px"> -->
+                        <!-- <input type="text" class="form-control" id="inputtext" name="username" placeholder="الحد الأدنى للطلاب" style="height: 30px; margin-top:8px"> -->
+                        <div> <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px;"></div>
+                        <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder="ملاحظة" style="height: 30px; margin-top:8px;"></div>
+
+
+                        <div class="card mb-3" style="width: 95%;height:10%; box-shadow:none;">
+                            <div class="card-header" style="height: 45px;">
+                                <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder="إضافة طالب" style="height: 30px; margin-top:0px;width:70%;margin-left:30%;"></div>
+                                <button type="submit" class="btn btn-primary" id="btnsave" style="height: 30px; margin-top:-55px;font-size: 14px;font-weight:normal;">إضافة</button>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title"></h4>
+                                <p class="card-text"></p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <!-- <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div> -->
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+            </div>
         </div>
     </div>
 </div>

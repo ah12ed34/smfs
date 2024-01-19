@@ -422,7 +422,28 @@
     height: 700px;
 }
 
-@media screen and (max-width:575px) {
+
+/* #titlemodel {
+    margin-left: 180px !important;
+} */
+
+
+/* @media screen and (max-width: 993px) {
+    #titlemodel {
+        margin-left: 250p;
+    }
+} */
+
+
+/* @media screen and (max-width: 992px) {
+    #titlemodel {
+        margin-left: 20px !important;
+        font-size: 12px;
+        font-weight: normal;
+    }
+} */
+
+@media screen and (max-width: 575px) {
     #titlemodel {
         font-size: 12px;
         font-weight: normal;
@@ -473,7 +494,7 @@
 
 @media screen and (max-width:370px) {
     #titlemodel {
-        margin-left: -70px;
+        margin-left: -70px !;
         margin-right: -40px;
     }
 }
@@ -711,4 +732,76 @@
     color: #5b5b5c;
     position: absolute;
     bottom: 0%;
+}
+
+.attchementfile {
+    margin-top: -20px;
+}
+
+#attchementfiles-name {
+    width: 60%;
+    background-color: #f8fcfe;
+    font-size: 11px;
+    font-weight: normal;
+    height: 10%;
+    box-shadow: 1px rgb(211, 222, 248);
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    padding: 5px;
+    color: black;
+    padding-bottom: 15px;
+    box-shadow: none;
+}
+
+.projectsmembers {
+    margin-top: -20px;
+}
+
+#projectsmembers-name {
+    width: 60%;
+    background-color: #f8fcfe;
+    font-size: 11px;
+    font-weight: normal;
+    height: 10%;
+    box-shadow: 1px rgb(211, 222, 248);
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    padding: 5px;
+    color: black;
+    padding-bottom: 15px;
+    box-shadow: none;
+}
+
+.projetselements {
+    margin-top: -46px;
+}
+
+#projetselements-name {
+    width: 70%;
+    background-color: #F6F7FA;
+    font-size: 11px;
+    font-weight: normal;
+    height: 10%;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    padding: 5px;
+    text-align: right;
+    color: black;
+    padding-bottom: 15px;
+    box-shadow: none;
+    margin-right: 17%;
+    border: none;
+}
+
+.detils-name {
+    margin-top: -8px;
 }
