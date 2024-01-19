@@ -66,7 +66,7 @@
                 </thead>
                 <tbody>
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="myModalEdite" data-target="#myModal3">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2">التفاصيل</button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button> </td>
                         <td>*******</td>
