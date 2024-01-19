@@ -2,8 +2,8 @@
 
 namespace App\Jobs;
 
+use App\Events\ProgressData;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -11,11 +11,8 @@ use Illuminate\Queue\SerializesModels;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Student;
-use Illuminate\Queue\Events\JobFailed;
-use Illuminate\Queue\Events\JobPopping;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
-
 
 class CreateStudentFile implements ShouldQueue
 {
@@ -26,115 +23,109 @@ class CreateStudentFile implements ShouldQueue
      */
     public $file , $data = ['password'=>'1230',"gender"=>'male'],$headerRow;
     public $filePath;
-    public function __construct($file,array $data)
+    public $id;
+    public function __construct($file,array $data,$id)
     {
         //
         $this->file = $file;
         $this->data = array_merge($this->data, $data);
+        $this->id = $id;
     }
     /**
      * Execute the job.
      */
     public function handle(): void
     {
-        // $user = array();
-        // try {
-            
-        //     $spreadsheet = IOFactory::load(Storage::path($this->file));
-        //     $sheetData = $spreadsheet->getSheet(0)->toArray();
-        //     $headerRow = array_shift($sheetData); // استخراج صف العناوين
-
-        //     $arabicColumns = ['الرقم الجامعي', 'الاسم', 'اللقب', 'كلمة المرور','اسم المستخدم','الايميل', 'الجنس'];
-        //     $englishColumns = ['id', 'name', 'last_name', 'password','username',"email", 'gender'];
-    
-        //     $user = [];
-        //     foreach ($sheetData as $row) {
-        //         $user = $this->data;
-        //         foreach ($row as $index => $cell) {
-        //             $cell = trim($cell);
-        //             $column =$this->getColumnName(trim($headerRow[$index]), $arabicColumns, $englishColumns);
-
-        //             if($column&&$cell){
-        //                 if($column == 'id'){
-        //                     if(preg_match('/^\d{2}_\d{2}_\d{4}$/', $cell))
-        //                         $cell = str_replace('_', '', $cell);
-        //                     elseif(!preg_match('/^\d{8}$/', $cell))
-        //                         continue;
-        //                 }
-        //                 elseif($column == 'name'&&preg_match('/^[\p{L}\s]+$/u', $cell)){
-        //                     if(str_word_count($cell, 0, 'أبجدية عربية')>=4&&(array_search('last_name', $headerRow)===false &&array_search('اللقب', $headerRow)===false)){
-        //                         $cell = trim($cell);
-        //                         $spletted = explode(' ', $cell);
-        //                         $user["last_name"] = $spletted[sizeof($spletted)-1];
-        //                         $cell = str_replace(' '.$user["last_name"], '', $cell);
-        //                         $user[$column] = $cell;
-        //                     }
-        //                 }elseif($column == 'last_name'&&preg_match('/^[\p{L}\s]+$/u', $cell)){
-        //                     $user[$column] =$cell;
-        //                 }else
-        //                     $user[$column] = $cell;
-        //             } else {
-        //                 continue;
-        //             }
-            
-                    
-        //         }
-            
-        //         Student::create_student($user);
-        //     } 
-        // } catch (\Exception $e) {
-        //     throw $e;
-        // } finally{
-        //     Storage::delete($this->file);
-        // }
-
-        $user = [];
     try {
-        
+
         $this->filePath = Storage::path($this->file);
-    
+
         if (!file_exists($this->filePath)) {
-        Log::error("File does not exist: $this->filePath");
+       $this->eventPDHQ([
+            'Progress' => 1,
+            'status' => 'failed',
+            'log' => 'File not found',
+       ]);
         return;
         }
-            
+
         $spreadsheet = IOFactory::load($this->filePath);
         $sheetData = $spreadsheet->getSheet(0)->toArray();
         $this->headerRow = $headerRow = array_shift($sheetData);
 
         $arabicColumns = ['الرقم الجامعي', 'الاسم', 'اللقب', 'كلمة المرور', 'اسم المستخدم', 'الايميل', 'الجنس'];
         $englishColumns = ['id', 'name', 'last_name', 'password', 'username', 'email', 'gender'];
-
+        $this->eventPDHQ([
+            'Progress' => 0,
+            'status' => 'processing',
+            'log' => 'start processing file',
+        ]);
+        $i = 0;
         foreach ($sheetData as $row) {
+            $i++;
             $userData = $this->data; // افتراض أن $this->data هو نوع معين من البيانات
             foreach ($row as $index => $cell) {
-                      $cell = trim($cell);
+                    $cell = trim($cell);
                 $column = $this->getColumnName(trim($headerRow[$index]), $arabicColumns, $englishColumns);
-
+                $statusError = '';
                 if ($column && $cell) {
-                    if (!$this->processCell($column, $cell, $userData))
+                    if (!$this->processCell($column, $cell, $userData,$statusError)){
+                        $log = ($statusError)? $statusError .' '. $cell  :'Error processing file: ' . $column . ' ' . $cell . PHP_EOL .print_r($userData, true);
+                        $this->eventPDHQ([
+                            'Progress' => 10,
+                            'status' => 'processing',
+                            'log' => $log,
+                        ]);
                         continue 2;
-                } else {
+                    }
+
+                }else {
                     continue;
                 }
             }
- 
+
             Student::create_student($userData);
+            if (sizeof($sheetData)>=10 &&$i % 10 == 0) {
+                $this->eventPDHQ([
+                    'Progress' => $i / sizeof($sheetData) * 100,
+                    'status' => 'processing',
+                    'log' => $i . ' of ' . sizeof($sheetData) . ' processed successfully',
+                ]);
+            }
         }
-        event(new JobPopping('this suss' ,$this));
+        if($i==0){
+            $this->eventPDHQ([
+                'Progress' => 10,
+                'status' => 'failed',
+                'log' => 'Error processing file: ' . 'no data found',
+            ]);
+
+        }else
+        $this->eventPDHQ([
+            'Progress' => 100,
+            'status' => 'completed',
+            'log' => 'File processed successfully '.$i,
+        ]);
     } catch (\Exception $e) {
         // Log the exception
         log::error('Error processing file: ' . $e->getMessage());
         // Send user notification of failure, etc...
-        event(new JobFailed('this fail' ,$this, $e));
+        $this->eventPDHQ([
+            'id' => $this->id,
+            'Progress' => 10,
+            'status' => 'failed',
+            'log' => 'Error processing file: Exception ' . $e->getMessage(),
+        ]);
     } finally {
         // Delete the file
         Storage::delete($this->file);
+
     }
+
     }
 
 
-    private function processCell(string $column, string $cell, array &$userData): bool
+    private function processCell(string $column, string $cell, array &$userData,string &$statusError): bool
 {
     // تنفيذ العمليات الضرورية هنا
     switch ($column) {
@@ -146,6 +137,7 @@ class CreateStudentFile implements ShouldQueue
                 return false ;
             }
             if (Student::where('user_id', $cell)->exists()??false) {
+                $statusError = 'user_id already exists';
                 return false;
             }
             break;
@@ -177,8 +169,8 @@ class CreateStudentFile implements ShouldQueue
                 if($cell!="male"&&$cell!="famale")
                     return false;
                 break;
-            
-        
+
+
     }
 
     // إضافة القيمة المعالجة إلى المصفوفة النهائية
@@ -206,4 +198,35 @@ class CreateStudentFile implements ShouldQueue
     //     session()->forget('message');
     //     session()->put('success', 'File processed successfully');
     // }
+    /**
+     * @propraty array [
+     *       'user_id' => $data['id'] ,
+     *       'file' => $this->file,
+     *       'Progress' => $data['Progress'],
+     *       'status' => $data['status'],
+     *       'log' => $data['log'],
+     *   ]
+     */
+    protected function eventPDHQ($data){
+        event(new ProgressData([
+            'user_id' => $this->id,
+            'file' => $this->file,
+            'Progress' => $data['Progress'],
+            'status' => $data['status'],
+            'log' => $data['log']??null,
+        ]));
+    }
+    public function failed(\Exception $e = null)
+    {
+    //handle error
+    if($this->file){
+        Storage::delete($this->file);
+    }
+
+    $this->eventPDHQ([
+        'Progress' => 10,
+        'status' => 'failed',
+        'log' => 'Error processing file: ' . $e->getMessage(),
+    ]);
+}
 }
