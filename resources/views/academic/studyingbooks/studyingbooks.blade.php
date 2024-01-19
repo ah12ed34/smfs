@@ -70,7 +70,7 @@
                 </div>
                 <div id="card-studyingbooks-child-three">
                     <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModal3" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
-                    <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModal3" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModaledite" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
 
                 </div>
 
@@ -95,7 +95,7 @@
                 </div>
                 <div id="card-studyingbooks-child-three">
                     <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModal3" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
-                    <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModal3" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModaledite" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
 
                 </div>
             </div>
@@ -120,7 +120,7 @@
                 </div>
                 <div id="card-studyingbooks-child-three">
                     <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModal3" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
-                    <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModal3" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModaledite" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
 
                 </div>
             </div>
@@ -149,12 +149,50 @@
 
                 <div id="card-studyingbooks-child-three">
                     <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModal3" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
-                    <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModal3" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModaledite" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
 
                 </div>
             </div>
         </div>
     </div>
+
+
+    <!-- The ModalEdite -->
+    <div class="modal fade" id="myModaledite">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modal-content2">
+
+                <!-- Modal Header -->
+                <div class="modal-header" id="modheader">
+                     تعديل
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="" style="display: block;">
+                        <div class="form-group">
+                            <!-- <label for="usr">Name:</label> -->
+                            <input type="text" class="form-control" id="inputtextfile" name="username" placeholder="اسم الملف " style="height: 30px; margin-top:-6px">
+
+                            <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px">
+                        </div>
+                        <!-- <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div> -->
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btnsave-file" style="float: left; margin-left:30px;">حفظ</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel-file">إلغاء</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <!-- The Modal -->
