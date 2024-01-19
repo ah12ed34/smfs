@@ -121,8 +121,10 @@
             <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:550px;">
 
                 <!-- Modal Header -->
-                <div class="modal-header" id="modheader" style="text-align: center;">
-                  <div id="titlemodel">  انشاء مشروع جديد</div>
+                <div class="modal-header" id="modheader" style="text-align: center;padding-left:42%;">
+                  {{-- <div id="titlemodel">  انشاء مشروع جديد</div> --}}
+                   انشاء مشروع جديد
+
                     <button type="button"  class="close"  data-dismiss="modal" ><img src="{{Vite::image("cancelbtn.png")}}"   width="20px" style="position: static;" ></button>
 
                 </div>
@@ -166,8 +168,8 @@
         <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height:600px;">
 
             <!-- Modal Header -->
-            <div class="modal-header" id="modheader-proj">
-                <div class="projectchattitle">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id="" width="25px"></div>
+            <div class="modal-header" id="modheader-proj" style="padding-left: 45%">
+                <div class="">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id="" width="25px"></div>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -307,8 +309,8 @@
         <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:550px;">
 
             <!-- Modal Header -->
-            <div class="modal-header" id="modheader-proj">
-                <div class="projectchattitle">تفاصيل المشروع <img src="{{Vite::image("routine.png")}}" id="" width="25px"></div>
+            <div class="modal-header" id="modheader-proj" style="padding-left: 40%">
+                <div class="">تفاصيل المشروع <img src="{{Vite::image("routine.png")}}" id="" width="25px"></div>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -416,8 +418,8 @@
         <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height: 630px;">
 
             <!-- Modal Header -->
-            <div class="modal-header" id="modheader">
-                <div id="titlemodel"> تعديل</div>
+            <div class="modal-header" id="modheader" style="padding-left: 50%">
+                 تعديل
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -440,7 +442,7 @@
                         <div class="card mb-3" style="width: 95%;height:10%; box-shadow:none;">
                             <div class="card-header" style="height: 45px;">
                                 <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder="إضافة طالب" style="height: 30px; margin-top:0px;width:70%;margin-left:30%;"></div>
-                                <button type="submit" class="btn btn-primary" id="btnsave" style="height: 30px; margin-top:-55px;font-size: 14px;font-weight:normal;">إضافة</button>
+                                <button type="submit" class="btn btn-primary" id="btn-add-stu" >إضافة</button>
                             </div>
                             <div class="card-body">
                                 <h4 class="card-title"></h4>
