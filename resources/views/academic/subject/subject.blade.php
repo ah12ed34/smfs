@@ -12,29 +12,31 @@
 @section("content")
 
     <div class="responsive"></div>
-    <a href="{{route("sendnotification")}}">   <div class="cards-child"><img src="{{Vite::image("paper-plane.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
+    {{-- <a href="{{route("sendnotification")}}">    --}}
+        <div class="cards-child" onclick="location.href='{{route('sendnotification')}}'"><img src="{{Vite::image("paper-plane.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">الإشعارات</div>
     </div>
-</a>
-    <a href="{{route("studyingbooks")}}"> <div class="cards-child"><img src="{{Vite::image("open-book.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
+
+    {{-- <a href="{{route("studyingbooks")}}">  --}}
+        <div class="cards-child" onclick="location.href='{{route('studyingbooks')}}'"><img src="{{Vite::image("open-book.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">المقرر الدراسي</div>
     </div>
-</a>
-    <a href="{{route("students")}}">
-    <div class="cards-child"><img src="{{Vite::image("students.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
+
+    {{-- <a href="{{route("students")}}"> --}}
+    <div class="cards-child" onclick="location.href='{{route('students')}}'"><img src="{{Vite::image("students.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">الطلاب</div>
     </div>
-</a>
-    <a href="{{route("assignment")}}">
-    <div class="cards-child"><img src="{{Vite::image("homework (3).png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
+
+    {{-- <a href="{{route("assignment")}}"> --}}
+    <div class="cards-child" onclick="location.href='{{route('assignment')}}'"><img src="{{Vite::image("homework (3).png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">التكاليف</div>
     </div>
-</a>
-    <a href="{{route("projects")}}">
-    <div class="cards-child"><img src="{{Vite::image("project-management.png")}}" class="" width="100px" style="margin-left: -18px; margin-top:10px;">
+
+    {{-- <a href="{{route("projects")}}"> --}}
+    <div class="cards-child" onclick="location.href='{{route('projects')}}'"><img src="{{Vite::image("project-management.png")}}" class="" width="100px" style="margin-left: -18px; margin-top:10px;">
         <div class="cards-child-child">المشاريع</div>
     </div>
-    </a>
+ 
 
 
 
