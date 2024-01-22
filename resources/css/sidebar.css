@@ -300,3 +300,60 @@ position: fixed;
             width: 40px;
         }
     }
+    
+    #notification-bord-messages {
+        background-color: #a8b0c0;
+        overflow: auto;
+        padding-bottom: 70px;
+        padding-right: 40px;
+    }
+    
+    .recivers-notif {
+        margin-top: 1%;
+    }
+    
+    #recivers-notifi-Messages {
+        width: 100%;
+        background-color: #f8fcfe;
+        font-size: 11px;
+        font-weight: normal;
+        height: 10%;
+        box-shadow: 1px rgb(211, 222, 248);
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -ms-border-radius: 7px;
+        -o-border-radius: 7px;
+        padding: 5px;
+        text-align: right;
+        color: black;
+        margin-top: 5px;
+        padding-bottom: 15px;
+        padding-top: 20px;
+    }
+    /* .sendingdate {
+        float: left;
+        font-size: 10px;
+        color: #5b5b5c;
+        position: absolute;
+        bottom: 0%;
+    } */
+    
+    .recivin-notifi-date {
+        float: left;
+        font-size: 10px;
+        color: #5b5b5c;
+        position: absolute;
+        bottom: 0%;
+    }
+    
+    .sender-notifi {
+        float: right;
+        font-size: 10px;
+        color: #5b5b5c;
+        position: absolute;
+        top: 0%;
+        /* margin-left: 100%; */
+        right: 0%;
+        margin-right: 2%;
+    }

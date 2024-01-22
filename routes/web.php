@@ -172,6 +172,15 @@ use Illuminate\Support\Facades\Auth;
             route::prefix("worksStasticsProjects")->group(function(){
                 route::get("/",'WorksStasticsProjectsController@index')->name("worksStasticsProjects");
             });
+            route::prefix("archieve")->group(function(){
+                route::get("/",'ArchieveController@index')->name("archieve");
+            });
+            route::prefix("archieveAssiginFolder")->group(function(){
+                route::get("/",'ArchieveAssiginFolderController@index')->name("archieveAssiginFolder");
+            });
+            route::prefix("archieveDisplayfilescoming")->group(function(){
+                route::get("/",'ArchieveDisplayfilescomingController@index')->name("archieveDisplayfilescoming");
+            });
         });
     })->middleware('auth');
 
