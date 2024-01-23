@@ -11,7 +11,7 @@
 
 @section("content")
 
-<div class="container" style="padding-bottom:30px;">
+<div  style="padding-bottom:30px; padding-left:-5px;padding-left:-5px;">
 
     {{-- <a href="{{route("sendnotification")}}">    --}}
         <div class="cards-child" onclick="location.href='{{route('sendnotification')}}'"><img src="{{Vite::image("paper-plane.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
