@@ -20,51 +20,51 @@
 
     <table id="profile-table" dir="rtl">
         <tr>
-            <th colspan="2 " style="font-size: 18px;height: 50px;"> البيانات الشخصية</th>
+            <th colspan="2 " style="font-size: 18px;height: 50px;padding-left: 100px;"> البيانات الشخصية</th>
         </tr>
         <tr>
-            <th>الاسم</th>
-            <td>Jackson</td>
+            <th id="table-th" style="padding-right: 0px" >الاسم</th>
+            <td id="table-td" style="padding-left:100px;">Jackson</td>
         </tr>
         <tr>
-            <th>تاريخ الميلاد</th>
-            <td>********</td>
+            <th id="table-th" style="padding-right: 0px">تاريخ الميلاد</th>
+            <td id="table-td" style="padding-left:100px;"> ********</td>
         </tr>
         <tr>
-            <th> رقم الهاتف</th>
-            <td>Jackson</td>
+            <th id="table-th" style="padding-right: 0px"> رقم الهاتف</th>
+            <td id="table-td" style="padding-left:100px;">********</td>
         </tr>
         <tr>
-            <th> البريد الألكتروتي</th>
-            <td>********</td>
+            <th id="table-th" style="padding-right: 0px"> البريد الألكتروتي</th>
+            <td id="table-td" style="padding-left:100px;">********</td>
         </tr>
         <tr>
-            <th colspan="2 " style="font-size: 18px ; height: 50px; "> البيانات الجامعية</th>
+            <th colspan="2 " style="font-size: 18px ; height: 50px;padding-left: 100px; "> البيانات الجامعية</th>
         </tr>
         <tr>
-            <th>الكلية</th>
-            <td>******8</td>
+            <th id="table-th" style="padding-right: 0px">الكلية</th>
+            <td id="table-td" style="padding-left:100px;">********</td>
         </tr>
         <tr>
-            <th> القسم</th>
-            <td>********</td>
+            <th id="table-th" style="padding-right: 0px"> القسم</th>
+            <td id="table-td" style="padding-left:100px;">********</td>
         </tr>
 
         <tr>
-            <th>الدرجة العلمية</th>
-            <td>******8</td>
+            <th id="table-th" style="padding-right: 0px">الدرجة العلمية</th>
+            <td id="table-td" style="padding-left:100px;">********</td>
         </tr>
         <tr>
-            <th>المستوى </th>
-            <td>********</td>
+            <th  id="table-th"style="padding-right: 0px">المستوى </th>
+            <td  id="table-td"style="padding-left:100px;">********</td>
         </tr>
-        <th> المقرر الدراسي</th>
-        <td>********</td>
-        </tr>
+        <th  id="table-th" style="padding-right: 0px"> المقرر الدراسي</th>
+        <td id="table-td" style="padding-left:100px;">********</td>
+    </tr>
 
         <tr>
-            <th> المجموعات</th>
-            <td>******8</td>
+            <th id="table-th" style="padding-right: 0px"> المجموعات</th>
+            <td id="table-td" style="padding-left:100px;">********</td>
         </tr>
 
     </table>

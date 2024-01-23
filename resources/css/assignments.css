@@ -288,11 +288,12 @@
     color: rgb(67, 111, 206);
 }
 
-#btnsave {
+
+/* #btnsave {
     width: 90px;
     position: static;
     left: 0%
-}
+} */
 
 
 /* @media screen and (max-width:450px) {

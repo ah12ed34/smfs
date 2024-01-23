@@ -58,8 +58,8 @@
             <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
 
                 <!-- Modal Header -->
-                <div class="modal-header" id="modheader">
-                    <div id="titlemodel">   إضافة تكليف جديد</div>
+                <div class="modal-header" id="modheader" style="padding-left: 40%;">
+                      إضافة تكليف جديد
                     <button type="button" class="close" data-dismiss="modal"><img src="{{Vite::image("cancelbtn.png")}}"   width="20px" style="position: static;" ></button>
                 </div>
 
@@ -86,6 +86,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" id="btnsave" style="float: left;">حفظ</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+                    
                 </div>
             </div>
         </div>
@@ -127,7 +128,7 @@
                 <!-- Modal footer -->
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left; margin-left:30px;">حفظ</button>
+                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left;">حفظ</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
                 </div>
             </div>

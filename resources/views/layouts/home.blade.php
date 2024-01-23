@@ -26,7 +26,7 @@
                     <div class="user-icon"><img src="{{ Vite::asset('resources/images/user (4).png') }}" width="29px"> <div class="user">{{ Auth::user()->name." ".Auth::user()->last_name}}</div></div> 
                 </button>
             @endguest
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" >
                 <a class="dropdown-item" onclick="location.href='{{route('profile')}}'">الحساب<img src="{{ Vite::asset("resources/images/user (10).png")}}" class="img10" width="26px"></a> 
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();

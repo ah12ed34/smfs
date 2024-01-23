@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('nav')
-<div id="hdr2-mobile" class="hdr2" style=" box-shadow: 10px;">
+<div  class="hdr2" style=" box-shadow: 10px;">
     <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;"> المقرر الدراسي </label><img src="{{Vite::image("open-book.png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
     </button>
     <div class="dep-sub-name"> نظم موزعة </div>
@@ -25,7 +25,7 @@
     </div>
 
 </div>
-<div id="hdr3-mobile" class="hr3-students">
+<div  class="hr3-students">
     <a href="{{route("subject.index")}}">    <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button></a>
 
     <div id="input-groupstudyingbooks" class="input-group mb-3">
@@ -44,7 +44,7 @@
 
 @section("content")
 
-<div class="container" style="padding-top:60px;">
+<div class="container" style="padding-top:60px; overflow:auto;">
 
         <div class="responsive"></div>
 
