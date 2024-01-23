@@ -11,7 +11,8 @@
 
 @section("content")
 
-    <div class="responsive"></div>
+<div class="container" style="padding-bottom:30px;">
+
     {{-- <a href="{{route("sendnotification")}}">    --}}
         <div class="cards-child" onclick="location.href='{{route('sendnotification')}}'"><img src="{{Vite::image("paper-plane.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">الإشعارات</div>
@@ -39,7 +40,7 @@
  
 
 
-
+</div>
 
 {{-- <div class="bottomNavbar">
     <button class="btn-bottomNavbar"><img src="{{Vite::image("setting (2).png")}}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>

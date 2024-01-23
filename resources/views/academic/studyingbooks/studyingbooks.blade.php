@@ -44,7 +44,7 @@
 
 @section("content")
 
-<div class="container" style="padding-top:60px; overflow:auto;">
+<div class="container" style="padding-top:40px; padding-bottom:20px;">
 
         <div class="responsive"></div>
 
