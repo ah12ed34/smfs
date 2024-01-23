@@ -1,7 +1,7 @@
 @extends('layouts.home')
 
-{{-- @section('title', 'profile') --}}
-@section('nav')
+{{-- @section('title', 'profile')
+@endsection --}}
 @section("content")
 <div class="container" >
 

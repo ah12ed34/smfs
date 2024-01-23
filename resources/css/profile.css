@@ -6,7 +6,7 @@
     padding-left: 0%;
     box-shadow: 10% rgb(145, 153, 161);
     background-color: #ffffff;
-    margin-top: -20px;
+    margin-top: 0px;
     display: inline-block;
 }
 
@@ -46,7 +46,6 @@
 
 #profile-image {
     max-width: 100px;
-    z-index: 1;
     position: relative;
 }
 

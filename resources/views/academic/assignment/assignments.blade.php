@@ -37,7 +37,7 @@
             <div class="card-body">
                 <div class="btn-HW">
                     <a href="{{route("recive-assignments")}}">        <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button></a>
-                    <button type="submit" class="btn btn-light" id="btn-recive-edte-hw" data-toggle="modal" data-target="#myModalediteAssign">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
+                    <button type="submit" class="btn btn-light" id="btn-recive-hw" data-toggle="modal" data-target="#myModalediteAssign" style="background-color: #ffffff;box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);color: #0E70F2;border: none;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
                     <button type="submit" class="btn btn-danger" id="btn-recive-hw" data-toggle="modal" data-target="#myModalstop">إيقاف </button>
                 </div>
                 <div class="text-hw">
