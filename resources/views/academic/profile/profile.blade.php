@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title', 'profile|SFMS')
+{{-- @section('title', 'profile') --}}
 
 @section("content")
 <div class="container" >
