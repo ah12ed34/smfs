@@ -57,7 +57,7 @@
 <!-- The Modal -->
 <div class="modal fade" id="myModalactive">
 <div class="modal-dialog ">
-    <div class="modal-content">
+    <div class="modal-content" style="height:150px;">
 
         <!-- Modal Header -->
         <div class="modal-header" style="padding-left:50%; height: 40px; padding-top:6px;">

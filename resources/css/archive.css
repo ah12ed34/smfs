@@ -92,19 +92,22 @@
 }
 
 #btnOkYes {
-    width: 70px;
+    width: 60px;
     font-size: 12px;
     font-weight: normal;
-    float: left;
-    margin-right: 65%;
+    margin-right: 80%;
     margin-top: -10px;
+    /* margin-top: 1px;
+    position: absolute; */
 }
 
 #btnNO {
-    width: 70px;
+    width: 60px;
     font-size: 12px;
     font-weight: normal;
-    margin-top: -10px;
+    margin-top: 1px;
+    position: absolute;
+    margin-right: 3%;
 }
 
 

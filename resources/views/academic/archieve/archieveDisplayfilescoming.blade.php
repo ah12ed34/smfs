@@ -33,7 +33,7 @@
 @endsection
 @section("content")
 
-<div class="container" style=" padding-top: 10px;">
+<div class="container" style=" padding-top: 30px;">
 
 
     <div class="table-responsive-xl">

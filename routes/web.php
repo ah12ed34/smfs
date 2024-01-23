@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
 use App\Models\group;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -180,6 +181,9 @@ use Illuminate\Support\Facades\Auth;
             });
             route::prefix("archieveDisplayfilescoming")->group(function(){
                 route::get("/",'ArchieveDisplayfilescomingController@index')->name("archieveDisplayfilescoming");
+            });
+            route::prefix("profile")->group(function(){
+                route::get("/",'ProfileController@index')->name("profile");
             });
         });
     })->middleware('auth');

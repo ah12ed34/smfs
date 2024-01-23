@@ -8,7 +8,7 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-93917e32.css",
+    "file": "assets/app-6e8d0d36.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -131,6 +131,10 @@
   "resources/images/printing.png": {
     "file": "assets/printing-e70b3518.png",
     "src": "resources/images/printing.png"
+  },
+  "resources/images/profile.png": {
+    "file": "assets/profile-e5d65ab2.png",
+    "src": "resources/images/profile.png"
   },
   "resources/images/project-management.png": {
     "file": "assets/project-management-ccb71f91.png",

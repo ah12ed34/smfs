@@ -37,8 +37,8 @@
             <div class="card-body">
                 <div class="btn-HW">
                     <a href="{{route("recive-assignments")}}">        <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button></a>
-                    <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">تعديل </button>
-                    <button type="submit" class="btn btn-danger " id="btn-recive-hw" data-toggle="" data-target="#">إيقاف </button>
+                    <button type="submit" class="btn btn-light" id="btn-recive-edte-hw" data-toggle="modal" data-target="#myModalediteAssign">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
+                    <button type="submit" class="btn btn-danger" id="btn-recive-hw" data-toggle="modal" data-target="#myModalstop">إيقاف </button>
                 </div>
                 <div class="text-hw">
                     <label for="" style="margin-right: 30px;">  الفصل الأول من المشروع </label> <label for="">اسم التكاليف</label><br>
@@ -90,6 +90,87 @@
             </div>
         </div>
     </div>
+
+
+
+
+    <!-- the Modal edite -->
+
+    <div class="modal fade" id="myModalediteAssign">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
+
+                <!-- Modal Header -->
+                <div class="modal-header" id="modheader" style="padding-left: 45%;">
+                    تعديل
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="/action_page.php" style="display: block;">
+                        <div class="form-group">
+                            <!-- <label for="usr">Name:</label> -->
+                            <input type="text" class="form-control" id="inputtext" name="assignName" placeholder="اسم التكليف " style="height: 30px; margin-top:-6px">
+                            <input type="text" class="form-control" id="inputtext" name="grades" placeholder="الدرجة " style="height: 30px; margin-top:8px">
+                            <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder=" وصف التكليف" style=" margin-top:8px"></textarea>
+                            <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px" placeholder="ارفق ملف">
+                            <input type="date" class="form-control" id="inputtext" name="sendingdate" placeholder=" تاريخ التسليم " style="height: 30px; margin-top:8px">
+                            <input type="text" class="form-control" id="inputtext" name="note" placeholder="ملاحظة " style="height: 30px; margin-top:8px">
+                        </div>
+                        <!-- <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div> -->
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left; margin-left:30px;">حفظ</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModalstop">
+        <div class="modal-dialog ">
+            <div class="modal-content" style="height: 150px;">
+
+                <!-- Modal Header -->
+                <div class="modal-header" style="padding-left:50%; height: 40px; padding-top:6px;">
+                    تنبيه!
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="text-align:center ;">
+                    <form action="" style="display: block;">
+
+                        هل تريد بالفعل إيقاف التكليف؟
+
+
+                        <!-- <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div> -->
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+
+                <div class="modal-footer" style="height: 40px;">
+                    <button type="submit" class="btn btn-primary" id="btnOkYes">نعم</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnNO">لا</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 
