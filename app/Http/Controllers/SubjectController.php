@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\subjectRequest;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use App\Models\Department;
+use Illuminate\Support\Facades\Storage;
 
 class SubjectController extends Controller
 {
@@ -22,14 +25,32 @@ class SubjectController extends Controller
     public function create()
     {
         //
+        $departments = Department::all();
+        return view('academic.subject.create',compact('departments'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(subjectRequest $request)
     {
         //
+        // $request->validated();
+        // dd($request->all(),$request->file('image'));
+        try{
+            $directory = 'public/subject/image';
+            Storage::makeDirectory($directory);
+            $request['image'] = $request->file('image')->store($directory);
+            $request['id'] = $request['code'];
+            $request['name'] = $request['subjectname'];
+            Subject::create($request->only(['id','name','level_id','image','description']));
+            return redirect()->route("student.create") ->with('success',trans('general.success_subject_create'));
+        }catch(\Exception $e){
+            if(Storage::exists($request['image']))
+            Storage::delete($request['image']);
+            return redirect()->route("student.create") ->with('error',trans('general.error_subject_create'));
+        }
+
     }
 
     /**
@@ -38,6 +59,7 @@ class SubjectController extends Controller
     public function show(Subject $subject)
     {
         //
+
     }
 
     /**

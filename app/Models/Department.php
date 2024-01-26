@@ -13,4 +13,9 @@ class Department extends Model
         'name',
         'description',
     ];
+
+    public function levels()
+    {
+        return $this->hasMany(Level::class);
+    }
 }
