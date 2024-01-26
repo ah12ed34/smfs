@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('nav')
-<div id="hdr2-mobile" class="hdr2" style=" box-shadow: 10px;">
+<div  class="hdr2" style=" box-shadow: 10px;">
     <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;"> المقرر الدراسي </label><img src="{{Vite::image("open-book.png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
     </button>
     <div class="dep-sub-name"> نظم موزعة </div>
@@ -25,7 +25,7 @@
     </div>
 
 </div>
-<div id="hdr3-mobile" class="hr3-students">
+<div  class="hr3-students">
     <a href="{{route("subject.index")}}">    <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button></a>
 
     <div id="input-groupstudyingbooks" class="input-group mb-3">
@@ -44,7 +44,7 @@
 
 @section("content")
 
-<div class="container" style="padding-top:60px;">
+<div class="container" style="padding-top:40px; padding-bottom:20px;">
 
         <div class="responsive"></div>
 
@@ -69,7 +69,7 @@
 
                 </div>
                 <div id="card-studyingbooks-child-three">
-                    <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModal3" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
                     <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModaledite" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
 
                 </div>
@@ -94,7 +94,7 @@
 
                 </div>
                 <div id="card-studyingbooks-child-three">
-                    <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModal3" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
                     <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModaledite" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
 
                 </div>
@@ -119,7 +119,7 @@
 
                 </div>
                 <div id="card-studyingbooks-child-three">
-                    <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModal3" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
                     <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModaledite" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
 
                 </div>
@@ -148,7 +148,7 @@
                 </div>
 
                 <div id="card-studyingbooks-child-three">
-                    <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModal3" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
                     <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModaledite" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
 
                 </div>
@@ -231,5 +231,39 @@
         </div>
     </div>
 
+
+     <!-- The ModalDelete -->
+     <div class="modal fade" id="myModdelete">
+        <div class="modal-dialog ">
+            <div class="modal-content" style="height: 150px;">
+
+                <!-- Modal Header -->
+                <div class="modal-header" style="padding-left:50%; height: 40px; padding-top:6px;">
+                    تنبيه!
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="text-align:center ;">
+                    <form action="" style="display: block;">
+
+                        هل تريد حذف الملف بالفعل؟
+
+
+                        <!-- <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div> -->
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+
+                <div class="modal-footer" style="height: 40px;">
+                    <button type="submit" class="btn btn-primary" id="btnOkYes">نعم</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnNO">لا</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection

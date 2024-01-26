@@ -77,7 +77,7 @@
 
 
 
-    <div class="responsive"></div>
+
 
 
     <div class="container" id="container-project" style="  padding-top: 30px;">

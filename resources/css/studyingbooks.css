@@ -138,10 +138,11 @@
         margin-left: 40%;
         margin-top: -28px;
         display: inline;
-        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
         position: absolute;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
         color: black;
         background-color: #ffffff;
+        /* top: 100px; */
     }
 }
 
@@ -252,7 +253,7 @@
 
 @media screen and (max-width: 550px) {
     #hdr2-mobile {
-        z-index: 2;
+        z-index: 1;
     }
 }
 
@@ -286,6 +287,7 @@
     -moz-border-radius: 7px;
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
+    position: static;
 }
 
 #card-studyingbooks-child {
@@ -382,4 +384,10 @@
     height: 350px;
     font-weight: normal;
     width: 220px;
+    position: static;
+    display: inline-block;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 20px;
 }

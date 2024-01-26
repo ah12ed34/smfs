@@ -506,25 +506,34 @@
 }
 
 #btnsave {
-    margin-right: 80%;
     width: 90px;
-    margin-top: 3px;
+    margin-top: 17px;
     height: 32px;
+    position: absolute;
+    margin-right: 75%;
+    /* left: -100px; */
 }
 
 @media screen and (max-width:450px) {
     #btnsave {
-        margin-right: 70%;
+        margin-right: 67%;
         width: 90px;
-        margin-top: 3px;
         height: 32px;
+        position: absolute;
+    }
+}
+
+@media screen and (max-width:360px) {
+    #btnsave {
+        margin-right: 60%;
     }
 }
 
 #btncancel {
     width: 90px;
-    margin-top: -37px;
+    margin-top: 17px;
     height: 32px;
+    position: absolute;
 }
 
 #table-lightid {

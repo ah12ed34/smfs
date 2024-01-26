@@ -306,7 +306,7 @@
                     <!-- Modal footer -->
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
+                        <button type="submit" class="btn btn-primary" id="bt-edite" >حفظ</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
                     </div>
                 </div>

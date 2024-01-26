@@ -28,6 +28,8 @@
             @endguest
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="{{ route('login') }}">الحساب<img src="{{ Vite::asset("resources/images/user (10).png")}}" class="img10" width="26px"></a>
+            <div class="dropdown-menu" >
+                <a class="dropdown-item" onclick="location.href='{{route('profile')}}'">الحساب<img src="{{ Vite::asset("resources/images/user (10).png")}}" class="img10" width="26px"></a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">{{__('layout.logout')}}<img src="{{ Vite::image('exit.png') }}" class="img10" width="24px"></a>
@@ -37,13 +39,15 @@
 
             </div>
         </div>
-        <div class="notification"><img src="{{ Vite::image('bell.png')}}" width="22px"></div>
+        <div class="notification" data-toggle="modal" data-target="#myModalnotification"><img src="{{ Vite::image('bell.png')}}" width="22px"></div>
+
+        {{-- <button class="btn btn-light" id="notification" type="button" data-toggle="modal" data-target="#myModalnotification" style="z-index: 100%;"><img src="{{ Vite::image('bell.png')}}" width="22px"></button> --}}
         <img src="{{ Vite::image('Group 912.png')}}" width="40px" style="float: right; margin-top:-100px; margin-right:0px;"></div>
         <div id="sidebar" class="sidebar">
 
             <button class="button-sidebar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
             <button class="button-sidebar" onclick="location.href='{{route('studyingschedule')}}'"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.schaudule_std')}} </button>
-            <button class="button-sidebar"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.archives')}} </label></button>
+            <button class="button-sidebar" onclick="location.href='{{route('archieve')}}'"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.archives')}} </label></button>
             <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
         </div>
     </div>
@@ -99,10 +103,68 @@
         @endif
 
         @yield('content')
+
     </div>
+
+<!-- The Modal1 -->
+<div class="modal fade" id="myModalnotification">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height:500px;">
+
+            <!-- Modal Header -->
+            <div class="modal-header" id="modheader" style="padding-left: 45%">
+                الاشعارات
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="notification-bord-messages">
+
+                {{-- <div class="senders">
+
+                    <div class="card" id="sendersMessages"> السلام عليكم ورحمة الله وبركاته
+                        <div class="sendingdate">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div> --}}
+
+                <div class="recivers-notif">
+
+                    <div class="card" id="recivers-notifi-Messages" > <div class="sender-notifi" > الادمن</div>وعليكم السلام ورحمة الله وبركاته
+                        <div class="recivin-notifi-date">
+                            pm.10:24
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer" style="height: 30px; background-color: #0E70F2; ">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
     <div class="bottomNavbar">
         <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
-        <button class="btn-bottomNavbar"><img src="{{ Vite::image('portfolio (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
+        <button class="btn-bottomNavbar"onclick="location.href='{{route('archieve')}}'"><img src="{{ Vite::image('portfolio (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
         <button class="btn-bottomNavbar" onclick="location.href='{{route('studyingschedule')}}'"><img src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الجدول </label></button>
         <button class="btn-bottomNavbar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
     </div>
