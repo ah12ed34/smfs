@@ -13,6 +13,14 @@
         @yield('style')
         @livewireStyles
         @stack('css')
+        <style>
+            .pagination {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #E9EEEF;
+            }
+        </style>
     </head>
     <body style=" background-color: #E9EEEF;">
 

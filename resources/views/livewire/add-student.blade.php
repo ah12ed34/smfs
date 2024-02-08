@@ -15,12 +15,13 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="float-right">
-                {{-- <a href="{{ route('groups.show', $group) }}" class="btn btn-primary">{{ __("general.back") }}</a> --}}
+            <div class="form-group">
+                <label for='perPage'>{{ __("general.search") }}</label>
+                <input type="text" wire:model.lazy='search' class="form-control" />
             </div>
         </div>
     </div>
-
+    {{-- @dump($selected) --}}
     <table class="table">
         <thead>
             <tr>
@@ -59,4 +60,4 @@
         </tbody>
     </table>
     {{ $students->links() }}
-</div>
+</style>
