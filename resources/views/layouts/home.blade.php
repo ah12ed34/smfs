@@ -8,9 +8,11 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <title>@yield('title',"CS")</title>
-        @livewireStyles
+
         @vite(['resources/sass/app.scss','resources/css/app.css'])
         @yield('style')
+        @livewireStyles
+        @stack('css')
     </head>
     <body style=" background-color: #E9EEEF;">
 
@@ -172,6 +174,7 @@
     {{-- <script src="{{ mix('js/sidebar.js') }}" defer></script>
      <script src="sidebar.js"></script> --}}
     @livewireScripts
+    @stack('js')
     </body>
     @yield('script')
 </html>

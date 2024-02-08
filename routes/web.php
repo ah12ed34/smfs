@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AddStudent;
 use App\Mail\MyEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -105,7 +106,10 @@ use Illuminate\Support\Facades\Auth;
             Route::get('/', 'GroupController@index')->name('group');
             Route::get('/create', 'GroupController@create')->name('group.create')->middleware('perm:addgroup');
             Route::post('/store', 'GroupController@store')->name('group.store')->middleware('perm:addgroup');
-            Route::get('/add-student/{group}', 'GroupController@addStudent')->name('group.add-student');
+            Route::get('/add-student/{group}',
+            'GroupController@addStudent'
+            #AddStudent::class
+            )->name('group.add-student');
             Route::post('/add-student/{group}', 'GroupController@storeStudent')->name('group.store-student');
         });
         Route::prefix('groupSubject')->group(function () {
