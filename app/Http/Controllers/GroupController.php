@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\groupRQ;
 use App\Models\group;
 use Illuminate\Http\Request;
-use App\Models\department;
+use App\Models\Department;
 use App\Models\Student;
 use App\Rules\add_students;
 use Illuminate\Support\Facades\Log;
@@ -29,7 +29,7 @@ class GroupController extends Controller
     public function create()
     {
         //
-        $departments = department::all();
+        $departments = Department::all();
         if($departments->count() == 0)
             return redirect()->route('department.create')->with('error',__('general.no_departments'));
 
