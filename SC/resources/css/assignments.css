@@ -1,0 +1,1336 @@
+#btn-groups-assigne {
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-left: 50%;
+    margin-top: -30px;
+    position: fixed;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+}
+@media screen and (max-width:995px) {
+    #btn-groups-assigne {
+        margin-left: 40%;
+    }
+}
+@media screen and (max-width:777px) {
+    #btn-groups-assigne {
+        margin-left: 28%;
+    }
+}
+
+@media screen and (max-width:700px) {
+    #btn-groups-assigne {
+        margin-left: 50%;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width:550px) {
+    #btn-groups-assigne {
+        width: 100px;
+        margin-top: -25px;
+        font-size: 10px;
+        background-color: #ffffff;
+    }
+}
+@media screen and (max-width:350px) {
+    #btn-groups-assigne {
+        margin-left: 35%;
+    }
+}
+
+.textdrop2 {
+    float: right;
+    margin-left: 14px;
+}
+
+#btn-addHW {
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-left: 7%;
+    margin-top: -28px;
+    position: fixed;
+    height: 30px;
+}
+
+@media screen and (max-width:650px) {
+    #btn-addHW {
+        margin-left: 14%;
+    }
+}
+@media screen and (max-width:777px) {
+    #btn-addHW {
+        margin-top: -28px;
+    }
+}
+@media screen and (max-width:550px) {
+    #btn-addHW {
+        margin-left: 20%;
+        margin-top: -25px;
+        font-size: 10px;
+        height: 29px;
+    }
+}
+@media screen and (max-width:350px) {
+    #btn-addHW {
+        margin-top: 19px;
+        margin-left: 1px;
+        left: 1px;
+    }
+}
+
+.hr3 {
+    background-color: #ffffff;
+    border: none;
+    width: 100%;
+    height: 40px;
+    margin-top: -20px;
+    padding-top: 4px;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    position: fixed;
+}
+
+
+
+.form-control {
+    height: 33px;
+}
+
+#form-control {
+    height: 33px;
+    box-shadow: 1px rgb(72, 72, 72);
+}
+/* 
+#input-group-assign {
+    width: 300px;
+    margin-left: 450px;
+    height: 30px;
+    box-shadow: 2px rgb(72, 72, 72);
+    position: fixed;
+} */
+/* @media screen and (max-width: 1000px) {
+    #input-group-assign {
+        margin-left: 300px;
+    }
+}
+
+@media screen and (max-width: 890px) {
+    #input-group-assign {
+        margin-left: 270px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    #input-group-assign {
+        margin-left: 200px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    #input-group-assign {
+        margin-left: 180px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #input-group-assign {
+        width: 230px;
+        margin-top: 1px;
+        margin-left: 140px;
+    }
+    .form-control {
+        height: 28px;
+    }
+    #form-control {
+        width: 30px;
+        height: 28px;
+    }
+    #spaces {
+        width: 40px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    #input-group-assign {
+        width: 200px;
+        margin-top: 1px;
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    #input-group-assign {
+        width: 180px;
+        margin-top: 1px;
+        margin-left: 100px;
+    }
+} */
+
+#input-group-assign {
+    width: 300px;
+    margin-left: 450px;
+    height: 30px;
+    box-shadow: 2px rgb(72, 72, 72);
+    position: fixed;
+}
+@media screen and (max-width: 1270px) {
+    #input-group-assign {
+        margin-left: 400px;
+    }
+}
+@media screen and (max-width: 1150px) {
+    #input-group-assign {
+        margin-left: 360px;
+    }
+}
+@media screen and (max-width: 1040px) {
+    #input-group-assign {
+        margin-left: 340px;
+    }
+}
+@media screen and (max-width: 992px) {
+    #input-group-assign {
+        margin-left: 300px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    #input-group-assign {
+        margin-left: 260px;
+        width: 250px;
+        position: fixed;
+    }
+}
+@media screen and (max-width: 900px) {
+    #input-group-assign {
+        margin-left: 230px;
+    }
+}
+@media screen and (max-width: 828px) {
+    #input-group-assign {
+        margin-left: 190px;
+        width: 220px;
+    }
+}
+@media screen and (max-width: 745px) {
+    #input-group-assign {
+        margin-left: 160px;
+    }
+}
+@media screen and (max-width: 700px) {
+    #input-group-assign {
+        margin-left: 260px;
+    }
+}
+@media screen and (max-width: 650px) {
+    #input-group-assign {
+        margin-left: 220px;
+    }
+}
+@media screen and (max-width: 640px) {
+    #input-group-assign {
+        margin-left: 200px;
+    }
+}
+@media screen and (max-width: 600px) {
+    #input-group-assign {
+        margin-left: 180px;
+    }
+}
+@media screen and (max-width: 580px) {
+    #input-group-assign {
+        margin-left: 170px;
+        width: 200px;
+    }
+}
+@media screen and (max-width: 550px) {
+    #input-group-assign {
+        margin-top: 3px;
+        margin-left: 170px;
+    }
+}
+@media screen and (max-width: 480px) {
+    #input-group-assign {
+        margin-left: 140px;
+    }
+}
+@media screen and (max-width: 425px) {
+    #input-group-assign {
+        margin-left: 130px;
+        width: 180px;
+    }
+}
+@media screen and (max-width: 380px) {
+    #input-group-assign {
+        margin-left: 100px;
+        width: 180px;
+    }
+}
+@media screen and (max-width: 350px) {
+    #input-group-assign {
+        margin-left: 90px;
+        width: 180px;
+    }
+}
+@media screen and (max-width: 330px) {
+    #input-group-assign {
+        width: 160px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #input-group-assign {
+        margin-left: 85px;
+        width: 150px;
+    }
+}
+
+#spacesbtn {
+    margin-top: 3px;
+    width: 214px;
+    height: 33px;
+    padding-left: 2px;
+}
+
+#spaces1 {
+    margin-top: -5px;
+    float: left;
+    margin-left: 4px;
+}
+
+@media screen and (max-width: 700px) {
+    #spacesbtn {
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #spaces1 {
+        float: right;
+        margin-left: 17px;
+    }
+    #spacesbtn {
+        padding-left: 10px;
+        width: 40px;
+        height: 30px;
+    }
+}
+
+#spaces2 {
+    margin-top: -6px;
+    width: 22px;
+    box-shadow: 1px rgb(72, 72, 72);
+}
+
+@media screen and (max-width: 550px) {
+    #spaces2 {
+        width: 17px;
+        margin-left: -6px;
+        margin-top: -10px;
+    }
+}
+
+#inputtext {
+    border: none;
+    box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+    text-align: right;
+    font-size: 12px;
+    color: rgb(67, 111, 206);
+}
+
+#comment {
+    border: none;
+    box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+    margin-top: 8px;
+    text-align: right;
+    font-size: 12px;
+    color: rgb(67, 111, 206);
+}
+
+#file {
+    border: none;
+    box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+    text-align: right;
+    font-size: 12px;
+    background-color: #ffffff;
+    color: rgb(67, 111, 206);
+}
+
+.modal-footer {
+    height: 50px;
+}
+
+.modal-body {
+    height: 330px;
+    padding-bottom: 10px;
+}
+
+#modheader {
+    height: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(67, 111, 206);
+}
+
+@media screen and (max-width:550px) {
+    #modheader {
+        font-size: 12px;
+        font-weight: normal;
+        text-align: left;
+        padding-left: -50px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    #modheader {
+        font-size: 12px;
+        font-weight: normal;
+        text-align: center;
+        padding-left: 140px;
+    }
+}
+
+@media screen and (max-width:360px) {
+    #modheader {
+        font-size: 11px;
+        font-weight: normal;
+        text-align: center;
+        padding-left: 120px;
+    }
+}
+
+
+/* .modal-header {
+    height: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 100px;
+} */
+
+#modal-content {
+    height: 450px;
+    background-color: #F6F7FA;
+    color: rgb(67, 111, 206);
+}
+
+
+/* #btnsave {
+    width: 90px;
+    position: static;
+    left: 0%
+} */
+
+
+/* @media screen and (max-width:450px) {
+        #btnsave {
+            margin-right: 200px;
+        }
+    }
+    
+    @media screen and (max-width:360px) {
+        #btnsave {
+            margin-right: 170px;
+        }
+    } */
+
+#btncancel {
+    width: 90px;
+}
+
+#card-HW {
+    width: 95%;
+    height: 200px;
+    margin-top: 50px;
+    color: #0E70F2;
+    text-align: right;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+@media screen and (max-width:600px) {
+    #card-HW {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    #card-HW {
+        font-size: 12px;
+    }
+}
+
+/* .text-hw {
+    text-align: right;
+}
+
+@media screen and (max-width:770px) {
+    .text-hw {
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width:530px) {
+    .text-hw {
+        position: fixed;
+    }
+}
+
+@media screen and (max-width:520px) {
+    .text-hw {
+        margin-left: 38px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .text-hw {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .text-hw {
+        margin-left: -10px;
+    }
+}
+
+.btn-HW {
+    float: left;
+}
+
+#btn-recive-hw {
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    width: 90px;
+    height: 33px;
+    display: block;
+    z-index: 3;
+} */
+
+
+/* 
+
+@media screen and (max-width:530px) {
+    #btn-recive-hw {
+        margin-top: 145px;
+        display: inline;
+        width: 70px;
+        font-size: 12px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width:530px) {
+    #btn-recive-edte-hw {
+        margin-top: 145px;
+        display: inline;
+        width: 70px;
+        font-size: 12px;
+        height: 30px;
+    }
+} */
+
+#table-details-assignements-teacher {
+    width: 60%;
+    /* margin-left: 6%; */
+    margin-top: -10px;
+    font-size: 14px;
+    float: right;
+}
+/* 
+@media screen and (max-width:992px) {
+#table-details-assignements-teacher {
+width: 70%;
+margin-top: -10px;
+font-size: 14px;
+float: right;
+}
+} */
+
+@media screen and (max-width:550px) {
+    #table-details-assignements-teacher {
+        width: 40%;
+        margin-top: -10px;
+        font-size: 12px;
+        margin-left: 40%;
+        text-align: right;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width:480px) {
+    #table-details-assignements-teacher {
+        width: 100%;
+        margin-top: 0px;
+        margin-left: -100px;
+        font-size: 12px;
+        text-align: none;
+        float: right;
+        margin-right: 5%;
+        position: absolute;
+    }
+}
+
+#text-table-assigne-teacher {
+    float: right;
+}
+
+@media screen and (max-width:480px) {
+    #text-table-assigne-teacher {
+        float: none;
+        width: 40%;
+        text-align: right;
+    }
+}
+
+#table-header-assigne-teacher {
+    width: 150px;
+}
+
+@media screen and (max-width:480px) {
+    #table-header-assigne-teacher {
+        width: 25%;
+    }
+}
+
+.btn-HW {
+    float: left;
+}
+
+#btn-recive-hw {
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    width: 90px;
+    height: 33px;
+    display: block;
+    z-index: 3;
+}
+
+#btn-recive-edte-hw {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+    color: #0E70F2;
+    border: none;
+    /* border-radius: 10px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+-ms-border-radius: 10px;
+-o-border-radius: 10px; */
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    width: 90px;
+    height: 33px;
+    display: block;
+    z-index: 3;
+}
+
+@media screen and (max-width:800px) {
+    #btn-recive-hw {
+        width: 80px;
+        font-size: 12px;
+        height: 30px;
+    }
+    #btn-recive-edte-hw {
+        width: 80px;
+        font-size: 12px;
+        height: 30px;
+    }
+}
+
+/* @media screen and (max-width:800px) {
+    #btn-recive-edte-hw {
+        width: 80px;
+        font-size: 12px;
+        height: 30px;
+    }
+} */
+
+@media screen and (max-width:480px) {
+    #btn-recive-hw {
+        margin-top: 145px;
+        display: inline;
+        width: 67px;
+        font-size: 12px;
+        height: 30px;
+        margin-left: 7px;
+    }
+    #btn-recive-edte-hw {
+        margin-top: 145px;
+        display: inline;
+        width: 67px;
+        font-size: 12px;
+        height: 30px;
+        margin-left: 7px;
+    }
+}
+
+/* @media screen and (max-width:480px) {
+    #btn-recive-edte-hw {
+        margin-top: 145px;
+        display: inline;
+        width: 70px;
+        font-size: 12px;
+        height: 30px;
+    }
+} */
+@media screen and (max-width:300px) {
+    #btn-recive-hw {
+        width: 57px;
+        font-size: 10px;
+        margin-left: 5px;
+    }
+    #btn-recive-edte-hw {
+        width: 60px;
+        font-size: 10px;
+        margin-left: 5px;
+    }
+}
+
+.btn-group {
+    margin-left: 30%;
+    margin-top: -52px;
+    position: absolute;
+}
+
+.btn-projctsNavbar {
+    background-color: white;
+    color: #0E70F2;
+    top: -80px;
+    text-align: center;
+    padding: 6px 9px;
+    width: 70px;
+    margin-left: 3px;
+    height: 35px;
+    font-size: 12px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+/* main css students */
+
+#btn-group-assignementsStudents {
+    margin-left: 40%;
+    margin-top: -29px;
+    position: fixed;
+}
+#btn-assignementsStudentsksNavbar {
+    background-color: white;
+    color: #0E70F2;
+    top: -50px;
+    text-align: center;
+    padding: 8px 11px;
+    width: 90px;
+    height: 35px;
+    font-size: 11px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-weight: normal;
+    margin: 0%;
+}
+/* @media screen and (max-width: 1100px) {
+        #btn-group-assignementsStudents {
+            margin-left: 32%;
+        }
+    } */
+
+@media screen and (max-width: 992px) {
+    #btn-group-assignementsStudents {
+        margin-top: -24px;
+        margin-left: 32%;
+    }
+    #btn-assignementsStudentsksNavbar {
+        padding: 5px 8px;
+        width: 80px;
+        height: 30px;
+        font-size: 10px;
+        top: -45px;
+    }
+}
+
+/* @media screen and (max-width: 930px) {
+    #btn-group-assignementsStudents {
+
+            margin-left: 12%;
+        }
+    }
+     */
+
+/* @media screen and (max-width: 860px) {
+    #btn-group-assignementsStudents {
+
+            padding: 5px 8px;
+            width: 70px;
+            margin-left: 17%;
+            top: 84px;
+        }
+    } */
+
+/* @media (max-width: 799px) {
+    #btn-group-assignementsStudents {
+
+            display: none;
+        }
+    } */
+@media screen and (max-width: 850px) {
+    #btn-group-assignementsStudents {
+        margin-left: 22%;
+    }
+}
+@media screen and (max-width: 740px) {
+    #btn-group-assignementsStudents {
+        margin-left: 18%;
+    }
+}
+@media screen and (max-width: 700px) {
+    #btn-group-assignementsStudents {
+        margin-left: 30%;
+    }
+}
+@media screen and (max-width: 600px) {
+    #btn-group-assignementsStudents {
+        margin-left: 25%;
+    }
+}
+#btn-assignementsStudentsksNavbar:hover {
+    background-color: #B4DAF6;
+    color: #ffffff;
+}
+@media (max-width: 550px) {
+    #btn-group-assignementsStudents {
+        display: none;
+    }
+}
+#btn-assignementsStudentsdropdown {
+    display: none;
+    position: fixed;
+}
+.textstudentsdrop {
+    float: right;
+    margin-left: 10px;
+}
+@media screen and (max-width: 550px) {
+    #btn-assignementsStudentsdropdown {
+        font-size: 10px;
+        width: 90px;
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        margin-left: 60%;
+        margin-top: -28px;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        position: absolute;
+        color: black;
+        background-color:white;
+    }
+}
+@media screen and (max-width: 380px) {
+    #btn-assignementsStudentsdropdown {
+        margin-left: 61%;
+        width: 75px;
+    }
+}
+@media screen and (max-width: 330px) {
+    #btn-assignementsStudentsdropdown {
+        margin-left: 59%;
+        width: 70px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #btn-assignementsStudentsdropdown {
+        margin-left: 56%;
+        width: 67px;
+    }
+}
+/* @media screen and (max-width: 550px) {
+        #btn-assignementsStudentsdropdown {
+            font-size: 10px;
+            width: 90px;
+            height: 30px;
+            font-weight: normal;
+            padding-left: 5px;
+            margin-left: 60%;
+            margin-top: -28px;
+            display: inline;
+            box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+            position: absolute;
+            color: black;
+        }
+    } */
+
+#btn-assignementsStudentsdropdown-HW {
+    font-size: 11px;
+    width: 110px;
+    height: 30px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-left: 70%;
+    margin-top: 0px;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    position: fixed;
+    color: black;
+    z-index: 1;
+    background-color:white;
+}
+
+
+/* Responsive Styles */
+
+@media screen and (max-width: 1150px) {
+    #btn-assignementsStudentsdropdown-HW {
+        margin-left: 68%;
+    }
+}
+@media screen and (max-width: 1050px) {
+    #btn-assignementsStudentsdropdown-HW {
+        margin-left: 66%;
+    }
+}
+@media screen and (max-width:992px) {
+    #btn-assignementsStudentsdropdown-HW {
+        margin-left: 64%;
+    }
+}
+@media screen and (max-width:930px) {
+    #btn-assignementsStudentsdropdown-HW {
+        margin-left: 59%;
+    }
+}
+@media screen and (max-width:826px) {
+    #btn-assignementsStudentsdropdown-HW {
+        margin-left: 55%;
+    }
+}
+@media (max-width: 768px) {
+    #btn-assignementsStudentsdropdown-HW {
+        font-size: 10px;
+        width: 100px;
+    }
+}
+@media (max-width: 700px) {
+    #btn-assignementsStudentsdropdown-HW {
+        margin-left: 74%;
+    }
+}
+@media (max-width: 630px) {
+    #btn-assignementsStudentsdropdown-HW {
+        margin-left: 72%;
+    }
+}
+@media (max-width: 600px) {
+    #btn-assignementsStudentsdropdown-HW {
+        margin-left: 70%;
+    }
+}
+@media (max-width: 550px) {
+    #btn-assignementsStudentsdropdown-HW {
+        display: none;
+    }
+}
+/* @media (max-width: 550px) {
+        #btn-assignementsStudentsdropdown-HW {
+            font-size: 9px;
+            width: 90px;
+            margin-left: 24%;
+            margin-top: -44px;
+            position: fixed;
+            z-index: 2;
+        }
+    }
+    
+    @media (max-width: 550px) {
+        #btn-assignementsStudentsdropdown-HW {
+            margin-left: 26%;
+        }
+    } */
+
+#btn-assignementsStudentsdropdown-HW-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 550px) {
+    #btn-assignementsStudentsdropdown-HW-mobile {
+        font-size: 10px;
+        width: 90px;
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        width: 90px;
+        margin-left: 24%;
+        position: fixed;
+        margin-top: -28px;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        color: black;
+        background-color:white;
+    }
+}
+@media screen and (max-width: 380px) {
+    #btn-assignementsStudentsdropdown-HW-mobile {
+        margin-left: 28%;
+        width: 80px;
+        padding-right: 6px;
+    }
+}
+@media screen and (max-width: 320px) {
+    #btn-assignementsStudentsdropdown-HW-mobile {
+        margin-left: 27%;
+        width: 67px;
+    }
+}
+/* @media screen and (max-width: 300px) {
+    #btn-assignementsStudentsdropdown-HW-mobile {
+        margin-left: 24%;
+    }
+} */
+#input-group-studentSearch {
+    width: 300px;
+    margin-left: 450px;
+    height: 30px;
+    box-shadow: 2px rgb(72, 72, 72);
+    position: fixed;
+}
+@media screen and (max-width: 1270px) {
+    #input-group-studentSearch {
+        margin-left: 400px;
+    }
+}
+@media screen and (max-width: 1150px) {
+    #input-group-studentSearch {
+        margin-left: 360px;
+    }
+}
+@media screen and (max-width: 1040px) {
+    #input-group-studentSearch {
+        margin-left: 340px;
+    }
+}
+@media screen and (max-width: 992px) {
+    #input-group-studentSearch {
+        margin-left: 300px;
+    }
+}
+/* @media screen and (max-width: 1100px) {
+    #input-group-studentSearch {
+        margin-left: 300px;
+        width: 250px;
+        position: fixed;
+    }
+} */
+@media screen and (max-width: 950px) {
+    #input-group-studentSearch {
+        margin-left: 260px;
+        width: 250px;
+        position: fixed;
+    }
+}
+@media screen and (max-width: 900px) {
+    #input-group-studentSearch {
+        margin-left: 230px;
+    }
+}
+@media screen and (max-width: 828px) {
+    #input-group-studentSearch {
+        margin-left: 190px;
+        width: 220px;
+    }
+}
+@media screen and (max-width: 745px) {
+    #input-group-studentSearch {
+        margin-left: 160px;
+    }
+}
+@media screen and (max-width: 700px) {
+    #input-group-studentSearch {
+        margin-left: 260px;
+    }
+}
+@media screen and (max-width: 650px) {
+    #input-group-studentSearch {
+        margin-left: 220px;
+    }
+}
+@media screen and (max-width: 640px) {
+    #input-group-studentSearch {
+        margin-left: 200px;
+    }
+}
+@media screen and (max-width: 600px) {
+    #input-group-studentSearch {
+        margin-left: 180px;
+    }
+}
+@media screen and (max-width: 580px) {
+    #input-group-studentSearch {
+        margin-left: 170px;
+        width: 200px;
+    }
+}
+@media screen and (max-width: 550px) {
+    #input-group-studentSearch {
+        margin-top: 3px;
+        margin-left: 170px;
+    }
+}
+@media screen and (max-width: 480px) {
+    #input-group-studentSearch {
+        margin-left: 140px;
+    }
+}
+@media screen and (max-width: 425px) {
+    #input-group-studentSearch {
+        margin-left: 130px;
+        width: 180px;
+    }
+}
+@media screen and (max-width: 360px) {
+    #input-group-studentSearch {
+        margin-left: 110px;
+        width: 180px;
+    }
+}
+@media screen and (max-width: 330px) {
+    #input-group-studentSearch {
+        margin-left: 90px;
+        width: 160px;
+    }
+}
+@media screen and (max-width: 330px) {
+    #input-group-studentSearch {
+        margin-left: 95px;
+        width: 155px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #input-group-studentSearch {
+        margin-left: 88px;
+        width: 150px;
+    }
+}
+#btn-Type-assignementsdropdown {
+    font-size: 11px;
+    width: 100px;
+    height: 30px;
+    font-weight: normal;
+    padding-left: 5px;
+    /* margin-left: 70%; */
+    margin-top: 0%;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    color: black;
+    margin-left: 2%;
+}
+@media screen and (max-width: 550px) {
+    #btn-Type-assignementsdropdown {
+        font-size: 10px;
+        width: 90px;
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        width: 90px;
+        background-color: #ffffff;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        color: black;
+        margin-left: 1%;
+    }
+}
+@media screen and (max-width: 550px) {
+    #btn-Type-assignementsdropdown {
+        font-size: 10px;
+        width: 75px;
+        margin-left: 1%;
+        padding-right: 6px;
+    }
+}
+#card-send-assignments {
+    width: 95%;
+    height: 100%;
+    margin-top: 30px;
+    color: #0E70F2;
+    text-align: right;
+    font-size: 13px;
+    font-weight: normal;
+    position: static;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+@media screen and (max-width:450px) {
+    #card-send-assignments {
+        height: 100%;
+    }
+}
+
+#input-send-HW {
+    float: left;
+    width: 220px;
+}
+
+@media screen and (max-width:550px) {
+    #input-send-HW {
+        float: left;
+        width: 50%;
+        padding-left: 0%;
+        margin-top: -120px;
+        /* position: absolute; */
+    }
+}
+@media screen and (max-width:450px) {
+    #input-send-HW {
+        float: none;
+        width: 100%;
+        margin-top: 20%;
+        padding: 1%;
+    }
+}
+#commit-sendassigne {
+    border: none;
+    box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+    margin-top: 8px;
+    text-align: right;
+    font-size: 12px;
+    color: rgb(67, 111, 206);
+    height: 90px;
+}
+#file-assignment {
+    border: none;
+    box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+    text-align: right;
+    font-size: 12px;
+    background-color: #ffffff;
+    color: rgb(67, 111, 206);
+}
+#btn-send-hw {
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    width: 90px;
+    height: 33px;
+    display: block;
+    z-index: 3;
+}
+/* @media screen and (max-width:550px) {
+    #btn-send-hw {
+        margin-top: 145px;
+        width: 70px;
+        font-size: 12px;
+        height: 30px;
+    }
+} */
+#table-details-assignements {
+    width: 40%;
+    margin-top: -10px;
+    font-size: 14px;
+    float: right;
+    text-align: right;
+}
+/* @media screen and (max-width:992px) {
+    #table-details-assignements {
+        width: 70%;
+        margin-top: -10px;
+        font-size: 14px;
+        float: right;
+    }
+} */
+@media screen and (max-width:550px) {
+    #table-details-assignements {
+        width: 40%;
+        margin-top: -10px;
+        font-size: 12px;
+        margin-left: 40%;
+        text-align: right;
+    }
+}
+@media screen and (max-width:450px) {
+    #table-details-assignements {
+        width: 100%;
+        margin-top: -10px;
+        margin-left: 0%;
+        font-size: 12px;
+        text-align: none;
+        float: none;
+    }
+}
+#text-table {
+    float: right;
+}
+@media screen and (max-width:450px) {
+    #text-table {
+        float: none;
+        width: 35%;
+    }
+}
+#table-header {
+    width: 100px;
+}
+@media screen and (max-width:450px) {
+    #table-header {
+        width: 30%;
+    }
+}
+#table-details-doneAssignements{
+    width: 80%;
+    margin-top: -10px;
+    font-size: 14px;
+    float: right;
+    text-align: right;
+}
+@media screen and (max-width:550px) {
+    #table-details-doneAssignements{
+        width: 100%;
+        margin-top: -10px;
+        font-size: 12px;
+        margin-left: 40%;
+        text-align: right;
+    }
+}
+#card-done-assignments{    
+    width: 70%;
+    height: 100%;
+    margin-top: 20px;
+    color: #0E70F2;
+    /* text-align: center; */
+    font-size: 13px;
+    font-weight: normal;
+    position: static;
+    padding-bottom: 10px;
+    /* margin-bottom: 20px; */
+}
+@media screen and (max-width:992px) {
+    #card-done-assignments{    
+        width: 80%;
+    }
+}
+@media screen and (max-width:850px) {
+    #card-done-assignments{    
+        width: 85%;
+        margin-left:1%;
+    }
+}
+@media screen and (max-width:768px) {
+    #card-done-assignments{    
+        width: 94%;
+    }
+}
+@media screen and (max-width:700px) {
+    #card-done-assignments{    
+        width: 100%;
+        margin-left:0.5%;
+    }
+}
+/* @media screen and (max-width:450px) {
+    #card-done-assignments{    
+        height: 100%;
+    }
+} */
+#text-done-table {
+    /* float: right; */
+    margin-right:10%;
+    padding-right:10%;
+    right:10%
+}

@@ -1,0 +1,368 @@
+#chatting-card {
+    width: 70%;
+    height: 80%;
+    bottom: 0%;
+    position: absolute;
+    left: 10%;
+    right:10%;
+    background-color: #F1EFEF;
+    overflow: auto;
+    /* overflow-x: hidden; */
+    margin-bottom: 1%;
+    padding-bottom: 70px;  /* margin-top: 30%; */ /* top: 20%; */   /* top: 20%; */ /* top: 100px; */    /* margin-bottom: 0%; */
+}
+/* @media screen and (max-width:1000px) {
+    #chatting-card {
+        left: 5%;
+    }
+}
+@media screen and (max-width:800px) {
+    #chatting-card {
+        left: 0%;
+        width: 75%;
+        margin-left: 1%;
+    }
+}
+@media screen and (max-width:740px) {
+    #chatting-card {
+        left: 0%;
+        width: 74%;
+        margin-left: 1%;
+    }
+} */
+/* @media screen and (max-width:700px) {
+    #chatting-card {
+        left: 0%;
+        width: 100%;
+        margin-left: 0%;
+        height:96%;
+        top: 0;
+        margin-top: 0%;
+        position: absolute; 
+        margin-bottom: 50px;
+        z-index: -1;
+    }
+}    */
+     /* margin-top: 20%; */
+
+#header-chatting-card{
+    top:18%;
+    margin-top:0%;
+    width: 70%;
+    height: 40px;
+    position: fixed; 
+    left: 10%;
+    box-shadow: none;
+    padding-top: 5px;
+    padding-right:4px;
+    padding-left:4px;
+    z-index: 1;
+}
+#input-group-chatting{
+    bottom:1.5%;
+    width:70%;
+    position: fixed;
+    left:11.2%;
+}
+/* @media screen and (max-width:700px) {
+    #input-group-chatting{
+        height: 40px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        position: fixed;
+       z-index:1;
+        margin-bottom: 40px;
+        left: 0%;
+        bottom: 0%;
+}
+} */
+
+@media screen and (max-width:1150px) {
+    #input-group-chatting{
+        left:11.3%;
+        }}
+@media screen and (max-width:1000px) {
+    #chatting-card {
+        left: 5%;
+    }
+    #header-chatting-card{
+        left: 5%;
+    }
+    #input-group-chatting{
+        left: 6.6%;
+        bottom: 1%;
+    }
+}
+@media screen and (max-width:800px) {
+    #chatting-card {
+        left: 0%;
+        width: 75%;
+        margin-left: 1%;
+    }
+    #header-chatting-card{
+        left: 0%;
+        width: 75%;
+        margin-left: 1%;
+    }
+    #input-group-chatting{
+        width: 75%;
+        left: 0%;
+        margin-left: 1%;
+    }
+}
+@media screen and (max-width:740px) {
+    #chatting-card {
+        left: 0%;
+        width: 74%;
+        margin-left: 1%;
+    }
+    #header-chatting-card{
+        left: 0%;
+        width: 74%;
+        margin-left: 1%;
+    }
+    #input-group-chatting{
+        width: 74%;
+        left: 0%;
+        margin-left: 1%;
+    }
+}
+
+@media screen and (max-width:700px) {
+
+    #chatting-card {
+        left: 0%;
+        width: 100%;
+        margin-left: 0%;
+        height:96%;
+        top: 0;
+        margin-top: 0%;
+        position: absolute; 
+        /* margin-top: 20%; */
+        margin-bottom: 50px;
+        z-index: -1;
+        padding-bottom: -50px;
+    }
+    #header-chatting-card{
+      display: none;
+    }
+    #input-group-chatting{
+        height: 40px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        position: fixed;
+        /*bottom: 7%;
+        */z-index:1;
+        margin-bottom: 40px;
+        left: 0%;
+        bottom: 0%;
+}
+
+}
+#container-chatting{
+    width: 100%;
+    height:100%;
+} 
+/* #bottom-chatting-inputs{
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    position:absolute;
+    right:0%;
+    left:0%;  
+    bottom:0%;
+    margin-bottom: 0%;
+    margin-left: 0%;
+} */
+/* @media screen and (max-width:700px) {
+    #bottom-chatting-inputs{
+        bottom:0%;
+        height: 10%;
+        position: absolute;
+        margin-bottom: 0%;  
+    }
+} */
+
+/* @media screen and (height:75%) {
+    #input-group-chatting{
+        height: 50px;
+    }
+} */
+#send-button{    
+    height: 40px;
+    border-radius: 0%;
+    -webkit-border-radius: 0%;
+    -moz-border-radius: 0%;
+    -ms-border-radius: 0%;
+    -o-border-radius: 0%;
+}
+#message-input{
+    height: 40px;
+}
+/* @media screen and (max-width:700px) {
+    #bottom-chatting-inputs{
+    bottom:5%;
+    }
+} */    /* bottom: 7%; */
+/* 
+#input-group-chatting-mobile{    height: 40px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: fixed;
+    z-index:1;
+    margin-bottom: 45px;
+    left: 0%;} */
+  .hr3-mobile-chat{
+      display:none;
+    }   
+ @media screen and (max-width:700px) {
+    .hr3-mobile-chat{
+        background-color: #ffffff;
+        border: none;
+        width: 100%;
+        height: 40px;
+        padding-top: 4px;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        position: fixed;
+    }
+}  
+#back{
+    float:right;
+}
+#student-group-chat-name{
+            float:left;
+            color: #0E70F2;
+            font-size: 14px;
+    }
+    @media screen and (max-width:700px) {
+        #student-group-chat-name{
+            font-size: 11px;
+            margin-top:5px;
+            margin-left:4px;
+            }
+    }
+    .senders-chatting {
+        margin-top: 5%;
+        padding-bottom: 0%;
+    }
+    #sendersMessages-chatting {
+        width: 45%;
+        background-color: #c4e0f4;
+        font-size: 11px;
+        font-weight: normal;
+        height: 10%;
+        box-shadow: 1px rgb(211, 222, 248);
+        border-radius: 7px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        color: black;
+        padding: 5px;
+        text-align: right;
+        margin-left:20% ;
+        padding-bottom: 15px;
+        margin-top: 20px;
+        float: right;
+        right:0%;
+        margin-right: 2%;
+        display: block;
+        border-radius: 10px;
+        border-bottom-right-radius: 0px;
+        bottom: 0%;
+        margin-bottom: 0%;
+}
+    
+    .recivers-chatting {
+        /* margin-top: 5%; */
+        /* justify-content: start;
+        align-items: start;
+        height: auto; */
+        padding-top: 30%;
+        margin-bottom: 10px;
+       
+    }
+    
+    #reciversMessages-chatting {
+        width: 45%;
+        background-color: #f8fcfe;
+        font-size: 11px;
+        font-weight: normal;
+        height: 10%;
+        box-shadow: 1px rgb(211, 222, 248);
+        border-radius:10px;
+        -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+        -ms-border-radius:10px;
+        -o-border-radius:10px;
+        padding: 5px;
+        text-align: right;
+        color: black;
+        left: 4%;
+        margin-top: 10px;
+        padding-bottom: 15px;
+        /* float:left; */
+        border-bottom-left-radius: 0px;
+        /* display:block; */
+        margin-right: 50%;
+        /* margin-left: 0%; */
+}
+    .sendingdate-chatting {
+        float: left;
+        font-size: 10px;
+        color: #5b5b5c;
+        position: absolute;
+        bottom: 0%;
+    }
+    .recivinggdate-chatting {
+        float: left;
+        font-size: 10px;
+        color: #5b5b5c;
+        position: absolute;
+        bottom: 0%;
+    }
+    #user-icon-chatting{
+        width:40px;
+        height:40px;
+        /* display:circle; */
+        background-color: #f8fcfe;
+        box-shadow: 1px rgb(211, 222, 248);
+        border: none;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        -ms-border-radius: 100%;
+        -o-border-radius: 100%;
+        float:left !important;
+        /* display:flex; */
+        margin-left: 0.5%;
+        left:0%;
+        bottom:0%;
+        margin-bottom: -50px;
+        /* margin-top: 40%; */
+        /* position: relative; */
+        /* margin-top: 40px; */
+        margin-right: 27%;
+        display:block;
+}
+    @media screen and (max-width:700px) {
+        .senders-chatting {
+            margin-top: 160px;
+        }
+        #sendersMessages-chatting {
+            width: 40%; 
+            font-size: 10px;           
+        }
+            .recivers-chatting {
+                margin-top: 220px;
+                padding-top:54%;
+            }
+            #reciversMessages-chatting {
+                width: 40%; 
+                font-size: 10px;              
+            }
+    }

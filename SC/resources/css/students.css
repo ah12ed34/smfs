@@ -1,0 +1,1123 @@
+/* #btn-group-students {
+    margin-left: 27%;
+    margin-top: 21px;
+    position: fixed;
+}
+
+#btn-studentsNavbar {
+    background-color: white;
+    color: #0E70F2;
+    top: -50px;
+    text-align: center;
+    padding: 6px 9px;
+    width: 90px;
+    height: 35px;
+    font-size: 12px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-weight: normal;
+} */
+
+#btn-group-students {
+    margin-left: 25%;
+    margin-top: 21px;
+    position: fixed;
+}
+
+#btn-studentsNavbar {
+    background-color: white;
+    color: #0E70F2;
+    top: -50px;
+    text-align: center;
+    padding: 8px 11px;
+    width: 90px;
+    height: 35px;
+    font-size: 11px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-weight: normal;
+}
+
+
+/* Responsive Styles */
+
+@media screen and (max-width: 1100px) {
+    #btn-group-students {
+        margin-left: 16%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #btn-group-students {
+        margin-left: 17%;
+    }
+    #btn-studentsNavbar {
+        padding: 5px 8px;
+        width: 80px;
+        height: 30px;
+        font-size: 10px;
+        top: -45px;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    #btn-group-students {
+        margin-left: 12%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #btn-group-students {
+        margin-left: 12%;
+    }
+    #btn-studentsNavbar {
+        padding: 5px 8px;
+        width: 70px;
+        height: 30px;
+        font-size: 9px;
+        top: -45px;
+    }
+}
+
+@media (max-width: 799px) {
+    #btn-group-students {
+        display: none;
+    }
+}
+
+#btn-studentsNavbar:hover {
+    background-color: #B4DAF6;
+    color: #ffffff;
+}
+
+#btn-studentsdropdown {
+    display: none;
+    position: fixed;
+}
+
+.textstudentsdrop {
+    float: right;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 799px) {
+    #btn-studentsdropdown {
+        font-size: 12px;
+        width: 110px;
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        margin-left: 40%;
+        margin-top: -30px;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        position: absolute;
+        color: black;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #btn-studentsdropdown {
+        font-size: 10px;
+        width: 90px;
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        margin-left: 40%;
+        margin-top: -28px;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        position: absolute;
+        color: black;
+        background-color: #ffffff;
+    }
+}
+
+
+/* @media screen and (max-width:777px) {
+        #btn-navbar-hw {
+            width: 90px;
+            height: 30px;
+            font-size: 10px;
+            margin-left: 40%;
+        }
+    }
+    
+    @media screen and (max-width:768px) {
+        #btn-navbar-hw {
+            margin-left: 40%;
+        }
+    }
+    
+    @media screen and (max-width:700px) {
+        #btn-navbar-hw {
+            margin-left: 61%;
+        }
+    }
+    
+    @media screen and (max-width:550px) {
+        #btn-navbar-hw {
+            margin-left: 62%;
+        }
+    } */
+
+
+/*
+@media screen and (max-width: 970px) {
+    .btn-group {
+        margin-left: 27%;
+        margin-top: -47px;
+    }
+    .btn-projctsNavbar {
+        width: 80px;
+        height: 30px;
+        padding: 6px 9px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 947px) {
+    .btn-group {
+        margin-left: 24%;
+        margin-top: -50px;
+    }
+    .btn-projctsNavbar {
+        width: 80px;
+        height: 30px;
+        padding: 6px 9px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 882px) {
+    .btn-group {
+        margin-left: 22%;
+        margin-top: -50px;
+        position: fixed;
+    }
+}
+
+*/
+
+
+/*     
+    #btn-groups-hw {
+        font-size: 12px;
+        font-weight: normal;
+        padding-left: 5px;
+        margin-left: 60px;
+        margin-top: -30px;
+        position: fixed;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    }
+    
+    @media screen and (max-width:991px) {
+        #btn-groups-hw {
+            margin-left: 30px;
+        }
+    }
+    
+    @media screen and (max-width:891px) {
+        #btn-groups-hw {
+            margin-left: 20px;
+        }
+    }
+    
+    @media screen and (max-width:850px) {
+        #btn-groups-hw {
+            margin-left: 100px;
+        }
+    }
+    
+    @media screen and (max-width:777px) {
+        #btn-groups-hw {
+            width: 100px;
+            height: 30px;
+            font-size: 10px;
+            margin-left: 80px;
+        }
+    } */
+
+.textdrop2 {
+    float: right;
+    margin-left: 14px;
+}
+
+.hr3-students {
+    background-color: #ffffff;
+    border: none;
+    width: 100%;
+    height: 40px;
+    margin-top: 0px;
+    padding-top: 4px;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    position: fixed;
+}
+
+
+/* .form-control {
+    height: 33px;
+}
+
+#form-control {
+    height: 33px;
+    box-shadow: 1px rgb(72, 72, 72);
+} */
+#input-groupstudent {
+    width: 300px;
+    margin-left: 450px;
+    height: 30px;
+    box-shadow: 2px rgb(72, 72, 72);
+    position: fixed;
+}
+@media screen and (max-width: 1260px) {
+    #input-groupstudent {
+        margin-left: 450px;
+        width: 250px;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 1190px) {
+    #input-groupstudent {
+        margin-left: 400px;
+    }
+}
+@media screen and (max-width: 1050px) {
+    #input-groupstudent {
+        margin-left: 340px;
+    }
+}
+/* @media screen and (max-width: 1100px) {
+    #input-groupstudent {
+        margin-left: 300px;
+    }
+} */
+@media screen and (max-width: 1000px) {
+    #input-groupstudent {
+        margin-left: 300px;
+    }
+}
+@media screen and (max-width: 930px) {
+    #input-groupstudent {
+        margin-left: 250px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #input-groupstudent {
+        margin-left: 230px;
+    }
+}
+@media screen and (max-width: 860px) {
+    #input-groupstudent {
+        margin-left: 210px;
+        /* width: 200px; */
+    }
+}
+@media screen and (max-width: 829px) {
+    #input-groupstudent {
+        margin-left: 190px;
+        width: 200px;
+    }
+}
+@media screen and (max-width: 760px) {
+    #input-groupstudent {
+        margin-left: 170px;
+    }
+}
+@media screen and (max-width: 729px) {
+    #input-groupstudent {
+        margin-left: 155px;
+    }
+}
+@media screen and (max-width: 700px) {
+    #input-groupstudent {
+        margin-left: 230px;
+        /* width: 200px; */
+    }
+}
+@media screen and (max-width: 624px) {
+    #input-groupstudent {
+        margin-left: 210px;
+    }
+}
+@media screen and (max-width: 590px) {
+    #input-groupstudent {
+        margin-left: 200px;
+    }
+}
+@media screen and (max-width: 580px) {
+    #input-groupstudent {
+        margin-left: 190px;
+    }
+}
+@media screen and (max-width: 550px) {
+    #input-groupstudent {
+        margin-top: 3px;
+        margin-left: 170px;
+        width: 200px;
+    }
+    .form-control {
+        height: 28px;
+    }
+    #form-control {
+        width: 30px;
+        height: 28px;
+    }
+    #spaces {
+        width: 40px;
+    }
+}
+@media screen and (max-width: 470px) {
+    #input-groupstudent {
+        margin-left: 140px;
+        /* width: 180px; */
+    }
+}
+@media screen and (max-width: 425px) {
+    #input-groupstudent {
+        margin-left: 120px;
+        /* width: 180px; */
+    }
+}
+@media screen and (max-width: 400px) {
+    #input-groupstudent {
+        width: 180px;
+    }
+}
+@media screen and (max-width: 360px) {
+    #input-groupstudent {
+        margin-left: 110px;
+        width: 170px;
+    }
+}
+@media screen and (max-width: 335px) {
+    #input-groupstudent {
+        margin-left: 100px;
+        /* width: 170px; */
+    }
+}
+@media screen and (max-width: 320px) {
+    #input-groupstudent {
+        /* margin-left: 100px; */
+        width: 160px;
+    }
+}
+@media screen and (max-width: 308px) {
+    #input-groupstudent {
+        width: 150px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #input-groupstudent {
+        width: 140px;
+    }
+}
+@media screen and (max-width: 290px) {
+    #input-groupstudent {
+        margin-left: 90px;
+    }
+}
+
+
+
+/*
+@media screen and (max-width: 370px) {
+    #input-groupstudent {
+        width: 200px;
+        margin-top: 5px;
+        margin-left: 80px;
+    }
+}
+
+*/
+
+#spacesbtn {
+    margin-top: 3px;
+    width: 214px;
+    height: 33px;
+    padding-left: 2px;
+}
+
+#spaces1 {
+    margin-top: -5px;
+    float: left;
+    margin-left: 4px;
+}
+
+@media screen and (max-width: 700px) {
+    #spacesbtn {
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #spaces1 {
+        float: right;
+        margin-left: 17px;
+    }
+    #spacesbtn {
+        padding-left: 10px;
+        width: 40px;
+        height: 30px;
+    }
+}
+
+#spaces2 {
+    margin-top: -6px;
+    width: 22px;
+    box-shadow: 1px rgb(72, 72, 72);
+}
+
+@media screen and (max-width: 550px) {
+    #spaces2 {
+        width: 17px;
+        margin-left: -6px;
+        margin-top: -10px;
+    }
+}
+
+
+/* .btn-group {
+    margin-left: 27%;
+    margin-top: -52px;
+    position: fixed;
+}
+
+.btn-projctsNavbar {
+    background-color: white;
+    color: #0E70F2;
+    top: -80px;
+    text-align: center;
+    padding: 6px 9px;
+    width: 90px;
+    height: 35px;
+    font-size: 12px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+} */
+
+
+/* @media screen and (max-width: 857px) {
+    .btn-projctsNavbar {
+        display: none;
+    }
+} */
+
+#btn-uploade-grades {
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-left: 4%;
+    margin-top: 0px;
+    position: fixed;
+}
+
+@media screen and (max-width:992px) {
+    #btn-uploade-grades {
+        top: 130px;
+    }
+}
+
+@media screen and (max-width:550px) {
+    #btn-uploade-grades {
+        font-size: 10px;
+    }
+}
+@media screen and (max-width:290px) {
+    #btn-uploade-grades {
+        margin-left: 4px;
+    }
+}
+
+
+
+/*
+@media screen and (max-width:777px) {
+    #btn-uploade-grades {
+        margin-top: -28px;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width:550px) {
+    #btn-uploade-grades {
+        margin-left: 20%;
+        margin-top: -24px;
+        font-size: 10px;
+    }
+}
+
+*/
+
+#btn-groups-students {
+    font-size: 11px;
+    width: 110px;
+    height: 30px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-left: 70%;
+    margin-top: 0px;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    position: fixed;
+    color: black;
+    background-color: #ffffff;
+}
+
+
+/* Responsive Styles */
+
+@media screen and (max-width: 1170px) {
+    #btn-groups-students {
+        margin-left: 68%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    #btn-groups-students {
+        margin-left: 65%;
+    }
+}
+
+@media screen and (max-width:992px) {
+    #btn-groups-students {
+        margin-left: 63%;
+    }
+}
+
+@media screen and (max-width:930px) {
+    #btn-groups-students {
+        margin-left: 61%;
+    }
+}
+@media screen and (max-width:900px) {
+    #btn-groups-students {
+        margin-left: 60%;
+    }
+}
+@media screen and (max-width:860px) {
+    #btn-groups-students {
+        margin-left: 58%;
+    }
+}
+@media screen and (max-width:826px) {
+    #btn-groups-students {
+        margin-left: 56%;
+    }
+}
+@media screen and (max-width:800px) {
+    #btn-groups-students {
+        margin-left: 55%;
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    #btn-groups-students {
+        font-size: 10px;
+        /* width: 100px; */
+        margin-left: 54%;
+    }
+}
+@media screen and (max-width:750px) {
+    #btn-groups-students {
+        margin-left: 54%;
+    }
+}
+@media screen and (max-width:730px) {
+    #btn-groups-students {
+        margin-left: 53%;
+    }
+}
+
+@media (max-width: 700px) {
+    #btn-groups-students {
+        /* width: 100px; */
+        margin-left: 72%;
+    }
+}
+@media (max-width: 610px) {
+    #btn-groups-students {
+        /* margin-left: 70%; */
+        width: 90px;
+    }
+}
+
+@media (max-width: 550px) {
+    #btn-groups-students {
+        display: none;
+    }
+}
+
+
+/* @media (max-width: 550px) {
+    #btn-groups-students {
+        margin-left: 26%;
+    }
+} */
+
+@media screen and (max-width:992px) {
+    #btn-uploade-grades {
+        margin-top: -28px;
+        position: fixed;
+    }
+}
+
+
+/* @media (max-width: 550px) {
+    #header2mobile {
+        z-index: 0;
+    }
+}
+
+@media (max-width: 550px) {
+    #hdr-students-mobile {
+        margin-top: 2px;
+        box-shadow: 0px 1px 0px rgb(72, 72, 72);
+        border: none;
+    }
+} */
+
+
+/* @media screen and (max-width: 799px) {
+        #btn-studentsdropdown {
+            font-size: 12px;
+            width: 110px;
+            height: 30px;
+            font-weight: normal;
+            padding-left: 5px;
+            margin-left: 40%;
+            margin-top: -30px;
+            box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+            position: fixed;
+            color: black;
+        }
+    } */
+
+@media screen and (max-width: 550px) {
+    #btn-studentsdropdown {
+        font-size: 10px;
+        width: 90px;
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        margin-left: 60%;
+        margin-top: -28px;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        position: absolute;
+        color: black;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #btn-studentsdropdown {
+        margin-left: 57%;
+    }
+}
+@media screen and (max-width: 360px) {
+    #btn-studentsdropdown {
+        margin-left: 55%;
+        font-size: 10px;
+        width: 80px;
+        padding-right: 5px;
+    }
+}
+@media screen and (max-width: 344px) {
+    #btn-studentsdropdown {
+        margin-left: 56%;
+    }
+}
+@media screen and (max-width: 320px) {
+    #btn-studentsdropdown {
+        margin-left: 57%;
+        width: 65px;
+        font-size: 9px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #btn-studentsdropdown {
+        margin-left: 55%;
+    }
+}
+@media screen and (max-width: 290px) {
+    #btn-studentsdropdown {
+        width: 60px;  
+        margin-left: 55.5%;
+      }
+}
+
+#btn-groups-student2 {
+    display: none;
+}
+
+@media screen and (max-width: 550px) {
+    #btn-groups-student2 {
+        font-size: 10px;
+        width: 90px;
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        width: 90px;
+        margin-left: 24%;
+        position: fixed;
+        background-color: #ffffff;
+        margin-top: -28px;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        color: black;
+    }
+}
+@media screen and (max-width: 360px) {
+    #btn-groups-student2 {
+        margin-left: 27%;
+        font-size: 10px;
+        width: 85px;
+        padding-right: 5px;
+    }
+}
+@media screen and (max-width: 344px) {
+    #btn-groups-student2 {
+        margin-left: 26%;
+    }
+}
+@media screen and (max-width: 320px) {
+    #btn-groups-student2 {
+        /* margin-left: 24%; */
+        font-size: 9px;
+        width: 75px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #btn-groups-student2 {
+        /* margin-left: 26%; */
+        font-size: 9px;
+        width: 75px;
+    }
+}
+
+
+.table {
+    margin-top: 21px;
+}
+
+.table-header {
+    position: -webkit-sticky;
+}
+
+#file {
+    border: none;
+    box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+    text-align: right;
+    font-size: 12px;
+    background-color: #ffffff;
+    color: rgb(67, 111, 206);
+}
+
+.modal-footer {
+    height: 50px;
+}
+
+#modheader {
+    height: 40px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 45%;
+    color: rgb(255, 255, 255);
+    background-color: #0E70F2;
+    padding-top: 8px;
+}
+
+
+/* .modal-header {
+    height: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 100px;
+} */
+
+#modal-content2 {
+    height: 200px;
+    background-color: #F6F7FA;
+    color: rgb(67, 111, 206);
+}
+
+
+/* #btnsave-file {
+    margin-right: 60%;
+    width: 80px;
+    font-size: 10px;
+    font-weight: normal;
+    margin-top: -3px;
+} */
+
+#btnsave-file {
+    width: 80px;
+    font-weight: normal;
+    margin-top: 17px;
+    height: 32px;
+    position: absolute;
+    margin-right: 75%;
+    /* left: -100px; */
+    /* font-size: 10px; */
+}
+
+@media screen and (max-width:450px) {
+    #btnsave-file {
+        margin-right: 70%;
+        /* width: 90px;
+        height: 32px; */
+        position: absolute;
+    }
+}
+
+@media screen and (max-width:360px) {
+    #btnsave-file {
+        margin-right: 63%;
+    }
+}
+
+#bt-edite {
+    width: 90px;
+    font-weight: normal;
+    margin-top: 17px;
+    height: 32px;
+    position: absolute;
+    margin-right: 85%;
+}
+
+@media screen and (max-width:992px) {
+    #bt-edite {
+        margin-right: 78%;
+    }
+}
+
+@media screen and (max-width:520px) {
+    #bt-edite {
+        margin-right: 75%;
+    }
+}
+
+@media screen and (max-width:450px) {
+    #bt-edite {
+        margin-right: 70%;
+        /* width: 90px;
+        height: 32px; */
+        position: absolute;
+    }
+}
+
+@media screen and (max-width:360px) {
+    #bt-edite {
+        margin-right: 63%;
+    }
+}
+
+
+/* @media screen and (max-width: 420px) {
+    #btnsave-file {
+        position: absolute;
+        margin-top: 5px;
+    }
+} */
+
+
+/* #btncancel-file {
+    width: 80px;
+    font-size: 10px;
+    font-weight: normal;
+    position: fixed;
+} */
+
+#btncancel-file {
+    width: 80px;
+    margin-top: 17px;
+    height: 32px;
+    position: absolute;
+    /* font-size: 12px; */
+    font-weight: normal;
+}
+
+
+/* .group1 input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #e74c3c;
+    background-color: white;
+    outline: none;
+}
+
+.group1 input[type="radio"]:checked {
+    background-color: #ff1900;
+    border-color: #ff1900;
+}
+
+.group2 input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #3498db;
+    background-color: white;
+    outline: none;
+}
+
+.group2 input[type="radio"]:checked {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.group3 input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #3ce789;
+    background-color: white;
+    outline: none;
+}
+
+.group3 input[type="radio"]:checked {
+    background-color: #00ff11;
+    border-color: #3ce747;
+}
+
+.group4 input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #3c47e7;
+    background-color: white;
+    outline: none;
+}
+
+.group4 input[type="radio"]:checked {
+    background-color: #2200ff;
+    border-color: #3c3fe7;
+} */
+
+.absent input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #e74c3c;
+    background-color: white;
+    outline: none;
+}
+
+.absent input[type="radio"]:checked {
+    background-color: #ff1900;
+    border-color: #ff1900;
+}
+
+.permit input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #0c05c9;
+    background-color: white;
+    outline: none;
+}
+
+.permit input[type="radio"]:checked {
+    background-color: #0c05c9;
+    border-color: #0c05c9;
+}
+
+.late input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #e7833c;
+    background-color: white;
+    outline: none;
+}
+
+.late input[type="radio"]:checked {
+    background-color: #e7833c;
+    border-color: #e7833c;
+}
+
+.persent input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #13be27;
+    background-color: white;
+    outline: none;
+}
+
+.persent input[type="radio"]:checked {
+    background-color: #13be27;
+    border-color: #13be27;
+}
+
+#btn-edit {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+    color: #0E70F2;
+    border: none;
+    margin: -4px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-size: 10px;
+}
+
+#btn-detials {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-size: 10px;
+}
+
+#print {
+    color: #0E70F2;
+    box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+    font-size: 10px;
+    border-radius: 10px;
+    margin-top: -4px;
+}
+
+#btn-add-stu {
+    width: 25%;
+    height: 30px;
+    margin-top: -30px;
+    font-size: 14px;
+    font-weight: normal;
+    float: left;
+}
