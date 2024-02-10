@@ -27,12 +27,12 @@ use Illuminate\Support\Facades\Auth;
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')
     ->middleware('auth');
     Route::group(['prefix'=>'/student','middleware' => ['role:student']], function () {
-
+    
         route::get("/",'students\HomeController@index')->name("student");
-
+ 
         // Route::get('/', 'StudentController@index')->name('student.index');
         Route::prefix('/subject')->group(function () {
-
+            
         });
         Route::prefix('/studProjects')->group(function(){
            route::get("/",'students\StudProjectsController@index')->name("student-projects");
@@ -136,22 +136,22 @@ use Illuminate\Support\Facades\Auth;
         });
 
         Route::prefix('project')->group(function () {
-
+            
         });
 
         Route::prefix('assignment')->group(function () {
-
+            
         });
         Route::prefix('group')->group(function () {
-
+            
         });
         Route::prefix('groupSubject')->group(function () {
-
+            
         });
-
+       
         Route::get('/create', 'AcademicController@create')->middleware('perm:addacademic')->name('academic.create');
         Route::post('/store', 'AcademicController@store')->middleware('perm:addacademic')->name('academic.store');
-
+        
         Route::group(['middleware' => ['role:academic']], function () {
             route::get('/', 'AcademicController@index')->name('academic.home');
             Route::prefix("subject")->group(function(){
@@ -229,9 +229,9 @@ use Illuminate\Support\Facades\Auth;
             route::prefix("profile")->group(function(){
                 route::get("/",'ProfileController@index')->name("profile");
             });
-
+ 
         });
-
+       
     })->middleware('auth');
 
 Route::get('/', function () {
