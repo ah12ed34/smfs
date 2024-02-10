@@ -52,7 +52,7 @@
     <div id="card-studyingbooksforms-quiz" class="card">
 
         <div id="card-studyingbooks-child">
-            <img src="{{Vite::image("M.L.H DS Mid exams_page-0001.jpg")}}" class="chapters" width="200px">
+            <img src="{{Vite::image("M.L.H DS Mid exams_page-0001.jpg")}}" class="chapters" width="190px">
 
             <!-- <div id="card-studyingbooks-child-2"> -->
             <label class="texttitlechapter">نموذج 1</label>
@@ -75,7 +75,7 @@
 
     <div id="card-studyingbooksforms-quiz" class="card">
         <div id="card-studyingbooks-child">
-            <img src="{{Vite::image("M.L.H DS Mid exams_page-0002.jpg")}}" class="chapters" width="200px">
+            <img src="{{Vite::image("M.L.H DS Mid exams_page-0002.jpg")}}" class="chapters" width="190px">
 
             <!-- <div id="card-studyingbooks-child-2"> -->
             <label class="texttitlechapter">نموذج 2 </label>
@@ -95,7 +95,7 @@
 
     <div id="card-studyingbooksforms-quiz" class="card">
         <div id="card-studyingbooks-child">
-            <img src="{{Vite::image("M.L.H DS Mid exams_page-0003.jpg")}}" class="chapters" width="200px">
+            <img src="{{Vite::image("M.L.H DS Mid exams_page-0003.jpg")}}" class="chapters" width="190px">
             <!-- <div id="card-studyingbooks-child-2"> -->
             <label class="texttitlechapter">نموذج 3 </label>
 
@@ -118,7 +118,7 @@
 
     <div id="card-studyingbooksforms-quiz" class="card">
         <div id="card-studyingbooks-child">
-            <img src="{{Vite::image("M.L.H DS Mid exams_page-0004.jpg")}}" class="chapters" width="200px">
+            <img src="{{Vite::image("M.L.H DS Mid exams_page-0004.jpg")}}" class="chapters" width="190px">
 
             <!-- <div id="card-studyingbooks-child-2"> -->
             <label class="texttitlechapter">نموذج 4 </label>

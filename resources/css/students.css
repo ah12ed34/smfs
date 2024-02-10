@@ -257,6 +257,15 @@
     position: fixed;
 }
 
+
+/* .form-control {
+    height: 33px;
+}
+
+#form-control {
+    height: 33px;
+    box-shadow: 1px rgb(72, 72, 72);
+} */
 #input-groupstudent {
     width: 300px;
     margin-left: 450px;
@@ -264,27 +273,37 @@
     box-shadow: 2px rgb(72, 72, 72);
     position: fixed;
 }
-
-.form-control {
-    height: 33px;
-}
-
-#form-control {
-    height: 33px;
-    box-shadow: 1px rgb(72, 72, 72);
-}
-
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1260px) {
     #input-groupstudent {
-        margin-left: 300px;
+        margin-left: 450px;
         width: 250px;
         position: fixed;
     }
 }
 
+@media screen and (max-width: 1190px) {
+    #input-groupstudent {
+        margin-left: 400px;
+    }
+}
+@media screen and (max-width: 1050px) {
+    #input-groupstudent {
+        margin-left: 340px;
+    }
+}
+/* @media screen and (max-width: 1100px) {
+    #input-groupstudent {
+        margin-left: 300px;
+    }
+} */
+@media screen and (max-width: 1000px) {
+    #input-groupstudent {
+        margin-left: 300px;
+    }
+}
 @media screen and (max-width: 930px) {
     #input-groupstudent {
-        margin-left: 210px;
+        margin-left: 250px;
     }
 }
 
@@ -293,32 +312,54 @@
         margin-left: 230px;
     }
 }
-
+@media screen and (max-width: 860px) {
+    #input-groupstudent {
+        margin-left: 210px;
+        /* width: 200px; */
+    }
+}
 @media screen and (max-width: 829px) {
     #input-groupstudent {
-        margin-left: 150px;
-        width: 220px;
+        margin-left: 190px;
+        width: 200px;
     }
 }
-
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 760px) {
     #input-groupstudent {
-        margin-left: 250px;
-        width: 220px;
+        margin-left: 170px;
     }
 }
-
 @media screen and (max-width: 729px) {
     #input-groupstudent {
-        margin-left: 150px;
+        margin-left: 155px;
     }
 }
-
+@media screen and (max-width: 700px) {
+    #input-groupstudent {
+        margin-left: 230px;
+        /* width: 200px; */
+    }
+}
+@media screen and (max-width: 624px) {
+    #input-groupstudent {
+        margin-left: 210px;
+    }
+}
+@media screen and (max-width: 590px) {
+    #input-groupstudent {
+        margin-left: 200px;
+    }
+}
+@media screen and (max-width: 580px) {
+    #input-groupstudent {
+        margin-left: 190px;
+    }
+}
 @media screen and (max-width: 550px) {
     #input-groupstudent {
-        width: 200px;
         margin-top: 3px;
         margin-left: 170px;
+        width: 200px;
     }
     .form-control {
         height: 28px;
@@ -331,13 +372,57 @@
         width: 40px;
     }
 }
-
+@media screen and (max-width: 470px) {
+    #input-groupstudent {
+        margin-left: 140px;
+        /* width: 180px; */
+    }
+}
 @media screen and (max-width: 425px) {
     #input-groupstudent {
         margin-left: 120px;
+        /* width: 180px; */
+    }
+}
+@media screen and (max-width: 400px) {
+    #input-groupstudent {
         width: 180px;
     }
 }
+@media screen and (max-width: 360px) {
+    #input-groupstudent {
+        margin-left: 110px;
+        width: 170px;
+    }
+}
+@media screen and (max-width: 335px) {
+    #input-groupstudent {
+        margin-left: 100px;
+        /* width: 170px; */
+    }
+}
+@media screen and (max-width: 320px) {
+    #input-groupstudent {
+        /* margin-left: 100px; */
+        width: 160px;
+    }
+}
+@media screen and (max-width: 308px) {
+    #input-groupstudent {
+        width: 150px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #input-groupstudent {
+        width: 140px;
+    }
+}
+@media screen and (max-width: 290px) {
+    #input-groupstudent {
+        margin-left: 90px;
+    }
+}
+
 
 
 /*
@@ -444,6 +529,12 @@
         font-size: 10px;
     }
 }
+@media screen and (max-width:290px) {
+    #btn-uploade-grades {
+        margin-left: 4px;
+    }
+}
+
 
 
 /*
@@ -481,42 +572,79 @@
 
 /* Responsive Styles */
 
+@media screen and (max-width: 1170px) {
+    #btn-groups-students {
+        margin-left: 68%;
+    }
+}
+
 @media screen and (max-width: 1100px) {
     #btn-groups-students {
-        margin-left: 60%;
+        margin-left: 65%;
     }
 }
 
 @media screen and (max-width:992px) {
     #btn-groups-students {
-        margin-left: 64%;
+        margin-left: 63%;
     }
 }
 
 @media screen and (max-width:930px) {
     #btn-groups-students {
-        margin-left: 59%;
+        margin-left: 61%;
     }
 }
-
+@media screen and (max-width:900px) {
+    #btn-groups-students {
+        margin-left: 60%;
+    }
+}
+@media screen and (max-width:860px) {
+    #btn-groups-students {
+        margin-left: 58%;
+    }
+}
 @media screen and (max-width:826px) {
     #btn-groups-students {
+        margin-left: 56%;
+    }
+}
+@media screen and (max-width:800px) {
+    #btn-groups-students {
         margin-left: 55%;
+        width: 100px;
     }
 }
 
 @media (max-width: 768px) {
     #btn-groups-students {
         font-size: 10px;
-        width: 100px;
+        /* width: 100px; */
+        margin-left: 54%;
+    }
+}
+@media screen and (max-width:750px) {
+    #btn-groups-students {
+        margin-left: 54%;
+    }
+}
+@media screen and (max-width:730px) {
+    #btn-groups-students {
+        margin-left: 53%;
     }
 }
 
 @media (max-width: 700px) {
     #btn-groups-students {
-        font-size: 10px;
-        width: 100px;
-        margin-left: 70%;
+        /* width: 100px; */
+        margin-left: 72%;
+    }
+}
+@media (max-width: 610px) {
+    #btn-groups-students {
+        /* margin-left: 70%; */
+        width: 90px;
     }
 }
 
@@ -592,6 +720,37 @@
         margin-left: 57%;
     }
 }
+@media screen and (max-width: 360px) {
+    #btn-studentsdropdown {
+        margin-left: 55%;
+        font-size: 10px;
+        width: 80px;
+        padding-right: 5px;
+    }
+}
+@media screen and (max-width: 344px) {
+    #btn-studentsdropdown {
+        margin-left: 56%;
+    }
+}
+@media screen and (max-width: 320px) {
+    #btn-studentsdropdown {
+        margin-left: 57%;
+        width: 65px;
+        font-size: 9px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #btn-studentsdropdown {
+        margin-left: 55%;
+    }
+}
+@media screen and (max-width: 290px) {
+    #btn-studentsdropdown {
+        width: 60px;  
+        margin-left: 55.5%;
+      }
+}
 
 #btn-groups-student2 {
     display: none;
@@ -614,6 +773,34 @@
         color: black;
     }
 }
+@media screen and (max-width: 360px) {
+    #btn-groups-student2 {
+        margin-left: 27%;
+        font-size: 10px;
+        width: 85px;
+        padding-right: 5px;
+    }
+}
+@media screen and (max-width: 344px) {
+    #btn-groups-student2 {
+        margin-left: 26%;
+    }
+}
+@media screen and (max-width: 320px) {
+    #btn-groups-student2 {
+        /* margin-left: 24%; */
+        font-size: 9px;
+        width: 75px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #btn-groups-student2 {
+        /* margin-left: 26%; */
+        font-size: 9px;
+        width: 75px;
+    }
+}
+
 
 .table {
     margin-top: 21px;

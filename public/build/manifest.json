@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-ad87fd7d.css",
+    "file": "assets/app-d841b6e6.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -27,6 +27,10 @@
   "resources/images/allocation (1).png": {
     "file": "assets/allocation (1)-e7be0c63.png",
     "src": "resources/images/allocation (1).png"
+  },
+  "resources/images/bar-chart (4).png": {
+    "file": "assets/bar-chart (4)-074be65a.png",
+    "src": "resources/images/bar-chart (4).png"
   },
   "resources/images/bell.png": {
     "file": "assets/bell-77314ab4.png",
@@ -68,9 +72,25 @@
     "file": "assets/dashboard (1)-6486eb66.png",
     "src": "resources/images/dashboard (1).png"
   },
+  "resources/images/degrees.png": {
+    "file": "assets/degrees-6312102a.png",
+    "src": "resources/images/degrees.png"
+  },
   "resources/images/delete (1).png": {
     "file": "assets/delete (1)-58b1e793.png",
     "src": "resources/images/delete (1).png"
+  },
+  "resources/images/digital.png": {
+    "file": "assets/digital-f66cf649.png",
+    "src": "resources/images/digital.png"
+  },
+  "resources/images/download-file.png": {
+    "file": "assets/download-file-6d6caf60.png",
+    "src": "resources/images/download-file.png"
+  },
+  "resources/images/ecommerce-website.png": {
+    "file": "assets/ecommerce-website-0478dbb4.png",
+    "src": "resources/images/ecommerce-website.png"
   },
   "resources/images/edit.png": {
     "file": "assets/edit-edd1fca1.png",
@@ -112,6 +132,14 @@
     "file": "assets/paper-plane-876c1872.png",
     "src": "resources/images/paper-plane.png"
   },
+  "resources/images/permissions-Subject.png": {
+    "file": "assets/permissions-Subject-2e2e216f.png",
+    "src": "resources/images/permissions-Subject.png"
+  },
+  "resources/images/permissions.png": {
+    "file": "assets/permissions-27c05360.png",
+    "src": "resources/images/permissions.png"
+  },
   "resources/images/plus.png": {
     "file": "assets/plus-a9290ee4.png",
     "src": "resources/images/plus.png"
@@ -147,6 +175,10 @@
   "resources/images/students.png": {
     "file": "assets/students-f245b45f.png",
     "src": "resources/images/students.png"
+  },
+  "resources/images/studstudyingScheule.png": {
+    "file": "assets/studstudyingScheule-c5739303.png",
+    "src": "resources/images/studstudyingScheule.png"
   },
   "resources/images/studyingScheule.png": {
     "file": "assets/studyingScheule-4ce10d05.png",

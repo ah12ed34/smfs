@@ -23,4 +23,9 @@ class Level extends Model
     {
         return $this->belongsTo(Department::class);
     }
+
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class, 'subjects_levels', 'level_id', 'subject_id');
+    }
 }

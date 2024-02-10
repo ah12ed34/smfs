@@ -16,6 +16,12 @@ class PermissionController extends Controller
         return view('academic.permissions.permissions');
     }
 
+    public function indexpermissSubject()
+    {
+        //صلاحيات المادة
+        return view('academic.permissions.permissionsSubject');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

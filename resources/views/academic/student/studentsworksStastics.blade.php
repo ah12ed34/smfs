@@ -15,10 +15,8 @@
                   <button id="btn-studentsNavbar" class="btn btn-light" onclick="location.href='{{route('students-persents')}}'"><label class="proNavbartext"> الحضور والغياب </label></button>
         <button id="btn-studentsNavbar" class="btn btn-light"  onclick="location.href='{{route('students')}}'"><label class="proNavbartext"> قائمة الطلاب</label></button>
     </div>
-    <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
-        <label class="bottomNavbartext">القائمة</label>
-        </button> -->
 
+    
     <button id="btn-studentsdropdown" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
     
         <div class="textstudentsdrop">     الإحصائيات</div>
@@ -157,6 +155,7 @@
         <div class="card" id="card-stastic-2" style="max-height:100%;"></div>
         <div class="card" id="card-stastic-2" style="max-height:60%;"></div>
         <br>
+        <!-- <div>1&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 4 5 6 7 8 9 10 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div> -->
         <label id="labelstatisc-2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</label>
         <label id="labelstatisc-2"> &nbsp;&nbsp;2 </label>
         <label id="labelstatisc-2">&nbsp;3&nbsp; </label>

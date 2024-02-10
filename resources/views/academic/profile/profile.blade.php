@@ -15,6 +15,30 @@
         </div>
         <button type="submit" class="btn btn-primary " id="btn-edit-profie" data-toggle="modal" data-target="#myModalEditeProfile">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
         <button type="submit" class="btn btn-primary " id="btn-change-password" data-toggle="modal" data-target="#myModalchangepassword">تغير كلمة السر</button>
+        
+        
+        <div id="myModalchangepassword" class="fixed inset-0 z-50 overflow-y-auto"  role="dialog">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+              <div class="relative w-full max-w-md p-6 my-8 shadow-2xl rounded-2xl bg-white sm:p-10">
+                <div class="absolute top-0 right-0 pt-4 pr-4">
+                  <button type="button" class="bg-transparent text-2xl font-bold leading-none outline-none focus:outline-none" aria-label="Close" onclick="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900" >
+                  Modal Title
+                </h3>
+                <div class="mt-2">
+                  <p>This is the content of the modal.</p>
+                </div>
+                <div class="mt-6">
+                  <button type="button" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                    Action
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
 
 
@@ -73,11 +97,12 @@
 
 </div>
 
+  
 
 
 <!-- the Modal changepassword -->
 
-<div class="modal fade" id="myModalchangepassword">
+<div class="modal fade" id="y">
 <div class="modal-dialog">
     <div class="modal-content" id="modal-content" style="height:250px;">
 
@@ -179,3 +204,4 @@
 
 
 @endsection
+

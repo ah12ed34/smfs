@@ -179,6 +179,11 @@
             display: none;
         }
     }
+    @media screen and (max-width: 304px) {
+        .btn-bottomNavbar { width: 60px;}
+        /* .bottombaricon {} */
+    }
+    
     /* .hdr-subject {
     background-color: rgb(255, 255, 255);
     height: 50px;
@@ -237,7 +242,7 @@ position: fixed;
         padding-right: 10px;
     }
     
-    .cards-child {
+    /* .cards-child {
         background-color: white;
         width: 170px;
         height: 150px;
@@ -264,6 +269,128 @@ position: fixed;
         font-size: 16px;
         font-weight: 100;
         text-align: center;
+    } */
+
+    @media screen and (max-width: 1274px) {
+    #container-cards-subject{
+    padding-right:3%;
+    }
+}
+    @media screen and (max-width: 992px) {
+    #container-cards-subject{
+    padding-right:0.5%;
+    padding-left:0%;
+    }
+    }
+    @media screen and (max-width: 914px) {
+    #container-cards-subject{
+        padding-right:2%;
+        /* padding-left:0%; */
+    }
+}
+    /* @media screen and (max-width: 778px) {
+    #container-cards-subject{
+    
+]    margin-right:3%;
+    }
+} */
+     @media screen and (max-width: 768px) {
+        #container-cards-subject{
+        padding-left:0%;
+        /* margin-right:6.6%; */
+        padding-right:1%;
+        }
+    }
+   /* @media screen and (max-width: 700px) {
+        #container-cards-subject{
+         padding-left:1%;
+        padding-right:0.5%; 
+        margin-right:9.5%;
+        align-items:center;
+        }
+    } */
+    #cards-child-subject {
+        background-color: white;
+        width: 170px;
+        height: 150px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+        margin-top: 20px;
+        margin-left: 5px;
+        display: inline-block;
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -ms-border-radius: 7px;
+        -o-border-radius: 7px;
+    }
+    
+    .cards-child-child {
+        width: 170px;
+        height: 30px;
+        background-color: #227DF9;
+        color: white;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        /* margin-top: 20px; */
+        font-size: 16px;
+        font-weight: 100;
+        text-align: center;
+        bottom: 0%;
+        position: absolute;
+        margin-left: 0px;
+        margin-right: 0px;
+    }      
+    /* @media screen and (max-width: 1274px) {
+        #cards-child-subject {
+            left:0%;
+            }
+        }
+        @media screen and (max-width: 1265px) {
+            #cards-child-subject {
+                right:5%;
+                }
+            } */
+    @media screen and (max-width: 914px) {
+        #cards-child-subject {
+            margin-left: 20px;
+             /* padding-left:0%; */
+        }
+    } 
+    @media screen and (max-width: 778px) {
+        #cards-child-subject {
+            margin-left: 5px;
+             /* padding-left:0%; */
+        }
+    }        
+    @media screen and (max-width: 354px) {
+    #cards-child-subject {
+            width: 150px;
+            padding-top: 10px;
+        }
+        .cards-child-child {
+            width: 150px;
+            margin-top: 20px;
+        }
+        .imgs-boards{
+            width: 80px;
+        }
+    }
+    @media screen and (max-width: 314px) {
+    #cards-child-subject {
+            width: 140px;
+        }
+        .cards-child-child {
+            width: 140px;
+        }
+    }
+    @media screen and (max-width: 295px) {
+        #cards-child-subject {
+            width: 130px;
+        }
+        .cards-child-child {
+            width: 130px;
+        }
     }
     
     @media screen and (max-width: 700px) {
@@ -280,7 +407,7 @@ position: fixed;
     
     @media screen and (max-width: 550px) {
         .dep-sub-name {
-            width: 70px;
+            width: 60px;
             font-size: 9px;
             height: 25px;
             padding-left: 10px;
@@ -356,4 +483,35 @@ position: fixed;
         /* margin-left: 100%; */
         right: 0%;
         margin-right: 2%;
+    }
+     /* main css students */
+        
+     .dep-name {
+        width: 80px;
+        background-color: white;
+        font-size: 11px;
+        height: 35px;
+        margin-top: 9px;
+        margin-left: 5px;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        border: none;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        padding-top: 10px;
+        padding-left: 11px;
+        padding-right: 10px;
+    }
+    
+    @media screen and (max-width: 550px) {
+        .dep-name {
+            width: 62px;
+            font-size: 9px;
+            height: 25px;
+            padding-left: 7px;
+            margin-top: 15px;
+            padding-top: 5px;
+        }
     }

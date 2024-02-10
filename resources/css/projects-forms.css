@@ -47,6 +47,15 @@
         padding-left: 4px;
     }
 }
+@media screen and (max-width: 330px) {
+    .Addbtn-projctsNavbar {
+        width: 75px;
+        height: 28px;
+        font-size: 10px;
+        padding: 5px 3px;
+        padding-left: 2px;
+    }
+}
 
 
 /* #button-hdr2 {
@@ -249,14 +258,6 @@
     top: 115px;
 }
 
-#input-group-proj {
-    width: 200px;
-    margin-left: 500px;
-    height: 30px;
-    box-shadow: 2px rgb(72, 72, 72);
-    position: fixed;
-}
-
 .form-control {
     height: 33px;
 }
@@ -265,24 +266,65 @@
     height: 33px;
     box-shadow: 1px rgb(72, 72, 72);
 }
-
-@media screen and (max-width: 1000px) {
+#input-group-proj {
+    width: 300px;
+    margin-left: 470px;
+    height: 30px;
+    box-shadow: 2px rgb(72, 72, 72);
+    position: fixed;
+}
+@media screen and (max-width: 1250px) {
     #input-group-proj {
-        margin-left: 280px;
+        margin-left: 400px;
     }
 }
-
-@media screen and (max-width: 726px) {
+@media screen and (max-width: 1100px) {
+    #input-group-proj {
+        margin-left: 340px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    #input-group-proj {
+        margin-left: 290px;
+    }
+}
+@media screen and (max-width: 950px) {
+    #input-group-proj {
+        margin-left: 260px;
+    }
+}
+@media screen and (max-width: 865px) {
     #input-group-proj {
         margin-left: 230px;
+        width: 250px;
+    }
+}
+@media screen and (max-width: 770px) {
+    #input-group-proj {
+        margin-left: 210px;
+    }
+}
+@media screen and (max-width: 720px) {
+    #input-group-proj {
+        margin-left: 190px;
+    }
+}
+@media screen and (max-width: 700px) {
+    #input-group-proj {
+        margin-left: 230px;
+    }
+}
+@media screen and (max-width: 600px) {
+    #input-group-proj {
+        margin-left: 200px;
     }
 }
 
 @media screen and (max-width: 550px) {
     #input-group-proj {
-        width: 170px;
-        margin-top: 1px;
-        margin-left: 140px;
+        width: 200px;
+        margin-top: 4px;
+        margin-left: 180px;
     }
     .form-control {
         height: 28px;
@@ -295,20 +337,45 @@
         width: 40px;
     }
 }
-
+@media screen and (max-width: 490px) {
+    #input-group-proj {
+        width: 180px;
+        margin-left: 160px;
+    }
+}
 @media screen and (max-width: 450px) {
     #input-group-proj {
-        width: 170px;
-        margin-top: 1px;
+        width: 180px;
+        margin-left: 150px;
+    }
+}
+@media screen and (max-width: 420px) {
+    #input-group-proj {
+        width: 180px;
+        margin-left: 130px;
+    }
+}
+@media screen and (max-width: 371px) {
+    #input-group-proj {
+        width: 150px;
         margin-left: 120px;
     }
 }
-
-@media screen and (max-width: 371px) {
-    #input-group {
-        width: 110px;
-        margin-top: 1px;
+@media screen and (max-width: 325px) {
+    #input-group-proj {
+        width: 150px;
         margin-left: 100px;
+    }
+}
+@media screen and (max-width: 310px) {
+    #input-group-proj {
+        width: 140px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #input-group-proj {
+        width: 130px;
+        margin-left: 95px;
     }
 }
 
@@ -813,4 +880,134 @@
 
 .detils-name {
     margin-top: -8px;
+}
+
+
+/* main css students */
+
+/* @media screen and (max-width: 420px) {
+    #button-hdr2 {
+        margin-left: 40px;
+        width: 105px;
+        text-align: right;
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 410px) {
+    #button-hdr2 {
+        margin-left: 30px;
+    }
+} */
+#input-group-students-search {
+width: 250px;
+margin-left: 36%;
+height: 30px;
+box-shadow: 2px rgb(72, 72, 72);
+background-color: #ffffff;
+color: black;
+position: relative;
+}
+
+@media screen and (max-width: 1000px) {
+#input-group-students-search {
+    margin-left: 300px;
+}
+}
+@media screen and (max-width: 950px) {
+#input-group-students-search {
+    margin-left: 270px;
+}
+}
+@media screen and (max-width: 870px) {
+#input-group-students-search {
+    margin-left: 230px;
+}
+}
+@media screen and (max-width: 800px) {
+#input-group-students-search {
+    margin-left: 220px;
+}
+}
+@media screen and (max-width: 740px) {
+#input-group-students-search {
+    margin-left: 180px;
+}
+}
+@media screen and (max-width: 700px) {
+#input-group-students-search {
+    margin-left: 240px;
+}
+}
+@media screen and (max-width: 650px) {
+#input-group-students-search {
+    margin-left: 210px;
+}
+}
+@media screen and (max-width: 600px) {
+#input-group-students-search {
+    margin-left: 190px;
+}
+}
+@media screen and (max-width: 575px) {
+#input-group-students-search {
+    margin-left: 170px;
+    /* margin-top: 5px; */
+}
+}
+@media screen and (max-width: 550px) {
+#input-group-students-search {
+    /* margin-left: 160px; */
+    margin-top: 5px;
+
+}
+}
+@media screen and (max-width: 515px) {
+#input-group-students-search {
+    margin-left: 140px;
+}
+}
+@media screen and (max-width: 480px) {
+#input-group-students-search {
+    margin-left: 140px;
+    width:180px;
+}
+}
+@media screen and (max-width: 460px) {
+#input-group-students-search {
+    margin-left: 130px;
+}
+}
+@media screen and (max-width: 430px) {
+    #input-group-students-search {
+        margin-left: 115px;
+    }
+}
+@media screen and (max-width: 400px) {
+    #input-group-students-search {
+        margin-left: 110px;
+    }
+}
+@media screen and (max-width: 380px) {
+#input-group-students-search {
+    width: 180px;
+    margin-left: 100px;
+}
+}
+@media screen and (max-width: 360px) {
+#input-group-students-search {
+    width: 160px;
+    margin-left: 100px;
+}
+}
+@media screen and (max-width: 330px) {
+#input-group-students-search {
+    width: 160px;
+    margin-left: 80px;
+}
+}
+@media screen and (max-width: 300px) {
+#input-group-students-search {
+    width: 150px;
+    margin-left: 80px;
+}
 }

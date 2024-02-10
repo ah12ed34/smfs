@@ -193,3 +193,70 @@
         margin-left: 80px;
     }
 }
+/* student main css grades */
+
+#alltotal-degrees{
+    width:20%;
+    height:50px;
+    font-size:10px;
+    font-weight:normal ;
+}
+#avarage-rate-degrees{ 
+    width:20%;
+    height:50px;
+    font-size:10px;
+    font-weight:normal ;
+    }
+#prancipation-as-estimation-degrees{ 
+    width:20%;
+    height:50px;
+    font-size:10px;
+    font-weight:normal ;
+}
+@media screen and (max-width:440px) {
+    #alltotal-degrees{
+        width:22%;
+    }
+    #avarage-rate-degrees{ 
+        width:22%;
+    }
+    #prancipation-as-estimation-degrees{ 
+        width:22%;
+    }
+}
+@media screen and (max-width:410px) {
+    #alltotal-degrees{
+        width:24%;
+    }
+    #avarage-rate-degrees{ 
+        width:24%;
+    }
+    #prancipation-as-estimation-degrees{ 
+        width:24%;
+    }
+}
+@media screen and (max-width:360px) {
+    #alltotal-degrees{
+        width:27%;
+    }
+    #avarage-rate-degrees{ 
+        width:27%;
+    }
+    #prancipation-as-estimation-degrees{ 
+        width:27%;
+    }
+}
+@media screen and (max-width:329px) {
+    #alltotal-degrees{
+        width:28%;
+        margin-left: 1%;
+    }
+    #avarage-rate-degrees{ 
+        width:28%;
+        margin-left: 1%;
+    }
+    #prancipation-as-estimation-degrees{ 
+        width:28%;
+        margin-left: 1%;
+    }
+}

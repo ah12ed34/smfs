@@ -138,5 +138,17 @@ return[
     'yes' => 'نعم',
     'per_page' => 'عدد الصفوف في الصفحة',
     'search' => 'بحث',
+    'logout' => 'تسجيل خروج',
+    'login' => 'تسجيل الدخول',
+    'register' => 'تسجيل',
+    'remember_me' => 'تذكرنى',
+    'forgot_password' => 'هل نسيت كلمة المرور؟',
+    'reset_password' => 'إعادة تعيين كلمة المرور',
+    'send_password_reset_link' => 'إرسال رابط إعادة تعيين كلمة المرور',
+    'verify_your_email_address' => 'تحقق من عنوان بريدك الإلكتروني',
+    'verification_link_sent' => 'تم إرسال رابط التحقق إلى عنوان بريدك الإلكتروني.',
+    'check_verification_link' => 'قبل المتابعة ، يرجى التحقق من رابط التحقق في بريدك الإلكتروني.',
+    'if_did_not_receive_email' => 'إذا لم تتلق البريد الإلكتروني',
+    'click_here_to_request_another' => 'انقر هنا لطلب آخر',
 
 ];

@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('general.login') }}</div>
+                <div class="card-header">{{ __("general.login") }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="username" class="col-md-4 col-form-label text-md-end">{{ __('general.userormail') }}</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-end">{{ __("general.userormail") }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="text" class="form-control @if($errors->has('email') || $errors->has('username')) is-invalid @endif" name="username" value="{{ old('email') ?: old('username') }}" required autocomplete="username" autofocus>
@@ -47,7 +47,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('general.remember_me') }}
+                                        {{ __("general.remember_me") }}
                                     </label>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('general.forgot_password') }}
+                                        {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
                             </div>

@@ -45,7 +45,7 @@
 @section("content")
 
 <div class="container" style="padding-top:40px; padding-bottom:20px;">
-
+    <div class="card" id="contents-book">
         <div class="responsive"></div>
 
 
@@ -55,7 +55,7 @@
             <div id="card-studyingbooks" class="card">
 
                 <div id="card-studyingbooks-child">
-                    <img src="{{Vite::image("chapter.png")}}" class="chapters" width="210px">
+                    <img src="{{Vite::image("chapter.png")}}"  class="chapters" >
 
                     <!-- <div id="card-studyingbooks-child-2"> -->
                     <label class="texttitlechapter">Lecture 1</label>
@@ -78,7 +78,7 @@
 
             <div id="card-studyingbooks" class="card">
                 <div id="card-studyingbooks-child">
-                    <img src="{{Vite::image("chapter (2).png")}}" class="chapters" width="210px">
+                    <img src="{{Vite::image("chapter (2).png")}}" class="chapters" >
 
                     <!-- <div id="card-studyingbooks-child-2"> -->
                     <label class="texttitlechapter">Lecture 2
@@ -103,7 +103,7 @@
 
             <div id="card-studyingbooks" class="card">
                 <div id="card-studyingbooks-child">
-                    <img src="{{Vite::image("chapter 3.png")}}" class="chapters" width="210px">
+                    <img src="{{Vite::image("chapter 3.png")}}" class="chapters" >
                     <!-- <div id="card-studyingbooks-child-2"> -->
                     <label class="texttitlechapter">Lecture 3
                         System Models 2
@@ -130,7 +130,7 @@
 
             <div id="card-studyingbooks" class="card">
                 <div id="card-studyingbooks-child">
-                    <img src="{{Vite::image("chapter 4.png")}}" class="chapters" width="210px">
+                    <img src="{{Vite::image("chapter 4.png")}}" class="chapters" >
 
                     <!-- <div id="card-studyingbooks-child-2"> -->
                     <label class="texttitlechapter">Lecture 4
@@ -155,7 +155,7 @@
             </div>
         </div>
     </div>
-
+</div>
 
     <!-- The ModalEdite -->
     <div class="modal fade" id="myModaledite">

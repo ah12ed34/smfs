@@ -12,12 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subjects', function (Blueprint $table) {
-            $table->id();
-            $table->string("name")->unique();
-            $table->foreignId("level_id")->constrainted("levels");
-            $table->integer("semester")->default(1);
+            $table->string("id")->primary();
+            $table->string("name");
             $table->string('image')->nullable();
-            $table->boolean('has_practical')->default(false);
             $table->timestamps();
         });
     }

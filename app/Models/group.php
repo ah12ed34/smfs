@@ -19,7 +19,7 @@ class group extends Model
 
     public function subjects()
     {
-        return $this->belongsToMany(groupSubject::class, 'group_subjects_pivot');
+        return $this->belongsToMany(Subject::class, 'group_subjects', 'group_id', 'subject_id');
     }
 
     public function students()
@@ -32,7 +32,7 @@ class group extends Model
         return $this->belongsTo(Level::class);
     }
 
-    public function parent()
+    public function group()
     {
         return $this->belongsTo(group::class, 'group_id');
     }

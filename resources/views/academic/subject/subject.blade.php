@@ -11,33 +11,69 @@
 
 @section("content")
 
-<div  style="padding-bottom:30px; padding-left:-5px;padding-left:-5px;">
+<div class="container" id="container-cards-subject"  style="padding-bottom:30px; padding-left:-5px;padding-left:-5px;">
 
     {{-- <a href="{{route("sendnotification")}}">    --}}
-        <div class="cards-child" onclick="location.href='{{route('sendnotification')}}'"><img src="{{Vite::image("paper-plane.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
+        {{-- <div class="cards-child" onclick="location.href='{{route('sendnotification')}}'"><img src="{{Vite::image("paper-plane.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">الإشعارات</div>
-    </div>
+    </div> --}}
 
     {{-- <a href="{{route("studyingbooks")}}">  --}}
-        <div class="cards-child" onclick="location.href='{{route('studyingbooks')}}'"><img src="{{Vite::image("open-book.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
+        {{-- <div class="cards-child" onclick="location.href='{{route('studyingbooks')}}'"><img src="{{Vite::image("open-book.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">المقرر الدراسي</div>
-    </div>
+    </div> --}}
 
     {{-- <a href="{{route("students")}}"> --}}
-    <div class="cards-child" onclick="location.href='{{route('students')}}'"><img src="{{Vite::image("students.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
+    {{-- <div class="cards-child" onclick="location.href='{{route('students')}}'"><img src="{{Vite::image("students.png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">الطلاب</div>
-    </div>
+    </div> --}}
 
     {{-- <a href="{{route("assignment")}}"> --}}
-    <div class="cards-child" onclick="location.href='{{route('assignment')}}'"><img src="{{Vite::image("homework (3).png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
+    {{-- <div class="cards-child" onclick="location.href='{{route('assignment')}}'"><img src="{{Vite::image("homework (3).png")}}" class="" width="100px" style="margin-left: -6px; margin-top:10px;">
         <div class="cards-child-child">التكاليف</div>
-    </div>
+    </div> --}}
 
     {{-- <a href="{{route("projects")}}"> --}}
-    <div class="cards-child" onclick="location.href='{{route('projects')}}'"><img src="{{Vite::image("project-management.png")}}" class="" width="100px" style="margin-left: -18px; margin-top:10px;">
+    {{-- <div class="cards-child" onclick="location.href='{{route('projects')}}'"><img src="{{Vite::image("project-management.png")}}" class="" width="100px" style="margin-left: -18px; margin-top:10px;">
         <div class="cards-child-child">المشاريع</div>
-    </div>
- 
+    </div> --}}
+
+    {{-- <a href="{{route("projects")}}"> --}}
+        <div class="card" id="cards-child-subject" onclick="location.href='{{route('permissionsSubject')}}'"><img src="{{Vite::image("permissions-Subject.png")}}" class="imgs-boards" width="100px" style="margin-left: -18px; margin-top:10px;" >
+            <div class="cards-child-child">الصلاحيات
+            </div>
+        </div>
+
+    {{-- <a href="{{route("sendnotification")}}">    --}}
+        <div class="card" id="cards-child-subject" onclick="location.href='{{route('sendnotification')}}'"><img src="{{Vite::image("paper-plane.png")}}" class="imgs-boards" width="100px" style="margin-left: -6px; margin-top:10px;">
+            <div class="cards-child-child">الإشعارات
+            </div>
+        </div>
+    
+        {{-- <a href="{{route("studyingbooks")}}">  --}}
+            <div class="card" id="cards-child-subject" onclick="location.href='{{route('studyingbooks')}}'"><img src="{{Vite::image("open-book.png")}}" class="imgs-boards" width="100px" style="margin-left: -6px; margin-top:10px;" >
+            <div class="cards-child-child">المقرر الدراسي
+            </div>
+        </div>
+    
+        {{-- <a href="{{route("students")}}"> --}}
+        <div class="card" id="cards-child-subject" onclick="location.href='{{route('students')}}'"><img src="{{Vite::image("students.png")}}" class="imgs-boards" width="100px" style="margin-left: -6px; margin-top:10px;" >
+            <div class="cards-child-child">الطلاب
+            </div>
+        </div>
+    
+        {{-- <a href="{{route("assignment")}}"> --}}
+        <div class="card" id="cards-child-subject" onclick="location.href='{{route('assignment')}}'"><img src="{{Vite::image("homework (3).png")}}" class="imgs-boards" width="100px" style="margin-left: -6px; margin-top:10px;" >
+            <div class="cards-child-child">التكاليف
+            </div>
+        </div>
+    
+        {{-- <a href="{{route("projects")}}"> --}}
+        <div class="card" id="cards-child-subject" onclick="location.href='{{route('projects')}}'"><img src="{{Vite::image("project-management.png")}}" class="imgs-boards" width="100px" style="margin-left: -18px; margin-top:10px;" >
+            <div class="cards-child-child">المشاريع</div>
+        </div>
+
+
 
 
 </div>
