@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AddStudent;
 use App\Mail\MyEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -29,14 +30,14 @@ use Illuminate\Support\Facades\Auth;
     Route::prefix('/student')->group(function () {
         Route::get('/', 'StudentController@index')->name('student.index');
         Route::prefix('/subject')->group(function () {
-            
+
 
         });
         Route::prefix('/project')->group(function () {
-           
+
         });
         Route::prefix('/assignment')->group(function () {
-           
+
         });
     })->middleware('auth');
     Route::get('admin/dashboard', function () {
@@ -95,22 +96,29 @@ use Illuminate\Support\Facades\Auth;
         });
 
         Route::prefix('project')->group(function () {
-            
+
         });
 
         Route::prefix('assignment')->group(function () {
-            
+
         });
         Route::prefix('group')->group(function () {
-            
+            Route::get('/', 'GroupController@index')->name('group');
+            Route::get('/create', 'GroupController@create')->name('group.create')->middleware('perm:addgroup');
+            Route::post('/store', 'GroupController@store')->name('group.store')->middleware('perm:addgroup');
+            Route::get('/add-student/{group}',
+            'GroupController@addStudent'
+            #AddStudent::class
+            )->name('group.add-student');
+            Route::post('/add-student/{group}', 'GroupController@storeStudent')->name('group.store-student');
         });
         Route::prefix('groupSubject')->group(function () {
-            
+
         });
-       
+
         Route::get('/create', 'AcademicController@create')->middleware('perm:addacademic')->name('academic.create');
         Route::post('/store', 'AcademicController@store')->middleware('perm:addacademic')->name('academic.store');
-        
+
         Route::group(['middleware' => ['role:academic']], function () {
             route::get('/', 'AcademicController@index')->name('academic.home');
             Route::prefix("subject")->group(function(){

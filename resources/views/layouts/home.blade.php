@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,26 +8,38 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <title>@yield('title',"CS")</title>
-        @livewireStyles
+
         @vite(['resources/sass/app.scss','resources/css/app.css'])
         @yield('style')
+        @livewireStyles
+        @stack('css')
+        <style>
+            .pagination {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #E9EEEF;
+            }
+        </style>
     </head>
     <body style=" background-color: #E9EEEF;">
-        
+
     <div class="header">
         <div class="dropdown">
             @guest
-                
+
                 <button id="button-header" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style=" background-color:rgb(0, 0, 255);  border: 0px;">
-                    <div class="user-icon"><img src="{{ Vite::asset('resources/images/user (4).png') }}" width="29px"> <div class="user">اسم المستخدم</div></div> 
+                    <div class="user-icon"><img src="{{ Vite::asset('resources/images/user (4).png') }}" width="29px"> <div class="user">اسم المستخدم</div></div>
                 </button>
             @else
                 <button id="button-header" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style=" background-color:rgb(0, 0, 255);  border: 0px;">
-                    <div class="user-icon"><img src="{{ Vite::asset('resources/images/user (4).png') }}" width="29px"> <div class="user">{{ Auth::user()->name." ".Auth::user()->last_name}}</div></div> 
+                    <div class="user-icon"><img src="{{ Vite::asset('resources/images/user (4).png') }}" width="29px"> <div class="user">{{ Auth::user()->name." ".Auth::user()->last_name}}</div></div>
                 </button>
             @endguest
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{{ route('login') }}">الحساب<img src="{{ Vite::asset("resources/images/user (10).png")}}" class="img10" width="26px"></a>
             <div class="dropdown-menu" >
-                <a class="dropdown-item" onclick="location.href='{{route('profile')}}'">الحساب<img src="{{ Vite::asset("resources/images/user (10).png")}}" class="img10" width="26px"></a> 
+                <a class="dropdown-item" onclick="location.href='{{route('profile')}}'">الحساب<img src="{{ Vite::asset("resources/images/user (10).png")}}" class="img10" width="26px"></a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">{{__('layout.logout')}}<img src="{{ Vite::image('exit.png') }}" class="img10" width="24px"></a>
@@ -64,7 +76,7 @@
         </ul>
     </div>
     @show
-   
+
     <div class="content">
         @if (session()->has('success'))
         <div class="alert alert-success" role="alert">
@@ -86,9 +98,22 @@
             <strong>{{ session()->get('info') }}</strong>
         </div>
         @endif
+        @if ($errors->any())
+        <div class="alert alert-danger" role="alert" style="direction: rtl">
+            <strong>{{ __('general.error') }}</strong>
+            <ol>
+                @foreach ($errors->all() as $error)
+                @if (!$loop->first)
+                <br>
+                @endif
+                <li>{{ __($error) }}</li>
+                @endforeach
+            </ol>
+        </div>
+        @endif
 
         @yield('content')
-        
+
     </div>
 
 <!-- The Modal1 -->
@@ -98,7 +123,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header" id="modheader" style="padding-left: 45%">
-                الاشعارات 
+                الاشعارات
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -114,10 +139,10 @@
                     </div>
 
                 </div> --}}
-               
+
                 <div class="recivers-notif">
 
-                    <div class="card" id="recivers-notifi-Messages" > <div class="sender-notifi" > الادمن</div>وعليكم السلام ورحمة الله وبركاته  
+                    <div class="card" id="recivers-notifi-Messages" > <div class="sender-notifi" > الادمن</div>وعليكم السلام ورحمة الله وبركاته
                         <div class="recivin-notifi-date">
                             pm.10:24
                         </div>
@@ -154,9 +179,10 @@
         <button class="btn-bottomNavbar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
     </div>
     {{-- @vite('resources/js/app.js') --}}
-    {{-- <script src="{{ mix('js/sidebar.js') }}" defer></script> 
+    {{-- <script src="{{ mix('js/sidebar.js') }}" defer></script>
      <script src="sidebar.js"></script> --}}
     @livewireScripts
+    @stack('js')
     </body>
     @yield('script')
 </html>

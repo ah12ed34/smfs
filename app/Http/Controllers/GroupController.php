@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\groupRQ;
 use App\Models\group;
 use Illuminate\Http\Request;
+use App\Models\Department;
+use App\Models\Student;
+use App\Rules\add_students;
+use Illuminate\Support\Facades\Log;
 
 class GroupController extends Controller
 {
@@ -13,6 +18,9 @@ class GroupController extends Controller
     public function index()
     {
         //
+        $groups = group::all();
+
+        return view('academic.group.index',compact('groups'));
     }
 
     /**
@@ -21,14 +29,62 @@ class GroupController extends Controller
     public function create()
     {
         //
+        $departments = Department::all();
+        if($departments->count() == 0)
+            return redirect()->route('department.create')->with('error',__('general.no_departments'));
+
+
+        return view('academic.group.create',compact('departments'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(groupRQ $request)
+    {       $data = $request->validated();
+        try {
+            if($request->hasFile('table_file'))
+            $data['schedule'] = $request->file('table_file')->store('groups/files/schedule','public');
+            else
+            $data['schedule'] = null;
+            $data['name'] = $data['groupname'];
+            $data['max_students'] = $data['maxstudent'];
+            $data['group_id'] = $data['parent_group'];
+            $data['level_id'] = $data['level'];
+            unset($data['groupname'],$data['maxstudent'],$data['parent_group'],$data['table_file'],$data['level']);
+            group::create($data);
+            return redirect()->route('group.create')->with('success',__('general.successfully_added_group'));
+        } catch (\Throwable $th) {
+            if(file_exists($data['schedule']))
+                unlink($data['schedule']);
+            dd($th);
+            Log::error($th->getMessage().' '.$th->getLine());
+            return redirect()->route('group.create')->with('error',__('general.error_added_group'));
+        }
+
+    }
+
+    public function addstudent(group $group)
     {
-        //
+
+        $students = Student::where('level_id',$group->level_id)->get();
+        return view('academic.group.addstudent',compact('group','students'));
+    }
+
+    public function storestudent(Request $request,group $group)
+    {
+        // dd($request->all());
+        $data = $request->validate([
+            'students' => ['required','array',new add_students($group)],
+        ]);
+        dd($data);
+        try {
+            $group->students()->sync($data['students']);
+            return redirect()->route('group.addstudent',$group->id)->with('success',__('general.successfully_added_student'));
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage().' '.$th->getLine());
+            return redirect()->route('group.addstudent',$group->id)->with('error',__('general.error_added_student'));
+        }
     }
 
     /**

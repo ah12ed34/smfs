@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Student extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'user_id';
     protected $fillable = [
         'user_id',
         'department_id',
@@ -18,6 +19,8 @@ class Student extends Model
         'is_graduated',
         'is_suspended',
     ];
+    protected $appends = ['name'];
+
     public static function create_student($request): bool {
         try {
             $userData = [
@@ -31,9 +34,9 @@ class Student extends Model
                 'email' => $request['email']??null,
                 'password' => $request['password'],
             ];
-    
+
             $user = User::create($userData);
-    
+
             if ($user) {
                 $studentData = [
                     'user_id' => $user->id,
@@ -43,12 +46,12 @@ class Student extends Model
                     'is_graduated' => $request['is_graduated'] ?? false,
                     'is_suspended' => $request['is_suspended'] ?? false,
                 ];
-    
+
                 $student = Student::create($studentData);
-    
+
                 return $student !== null;
             }
-    
+
             return false;
         } catch (\Exception $e) {
             // يمكنك أيضًا تسجيل الخطأ في السجل أو إعادة رميه إذا لزم الأمر
@@ -89,7 +92,11 @@ class Student extends Model
         }
         return false;
     }
-    
+
+    public function getNameAttribute() {
+        return $this->user->name . ' ' . $this->user->last_name;
+    }
+
 
 
     public function studying() {
@@ -104,7 +111,11 @@ class Student extends Model
     }
 
     public function user() {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
-     
+
+    public function groups() {
+        return $this->belongsToMany(group::class, 'group_students', 'student_id', 'group_id');
+    }
+
 }

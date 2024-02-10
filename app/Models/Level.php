@@ -13,4 +13,14 @@ class Level extends Model
         'name',
         'department_id',
     ];
+
+    public function groups()
+    {
+        return $this->hasMany(group::class);
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }
