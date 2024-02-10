@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('Role', fn (string $env) => optional(auth()->user())->hasRole($env));
         Blade::if('Admin', fn () => optional(auth()->user())->hasRole('admin'));
         Blade::if('Student', fn () => optional(auth()->user())->isStudent());
-        Blade::if('Teacher', fn () => optional(auth()->user())->isTeacher());
+        Blade::if('Teacher', fn () => optional(auth()->user())->isAcademic());
 
     }
 }
