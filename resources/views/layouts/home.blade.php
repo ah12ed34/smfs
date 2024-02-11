@@ -46,13 +46,26 @@
         {{-- <button class="btn btn-light" id="notification" type="button" data-toggle="modal" data-target="#myModalnotification" style="z-index: 100%;"><img src="{{ Vite::image('bell.png')}}" width="22px"></button> --}}
         <img src="{{ Vite::image('Group 912.png')}}" width="40px" style="float: right; margin-top:-100px; margin-right:0px;"></div>
         <div id="sidebar" class="sidebar">
-
+  @Teacher()
             <button class="button-sidebar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
-            @Teacher()
             <button class="button-sidebar" onclick="location.href='{{route('studyingschedule')}}'"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.schaudule_std')}} </button>
-            @endTeacher
             <button class="button-sidebar" onclick="location.href='{{route('archieve')}}'"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.archives')}} </label></button>
             <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
+               @endTeacher
+
+     @Student()
+            <button class="button-sidebar" onclick="location.href='{{route('student')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
+            <button class="button-sidebar" onclick="location.href='{{route('student-studyingSchedule')}}'"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.schaudule_std')}} </button>
+            <button class="button-sidebar" onclick="location.href='{{route('student-archieve')}}'"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.archives')}} </label></button>
+            <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
+               @endStudent   
+               
+               @Admin
+               <button class="button-sidebar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
+               <button class="button-sidebar" onclick="location.href='{{route('student.create')}}'" ><img src="{{ Vite::image('user (4).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.create_student')}}</label><i class="bi bi-person-add"></i> </button>
+               <button class="button-sidebar" onclick="location.href='{{route('academic.create')}}'"><img src="{{ Vite::image('user (4).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.create_academic')}} </label><i class="bi bi-person-add"></i></button>
+               <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
+               @endAdmin
         </div>
     </div>
     @section('nav')
@@ -154,10 +167,34 @@
 
 
     <div class="bottomNavbar">
+
+                {{-- <button class="button-sidebar" onclick="location.href='{{route('student')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
+            <button class="button-sidebar" onclick="location.href='{{route('student-studyingScheule')}}'"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.schaudule_std')}} </button>
+            <button class="button-sidebar" onclick="location.href='{{route('student-archieve')}}'"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.archives')}} </label></button>
+            <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
+ --}}   
+ 
+       @Teacher()
         <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
         <button class="btn-bottomNavbar"onclick="location.href='{{route('archieve')}}'"><img src="{{ Vite::image('portfolio (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
         <button class="btn-bottomNavbar" onclick="location.href='{{route('studyingschedule')}}'"><img src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الجدول </label></button>
         <button class="btn-bottomNavbar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
+     @endTeacher
+
+            @Student()    
+        <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
+        <button class="btn-bottomNavbar"onclick="location.href='{{route('student-archieve')}}'"><img src="{{ Vite::image('portfolio (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
+        <button class="btn-bottomNavbar" onclick="location.href='{{route('student-studyingSchedule')}}'"><img src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الجدول </label></button>
+        <button class="btn-bottomNavbar" onclick="location.href='{{route('student')}}'"><img src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
+        
+  @endStudent  
+
+  @Admin()    
+  <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
+  <button class="btn-bottomNavbar"onclick="location.href='{{route('academic.create')}}'"><img src="{{ Vite::image('user (4).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">إنشاءأكاديمي</label></button>
+  <button class="btn-bottomNavbar" onclick="location.href='{{route('student.create')}}'"><img src="{{ Vite::image('user (4).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">إنشاء طالب </label></button>
+  <button class="btn-bottomNavbar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
+@endAdmin
     </div>
     {{-- @vite('resources/js/app.js') --}}
     {{-- <script src="{{ mix('js/sidebar.js') }}" defer></script>

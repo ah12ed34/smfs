@@ -76,8 +76,8 @@ use Illuminate\Support\Facades\Auth;
          route::prefix('/studGrades')->group(function(){
             route::get("/", 'students\StudArchieveController@indexArchieveGrades')->name('student-grades');
          });
-         route::prefix('/studstudyingScheule')->group(function(){
-            route::get("/", 'students\StudStudyingScheuleController@index')->name('student-studyingScheule');
+         route::prefix('/studStudyingSchedule')->group(function(){
+            route::get("/", 'students\StudstudyingScheduleController@indexSchedule')->name('student-studyingSchedule');
          });
      })->middleware('auth');
     Route::get('admin/dashboard', function () {

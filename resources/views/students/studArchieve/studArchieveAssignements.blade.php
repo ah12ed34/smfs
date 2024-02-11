@@ -7,7 +7,7 @@
     <div class="dep-name">تقنة معلومات</div>
 
     <div class="dropdwon">
-        <button id="btn-studybookStudentsdropdown-levels" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+        <button id="btn-studybookStudentsdropdown-levels" style="margin-top:-30px;" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
         <div class="textstudentsdrop">      مستوى رابع | ترم ثاني</div>
        </button>
         <div id="dropdown-menulist" class="dropdown-menu" style="width: 140px;">
@@ -25,7 +25,7 @@
 
 <div class="hr3">
     <button id="spacesbtn" class="spaces" onclick="location.href='{{route('student-archieve')}}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button>
-    <div id="input-group" class="input-group mb-3">
+    <div id="input-group-students-search" class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search">
         <div class="input-group-append">
             <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
