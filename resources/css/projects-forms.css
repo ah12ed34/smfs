@@ -1011,3 +1011,9 @@ position: relative;
     margin-left: 80px;
 }
 }
+@media screen and (max-width: 280px) {
+    #input-group-students-search {
+        width: 140px;
+        margin-left: 75px;
+    }
+    }
