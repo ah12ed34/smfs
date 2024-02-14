@@ -6,6 +6,7 @@ use App\Http\Requests\subjectRequest;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use App\Models\Department;
+use App\Models\Level;
 use Illuminate\Support\Facades\Storage;
 
 class SubjectController extends Controller
@@ -84,5 +85,8 @@ class SubjectController extends Controller
     public function destroy(Subject $subject)
     {
         //
+    }
+    public function addSubjectToLevel(Level $level){
+        return view('globle.subject.level_subject',compact('level'));
     }
 }

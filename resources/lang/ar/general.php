@@ -150,5 +150,9 @@ return[
     'check_verification_link' => 'قبل المتابعة ، يرجى التحقق من رابط التحقق في بريدك الإلكتروني.',
     'if_did_not_receive_email' => 'إذا لم تتلق البريد الإلكتروني',
     'click_here_to_request_another' => 'انقر هنا لطلب آخر',
+    'semester' => 'الفصل الدراسي',
+    'practical' => 'عملي',
+    'active' => 'نشيط',
+    'code_subject' => 'رمز المادة',
 
 ];

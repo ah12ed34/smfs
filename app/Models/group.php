@@ -37,6 +37,33 @@ class group extends Model
         return $this->belongsTo(group::class, 'group_id');
     }
 
+    public function groups()
+    {
+        return $this->hasMany(group::class, 'group_id');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function ($group) {
+            $group->subjects()->detach();
+            $group->students()->detach();
+            $group->groups()->delete();
+        });
+        static::deleted(function ($group) {
+            if ($group->schedule) {
+                unlink($group->schedule);
+            }
+        });
+        static::creating(function ($group) {
+            // $group->id = uniqid();
+        });
+        static::created(function ($group) {
+
+            $group->save();
+        });
+    }
+
 
 
 }

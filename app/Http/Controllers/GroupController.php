@@ -20,7 +20,7 @@ class GroupController extends Controller
         //
         $groups = group::all();
 
-        return view('academic.group.index',compact('groups'));
+        return view('group.index',compact('groups'));
     }
 
     /**
@@ -34,7 +34,7 @@ class GroupController extends Controller
             return redirect()->route('department.create')->with('error',__('general.no_departments'));
 
 
-        return view('academic.group.create',compact('departments'));
+        return view('group.create',compact('departments'));
     }
 
     /**
@@ -68,7 +68,7 @@ class GroupController extends Controller
     {
 
         $students = Student::where('level_id',$group->level_id)->get();
-        return view('academic.group.addstudent',compact('group','students'));
+        return view('group.addstudent',compact('group','students'));
     }
 
     public function storestudent(Request $request,group $group)

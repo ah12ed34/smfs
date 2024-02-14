@@ -26,6 +26,16 @@ use Illuminate\Support\Facades\Auth;
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')
     ->middleware('auth');
+    Route::middleware(['auth'])->group(function () {
+            Route::prefix('subject')->group(function () {
+
+            });
+            Route::prefix('level')->group(function () {
+                Route::get('/addSubject/{level}','SubjectLevelController@addSubjectLevel')->name('level.addsubject');
+                Route::get('/','SubjectLevelController@index')->name('level.index');
+
+            });
+    });
     Route::group(['prefix'=>'/student','middleware' => ['role:student']], function () {
 
         route::get("/",'students\HomeController@index')->name("student");
@@ -143,6 +153,11 @@ use Illuminate\Support\Facades\Auth;
 
         });
         Route::prefix('group')->group(function () {
+            Route::get('/', 'GroupController@index')->name('group');
+            Route::get('/create', 'GroupController@create')->name('group.create')->middleware('perm:addgroup');
+            Route::post('/store', 'GroupController@store')->name('group.store')->middleware('perm:addgroup');
+            Route::get('/add-student/{group}', 'GroupController@addStudent')->name('group.add-student');
+            Route::post('/add-student/{group}', 'GroupController@storeStudent')->name('group.store-student');
 
         });
         Route::prefix('groupSubject')->group(function () {
