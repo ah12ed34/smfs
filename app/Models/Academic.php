@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 class Academic extends Model
 {
     use HasFactory;
-    
+
+    protected $primaryKey = 'user_id';
     protected $fillable = [
         'user_id',
         'department_id',
@@ -62,7 +63,7 @@ class Academic extends Model
         return $this->hasOne(User::class);
     }
     public function department() {
-        return $this->hasOne(Department::class);
+        return $this->hasOne(Department::class, 'id', 'department_id');
     }
     public function courses() {
         return $this->hasMany(groupSubject::class);

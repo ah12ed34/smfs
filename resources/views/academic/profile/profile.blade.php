@@ -11,13 +11,13 @@
     </div>
     <div class="card card-light" id="profile-card-header2">
         <div>
-            <label class="profile-user-name"> احمد الوجيه </label>
+            <label class="profile-user-name">{{ auth()->user()->name }}</label>
         </div>
         <button type="submit" class="btn btn-primary " id="btn-edit-profie" data-toggle="modal" data-target="#myModalEditeProfile">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
         <button type="submit" class="btn btn-primary " id="btn-change-password" data-toggle="modal" data-target="#myModalchangepassword">تغير كلمة السر</button>
-        
-        
-        <div id="myModalchangepassword" class="fixed inset-0 z-50 overflow-y-auto"  role="dialog">
+
+
+        {{-- <div id="myModalchangepassword" class="fixed inset-0 z-50 overflow-y-auto"  role="dialog">
             <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
               <div class="relative w-full max-w-md p-6 my-8 shadow-2xl rounded-2xl bg-white sm:p-10">
                 <div class="absolute top-0 right-0 pt-4 pr-4">
@@ -39,7 +39,7 @@
               </div>
             </div>
           </div>
-    </div>
+    </div> --}}
 
 
     <table id="profile-table" dir="rtl">
@@ -97,12 +97,12 @@
 
 </div>
 
-  
+
 
 
 <!-- the Modal changepassword -->
 
-<div class="modal fade" id="y">
+<div class="modal fade" id="myModalchangepassword">
 <div class="modal-dialog">
     <div class="modal-content" id="modal-content" style="height:250px;">
 
