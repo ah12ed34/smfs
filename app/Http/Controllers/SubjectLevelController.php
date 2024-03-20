@@ -10,12 +10,12 @@ class SubjectLevelController extends Controller
     //
     public function index()
     {
-        return view('globle.levelsubject.index');
+        return view('global.levelsubject.index');
     }
 
     public function addSubjectLevel(Level $level)
     {
-        return view('globle.levelsubject.add',[
+        return view('global.levelsubject.add',[
             'level' => $level
         ]);
     }

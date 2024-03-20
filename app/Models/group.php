@@ -42,6 +42,16 @@ class group extends Model
         return $this->hasMany(group::class, 'group_id');
     }
 
+    public function groupSubjects()
+    {
+        return $this->hasMany(groupSubject::class, 'group_id','group_id');
+    }
+
+    public function IsPractical()
+    {
+        return !$this->group_id ;
+    }
+
     public static function boot()
     {
         parent::boot();

@@ -87,6 +87,6 @@ class SubjectController extends Controller
         //
     }
     public function addSubjectToLevel(Level $level){
-        return view('globle.subject.level_subject',compact('level'));
+        return view('global.subject.level_subject',compact('level'));
     }
 }

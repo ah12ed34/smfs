@@ -4,7 +4,9 @@ use App\Mail\MyEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
-use App\Livewire\Globle\User\Profile;
+use App\Livewire\Global\GroupSubject\Index;
+use App\Livewire\Global\PracticalGroup\AddStudents;
+use App\Livewire\global\User\Profile;
 use App\Models\group;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +36,10 @@ use Illuminate\Support\Facades\Auth;
             Route::prefix('level')->group(function () {
                 Route::get('/addSubject/{level}','SubjectLevelController@addSubjectLevel')->name('level.addsubject');
                 Route::get('/','SubjectLevelController@index')->name('level.index');
+
+            });
+            Route::prefix('groupsubject')->group(function () {
+                Route::get('/{group}','\\'.Index::class)->name('groupsubject');
 
             });
             Route::get('/profile','\\'.profile::class )->name('profile');
@@ -116,7 +122,7 @@ use Illuminate\Support\Facades\Auth;
             Route::delete('/delete/{id}', 'DepartmentController@delete')->name('department.delete');
         });
         Route::prefix('level')->group(function () {
-            Route::get('/index', 'LevelController@index')->name('level.index');
+            Route::get('/index', 'LevelController@index');
             Route::get('/create', 'LevelController@create')->name('level.create')->middleware('perm:addlevel');
             Route::post('/store', 'LevelController@store')->name('level.store')->middleware('perm:addlevel');
             Route::get('/edit/{id}', 'LevelController@edit')->name('level.edit');
@@ -162,6 +168,13 @@ use Illuminate\Support\Facades\Auth;
             Route::get('/add-student/{group}', 'GroupController@addStudent')->name('group.add-student');
             Route::post('/add-student/{group}', 'GroupController@storeStudent')->name('group.store-student');
 
+        });
+        Route::prefix('practical_group')->group(function () {
+            Route::get('/{group}', 'PracticalGroupController@index')->name('practical_group');
+            Route::get('/{group}/create', 'PracticalGroupController@create')->name('practical_group.create')->middleware('perm:addpractical_group');
+            Route::post('/{group}/store', 'PracticalGroupController@store')->name('practical_group.store')->middleware('perm:addpractical_group');
+            Route::get('/{group}/add-student/{practical_group}', '\\'.AddStudents::class)->name('practical_group.add-student');
+            Route::post('/{group}/add-student/{practical_group}', 'PracticalGroupController@storeStudent')->name('practical_group.store-student');
         });
         Route::prefix('groupSubject')->group(function () {
 

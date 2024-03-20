@@ -34,7 +34,9 @@
                 <td>{{ $group->group->name??__("general.no_groups") }}</td>
                 <td>{{ $group->max_students }}</td>
                 <td>{{ $group->created_at }}</td>
-                <td><a href="{{ route('group.add-student', $group->id) }}" class="btn btn-primary">{{ __("general.add_student") }}</a></td>
+                <td><a href="{{ route('groupsubject', $group->id) }}" class="btn btn-primary">{{ __("general.subject_group") }}</a>
+                <a href="{{ route('practical_group', $group->id) }}" class="btn btn-primary">{{ __("general.practical_group") }}</a>
+                <a href="{{ route('group.add-student', $group->id) }}" class="btn btn-primary">{{ __("general.add_student") }}</a></td>
             </tr>
             @empty
             <tr>

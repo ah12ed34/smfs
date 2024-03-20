@@ -154,5 +154,9 @@ return[
     'practical' => 'عملي',
     'active' => 'نشيط',
     'code_subject' => 'رمز المادة',
+    'group_subject' => 'المواد',
+    'subject_group' => 'المواد',
+    'practical_group' => 'مجموعة العملية',
+    'choose' => 'اختر',
 
 ];

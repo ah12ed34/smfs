@@ -32,3 +32,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
+import 'jquery-ui/ui/widgets/datepicker.js';
+import 'jquery-ui/themes/base/datepicker.css';
+
+import 'jquery-ui/ui/widgets/autocomplete.js';
+import 'jquery-ui/themes/base/autocomplete.css';

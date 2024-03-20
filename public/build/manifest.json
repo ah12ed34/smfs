@@ -192,8 +192,15 @@
     "file": "assets/user (4)-2873f8cd.png",
     "src": "resources/images/user (4).png"
   },
+  "resources/js/app.css": {
+    "file": "assets/app-f29d0f2c.css",
+    "src": "resources/js/app.css"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-b2fed51a.js",
+    "css": [
+      "assets/app-f29d0f2c.css"
+    ],
+    "file": "assets/app-8c1cd99b.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

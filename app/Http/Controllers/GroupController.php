@@ -49,7 +49,7 @@ class GroupController extends Controller
             $data['schedule'] = null;
             $data['name'] = $data['groupname'];
             $data['max_students'] = $data['maxstudent'];
-            $data['group_id'] = $data['parent_group'];
+            // $data['group_id'] = $data['parent_group'];
             $data['level_id'] = $data['level'];
             unset($data['groupname'],$data['maxstudent'],$data['parent_group'],$data['table_file'],$data['level']);
             group::create($data);
