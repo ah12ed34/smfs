@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
 use App\Livewire\Global\GroupSubject\Index;
 use App\Livewire\Global\PracticalGroup\AddStudents;
-use App\Livewire\global\User\Profile;
+use App\Livewire\Global\User\Profile;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
