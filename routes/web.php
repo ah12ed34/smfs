@@ -39,7 +39,7 @@ use Illuminate\Support\Facades\Auth;
                 Route::get('/{group}','\\'.Index::class)->name('groupsubject');
 
             });
-            Route::get('/profile','\\'.Profile::class )->name('profile');
+            Route::get('profile','\\'.Profile::class )->name('profile');
             // Route::get('/profile',Profile::class )->name('profile');
     });
     Route::group(['prefix'=>'/student','middleware' => ['role:student']], function () {
