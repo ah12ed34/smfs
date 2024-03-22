@@ -1,14 +1,11 @@
 <?php
 
-use App\Mail\MyEmail;
-use Illuminate\Support\Facades\Mail;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
 use App\Livewire\Global\GroupSubject\Index;
 use App\Livewire\Global\PracticalGroup\AddStudents;
 use App\Livewire\global\User\Profile;
-use App\Models\group;
-use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +39,7 @@ use Illuminate\Support\Facades\Auth;
                 Route::get('/{group}','\\'.Index::class)->name('groupsubject');
 
             });
-            Route::get('/profile','\\'.profile::class )->name('profile');
+            Route::get('/profile','\\'.Profile::class )->name('profile');
             // Route::get('/profile',Profile::class )->name('profile');
     });
     Route::group(['prefix'=>'/student','middleware' => ['role:student']], function () {
