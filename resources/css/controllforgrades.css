@@ -1,0 +1,66 @@
+.btn.controllgrades_terms_down {
+    font-size: 12px;
+    height: 30px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-left: 50%;
+    position: fixed;
+    margin-top: 12px;
+    display: inline;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    color: black;
+    /* text-align: right; */
+    margin-right: 50%;
+}
+
+@media screen and (max-width: 850px) {
+    .btn.controllgrades_terms_down {
+        margin-left: 45%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .btn.controllgrades_terms_down {
+        margin-left: 60%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .btn.controllgrades_terms_down {
+        font-size: 10px;
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        /* margin-left: 55%; */
+        position: fixed;
+        margin-top: 10px;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        color: black;
+    }
+}
+@media screen and (max-width: 400px) {
+    .btn.controllgrades_terms_down {
+        margin-left: 58%;
+    }
+}
+.btn.uploade-grades {
+    font-size: 10px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-left: 29.5%;
+    margin-top: 12px;
+    position: fixed;
+}
+
+/* @media screen and (max-width:992px) {
+    .btn.uploade-grades {
+        top: 130px;
+    }
+} */
+
+@media screen and (max-width:550px) {
+    .btn.uploade-grades {
+        font-size: 10px;
+    }
+}

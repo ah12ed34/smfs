@@ -158,5 +158,12 @@ return[
     'subject_group' => 'المواد',
     'practical_group' => 'مجموعة العملية',
     'choose' => 'اختر',
+    'no_practical_groups' => 'لا توجد مجموعات عملية',
+    'no_practical_subjects' => 'لا توجد مواضيع عملية',
+    'student_not_found_in_department_exist_in_other_department' => 'الطالب غير موجود في القسم ولكنه موجود في قسم آخر (:department)',
+    'student_not_found_in_level_exist_in_other_level' => 'الطالب غير موجود في المستوى ولكنه موجود في مستوى آخر (:level)',
+    'student_not_found_in_group_exist_in_other_group' => 'الطالب غير موجود في المجموعة ولكنه موجود في مجموعة أخرى (:group)',
+    'student_not_found' => 'الطالب غير موجود',
+    'student_not_found_in_department' => 'الطالب غير موجود في القسم',
 
 ];

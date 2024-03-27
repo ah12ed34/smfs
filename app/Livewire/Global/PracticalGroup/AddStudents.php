@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Global\PracticalGroup;
 
-use Livewire\Component;
 use App\Models\Group;
 use App\Models\Student;
+use Livewire\Component;
 use Livewire\WithPagination;
 
 class AddStudents extends Component
@@ -32,27 +32,51 @@ class AddStudents extends Component
         // preventPageRefresh();
     }
 
+    public function addStudents(){
+        if(count($this->selectedStudents) == 0){
+            $this->practical_group->students()->detach();
+            return;
+        }
+        $this->practical_group->students()->syncWithoutDetaching($this->selectedStudents);
+        $removedStudents = $this->practical_group->students->whereNotIn('user_id',$this->selectedStudents)->pluck('user_id')->toArray();
+        $this->practical_group->students()->detach($removedStudents);
+
+    }
+
     public function getStudentsProperty()
-{
-    return Student::join('users', 'users.id', '=', 'students.user_id')
-    ->where('students.level_id',$this->group->level_id)
-    ->where(function($query){
-        $query->whereIn('user_id',function($query){
-            $query->select('student_id')->from('group_students')->where('group_id',$this->group->id);
-        });
-        $query->WhereNotIn('user_id',function($query){
-            $query->select('student_id')->from('group_students')->whereIn('group_id',function($query){
-                $query->select('id')->from('groups')->where('group_id',$this->group->id)->whereNot('id',$this->practical_group->id);
-            });
-        });
-    })
-    ->where(function($query){
-        $query->where('users.name','like','%'.$this->search.'%')
-        ->orWhere('users.email','like','%'.$this->search.'%')
-        ->orWhere('users.phone','like','%'.$this->search.'%')
-        ->orWhere('users.id','like','%'.$this->search.'%');
-    })->select('students.*','users.name','users.email')->paginate($this->perPage);
-}
+    {
+        // $query = Student::join('users', 'users.id', '=', 'students.user_id')
+        //     ->where('students.level_id', $this->group->level_id)
+        //     ->whereIn('students.user_id', function ($subquery) {
+        //         $subquery->select('student_id')
+        //             ->from('group_students')
+        //             ->where('group_id', $this->group->id);
+        //     })
+        //     ->whereNotIn('students.user_id', function ($subquery) {
+        //         $subquery->select('student_id')
+        //             ->from('group_students')
+        //             ->whereIn('group_id', function ($subsubquery) {
+        //                 $subsubquery->select('id')
+        //                     ->from('groups')
+        //                     ->where('group_id', $this->group->id)
+        //                     ->whereNot('id', $this->practical_group->id);
+        //             });
+        //     })
+        //     ->where(function ($subquery) {
+        //         $subquery->where('users.name', 'like', '%' . $this->search . '%')
+        //             ->orWhere('users.email', 'like', '%' . $this->search . '%')
+        //             ->orWhere('users.phone', 'like', '%' . $this->search . '%')
+        //             ->orWhere('users.id', 'like', '%' . $this->search . '%');
+        //     })
+        //     ->select('students.*', 'users.name', 'users.email');
+
+        // if ($this->selectedStudents != null && count($this->selectedStudents) > 0) {
+        //     $studentIds = $this->practical_group->students->pluck('user_id')->toArray();
+        //     $query->orderByRaw('FIELD(students.user_id, ' . implode(',', $studentIds) . ') DESC');
+        // }
+
+        return $this->practical_group->getStudentsInGroup($this->search, $this->perPage, $this->selectedStudents);
+    }
 
     public function render()
     {

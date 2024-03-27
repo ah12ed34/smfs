@@ -6,6 +6,7 @@ use App\Http\Requests\groupRQ;
 use App\Models\group;
 use Illuminate\Http\Request;
 use App\Models\Department;
+use App\Models\Level;
 use App\Models\Student;
 use App\Rules\add_students;
 use Illuminate\Support\Facades\Log;
@@ -15,12 +16,12 @@ class GroupController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Level $id)
     {
         //
-        $groups = group::all();
+        $groups = group::where('level_id',$id->id)->where('group_id',null)->get();
 
-        return view('group.index',compact('groups'));
+        return view('group.index',compact('groups','id'));
     }
 
     /**

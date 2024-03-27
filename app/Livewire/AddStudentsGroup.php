@@ -29,8 +29,8 @@ class AddStudentsGroup extends Component
     public $refresh = false;
     public $selectedAll = false;
     public $maxSelected = 0;
-    public $selectedStudents = [];
     public $pagination = 'students';
+    public $messages = [];
     // protected $listeners = ['saved' => '$refresh'];
 
     public function mount(group $group)
@@ -55,6 +55,8 @@ class AddStudentsGroup extends Component
             redirect()->
             route('group.add-student',  [$group , 'page' => $this->students->lastPage()]);
         }
+
+
 
     }
 
@@ -237,27 +239,35 @@ class AddStudentsGroup extends Component
             // ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             // ->paginate($this->perPage);
 
-            $students = Student::where('level_id', $this->group->level_id)
-                ->join('users', 'students.user_id', '=', 'users.id')
-                ->where(function ($query) {
-                    $query->where('users.name', 'like', '%' . $this->search . '%')
-                    ->orWhere('students.user_id', 'like', '%' . $this->search . '%');
-                })
-                ->whereNotExists(function ($query) {
-                    $query->select(DB::raw(1))
-                    ->from('group_students')
-                    ->whereRaw('group_students.student_id = students.user_id')
-                    ->where('group_students.group_id', '!=', $this->group->id);
-                })
-                ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                ->paginate($this->perPage);
+            // $students = Student::where('level_id', $this->group->level_id)
+            //     ->join('users', 'students.user_id', '=', 'users.id')
+            //     ->where(function ($query) {
+            //         $query->where('users.name', 'like', '%' . $this->search . '%')
+            //         ->orWhere('students.user_id', 'like', '%' . $this->search . '%');
+            //     })
+            //     ->whereNotExists(function ($query) {
+            //         $query->select(DB::raw(1))
+            //         ->from('group_students')
+            //         ->whereRaw('group_students.student_id = students.user_id')
+            //         ->where('group_students.group_id', '!=', $this->group->id);
+            //     })
+            //     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+            //     ->paginate($this->perPage);
 
-            return $students;
+            // return $students;
+                $students = $this->group->getStudentsInGroup($this->search, $this->perPage,true);
+                // if(session()->has('no_data')){
+                //     $this->messages = ['message_search' => ['type' => 'warning', 'message' => session('warning')]];
+                // }else{
+                //     unset($this->messages['message_search']);
+                // }
+                return $students;
         }
     public function render()
     {
         return view('livewire.add-students-group', [
             'students' => $this->students,
         ]);
+
     }
 }

@@ -47,9 +47,18 @@
 
             </tr>
             @empty
-            <tr>
-                <td colspan="4">{{ __("general.no_data") }}</td>
-            </tr>
+
+            @if (session()->has('warning'))
+                <tr>
+                    <td colspan="4" style="color:black;background-color:lightyellow;text-shadow:0px 0px 19px black;">{{ session('warning') }}</td>
+                </tr>
+            @else
+                <tr>
+                    <td colspan="4">{{ __("general.no_data") }}</td>
+                </tr>
+
+            @endif
+
             @endforelse
             <tr>
                 <td colspan="4"><button type="submit" class="btn btn-primary">{{ __("general.add") }}</button></td>

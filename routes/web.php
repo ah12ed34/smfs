@@ -111,15 +111,19 @@ use Illuminate\Support\Facades\Auth;
             Route::delete('/delete/{id}', 'StudentController@delete')->name('student.delete');
         });
         Route::prefix('department')->group(function () {
-            Route::get('/index', 'DepartmentController@index')->name('department.index');
+            Route::get('/', 'DepartmentController@index')->name('department.index');
             Route::get('/create', 'DepartmentController@create')->name('department.create')->middleware('perm:adddepartment');
             Route::post('/store', 'DepartmentController@store')->name('department.store')->middleware('perm:adddepartment');
             Route::get('/edit/{id}', 'DepartmentController@edit')->name('department.edit');
+            Route::get('/{id}', 'DepartmentController@show')->name('department.show');
             Route::put('/update/{id}', 'DepartmentController@update')->name('department.update');
             Route::delete('/delete/{id}', 'DepartmentController@delete')->name('department.delete');
+            Route::get('/{department}/levels', 'DepartmentController@levels')->name('department.levels');
+            Route::get('/{department}/statistics', 'DepartmentController@statistics')->name('department.statistics');
+            Route::get('/{department}/academics', 'DepartmentController@academics')->name('department.academics');
         });
         Route::prefix('level')->group(function () {
-            Route::get('/index', 'LevelController@index');
+            Route::get('/{id}', 'LevelController@index')->name('level');
             Route::get('/create', 'LevelController@create')->name('level.create')->middleware('perm:addlevel');
             Route::post('/store', 'LevelController@store')->name('level.store')->middleware('perm:addlevel');
             Route::get('/edit/{id}', 'LevelController@edit')->name('level.edit');
@@ -159,7 +163,7 @@ use Illuminate\Support\Facades\Auth;
 
         });
         Route::prefix('group')->group(function () {
-            Route::get('/', 'GroupController@index')->name('group');
+            Route::get('/{id}', 'GroupController@index')->name('group');
             Route::get('/create', 'GroupController@create')->name('group.create')->middleware('perm:addgroup');
             Route::post('/store', 'GroupController@store')->name('group.store')->middleware('perm:addgroup');
             Route::get('/add-student/{group}', 'GroupController@addStudent')->name('group.add-student');

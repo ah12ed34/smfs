@@ -1,12 +1,16 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-65c95407.css",
+    "file": "assets/app-71ec0ca8.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/images/Group 912.png": {
     "file": "assets/Group 912-05c07297.png",
     "src": "resources/images/Group 912.png"
+  },
+  "resources/images/Groups.png": {
+    "file": "assets/Groups-1eabb5b2.png",
+    "src": "resources/images/Groups.png"
   },
   "resources/images/M.L.H DS Mid exams_page-0001.jpg": {
     "file": "assets/M.L.H DS Mid exams_page-0001-0fe177af.jpg",
@@ -147,6 +151,10 @@
   "resources/images/portfolio (2).png": {
     "file": "assets/portfolio (2)-e3e4d9e0.png",
     "src": "resources/images/portfolio (2).png"
+  },
+  "resources/images/presentation (2).png": {
+    "file": "assets/presentation (2)-68dc28a9.png",
+    "src": "resources/images/presentation (2).png"
   },
   "resources/images/printing.png": {
     "file": "assets/printing-e70b3518.png",

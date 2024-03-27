@@ -13,9 +13,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <title>@yield('title',"CS")</title>
         @livewireStyles
-        @vite(['resources/sass/app.scss','resources/css/app.css'])
+        @vite(['resources/css/app.css','resources/sass/app.scss'])
         @yield('style')
-        
+
     </head>
     <body style=" background-color: #E9EEEF;">
 
