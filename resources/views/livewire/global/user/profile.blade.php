@@ -5,7 +5,7 @@
 
         <div class="card" id="profile-card">
             <div class="card" id="profile-card-header1">
-                <div> <img class="img-fluid" src="{{Vite::image("profile.png")}}" id="profile-image"></div>
+                <div> <img class="img-fluid" src="{{Auth::user()->photo ? asset('storage/' . auth()->user()->photo) : Vite::image("profile.png")}}" id="profile-image" style="border-radius: 50%"></div>
             </div>
             <div class="card card-light" id="profile-card-header2">
                 <div>

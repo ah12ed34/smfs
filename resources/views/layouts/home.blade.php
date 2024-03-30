@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-        {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> --}}
+         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://tailwindui.com/components/application-ui/overlays/dialogs">
         <link rel="stylesheet" href="https://daisyui.com/components/modal/">
@@ -28,7 +28,16 @@
                 </button>
             @else
                 <button id="button-header" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style=" background-color:rgb(0, 0, 255);  border: 0px;">
-                    <div class="user-icon"><img src="{{ Vite::asset('resources/images/user (4).png') }}" width="29px"> <div class="user">{{ Auth::user()->name." ".Auth::user()->last_name}}</div></div>
+                    <?php
+                    $user = Auth::user();
+                    $photo = $user->photo;
+                    ?>
+                    <div class="user-icon">
+                        <img src="{{ Auth::user()->photo ? asset("storage/" . Auth::user()->photo) : Vite::image("user (4).png") }}" style="border-radius: 50%" width="29px">
+                        <div class="user">
+                            {{ Auth::user()->name." ".Auth::user()->last_name}}
+                        </div>
+                    </div>
                 </button>
             @endguest
             <div class="dropdown-menu" >

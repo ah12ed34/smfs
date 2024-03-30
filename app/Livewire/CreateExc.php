@@ -68,7 +68,7 @@ class CreateExc extends Component
     public function save()
     {
         $this->validate();
-        $filePath = Storage::putFile('public/file/excel/create_student', $this->file);
+        $filePath = Storage::putFile('file/excel/create_student', $this->file);
         $this->file = $filePath;
         if(Storage::exists($filePath)){
             try{

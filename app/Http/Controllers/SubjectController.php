@@ -39,7 +39,7 @@ class SubjectController extends Controller
         // $request->validated();
         // dd($request->all(),$request->file('image'));
         try{
-            $directory = 'public/subject/image';
+            $directory = 'subject/image';
             Storage::makeDirectory($directory);
             $request['image'] = $request->file('image')->store($directory);
             $request['id'] = $request['code'];

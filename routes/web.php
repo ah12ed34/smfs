@@ -96,9 +96,12 @@ use Illuminate\Support\Facades\Auth;
             route::get("/", 'students\StudstudyingScheduleController@indexSchedule')->name('student-studyingSchedule');
          });
      })->middleware('auth');
-    Route::get('admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin')->middleware('role:admin');
+    Route::get('admin/dashboard', 'AdminController@statistics')->name('admin')->middleware('role:admin');
+    Route::group(['middleware' => ['perm:admin'], 'prefix' => 'admin'], function () {
+        Route::get('statistics', 'AdminController@statistics')->name('admin.statistics');
+        Route::get('academic/{department}','AdminController@academic')->name('admin.academic');
+        Route::get('department', 'AdminController@department')->name('admin.department');
+    });
     Route::prefix('/academic')->group(function () {
         Route::prefix('student')->group(function () {
             Route::get('/index', function(){return view('');})->name('student.index');

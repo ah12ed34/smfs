@@ -72,4 +72,16 @@ class Academic extends Model
         return $this->hasMany(Subject::class);
     }
 
+    public function groups() {
+        return $this->hasMany(group::class);
+    }
+    public function getNameAttribute() {
+        return match($this->academic_name) {
+            'professor' => __('general.professor'),
+            'assistant_professor' => __('general.assistant_professor'),
+            'doctor' => __('general.doctor'),
+            'associate_professor' => __('general.associate_professor'),
+            default => __('general.unknown'),
+        };
+    }
 }

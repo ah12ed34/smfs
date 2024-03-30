@@ -14,7 +14,7 @@ use App\Jobs\CreateStudentFile;
 
 class StudentController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      */
@@ -25,7 +25,7 @@ class StudentController extends Controller
     public function index()
     {
         //
-        $filePath = Storage::path("public\std_IT4.xlsx");  
+        $filePath = Storage::path("public\std_IT4.xlsx");
         // $cleanedPath = realpath ($filePath);
         // $extension = pathinfo($filePath, PATHINFO_EXTENSION);
         // $file = Excel::import(new YourImportClass,$filePath,null,$extension);
@@ -50,7 +50,7 @@ class StudentController extends Controller
         // }
         // dd($user,sizeof($user));
         ////////////////////__________________________________________
-        
+
             try {
                 $spreadsheet = IOFactory::load($filePath);
                 $sheetData = $spreadsheet->getSheet(0)->toArray();
@@ -58,14 +58,14 @@ class StudentController extends Controller
 
                 $arabicColumns = ['الرقم الجامعي', 'الاسم', 'اللقب', 'كلمة المرور','اسم المستخدم','الايميل', 'الجنس'];
                 $englishColumns = ['id', 'name', 'last_name', 'password','username',"email", 'gender'];
-        
+
                 $user = [];
                 foreach ($sheetData as $row) {
                     $user = ['password'=>1230];
                     foreach ($row as $index => $cell) {
-                        
+
                         $column =$this->getColumnName(trim($headerRow[$index]), $arabicColumns, $englishColumns);
-                
+
                         if($column != null&&$cell != null){
                             if($column == 'id'&&preg_match('/^\d{2}_\d{2}_\d{4}$|^\d{8}$/', $cell))
                                 $cell = str_replace('_', '', $cell);
@@ -81,17 +81,17 @@ class StudentController extends Controller
                         } else {
                             continue;
                         }
-                
-                        
+
+
                     }
-                
-                   
-                } 
+
+
+                }
                 dd($user,$headerRow);
             } catch (\Exception $e) {
                 throw $e;
-            } 
-        
+            }
+
         return 'student home';
     }
     private function getColumnName($header, $arabicColumns, $englishColumns): ?string
@@ -99,7 +99,7 @@ class StudentController extends Controller
         // $language = Str::of($header)->contains($arabicColumns) ? 'arabic' : 'english';
         return (Str::of($header)->contains($arabicColumns) ? 'arabic' : 'english')==='arabic'?
             $englishColumns[array_search($header, $arabicColumns)]:(array_search($header, $englishColumns)!==false?
-            $englishColumns[array_search($header, $englishColumns)]:null);       
+            $englishColumns[array_search($header, $englishColumns)]:null);
 
     }
     /**
@@ -122,7 +122,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        // 
+        //
         $request->validate([
             'id'=>'required|numeric',
             'name' => 'required|string',
@@ -150,14 +150,14 @@ class StudentController extends Controller
             'department_id' => 'required|numeric',
             'level_id' => 'required|numeric'
         ]);
-        
+
         try {
             session()->flash('message', 'is processing file, please wait... ');
-            $filePath = Storage::putFile('public/file/excel/create_student', $request->file('file'));
+            $filePath = Storage::putFile('file/excel/create_student', $request->file('file'));
             if(Storage::exists($filePath)){
                 CreateStudentFile::dispatch($filePath,['department_id'=>$request->department_id,'level_id'=>$request->level_id]);
             }
-            
+
             return redirect()->route('home');
         } catch (\Exception $e) {
             return $e;

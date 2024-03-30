@@ -165,5 +165,23 @@ return[
     'student_not_found_in_group_exist_in_other_group' => 'الطالب غير موجود في المجموعة ولكنه موجود في مجموعة أخرى (:group)',
     'student_not_found' => 'الطالب غير موجود',
     'student_not_found_in_department' => 'الطالب غير موجود في القسم',
+    'dector' => 'دكتور',
+    'teacher' => 'معلم',
+    'student' => 'طالب',
+    'academic' => 'أكاديمي',
+    'admin' => 'مشرف',
+    //professor
+    'professor' => 'أستاذ',
+    'assistant_professor' => 'أستاذ مساعد',
+    'lecturer' => 'محاضر',
+    'assistant_lecturer' => 'محاضر مساعد',
+    'doctor' => 'دكتور',
+    'assistant_doctor' => 'دكتور مساعد',
+    'master' => 'ماجستير',
+    'assistant_master' => 'ماجستير مساعد',
+    'bachelor' => 'بكالوريوس',
+    'associate_professor' => 'أستاذ مشارك',
+    'university' => 'جامعة',
+    'unknown' => 'غير معروف',
 
 ];
