@@ -7,6 +7,7 @@ use App\Livewire\Global\GroupSubject\Index;
 use App\Livewire\Global\PracticalGroup\AddStudents;
 use App\Livewire\Global\User\Profile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -269,6 +270,40 @@ use Illuminate\Support\Facades\Auth;
 
     })->middleware('auth');
 
+    Route::get('storage/{path}', function ($path) {
+        // $filePath = storage_path('app/public/' . $path);
+
+        // if (!File::exists($filePath)) {
+        //     abort(404);
+        // }
+
+        // $file = File::get($filePath);
+        // $type = File::mimeType($filePath);
+
+        // $response = Response::make($file, 200);
+
+        // check if the file is exist and if file not path
+        if (!Storage::exists( $path)) {
+            abort(404);
+        }
+        if(strpos($path,'.') === false){
+            abort(404);
+        }
+        $file = Storage::get( $path);
+        $type = Storage::mimeType( $path);
+        $response = response($file, 200);
+        $response->header("Content-Type", $type);
+
+        return $response;
+
+
+
+
+
+        // $response->header("Content-Type", $type);
+
+        // return $response;
+    })->where('path', '.*');
 Route::get('/', function () {
     return redirect()->route('login');
 });
