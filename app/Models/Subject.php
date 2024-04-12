@@ -20,4 +20,5 @@ class Subject extends Model
     {
         return $this->belongsTo(Level::class, 'subjects_levels', 'subject_id', 'level_id');
     }
+    
 }

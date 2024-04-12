@@ -19,6 +19,10 @@ class Department extends Component
     public function search(){
         $this->dispatch('search',$this->search_model);
     }
+
+    public function addacademic(){
+        $this->dispatch('addacademic');
+    }
     public function render()
     {
         return view('livewire.components.nav.admin.department');

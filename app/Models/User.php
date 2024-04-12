@@ -115,11 +115,15 @@ class User extends Authenticatable
     }
 
     public function gender_ar(){
+        if($this->gender == null || empty($this->gender)){
+            return ' ';
+        }
         return match($this->gender){
             'male' => 'ذكر',
             'female' => 'أنثى',
-        }
-            ;
+            default => ' ',
+        };
+
     }
     public function getFullNameAttribute(){
         return $this->name . ' ' . $this->last_name;

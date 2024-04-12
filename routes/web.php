@@ -191,7 +191,7 @@ use Illuminate\Support\Facades\Storage;
         Route::group(['middleware' => ['role:academic']], function () {
             route::get('/', 'AcademicController@index')->name('academic.home');
             Route::prefix("subject")->group(function(){
-                Route::get("/",'SubjectController@index')->name("subject.index");
+                Route::get("/{subject_id}{group_id}",'SubjectController@index')->name("subject.index");
             });
             Route::prefix("project")->group(function(){
                 Route::get("/","ProjectController@index")->name("projects");
@@ -202,21 +202,28 @@ use Illuminate\Support\Facades\Storage;
             route::prefix("recive-assignments")->group(function(){
                 route::get("/",'ReciveAssignmentController@index')->name("recive-assignments");
             });
-            route::prefix('students')->group(function(){
-                route::get("/",'StudentsController@index')->name("students");
-            });
-            route::prefix("students-persents")->group(function(){
-                route::get("/",'StudentspersentsController@index')->name("students-persents");
-            });
-            route::prefix("projectsgrades-stu")->group(function(){
-                route::get("/",'ProjectssGrdesStuController@index')->name("projectsgrades-stu");
-            });
-            route::prefix("midexam")->group(function(){
+            route::prefix("{subject_id}{group_id}")->group(function(){
+                   route::prefix('students')->group(function(){
+                    route::get("/",'StudentsController@index')->name("students");
+                });
+                route::prefix("students-persents")->group(function(){
+                    route::get("/",'StudentspersentsController@index')->name("students-persents");
+                });
+                route::prefix("midexam")->group(function(){
                 route::get("/",'MidexamController@index')->name("midexam");
+                });
+                route::prefix("assignmentsgrdes-stu")->group(function (){
+                    route::get("/",'AssignmentsGrdesStuController@index')->name("assignmentsgrdes-stu");
+                });
+                route::prefix("projectsgrades-stu")->group(function(){
+                    route::get("/",'ProjectssGrdesStuController@index')->name("projectsgrades-stu");
+                });
+
             });
-            route::prefix("assignmentsgrdes-stu")->group(function (){
-                route::get("/",'AssignmentsGrdesStuController@index')->name("assignmentsgrdes-stu");
-            });
+
+
+
+
             route::prefix("studyingbooks")->group(function(){
                 route::get("/",'StudyingbooksController@index')->name("studyingbooks");
             });

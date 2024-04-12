@@ -36,8 +36,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
-import 'jquery-ui/ui/widgets/datepicker.js';
-import 'jquery-ui/themes/base/datepicker.css';
+import Popper from 'popper.js';
+window.Popper = Popper;
 
-import 'jquery-ui/ui/widgets/autocomplete.js';
-import 'jquery-ui/themes/base/autocomplete.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap-icons/font/bootstrap-icons.css';

@@ -99,8 +99,8 @@ class Student extends Model
 
 
 
-    public function studying() {
-        return $this->hasMany(Studying::class);
+    public function studying($subject_id){
+        return $this->hasOne(Studying::class,'student_id','user_id')->where('subject_id',$subject_id);
     }
 
     public function level() {

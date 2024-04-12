@@ -136,10 +136,28 @@ class group extends Model
                 $subquery->select(DB::raw(1))
                     ->from('group_students')
                     ->whereRaw('group_students.student_id = students.user_id')
-                    ->where('group_students.group_id', '!=', $this->id);
-            });
-        }
+                    ->where('group_students.group_id', '!=', $this->id)
+                    ->join('groups', function ($join) {
+                        $join->on('groups.id', '=', 'group_students.group_id')
+                            ->whereNull('groups.group_id');
+                    });
 
+            });
+
+            // dd($query->toSql());
+        }
+        // exit students finsh studing all subjects is_completed = 1
+        $query->whereNotExists(function ($subquery) {
+            $subquery->select(DB::raw(1))
+            ->from('group_subjects')
+            ->whereRaw('group_subjects.group_id =' . $this->id)
+            ->join('studyings', function ($join) {
+                $join->on('studyings.subject_id', '=', 'group_subjects.id')
+                    ->where('studyings.student_id', '=', 'group_students.id')
+                    ->where('studyings.is_completed', '=', 0);
+            });
+            // dd($subquery->get());
+        });
         if (!empty($search)) {
             $query->where(function ($subquery) use ($search) {
                 $subquery->where('users.name', 'like', '%' . $search . '%')

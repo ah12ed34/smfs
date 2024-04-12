@@ -13,7 +13,8 @@ class AcademicController extends Controller
     public function index()
     {
         //
-        return view('academic.home');
+        $academic = Academic::findOrfail(auth()->user()->id);
+        return view('academic.home',['academic'=>$academic]);
     }
 
     /**
