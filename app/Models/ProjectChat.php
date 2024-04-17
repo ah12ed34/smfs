@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectChat extends Model
 {
     use HasFactory;
-    
-    public function Students() { return $this->hasMany(workGroup::class);}
-    public function Group(){return $this->hasOne(groupProject::class);}
-    
+
+    public function Students() { return $this->hasMany(WorkGroup::class);}
+    public function Group(){return $this->hasOne(GroupProject::class);}
+
 }

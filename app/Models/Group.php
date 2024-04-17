@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class group extends Model
+class Group extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -35,17 +35,17 @@ class group extends Model
 
     public function group()
     {
-        return $this->belongsTo(group::class, 'group_id');
+        return $this->belongsTo(Group::class, 'group_id');
     }
 
     public function groups()
     {
-        return $this->hasMany(group::class, 'group_id');
+        return $this->hasMany(Group::class, 'group_id');
     }
 
     public function groupSubjects()
     {
-        return $this->hasMany(groupSubject::class, 'group_id','group_id');
+        return $this->hasMany(GroupSubject::class, 'group_id','group_id');
     }
 
     public function IsPractical()

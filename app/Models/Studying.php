@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class studying extends Model
+class Studying extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -30,7 +30,7 @@ class studying extends Model
         'addional_grades',
         'helf_exem',
         'final_exem',
-        
+
 
     ];
 

@@ -5,7 +5,7 @@ namespace App\Livewire\global\Levelsubject;
 use App\Models\Subject;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\subjectLevel;
+use App\Models\SubjectsLevels;
 use Livewire\Attributes\On;
 
 class AddSubject extends Component
@@ -29,7 +29,7 @@ class AddSubject extends Component
     public function mount($level)
     {
         $this->level = $level;
-        subjectLevel::where('level_id',$level->id)->get()->each(function($subject){
+        SubjectsLevels::where('level_id',$level->id)->get()->each(function($subject){
             $this->upd[$subject->subject_id] = false;
             $this->select[$subject->subject_id] = true;
             $this->semester[$subject->subject_id] = $subject->semester;
@@ -92,7 +92,7 @@ class AddSubject extends Component
     // public function refresh()
     // {
 
-    //     subjectLevel::where('level_id',$this->level->id)->get()->each(function($subject){
+    //     SubjectsLevels::where('level_id',$this->level->id)->get()->each(function($subject){
     //         $this->upd[$subject->subject_id] = false;
     //         $this->select[$subject->subject_id] = true;
     //         $this->semester[$subject->subject_id] = $subject->semester;
@@ -140,7 +140,7 @@ class AddSubject extends Component
                     ,'updated_at'=>$date
                     ]);
                 }elseif($this->upd[$key]){
-                    $subject = subjectLevel::where('level_id',$this->level->id)->where('subject_id',$key)->first();
+                    $subject = SubjectsLevels::where('level_id',$this->level->id)->where('subject_id',$key)->first();
                     $subject->semester = $this->semester[$key]??1;
                     $subject->has_practical = $this->has_practical[$key]??false;
                     $subject->isActivated = $this->isActivated[$key]?:true;

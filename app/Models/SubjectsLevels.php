@@ -16,10 +16,24 @@ class SubjectsLevels extends Model
         'level_id',
         'semester',
         'has_practical',
+        'isActivated',
     ];
 
     public function subject()
     {
         return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
+
+    public function groups()
+    {
+        return $this->hasMany(group::class);
+    }
+
+
+
 }
