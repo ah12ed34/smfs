@@ -29,7 +29,7 @@ class Index extends Component
         $this->group = $group;
         $this->teachers = teacher::all();
 
-        $this->groupSubject = groupSubject::where('group_id', $this->group->id)->get();
+        $this->groupSubject = GroupSubject::where('group_id', $this->group->id)->get();
         $this->teacher_subject = $this->groupSubject->pluck('teacher_id', 'subject_id')->toArray();
 
         // dd($this->teachers);
@@ -45,18 +45,18 @@ class Index extends Component
                 return redirect()->route("groupsubject", $this->group->id)->with("error", "Teacher not found!");
             }
             if($this->group->IsPractical()){
-                groupSubject::updateOrCreate(
+                GroupSubject::updateOrCreate(
                 ['group_id' => $this->group->id, 'subject_id' => $key,'is_practical' => 1],
                 ['teacher_id' => $value]
                 );
             }else{
-            groupSubject::updateOrCreate(
+            GroupSubject::updateOrCreate(
             ['group_id' => $this->group->id, 'subject_id' => $key],
             ['teacher_id' => $value]
             );
         }
     }else{
-        groupSubject::where('group_id', $this->group->id)->where('subject_id', $key)->delete();
+        GroupSubject::where('group_id', $this->group->id)->where('subject_id', $key)->delete();
     }
         // if($value == null){
         //     $info = GroupSubject::where('group_id', $this->group->id)->where('subject_id', $key)->delete();

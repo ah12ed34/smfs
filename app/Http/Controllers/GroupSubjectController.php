@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\groupSubject;
+use App\Models\GroupSubject;
 use Illuminate\Http\Request;
 
 class GroupSubjectController extends Controller
@@ -34,7 +34,7 @@ class GroupSubjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(groupSubject $groupSubject)
+    public function show(GroupSubject $groupSubject)
     {
         //
     }
@@ -42,7 +42,7 @@ class GroupSubjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(groupSubject $groupSubject)
+    public function edit(GroupSubject $groupSubject)
     {
         //
     }
@@ -50,7 +50,7 @@ class GroupSubjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, groupSubject $groupSubject)
+    public function update(Request $request, GroupSubject $groupSubject)
     {
         //
     }
@@ -58,7 +58,7 @@ class GroupSubjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(groupSubject $groupSubject)
+    public function destroy(GroupSubject $groupSubject)
     {
         //
     }

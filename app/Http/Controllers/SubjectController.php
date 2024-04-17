@@ -7,7 +7,7 @@ use App\Models\Subject;
 use Illuminate\Http\Request;
 use App\Models\Department;
 use App\Models\Level;
-use App\Models\groupSubject;
+use App\Models\GroupSubject;
 use Illuminate\Support\Facades\Storage;
 
 class SubjectController extends Controller
@@ -18,7 +18,7 @@ class SubjectController extends Controller
     public function index($subject_id ,$group_id)
     {
         //
-        $group_subject = groupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->
+        $group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->
         where('teacher_id',auth()->user()->academic->user_id)->first();
         return view('academic.subject.subject',compact('group_subject'));
     }
