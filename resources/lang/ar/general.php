@@ -182,5 +182,7 @@ return[
     'associate_professor' => 'أستاذ مشارك',
     'university' => 'جامعة',
     'unknown' => 'غير معروف',
-
+    'assignment_activation_confirmation' => 'هل تريد تفعيل الواجب؟',
+    'assignment_deactivation_confirmation' => 'هل تريد تعطيل الواجب؟',
+    'no_projects' => 'لا توجد مشاريع',
 ];

@@ -51,7 +51,7 @@
         </div>
 
         {{-- <a href="{{route("studyingbooks")}}">  --}}
-            <div class="card" id="cards-child-subject" onclick="location.href='{{route('studyingbooks')}}'"><img src="{{Vite::image("open-book.png")}}" class="imgs-boards" width="100px" style="margin-left: -6px; margin-top:10px;" >
+            <div class="card" id="cards-child-subject" onclick="location.href='{{route('studyingbooks',[$group_subject->subject_id,$group_subject->group_id])}}'"><img src="{{Vite::image("open-book.png")}}" class="imgs-boards" width="100px" style="margin-left: -6px; margin-top:10px;" >
             <div class="cards-child-child">المقرر الدراسي
             </div>
         </div>
@@ -63,13 +63,14 @@
         </div>
 
         {{-- <a href="{{route("assignment")}}"> --}}
-        <div class="card" id="cards-child-subject" onclick="location.href='{{route('assignment')}}'"><img src="{{Vite::image("homework (3).png")}}" class="imgs-boards" width="100px" style="margin-left: -6px; margin-top:10px;" >
+        <div class="card" id="cards-child-subject" onclick="location.href='{{route('assignment',[$group_subject->subject_id,$group_subject->group_id])}}'"><img src="{{Vite::image("homework (3).png")}}" class="imgs-boards" width="100px" style="margin-left: -6px; margin-top:10px;" >
             <div class="cards-child-child">التكاليف
             </div>
         </div>
 
         {{-- <a href="{{route("projects")}}"> --}}
-        <div class="card" id="cards-child-subject" onclick="location.href='{{route('projects')}}'"><img src="{{Vite::image("project-management.png")}}" class="imgs-boards" width="100px" style="margin-left: -18px; margin-top:10px;" >
+        <div class="card" id="cards-child-subject" onclick="location.href='{{route('projects',[$group_subject->subject_id,$group_subject->group_id]
+        )}}'"><img src="{{Vite::image("project-management.png")}}" class="imgs-boards" width="100px" style="margin-left: -18px; margin-top:10px;" >
             <div class="cards-child-child">المشاريع</div>
         </div>
 

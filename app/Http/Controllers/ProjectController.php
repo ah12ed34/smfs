@@ -3,17 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\project;
+use App\Models\GroupSubject;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+    // public $group_subject;
+    // public function __construct($subject_id,$group_id)
+    // {
+    //     $this->middleware('auth');
+    //     $this->group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->first();
+    // }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($subject_id,$group_id)
     {
-        //
-        return view("academic.project.project");
+        $group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->first();
+        return view("academic.project.project",compact('group_subject'));
     }
 
     /**

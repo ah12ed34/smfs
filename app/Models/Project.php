@@ -12,6 +12,7 @@ class Project extends Model
         'name',
         'file',
         'grade',
+        'subject_id',
         'is_active',
         'max_student',
         'min_student',
@@ -20,5 +21,9 @@ class Project extends Model
     ];
     public function getProjectGroup(){
         return $this->hasMany(GroupProject::class);
+    }
+
+    public function GroupProjects(){
+        return $this->hasMany(GroupProject::class,'project_id','id');
     }
 }

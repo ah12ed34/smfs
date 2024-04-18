@@ -3,11 +3,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
+use App\Livewire\Academic\Subject\Assignments;
+use App\Livewire\Academic\Subject\ReciveAssignments;
+use App\Livewire\Academic\Subject\Studyingbooks;
 use App\Livewire\Global\GroupSubject\Index;
 use App\Livewire\Global\PracticalGroup\AddStudents;
 use App\Livewire\Global\User\Profile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -193,15 +197,8 @@ use Illuminate\Support\Facades\Storage;
             Route::prefix("subject")->group(function(){
                 Route::get("/{subject_id}{group_id}",'SubjectController@index')->name("subject.index");
             });
-            Route::prefix("project")->group(function(){
-                Route::get("/","ProjectController@index")->name("projects");
-            });
-            Route::prefix('assignment')->group(function(){
-                Route::get("/",'AssignmentController@index')->name("assignment");
-            });
-            route::prefix("recive-assignments")->group(function(){
-                route::get("/",'ReciveAssignmentController@index')->name("recive-assignments");
-            });
+
+
             route::prefix("{subject_id}{group_id}")->group(function(){
                    route::prefix('students')->group(function(){
                     route::get("/",'StudentsController@index')->name("students");
@@ -219,14 +216,27 @@ use Illuminate\Support\Facades\Storage;
                     route::get("/",'ProjectssGrdesStuController@index')->name("projectsgrades-stu");
                 });
 
+                Route::prefix("project")->group(function(){
+                    Route::get("/","ProjectController@index")->name("projects");
+                });
+
+                Route::prefix('assignment')->group(function(){
+                    Route::get("/",'\\'.Assignments::class
+                    )->name("assignment");
+                });
+                route::prefix("recive-assignments")->group(function(){
+                    route::get("/",'\\'.ReciveAssignments::class
+                    )->name("recive-assignments");
+                });
+                route::prefix("studyingbooks")->group(function(){
+                route::get("/",'\\'.Studyingbooks::class)->name("studyingbooks");
+            });
             });
 
 
 
 
-            route::prefix("studyingbooks")->group(function(){
-                route::get("/",'StudyingbooksController@index')->name("studyingbooks");
-            });
+
             route::prefix("forms-quiz")->group(function(){
                 route::get("/",'FormsquizController@index')->name("forms-quiz");
             });

@@ -9,11 +9,19 @@ class WorkGroup extends Model
 {
     use HasFactory;
 
-    public function getSudents(){
-        return $this->hasMany(Group::class);
+    protected $fillable = [
+        'id',
+        'group_id',
+        'student_id',
+        'description',
+        'grade',
+
+    ];
+    public function group(){
+        return $this->belongsTo(GroupProject::class,'group_id','id');
     }
-    public function chat(){
-        return $this->hasMany(ProjectChat::class);
+    public function student(){
+        return $this->belongsTo(GroupStudents::class,'student_id','id');
     }
 
 }

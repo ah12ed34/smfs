@@ -94,5 +94,44 @@ class GroupSubject extends Model
             ->where('studyings.is_completed', 1);
         });
     }
+    public function projects()
+    {
+        return $this->hasOne(Project::class, 'subject_id', 'id');
+        return $this->hasMany(Project::class, 'subject_id', 'id');
+    }
+
+
+    public function getProjectsInGroupBySubject($search){
+        if ($this->projects) {
+            return $this->projects->GroupProjects()
+                ->where('name', 'like', '%' . $search . '%');
+        }
+        return GroupProject::where('project_id',0);
+    }
+
+    public function getOtherGroups(){
+        if(!optional(auth()->user())->isAcademic())
+        {
+            return;
+        }
+        return
+        Group::join('group_subjects', 'groups.id', '=', 'group_subjects.group_id')
+            ->where('group_subjects.subject_id', $this->subject_id)
+            ->where('group_subjects.teacher_id', auth()->user()->academic->user_id)
+            ->where('groups.id', '!=', $this->group_id)
+            ->select('groups.*')
+            ->get();
+    }
+
+    public function Files(){
+        return $this->hasOne(File::class,'subject_id','id');
+    }
+
+    public function getFilesInGroupBySubject($type = 'assignment',$search){
+        return $this->Files()->where('type',$type)
+        ->where('name', 'like', '%' . $search . '%')
+        ;
+    }
+
 
 }
