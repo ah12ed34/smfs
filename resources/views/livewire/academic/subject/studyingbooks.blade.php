@@ -11,7 +11,9 @@
             @forelse ($studyingbooks as $studyingbook)
                 <div id="card-studyingbooks" class="card">
                     <div id="card-studyingbooks-child">
-                        <img src="{{Vite::image("chapter.png")}}"  class="chapters" >
+                        <img src="{{ $studyingbook->icon() }}"
+                          class="chapters" >
+                        {{-- <img src="{{Vite::image("chapter.png")}}"  class="chapters" > --}}
                         <label class="texttitlechapter">{{$studyingbook->name}}</label>
                     </div>
                     <div id="card-studyingbooks-child-2">
@@ -26,8 +28,9 @@
                 </div>
 
             @empty
-
-
+                <div class="alert alert-warning" role="alert">
+                    لا يوجد ملفات لعرضها
+                </div>
 
             @endforelse
 
@@ -134,6 +137,9 @@
                     </div>
                 </div> --}}
             </div>
+            <nav>
+                {{ $studyingbooks->links() }}
+            </nav>
         </div>
 
         <!-- The ModalEdite -->
@@ -173,42 +179,6 @@
         </div>
 
 
-
-        <!-- The Modal -->
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content" id="modal-content2">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header" id="modheader">
-                        رفع ملف
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form action="" style="display: block;">
-                            <div class="form-group">
-                                <!-- <label for="usr">Name:</label> -->
-                                <input type="text" class="form-control" id="inputtextfile" name="username" placeholder="اسم الملف " style="height: 30px; margin-top:-6px">
-
-                                <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px">
-                            </div>
-                            <!-- <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div> -->
-                        </form>
-                    </div>
-
-                    <!-- Modal footer -->
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" id="btnsave-file" style="float: left; margin-left:30px;">حفظ</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel-file">إلغاء</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
          <!-- The ModalDelete -->

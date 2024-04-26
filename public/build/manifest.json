@@ -232,5 +232,21 @@
     "file": "assets/app-041e359a.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
+  },
+  "resources/svg/doc.svg": {
+    "file": "assets/doc-ff1f0dd7.svg",
+    "src": "resources/svg/doc.svg"
+  },
+  "resources/svg/pdf.svg": {
+    "file": "assets/pdf-8da2e484.svg",
+    "src": "resources/svg/pdf.svg"
+  },
+  "resources/svg/ppt.svg": {
+    "file": "assets/ppt-b0629a78.svg",
+    "src": "resources/svg/ppt.svg"
+  },
+  "resources/svg/zip.svg": {
+    "file": "assets/zip-09d282f2.svg",
+    "src": "resources/svg/zip.svg"
   }
 }

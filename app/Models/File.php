@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Tools\Icon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Vite;
 
 class File extends Model
 {
@@ -39,4 +42,9 @@ class File extends Model
         'start_date',
         'due_date',
     ];
+
+
+    public function icon(){
+        return Icon::getIcon($this->file);
+    }
 }

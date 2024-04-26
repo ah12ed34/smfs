@@ -38,4 +38,52 @@
 
     </div>
 
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal" wire:ignore.self>
+            <div class="modal-dialog">
+                <div class="modal-content" id="modal-content2">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header" id="modheader">
+                        رفع ملف
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form action=""  style="display: block;" enctype="multipart/form-data" >
+                            <div class="form-group">
+                                <!-- <label for="usr">Name:</label> -->
+                                <input type="text" class="form-control" id="inputtextfile" wire:model='nameFile' placeholder="اسم الملف " style="height: 30px; margin-top:-6px">
+
+                                <input type="file" class="form-control-file border" id="file" wire:model='file' style="height: 30px; margin-top:8px">
+                                @error('file') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+                            </div>
+                            <!-- <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div> -->
+                        </form>
+                    </div>
+
+                    <!-- Modal footer -->
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="btnsave-file" style="float: left; margin-left:30px;"
+                        wire:click="addFile"
+                        >حفظ</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel-file">إلغاء</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            window.addEventListener('closeModal', event => {
+                $('#myModal').modal('hide');
+                // refresh the page
+                window.location.reload();
+            });
+        </script>
+
 </div>
