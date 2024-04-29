@@ -33,12 +33,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     enabledTransports: ['ws', 'wss'],
 // });
 
-import $ from 'jquery';
-window.$ = window.jQuery = $;
+// jQuery
+import { $, jQuery } from 'jquery';
+window.$ = $;
+window.jQuery = jQuery;
 
+// Popper.js
 import Popper from 'popper.js';
 window.Popper = Popper;
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// import 'bootstrap-icons/font/bootstrap-icons.css';
