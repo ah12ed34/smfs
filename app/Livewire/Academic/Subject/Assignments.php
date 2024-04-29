@@ -4,6 +4,7 @@ namespace App\Livewire\Academic\Subject;
 
 use Livewire\Component;
 use App\Models\GroupSubject;
+use Illuminate\Support\Facades\Storage;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
 
@@ -40,7 +41,7 @@ class Assignments extends Component
     public function selected($id)
     {
         $this->selected_id = $id;
-        if($this->assignments->where('id',$id)->first()->is_active == 1){
+        if($this->assignments->where('id',$id)->first()->group_file->is_active == 1){
             $this->message_confirmation = __('general.assignment_deactivation_confirmation');
         }else{
             $this->message_confirmation = __('general.assignment_activation_confirmation');
@@ -49,8 +50,8 @@ class Assignments extends Component
 
     public function stopAssignment(){
         $assignment = $this->assignments->where('id',$this->selected_id)->first();
-        $assignment->is_active = !$assignment->is_active;
-        $assignment->save();
+        $assignment->group_file->is_active = !$assignment->group_file->is_active;
+        $assignment->group_file->save();
         $this->selected_id = null;
         $this->message_confirmation = null;
         $this->dispatch('closeModal');
@@ -61,9 +62,9 @@ class Assignments extends Component
         $assignment = $this->assignments->where('id',$this->selected_id)->first();
         $this->assName = $assignment->name;
         $this->description = $assignment->description;
-        $this->due_date = $assignment->due_date;
+        $this->due_date = $assignment->group_file->due_date;
         $this->file = $assignment->file;
-        $this->grade = $assignment->grade;
+        $this->grade = $assignment->group_file->grade;
         // $this->dispatch('openModal');
     }
 
@@ -82,14 +83,21 @@ class Assignments extends Component
             unlink($this->file);
         }
         $assignment->name = $this->assName;
-        $assignment->grade = $this->grade;
-        $assignment->due_date = $this->due_date;
+        $assignment->group_file->grade = $this->grade;
+        $assignment->group_file->due_date = $this->due_date;
         $assignment->description = $this->description;
         $assignment->file = $file;
+        $assignment->group_file->save();
         $assignment->save();
         $this->reset(['assName','grade','due_date','file','description']);
         $this->dispatch('closeModal');
     }
+
+    public function download($id){
+        $assignment = $this->assignments->where('id',$id)->first();
+        return Storage::download($assignment->file,$assignment->name);
+    }
+
 
     public function render()
     {

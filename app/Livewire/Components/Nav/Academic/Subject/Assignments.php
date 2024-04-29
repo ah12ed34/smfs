@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\File;
 // use Livewire\Features\SupportFileUploads\WithFileUploads;
 use Livewire\WithFileUploads;
+use Ramsey\Uuid\Type\Decimal;
 
 class Assignments extends Component
 {
@@ -49,18 +50,19 @@ class Assignments extends Component
         $file = null;
         if($this->file != null){
             $file = $this->file->store('subjects/assignments');
-            unlink($this->file);
+            unlink($this->file->getRealPath());
         }
-        File::create([
-            'name' => $this->assName,
-            'grade' => value($this->grade), // 'grade' => '12',
+        $this->group_subject->groupFiles()->create([
+            'file_id' => $this->group_subject->files()->create([
+                'name' => $this->assName,
+                'file' => $file,
+                'user_id' => auth()->id(),
+                'type' => 'assignment',
+                'description' => $this->description,
+            ])->id,
+            'user_id' => auth()->id(),
+            'grade' => $this->grade,
             'due_date' => $this->date,
-            'start_date' => now(), // 'start_date' => '2021-09-01 00:00:00',
-            'description' => $this->description,
-            'file' => $file,
-            'type' => 'assignment',
-            'subject_id' => $this->group_subject->id,
-            'user_id' => auth()->user()->id,
         ]);
 
         $this->reset(['assName','grade','date','file','description']);

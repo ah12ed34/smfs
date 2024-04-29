@@ -185,4 +185,15 @@ return[
     'assignment_activation_confirmation' => 'هل تريد تفعيل الواجب؟',
     'assignment_deactivation_confirmation' => 'هل تريد تعطيل الواجب؟',
     'no_projects' => 'لا توجد مشاريع',
+    'waiting' => 'انتظار',
+    'waiting_for_approval' => 'في انتظار الموافقة',
+    'approved' => 'وافق',
+    'rejected' => 'مرفوض',
+    'warning' => 'تحذير',
+    'error' => 'خطأ',
+    'success' => 'نجاح',
+    'info' => 'معلومات',
+    'no_assignments' => 'لا توجد واجبات',
+    'no_assignments_found' => 'لم يتم العثور على واجبات',
+
 ];

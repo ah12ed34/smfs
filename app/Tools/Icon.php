@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Vite;
 class Icon{
 
-    public static function getIcon(string $file){
+    public static function getIcon(string $file = null){
+        if(!$file){
+            return null;
+        }
         $pathFile = Storage::path($file);
         if(!file_exists($pathFile)){
             return null;

@@ -5,7 +5,14 @@
 
         <div class="card" id="profile-card">
             <div class="card" id="profile-card-header1">
-                <div> <img class="img-fluid" src="{{Auth::user()->photo ? asset('storage/' . auth()->user()->photo) : Vite::image("profile.png")}}" id="profile-image" style="border-radius: 50%"></div>
+                <div>
+                    <label for="uploadProfile">
+                    <img class="img-fluid" src="{{$avatarPreview??Vite::image("profile.png")}}" id="profile-image" style="border-radius: 50%">
+                    </label>
+                    <input type="file" class="form-control-file border" id="uploadProfile"
+                        wire:model='avatar' style="display: none;" accept=".jpg, .jpeg, .png
+                        ">
+                </div>
             </div>
             <div class="card card-light" id="profile-card-header2">
                 <div>
@@ -158,6 +165,9 @@
                         <div class="form-group">
                             <!-- <label for="usr">:</label> -->
                             <input type="text" class="form-control" id="inputtext" wire:model='name' placeholder=" الاسم " style="height: 30px; margin-top:-6px">
+                            @error('name')
+                                <div ><span style="color: red;">{{ $message }}</span></div>
+                            @enderror
                             <input type="date" class="form-control" id="inputtext" wire:model='birthday'  placeholder="تاريخ الميلاد " style="height: 30px; margin-top:8px">
                             <input type="text" class="form-control" id="inputtext" wire:model='phone' placeholder="  رقم التلفون " style="height: 30px; margin-top:8px">
                             @error('phone')
@@ -195,14 +205,14 @@
                         <!-- <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div> -->
-
+                    </form>
+                </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary"  id="btnsave" style="float: left; margin-left:30px;">حفظ</button>
+                    <button type="submit" class="btn btn-primary"  id="btnsave" style="float: left; margin-left:30px;" wire:click='updateProfile'>حفظ</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
 
                 </div>
-                    </form>
-                </div>
+
 
                 <!-- Modal footer -->
 
@@ -211,6 +221,8 @@
         </div>
         </div>
 
+
+</div>
         @section('script')
         <script>
             window.addEventListener('closeModal', event => {
@@ -218,6 +230,9 @@
                 $('#myModalchangepassword').modal('hide');
             });
 
+            window.addEventListener('refresh', event => {
+                location.reload();
+            });
+
         </script>
         @endsection
-</div>

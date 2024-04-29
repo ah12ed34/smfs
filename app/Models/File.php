@@ -33,18 +33,46 @@ class File extends Model
         'file',
         'file2',
         'description',
-        'onChapter',
+        // 'onChapter',
         'type',
-        'is_active',
-        'grade',
-        'subject_id',
+        // 'is_active',
+        // 'grade',
+        // 'subject_id',
         'user_id',
-        'start_date',
-        'due_date',
+        // 'start_date',
+        // 'due_date',
     ];
+    protected static function boot(){
+        parent::boot();
+        static::deleted(function($file){
+            if($file->file){
+                Storage::delete($file->file);
+            }
+            if($file->file2){
+                Storage::delete($file->file2);
+            }
+        });
+    }
+    public function group_files(){
+        return $this->hasMany(GroupFile::class);
+    }
+
+    public function deliveries(){
+        return $this->hasMany(Delivery::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function group_file(){
+        return $this->hasOne(GroupFile::class);
+    }
 
 
     public function icon(){
         return Icon::getIcon($this->file);
     }
+
+
 }

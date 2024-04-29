@@ -10,9 +10,9 @@
             <div id="card-HW" class="card bg-light text-dark" style=" color: #0E70F2;">
                 <div class="card-body">
                     <div class="btn-HW">
-                        <a href="{{route("recive-assignments",[$group_subject->subject_id,$group_subject->group_id])}}"> <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button></a>
+                        <a href="{{route("recive-assignments",[$group_subject->subject_id,$group_subject->group_id,$assignment->group_file->id])}}"> <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button></a>
                         <button type="submit" class="btn btn-light " id="btn-recive-edte-hw" data-toggle="modal" data-target="#myModalediteAssign" wire:click='editAssignment({{ $assignment->id }})' >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
-                        @if ($assignment->is_active)
+                        @if ($assignment->group_file->is_active)
                             <button type="submit" class="btn btn-danger " id="btn-recive-hw" data-toggle="modal" data-target="#myModalstop"
                                 wire:click='selected({{$assignment->id}})'
                             >إيقاف </button>
@@ -28,7 +28,7 @@
                         </tr>
                         <tr>
                             <th id="table-header-assigne-teacher">الدرجة</th>
-                            <td id="text-table-assigne-teacher">{{$assignment->grade}}</td>
+                            <td id="text-table-assigne-teacher">{{$assignment->group_file->grade}}</td>
                         </tr>
                         <tr>
                             <th id="table-header-assigne-teacher">الوصف</th>
@@ -36,11 +36,17 @@
                         </tr>
                         <tr>
                             <th id="table-header-assigne-teacher">الملف</th>
-                            <td id="text-table-assigne-teacher">{{$assignment->file}}</td>
+                            <td id="text-table-assigne-teacher">
+                                @if($assignment->file)
+                                    {{-- rename file downled --}}
+                                    <a wire:click='download({{ $assignment->id }})' style="cursor: pointer;"
+                                        >تحميل الملف</a>
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <th id="table-header-assigne-teacher">تاريخ التسليم</th>
-                            <td id="text-table-assigne-teacher">{{$assignment->due_date
+                            <td id="text-table-assigne-teacher">{{$assignment->group_file->due_date
                             }}</td>
                         </tr>
                     </table>
@@ -52,56 +58,7 @@
             </div>
 
         @endforelse
-        {{-- <div id="card-HW" class="card bg-light text-dark" style=" color: #0E70F2;">
-            <div class="card-body">
-                {{-- <div class="btn-HW">
-                    <a href="{{route("recive-assignments")}}">        <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button></a>
-                    <button type="submit" class="btn btn-primary" id="btn-recive-hw" data-toggle="modal" data-target="#myModalediteAssign" style="background-color: #ffffff;box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);color: #0E70F2;border: none;height:30px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
-                    <button type="submit" class="btn btn-danger" id="btn-recive-hw" data-toggle="modal" data-target="#myModalstop">إيقاف </button>
-                </div>
-                {{-- <div class="text-hw">
-                    <label for="" style="margin-right: 30px;">  الفصل الأول من المشروع </label> <label for="">اسم التكاليف</label><br>
-                    <label for="" style="margin-right: 77px;">10</label> <label for="">الدرجة</label><br>
-                    <label for="" style="margin-right: 66px;">المقدمة والاهداف والمشاكل وتنظيم التقرير</label> <label for="">الوصف</label><br>
-                    <label for="" style="margin-right: 73px;">pdf. الفصل الأول من المشروع </label> <label for="">الملف</label> <br>
-                    <label for="" style="margin-right: 35px;"> 2023/11/2</label> <label for="">تاريخ التسليم</label>
-                </div> //
-                <div class="btn-HW">
-                    <a href="{{route("recive-assignments",[$group_subject->subject_id,$group_subject->group_id])}}"> <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button></a>
-                    {{-- <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button>
-                    <button type="submit" class="btn btn-light " id="btn-recive-edte-hw" data-toggle="modal" data-target="#myModalediteAssign">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
-                    <button type="submit" class="btn btn-danger " id="btn-recive-hw" data-toggle="modal" data-target="#myModalstop">إيقاف </button>
-                </div>
 
-                <table id="table-details-assignements-teacher" dir="rtl">
-                    <tr>
-                        <th id="table-header-assigne-teacher">اسم التكاليف</th>
-                        <td id="text-table-teacher">*******</td>
-                    </tr>
-                    <tr>
-                        <th id="table-header-assigne-teacher">الدرجة</th>
-                        <td id="text-table-assigne-teacher">*******</td>
-                    </tr>
-                    <tr>
-                        <th id="table-header-assigne-teacher">الوصف</th>
-                        <td id="text-table-assigne-teacher">*******</td>
-                    </tr>
-
-                    <tr>
-                        <th id="table-header-assigne-teacher">الملف</th>
-                        <td id="text-table-assigne-teacher">*******</td>
-                    </tr>
-                    <tr>
-                        <th id="table-header-assigne-teacher">تاريخ التسليم</th>
-                        <td id="text-table-assigne-teacher">*******</td>
-                    </tr>
-
-
-                </table>
-
-
-            </div>
-        </div> --}}
     </div>
 
 
@@ -234,6 +191,7 @@
     window.addEventListener('closeModal', event => {
         $('#myModalstop').modal('hide');
         $('#myModalediteAssign').modal('hide');
+        location.reload();
     });
 </script>
 </div>

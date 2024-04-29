@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
 use App\Livewire\Academic\Subject\Assignments;
+use App\Livewire\Academic\Subject\FormsQuiz;
 use App\Livewire\Academic\Subject\ReciveAssignments;
 use App\Livewire\Academic\Subject\Studyingbooks;
 use App\Livewire\Global\GroupSubject\Index;
@@ -230,16 +231,18 @@ use Illuminate\Support\Facades\Storage;
                 });
                 route::prefix("studyingbooks")->group(function(){
                 route::get("/",'\\'.Studyingbooks::class)->name("studyingbooks");
+                });
+
+                route::prefix("forms-quiz")->group(function(){
+                route::get("/",'\\'.FormsQuiz::class)->name("forms-quiz");
+                });
             });
-            });
 
 
 
 
 
-            route::prefix("forms-quiz")->group(function(){
-                route::get("/",'FormsquizController@index')->name("forms-quiz");
-            });
+
             route::prefix("sendnotification")->group(function(){
                 route::get("/",'SendnotificationController@index')->name("sendnotification");
             });

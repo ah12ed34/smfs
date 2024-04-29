@@ -8,21 +8,40 @@
         <div id="btn-group-studyingbooks" class="btn-group">
             <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
 
-            <button id="btn-studyingbooksNavbar" class="btn btn-light" onclick="location.href='{{route('forms-quiz',[$group_subject->subject_id,$group_subject->group_id])}}'"><label class="proNavbartext">   نماذج</label></button>
+            <button id="btn-studyingbooksNavbar" class="btn btn-light" @if ($active == 'forms-quiz')
+                {{-- style="background-color: #0E70F2; color: white;" --}}
+                style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
+            @endif onclick="location.href='{{route('forms-quiz',[$group_subject->subject_id,$group_subject->group_id])}}'"><label class="proNavbartext">   نماذج</label></button>
             <button id="btn-studyingbooksNavbar" class="btn btn-light"><label class="proNavbartext">  عملي </label></button>
-            <button id="btn-studyingbooksNavbar" class="btn btn-light" style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;" onclick="location.href='{{route('studyingbooks',[$group_subject->subject_id,$group_subject->group_id])}}'"><label class="proNavbartext">  نظري </label></button>
+            <button id="btn-studyingbooksNavbar" class="btn btn-light" @if ($active == 'studyingbooks')
+            style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
+            @endif onclick="location.href='{{route('studyingbooks',[$group_subject->subject_id,$group_subject->group_id])}}'"><label class="proNavbartext">  نظري </label></button>
         </div>
         <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
             <label class="bottomNavbartext">القائمة</label>
             </button> -->
 
         <button id="btn-studyingbooksdropdown" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                 <div class="textstudentsdrop">     نظري</div>
+                 <div class="textstudentsdrop">
+                    @switch($active)
+                        @case('studyingbooks')
+                            نظري
+                        @break
+                        @case('forms-quiz')
+                            نماذج
+                        @break
+                    @endswitch
+                 </div>
                 </button>
         <div id="dropdown-menulist" class="dropdown-menu" style="width:100px;">
+            @if ($active != 'studyingbooks')
+                <a href="{{route("studyingbooks",[$group_subject->subject_id,$group_subject->group_id])}}" id="dropdown-students-itemlist" class="dropdown-item" style="padding-left:40px;"> نظري</a>
+            @endif
             <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> عملي</a>
-            <a href="{{route("forms-quiz",[$group_subject->subject_id,$group_subject->group_id])}}" id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> نماذج</a>
-        </div>
+            @if($active != 'forms-quiz')
+                <a href="{{route("forms-quiz",[$group_subject->subject_id,$group_subject->group_id])}}" id="dropdown-students-itemlist" class="dropdown-item" style="padding-left:40px;"> نماذج</a>
+            @endif
+            </div>
 
     </div>
     <div  class="hr3-students">

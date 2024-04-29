@@ -127,7 +127,7 @@ class Academic extends Component
             $avatar = null;
             $user_id = 160000000 + AcademicModel::all()->count();
             if($this->avatar){
-            $avatar = $this->avatar->store('users/avatar','public');
+            $avatar = $this->avatar->store('users/avatar');
             if(!$avatar){
                 $this->addError('avatar','error in upload image');
                 return;

@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("file_id")->constrained("files");
+            $table->foreignId("file_id")->constrained("group_files");
             $table->foreignId("student_group_id")->constrained("group_students");
             $table->string('file');
             $table->decimal('grade', 3, 2)->nullable();
+            $table->date('delivery_date')->default(now());
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

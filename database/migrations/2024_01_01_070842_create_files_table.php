@@ -18,15 +18,15 @@ return new class extends Migration
             $table->string("file2")->nullable();
             // description
             $table->text("description")->nullable();
-            $table->integer('onChapter')->nullable();
+            // $table->integer('onChapter')->nullable();
             $table->enum('type',['assignment','chapter','form_exem','summary']);
-            $table->boolean("is_active")->default(true);
-            $table->decimal('grade', 4, 2)->nullable();
-            $table->foreignId("subject_id")->constrained("group_subjects");
+            // $table->boolean("is_active")->default(true);
+            // $table->decimal('grade', 4, 2)->nullable();
+            // $table->foreignId("subject_id")->constrained("group_subjects");
             $table->foreignId("user_id")->constrained("users");
-            $table->date('start_date')->nullable();
-            $table->date('delivery_date')->nullable();
-            $table->date('due_date')->nullable();
+            // $table->date('start_date')->nullable();
+            // $table->date('delivery_date')->nullable();
+            // $table->date('due_date')->nullable();
             $table->timestamps();
         });
     }

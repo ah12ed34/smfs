@@ -123,14 +123,23 @@ class GroupSubject extends Model
             ->get();
     }
 
-    public function Files(){
-        return $this->hasOne(File::class,'subject_id','id');
+    public function files()
+    {
+        return $this->hasManyThrough(File::class, GroupFile::class, 'group_subject_id', 'id', 'id', 'file_id')
+            ->withTrashedParents();
+    }
+
+    public function GroupFiles(){
+        return $this->hasMany(GroupFile::class,'group_subject_id','id');
     }
 
     public function getFilesInGroupBySubject($type = 'assignment',$search){
-        return $this->Files()->where('type',$type)
-        ->where('name', 'like', '%' . $search . '%')
-        ;
+
+        // dd($this->files->where('type', $type));
+        $file = $this->files()->where('type', $type)
+        ->where('name', 'like', '%' . $search . '%');
+        // dd($file->get());
+        return $file;
     }
 
 

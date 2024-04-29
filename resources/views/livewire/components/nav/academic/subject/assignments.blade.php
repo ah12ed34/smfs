@@ -6,7 +6,7 @@
         <div class="dep-sub-name">{{ $group_subject->subject()->name_ar }}</div>
         <div class="container">
             <button id="btn-groups-assigne" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
-            <div class="textdrop2">  جميع المجموعات</div>
+            <div class="textdrop2"> {{ $group_subject->group->name }}</div>
            </button>
             <div id="dropdown-menulist" class="dropdown-menu" style="width:130px; color: #0E70F2; ">
                 @foreach ($otherGroups as $group)
