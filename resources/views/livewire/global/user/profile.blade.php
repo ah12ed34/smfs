@@ -16,7 +16,7 @@
             </div>
             <div class="card card-light" id="profile-card-header2">
                 <div>
-                    <label class="profile-user-name">{{ $name }}</label>
+                    <label class="profile-user-name">{{ $user->name }}</label>
                 </div>
                 <button type="submit" class="btn btn-primary " id="btn-edit-profie" data-toggle="modal" data-target="#myModalEditeProfile">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
                 <button type="submit" class="btn btn-primary " id="btn-change-password" data-toggle="modal" data-target="#myModalchangepassword">تغير كلمة السر</button>

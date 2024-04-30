@@ -22,6 +22,27 @@ class GroupSubject extends Model
         return $this->belongsTo(Group::class);
     }
 
+    public function subjects()
+    {
+
+        // return Subject::join('subjects_levels', 'subjects.id', '=', 'subjects_levels.subject_id')
+        //     ->where('subjects_levels.id', $this->subject_id)
+        //     ->select('subjects.*')
+        //     ->first()
+        //     ;
+        return $this->hasOneThrough(
+            Subject::class,
+            SubjectsLevels::class,
+            'id',
+            'id',
+            'subject_id',
+            'subject_id'
+        );
+
+
+
+    }
+
     public function subject()
     {
 
@@ -37,7 +58,7 @@ class GroupSubject extends Model
     }
     public function teacher()
     {
-        return $this->belongsTo(Academic::class, 'teacher_id','user_id');
+        return $this->belongsTo(Academic::class, 'teacher_id', 'user_id');
     }
 
     public function practicalGroups()

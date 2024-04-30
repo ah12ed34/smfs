@@ -10,6 +10,7 @@ use App\Livewire\Academic\Subject\Studyingbooks;
 use App\Livewire\Global\GroupSubject\Index;
 use App\Livewire\Global\PracticalGroup\AddStudents;
 use App\Livewire\Global\User\Profile;
+use App\Livewire\Student\StudStudyingBooks\StudStudyingBooks;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -72,7 +73,7 @@ use Illuminate\Support\Facades\Storage;
             route::get("/", 'students\StudChattingGroupController@index')->name('student-chattingGroup');
          });
          Route::prefix('/studStudyingbooks')->group(function(){
-            route::get("/", 'students\StudStudyingbooksController@indexbooks')->name('student-studyingbooks');
+            route::get("/", '\\'.StudStudyingBooks::class)->name('student-studyingbooks');
          });
          Route::prefix('/studBooksChapters')->group(function(){
          route::get("/", 'students\StudStudyingbooksController@indexChapters')->name('student-booksChapters');

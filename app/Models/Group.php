@@ -20,7 +20,8 @@ class Group extends Model
 
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class, 'group_subjects', 'group_id', 'subject_id');
+        return $this->belongsToMany(Subject::class, 'group_subjects', 'group_id', 'subject_id')
+            ;
     }
 
     public function students()
@@ -45,7 +46,7 @@ class Group extends Model
 
     public function groupSubjects()
     {
-        return $this->hasMany(GroupSubject::class, 'group_id','group_id');
+        return $this->hasMany(GroupSubject::class, 'group_id','id');
     }
 
     public function IsPractical()

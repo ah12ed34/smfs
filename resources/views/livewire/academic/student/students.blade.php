@@ -58,7 +58,7 @@
     </div>
 
     <nav >
-        {{ $students->links() }}
+        {{ $students->links('pagination::bootstrap-4') }}
     </nav>
 
     <!-- The Modal -->

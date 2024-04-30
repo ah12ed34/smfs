@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 class Students extends Component
 {
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $group_subject;
     public $search;
     public $perPage = 10;
