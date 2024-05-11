@@ -3,7 +3,7 @@
 
 <div class="container" dir="rtl">
     <div class="row">
-    <a href="{{route('group')}}" class="btn btn-primary">الرجوع</a>
+    <a href="{{route('group',[$group->id])}}" class="btn btn-primary">الرجوع</a>
         <div class="card">
             <div class="card-header">
                 <h1>المجموعة</h1>

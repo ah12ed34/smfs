@@ -11,11 +11,12 @@
         @forelse ($subjects as $subject)
             <div class="card" id="cards-subject-students" onclick="location.href='{{route('student-booksChapters',
                 [
-                    $subject->id
+                    $subject->group_subject_id,
+                    $subject->is_practical?'practical':'',
                 ]
             )}}'">
                 <img src="{{Vite::image("allocation (1).png")}}" class="" width="150px">
-                <div class="card-subject-child">{{ $subject->subject()->name_en ." - ".$subject->subject()->name_ar }}<br>{{ $subject->teacher->user->name }}
+                <div class="card-subject-child">{{ $subject->name_en ." - ".$subject->name_ar }}<br>{{ $subject->teacher_name }}
                 </div>
             </div>
 
@@ -26,6 +27,10 @@
                 </div>
             </div>
         @endforelse
+
+        <nav>
+            {{ $subjects->links(myapp::viewPagination) }}
+        </nav>
 
 
         {{-- <div class="card" id="cards-subject-students">

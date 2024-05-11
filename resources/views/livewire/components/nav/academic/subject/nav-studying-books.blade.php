@@ -76,7 +76,7 @@
                                 <!-- <label for="usr">Name:</label> -->
                                 <input type="text" class="form-control" id="inputtextfile" wire:model='nameFile' placeholder="اسم الملف " style="height: 30px; margin-top:-6px">
 
-                                <input type="file" class="form-control-file border" id="file" wire:model='file' style="height: 30px; margin-top:8px">
+                                <input type="file" class="form-control-file border" id="file" wire:model='file' style="height: 30px; margin-top:8px" accept=".pdf,.docx,.doc,.ppt,.pptx,.zip,.rar,.7z">
                                 @error('file') <span class="error" style="color: red;">{{ $message }}</span> @enderror
                             </div>
                             <!-- <div class="form-group">

@@ -24,8 +24,13 @@ class Icon{
             'pptx' => 'ppt.svg',
             'txt' => 'txt.svg',
             'jpg' => 'jpg.svg',
+            'zip' => 'zip.svg',
+            'rar' => 'zip.svg',
+            '7z' => 'zip.svg',
         ];
-
-        return Vite::asset('resources/svg/'.$icons[$icon] ?? 'file.svg');
+        if(isset($icons[$icon])){
+            return Vite::asset('resources/svg/'.$icons[$icon]);
+        }
+        return Vite::asset('resources/svg/file.svg');
     }
 }

@@ -226,6 +226,10 @@
     "file": "assets/doc-ff1f0dd7.svg",
     "src": "resources/svg/doc.svg"
   },
+  "resources/svg/file.svg": {
+    "file": "assets/file-86a803a6.svg",
+    "src": "resources/svg/file.svg"
+  },
   "resources/svg/pdf.svg": {
     "file": "assets/pdf-8da2e484.svg",
     "src": "resources/svg/pdf.svg"

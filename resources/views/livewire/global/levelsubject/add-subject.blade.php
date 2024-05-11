@@ -68,6 +68,6 @@
             <!-- Add more rows for other students -->
         </tbody>
     </table>
-    {{ $subjects->links() }}
+    {{ $subjects->links(myapp::viewPagination) }}
     </div>
 </div>

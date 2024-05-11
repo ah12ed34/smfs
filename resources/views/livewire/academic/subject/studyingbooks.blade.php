@@ -37,7 +37,7 @@
 
             </div>
             <nav>
-                {{ $studyingbooks->links() }}
+                {{ $studyingbooks->links(myapp::viewPagination) }}
             </nav>
         </div>
 

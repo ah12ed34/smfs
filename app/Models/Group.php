@@ -49,9 +49,14 @@ class Group extends Model
         return $this->hasMany(GroupSubject::class, 'group_id','id');
     }
 
+    public function groupStudents()
+    {
+        return $this->hasMany(GroupStudents::class, 'group_id','id');
+    }
+
     public function IsPractical()
     {
-        return !$this->group_id ;
+        return $this->group_id ;
     }
 
     // public function getStudentsInGroup($search = '',$page = 5 ,$selectedStudents = null,$sort = 'DESC')

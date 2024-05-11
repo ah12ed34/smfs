@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
 use App\Livewire\Academic\Subject\Assignments;
@@ -10,6 +9,8 @@ use App\Livewire\Academic\Subject\Studyingbooks;
 use App\Livewire\Global\GroupSubject\Index;
 use App\Livewire\Global\PracticalGroup\AddStudents;
 use App\Livewire\Global\User\Profile;
+use App\Livewire\Student\StudAssignements;
+use App\Livewire\Student\StudStudyingBooks\StudBooksChapters;
 use App\Livewire\Student\StudStudyingBooks\StudStudyingBooks;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -64,7 +65,7 @@ use Illuminate\Support\Facades\Storage;
             route::get("/",'students\StudProjectsController@Stastistcex')->name("student-projectsStastics");
          });
         Route::prefix('/studAssignments')->group(function () {
-           route::get("/",'students\StudAssignementsController@index')->name('student-assignements');
+           route::get("/",'\\'.StudAssignements::class)->name('student-assignements');
         });
         Route::prefix('/studDoneAssignments')->group(function () {
             route::get("/",'students\StudAssignementsController@indexDoneAssigne')->name('student-DoneAssignements');
@@ -75,8 +76,8 @@ use Illuminate\Support\Facades\Storage;
          Route::prefix('/studStudyingbooks')->group(function(){
             route::get("/", '\\'.StudStudyingBooks::class)->name('student-studyingbooks');
          });
-         Route::prefix('/studBooksChapters')->group(function(){
-         route::get("/", 'students\StudStudyingbooksController@indexChapters')->name('student-booksChapters');
+         Route::prefix('/studBooksChapters/{id}')->group(function(){
+         route::get("/", '\\'.StudBooksChapters::class)->name('student-booksChapters');
             });
          Route::prefix('/studFormQuiz')->group(function(){
             route::get("/", 'students\StudStudyingbooksController@indexFormQuiz')->name('student-formQuiz');

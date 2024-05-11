@@ -69,6 +69,10 @@ class File extends Model
         return $this->hasOne(GroupFile::class);
     }
 
+    public function GroupSubjects(){
+        return $this->hasManyThrough(GroupSubject::class,GroupFile::class,'file_id','id','id','group_subject_id');
+    }
+
 
     public function icon(){
         return Icon::getIcon($this->file);

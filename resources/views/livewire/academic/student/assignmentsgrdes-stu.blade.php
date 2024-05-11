@@ -46,10 +46,10 @@
     </div>
 
     <nav>
-        {{ $students->links() }}
+        {{ $students->links(myapp::viewPagination) }}
     </nav>
 
-    
+
 
 
 

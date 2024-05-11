@@ -57,7 +57,7 @@ class GroupFile extends Model
     // }
     public function group_subject()
     {
-        return $this->belongsTo(GroupSubject::class);
+        return $this->belongsTo(GroupSubject::class, 'group_subject_id');
     }
 
     public function file()
@@ -78,5 +78,23 @@ class GroupFile extends Model
     public function group_subjects()
     {
         return $this->hasMany(GroupSubject::class);
+    }
+
+    public function delivery()
+    {
+        return $this->hasOne(Delivery::class, 'file_id', 'id');
+    }
+    public function deliverys()
+    {
+        return $this->hasMany(Delivery::class, 'file_id', 'id');
+    }
+
+
+    public function group_subjectJoin()
+    {
+        return GroupSubject::join('group_files', 'group_subjects.id', '=', 'group_files.group_subject_id')
+            ->where('group_files.file_id', $this->file_id)
+            ->select('group_subjects.*')
+            ->first();
     }
 }

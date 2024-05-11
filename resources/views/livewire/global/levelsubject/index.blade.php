@@ -28,6 +28,6 @@
             <!-- Add more rows for other levels and departments -->
         </tbody>
     </table>
-    {{ $levels->links() }}
+    {{ $levels->links(myapp::viewPagination) }}
 
 </div>

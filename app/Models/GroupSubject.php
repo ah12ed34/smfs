@@ -163,5 +163,16 @@ class GroupSubject extends Model
         return $file;
     }
 
+    public function getSubjectInGroup($search,$is_practical = false){
+        $subjects = $this->subjects()->where('name_en', 'like', '%' . $search . '%')
+        ->orWhere('name_ar', 'like', '%' . $search . '%')
+        ->map(function ($subject) {
+            return null;
+            return $subject;
+        });
+
+        return $subjects;
+    }
+
 
 }

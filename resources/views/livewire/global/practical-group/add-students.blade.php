@@ -38,7 +38,7 @@
             <button type="submit" class="btn btn-primary">اضافة</button>
         </form>
         <div class="mt-3" dir="ltr">
-            {{$students->links()}}
+            {{$students->links(myapp::viewPagination)}}
         </div>
     </div>
 
