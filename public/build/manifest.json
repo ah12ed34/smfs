@@ -1,12 +1,28 @@
 {
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
+    "file": "assets/bootstrap-icons-bb1de989.woff",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
+    "file": "assets/bootstrap-icons-476adf42.woff2",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
+  },
   "resources/css/app.css": {
+<<<<<<< HEAD
     "file": "assets/app-bd712f14.css",
+=======
+    "file": "assets/app-110263d4.css",
+>>>>>>> 6d1918df1273741e0a33ed327a597b32ed60526f
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/images/Group 912.png": {
     "file": "assets/Group 912-05c07297.png",
     "src": "resources/images/Group 912.png"
+  },
+  "resources/images/Groups.png": {
+    "file": "assets/Groups-1eabb5b2.png",
+    "src": "resources/images/Groups.png"
   },
   "resources/images/M.L.H DS Mid exams_page-0001.jpg": {
     "file": "assets/M.L.H DS Mid exams_page-0001-0fe177af.jpg",
@@ -23,6 +39,10 @@
   "resources/images/M.L.H DS Mid exams_page-0004.jpg": {
     "file": "assets/M.L.H DS Mid exams_page-0004-22b56b26.jpg",
     "src": "resources/images/M.L.H DS Mid exams_page-0004.jpg"
+  },
+  "resources/images/add_user_avatar.png": {
+    "file": "assets/add_user_avatar-a189bd80.png",
+    "src": "resources/images/add_user_avatar.png"
   },
   "resources/images/allocation (1).png": {
     "file": "assets/allocation (1)-e7be0c63.png",
@@ -148,6 +168,10 @@
     "file": "assets/portfolio (2)-e3e4d9e0.png",
     "src": "resources/images/portfolio (2).png"
   },
+  "resources/images/presentation (2).png": {
+    "file": "assets/presentation (2)-68dc28a9.png",
+    "src": "resources/images/presentation (2).png"
+  },
   "resources/images/printing.png": {
     "file": "assets/printing-e70b3518.png",
     "src": "resources/images/printing.png"
@@ -193,13 +217,33 @@
     "src": "resources/images/user (4).png"
   },
   "resources/js/app.js": {
-    "file": "assets/app-b2fed51a.js",
+    "file": "assets/app-98006750.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-041e359a.css",
+    "file": "assets/app-1bd03d06.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
+  },
+  "resources/svg/doc.svg": {
+    "file": "assets/doc-ff1f0dd7.svg",
+    "src": "resources/svg/doc.svg"
+  },
+  "resources/svg/file.svg": {
+    "file": "assets/file-86a803a6.svg",
+    "src": "resources/svg/file.svg"
+  },
+  "resources/svg/pdf.svg": {
+    "file": "assets/pdf-8da2e484.svg",
+    "src": "resources/svg/pdf.svg"
+  },
+  "resources/svg/ppt.svg": {
+    "file": "assets/ppt-b0629a78.svg",
+    "src": "resources/svg/ppt.svg"
+  },
+  "resources/svg/zip.svg": {
+    "file": "assets/zip-09d282f2.svg",
+    "src": "resources/svg/zip.svg"
   }
 }

@@ -23,6 +23,7 @@ return new class extends Migration
 
 
     Schema::create('subjects_levels', function (Blueprint $table) {
+        $table->id();
         $table->string('subject_id');
         $table->foreign('subject_id')->references('id')->on('subjects');
         $table->foreignId('level_id')->constrained('levels', 'id');
@@ -30,7 +31,7 @@ return new class extends Migration
         $table->boolean('has_practical')->notnull()->default(false);
         $table->boolean('isActivated')->notnull()->default(true);
         $table->timestamps();
-        $table->primary(['subject_id', 'level_id']);
+        $table->unique(['subject_id', 'level_id']);
     });
 
     }

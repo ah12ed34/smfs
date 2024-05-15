@@ -16,7 +16,7 @@ class Level extends Model
 
     public function groups()
     {
-        return $this->hasMany(group::class);
+        return $this->hasMany(Group::class);
     }
 
     public function department()
@@ -26,6 +26,6 @@ class Level extends Model
 
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class, 'subjects_levels', 'level_id', 'subject_id');
+        return $this->belongsToMany(Subject::class, 'subjects_levels', );
     }
 }

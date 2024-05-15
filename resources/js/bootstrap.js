@@ -32,3 +32,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+// jQuery
+import { $, jQuery } from 'jquery';
+window.$ = $;
+window.jQuery = jQuery;
+
+// Popper.js
+import Popper from 'popper.js';
+window.Popper = Popper;
+
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// import 'bootstrap-icons/font/bootstrap-icons.css';

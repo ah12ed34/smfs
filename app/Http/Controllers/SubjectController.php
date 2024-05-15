@@ -6,6 +6,8 @@ use App\Http\Requests\subjectRequest;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use App\Models\Department;
+use App\Models\Level;
+use App\Models\GroupSubject;
 use Illuminate\Support\Facades\Storage;
 
 class SubjectController extends Controller
@@ -13,10 +15,12 @@ class SubjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($subject_id ,$group_id)
     {
         //
-        return view('academic.subject.subject');
+        $group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->
+        where('teacher_id',auth()->user()->academic->user_id)->first();
+        return view('academic.subject.subject',compact('group_subject'));
     }
 
     /**
@@ -38,7 +42,7 @@ class SubjectController extends Controller
         // $request->validated();
         // dd($request->all(),$request->file('image'));
         try{
-            $directory = 'public/subject/image';
+            $directory = 'subject/image';
             Storage::makeDirectory($directory);
             $request['image'] = $request->file('image')->store($directory);
             $request['id'] = $request['code'];
@@ -84,5 +88,8 @@ class SubjectController extends Controller
     public function destroy(Subject $subject)
     {
         //
+    }
+    public function addSubjectToLevel(Level $level){
+        return view('global.subject.level_subject',compact('level'));
     }
 }

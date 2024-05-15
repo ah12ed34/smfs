@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Vite;
-
+use Illuminate\Support\Facades\Validator;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -28,6 +28,17 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('Admin', fn () => optional(auth()->user())->hasRole('admin'));
         Blade::if('Student', fn () => optional(auth()->user())->isStudent());
         Blade::if('Teacher', fn () => optional(auth()->user())->isAcademic());
+        Validator::extend('min_words', function ($attribute, $value, $parameters, $validator) {
+            // $return = str_word_count(trim($value), 0, ' ') >= $parameters[0];
+            // dd(str_word_count(trim($value),0,' '),$parameters[0],$return);
+            $validator->addReplacer('min_words', function ($message, $attribute, $rule, $parameters) {
+                return str_replace(':min', $parameters[0], $message);
+            });
+            return str_word_count(trim($value), 0, ' ') >= $parameters[0];
+
+        });
+
+
 
     }
 }

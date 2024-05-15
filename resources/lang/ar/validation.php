@@ -110,6 +110,7 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+    'min_words' => 'يجب أن يحتوي :attribute على أكثر من :min كلمة',
 
 
 

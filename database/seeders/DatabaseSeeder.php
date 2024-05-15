@@ -34,8 +34,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
             $user_id = DB::table('users')->insertGetId([
-                'name' => 'Test User',
-                'last_name' => 'Test User',
+                'name' => 'admin',
+                'last_name' => '',
                 'username' => 'admin',
                 'gender' => 'male',
                 'password' => Hash::make('admin'),

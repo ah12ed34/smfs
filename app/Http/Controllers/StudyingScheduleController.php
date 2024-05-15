@@ -8,6 +8,7 @@ class StudyingScheduleController extends Controller
 {
     //
     public function index(){
-        return view("academic.studyingschedule.studyingschedule");
+        $academic = auth()->user()->academic;
+        return view("academic.studyingschedule.studyingschedule",compact('academic'));
     }
 }

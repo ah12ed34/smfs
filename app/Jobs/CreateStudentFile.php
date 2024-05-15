@@ -21,15 +21,24 @@ class CreateStudentFile implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public $file , $data = ['password'=>'1230',"gender"=>'male'],$headerRow;
-    public $filePath;
+    public
+    $file , $sizeAll = 0,
+    $data = ['password'=>'1230',"gender"=>'male'],$headerRow,$count = 0,$possition = 0,$chunk = 0;
+    // public $filePath;
+    public $rows;
     public $id;
-    public function __construct($file,array $data,$id)
+    public function __construct($header,$rows,array $data)
     {
         //
-        $this->file = $file;
-        $this->data = array_merge($this->data, $data);
-        $this->id = $id;
+        $this->file = $data['file'];
+        $this->headerRow = $header;
+        $this->count = $data['count'];
+        $this->chunk = $data['chunk'];
+        $this->possition = $data['possition'];
+        $this->sizeAll = $data['sizeAll'];
+        $this->rows = $rows;
+        $this->data = array_merge($this->data, ['department_id' => $data['department_id'], 'level_id' => $data['level_id']]);
+        $this->id = $data['id'];
     }
     /**
      * Execute the job.
@@ -38,29 +47,47 @@ class CreateStudentFile implements ShouldQueue
     {
     try {
 
-        $this->filePath = Storage::path($this->file);
+        // $this->filePath = Storage::path($this->file);
 
-        if (!file_exists($this->filePath)) {
-       $this->eventPDHQ([
-            'Progress' => 1,
-            'status' => 'failed',
-            'log' => 'File not found',
-       ]);
-        return;
-        }
+    //     if (!file_exists($this->filePath)) {
+    //    $this->eventPDHQ([
+    //         'Progress' => 1,
+    //         'status' => 'failed',
+    //         'log' => 'File not found',
+    //    ]);
+    //     return;
+    //     }
 
-        $spreadsheet = IOFactory::load($this->filePath);
-        $sheetData = $spreadsheet->getSheet(0)->toArray();
-        $this->headerRow = $headerRow = array_shift($sheetData);
+        // $spreadsheet = IOFactory::load($this->filePath);
+        // $sheetData = $spreadsheet->getSheet(0)->toArray();
+        $sheetData = $this->rows;
+        $headerRow = $this->headerRow;
+        // while ($bool = true){
+        //     $this->headerRow = $headerRow = array_shift($sheetData);
+        //     if (sizeof($headerRow) > 0 ) {
+        //         $headerRow = array_map('trim', $headerRow);
+        //         foreach ($headerRow as $key => $value) {
+        //             if (empty($value)) {
+        //                 continue ;
+        //             }else{
+        //                 break 2;
+        //             }
 
-        $arabicColumns = ['الرقم الجامعي', 'الاسم', 'اللقب', 'كلمة المرور', 'اسم المستخدم', 'الايميل', 'الجنس'];
+        //         }
+
+        //     }
+        // }
+
+
+        $arabicColumns = ['كود الطالب', 'اسم الطالب', 'اللقب', 'كلمة المرور', 'اسم المستخدم', 'الايميل', 'النوع'];
         $englishColumns = ['id', 'name', 'last_name', 'password', 'username', 'email', 'gender'];
+        if($this->possition==1)
         $this->eventPDHQ([
             'Progress' => 0,
             'status' => 'processing',
             'log' => 'start processing file',
         ]);
-        $i = 0;
+        $i = $this->possition * $this->chunk - $this->chunk ;
         foreach ($sheetData as $row) {
             $i++;
             $userData = $this->data; // افتراض أن $this->data هو نوع معين من البيانات
@@ -74,7 +101,7 @@ class CreateStudentFile implements ShouldQueue
                         $this->eventPDHQ([
                             'Progress' => 10,
                             'status' => 'processing',
-                            'log' => $log,
+                            'log' => $log . ' ' .$this->possition . ' of ' . $this->count . ' ',
                         ]);
                         continue 2;
                     }
@@ -87,7 +114,7 @@ class CreateStudentFile implements ShouldQueue
             Student::create_student($userData);
             if (sizeof($sheetData)>=10 &&$i % 10 == 0) {
                 $this->eventPDHQ([
-                    'Progress' => $i / sizeof($sheetData) * 100,
+                    'Progress' => $i / $this->sizeAll * 100,
                     'status' => 'processing',
                     'log' => $i . ' of ' . sizeof($sheetData) . ' processed successfully',
                 ]);
@@ -100,12 +127,13 @@ class CreateStudentFile implements ShouldQueue
                 'log' => 'Error processing file: ' . 'no data found',
             ]);
 
-        }else
+        }elseif($this->count==$this->possition){
         $this->eventPDHQ([
             'Progress' => 100,
             'status' => 'completed',
-            'log' => 'File processed successfully '.$i,
+            'log' => 'File processed successfully ',
         ]);
+        }
     } catch (\Exception $e) {
         // Log the exception
         log::error('Error processing file: ' . $e->getMessage());
@@ -118,7 +146,7 @@ class CreateStudentFile implements ShouldQueue
         ]);
     } finally {
         // Delete the file
-        Storage::delete($this->file);
+        // Storage::delete($this->file);
 
     }
 
@@ -166,7 +194,12 @@ class CreateStudentFile implements ShouldQueue
                     return false;
                 break;
             case 'gender':
-                if($cell!="male"&&$cell!="famale")
+                if($cell=='ذكر')
+                    $cell = 'male';
+                elseif($cell=='انثى'||$cell=='أنثى')
+                    $cell = 'female';
+
+                if($cell!="male"&&$cell!="female")
                     return false;
                 break;
 
@@ -219,9 +252,9 @@ class CreateStudentFile implements ShouldQueue
     public function failed(\Exception $e = null)
     {
     //handle error
-    if($this->file){
-        Storage::delete($this->file);
-    }
+    // if($this->file){
+    //     Storage::delete($this->file);
+    // }
 
     $this->eventPDHQ([
         'Progress' => 10,

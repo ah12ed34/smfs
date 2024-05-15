@@ -6,6 +6,7 @@ use App\Http\Requests\groupRQ;
 use App\Models\group;
 use Illuminate\Http\Request;
 use App\Models\Department;
+use App\Models\Level;
 use App\Models\Student;
 use App\Rules\add_students;
 use Illuminate\Support\Facades\Log;
@@ -15,12 +16,12 @@ class GroupController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Level $id)
     {
         //
-        $groups = group::all();
+        $groups = group::where('level_id',$id->id)->where('group_id',null)->get();
 
-        return view('academic.group.index',compact('groups'));
+        return view('group.index',compact('groups','id'));
     }
 
     /**
@@ -34,7 +35,7 @@ class GroupController extends Controller
             return redirect()->route('department.create')->with('error',__('general.no_departments'));
 
 
-        return view('academic.group.create',compact('departments'));
+        return view('group.create',compact('departments'));
     }
 
     /**
@@ -49,7 +50,7 @@ class GroupController extends Controller
             $data['schedule'] = null;
             $data['name'] = $data['groupname'];
             $data['max_students'] = $data['maxstudent'];
-            $data['group_id'] = $data['parent_group'];
+            // $data['group_id'] = $data['parent_group'];
             $data['level_id'] = $data['level'];
             unset($data['groupname'],$data['maxstudent'],$data['parent_group'],$data['table_file'],$data['level']);
             group::create($data);
@@ -68,7 +69,7 @@ class GroupController extends Controller
     {
 
         $students = Student::where('level_id',$group->level_id)->get();
-        return view('academic.group.addstudent',compact('group','students'));
+        return view('group.addstudent',compact('group','students'));
     }
 
     public function storestudent(Request $request,group $group)

@@ -99,23 +99,24 @@ class Student extends Model
 
 
 
-    public function studying() {
-        return $this->hasMany(Studying::class);
+    public function studying($subject_id){
+        return $this->hasOne(Studying::class,'student_id','user_id')->where('subject_id',$subject_id);
     }
 
     public function level() {
-        return $this->belongsTo(Level::class);
+        return $this->belongsTo(Level::class, 'level_id', 'id');
     }
     public function department() {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(Department::class, 'department_id', 'id');
     }
 
     public function user() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function groups() {
-        return $this->belongsToMany(group::class, 'group_students', 'student_id', 'group_id');
+        return $this->belongsToMany(Group::class, 'group_students', 'student_id', 'group_id');
     }
+
 
 }

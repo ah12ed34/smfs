@@ -3,18 +3,22 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+
+         {{-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> --}}
         {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> --}}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://tailwindui.com/components/application-ui/overlays/dialogs">
+        {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> --}}
+        {{-- <link rel="stylesheet" href="https://tailwindui.com/components/application-ui/overlays/dialogs">
         <link rel="stylesheet" href="https://daisyui.com/components/modal/">
         <link rel="stylesheet" href="https://tw-elements.com/docs/standard/components/modal/">
-        <link rel="stylesheet" href=" https://flowbite.com/docs/components/modal/">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href=" https://flowbite.com/docs/components/modal/"> --}}
+        <script src="{{ asset('app/js/app.js') }}" ></script>
+        {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> --}}
         <title>@yield('title',"CS")</title>
         @livewireStyles
-        @vite(['resources/sass/app.scss','resources/css/app.css'])
+        @vite(['resources/css/app.css','resources/sass/app.scss'])
+
         @yield('style')
+
     </head>
     <body style=" background-color: #E9EEEF;">
 
@@ -27,7 +31,16 @@
                 </button>
             @else
                 <button id="button-header" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style=" background-color:rgb(0, 0, 255);  border: 0px;">
-                    <div class="user-icon"><img src="{{ Vite::asset('resources/images/user (4).png') }}" width="29px"> <div class="user">{{ Auth::user()->name." ".Auth::user()->last_name}}</div></div>
+                    <?php
+                    $user = Auth::user();
+                    $photo = $user->photo;
+                    ?>
+                    <div class="user-icon">
+                        <img src="{{ Auth::user()->photo ? asset("storage/" . Auth::user()->photo) : Vite::image("user (4).png") }}" style="border-radius: 50%" width="29px">
+                        <div class="user">
+                            {{ Auth::user()->name." ".Auth::user()->last_name}}
+                        </div>
+                    </div>
                 </button>
             @endguest
             <div class="dropdown-menu" >
@@ -58,8 +71,8 @@
             <button class="button-sidebar" onclick="location.href='{{route('student-studyingSchedule')}}'"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.schaudule_std')}} </button>
             <button class="button-sidebar" onclick="location.href='{{route('student-archieve')}}'"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.archives')}} </label></button>
             <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
-               @endStudent   
-               
+               @endStudent
+
                @Admin
                <button class="button-sidebar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
                <button class="button-sidebar" onclick="location.href='{{route('student.create')}}'" ><img src="{{ Vite::image('user (4).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.create_student')}}</label><i class="bi bi-person-add"></i> </button>
@@ -176,8 +189,8 @@
             <button class="button-sidebar" onclick="location.href='{{route('student-studyingScheule')}}'"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.schaudule_std')}} </button>
             <button class="button-sidebar" onclick="location.href='{{route('student-archieve')}}'"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.archives')}} </label></button>
             <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
- --}}   
- 
+ --}}
+
        @Teacher()
         <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
         <button class="btn-bottomNavbar"onclick="location.href='{{route('archieve')}}'"><img src="{{ Vite::image('portfolio (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
@@ -185,15 +198,15 @@
         <button class="btn-bottomNavbar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
      @endTeacher
 
-            @Student()    
+            @Student()
         <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
         <button class="btn-bottomNavbar"onclick="location.href='{{route('student-archieve')}}'"><img src="{{ Vite::image('portfolio (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
         <button class="btn-bottomNavbar" onclick="location.href='{{route('student-studyingSchedule')}}'"><img src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الجدول </label></button>
         <button class="btn-bottomNavbar" onclick="location.href='{{route('student')}}'"><img src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
-        
-  @endStudent  
 
-  @Admin()    
+  @endStudent
+
+  @Admin()
   <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
   <button class="btn-bottomNavbar"onclick="location.href='{{route('academic.create')}}'"><img src="{{ Vite::image('user (4).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">إنشاءأكاديمي</label></button>
   <button class="btn-bottomNavbar" onclick="location.href='{{route('student.create')}}'"><img src="{{ Vite::image('user (4).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">إنشاء طالب </label></button>

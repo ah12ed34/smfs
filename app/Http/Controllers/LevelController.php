@@ -22,9 +22,9 @@ class LevelController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Department $id)
     {
-        //
+        return view('academic.level.index', ['department' => $id]);
     }
 
     /**

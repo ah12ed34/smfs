@@ -28,6 +28,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'email_verified_at',
+        'birthday',
     ];
 
     /**
@@ -64,7 +66,7 @@ class User extends Authenticatable
     }
     public function hasRole($name, int $user_id = null): bool{
         if(DB::table('roles')->where('name',$name)->exists()){
-            
+
             if(DB::table('roles')->select('roles.*')->where('name',$name)->join('has_role','roles.id','=','has_role.role_id')->where('has_role.user_id',$user_id ?? $this->id)->exists()){
                 return true;
             }
@@ -84,7 +86,7 @@ class User extends Authenticatable
                 return true;
             }
         return false;
-    
+
     }
 
     public function isStudent(): bool{
@@ -94,5 +96,36 @@ class User extends Authenticatable
         return DB::table('academics')->where('user_id',$this->id)->exists();
     }
 
+    public function isTeacher(): bool{
+        return DB::table('teachers')->where('user_id',$this->id)->exists();
+    }
 
+    public function student(){
+        if($this->isStudent()){
+            return $this->hasOne(Student::class,'user_id','id');
+        }
+        return null;
+    }
+
+    public function academic(){
+        if($this->isAcademic()){
+            return $this->hasOne(Academic::class,'user_id','id');
+        }
+        return null;
+    }
+
+    public function gender_ar(){
+        if($this->gender == null || empty($this->gender)){
+            return ' ';
+        }
+        return match($this->gender){
+            'male' => 'ذكر',
+            'female' => 'أنثى',
+            default => ' ',
+        };
+
+    }
+    public function getFullNameAttribute(){
+        return $this->name . ' ' . $this->last_name;
+    }
 }

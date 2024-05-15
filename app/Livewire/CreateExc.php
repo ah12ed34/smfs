@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Jobs\CreateStudentFile;
 use Illuminate\Contracts\Session\Session;
 use Livewire\Attributes\Validate;
-use Illuminate\Support\Str;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use Illuminate\Support\Facades\Bus;
 
 
 class CreateExc extends Component
@@ -33,6 +34,8 @@ class CreateExc extends Component
     public $file;
     public $message = '';
     public $polling = false;
+    protected $filePath;
+
 
     public function mount()
     {
@@ -65,7 +68,8 @@ class CreateExc extends Component
     public function save()
     {
         $this->validate();
-        $filePath = Storage::putFile('public/file/excel/create_student', $this->file);
+        $filePath = Storage::putFile('file/excel/create_student', $this->file);
+        $this->file = $filePath;
         if(Storage::exists($filePath)){
             try{
                 HistoryQueue::create([
@@ -74,13 +78,95 @@ class CreateExc extends Component
                 'status' => 'pending',
                 'Progress' => 0,
             ]);
+            $this->filePath = Storage::path($this->file);
+
+            if (!file_exists($this->filePath)) {
+                $this->HistoryQueue(1, 'failed', 'File not found');
+
+            return;
+            }
+
+            $spreadsheet = IOFactory::load($this->filePath);
+            $sheetData = $spreadsheet->getSheet(0)->toArray();
+            $headerRow = null;
+            while (true){
+                $headerRow = array_shift($sheetData);
+                if (sizeof($headerRow) > 0 ) {
+                    $headerRow = array_map('trim', $headerRow);
+                    foreach ($headerRow as $key => $value) {
+                        $value = trim($value);
+                        if (empty($value)) {
+                            continue ;
+                        }elseif($value == 'كود الطالب'|| $value == 'id'){
+                            break 2;
+                        }
+
+                    }
+
+                }
+            }
+            $sheetDataChunk = array_chunk($sheetData, 60);
+            // $arabicColumns = ['كود الطالب', 'اسم الطالب', 'اللقب', 'كلمة المرور', 'اسم المستخدم', 'الايميل', 'النوع'];
+            // $englishColumns = ['id', 'name', 'last_name', 'password', 'username, email', 'gender'];
+            $data = array();
+            $data['department_id'] = $this->department_id;
+            $data['level_id'] = $this->level_id;
+            $data['id'] = Auth::user()->id;
+            $data['file'] = $this->file;
+            $data['count'] = count($sheetDataChunk);
+            $data['chunk'] = count($sheetDataChunk[0]);
+            $data['sizeAll'] = count($sheetData);
+            // $batch = Bus::batch([])->dispatch();
+
+            $i = 0;
+            foreach($sheetDataChunk as $chunk){
+                $i++;
+                $data['possition'] = $i;
+                // $batch->add(new CreateStudentFile($headerRow,$chunk,['department_id'=>$this->department_id,'level_id'=>$this->level_id],Auth::user()->id));
+                CreateStudentFile::dispatch($headerRow, $chunk, $data);
+
+            }
+                // Session()->put('batch_id', $batch->id);
+
             }catch(\Exception $e){
+                Storage::delete($filePath);
+                $this->HistoryQueue(1, 'failed', $e->getMessage());
                 dd($e);
             }
-            CreateStudentFile::dispatch($filePath,['department_id'=>$this->department_id,'level_id'=>$this->level_id],Auth::user()->id);
+
+            // CreateStudentFile::dispatch($filePath,['department_id'=>$this->department_id,'level_id'=>$this->level_id],Auth::user()->id);
         }
         $this->mount();
     }
+
+        public function HistoryQueue($progress, $status, $log){
+            $hQ = HistoryQueue::where('user_id', auth()->user()->id)->where('file', $this->filePath)->first();
+
+            if ($hQ) {
+                $hQ->Progress = $progress;
+                $hQ->status = $status;
+                if (!empty($log)){
+                    // $hQ->log += ' \n ' . $event->log;
+                    if (empty($hQ->log)) {
+                        $hQ->log = $log;
+                    } else
+                        $hQ->log .= PHP_EOL . $log;
+                }
+
+                $hQ->save();
+            } else {
+                HistoryQueue::create([
+                    'user_id' => auth()->user()->id,
+                    'file' => $this->filePath,
+                    'Progress' => $progress,
+                    'status' => $status,
+                    'log' => $log??null,
+                ]);
+            }
+
+        }
+
+
 
 public function rules()
     {

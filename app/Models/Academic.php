@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 class Academic extends Model
 {
     use HasFactory;
-    
+
+    protected $primaryKey = 'user_id';
     protected $fillable = [
         'user_id',
         'department_id',
@@ -59,16 +60,28 @@ class Academic extends Model
     }
 
     public function user() {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
     public function department() {
-        return $this->hasOne(Department::class);
+        return $this->hasOne(Department::class, 'id', 'department_id');
     }
     public function courses() {
-        return $this->hasMany(groupSubject::class);
+        return $this->hasMany(GroupSubject::class, 'teacher_id', 'user_id');
     }
     public function subjects() {
         return $this->hasMany(Subject::class);
     }
 
+    public function groups() {
+        return $this->hasMany(Group::class);
+    }
+    public function getNameAttribute() {
+        return match($this->academic_name) {
+            'professor' => __('general.professor'),
+            'assistant_professor' => __('general.assistant_professor'),
+            'doctor' => __('general.doctor'),
+            'associate_professor' => __('general.associate_professor'),
+            default => __('general.unknown'),
+        };
+    }
 }

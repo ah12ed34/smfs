@@ -21,7 +21,7 @@
 @section("content")
 
 
-    <div class="hr3">
+    {{-- <div class="hr3">
         <a href="{{route("subject.index")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
         <div id="input-group-assign" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">
@@ -29,7 +29,7 @@
                 <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="responsive"></div>
     <div class="container">
 
@@ -48,7 +48,7 @@
                     <label for="" style="margin-right: 35px;"> 2023/11/2</label> <label for="">تاريخ التسليم</label>
                 </div> --}}
                 <div class="btn-HW">
-                    <a href="{{route("recive-assignments")}}"> <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button></a>
+                    <a href="{{route("recive-assignments",[$group_subject->subject_id,$group_subject->group_id])}}"> <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button></a>
                     {{-- <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button> --}}
                     <button type="submit" class="btn btn-light " id="btn-recive-edte-hw" data-toggle="modal" data-target="#myModalediteAssign">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
                     <button type="submit" class="btn btn-danger " id="btn-recive-hw" data-toggle="modal" data-target="#myModalstop">إيقاف </button>
@@ -119,7 +119,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" id="btnsave" style="float: left;">حفظ</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
-                    
+
                 </div>
             </div>
         </div>

@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $arrPersents = ['present','late','absence'];
         Schema::create('studyings', function (Blueprint $table) {
             $table->id();
             $table->foreignId("student_id")->constrained('group_students');
             $table->foreignId("subject_id")->constrained('group_subjects');
-            $arrPersents = ['present','late','absence'];
+            //   ('present', 'late', 'absent', 'permit')
+            $arrPersents = ['present','late','absent','permit'];
             $table->enum('persents1',$arrPersents)->nullable();
             $table->enum('persents2',$arrPersents)->nullable();
             $table->enum('persents3',$arrPersents)->nullable();

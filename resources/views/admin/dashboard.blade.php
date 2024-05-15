@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.home')
 
 @section('title', 'لوحة التحكم')
 @section('nav')
@@ -12,26 +12,11 @@
 @endsection
 @section('content')
 
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
+<div class="container">
+    <div class="row">
+        <a href="{{ route('level.index') }}" class="btn btn-primary">{{ __("general.level") }}</a>
+        <a href="{{ route('department.index') }}" class="btn btn-primary">{{ __("general.department") }}</a>
+        <a href="{{ route('student.index') }}" class="btn btn-primary">{{ __("general.student") }}</a>
     </div>
-@endif
-
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-@if(session('info'))
-    <div class="alert alert-info">
-        {{ session('info') }}
-    </div>
-@endif
-@if(session('warning'))
-    <div class="alert alert-warning">
-        {{ session('warning') }}
-    </div>
-@endif
-
+</div>
 @endsection

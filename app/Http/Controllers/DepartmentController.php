@@ -13,6 +13,8 @@ class DepartmentController extends Controller
     public function index()
     {
         //
+        $departments = Department::all();
+        return view('academic.department.index', compact('departments'));
     }
 
     /**
@@ -21,7 +23,7 @@ class DepartmentController extends Controller
     public function create()
     {
         //
-        
+
         return view('academic.department.create');
     }
 
@@ -71,5 +73,19 @@ class DepartmentController extends Controller
     public function destroy(Department $department)
     {
         //
+    }
+
+    public function levels(Department $department)
+    {
+        return view('academic.department.levels', compact('department'));
+    }
+
+    public function statistics(Department $department)
+    {
+        return view('academic.department.statistics', compact('department'));
+    }
+    public function academics(Department $department)
+    {
+        return view('academic.department.academics', compact('department'));
     }
 }
