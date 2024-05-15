@@ -263,7 +263,10 @@
 
 #card-img-schedule{
     margin-right: 5%;
-    position: static;
+  position: static;
+    margin-bottom: 40px;
+    display:block;
+    
 }
 @media screen and (max-width:840px) {
     #card-img-schedule{
@@ -307,16 +310,18 @@
     padding-top:10px; 
     border-bottom-left-radius:0%;
     border-bottom-right-radius:0%;
+    position: relative;
+    /* position: static; */
 }
 @media screen and (max-width:450px) {
     #card-title-schedule{
-        max-height: 40px;;
+        height: 40px;;
         /* padding-right: 0%; */
     }
 }
 @media screen and (max-width:370px) {
     #card-title-schedule{
-        max-height: 30px;
+        height: 30px;
         padding-top: 6px;
         /* padding-right: 0%; */
     }

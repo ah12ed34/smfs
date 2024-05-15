@@ -3,14 +3,14 @@
                 font-weight: normal;
                 padding-left: 5px;
                 margin-left: 60px;
-                margin-top: -30px;
-                position: fixed;
+                margin-top: -20px;
+                /* position: fixed; */
                 box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
             }
             
             @media screen and (max-width:991px) {
                 #btn-groups-hw {
-                    margin-left: 30px;
+                    margin-left: 30px; 
                 }
             }
             
@@ -25,8 +25,12 @@
                     margin-left: 100px;
                 }
             }
-            
-            @media screen and (max-width:777px) {
+            @media screen and (max-width:800px) {
+                #btn-groups-hw {
+                    margin-left: 90px;
+                }
+            }
+            @media screen and (max-width:768px) {
                 #btn-groups-hw {
                     width: 100px;
                     height: 30px;
@@ -34,10 +38,24 @@
                     margin-left: 80px;
                 }
             }
+            @media screen and (max-width:700px) {
+                #btn-groups-hw {
+                    margin-left: 100px;
+                }
+            }
+
+            @media screen and (max-width:600px) {
+                #btn-groups-hw {
+                    /* width: 100px;
+                    height: 30px; */
+                    /* font-size: 10px; */
+                    margin-left: 90px;
+                }
+            }
             
             @media screen and (max-width:550px) {
                 #btn-groups-hw {
-                    width: 100px;
+                    width: 90px;
                     height: 30px;
                     font-size: 10px;
                     margin-left: 80px;
@@ -199,6 +217,8 @@
                 border: none;
                 border-top-right-radius: 5px;
                 border-top-left-radius: 5px;
+                border-bottom-right-radius: 0%;
+                border-bottom-left-radius: 0%;
             }
             
             .btn-projctsNavbar-reciv-assigne:hover {
@@ -315,6 +335,23 @@
                     margin-left: 58%;
                 }
             }
+            @media screen and (max-width:360px) {
+                #btn-navbar-hw {
+                    /* margin-left: 58%; */
+                    width: 80px;
+                    /* font-size: 10px; */
+                    
+                }
+            }
+            @media screen and (max-width:330px) {
+                #btn-navbar-hw {
+                    /* margin-left: 58%; */
+                    width: 70px;
+                    font-size: 9px;
+                    
+                }
+            }
+
             /* @media screen and (max-width: 788px) {
     .btn-group {
         margin-left: 26%;
