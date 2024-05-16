@@ -1,13 +1,20 @@
 @extends('layouts.home')
 @section('nav')
 <div class="hdr2" style=" box-shadow: 10px;">
+    <button class="spaces"> <label  class="subjectname" style="margin-left: -10px;">الصفحة الرئيسية </label><img src="{{Vite::image("dashboard (1).png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -155px;"></button>
 
-    <ul>
+    {{-- <ul>
         <li><a  href="{{route("stasticsallsubject")}}">{{__('layout.statistics')}}</a></li>
         <li><a class="active" href="{{route("permissions")}}">{{__('layout.permissions')}}</a></li>
         <li><a  href="{{route("home")}}" style="text-decoration: none; float:right;">{{__('layout.home')}}</a></li>
 
-    </ul>
+    </ul> --}}
+    
+    <div id="btn-group-mainpage" class="btn-group">
+        <button id="btn-mainpageNavbar" class="btn btn-light"  onclick="location.href='{{route('permissions')}}'" style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label class="proNavbartext">  {{__('layout.permissions')}} </label></button>
+        <button id="btn-mainpageNavbar" class="btn btn-light"  onclick="location.href='{{route('home')}}'"><label class="proNavbartext">  {{__('layout.home')}} </label></button>
+    </div> 
+
 </div>
 <div id="hdr3-mobile" class="hr3-students">
 

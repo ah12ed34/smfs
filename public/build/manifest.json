@@ -8,7 +8,7 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-110263d4.css",
+    "file": "assets/app-4ddcafc4.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -227,7 +227,7 @@
     "src": "resources/svg/doc.svg"
   },
   "resources/svg/file.svg": {
-    "file": "assets/file-86a803a6.svg",
+    "file": "assets/file-2e9ede66.svg",
     "src": "resources/svg/file.svg"
   },
   "resources/svg/pdf.svg": {
