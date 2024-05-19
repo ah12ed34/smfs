@@ -1,5 +1,6 @@
     @section('nav')
-        @livewire('components.nav.academic.subject.project',['group_subject'=>$group_subject])
+        @livewire('components.nav.academic.subject.recive-assignments'
+        ,['group_subject'=>$group_subject])
     @endSection
 <div>
 

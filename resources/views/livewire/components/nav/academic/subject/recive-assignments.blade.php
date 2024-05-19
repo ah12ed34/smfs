@@ -3,7 +3,7 @@
         <button class="spaces"> <label  class="subjectname"> التكاليف </label><img src="{{Vite::image("homework (3).png")}}" id="subject-icon-hdr2" width="40px">
         </button>
         <div class="dep-sub-name">نظم موزعة </div>
-        <div class="container">
+        {{-- <div class="container"> --}}
             <button id="btn-groups-hw" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
             <div class="textdrop2">  جميع المجموعات</div>
            </button>
@@ -13,7 +13,13 @@
                 <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(3)</a>
             </div>
 
-
+    <div class="btn-group">
+                <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
+                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext">لم يتم التسليم</label></button>
+                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext"> تسليم متأخر</label></button>
+                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext"> تسليم مبكر </label></button>
+                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext"> الواردة</label></button>
+            </div>
 
             <div class="dropdown">
                 <button id="btn-navbar-hw" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
@@ -28,16 +34,10 @@
 
 
 
-            <div class="btn-group">
-                <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
-                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext">لم يتم التسليم</label></button>
-                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext"> تسليم متأخر</label></button>
-                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext"> تسليم مبكر </label></button>
-                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext"> الواردة</label></button>
-            </div>
 
 
-        </div>
+
+        {{-- </div> --}}
 
     </div>
 
