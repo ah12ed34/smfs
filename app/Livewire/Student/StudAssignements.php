@@ -12,6 +12,7 @@ use Livewire\WithFileUploads;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 use App\Tools\MyApp;
+use Illuminate\Support\Facades\Storage;
 
 class StudAssignements extends Component
 {
@@ -218,13 +219,13 @@ class StudAssignements extends Component
         return $assignments;
     }
 
-    public function checkDelivery($id)
+    public function download($id)
     {
-        return Delivery::where('file_id', $id)
-            ->whereHas('groupStudent', function ($query) {
-                $query->where('student_id', $this->user->student->user_id);
-            })
-            ->exists();
+        if(!File::find($id))
+            return abort(404);
+        elseif(!Storage::exists(File::find($id)->file))
+            return abort(404);
+        return Storage::download(File::find($id)->file, File::find($id)->name . '.' . File::find($id)->extension);
     }
 
 

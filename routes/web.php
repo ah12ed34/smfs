@@ -11,6 +11,7 @@ use App\Livewire\Global\GroupSubject\Index;
 use App\Livewire\Global\PracticalGroup\AddStudents;
 use App\Livewire\Global\User\Profile;
 use App\Livewire\Student\StudAssignements;
+use App\Livewire\Student\StudStastistics;
 use App\Livewire\Student\StudStudyingBooks\StudBooksChapters;
 use App\Livewire\Student\StudStudyingBooks\StudStudyingBooks;
 use Illuminate\Support\Facades\Auth;
@@ -87,7 +88,7 @@ use Illuminate\Support\Facades\Storage;
             route::get("/", 'students\StudStudyingbooksController@indexChaptersSummaries')->name('student-ChaptersSummaries');
          });
          Route::prefix('/studStastistics')->group(function(){
-            route::get("/",'students\StudStastisticsController@index')->name('student-stastistics');
+            route::get("/",'\\'.StudStastistics::class)->name('student-stastistics');
          });
          Route::prefix('/studArchieve')->group(function(){
             route::get("/", 'students\StudArchieveController@indexArchieve')->name('student-archieve');
