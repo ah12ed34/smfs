@@ -1,8 +1,10 @@
+@section('nav')
+    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject])
+     {{-- ['subject' => $subject], key('nav-'.time())) --}}
+@endsection
 <div>
-
-    <div class="responsive"></div>
-
-{{-- <div class="container" id="container-project" style="padding-top: 30px;" >
+    {{-- Be like water. --}}
+    <div class="container" id="container-project" style="padding-top: 30px;" >
 
         <div class="table-responsive-xl">
             <table class="table" id="table" style=" margin-right: -30px; " >
@@ -20,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($projects as $projectGroup)
+                    {{-- @forelse ($project as $projectGroup) --}}
 
                         <tr class="table-light" id="modldetials" @if ($loop->first) style="margin-top:7px;" @endif>
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
@@ -31,11 +33,11 @@
 
                             <td>{{ $projectGroup->student->user->name }}</td>
                             <td>
-                                @if ($projectGroup->project->date)
+                                {{-- @if ($projectGroup->project->date) --}}
                                     {{ $projectGroup->project->date }}
-                                @else
+                                {{-- @else --}}
                                     <span class="badge badge-danger">غير محدد</span>
-                                @endif
+                                {{-- @endif --}}
                             </td>
                             <td>
                                 @if ($projectGroup->file)
@@ -48,98 +50,21 @@
                         </tr>
 
 
-                    @empty
+                    {{-- @empty --}}
                         <tr >
                             <td colspan="9" style="text-align: center;">{{ __('general.no_projects') }}</td>
                         </tr>
 
-                    @endforelse
+                    {{-- @endforelse --}}
 
 
-                </tbody>
-            </table>
-        </div>
-    </div> --}}
-
-
-    <div class="container" id="container-project" style="padding-top: 20px;" >
-
-        <div class="table-responsive-xl">
-            <table class="table" style=" width:100%;">
-                <thead class="table-header" style="font-size: 12px;">
-                    <tr class="table-light" id="modldetials">
-                        <th>عرض المشاريع</th>
-                        <th>تعديل</th>
-                        <th>التفاصيل</th>
-                        <th>عدد المجموعات</th>
-                        <th>الدرجة الافتراصية</th>
-                        <th>تاريخ التسليم</th>
-                        <th>اسم المشروع</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($projects as $project)
-                    <tr class="table-light" id="modldetials" @if ($loop->first) style="margin-top:7px;" @endif>
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2">المجموعات</button>  </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldetails">التفاصيل</button> </td>
-                        <td>*******</td>
-                        <td>{{ $project->grade }}</td>
-                        <td>{{ $project->end_date }}</td>
-                        <td>{{ $project->name }}</td>
-                    </tr>
-                    @empty
-                        <tr >
-                            <td colspan="9" style="text-align: center;">{{ __('general.no_projects') }}</td>
-                        </tr>
-
-                    @endforelse
                 </tbody>
             </table>
         </div>
     </div>
 
 
-    <!-- The Modalcreate project -->
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:550px;">
-
-                <!-- Modal Header -->
-                <div class="modal-header" id="modheader" style="text-align: center;padding-left:42%;">
-                   انشاء مشروع جديد
-                    <button type="button"  class="close"  data-dismiss="modal" ><img src="{{Vite::image("cancelbtn.png")}}"   width="20px" style="position: static;" ></button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <form action="/action_page.php" style="display: block;">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="inputtext" name="projectname" placeholder="اسم المشروع " style="height: 30px; margin-top:-6px">
-                            <input type="text" class="form-control" id="inputtext" name="grades" placeholder="الدرجة " style="height: 30px; margin-top:10px">
-                            <textarea style="height: 80px;" class="form-control" rows="3" id="comment" placeholder=" وصف المشروع " style=" margin-top:10px"></textarea>
-                            <input type="date" class="form-control" id="inputtext" name="date" placeholder=" تاريخ التسليم " style="height: 30px; margin-top:10px;color:black;">
-                            <input type="text" class="form-control" id="inputtext" name="max-numerStudents" placeholder=" الحد الأقصى للطلاب " style="height: 30px; margin-top:10px">
-                            <input type="text" class="form-control" id="inputtext" name="min-numerStudents" placeholder="الحد الأدنى للطلاب " style="height: 30px; margin-top:10px">
-                            <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:10px">
-                            {{-- <input type="text" class="form-control" id="inputtext" name="note" placeholder="ملاحظة " style="height: 30px; margin-top:10px"> --}}
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left; ">حفظ</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-<!-- The Modalchatting -->
+    <!-- The Modalchatting -->
 <div class="modal fade" id="myModalchatting">
     <div class="modal-dialog">
         <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height:600px;">
@@ -286,7 +211,7 @@
 <!-- The Modaldetails -->
 <div class="modal fade" id="myModaldetails" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
+        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:550px;">
 
             <!-- Modal Header -->
             <div class="modal-header" id="modheader-proj" style="padding-left: 40%">
@@ -297,35 +222,40 @@
             <!-- Modal body -->
             <div class="modal-body" id="projectdetails" style="overflow: auto;">
 
-                <div class="table-responsive ">
-                    <table class="table  " style=" width:100%;" dir="rtl">
+            <div class="table-responsive ">
+                <table class="table  " style=" width:100%;" dir="rtl">
 
-                                <tr class="table-light" id="modldetials">
-                                    <th style="width: 25%;">اسم المشروع</th>
-                                    <td>**********</td>
-                                </tr>
-                                <tr class="table-light" id="modldetials">
-                                    <th style="width: 25%;">تاريخ التسليم</th>
-                                    <td>**********</td>
-                                </tr>
-                                <tr class="table-light" id="modldetials">
-                                    <th style="width: 25%;">الدرجة الافتراصية</th>
-                                    <td>**********</td>
-                                </tr>
-                                <tr class="table-light" id="modldetials">
-                                    <th style="width: 25%;">عدد المجموعات</th>
-                                    <td>**********</td>
-                                </tr>
-                                <tr class="table-light" id="modldetials">
-                                    <th style="width: 25%;">الوصف</th>
-                                    <td>**********</td>
-                                </tr>
-                                <tr class="table-light" id="modldetials">
-                                    <th style="width: 25%;">الملف المرفق</th>
-                                    <td>**********</td>
-                                </tr>
-                    </table>
-                </div>
+                            <tr class="table-light" id="modldetials">
+                                <th style="width: 25%;">اسم المشروع</th>
+                                <td>**********</td>
+                            </tr>
+                            <tr class="table-light" id="modldetials">
+                                <th style="width: 25%;">رئيس المشروع </th>
+                                <td>**********</td>
+                            </tr>
+                            <tr class="table-light" id="modldetials">
+                                <th style="width: 25%;">تاريخ التسليم</th>
+                                <td>**********</td>
+                            </tr>
+                            <tr class="table-light" id="modldetials">
+                                <th style="width: 25%;">الدرجة </th>
+                                <td>**********</td>
+                            </tr>
+                            <tr class="table-light" id="modldetials">
+                                <th style="width: 25%;">عدد الطلاب</th>
+                                <td>**********</td>
+                            </tr>
+                            <tr class="table-light" id="modldetials">
+                                <th style="width: 25%;">الوصف</th>
+                                <td>**********</td>
+                            </tr>
+                            <tr class="table-light" id="modldetials">
+                                <th style="width: 25%;">الملف المرفق</th>
+                                <td>**********</td>
+                            </tr>
+                </table>
+            </div>
+
 
                 {{-- <div class="detils-name">
                     <label class="textdetailsproj" for=""> اسم المشروع </label>
@@ -380,7 +310,7 @@
                         </div>
                     </div>
                 </div> --}}
-                {{-- <br>
+                <br>
 
                 <div class="detils-name">
                     <label for="" class="textdetailsproj">   ملفات المشروع   </label>
@@ -389,9 +319,56 @@
                             ********************************************************************************************************************************
                         </div>
                     </div>
-                </div> --}}
+                </div>
 
 
+                <div class="">
+                    <label for="" class="textdetailsproj">   فريق المشروع</label>
+                    <div class="table-responsive">
+                        <table class="table" id="table" style=" margin-right: -30px; margin-top:-5px " >
+                            <thead class="table-header" style="font-size: 12px;">
+                                <tr class="table-light" id="modldetials">
+                                    <th>الدرجة</th>
+                                    <th> اسم الطالب</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                    <tr class="table-light" id="modldetials"  style="margin-top:7px;" >
+                                <td>*********</td>
+
+                                <td>    {{-- @dump($students) --}}
+                                    @forelse ($students as $student)
+                                        {{ $student->student->student->user->name }}
+                                        @if (!$loop->last)
+                                            <br>
+                                        @endif
+
+                                    @empty
+                                        {{ __('general.no_students') }}
+
+                                    @endforelse</td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {{-- <div class="projectsmembers">
+                        <div class="card" id="projectsmembers-name">
+                            @dump($students)
+                            @forelse ($students as $student)
+                                {{ $student->student->student->user->name }}
+                                @if (!$loop->last)
+                                    <br>
+                                @endif
+
+                            @empty
+                                {{ __('general.no_students') }}
+
+                            @endforelse
+
+                        </div>
+                    </div> --}}
+                </div>
             </div>
 
             <!-- Modal footer -->
@@ -411,7 +388,7 @@
 <!-- The ModalEdite -->
 <div class="modal fade" id="myModalEdite">
     <div class="modal-dialog">
-        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height: ">
+        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height: 630px;">
 
             <!-- Modal Header -->
             <div class="modal-header" id="modheader" style="padding-left: 50%">
@@ -423,14 +400,50 @@
             <div class="modal-body" style="overflow: auto;">
                 <form action="/action_page.php" style="display: block;">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="inputtext" name="projectname" placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;">
-                            <input type="data" class="form-control" id="inputtext" name="grades" placeholder="   الدرجة الافتراصية" style="height: 30px; margin-top:8px;">
-                            <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder=" وصف المشروع" style=" margin-top:8px"></textarea>
-                            <input type="date" class="form-control" id="inputtext" name="date" placeholder=" تاريخ التسليم" style="height: 30px; margin-top:8px;">
-                            <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:8px;">
-                            <input type="text" class="form-control" id="inputtext" name="max-numerStudents" placeholder=" الحد الأقصى للطلاب" style="height: 30px; margin-top:8px">
-                            <input type="text" class="form-control" id="inputtext" name="min-numerStudents" placeholder="الحد الأدنى للطلاب" style="height: 30px; margin-top:8px">
+                        <!-- <label for="usr">Name:</label> -->
+                        <div><input type="text" class="form-control" id="inputtext" name="username" placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;"></div>
+                        <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder=" رئيس المشروع" style="height: 30px; margin-top:8px;"></div>
+                        <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder="الدرجة" style="height: 30px; margin-top:8px;"></div>
+                        <div> <input type="date" class="form-control" id="inputtext" name="username" placeholder=" تاريخ التسليم" style="height: 30px; margin-top:8px;"></div>
+                        <div> <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder=" وصف المشروع" style=" margin-top:8px"></textarea></div>
+                        <!-- <input type="text" class="form-control" id="inputtext" name="username" placeholder=" الحد الأقصى للطلاب" style="height: 30px; margin-top:8px"> -->
+                        <!-- <input type="text" class="form-control" id="inputtext" name="username" placeholder="الحد الأدنى للطلاب" style="height: 30px; margin-top:8px"> -->
+                        <div> <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px;"></div>
                         {{-- <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder="ملاحظة" style="height: 30px; margin-top:8px;"></div> --}}
+
+
+                        <div class="card mb-3" style="width: 95%;height:10%; box-shadow:none;">
+                            <div class="card-header" style="height: 45px;">
+                                <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder="إضافة طالب" style="height: 30px; margin-top:0px;width:70%;margin-left:30%;"></div>
+                                <button type="submit" class="btn btn-primary" id="btn-add-stu" >إضافة</button>
+                            </div>
+                            {{-- <div class="card-body">
+                                <h4 class="card-title"></h4>
+                                <p class="card-text"></p>
+                            </div> --}}
+                        </div>
+                        <br>
+                        <div class="table-responsive">
+                            <table class="table" id="table" style=" margin-right: -30px; " >
+                                <thead class="table-header" style="font-size: 12px;">
+                                    <tr class="table-light" id="modldetials">
+                                        <th>حذف الطالب</th>
+                                        <th>الدرجة</th>
+                                        <th>  فريق المشروع</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                        <tr class="table-light" id="modldetials"  style="margin-top:7px;" >
+                                    <td><button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;" >  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button></td>
+                                    <td>*********</td>
+                                    <td>*********</td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
 
                     </div>
                     <!-- <div class="form-group">
@@ -479,4 +492,5 @@
         </div>
     </div>
 </div>
+
 </div>

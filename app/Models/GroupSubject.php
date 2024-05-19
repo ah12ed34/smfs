@@ -117,7 +117,7 @@ class GroupSubject extends Model
     }
     public function projects()
     {
-        return $this->hasOne(Project::class, 'subject_id', 'id');
+        // return $this->hasOne(Project::class, 'subject_id', 'id');
         return $this->hasMany(Project::class, 'subject_id', 'id');
     }
 

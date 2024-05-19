@@ -2,7 +2,7 @@
 @section('nav')
 
 <div class="hdr2" style=" box-shadow: 10px;">
-    <button class="spaces"> <label  class="subjectname">{{ $group_subject->subject()->name_ar }}</label><img src="{{$group_subject->subject()->image ?$group_subject->subject()->image : Vite::image("allocation (1).png")}}" id="subject-icon-hdr2" width="40px">
+    <button class="spaces" > <label  class="subjectname" >{{ $group_subject->subject()->name_ar }}</label><img src="{{$group_subject->subject()->image ?$group_subject->subject()->image : Vite::image("allocation (1).png")}}" id="subject-icon-hdr2" width="40px"  >
     </button>
     <div class="dep-sub-name">{{ $group_subject->subject()->name_ar }}</div>
 </div>

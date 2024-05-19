@@ -21,7 +21,8 @@ class Project extends Component
     public function getProjectsProperty()
     {
         // dd($this->group_subject);
-        return $this->group_subject->getProjectsInGroupBySubject($this->search)
+        return $this->group_subject->
+        projects()->where('name','like','%'.$this->search.'%')
         ->paginate($this->perPage);
     }
     public function selected($id)

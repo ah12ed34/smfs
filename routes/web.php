@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
 use App\Livewire\Academic\Subject\Assignments;
 use App\Livewire\Academic\Subject\FormsQuiz;
+use App\Livewire\Academic\Subject\ProjectGroups;
 use App\Livewire\Academic\Subject\ReciveAssignments;
 use App\Livewire\Academic\Subject\Studyingbooks;
 use App\Livewire\Global\GroupSubject\Index;
@@ -221,6 +222,7 @@ use Illuminate\Support\Facades\Storage;
 
                 Route::prefix("project")->group(function(){
                     Route::get("/","ProjectController@index")->name("projects");
+                    route::get("{project_id}",'\\'.ProjectGroups::class)->name("project");
                 });
 
                 Route::prefix('assignment')->group(function(){
@@ -238,6 +240,7 @@ use Illuminate\Support\Facades\Storage;
                 route::prefix("forms-quiz")->group(function(){
                 route::get("/",'\\'.FormsQuiz::class)->name("forms-quiz");
                 });
+
             });
 
 
