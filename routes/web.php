@@ -17,6 +17,7 @@ use App\Livewire\Student\StudStudyingBooks\StudStudyingBooks;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -294,7 +295,15 @@ use Illuminate\Support\Facades\Storage;
 
         });
 
+
+
     })->middleware('auth');
+
+    Route::group(['prefix'=>'quality','middleware' => 'auth'
+], function () {
+        route::get('/', '\\'.App\Livewire\Quality\QualityMain::class)->name('quality');
+
+    });
 
     Route::get('storage/{path}', function ($path) {
         // $filePath = storage_path('app/public/' . $path);
