@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @forelse ($project as $projectGroup) --}}
+                    @forelse ($GroupProjects as $projectGroup)
 
                         <tr class="table-light" id="modldetials" @if ($loop->first) style="margin-top:7px;" @endif>
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
@@ -50,12 +50,12 @@
                         </tr>
 
 
-                    {{-- @empty --}}
+                    @empty
                         <tr >
                             <td colspan="9" style="text-align: center;">{{ __('general.no_projects') }}</td>
                         </tr>
 
-                    {{-- @endforelse --}}
+                    @endforelse
 
 
                 </tbody>
@@ -338,7 +338,7 @@
                                 <td>*********</td>
 
                                 <td>    {{-- @dump($students) --}}
-                                    @forelse ($students as $student)
+                                    {{-- @forelse ($students as $student)
                                         {{ $student->student->student->user->name }}
                                         @if (!$loop->last)
                                             <br>
@@ -347,7 +347,8 @@
                                     @empty
                                         {{ __('general.no_students') }}
 
-                                    @endforelse</td>
+                                    @endforelse --}}
+                                </td>
                                     </tr>
                             </tbody>
                         </table>

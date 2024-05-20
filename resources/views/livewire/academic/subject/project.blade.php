@@ -80,10 +80,12 @@
                 <tbody>
                     @forelse ($projects as $project)
                     <tr class="table-light" id="modldetials" @if ($loop->first) style="margin-top:7px;" @endif>
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2">المجموعات</button>  </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldetails">التفاصيل</button> </td>
-                        <td>*******</td>
+                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" onclick="window.location.href='{{ route('project', [$group_subject->subject_id, $group_subject->group_id, $project->id
+                        ]) }}' "
+                             >المجموعات</button>  </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" wire:click='selected({{ $project->id }})' data-toggle="modal" data-target="#myModalEdite" >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" wire:click='selected({{ $project->id }})' data-toggle="modal" data-target="#myModaldetails" >التفاصيل</button> </td>
+                        <td>{{ $project->count_groups }}</td>
                         <td>{{ $project->grade }}</td>
                         <td>{{ $project->end_date }}</td>
                         <td>{{ $project->name }}</td>
@@ -101,7 +103,7 @@
 
 
     <!-- The Modalcreate project -->
-    <div class="modal fade" id="myModal">
+    <div class="modal fade" id="myModal" wire:ignore.self>
         <div class="modal-dialog">
             <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:550px;">
 
@@ -115,21 +117,30 @@
                 <div class="modal-body">
                     <form action="/action_page.php" style="display: block;">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="inputtext" name="projectname" placeholder="اسم المشروع " style="height: 30px; margin-top:-6px">
-                            <input type="text" class="form-control" id="inputtext" name="grades" placeholder="الدرجة " style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" wire:model='name' placeholder="اسم المشروع " style="height: 30px; margin-top:-6px">
+                            <input type="text" class="form-control" id="inputtext" wire:model="grade" placeholder="الدرجة " style="height: 30px; margin-top:10px">
                             <textarea style="height: 80px;" class="form-control" rows="3" id="comment" placeholder=" وصف المشروع " style=" margin-top:10px"></textarea>
-                            <input type="date" class="form-control" id="inputtext" name="date" placeholder=" تاريخ التسليم " style="height: 30px; margin-top:10px;color:black;">
-                            <input type="text" class="form-control" id="inputtext" name="max-numerStudents" placeholder=" الحد الأقصى للطلاب " style="height: 30px; margin-top:10px">
-                            <input type="text" class="form-control" id="inputtext" name="min-numerStudents" placeholder="الحد الأدنى للطلاب " style="height: 30px; margin-top:10px">
-                            <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:10px">
+                            <input type="date" class="form-control" id="inputtext" wire:model="end_date" placeholder=" تاريخ التسليم " style="height: 30px; margin-top:10px;color:black;">
+                            <input type="text" class="form-control" id="inputtext" wire:model="max_students" placeholder=" الحد الأقصى للطلاب " style="height: 30px; margin-top:10px">
+                            <input type="text" class="form-control" id="inputtext" wire:model="min_students" placeholder="الحد الأدنى للطلاب " style="height: 30px; margin-top:10px">
+                            <input type="file" class="form-control-file border" id="file" wire:model="file" style="height: 30px; margin-top:10px">
                             {{-- <input type="text" class="form-control" id="inputtext" name="note" placeholder="ملاحظة " style="height: 30px; margin-top:10px"> --}}
                         </div>
                     </form>
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger" role="alert">
+                                {{ $error }}
+                            </div>
+                        @endforeach
+
+                    @endif
                 </div>
+
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left; ">حفظ</button>
+                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left; " wire:click='addProject'>حفظ</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
                 </div>
             </div>
@@ -302,19 +313,19 @@
 
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">اسم المشروع</th>
-                                    <td>**********</td>
+                                    <td>{{ $projectDetails->name }}</td>
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">تاريخ التسليم</th>
-                                    <td>**********</td>
+                                    <td>{{ $projectDetails->end_date }}</td>
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">الدرجة الافتراصية</th>
-                                    <td>**********</td>
+                                    <td>{{ $projectDetails->grade }}</td>
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">عدد المجموعات</th>
-                                    <td>**********</td>
+                                    <td>{{ $projectDetails->count_groups }}</td>
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">الوصف</th>
@@ -322,7 +333,13 @@
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">الملف المرفق</th>
-                                    <td>**********</td>
+                                    <td>
+                                        @if ($projectDetails->file)
+                                            <a wire:click="downloadFile({{ $projectDetails->id }})" href="#" class="badge badge-success">تحميل</a>
+                                        @else
+                                            <span class="badge badge-danger">غير موجود</span>
+                                        @endif
+                                    </td>
                                 </tr>
                     </table>
                 </div>
@@ -409,7 +426,9 @@
 
 
 <!-- The ModalEdite -->
-<div class="modal fade" id="myModalEdite">
+{{-- @if ($projectDetails->id) --}}
+{{-- @dump($project) --}}
+<div class="modal fade" id="myModalEdite" wire:ignore.self>
     <div class="modal-dialog">
         <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height: ">
 
@@ -421,17 +440,25 @@
 
             <!-- Modal body -->
             <div class="modal-body" style="overflow: auto;">
-                <form action="/action_page.php" style="display: block;">
+                <form  style="display: block;">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="inputtext" name="projectname" placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;">
-                            <input type="data" class="form-control" id="inputtext" name="grades" placeholder="   الدرجة الافتراصية" style="height: 30px; margin-top:8px;">
+                        <input type="text" class="form-control" id="inputtext" wire:model='name'  placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;">
+                            <input type="data" class="form-control" id="inputtext" wire:model='grade'  placeholder="   الدرجة الافتراصية" style="height: 30px; margin-top:8px;">
                             <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder=" وصف المشروع" style=" margin-top:8px"></textarea>
-                            <input type="date" class="form-control" id="inputtext" name="date" placeholder=" تاريخ التسليم" style="height: 30px; margin-top:8px;">
-                            <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:8px;">
-                            <input type="text" class="form-control" id="inputtext" name="max-numerStudents" placeholder=" الحد الأقصى للطلاب" style="height: 30px; margin-top:8px">
-                            <input type="text" class="form-control" id="inputtext" name="min-numerStudents" placeholder="الحد الأدنى للطلاب" style="height: 30px; margin-top:8px">
+                            <input type="date" class="form-control" id="inputtext" wire:model='end_date' placeholder=" تاريخ التسليم" style="height: 30px; margin-top:8px;">
+                            <input type="file" class="form-control-file border" id="file" wire:model="file" style="height: 30px; margin-top:8px;">
+                            <input type="text" class="form-control" id="inputtext" wire:model="max_students" placeholder=" الحد الأقصى للطلاب" style="height: 30px; margin-top:8px">
+                            <input type="text" class="form-control" id="inputtext" wire:model="min_students" placeholder="الحد الأدنى للطلاب" style="height: 30px; margin-top:8px">
                         {{-- <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder="ملاحظة" style="height: 30px; margin-top:8px;"></div> --}}
+                        @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $error }}
+                                </div>
+                            @endforeach
+                            {{-- @dump($errors) --}}
 
+                        @endif
                     </div>
                     <!-- <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -442,13 +469,13 @@
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
+                <button type="submit" class="btn btn-primary" id="btnsave" wire:click='update_proj'>حفظ</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
             </div>
         </div>
     </div>
 </div>
-
+{{-- @endif --}}
   <!-- The ModalDelete -->
   <div class="modal fade" id="myModdelete" wire:ignore.self>
     <div class="modal-dialog ">
@@ -479,4 +506,22 @@
         </div>
     </div>
 </div>
+<script>
+    window.addEventListener('closeModal', event => {
+        $('#myModal').modal('hide');
+        $('#myModalEdite').modal('hide');
+        $('#myModdelete').modal('hide');
+        $('#myModaldetails').modal('hide');
+        $('#myModal2').modal('hide');
+        $('#myModalchatting').modal('hide');
+    });
+    window.addEventListener('openModal', event => {
+        $('#myModal').modal('show');
+    });
+
+    // if myModal is displaing , then reset the form
+    $('#myModal').on('shown.bs.modal', function () {
+        @this.resetData();
+    });
+</script>
 </div>
