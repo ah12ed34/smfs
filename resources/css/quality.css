@@ -1,0 +1,125 @@
+.btn.btn-addsubject {
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-left: 2%;
+    margin-top: 0px;
+    position: fixed;
+}
+.btn.btn-dispaydatasubject{
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-left: 45%;
+    margin-top: 0px;
+    position: fixed;
+    width:70px;
+}
+@media screen and (max-width: 1000px) {
+    .btn.btn-dispaydatasubject{
+        margin-left: 40%;
+    }
+}
+@media screen and (max-width: 900px) {
+    .btn.btn-dispaydatasubject{
+        margin-left: 38%;
+    }
+}
+@media screen and (max-width: 850px) {
+    .btn.btn-dispaydatasubject{
+        margin-left: 35%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .btn.btn-dispaydatasubject{
+        margin-left: 33%;
+    }
+}
+@media screen and (max-width: 700px) {
+    .btn.btn-dispaydatasubject{
+        margin-left: 45%;
+    }
+}
+
+/* @media screen and (max-width: 550px) {
+    .btn.quality-subjects_terms_down {
+        font-size: 10px;
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        margin-left: 40%;
+        position: fixed;
+        margin-top: 10px;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        color: black;
+    }
+} */
+/* @media screen and (max-width: 400px) {
+    .btn.btn-dispaydatasubject{
+        margin-left: 38%;
+    }
+} */
+.btn.quality-subjects_terms_down {
+    font-size: 12px;
+    height: 30px;
+    width: 90px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-left: 45%;
+    position: fixed;
+    margin-top: 12px;
+    display: inline;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    color: black;
+    /* text-align: right; */
+    /* margin-right: 50%; */
+}
+@media screen and (max-width: 1000px) {
+    .btn.quality-subjects_terms_down {
+        margin-left: 40%;
+    }
+}
+@media screen and (max-width: 900px) {
+    .btn.quality-subjects_terms_down {
+        margin-left: 38%;
+    }
+}
+@media screen and (max-width: 850px) {
+    .btn.quality-subjects_terms_down {
+        margin-left: 35%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .btn.quality-subjects_terms_down {
+        margin-left: 33%;
+    }
+}
+@media screen and (max-width: 700px) {
+    .btn.quality-subjects_terms_down {
+        margin-left: 45%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .btn.quality-subjects_terms_down {
+        font-size: 10px;
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        margin-left: 40%;
+        position: fixed;
+        margin-top: 10px;
+        display: inline;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        color: black;
+    }
+}
+@media screen and (max-width: 400px) {
+    .btn.quality-subjects_terms_down {
+        margin-left: 38%;
+    }
+}
+.card.cards-departments.depart-level-quality{
+    margin-top: 50px;
+}
