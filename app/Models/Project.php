@@ -16,8 +16,8 @@ class Project extends Model
         'is_active',
         'max_student',
         'min_student',
-        'star_data',
-        'end_data',
+        'start_date',
+        'end_date',
     ];
     public function getProjectGroup(){
         return $this->hasMany(GroupProject::class);
