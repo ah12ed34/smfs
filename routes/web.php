@@ -16,6 +16,7 @@ use App\Livewire\Student\StudStudyingBooks\StudBooksChapters;
 use App\Livewire\Student\StudStudyingBooks\StudStudyingBooks;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Livewire\Quality\DepartLevelsQuality;
 
 
 /*
@@ -302,8 +303,15 @@ use Illuminate\Support\Facades\Storage;
     Route::group(['prefix'=>'quality','middleware' => 'auth'
 ], function () {
         route::get('/', '\\'.App\Livewire\Quality\QualityMain::class)->name('quality');
+        route::get('-/quality/','\\'.DepartLevelsQuality::class)->name('departlevelquality');
+
 
     });
+    // Route::prefix('quality-')->group(function () {
+    //    route::get('/','\\'.DepartLevelsQuality::class)->name('departlevelquality');
+
+    // });
+
 
     Route::get('storage/{path}', function ($path) {
         // $filePath = storage_path('app/public/' . $path);
