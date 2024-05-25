@@ -303,7 +303,7 @@ use App\Livewire\Quality\DepartLevelsQuality;
     Route::group(['prefix'=>'quality','middleware' => 'auth'
 ], function () {
         route::get('/', '\\'.App\Livewire\Quality\QualityMain::class)->name('quality');
-        route::get('-/quality/','\\'.DepartLevelsQuality::class)->name('departlevelquality');
+        route::get('departlevelquality','\\'.DepartLevelsQuality::class)->name('departlevelquality');
 
 
     });
