@@ -26,5 +26,10 @@ class Delivery extends Model
         return $this->hasOne(GroupStudents::class, 'id', 'student_group_id');
     }
 
+    public function groupFile()
+    {
+        return $this->hasOne(GroupFile::class, 'id', 'file_id');
+    }
+
 
 }

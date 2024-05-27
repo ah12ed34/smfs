@@ -122,6 +122,7 @@ class GroupSubject extends Model
     }
 
 
+
     public function getProjectsInGroupBySubject($search){
         if ($this->projects) {
             return $this->projects->GroupProjects()

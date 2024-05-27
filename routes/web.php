@@ -232,10 +232,10 @@ use App\Livewire\Quality\DepartLevelsQuality;
                     Route::get("/",'\\'.Assignments::class
                     )->name("assignment");
                 });
-                route::prefix("recive-assignments")->group(function(){
-                    route::get("/",'\\'.ReciveAssignments::class
-                    )->name("recive-assignments");
-                });
+
+                route::get("recive-assignments/{id}",'\\'.ReciveAssignments::class
+                )->name("recive-assignments");
+
                 route::prefix("studyingbooks")->group(function(){
                 route::get("/",'\\'.Studyingbooks::class)->name("studyingbooks");
                 });

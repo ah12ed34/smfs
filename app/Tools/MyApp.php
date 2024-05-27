@@ -6,7 +6,7 @@
     const parPage = 10;
     const parPageLists = 5;
     const parPageItems = 10;
-    const viewPagination = 'pagination::bootstrap-4';
+    const viewPagination = 'vendor.livewire.bootstrap';
 
     public static function getFileMime($name)
     {

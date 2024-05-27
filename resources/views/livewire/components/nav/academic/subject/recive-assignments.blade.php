@@ -1,4 +1,10 @@
 <div>
+    <style>
+        button.active {
+            background-color: #0E70F2;
+            color: white;
+        }
+    </style>
     <div class="hdr2" style=" box-shadow: 10px;">
         <button class="spaces"> <label  class="subjectname"> التكاليف </label><img src="{{Vite::image("homework (3).png")}}" id="subject-icon-hdr2" width="40px">
         </button>
@@ -15,20 +21,59 @@
 
     <div class="btn-group">
                 <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
-                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext">لم يتم التسليم</label></button>
-                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext"> تسليم متأخر</label></button>
-                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext"> تسليم مبكر </label></button>
-                <button class="btn-projctsNavbar-reciv-assigne"><label class="proNavbartext"> الواردة</label></button>
+                <button class="btn-projctsNavbar-reciv-assigne @if ($tabActive == 'not_delivered')
+                    active
+                @endif"
+                onclick="window.location.href='{{route('recive-assignments',request()->route()->parameters +array_merge(request()->query(),['tab'=>'not_delivered']) )}}'"
+                ><label class="proNavbartext">لم يتم التسليم</label></button>
+                <button class="btn-projctsNavbar-reciv-assigne @if ($tabActive == 'late')
+                    active
+
+                @endif" onclick="window.location.href='{{route('recive-assignments',request()->route()->parameters +array_merge(request()->query(),['tab'=>'late']) )}}'".
+
+                ><label class="proNavbartext"> تسليم متأخر</label></button>
+                <button class="btn-projctsNavbar-reciv-assigne @if ($tabActive == 'early')
+                    active
+                @endif" onclick="window.location.href='{{route('recive-assignments',request()->route()->parameters +array_merge(request()->query(),['tab'=>'early']) )}}'"
+                ><label class="proNavbartext"> تسليم مبكر </label></button>
+                <button class="btn-projctsNavbar-reciv-assigne @if ($tabActive == null || $tabActive == 'all')
+                    active
+                @endif" onclick="window.location.href='{{route('recive-assignments',request()->route()->parameters +array_merge(request()->query(),['tab'=>null]) )}}'"
+                ><label class="proNavbartext"> الواردة</label></button>
             </div>
 
             <div class="dropdown">
                 <button id="btn-navbar-hw" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
-                <div class="textdrop2">   قائمة الواردة</div>
+                <div class="textdrop2">   قائمة @switch($tabActive)
+                    @case('early')
+                        تسليم مبكر
+                        @break
+                    @case('late')
+                        تسليم متأخر
+                        @break
+                    @case('not_delivered')
+                        لم يتم التسليم
+                        @break
+                    @default
+                        الواردة
+                @endswitch</div>
                </button>
                 <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
-                    <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">تسليم مبكر</a>
-                    <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:30px; "> تسليم متأخر</a>
-                    <a id="dropdown-itemlist" class="dropdown-item" href="#"> لم يتم التسليم</a>
+                    @if (!($tabActive == null || $tabActive == 'all'))
+                        <a id="dropdown-itemlist" class="dropdown-item" href="{{ route('recive-assignments',request()->route()->parameters +array_merge(request()->query(),['tab'=>null]) )}}" style="padding-left:40px; ">الواردة</a>
+                    @endif
+                    @if (!($tabActive == 'early'))
+                        <a id="dropdown-itemlist" class="dropdown-item" href="{{ route('recive-assignments',request()->route()->parameters +array_merge(request()->query(),['tab'=>'early']) )}}"
+                        style="padding-left:40px; ">تسليم مبكر</a>
+                    @endif
+                    @if (!($tabActive == 'late'))
+                        <a id="dropdown-itemlist" class="dropdown-item" href="{{ route('recive-assignments',request()->route()->parameters +array_merge(request()->query(),['tab'=>'late']) )}}"
+                        style="padding-left:40px; ">تسليم متأخر</a>
+                    @endif
+                    @if (!($tabActive == 'not_delivered'))
+                        <a id="dropdown-itemlist" class="dropdown-item" href="{{ route('recive-assignments',request()->route()->parameters +array_merge(request()->query(),['tab'=>'not_delivered']) )}}"
+                        style="padding-left:40px; ">لم يتم التسليم</a>
+                    @endif
                 </div>
             </div>
 

@@ -4,7 +4,7 @@
 
 
     <div class="container" id="container-project" style="  padding-top: 30px;">
-
+        <form wire:submit.prevent="savePersents">
         <div class="table-responsive">
 
 
@@ -120,11 +120,13 @@
                         <td colspan="55" style="text-align: center;">{{ __('general.no_students') }}</td>
                     </tr>
                 @endforelse
-
                 </tbody>
             </table>
         </div>
-        <button type="submit" wire:click='sevePersents' class="btn btn-primary btn-sm" >حفظ</button>
+
+            <button type="submit" class="btn btn-primary btn-sm">حفظ</button>
+        </form>
+        {{-- <button type="submit" wire:click='sevePersents' class="btn btn-primary btn-sm" >حفظ</button> --}}
     </div>
 
     <nav>
