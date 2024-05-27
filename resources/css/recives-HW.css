@@ -1,73 +1,116 @@
-            #btn-groups-hw {
+            .btn.reice_Assignements_StudentsGroups_dropdown {
                 font-size: 12px;
                 font-weight: normal;
-                padding-left: 5px;
-                margin-left: 60px;
-                margin-top: -20px;
-                /* position: fixed; */
+                display:flex;
+                height: 30px;
+                padding-top: 15px;
+                padding-left: 4px;
+                padding-right: 14px;
+                text-align: right;
+                margin-top: 56px;
                 box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                position: absolute;;
+                left: 70%;
             }
-
-            @media screen and (max-width:991px) {
-                #btn-groups-hw {
-                    margin-left: 30px;
+            @media screen and (max-width:1100px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 65%;
                 }
             }
-
-            @media screen and (max-width:891px) {
-                #btn-groups-hw {
-                    margin-left: 20px;
+            @media screen and (max-width:1000px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 62%;
                 }
             }
-
+            /* @media screen and (max-width:991px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 60%;
+                }
+            } */
+            /* @media screen and (max-width:950px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 60%;
+                }
+            } */
+            /* @media screen and (max-width:891px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 54%;
+                }
+            } */
             @media screen and (max-width:850px) {
-                #btn-groups-hw {
-                    margin-left: 100px;
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 60%;
                 }
             }
             @media screen and (max-width:800px) {
-                #btn-groups-hw {
-                    margin-left: 90px;
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 57%;
                 }
             }
-            @media screen and (max-width:768px) {
-                #btn-groups-hw {
-                    width: 100px;
-                    height: 30px;
-                    font-size: 10px;
-                    margin-left: 80px;
+            @media screen and (max-width:770px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    /* width: 100px; */
+                    /* height: 30px; */
+                    /* font-size: 10px; */
+                    left: 56%;
+                }
+            }
+            @media screen and (max-width:750px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 54%;
                 }
             }
             @media screen and (max-width:700px) {
-                #btn-groups-hw {
-                    margin-left: 100px;
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 75%;
+                }
+            }  @media screen and (max-width:650px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 73%;
                 }
             }
-
             @media screen and (max-width:600px) {
-                #btn-groups-hw {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
                     /* width: 100px;
                     height: 30px; */
                     /* font-size: 10px; */
-                    margin-left: 90px;
+                    left: 71%;
                 }
             }
-
             @media screen and (max-width:550px) {
-                #btn-groups-hw {
-                    width: 90px;
-                    height: 30px;
-                    font-size: 10px;
-                    margin-left: 80px;
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    /* width: 90px; */
+                    /* height: 30px; */
+                    font-size: 11px;
+                    left: 70%;
                     background-color: #ffffff;
                 }
             }
-
+            @media screen and (max-width:470px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 1%;
+                    float:left;
+                }
+            }
+            @media screen and (max-width:400px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    font-size:10px;
+                }
+            }
+            @media screen and (max-width:300px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    font-size:9px;
+                }
+            }
+            /* @media screen and (max-width:400px) {
+                .btn.reice_Assignements_StudentsGroups_dropdown {
+                    left: 22%;
+                }
+            } */
             .textdrop2 {
                 float: right;
                 margin-left: 14px;
             }
-
             .hr3 {
                 background-color: #ffffff;
                 border: none;
@@ -78,15 +121,6 @@
                 box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
                 position: fixed;
             }
-
-            #input-group-reciv-assign {
-                width: 300px;
-                margin-left: 450px;
-                height: 30px;
-                box-shadow: 2px rgb(72, 72, 72);
-                position: fixed;
-            }
-
             .form-control {
                 height: 33px;
             }
@@ -95,38 +129,88 @@
                 height: 33px;
                 box-shadow: 1px rgb(72, 72, 72);
             }
-
-            @media screen and (max-width: 1000px) {
-                #input-group-reciv-assign {
-                    margin-left: 300px;
+            .input-group.input_group_reciv_assign {
+                width: 300px;
+                left: 36%;
+                height: 30px;
+                box-shadow: 2px rgb(72, 72, 72);
+                position: absolute;
+            }
+            @media screen and (max-width: 1200px) {
+                .input-group.input_group_reciv_assign {
+                    left: 32%;
                 }
             }
-
+            @media screen and (max-width: 1100px) {
+                .input-group.input_group_reciv_assign {
+                    left: 29%;
+                }
+            }
+            @media screen and (max-width: 1000px) {
+                .input-group.input_group_reciv_assign {
+                    left: 27%;
+                }
+            }
             @media screen and (max-width: 890px) {
-                #input-group-reciv-assign {
-                    margin-left: 270px;
+                .input-group.input_group_reciv_assign {
+                    left: 22%;
                 }
             }
 
             @media screen and (max-width: 840px) {
-                #input-group-reciv-assign {
-                    margin-left: 200px;
+                .input-group.input_group_reciv_assign {
+                    left: 20%;
+                    width: 290px;
                 }
             }
-
-            @media screen and (max-width: 740px) {
-                #input-group-reciv-assign {
-                    margin-left: 180px;
+            @media screen and (max-width: 800px) {
+                .input-group.input_group_reciv_assign {
+                    left: 20%;
+                    width: 270px;
                 }
             }
-
+            @media screen and (max-width: 770px) {
+                .input-group.input_group_reciv_assign {
+                    width: 260px;
+                }
+            }
+            @media screen and (max-width: 750px) {
+                .input-group.input_group_reciv_assign {
+                    left: 17%;
+                    width: 250px;
+                }
+            }
+            @media screen and (max-width: 725px) {
+                .input-group.input_group_reciv_assign {
+                    /* left: 16%; */
+                    width: 240px;
+                }
+            }
+            @media screen and (max-width: 700px) {
+                .input-group.input_group_reciv_assign {
+                    left: 30%;
+                    width: 250px;
+                }
+            }
+            @media screen and (max-width: 650px) {
+                .input-group.input_group_reciv_assign {
+                    left: 27.5%;
+                    width: 245px;
+                }
+            }
+            @media screen and (max-width: 600px) {
+                .input-group.input_group_reciv_assign {
+                    left: 24%;
+                    width: 240px;
+                }
+            }
             @media screen and (max-width: 550px) {
-                #input-group-reciv-assign {
-                    width: 230px;
-                    margin-top: 1px;
-                    margin-left: 140px;
+                .input-group.input_group_reciv_assign {
+                    width: 210px;
+                    margin-top: 3px;
+                    /* left: 22%; */
                 }
-                .form-control {
+                /* .form-control {
                     height: 28px;
                 }
                 #form-control {
@@ -135,44 +219,94 @@
                 }
                 #spaces {
                     width: 40px;
+                } */
+            }
+            @media screen and (max-width: 500px) {
+                .input-group.input_group_reciv_assign {
+                    left: 22%;
                 }
             }
-
-            @media screen and (max-width: 425px) {
-                #input-group-reciv-assign {
-                    width: 220px;
-                    margin-top: 1px;
-                    margin-left: 100px;
+            @media screen and (max-width: 470px) {
+                .input-group.input_group_reciv_assign {
+                    left: 28%;
                 }
             }
-
-            @media screen and (max-width: 370px) {
-                #input-group-reciv-assign {
-                    width: 180px;
-                    margin-top: 1px;
-                    margin-left: 100px;
+            @media screen and (max-width: 400px) {
+                .input-group.input_group_reciv_assign {
+                    width: 200px;
+                    /* left: 24%; */
                 }
             }
-
+            /* @media screen and (max-width: 370px) {
+                .input-group.input_group_reciv_assign {
+                    width: 190px;
+                    left: 26%;
+                }
+            } */
+            @media screen and (max-width: 350px) {
+                .input-group.input_group_reciv_assign {
+                    width: 190px;
+                    left: 29%;
+                }
+            }
+            @media screen and (max-width: 340px) {
+                .input-group.input_group_reciv_assign {
+                    width: 185px;
+                    /* left: 18%; */
+                }
+            }
+            @media screen and (max-width: 330px) {
+                .input-group.input_group_reciv_assign {
+                    width: 175px;
+                    left: 30%;
+                }
+            }
+            @media screen and (max-width: 320px) {
+                .input-group.input_group_reciv_assign {
+                    width: 165px;
+                    /* left: 30%; */
+                }
+            }
+            @media screen and (max-width: 310px) {
+                .input-group.input_group_reciv_assign {
+                    width: 160px;
+                    left: 30.4%;
+                }
+            }
+            @media screen and (max-width: 300px) {
+                .input-group.input_group_reciv_assign {
+                    width: 155px;
+                    left: 31%;
+                }
+            }
+            @media screen and (max-width: 290px) {
+                .input-group.input_group_reciv_assign {
+                    width: 150px;
+                    /* left: 18%; */
+                }
+            }
+            @media screen and (max-width: 290px) {
+                .input-group.input_group_reciv_assign {
+                    width: 145px;
+                    left: 31.5%;
+                }
+            }
             #spacesbtn {
                 margin-top: 3px;
                 width: 214px;
                 height: 33px;
                 padding-left: 2px;
             }
-
             #spaces1 {
                 margin-top: -5px;
                 float: left;
                 margin-left: 4px;
             }
-
             @media screen and (max-width: 700px) {
                 #spacesbtn {
                     width: 50px;
                 }
             }
-
             @media screen and (max-width: 550px) {
                 #spaces1 {
                     float: right;
@@ -184,13 +318,11 @@
                     height: 30px;
                 }
             }
-
             #spaces2 {
                 margin-top: -6px;
                 width: 22px;
                 box-shadow: 1px rgb(72, 72, 72);
             }
-
             @media screen and (max-width: 550px) {
                 #spaces2 {
                     width: 17px;
@@ -198,22 +330,20 @@
                     margin-top: -10px;
                 }
             }
-
-            .btn-group {
-                margin-left: 27%;
-                margin-top: -29px;
-                position: fixed;
+            .btn-group.GroupButtons_Navbar_reciv_assigne {
+                margin-left: 35%;
+                margin-top: 15px;
+                position: absolute;
             }
-
             .btn-projctsNavbar-reciv-assigne {
                 background-color: white;
                 color: #0E70F2;
-                top: -100px;
+                /* top: -100px; */
                 text-align: center;
                 padding: 6px 9px;
-                width: 90px;
+                /* width: 90px; */
                 height: 35px;
-                font-size: 12px;
+                /* font-size: 12px; */
                 border: none;
                 border-top-right-radius: 5px;
                 border-top-left-radius: 5px;
@@ -226,30 +356,31 @@
                 color: #ffffff;
             }
 
-            @media screen and (max-width: 992px) {
-                .btn-group {
-                    margin-left: 22%;
-                    margin-top: -24px;
+            /* @media screen and (max-width: 992px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    left: 35%;
                 }
                 .btn-projctsNavbar-reciv-assigne {
                     width: 80px;
                     height: 30px;
-                    padding: 6px 9px;
                     font-size: 10px;
+                    padding: 6px 9px;
+
                 }
-            }
+            } */
 
             @media screen and (max-width: 991px) {
-                .btn-group {
-                    margin-left: 17%;
-                    margin-top: -24px;
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 33%;
+                    /* margin-top: -24px; */
                 }
             }
-            /* @media screen and (max-width: 970px) {
-                .btn-group {
-                    margin-left: 27%;
-                    margin-top: -47px;
+            @media screen and (max-width: 970px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 31%;
                 }
+            }
+                 /*
                 .btn-projctsNavbar-reciv-assigne {
                     width: 80px;
                     height: 30px;
@@ -257,11 +388,17 @@
                     font-size: 10px;
                 }
             } */
-            /* @media screen and (max-width: 947px) {
-                .btn-group {
-                    margin-left: 24%;
-                    margin-top: -50px;
+            @media screen and (max-width: 947px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 30%;
                 }
+            }
+            @media screen and (max-width: 920px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 29%;
+                }
+            }
+            /* @media screen and (max-width: 947px) {
                 .btn-projctsNavbar-reciv-assigner {
                     width: 80px;
                     height: 30px;
@@ -269,88 +406,128 @@
                     font-size: 10px;
                 }
             } */
-            /* @media screen and (max-width: 882px) {
-                .btn-group {
-                    margin-left: 22%;
-                    margin-top: -50px;
-                    position: fixed;
+            @media screen and (max-width: 882px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 28%;
+                }
+            }
+            @media screen and (max-width: 800px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 23%;
+                }
+            }
+            @media screen and (max-width: 750px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 21%;
+                }
+            }
+            @media screen and (max-width: 700px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 30%;
+                    /* margin-top: -50px; */
+                    /* position: fixed; */
+                }
+            }
+            @media screen and (max-width: 600px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 28%;
+                }
+            }
+            @media screen and (max-width: 550px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 27%;
+                    font-size: 12px;
+                }
+            }
+            @media screen and (max-width: 500px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 26%;
+                }
+            }
+            @media screen and (max-width: 450px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 26%;
+                }
+            }
+            @media screen and (max-width: 400px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 25%;
+                    font-size: 11px;
+                }
+            }
+            /* @media screen and (max-width: 370px) {
+                .btn-group.GroupButtons_Navbar_reciv_assigne {
+                    margin-left: 24.5%;
                 }
             } */
-
-            @media screen and (max-width: 857px) {
+            @media screen and (max-width: 370px) {
                 .btn-projctsNavbar-reciv-assigne {
                     display: none;
                 }
             }
-
-            #btn-navbar-hw {
+            .btn.btn-navbar-hw {
                 display: none;
                 position: fixed;
             }
-
-            @media screen and (max-width: 856px) {
-                #btn-navbar-hw {
-                    font-size: 12px;
+            @media screen and (max-width: 370px) {
+                .btn.btn-navbar-hw {
+                    font-size: 11px;
                     font-weight: normal;
-                    padding-left: 5px;
+                    display:flex;
+                    height: 30px;
+                    padding-top: 15px;
+                    padding-left:4px;
+                    text-align: right;
                     margin-left: 40%;
-                    margin-top: -30px;
-                    display: inline;
+                    margin-top: 17px;
                     box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
                     z-index: 2;
                     position: absolute;
                 }
             }
-
-            @media screen and (max-width:777px) {
-                #btn-navbar-hw {
-                    width: 90px;
-                    height: 30px;
-                    font-size: 10px;
-                    margin-left: 40%;
+            /* @media screen and (max-width:340px) {
+            .btn.btn-navbar-hw {
+                    margin-left: 38%;
                 }
-            }
-
-            @media screen and (max-width:768px) {
-                #btn-navbar-hw {
-                    margin-left: 40%;
+            } */
+            /* @media screen and (max-width:300px) {
+            .btn.btn-navbar-hw {
+                    margin-left: 35%;
                 }
-            }
-
-            @media screen and (max-width:700px) {
-                #btn-navbar-hw {
+            } */
+            /* @media screen and (max-width:700px) {
+            .btn.btn-navbar-hw {
                     margin-left: 61%;
                 }
             }
-
             @media screen and (max-width:550px) {
-                #btn-navbar-hw {
+            .btn.btn-navbar-hw {
                     margin-left: 62%;
                     background-color: #ffffff;
                 }
             }
 
             @media screen and (max-width:400px) {
-                #btn-navbar-hw {
+            .btn.btn-navbar-hw {
                     margin-left: 58%;
                 }
             }
             @media screen and (max-width:360px) {
-                #btn-navbar-hw {
-                    /* margin-left: 58%; */
+            .btn.btn-navbar-hw {
+                    margin-left: 54%;
                     width: 80px;
-                    /* font-size: 10px; */
+                    font-size: 10px;
 
                 }
             }
             @media screen and (max-width:330px) {
-                #btn-navbar-hw {
-                    /* margin-left: 58%; */
+            .btn.btn-navbar-hw {
+                    margin-left: 58%;
                     width: 70px;
                     font-size: 9px;
 
                 }
-            }
+            } */
 
             /* @media screen and (max-width: 788px) {
     .btn-group {
@@ -449,4 +626,8 @@
             .table-light {
                 box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
                 margin-top: 5px;
+            }
+            .form-control.input_gradeAssingnments{
+                /* width:20%; */
+                border:none;
             }

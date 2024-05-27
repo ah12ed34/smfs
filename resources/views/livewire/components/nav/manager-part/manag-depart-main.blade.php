@@ -34,7 +34,18 @@
         <!-- <div class="dep-name">تقنية معلومات</div> -->
     </div>
 
+    <div class="dropdown">
+        <button type="button"  class="btn btn-light departmentTypeAcademic_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
+                <div class="textdropdown">    النظري</div>
+            </button>
+            <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
 
+                 <!-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   الصلاحيات</a> -->
+                <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  العملي</a>
+                <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  الكل</a>
+
+            </div>
+        </div>
 
     <!-- <div class="hr3">
         <button id="spacesbtn" class="spaces"> <img src="../../images/left-arrow.png" id="spaces1"  width="30px"></button>
