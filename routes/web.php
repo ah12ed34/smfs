@@ -232,10 +232,10 @@ use App\Livewire\Quality\DepartLevelsQuality;
                     Route::get("/",'\\'.Assignments::class
                     )->name("assignment");
                 });
-                route::prefix("recive-assignments")->group(function(){
-                    route::get("/",'\\'.ReciveAssignments::class
-                    )->name("recive-assignments");
-                });
+
+                route::get("recive-assignments/{id}",'\\'.ReciveAssignments::class
+                )->name("recive-assignments");
+
                 route::prefix("studyingbooks")->group(function(){
                 route::get("/",'\\'.Studyingbooks::class)->name("studyingbooks");
                 });
@@ -303,7 +303,7 @@ use App\Livewire\Quality\DepartLevelsQuality;
     Route::group(['prefix'=>'quality','middleware' => 'auth'
 ], function () {
         route::get('/', '\\'.App\Livewire\Quality\QualityMain::class)->name('quality');
-        route::get('-/quality/','\\'.DepartLevelsQuality::class)->name('departlevelquality');
+        route::get('departlevelquality','\\'.DepartLevelsQuality::class)->name('departlevelquality');
 
 
     });

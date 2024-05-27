@@ -253,12 +253,12 @@
     "src": "resources/images/user (4).png"
   },
   "resources/js/app.js": {
-    "file": "assets/app-98006750.js",
+    "file": "assets/app-a6ec61cf.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-1bd03d06.css",
+    "file": "assets/app-9ac7b1ee.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   },

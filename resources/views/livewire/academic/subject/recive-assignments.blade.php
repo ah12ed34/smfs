@@ -1,6 +1,6 @@
     @section('nav')
         @livewire('components.nav.academic.subject.recive-assignments'
-        ,['group_subject'=>$group_subject])
+        ,['group_subject'=>$group_subject,'tabActive'=>$tabActive])
     @endSection
 <div>
 
@@ -22,8 +22,39 @@
                     </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
                         <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModaldCheckAssignmentsStudents">تصحيح التكليف</button> </td>
+=======
+                    @forelse ($deliverys as $delivery)
+                    {{-- @dd($delivery) --}}
+                        <tr class="table-light" id="modldetials">
+                            <td>{{ $delivery->comment }}</td>
+                            <td>{{ $delivery->grade }}</td>
+                            <td>
+                                @if($delivery->file)
+                                <a wire:click='download({{ $delivery->id }})' style="
+                                    color: #007bff;
+                                    text-decoration: none;
+                                    cursor: pointer;
+                                ">
+                                    <i class="bi bi-download"></i>
+                                </a>
+                                @else
+                                    <i class="bi bi-file-x"></i>
+                                @endif
+                            </td>
+                            <td>{{ $delivery->status }}</td>
+                            <td>{{ $delivery->delivery_date }}</td>
+                            <td>{{ $delivery->student
+                             }}</td>
+                        </tr>
+                    @empty
+
+                    @endforelse
+                    {{-- <tr class="table-light" id="modldetials" style="margin-top:7px;">
+
+>>>>>>> a7e7d87edc6937d51701314dbc8de3116faa884f
                         <td>*******</td>
                         <td style="width: 15%;"><input type="text" class="form-control input_gradeAssingnments" name="gradeAssingnments" ></td>
                         <td> ***</td>
@@ -57,11 +88,14 @@
                         <td>*******</td>
                         <td>***** </td>
                         <td>SFMS</td>
-                    </tr>
+                    </tr> --}}
 
                 </tbody>
             </table>
         </div>
+        <nav>
+            {{ $deliverys->links(myapp::viewPagination) }}
+        </nav>
     </div>
 
     <!-- The ModalDetailsStudents -->
