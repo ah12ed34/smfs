@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\GroupSubject;
 use App\Tools\ToolsApp;
 use Livewire\WithPagination;
+use Livewire\Attributes\On;
 
 class ReciveAssignments extends Component
 {
@@ -14,15 +15,43 @@ class ReciveAssignments extends Component
     public $id;
     public $perPage = 10;
     public $tabActive= null ;
+    public $search = '';
+    public $assignment_grade = 0;
+    public $storedBy = null;
+    public $storedByColumn = null;
+    public $group_id;
+    public $subject_id;
+    // protected $queryString = ['search'];
     public function mount($subject_id, $group_id,$id)
     {
         $this->group_subject = GroupSubject::where('group_id', $group_id)
             ->where('subject_id', $subject_id)
             ->first();
+        $this->group_id = $group_id;
+        $this->subject_id = $subject_id;
         $this->id = $id;
         if(request()->has('tab'))
             $this->tabActive = request('tab');
 
+    }
+
+    public function updatedTabActive()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
+
+    #[On('search')]
+    public function srch($v)
+    {
+        $this->search = $v;
+        $this->resetPage();
+        // dd($v);
+        // $this->resetPage();
     }
 
     public function download($id){
@@ -33,14 +62,17 @@ class ReciveAssignments extends Component
     public function getReciveAssignmentsProperty()
     {
         $assignmentsR = $this->group_subject->GroupFiles()->where('id', $this->id)
-            ->first()->deliverys->map(function ($delivery) {
+            ->first();
+            $this->assignment_grade = $assignmentsR->grade;
+        $assignmentsR =  $assignmentsR->deliverys
+        ->map(function ($delivery) {
                 $delivery->nameAssignment = $delivery->groupFile->file->name;
                 $delivery->student = $delivery->groupStudent->student->name;
+                $delivery->assignment_grade = $delivery->groupFile->grade;
+                $delivery->user_id = $delivery->groupStudent->student->user_id;
                 // status of delivery مبكر او تأخير
                 if($delivery->groupFile->due_date < $delivery->delivery_date){
-                    // if($delivery->groupFile->due_date->diffInDays($delivery->delivery_date) > 1)
-                    //     $delivery->status = 'مبكر';
-                    // else
+
                     if($this->tabActive == 'early')
                         return null;
                     $delivery->status = 'تأخير';
@@ -62,6 +94,7 @@ class ReciveAssignments extends Component
                     {
                         $student->nameAssignment = 'لم يسلم';
                         $student->student = $student->user->name;
+                        $student->user_id = $student->user->id;
                         $student->status = 'لم يسلم';
                         $student->grade = 0;
                         return $student;
@@ -69,6 +102,20 @@ class ReciveAssignments extends Component
                     return null;
                 })->filter();
             }
+
+            if ($this->search) {
+                $assignmentsR = $assignmentsR->filter(function ($item) {
+                    return false !== stripos($item->student, $this->search) ||
+                           false !== stripos($item->user_id, $this->search);
+                });
+            }
+
+            if($this->storedByColumn != null){
+                $assignmentsR = $assignmentsR->sortBy($this->storedByColumn, SORT_REGULAR, $this->storedBy == 'asc' ? false : true);
+            }
+
+
+
         return ToolsApp::convertToPagination($assignmentsR, $this->perPage);
     }
     public function render()

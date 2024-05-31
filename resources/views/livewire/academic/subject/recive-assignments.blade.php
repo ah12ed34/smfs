@@ -1,9 +1,9 @@
-@section('nav')
-@livewire('components.nav.academic.subject.recive-assignments'
-,['group_subject'=>$group_subject])
-@endSection
 <div>
-
+@section('nav')
+@livewire('components.nav.academic.subject.recive_assignments'
+,['tabActive'=>$tabActive,'group_subject'=>$group_subject])
+{{-- <livewire:Components.Nav.Academic.Subject.ReciveAssignments :$group_subject :tabActive> --}}
+@endSection
 <div class="responsive"></div>
 <div class="container" id="container-project" style="  padding-top: 30px;" >
 
@@ -22,16 +22,33 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModaldCheckAssignmentsStudents">تصحيح التكليف</button> </td>
-                <td>*******</td>
-                <td style="width: 15%;"><input type="text" class="form-control input_gradeAssingnments" name="gradeAssingnments" ></td>
-                <td> ***</td>
-                <td>*******</td>
-                <td>***** </td>
-                <td>SFMS</td>
-            </tr>
-            <tr class="table-light">
+            @forelse ($deliverys as $delivery)
+                <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                    <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModaldCheckAssignmentsStudents">تصحيح التكليف</button> </td>
+                    <td>{{ $delivery->comment }}</td>
+                    <td style="width: 15%;"><input type="number" min='0' max="{{ $assignment_grade }}" class="form-control input_gradeAssingnments" name="gradeAssingnments" ></td>
+                    <td>
+                        @if($delivery->file)
+                        <a wire:click='download({{ $delivery->id }})' style="
+                            color: #007bff;
+                            text-decoration: none;
+                            cursor: pointer;
+                        ">
+                            <i class="bi bi-download"></i>
+                        </a>
+                        @else
+                            <i class="bi bi-file-x"></i>
+                        @endif
+                    </td>
+                    <td>{{ $delivery->status }}</td>
+                    <td>{{ $delivery->delivery_date }}</td>
+                    <td>{{ $delivery->student }}</td>
+                </tr>
+            @empty
+
+            @endforelse
+
+            {{-- <tr class="table-light">
                 <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModaldCheckAssignmentsStudents">تصحيح التكليف</button> </td>
                 <td>*******</td>
                 <td><input type="text" class="form-control input_gradeAssingnments" name="gradeAssingnments"></td>
@@ -57,11 +74,13 @@
                 <td>*******</td>
                 <td>***** </td>
                 <td>SFMS</td>
-            </tr>
+            </tr> --}}
 
         </tbody>
     </table>
 </div>
+<nav aria-label="Page navigation example">
+    {{ $deliverys->links(myapp::viewPagination) }}
 </div>
 
 <!-- The ModalDetailsStudents -->
