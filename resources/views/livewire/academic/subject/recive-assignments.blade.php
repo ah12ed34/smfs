@@ -2,7 +2,6 @@
 @section('nav')
 @livewire('components.nav.academic.subject.recive_assignments'
 ,['tabActive'=>$tabActive,'group_subject'=>$group_subject])
-{{-- <livewire:Components.Nav.Academic.Subject.ReciveAssignments :$group_subject :tabActive> --}}
 @endSection
 <div class="responsive"></div>
 <div class="container" id="container-project" style="  padding-top: 30px;" >
@@ -24,9 +23,23 @@
         <tbody>
             @forelse ($deliverys as $delivery)
                 <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                    <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModaldCheckAssignmentsStudents">تصحيح التكليف</button> </td>
+                    <td>
+                    @if ($tabActive=='not_delivered')
+                        <button type="submit" class="btn btn-primary btn-sm disabled" id="btn-detials"
+                         >تصحيح التكليف</button>
+                    @else
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModaldCheckAssignmentsStudents" wire:click='selected({{ $delivery->id }})' >تصحيح التكليف</button>
+                    @endif
+                    </td>
                     <td>{{ $delivery->comment }}</td>
-                    <td style="width: 15%;"><input type="number" min='0' max="{{ $assignment_grade }}" class="form-control input_gradeAssingnments" name="gradeAssingnments" ></td>
+                    <td style="width: 15%;">
+                    @if ((empty($delivery->grade)||$delivery->grade==null)&&$tabActive!='not_delivered')
+                        <input type="number" min='0' max="{{ $assignment_grade }}" class="form-control input_gradeAssingnments" id="{{ $delivery->id }}" wire:model.lazy='grade.{{ $delivery->id }}' >
+                    @else
+                        {{ $delivery->grade }}
+                    @endif
+
+                    </td>
                     <td>
                         @if($delivery->file)
                         <a wire:click='download({{ $delivery->id }})' style="
@@ -36,6 +49,24 @@
                         ">
                             <i class="bi bi-download"></i>
                         </a>
+                        @if ($delivery->status_code==2)
+                        {{-- add Hint --}}
+                        @if ($delivery->file2??false)
+                        <a wire:click='download({{ $delivery->id }},"file2")' style="
+                            color: orange;
+                            text-decoration: none;
+                            cursor: pointer;
+                        "
+                        >
+                            <i class="bi bi-download"></i>
+                        </a>
+                        @else
+                            <i class="bi bi-file-x"></i>
+
+                        @endif
+
+
+                    @endif
                         @else
                             <i class="bi bi-file-x"></i>
                         @endif
@@ -45,7 +76,9 @@
                     <td>{{ $delivery->student }}</td>
                 </tr>
             @empty
-
+                <tr class="table-light">
+                    <td colspan="7" style="text-align: center;">لا يوجد بيانات</td>
+                </tr>
             @endforelse
 
             {{-- <tr class="table-light">
@@ -84,7 +117,7 @@
 </div>
 
 <!-- The ModalDetailsStudents -->
-<div class="modal fade" id="ModaldCheckAssignmentsStudents">
+<div class="modal fade" id="ModaldCheckAssignmentsStudents" wire:ignore.self>
 <div class="modal-dialog ">
 <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:600px;">
 
@@ -96,17 +129,28 @@
 
     <!-- Modal body -->
     <div class="modal-body ModaldDetailsAcademic">
-        <form action="/action_page.php" style="display: block;">
+        @if ($errors->any())
+                        {{-- {{ $this->selected($detail->id) }} --}}
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li style="text-align: right;">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+        <form  style="display: block;" wire:submit.prevent='correction'>
             <div class="form-group">
                 <div class="table-responsive ">
+
                     <table class="table details-academic " style="width:100%;;" dir="rtl">
                                 <tr class="table-light" id="modldetials">
                                     <th style=" width:25%; "> الرقم الأكاديمي</th>
-                                    <td>**********</td>
+                                    <td>{{ $detail['user_id']??'****' }}</td>
                                 </tr>
                                 <tr class="table-light " id="modldetials">
                                     <th style=" width:25%; "> اسم الطالب</th>
-                                    <td>**********</td>
+                                    <td>{{ $detail['student'] ?? '****' }}</td>
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;"> المجموعة</th>
@@ -114,15 +158,45 @@
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">  تاريخ التسليم </th>
-                                    <td>**********</td>
+                                    <td>{{ $detail['delivery_date'] ?? '****' }}</td>
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;" >  حالة التسليم </th>
-                                    <td>**********</td>
+                                    <td>{{ $detail["status"] ?? '****' }}</td>
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">  الملف</th>
-                                    <td>**********</td>
+                                    <td>
+                                        @if($detail['file']??false)
+                                        <a wire:click='download({{ $detail['id'] }})' style="
+                                            color: #007bff;
+                                            text-decoration: none;
+                                            cursor: pointer;
+                                        ">
+                                            <i class="bi bi-download"></i>
+                                        </a>
+                                        @if ($detail['status_code']==2)
+                                            {{-- add Hint --}}
+                                            @if ($detail["file2"]??false)
+                                            <a wire:click='download({{ $detail["id"] }},"file2")' style="
+                                                color: orange;
+                                                text-decoration: none;
+                                                cursor: pointer;
+                                            "
+                                            >
+                                                <i class="bi bi-download"></i>
+                                            </a>
+                                            @else
+                                                <i class="bi bi-file-x"></i>
+
+                                            @endif
+
+
+                                        @endif
+                                        @else
+                                            <i class="bi bi-file-x"></i>
+                                        @endif
+                                    </td>
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;"> ملاحظة الطالب</th>
@@ -139,13 +213,14 @@
                                 </tr> --}}
                                 <tr  id="modldetials">
                                     <th style=" width:25%; "> الدرجة </th>
-                                    <td> <input class="form-control" type="data" ></td>
+                                    <td> <input class="form-control" type="data" wire:model='gradeD' value="{{ $detail->grade??null }}" ></td>
                                 </tr>
                                 <tr  id="modldetials">
                                     <th style="width: 25%;">  ملاحظة المدرس</th>
-                                    <td><textarea class="form-control" name="note" id="" cols="20" rows="4" style="height: 100%"></textarea></td>
+                                    <td><textarea class="form-control"  id="" cols="20" rows="4" style="height: 100%"
+                                        wire:model='commentD' value="{{ $detail->comment??null }}"
+                                        ></textarea></td>
                                 </tr>
-
                     </table>
                 </div>
             </div>
@@ -155,11 +230,19 @@
     <!-- Modal footer -->
 
     <div class="modal-footer" style="">
-       <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
+       <button type="submit" class="btn btn-primary" id="btnsave" wire:click='correction'
+       >حفظ</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
     </div>
 </div>
 </div>
 </div>
+@section('script')
+<script>
+    window.addEventListener('closeModal', event => {
+        $('#ModaldCheckAssignmentsStudents').modal('hide');
+    });
+</script>
+@endsection
 </div>
 

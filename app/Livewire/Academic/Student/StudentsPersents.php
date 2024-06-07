@@ -45,7 +45,7 @@ class StudentsPersents extends Component
 
     }
 
-    public function sevePersents()
+    public function savePersents()
     {
 
         foreach ($this->lecture as $keyX => $value) {

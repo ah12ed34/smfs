@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Academic\Subject;
 
+use App\Models\Delivery;
 use Livewire\Component;
 use App\Models\GroupSubject;
 use App\Tools\ToolsApp;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
+use Ramsey\Uuid\Type\Decimal;
 
 class ReciveAssignments extends Component
 {
@@ -21,6 +23,10 @@ class ReciveAssignments extends Component
     public $storedByColumn = null;
     public $group_id;
     public $subject_id;
+    public $grade = [] ;
+    public $detail = null ;
+    public $commentD = null ;
+    public $gradeD = null ;
     // protected $queryString = ['search'];
     public function mount($subject_id, $group_id,$id)
     {
@@ -35,6 +41,43 @@ class ReciveAssignments extends Component
 
     }
 
+    public function updatedGrade(){
+        if($this->grade != null)
+        {
+            foreach($this->grade as $key => $value)
+            {
+                if($value != null || $value != ''){
+                    // ->decimal('grade', 3, 2)->nullable();
+                    $validGrade = min($value, $this->assignment_grade);
+                    $validGrade = max($validGrade, 0); // Ensure the grade is not negative
+                    Delivery::where('id', $key)->update(['grade' => $validGrade]);
+
+                }
+            }
+            $this->grade = [];
+        }
+    }
+
+    public function selected($id)
+    {
+        $detail = $this->reciveAssignments->where('id',$id)->first();
+        $this->gradeD = $detail->grade;
+        $this->commentD = $detail->comment;
+        $this->detail['id'] = $id;
+        $this->detail['name'] = $detail->nameAssignment;
+        $this->detail['student'] = $detail->student;
+        $this->detail['status'] = $detail->status;
+        $this->detail['status_code'] = $detail->status_code;
+        $this->detail['grade'] = $detail->assignment_grade;
+        $this->detail['delivery_date'] = $detail->delivery_date;
+        $this->detail['user_id'] = $detail->user_id;
+        $this->detail['file'] = $detail->file;
+        $this->detail['file2'] = $detail->file2;
+
+        // if any error in validation will be reset
+        $this->resetErrorBag();
+
+    }
     public function updatedTabActive()
     {
         $this->resetPage();
@@ -54,11 +97,37 @@ class ReciveAssignments extends Component
         // $this->resetPage();
     }
 
-    public function download($id){
+    public function download($id, $file=null){
         $recive = $this->reciveAssignments->where('id',$id)->first();
-        return ToolsApp::downloadFile($id,$recive->nameAssignment .'-'.$recive->student,'delivery','file');
+        return ToolsApp::downloadFile($id,$recive->nameAssignment .'-'.$recive->student,'delivery',$file??'file');
     }
 
+    public function sortBy($column)
+    {
+        if($this->storedByColumn == $column)
+        {
+            $this->storedBy = $this->storedBy == 'asc' ? 'desc' : 'asc';
+        }
+        else
+        {
+            $this->storedBy = 'asc';
+        }
+        $this->storedByColumn = $column;
+    }
+
+    public function correction(){
+        $this->validate([
+            'gradeD' => 'required|numeric|min:0|max:'.$this->assignment_grade,
+            'commentD' => 'nullable|string|max:255',
+        ],[],[
+            'gradeD' => 'الدرجة',
+            'commentD' => 'التعليق',
+        ]);
+        Delivery::where('id', $this->detail['id'])->update(['grade' => $this->gradeD, 'comment' => $this->commentD]);
+        $this->detail = null;
+
+        $this->dispatch('closeModal');
+    }
     public function getReciveAssignmentsProperty()
     {
         $assignmentsR = $this->group_subject->GroupFiles()->where('id', $this->id)
@@ -76,11 +145,13 @@ class ReciveAssignments extends Component
                     if($this->tabActive == 'early')
                         return null;
                     $delivery->status = 'تأخير';
+                    $delivery->status_code = 2;
                 }
                 else{
                     if($this->tabActive == 'late')
                         return null;
                     $delivery->status = 'في الموعد';
+                    $delivery->status_code = 1;
                 }
 
                 // $delivery->status = $delivery->groupFile->due_date < $delivery->delivery_date ? 'تأخير' : 'في الموعد';
@@ -93,7 +164,7 @@ class ReciveAssignments extends Component
                     if($assignmentsR->where('student_group_id',$student->pivot->id)->count() == 0)
                     {
                         $student->nameAssignment = 'لم يسلم';
-                        $student->student = $student->user->name;
+                        $student->student = $student->user->student->name;
                         $student->user_id = $student->user->id;
                         $student->status = 'لم يسلم';
                         $student->grade = 0;
