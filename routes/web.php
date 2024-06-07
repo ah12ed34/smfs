@@ -294,19 +294,51 @@ use App\Livewire\Quality\DepartLevelsQuality;
             //     route::get("/",'ProfileController@index')->name("profile");
             // });
 
+
+
         });
 
 
 
     })->middleware('auth');
 
-    Route::group(['prefix'=>'quality','middleware' => 'auth'
+    Route::group(['prefix'=>'qualityMain','middleware' => 'auth'
 ], function () {
-        route::get('/', '\\'.App\Livewire\Quality\QualityMain::class)->name('quality');
+        route::get('/', '\\'.App\Livewire\Quality\QualityMain::class)->name('qualityMain');
         route::get('departlevelquality','\\'.DepartLevelsQuality::class)->name('departlevelquality');
 
 
     });
+
+
+    Route::group(['prefix'=>'managerDepartment','middleware' => 'auth'
+    ], function () {
+        route::get('/', '\\'.App\Livewire\ManagerOfDepart\ManagDepartMain::class)->name('managerDepartment');
+        route::get('managerDepartAcademics','\\'.App\Livewire\ManagerOfDepart\ManageAcademicDepart::class)->name('managerDepartAcademics');
+        route::get('notifications_manageDrpart','\\'.App\Livewire\ManagerOfDepart\NotificationManageDrpart::class)->name('notifications_manageDrpart');
+        route::get('sendnotification_managerdepart_academic','\\'.App\Livewire\ManagerOfDepart\SendNotificationmanageDepartAcademic::class)->name('sendnotification_managerdepart_academic');
+        route::get('sendnotification_managerdepart_student', '\\'.App\Livewire\ManagerOfDepart\SendNotificationmanageDepartStudent::class)->name('sendnotification_managerdepart_student');
+        route::get('managerdepart_Stastistic','\\'.App\Livewire\ManagerOfDepart\ManageDepartStastistic::class)->name('managerdepart_Stastistic');
+        Route::get('depart_level_Group_mainPage','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\DepartLevelMainPage::class)->name('depart_level_Group_mainPage');
+        Route::get('practical_groups','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\Practicalgroups::class)->name('practical_groups');
+        Route::get('depart_level_academic','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\DepartLevelAcademicl::class)->name('depart_level_academic');
+        Route::get('depart_level_Books','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\BooksOfdepartLevel::class)->name('depart_level_Books');
+        Route::get('depart_level_booksChapters','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\BooksChapters::class)->name('depart_level_booksChapters');
+        Route::get('depart_level_allsechedules','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\AllSechedulesStudyinhg::class)->name('depart_level_allsechedules');
+        Route::get('depart_level_studentsFinalTearmStatistics','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\ManageDepartStudentsFinalTearmStatistics::class)->name('depart_level_studentsFinalTearmStatistics');
+        Route::get('depart_level_studentsFinalWorkStatistics','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\ManageDepartStudentsFinalWorksStatistics::class)->name('depart_level_studentsFinalWorkStatistics');
+        Route::get('students_group_information','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\StudentsGroupsInformation::class)->name('students_group_information');
+        Route::get('final_results_students','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\FinalReasultsStudents::class)->name('final_results_students');
+
+
+    });
+
+    // Route::prefix('managerOFdepart')->group(function () {
+    //     route::get('/', '\\'.ManagDepartMain::class)->name('managerDepartMain');
+    // });
+
+
+
     // Route::prefix('quality-')->group(function () {
     //    route::get('/','\\'.DepartLevelsQuality::class)->name('departlevelquality');
 

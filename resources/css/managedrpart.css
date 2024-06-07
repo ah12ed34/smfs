@@ -706,11 +706,11 @@
 
         }
 
-      /*  @media screen and (max-width: 720px) {
-             .btn-group.btn_group_nav_manageDepart-level {
+    /*  @media screen and (max-width: 720px) {
+            .btn-group.btn_group_nav_manageDepart-level {
                 margin-left: %;
             }
-             .btn-manageDepart-level-Navbar{
+            .btn-manageDepart-level-Navbar{
                 font-size: 10px;
                 padding: 9px 7px;
             }
@@ -754,19 +754,14 @@
             .btn.manageDepartlevelNavbar_dropdown {
                 font-size: 11px;
                 font-weight: normal;
-                /* padding-right: 1%;  */
-                left: 36%;
+                left: 32%;
                 margin-top: 12px;
                 display:flex;
                 box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
                 position: absolute;
                 height: 30px;
-                /* width: 90px; */
                 padding-top: 15px;
                 text-align: right;
-                /* justify-content: space-around; */
-                /* text-align: left; */
-                /* padding-left: 0%; */
             }
 
         }
@@ -776,21 +771,36 @@
                 /* width: 80px; */
             }
         }
-        @media screen and (max-width: 380px) {
+        @media screen and (max-width: 450px) {
             .btn.manageDepartlevelNavbar_dropdown {
-                left: 37%;
-                /* width: 80px; */
+                left: 55%;
             }
         }
-        /* @media screen and (max-width: 300px) {
-            .btn.departmentNavbar_dropdown {
-              padding-right: 1%;
-              font-size: 10px;
+        @media screen and (max-width: 350px) {
+            .btn.manageDepartlevelNavbar_dropdown {
+                font-size: 10px;
             }
-        } */
+        }
+        @media screen and (max-width: 300px) {
+            .btn.manageDepartlevelNavbar_dropdown {
+                font-size: 9px;
+            }
+        }
+        @media screen and (max-width: 300px) {
+            .btn.departmentNavbar_dropdown {
+              /* padding-right: 1%; */
+            font-size: 9px;
+            }
+        }
+        .name-group{
+            text-align: right;
+            width: 27%;
+        }
         .table.details-academic{
             text-align: right;
             font-size: 12px;
+            font-weight: normal;
+            border-radius: 10px;
         }
         .table.details-academic-complete{
             /* text-align: right; */
@@ -960,5 +970,1083 @@
         @media screen and (max-width: 350px) {
             .btn.departmentTypeAcademic_dropdown{
                 font-size: 10px;
+            }
+        }
+
+
+
+        .btn.departmentTypeStudentsGroups_dropdown{
+            font-size: 13px;
+                font-weight: normal;
+                left: 65%;
+                margin-top: 55px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                position: absolute;
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+        }
+        @media screen and (max-width: 950px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 62.5%;
+            }
+        }
+        @media screen and (max-width: 880px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 60%;
+            }
+        }
+        @media screen and (max-width: 780px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 59%;
+            }
+        }
+        @media screen and (max-width: 741px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 55%;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 75%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 71%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 72%;
+            }
+        }
+         @media screen and (max-width: 450px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 68%;
+                font-size: 11px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 400px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 66%;
+                font-size: 11px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 350px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 64%;
+                font-size: 11px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 311px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 63%;
+                font-size: 10px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 290px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                left: 62%;
+                font-size: 10px;
+                /* margin-top: 12px; */
+            }
+        }
+        /*
+        @media screen and (max-width: 350px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                font-size: 10px;
+            }
+        } */
+
+        .input-group.input_search_manageDepart_StudentsGroups {
+            width: 250px;
+            margin-left: 36%;
+            height: 30px;
+            box-shadow: 2px rgb(72, 72, 72);
+            background-color: #ffffff;
+            color: black;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 300px;
+            }
+        }
+        @media screen and (max-width: 950px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 270px;
+            }
+        }
+        @media screen and (max-width: 870px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 220px;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 180px;
+            }
+        }
+        @media screen and (max-width: 740px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 160px;
+                width: 220px;
+
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 240px;
+
+            }
+        }
+        @media screen and (max-width: 650px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 210px;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 190px;
+                width: 200px;
+            }
+        }
+        @media screen and (max-width: 575px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 170px;
+                /* margin-top: 5px; */
+            }
+        }
+        @media screen and (max-width: 550px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 160px;
+                margin-top: 15px;
+
+            }
+        }
+        @media screen and (max-width: 515px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 140px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 110px;
+                width:180px;
+            }
+        }
+        @media screen and (max-width: 460px) {
+            .input-group.input_search_manageDepart_StudentsGroups {
+                margin-left: 80px;
+            }
+        }
+            @media screen and (max-width: 400px) {
+                .input-group.input_search_manageDepart_StudentsGroups {
+                    /* margin-left: 60px; */
+                    width:160px;
+
+                }
+            }
+            @media screen and (max-width: 380px) {
+                .input-group.input_search_manageDepart_StudentsGroups {
+                    margin-left: 70px;
+                    width:160px;
+
+                }
+            }
+            @media screen and (max-width: 350px) {
+                .input-group.input_search_manageDepart_StudentsGroups {
+                    margin-left: 40px;
+                    width:160px;
+
+                }
+            }
+            @media screen and (max-width: 330px) {
+                .input-group.input_search_manageDepart_StudentsGroups {
+                    /* margin-left: 30px; */
+                    /* width:160px; */
+                    width:150px;
+
+
+                }
+            }
+            @media screen and (max-width: 311px) {
+                .input-group.input_search_manageDepart_StudentsGroups {
+                    margin-left: 30px;
+                    /* width:140px; */
+
+                }
+            }
+            @media screen and (max-width: 300px) {
+                .input-group.input_search_manageDepart_StudentsGroups {
+                    /* margin-left: 20px; */
+                    width:140px;
+
+                }
+            }
+            @media screen and (max-width: 290px) {
+                .input-group.input_search_manageDepart_StudentsGroups {
+                    margin-left: 20px;
+                    /* width:140px; */
+
+                }
+            }
+
+
+        .input-group.input_search_manageDepart_students {
+            width: 250px;
+            margin-left: 36%;
+            height: 30px;
+            box-shadow: 2px rgb(72, 72, 72);
+            background-color: #ffffff;
+            color: black;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 300px;
+            }
+        }
+        @media screen and (max-width: 950px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 270px;
+            }
+        }
+        @media screen and (max-width: 870px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 220px;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 180px;
+            }
+        }
+        @media screen and (max-width: 740px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 160px;
+                width: 220px;
+
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 240px;
+
+            }
+        }
+        @media screen and (max-width: 650px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 210px;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 190px;
+                width: 200px;
+            }
+        }
+        @media screen and (max-width: 575px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 170px;
+                /* margin-top: 5px; */
+            }
+        }
+        @media screen and (max-width: 550px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 160px;
+                margin-top: 15px;
+
+            }
+        }
+        @media screen and (max-width: 515px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 140px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 140px;
+                width:180px;
+            }
+        }
+        @media screen and (max-width: 460px) {
+            .input-group.input_search_manageDepart_students {
+                margin-left: 130px;
+            }
+        }
+            @media screen and (max-width: 430px) {
+                .input-group.input_search_manageDepart_students {
+                    margin-left: 120px;
+                }
+            }
+            @media screen and (max-width: 400px) {
+        .input-group.input_search_manageDepart_students {
+                    margin-left: 100px;
+                }
+            }
+        @media screen and (max-width: 360px) {
+            .input-group.input_search_manageDepart_students {
+                /* width: 160px; */
+                margin-left: 80px;
+                font-size: 9px;
+
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            .input-group.input_search_manageDepart_students {
+                /* width: 150px; */
+                margin-left: 50px;
+            }
+        }
+        @media screen and (max-width: 290px) {
+        .input-group.input_search_manageDepart_students {
+                margin-left: 40px;
+                width: 170px;
+
+            }
+        }
+
+
+        /* manage of all sechedules in departments  */
+        .btn.departmentTypeAcademic_dropdown{
+            font-size: 13px;
+                font-weight: normal;
+                left: 65%;
+                margin-top: 55px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                position: absolute;
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+        }
+        @media screen and (max-width: 950px) {
+            .btn.departmentTypeAcademic_dropdown{
+                left: 62.5%;
+            }
+        }
+        @media screen and (max-width: 880px) {
+            .btn.departmentTypeAcademic_dropdown{
+                left: 60%;
+            }
+        }
+        @media screen and (max-width: 780px) {
+            .btn.departmentTypeAcademic_dropdown{
+                left: 59%;
+            }
+        }
+        @media screen and (max-width: 741px) {
+            .btn.departmentTypeAcademic_dropdown{
+                left: 55%;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .btn.departmentTypeAcademic_dropdown{
+                left: 75%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.departmentTypeAcademic_dropdown{
+                left: 71%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.departmentTypeAcademic_dropdown{
+                left: 72%;
+            }
+        }
+        @media screen and (max-width: 450px) {
+            .btn.departmentTypeAcademic_dropdown{
+                left: 30%;
+                font-size: 11px;
+                margin-top: 12px;
+            }
+        }
+        @media screen and (max-width: 350px) {
+            .btn.departmentTypeAcademic_dropdown{
+                font-size: 10px;
+            }
+        }
+
+        .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+            font-size: 13px;
+                font-weight: normal;
+                margin-left: 65%;
+                margin-top: 13px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                /* position: absolute; */
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+        }
+        @media screen and (max-width: 1000px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 62%;
+            }
+        }
+        @media screen and (max-width: 950px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 58%;
+            }
+        }
+        @media screen and (max-width: 880px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 55%;
+            }
+        }
+        @media screen and (max-width: 780px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 53%;
+            }
+        }
+        @media screen and (max-width: 741px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 48%;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 65%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 61%;
+            }
+        }
+        @media screen and (max-width: 550px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-top: 15px;
+            }
+        }
+        @media screen and (max-width: 450px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 58%;
+                font-size: 11px;
+                /* margin-top: 12px; */
+            }
+        }
+        /* @media screen and (max-width: 400px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 56%;
+                font-size: 10px;
+            }
+        } */
+        @media screen and (max-width: 370px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 56%;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 350px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 55%;
+                /* margin-top: 12px; */
+            }
+            .hidpartname_dropdown{
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 330px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                margin-left: 51%;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 311px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                /* margin-left: 50%; */
+                font-size: 10px;
+            }
+        }
+        @media screen and (max-width: 290px) {
+            .btn.MnageDepart_sechedule_studentsGroups_dropdown{
+                /* margin-left: 50%; */
+                font-size: 9px;
+
+            }
+        }
+        /* @media screen and (max-width: 280px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                margin-left: 50%;
+                font-size: 9px;
+
+            }
+        } */
+        /*
+        @media screen and (max-width: 350px) {
+            .btn.departmentTypeStudentsGroups_dropdown{
+                font-size: 10px;
+            }
+        } */
+
+        .btn.MnageDepart_sechedule_Teacher_dropdown{
+            font-size: 13px;
+                font-weight: normal;
+                margin-left: 40%;
+                margin-top: -30px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                /* position: absolute; */
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+        }
+        @media screen and (max-width: 1000px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 38.5%;
+            }
+        }
+        @media screen and (max-width: 950px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 35.5%;
+            }
+        }
+        @media screen and (max-width: 880px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 36%;
+            }
+        }
+        @media screen and (max-width: 780px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 32%;
+            }
+        }
+        @media screen and (max-width: 741px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 29%;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 40%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 37%;
+            }
+        }
+        @media screen and (max-width: 550px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 33%;
+            }
+        }
+         @media screen and (max-width: 450px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 30%;
+                font-size: 11px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 400px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 29%;
+                font-size: 10px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 350px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 28%;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 330px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                margin-left: 26%;
+                font-size: 10px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 311px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                /* margin-left: 24%; */
+                font-size: 10px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 290px) {
+            .btn.MnageDepart_sechedule_Teacher_dropdown{
+                /* margin-left: 22%; */
+                font-size: 9px;
+                /* margin-top: 12px; */
+            }
+        }
+        .btn.MnageDepart_sechedule_classrooms_dropdown{
+            font-size: 13px;
+                font-weight: normal;
+                margin-left: 1.5%;
+                margin-top: -30px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                /* position: absolute; */
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+                float:left;
+        }
+        @media screen and (max-width: 450px) {
+            .btn.MnageDepart_sechedule_classrooms_dropdown{
+                font-size: 11px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 400px) {
+            .btn.MnageDepart_sechedule_classrooms_dropdown{
+                font-size: 10px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 290px) {
+            .btn.MnageDepart_sechedule_classrooms_dropdown{
+                font-size: 9px;
+                /* margin-top: 12px; */
+            }
+        }
+
+        .btn.manageDepartNavbarMainforLevel_dropdown {
+            display: none;
+            /* position: fixed; */
+        }
+
+        @media screen and (max-width: 760px) {
+            .btn.manageDepartNavbarMainforLevel_dropdown {
+                font-size: 11px;
+                font-weight: normal;
+                left: 42%;
+                margin-top: 12px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                position: absolute;
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+            }
+
+        }
+        @media screen and (max-width: 700px) {
+            .btn.manageDepartNavbarMainforLevel_dropdown {
+                left: 41%;
+                /* width: 80px; */
+            }
+        }
+        /* @media screen and (max-width: 450px) {
+            .btn.manageDepartNavbarMainforLevel_dropdown {
+                left: 54%;
+            }
+        } */
+        @media screen and (max-width: 350px) {
+            .btn.manageDepartNavbarMainforLevel_dropdown {
+                font-size: 10px;
+            }
+        }
+        /* @media screen and (max-width: 380px) {
+            .btn.manageDepartNavbarMainforLevel_dropdown {
+                left: 37%;
+            }
+        } */
+        /* @media screen and (max-width: 300px) {
+            .btn.manageDepartNavbarMainforLevel_dropdown {
+              padding-right: 1%;
+              font-size: 10px;
+            }
+        } */
+        .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                font-size: 13px;
+                font-weight: normal;
+                left: 70%;
+                margin-top: 13px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                position: absolute;
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+        }
+        @media screen and (max-width: 1100px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 68%;
+            }
+        }
+        @media screen and (max-width: 1000px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 65%;
+            }
+        }
+        @media screen and (max-width: 950px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 64%;
+            }
+        }
+        @media screen and (max-width: 880px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 58%;
+            }
+        }
+        @media screen and (max-width: 780px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 54%;
+            }
+        }
+        @media screen and (max-width: 760px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+
+                font-size:12px;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 70%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 66%;
+            }
+        }
+        @media screen and (max-width: 550px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                margin-top: 15px;
+                font-size: 12px;
+
+            }
+        }
+        @media screen and (max-width: 450px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 25%;
+                font-size: 11px;
+                margin-top: -28px;
+            }
+        }
+        /* @media screen and (max-width: 400px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                margin-left: 56%;
+                font-size: 10px;
+            }
+        } */
+        @media screen and (max-width: 370px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 30%;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 350px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 30%;
+            }
+        }
+
+        @media screen and (max-width: 340px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left:28%;
+            }
+        }
+        @media screen and (max-width: 330px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left:27%;
+                font-size: 10px;
+            }
+        }
+        @media screen and (max-width: 311px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 28%;
+            }
+        }
+        @media screen and (max-width: 300px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 31%;
+                font-size: 9px;
+                width:60px;
+                padding-right: 5px;
+
+
+            }
+        }
+        /* @media screen and (max-width: 280px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                margin-left: 50%;
+                font-size: 9px;
+
+            }
+        } */
+        /*
+        @media screen and (max-width: 350px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                font-size: 10px;
+            }
+        } */
+
+
+        .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+            font-size: 13px;
+                font-weight: normal;
+                left: 55%;
+                margin-top: 13px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                position: absolute;
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+        }
+        @media screen and (max-width: 1000px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 52%;
+            }
+        }
+        @media screen and (max-width: 950px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 45%;
+            }
+        }
+        @media screen and (max-width: 880px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 41%;
+            }
+        }
+        @media screen and (max-width: 780px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 38%;
+            }
+        }
+        @media screen and (max-width: 760px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 36%;
+            }
+        }
+        @media screen and (max-width: 741px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 34%;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 45%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 41%;
+            }
+        }
+        @media screen and (max-width: 550px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                margin-top: 15px;
+                font-size: 12px;
+            }
+        }
+        @media screen and (max-width: 450px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 60%;
+                font-size: 11px;
+                /* margin-top: 12px; */
+            }
+        }
+        /* @media screen and (max-width: 400px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                margin-left: 56%;
+                font-size: 10px;
+            }
+        } */
+        @media screen and (max-width: 370px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+               left: 55%;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 350px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+               left: 54%;
+                /* margin-top: 12px; */
+            }
+            .hidpartname_dropdown{
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 330px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+              left: 51%;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 311px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                /* margin-left: 50%; */
+                font-size: 10px;
+            }
+        }
+        @media screen and (max-width: 300px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                /* margin-left: 50%; */
+                font-size: 9px;
+            }
+        }
+        /* @media screen and (max-width: 280px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                margin-left: 50%;
+                font-size: 9px;
+
+            }
+        } */
+        /*
+        @media screen and (max-width: 350px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                font-size: 10px;
+            }
+        } */
+
+        .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+            font-size: 13px;
+                font-weight: normal;
+                left: 36%;
+                margin-top: 13px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                position: absolute;
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+        }
+        /* @media screen and (max-width: 1000px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+               left: 38.5%;
+            }
+        } */
+        @media screen and (max-width: 950px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 30.5%;
+            }
+        }
+        @media screen and (max-width: 880px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 28%;
+            }
+        }
+        @media screen and (max-width: 780px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 25%;
+            }
+        }
+        @media screen and (max-width: 760px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 22%;
+            }
+        }
+        @media screen and (max-width: 741px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 18%;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 20%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 18%;
+            }
+        }
+        @media screen and (max-width: 550px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 17%;
+                margin-top: 15px;
+                font-size: 12px;
+            }
+        }
+         @media screen and (max-width: 450px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 30%;
+                font-size: 11px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 400px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 29%;
+                font-size: 10px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 350px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 28%;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 330px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 22%;
+                font-size: 10px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 311px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                /* margin-left: 24%; */
+                font-size: 10px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 300px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                /* margin-left: 22%; */
+                font-size: 9px;
+                /* margin-top: 12px; */
+            }
+        }
+
+        .btn.MnageDepart_studentsFinalWorks_Statistics_TypeSubjec_dropdown{
+            font-size: 13px;
+                font-weight: normal;
+                margin-left: 1.5%;
+                margin-top: 13px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                /* position: absolute; */
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+                float:left;
+        }
+        @media screen and (max-width: 550px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeSubjec_dropdown{
+                margin-top: 15px;
+                font-size: 12px;
+
+            }
+        }
+        @media screen and (max-width: 450px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeSubjec_dropdown{
+                font-size: 11px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 400px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeSubjec_dropdown{
+                font-size: 10px;
+                /* margin-top: 12px; */
+            }
+        }
+        @media screen and (max-width: 300px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeSubjec_dropdown{
+                font-size: 9px;
+                /* margin-top: 12px; */
             }
         }
