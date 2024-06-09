@@ -64,10 +64,10 @@
 
     {{-- <div class="modal fade" id="myModal">
         <div class="modal-dialog">
-            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
+            <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;">
 
                 <!-- Modal Header -->
-                <div class="modal-header" id="modheader" style="padding-left: 40%;">
+                <div class="modal-header modal_header_css" id="modheader" style="padding-left: 40%;">
                       إضافة تكليف جديد
                     <button type="button" class="close" data-dismiss="modal"><img src="{{Vite::image("cancelbtn.png")}}"   width="20px" style="position: static;" ></button>
                 </div>
@@ -93,8 +93,8 @@
                 <!-- Modal footer -->
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left;">حفظ</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+                    <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" style="float: left;">حفظ</button>
+                    <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
 
                 </div>
             </div>
@@ -108,12 +108,12 @@
 
     <div class="modal fade" id="myModalediteAssign" wire:ignore.self>
         <div class="modal-dialog">
-            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
+            <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;">
 
                 <!-- Modal Header -->
-                <div class="modal-header" id="modheader" style="padding-left: 45%;">
+                <div class="modal-header modal_header_css" id="modheader">
                     تعديل
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    {{-- <button type="button" class="close" data-dismiss="modal">&times;</button> --}}
                 </div>
 
                 <!-- Modal body -->
@@ -137,8 +137,8 @@
                 <!-- Modal footer -->
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left;" wire:click='editAssignmentSave()'>حفظ</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+                    <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" style="float: left;" wire:click='editAssignmentSave()'>حفظ</button>
+                    <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal"  data-dismiss="modal" id="">إلغاء</button>
                 </div>
             </div>
         </div>
