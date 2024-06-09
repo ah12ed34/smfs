@@ -3,7 +3,6 @@
 @endsection
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
-    <div class="content">
 
         <div class="container"  style="padding-top: 30px; overflow:aute;">
 
@@ -40,4 +39,3 @@
 
 
     </div>
-</div>

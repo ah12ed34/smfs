@@ -5,7 +5,7 @@
 <div>
     {{-- Care about people's approval and you will be their prisoner. --}}
 
-    <div class="content">
+    <div class="container" style="padding-top: 20px;">
 
         <div class="card  cards-departments depart-level-quality" id="" onclick="location.href='{{route('depart_level_Group_mainPage')}}'" >
             <img src="{{Vite::image("level1.png")}}" class="" width="150px">

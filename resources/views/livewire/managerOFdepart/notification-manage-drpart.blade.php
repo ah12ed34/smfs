@@ -5,7 +5,6 @@
 <div>
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
 
-    <div class="content">
         <div class="container"  style="padding-top: 40px;" >
 
         <div class="card  cards-departments" id="" onclick="location.href='{{route('sendnotification_managerdepart_student')}}'">
@@ -21,4 +20,4 @@
         </div>
     </div>
 </div>
-</div>
+

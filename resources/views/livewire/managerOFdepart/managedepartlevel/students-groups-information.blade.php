@@ -3,7 +3,6 @@
 @endsection
 <div>
     {{-- The whole world belongs to you. --}}
-    <div class="content">
 
         <div class="container"  style="padding-top: 20px;">
 
@@ -58,7 +57,6 @@
             </div>
         </div>
 
-    </div>
 
 <!-- The ModalDetailsStudents -->
 <div class="modal fade" id="ModaldDetailsStudents">

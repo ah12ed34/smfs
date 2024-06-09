@@ -3,7 +3,6 @@
 @endsection
 <div>
     {{-- Success is as dangerous as failure. --}}
-    <div class="content">
 
         <div class="container"  style="padding-top:30px;">
 
@@ -24,12 +23,6 @@
                 <div class="card-subject-child"> Digital investigation التحقيق الرقمي <br>د. عبدالله المختار
                 </div>
             </div>
-
-
-            </div>
-
-
-
 
     </div>
 </div>

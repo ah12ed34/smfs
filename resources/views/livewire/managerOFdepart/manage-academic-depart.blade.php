@@ -3,7 +3,6 @@
 @endsection
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
-    <div class="content">
 
         <div class="container"  style="padding-top: 20px;" >
 
@@ -72,7 +71,6 @@
             </div>
         </div>
 
-    </div>
    <!-- The Modaladdacademic -->
    <div class="modal fade" id="addacademic">
     <div class="modal-dialog modal-lg">

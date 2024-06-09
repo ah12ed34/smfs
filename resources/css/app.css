@@ -11,7 +11,7 @@
 @import './profile.css';
 @import './chattingGroup.css';
 @import './mainAdmin.css';
-@import './controllforgrades.css'; 
+@import './controllforgrades.css';
 @import './managedrpart.css';
 @import './quality.css';
 /* @import "bootstrap/dist/css/bootstrap.min.css"; */
@@ -30,6 +30,8 @@
 @import "./mainAdmin.css";
 @import "./controllforgrades.css";
 @import "./managedrpart.css";
+@import "./students_affairs.css";
+
 
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "bootstrap-icons/font/bootstrap-icons.css";
