@@ -25,13 +25,23 @@
                     @forelse ($GroupProjects as $projectGroup)
 
                         <tr class="table-light" id="modldetials" @if ($loop->first) style="margin-top:7px;" @endif>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldetails" wire:click='selected({{ $projectGroup->id }})' >التفاصيل</button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite" wire:click='selected({{ $projectGroup->id }})'>تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
+                            @if ($projectGroup->just_created?? false)
+                            <td>
+                                <button type="submit" class="btn btn-primary btn-sm" id="btn-detials" disabled  >التفاصيل</button>
+                            </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" disabled>الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button></td>
+                            @else
+                            <td>
+                            <button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldetails" wire:click='selected({{ $projectGroup->id }})' >التفاصيل</button>
+                            </td>
                             <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalchatting" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button></td>
-                            <td>***D***</td>
-                            <td>{{ $projectGroup->project->grade }}</td>
+                            @endif
 
-                            <td>{{ $projectGroup->student->user->name }}</td>
+                            <td>{{ '--' }}</td>
+                            <td>{{ $projectGroup->grade ?? 'N/A' }}</td>
+
+                            <td>{{ $projectGroup->student->user->name?? 'N/A' }}</td>
                             <td>
                                 {{-- @if ($projectGroup->project->date) --}}
                                     {{ $projectGroup->project->date }}
@@ -60,6 +70,10 @@
 
                 </tbody>
             </table>
+            <nav>
+                {{ $GroupProjects->links(myapp::viewPagination) }}
+            </nav>
+            {{-- @dump($GroupProjects,$project_groups) --}}
         </div>
     </div>
 
@@ -387,7 +401,7 @@
 
 
 <!-- The ModalEdite -->
-<div class="modal fade" id="myModalEdite">
+<div class="modal fade" id="myModalEdite" wire:ignore.self>
     <div class="modal-dialog">
         <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height: 630px;">
 
@@ -399,12 +413,13 @@
 
             <!-- Modal body -->
             <div class="modal-body" style="overflow: auto;">
-                <form action="/action_page.php" style="display: block;">
+                <form
+                 style="display: block;">
                     <div class="form-group">
                         <!-- <label for="usr">Name:</label> -->
-                        <div><input type="text" class="form-control" id="inputtext" name="username" placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;"></div>
-                        <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder=" رئيس المشروع" style="height: 30px; margin-top:8px;"></div>
-                        <div> <input type="text" class="form-control" id="inputtext" name="username" placeholder="الدرجة" style="height: 30px; margin-top:8px;"></div>
+                        <div><input type="text" class="form-control" id="inputtext" wire:model='name' placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;"></div>
+                        <div> <input type="text" class="form-control" id="inputtext"  placeholder=" رئيس المشروع" style="height: 30px; margin-top:8px;"></div>
+                        <div> <input type="text" class="form-control" id="inputtext" wire:model='grade' placeholder="الدرجة" style="height: 30px; margin-top:8px;"></div>
                         <div> <input type="date" class="form-control" id="inputtext" name="username" placeholder=" تاريخ التسليم" style="height: 30px; margin-top:8px;"></div>
                         <div> <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder=" وصف المشروع" style=" margin-top:8px"></textarea></div>
                         <!-- <input type="text" class="form-control" id="inputtext" name="username" placeholder=" الحد الأقصى للطلاب" style="height: 30px; margin-top:8px"> -->
@@ -435,11 +450,19 @@
                                 </thead>
                                 <tbody>
 
+                                    @forelse ($users as $user)
                                         <tr class="table-light" id="modldetials"  style="margin-top:7px;" >
-                                    <td><button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;" >  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button></td>
-                                    <td>*********</td>
-                                    <td>*********</td>
+                                        <td><button class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;" >  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button></td>
+                                        <td>*********</td>
+                                        <td>{{ $user['name'] }}</td>
                                         </tr>
+                                    @empty
+                                        <tr >
+                                            <td colspan="3" style="text-align: center;">{{ __('general.no_students') }}</td>
+                                        </tr>
+
+                                    @endforelse
+
                                 </tbody>
                             </table>
                         </div>
@@ -456,7 +479,7 @@
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
+                <button type="submit" class="btn btn-primary" id="btnsave" wire:click='updateProjectGroup' >حفظ</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
             </div>
         </div>
@@ -464,7 +487,7 @@
 </div>
 
   <!-- The ModalDelete -->
-  <div class="modal fade" id="myModdelete" wire:ignore.self>
+  <div class="modal fade" id="myModdelete" wire:ignore>
     <div class="modal-dialog ">
         <div class="modal-content" style="height: 150px;">
 
