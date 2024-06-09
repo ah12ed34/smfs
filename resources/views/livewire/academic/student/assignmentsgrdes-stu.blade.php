@@ -6,15 +6,13 @@
             <table class="table" style=" width:100%;">
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
-                        <th>ملاحظة</th>
+                        {{-- <th>ملاحظة</th> --}}
                         <th>الدرجة </th>
-                        <th>لم يتم تسليمها (5) </th>
-                        <th>تم تسليمها (5) </th>
-                        <th>التكاليف (5) </th>
-                        <th>التكاليف (4) </th>
-                        <th>التكاليف (3) </th>
-                        <th>التكاليف (2) </th>
-                        <th>التكاليف (1) </th>
+                        <th>لم يتم تسليمها ({{ sizeof($columnsName) }}) </th>
+                        <th>تم تسليمها ({{ sizeof($columnsName) }}) </th>
+                        @foreach ($columnsName as $column)
+                        <th>{{ $column['name'] }}</th>
+                        @endforeach
                         <th>اسم الطالب</th>
                         <th>الرقم الأكاديمي </th>
                     </tr>
@@ -23,15 +21,19 @@
                     @forelse ($students as $student)
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
 
-                        <td>*******</td>
-                        <td> ******</td>
-                        <td>*******</td>
-                        <td> ******</td>
-                        <td>*******</td>
-                        <td> ******</td>
-                        <td>*******</td>
-                        <td> ******</td>
-                        <td>*******</td>
+                        {{-- <td>*******</td> --}}
+                        <td>{{ $student->grade }}</td>
+                        <td>{{ $student->count_not_deliveries }}</td>
+                        <td>{{$student->count_deliveries}}</td>
+                        @for ($i = 0; $i < sizeof($columnsName); $i++)
+                            @if (isset($student->assignments[$i]))
+                            <td>{{ $student->assignments[$i]->delivery->grade ??0}}</td>
+                            @else
+                            <td>{{ 'لم يتم تسليمها' }}</td>
+                            @endif
+                            {{-- <td> ******</td> --}}
+
+                        @endfor
                         <td>{{ $student->user->full_name }}</td>
                         <td>{{ $student->user_id }}</td>
                     </tr>

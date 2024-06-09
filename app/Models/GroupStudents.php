@@ -30,4 +30,7 @@ class GroupStudents extends Model
     public function groupSubject(){
         return $this->belongsTo(GroupSubject::class,'group_id','group_id');
     }
+    public function getDelivery($id){
+        return $this->hasOne(Delivery::class,'group_student_id','id')->where('group_file_id',$id)->first();
+    }
 }

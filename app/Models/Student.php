@@ -118,5 +118,9 @@ class Student extends Model
         return $this->belongsToMany(Group::class, 'group_students', 'student_id', 'group_id');
     }
 
+    public function group_students() {
+        return $this->hasOne
+        (GroupStudents::class, 'student_id', 'user_id');
+    }
 
 }
