@@ -25,9 +25,9 @@
 </div>
 
 
-<div  class="hr3-students">
+<div  class="hr3">
     <a href="{{route("student")}}">    <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
-{{--     
+{{--
     <div id="input-groupstudent" class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search">
         <div class="input-group-append">
