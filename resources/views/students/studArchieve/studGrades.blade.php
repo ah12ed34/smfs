@@ -41,7 +41,7 @@
 <div class="container" style=" padding-top: 30px;">
 
 
-   
+
     <div class="table-responsive">
 
 
@@ -52,7 +52,7 @@
 
             <thead class="table-header">
 
-                <tr class="table-light" id="modldetials">                            
+                <tr class="table-light" id="modldetials">
                     <th id="th1" rowspan="2"   style="background-color: #0E70F2; color:white;padding: 50px;">التقدير</th>
                     <th id="th1" rowspan="2"  style="background-color: #0E70F2; color:white; padding-bottom:50px;">المجموع النهائي</th>
                     <th id="th1" rowspan="2"   style="background-color: #0E70F2; color:white; padding-bottom:50px;">الإختبار النهائي</th>
@@ -72,23 +72,23 @@
                       <!--   المحصلة -->
                     <th  style="background-color: #0E70F2; color:white;">عملي</th>
                     <th  style="background-color: #0E70F2; color:white;">نظري</th>
-                      
+
                     <!--   كويزات -->
                     <th  style="background-color: #0E70F2; color:white;">عملي</th>
                     <th  style="background-color: #0E70F2; color:white;">نظري</th>
-                    
+
                     <!--   النصفي -->
                     <th  style="background-color: #0E70F2; color:white;">عملي</th>
                     <th  style="background-color: #0E70F2; color:white;">نظري</th>
-                   
+
                     <!--   التكاليف -->
                     <th  style="background-color: #0E70F2; color:white;">عملي</th>
                     <th  style="background-color: #0E70F2; color:white;">نظري</th>
-                   
+
                     <!--   المشاريع -->
                     <th  style="background-color: #0E70F2; color:white;">عملي</th>
                     <th  style="background-color: #0E70F2; color:white;">نظري</th>
-                   
+
                    <!--   الحضور -->
                     <th  style="background-color: #0E70F2; color:white;">عملي</th>
                     <th  style="background-color: #0E70F2; color:white;">نظري</th>
@@ -129,7 +129,7 @@
                     <!--  رقم المادة -->
                     <td>***</td>
                 </tr>
-                
+
                 <tr class="table-light ">
                     <!--   التقدير -->
                     <td>***</td>
@@ -160,7 +160,7 @@
                     <!--  رقم المادة -->
                     <td>***</td>
                 </tr>
-                
+
                 <tr class="table-light ">
                     <!--   التقدير -->
                     <td>***</td>
@@ -191,12 +191,22 @@
                     <!--  رقم المادة -->
                     <td>***</td>
                 </tr>
-            </tbody>
+                <tr class="table-light " dir="rtl">
+
+                    <td colspan="4" style="text-align: right">***</td>
+                    <th colspan="2" >التفدير  </th>
+                    <td colspan="2" style="text-align: right;padding-right:-10px;">***</td>
+                    <th colspan="4">المعدل التراكمي</th>
+                    <td colspan="2"style="text-align: right; right:0px;">***</td>
+                    <th colspan="4">المجموع الكلي </th>
+
+                </tr>
+                </tbody>
         </table>
     </div>
-    <div class="card" id="alltotal-degrees"><label>المجموع الكلي </label></div>
+    {{-- <div class="card" id="alltotal-degrees"><label>المجموع الكلي </label></div>
     <div class="card" id="avarage-rate-degrees"><label>المعدل التراكمي</label></div>
-    <div class="card" id="prancipation-as-estimation-degrees"><label>التفدير</label></div>
+    <div class="card" id="prancipation-as-estimation-degrees"><label>التفدير</label></div> --}}
 </div>
 
 

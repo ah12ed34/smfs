@@ -431,6 +431,7 @@
                                 <div> <input type="text" class="form-control" id="inputtext"  placeholder="إضافة طالب" style="height: 30px; margin-top:0px;width:70%;margin-left:30%;"></div>
                                 <button type="submit" class="btn btn-primary" id="btn-add-stu" >إضافة</button>
                             </div>
+                            </div>
                             {{-- <div class="card-body">
                                 <h4 class="card-title"></h4>
                                 <p class="card-text"></p>
@@ -468,7 +469,6 @@
 
 
 
-                    </div>
                     <!-- <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div> -->
@@ -478,12 +478,14 @@
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="btnsave" wire:click='updateProjectGroup' >حفظ</button>
-                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="btncancel">إلغاء</button>
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" wire:click='updateProjectGroup' >حفظ</button>
+                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
             </div>
         </div>
     </div>
 </div>
+
+
 
   <!-- The ModalDelete -->
   <div class="modal fade" id="myModdelete" wire:ignore>
@@ -578,5 +580,8 @@
             </div>
         </div>
     </div>
+</div>
+
+
 </div>
 </div>
