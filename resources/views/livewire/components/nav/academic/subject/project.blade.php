@@ -2,7 +2,7 @@
     <div class="hdr2" style=" box-shadow: 10px;">
         <button class="spaces"> <label  class="subjectname"> المشاريع </label><img src="{{Vite::image("project-management.png")}}" id="subject-icon-hdr2" width="40px">
         </button>
-        <div class="dep-sub-name"> نظم موزعة </div>
+        <div class="dep-sub-name">{{$group_subject->subject()->name_ar}} </div>
 
         <div id="btn-group-proj" class="btn-group">
         <a href="{{route("projectsStastics",[$group_subject->subject_id,$group_subject->group_id]

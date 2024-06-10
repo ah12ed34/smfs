@@ -1,71 +1,8 @@
+<div>
 @section('nav')
     @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject])
-     {{-- ['subject' => $subject], key('nav-'.time())) --}}
 @endsection
-<div>
-
     <div class="responsive"></div>
-
-{{-- <div class="container" id="container-project" style="padding-top: 30px;" >
-
-        <div class="table-responsive-xl">
-            <table class="table" id="table" style=" margin-right: -30px; " >
-                <thead class="table-header" style="font-size: 12px;">
-                    <tr class="table-light" id="modldetials">
-                        <th>تعديل</th>
-                        <th>التفاصيل</th>
-                        <th>الدردشة </th>
-                        <th>الوصف</th>
-                        <th>الدرجة</th>
-                        <th>رئيس المشروع</th>
-                        <th>تاريخ التسليم</th>
-                        <th>الحالة</th>
-                        <th>اسم المشروع</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($projects as $projectGroup)
-
-                        <tr class="table-light" id="modldetials" @if ($loop->first) style="margin-top:7px;" @endif>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldetails" wire:click='selected({{ $projectGroup->id }})' >التفاصيل</button> </td>
-                            <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalchatting" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button></td>
-                            <td>***D***</td>
-                            <td>{{ $projectGroup->project->grade }}</td>
-
-                            <td>{{ $projectGroup->student->user->name }}</td>
-                            <td>
-                                @if ($projectGroup->project->date)
-                                    {{ $projectGroup->project->date }}
-                                @else
-                                    <span class="badge badge-danger">غير محدد</span>
-                                @endif
-                            </td>
-                            <td>
-                                @if ($projectGroup->file)
-                                    <span class="badge badge-success">مكتمل</span>
-                                @else
-                                    <span class="badge badge-danger">غير مكتمل</span>
-                                @endif
-                            </td>
-                            <td>{{ $projectGroup->project->name . " - ".$projectGroup->name  }}</td>
-                        </tr>
-
-
-                    @empty
-                        <tr >
-                            <td colspan="9" style="text-align: center;">{{ __('general.no_projects') }}</td>
-                        </tr>
-
-                    @endforelse
-
-
-                </tbody>
-            </table>
-        </div>
-    </div> --}}
-
-
     <div class="container" id="container-project" style="padding-top: 20px;" >
 
         <div class="table-responsive-xl">
@@ -85,11 +22,11 @@
                 <tbody>
                     @forelse ($projects as $project)
                     <tr class="table-light" id="modldetials" @if ($loop->first) style="margin-top:7px;" @endif>
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" onclick="window.location.href='{{ route('project', [$group_subject->subject_id, $group_subject->group_id, $project->id
+                        <td><button  class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" onclick="window.location.href='{{ route('project', [$group_subject->subject_id, $group_subject->group_id, $project->id
                         ]) }}' "
                              >المجموعات</button>  </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" wire:click='selected({{ $project->id }})' data-toggle="modal" data-target="#myModalEdite" >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" wire:click='selected({{ $project->id }})' data-toggle="modal" data-target="#myModaldetails" >التفاصيل</button> </td>
+                        <td><button class="btn btn-primary btn-sm" id="btn-chat-edit" wire:click='selected({{ $project->id }})' data-toggle="modal" data-target="#myModalEdite" >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
+                        <td><button class="btn btn-primary btn-sm" id="btn-detials" wire:click='selected({{ $project->id }})' data-toggle="modal" data-target="#myModaldetails" >التفاصيل</button> </td>
                         <td>{{ $project->count_groups }}</td>
                         <td>{{ $project->grade }}</td>
                         <td>{{ $project->end_date }}</td>
@@ -350,69 +287,7 @@
                     </table>
                 </div>
 
-                {{-- <div class="detils-name">
-                    <label class="textdetailsproj" for=""> اسم المشروع </label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                            ****************
-                        </div>
-                    </div>
-                </div>
 
-                <div class="detils-name">
-                    <label class="textdetailsproj" for=""> رئيس المشروع</label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                                    ****************
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detils-name">
-                    <label class="textdetailsproj" for="">  تاريخ التسليم</label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                            **********
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detils-name">
-                    <label class="textdetailsproj" for="">  الوصف</label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                            ********************************************************************************************************************************
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detils-name">
-                    <label class="textdetailsproj" for="">  الدرجة</label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                            ****************
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detils-name">
-                    <label class="textdetailsproj" for="">  ملاحظة</label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                            **************
-                        </div>
-                    </div>
-                </div> --}}
-                {{-- <br>
-
-                <div class="detils-name">
-                    <label for="" class="textdetailsproj">   ملفات المشروع   </label>
-                    <div class="attchementfile">
-                        <div class="card" id="attchementfiles-name">
-                            ********************************************************************************************************************************
-                        </div>
-                    </div>
-                </div> --}}
 
 
             </div>

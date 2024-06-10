@@ -79,7 +79,7 @@ button.active {
             </div>
         </div>
 
-            <div class="dep-sub-name">نظم موزعة </div>
+            <div class="dep-sub-name">{{ $group_subject->subject()->name_ar }}</div>
 
 
         {{-- </div> --}}

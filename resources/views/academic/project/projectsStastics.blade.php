@@ -7,10 +7,14 @@
 
     <div id="btn-group-proj" class="btn-group">
         <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
-        <a href="{{route("projectsStastics")}}">  <button class="btn-projctsNavbarproj" style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label class="proNavbartext">الإحصائيات</label></button></a>
+        <a href="
+        {{-- {{route("projectsStastics")}} --}}
+        ">  <button class="btn-projctsNavbarproj" style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label class="proNavbartext">الإحصائيات</label></button></a>
         <button class="btn-projctsNavbarproj"><label class="proNavbartext"> غير منجزة</label></button>
         <button class="btn-projctsNavbarproj"><label class="proNavbartext"> منجزة </label></button>
-        <a href="{{route("projects")}}">  <button class="btn-projctsNavbarproj"><label class="proNavbartext">الكل</label></button></a>
+        <a href="
+        {{-- {{route("projects")}} --}}
+        ">  <button class="btn-projctsNavbarproj"><label class="proNavbartext">الكل</label></button></a>
     </div>
     <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
         <label class="bottomNavbartext">القائمة</label>
@@ -19,8 +23,8 @@
     <button id="button-hdr2" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown" >
              <div class="textdrop">الإحصائيات   </div>
             </button>
-    <div id="dropdown-menulist" class="dropdown-menu" style="width:130px; color: #0E70F2; ">   
-             <a id="dropdown-itemlist" class="dropdown-item" href="{{route("projects")}}">جميع المشاريع</a>
+    <div id="dropdown-menulist" class="dropdown-menu" style="width:130px; color: #0E70F2; ">
+             {{-- <a id="dropdown-itemlist" class="dropdown-item" href="{{route("projects")}}">جميع المشاريع</a> --}}
         <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">منجزة</a>
         <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:30px; ">غير منجزة</a>
     </div>
@@ -28,7 +32,9 @@
 </div>
 
 <div class="hr3">
-    <a href="{{route("student")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
+    <a href="
+    {{-- {{route("student")}} --}}
+    ">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
     <div id="input-group-students-search" class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search">
         <div class="input-group-append">
@@ -45,7 +51,7 @@
 
 
 
-    
+
     <div class="responsive"></div>
 
 <div class="container" id="container-project" style="padding-top: 30px;" >

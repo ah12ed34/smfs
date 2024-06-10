@@ -10,11 +10,8 @@
             <button class="btn-projctsNavbarproj"><label class="proNavbartext"> غير منجزة</label></button>
             <button class="btn-projctsNavbarproj"><label class="proNavbartext"> منجزة </label></button>
             <a href="{{route("projects",[$group_subject->subject_id,$group_subject->group_id])}}">  <button class="btn-projctsNavbarproj"style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label class="proNavbartext">الكل</label></button></a>
-            {{-- )}}">  <button class="btn-projctsNavbarproj"style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label class="proNavbartext">الكل</label></button></a> --}}
         </div>
-        <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
-            <label class="bottomNavbartext">القائمة</label>
-            </button> -->
+
 
         <button id="button-hdr2" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown" >
                  <div class="textdrop">  جميع المشاريع</div>

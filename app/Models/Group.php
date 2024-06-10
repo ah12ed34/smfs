@@ -215,6 +215,11 @@ class Group extends Model
         return $students;
     }
 
+    public function Projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
     public static function boot()
     {
         parent::boot();

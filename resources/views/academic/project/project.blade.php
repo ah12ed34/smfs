@@ -1,7 +1,7 @@
 @extends('layouts.home')
-@section('nav')
+{{-- @section('nav')
     @livewire('components.nav.academic.subject.project',['group_subject'=>$group_subject])
-@endsection
+@endsection --}}
 @section("content")
     @livewire('academic.subject.project',['group_subject'=>$group_subject])
 @endsection

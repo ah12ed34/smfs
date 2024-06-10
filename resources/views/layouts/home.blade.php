@@ -12,6 +12,19 @@
         <link rel="stylesheet" href="https://tw-elements.com/docs/standard/components/modal/">
         <link rel="stylesheet" href=" https://flowbite.com/docs/components/modal/"> --}}
         <script src="{{ asset('app/js/app.js') }}" ></script>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        {{-- icon --}}
+        <link rel="icon" href="{{ Vite::image('Group 912.png') }}" type="image/x-icon">
+        {{-- add commit --}}
+        <meta name="keywords" content="تعليمي,موقع,تعليم,مدرسة,معلم,طالب,مشروع,درجات,مواد,معلومات,معلوماتية,معلوماتي,SMFS,Student management and follow-up system,نظام إدارة ومتابعة الطلاب">
+        <meta name="author" content="Pro Prog Yemen">
+        <meta name="description" content="نظام إدارة ومتابعة الطلاب">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index, follow">
+        <meta name="googlebot" content="index, follow">
+        <meta name="google" content="notranslate">
+
+        {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script> --}}
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> --}}
         <title>@yield('title',config('app.name'))</title>
         @livewireStyles
