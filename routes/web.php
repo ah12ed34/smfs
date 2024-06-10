@@ -243,6 +243,9 @@ use App\Livewire\Quality\DepartLevelsQuality;
                 route::prefix("forms-quiz")->group(function(){
                 route::get("/",'\\'.FormsQuiz::class)->name("forms-quiz");
                 });
+                route::prefix("studentsworksStastics")->group(function(){
+                    route::get("/",'StudentsworksStasticsController@index')->name("studentsworksStastics");
+                });
 
             });
 
@@ -260,9 +263,7 @@ use App\Livewire\Quality\DepartLevelsQuality;
             route::prefix(("projectsStastics"))->group(function(){
                 route::get("/",'ProjectsStasticsController@index')->name("projectsStastics");
             });
-            route::prefix("studentsworksStastics")->group(function(){
-                route::get("/",'StudentsworksStasticsController@index')->name("studentsworksStastics");
-            });
+
             route::prefix("stasticsallsubject")->group(function(){
                 route::get("/",'StasticsallsubjectController@index')->name("stasticsallsubject");
             });

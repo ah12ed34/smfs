@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('nav')
-
+{{--
 <div  class="hdr2" style=" box-shadow: 10px;">
     <button class="spaces"> <label  class="subjectname"> الطلاب </label><img src="{{Vite::image("students.png")}}" id="subject-icon-hdr2" width="40px">
     </button>
@@ -16,9 +16,9 @@
         <button id="btn-studentsNavbar" class="btn btn-light"  onclick="location.href='{{route('students')}}'"><label class="proNavbartext"> قائمة الطلاب</label></button>
     </div>
 
-    
+
     <button id="btn-studentsdropdown" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
-    
+
         <div class="textstudentsdrop">     الإحصائيات</div>
     </button>
 <div id="dropdown-menulist" class="dropdown-menu" style="width:100px;  ">
@@ -60,10 +60,9 @@
     <td><button type="submit" class="btn btn-primary btn-sm" id="btn-uploade-grades" data-toggle="modal" data-target="#myModal"> رفع الدرجات<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> </td>
 
 </div>
-
-
-
-
+ --}}
+ @livewire('components.nav.academic.students'
+ ,['group_subject'=>$group_subject,'active'=>'studentsworksStastics'])
 @endsection
 @section("content")
 

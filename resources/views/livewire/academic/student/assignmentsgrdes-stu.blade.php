@@ -27,7 +27,7 @@
                         <td>{{$student->count_deliveries}}</td>
                         @for ($i = 0; $i < sizeof($columnsName); $i++)
                             @if (isset($student->assignments[$i]))
-                            <td>{{ $student->assignments[$i]->delivery->grade ??0}}</td>
+                            <td>{{ $student->assignments[$i]->delivery->grade ?? 0}}</td>
                             @else
                             <td>{{ 'لم يتم تسليمها' }}</td>
                             @endif

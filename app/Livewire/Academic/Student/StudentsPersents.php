@@ -54,7 +54,7 @@ class StudentsPersents extends Component
             // dd($this->group_subject->studying);
             $studying = null ;
             if(!$this->group_subject->studying){
-                dd($this->group_subject->studying);
+                // dd($this->group_subject->studying);
                 $studying = $this->group_subject->studying()->create([
                     'student_id' => $id,
                     'subject_id' => $this->group_subject->id,

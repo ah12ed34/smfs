@@ -42,20 +42,19 @@ class AssignmentsgrdesStu extends Component
             $item->count_not_deliveries = 0;
             $item->assignments = $this->group_subject->getFilesInGroupBySubject('assignment',null)->where('is_active',1)->get()
             ->map(function($assignment) use ($item){
-                // dd();
                 $assignment->delivery = Delivery::where('student_group_id',$item->pivot->id)
                     ->where('file_id',$assignment->group_file->id)->first();
                 if($assignment->delivery){
-                    // dd($assignment->delivery->grade);
                     $item->grade += $assignment->delivery->grade;
                     $item->count_deliveries++;
-                }else
+                }else{
                     $item->count_not_deliveries++;
+                    $assignment->delivery = new Delivery(['grade'=>'لم يتم التسليم']);
+                }
                     return $assignment;
             });
             return $item;
         });
-        // dd($students);
         return $students;
     }
 
