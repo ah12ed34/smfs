@@ -36,10 +36,10 @@
  <!-- The Modal of create subject -->
  <div class="modal fade" id="create-subject">
     <div class="modal-dialog">
-        <div class="modal-content" id="modal-content2" style="height: 300px;">
+        <div class="modal-content modal_content_css" id="modal-content2" style="height: 300px;">
 
             <!-- Modal Header -->
-            <div class="modal-header" id="modheader">
+            <div class="modal-header modal_header_css" id="modheader">
                 اضافة مادة جديدة
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
@@ -64,8 +64,8 @@
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btnsave-file" style="float: left; margin-left:30px;">حفظ</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel-file">إلغاء</button>
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" style="float: left; margin-left:30px;">حفظ</button>
+                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
             </div>
         </div>
     </div>
