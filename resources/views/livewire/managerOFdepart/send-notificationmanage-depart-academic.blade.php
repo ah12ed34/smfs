@@ -6,7 +6,6 @@
 <div>
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
 
-    <div class="content">
 
         <div class="container" style="padding-top: 50px;" >
 
@@ -33,4 +32,4 @@
 
   </div>
 </div>
-</div>
+

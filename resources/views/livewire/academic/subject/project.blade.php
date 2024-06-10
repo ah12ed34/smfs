@@ -1,3 +1,7 @@
+@section('nav')
+    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject])
+     {{-- ['subject' => $subject], key('nav-'.time())) --}}
+@endsection
 <div>
 
     <div class="responsive"></div>
@@ -68,6 +72,7 @@
             <table class="table" style=" width:100%;">
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
+
                         <th>عرض المشاريع</th>
                         <th>تعديل</th>
                         <th>التفاصيل</th>
@@ -102,13 +107,13 @@
     </div>
 
 
-    <!-- The Modalcreate project -->
+    <!-- The Modalcreateproject -->
     <div class="modal fade" id="myModal" wire:ignore.self>
         <div class="modal-dialog">
-            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:550px;">
+            <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height:500px;">
 
                 <!-- Modal Header -->
-                <div class="modal-header" id="modheader" style="text-align: center;padding-left:42%;">
+                <div class="modal-header modal_header_css" id="modheader" >
                    انشاء مشروع جديد
                     <button type="button"  class="close"  data-dismiss="modal" ><img src="{{Vite::image("cancelbtn.png")}}"   width="20px" style="position: static;" ></button>
                 </div>
@@ -140,8 +145,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnsave" style="float: left; " wire:click='addProject'>حفظ</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+                    <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" style="float: left; " wire:click='addProject'>حفظ</button>
+                    <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
                 </div>
             </div>
         </div>
@@ -297,11 +302,12 @@
 <!-- The Modaldetails -->
 <div class="modal fade" id="myModaldetails" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
+        <div class="modal-content ModaldShowDetail" id="modal-content" style="background-color: #F6F7FA;">
 
             <!-- Modal Header -->
-            <div class="modal-header" id="modheader-proj" style="padding-left: 40%">
-                <div class="">تفاصيل المشروع <img src="{{Vite::image("routine.png")}}" id="" width="25px"></div>
+            <div class="modal-header modal_header_css" id="modheader" >
+                {{-- <div class="">  <img src="{{Vite::image("routine.png")}}" id="" width="25px"></div> --}}
+                تفاصيل المشروع
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -412,15 +418,11 @@
             </div>
 
             <!-- Modal footer -->
-            <div class="modal-footer" style="padding-right: 120px;">
+            <div class="modal-footer ModaldShowDetail" style="padding-right: 120px;">
             </div>
         </div>
     </div>
 </div>
-
-
-
-
 
 
 
@@ -430,11 +432,11 @@
 {{-- @dump($project) --}}
 <div class="modal fade" id="myModalEdite" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height: ">
+        <div class="modal-content modal_content_css"  id="modal-content" style="background-color: #F6F7FA;height: ">
 
             <!-- Modal Header -->
-            <div class="modal-header" id="modheader" style="padding-left: 50%">
-                 تعديل
+            <div class="modal-header modal_header_css" id="modheader" style="padding-left: 50%">
+                تعديل
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -469,8 +471,8 @@
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btnsave" wire:click='update_proj'>حفظ</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" wire:click='update_proj'>حفظ</button>
+                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
             </div>
         </div>
     </div>
@@ -506,6 +508,7 @@
         </div>
     </div>
 </div>
+
 <script>
     window.addEventListener('closeModal', event => {
         $('#myModal').modal('hide');

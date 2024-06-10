@@ -8,7 +8,7 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-ad7be249.css",
+    "file": "assets/app-6afaebf8.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -55,6 +55,10 @@
   "resources/images/bell.png": {
     "file": "assets/bell-77314ab4.png",
     "src": "resources/images/bell.png"
+  },
+  "resources/images/bossesofdepartmentsnotif.png": {
+    "file": "assets/bossesofdepartmentsnotif-8c50cb02.png",
+    "src": "resources/images/bossesofdepartmentsnotif.png"
   },
   "resources/images/calendar (3).png": {
     "file": "assets/calendar (3)-d89fdbf1.png",

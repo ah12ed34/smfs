@@ -3,7 +3,6 @@
 @endsection
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
-    <div class="content">
 
         <div class="container" style="overflow:aute;" style="top: 30px;">
 
@@ -53,4 +52,3 @@
 
 
     </div>
-</div>

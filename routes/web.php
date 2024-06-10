@@ -17,7 +17,7 @@ use App\Livewire\Student\StudStudyingBooks\StudStudyingBooks;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Livewire\Quality\DepartLevelsQuality;
-
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -331,6 +331,18 @@ use App\Livewire\Quality\DepartLevelsQuality;
         Route::get('students_group_information','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\StudentsGroupsInformation::class)->name('students_group_information');
         Route::get('final_results_students','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\FinalReasultsStudents::class)->name('final_results_students');
 
+
+    });
+
+    Route::group(['prefix'=>'StudentSaffairs','middleware' => 'auth'
+    ], function () {
+        route::get('/', '\\'.App\Livewire\StudentsAffairs\DepatmentsStudentsAffairs::class)->name('StudentSaffairs');
+        route::get('depart_levels_studentsAffairs','\\'.App\Livewire\StudentsAffairs\DepartLevelsStudentsAffairs::class)->name('depart_levels_studentsAffairs');
+        route::get('main_studentsAffairs','\\'.App\Livewire\StudentsAffairs\MainStudentsAffairs::class)->name('main_studentsAffairs');
+        route::get('studentsAffairs_main_studentsInformation','\\'.App\Livewire\StudentsAffairs\StudentsAffairsMainStudentsInformation::class)->name('studentsAffairs_main_studentsInformation');
+        route::get('studentsAffairs_main_studentsGroups','\\'.App\Livewire\StudentsAffairs\StudentsAffairsStudentsMaingroups::class)->name('studentsAffairs_main_studentsGroups');
+        route::get('studentsAffairs_practicalGroups','\\'.App\Livewire\StudentsAffairs\StudentsAffairsStudentPracticalgroups::class)->name('studentsAffairs_practicalGroups');
+        route::get('studentsInformation_InGroup','\\'.App\Livewire\StudentsAffairs\StudentsInformationInGroups::class)->name('studentsInformation_InGroup');
 
     });
 

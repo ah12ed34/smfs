@@ -4,8 +4,6 @@
 <div>
     {{-- Be like water. --}}
 
-    <div class="content">
-
         <div class="container"  style="padding-top: 20px;" >
 
             <div class="table-responsive-xl">
@@ -72,7 +70,6 @@
                 </table>
             </div>
         </div>
-    </div>
 
     <!-- The Modaladdacademic -->
 <div class="modal fade" id="addacademic">
@@ -277,12 +274,12 @@
                                  <td><input type="checkbox" class="checkbox" name="raido"></td>
                                 <th class="name-group" >المجموعة (1)</th>
 
-                             </tr>
-                             <tr>
-                                 <!-- <td><input type="checkbox" class="checkbox" name="raido"></td>
-                                 <td><input type="checkbox" class="checkbox" name="raido"></td>
-                                 <td><input type="checkbox" class="checkbox" name="raido"></td> -->
-                                 <td><input type="checkbox" class="checkbox" name="raido"></td>
+                            </tr>
+                            <tr>
+                                <!-- <td><input type="checkbox" class="checkbox" name="raido"></td>
+                                <td><input type="checkbox" class="checkbox" name="raido"></td>
+                                <td><input type="checkbox" class="checkbox" name="raido"></td> -->
+                                <td><input type="checkbox" class="checkbox" name="raido"></td>
                                 <th class="name-group" style="width: 25%;">المجموعة (2)</th>
 
                              </tr>

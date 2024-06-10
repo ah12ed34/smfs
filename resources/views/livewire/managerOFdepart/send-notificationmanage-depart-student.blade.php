@@ -5,7 +5,7 @@
 
 <div>
     {{-- Do your work, then step back. --}}
-    <div class="content">
+
         <div class="container" style="padding-top: 50px;" >
 
         <div class="container notification_chatting" >
@@ -31,4 +31,4 @@
 
   </div>
 </div>
-</div>
+

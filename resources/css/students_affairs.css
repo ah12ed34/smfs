@@ -1,0 +1,1004 @@
+/* Path: css/students_affairs.css */
+
+.btn.btn_uploade_file_information_students{
+    left:70%;
+    margin-top:-28px;
+    position:absolute;
+    /* height:30px; */
+    font-weight:normal;
+    font-size:12px;
+}
+@media screen and (max-width: 1100px ){
+    .btn.btn_uploade_file_information_students{
+        left:65%;
+    }
+}
+@media screen and (max-width: 950px ){
+    .btn.btn_uploade_file_information_students{
+        left:60%;
+    }
+}
+@media screen and (max-width: 800px ){
+    .btn.btn_uploade_file_information_students{
+        left:57%;
+    }
+}
+@media screen and (max-width: 750px ){
+    .btn.btn_uploade_file_information_students{
+        left:55%;
+    }
+}
+@media screen and (max-width: 700px ){
+    .btn.btn_uploade_file_information_students{
+        left:75%;
+    }
+}
+@media screen and (max-width: 650px ){
+    .btn.btn_uploade_file_information_students{
+        left:73%;
+    }
+}
+@media screen and (max-width: 600px ){
+    .btn.btn_uploade_file_information_students{
+        left:70%;
+    }
+}
+@media screen and (max-width: 550px ){
+    .btn.btn_uploade_file_information_students{
+        font-size:10px;
+        left:72%;
+    }
+}
+@media screen and (max-width: 450px ){
+    .btn.btn_uploade_file_information_students{
+        left:62%;
+        margin-top:-70px;
+    }
+}
+@media screen and (max-width: 400px ){
+    .btn.btn_uploade_file_information_students{
+        left:59%;
+        padding-left:3px;
+    }
+}
+/* @media screen and (max-width: 330px ){
+    .btn.btn_uploade_file_information_students{
+        left:59%;
+        font-size:9px;
+    }
+} */
+@media screen and (max-width:300px) {
+    .btn.btn_uploade_file_information_students{
+        font-size: 9px;
+        padding-left:1px;
+        /* padding-right:2.5px; */
+    }
+}
+@media screen and (max-width:280px) {
+    .btn.btn_uploade_file_information_students{
+        padding-right:3px;
+        left:59.5%;
+    }
+}
+
+.input-group.input_search_studentsAffairs_studentInfo {
+    width: 250px;
+    margin-left: 36%;
+    height: 30px;
+    box-shadow: 2px rgb(72, 72, 72);
+    background-color: #ffffff;
+    color: black;
+    position: relative;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 300px;
+    }
+}
+@media screen and (max-width: 950px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 270px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 250px;
+    }
+}
+@media screen and (max-width: 870px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 220px;
+    }
+}
+@media screen and (max-width: 840px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 210px;
+    }
+}
+@media screen and (max-width: 810px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 200px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 170px;
+        width: 240px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 160px;
+        width: 230px;
+    }
+}
+@media screen and (max-width: 740px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 150px;
+        width: 220px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 240px;
+
+    }
+}
+@media screen and (max-width: 650px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 190px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 180px;
+        width: 200px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 170px;
+        /* margin-top: 5px; */
+    }
+}
+@media screen and (max-width: 550px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 150px;
+        margin-top: 17px;
+
+    }
+}
+@media screen and (max-width: 515px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 130px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 120px;
+        /* width:180px; */
+    }
+}
+@media screen and (max-width: 460px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 110px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 120px;
+    }
+}
+    @media screen and (max-width: 400px) {
+        .input-group.input_search_studentsAffairs_studentInfo {
+            margin-left: 110px;
+        }
+    }
+    /* @media screen and (max-width: 400px) {
+.input-group.input_search_studentsAffairs_studentInfo {
+            margin-left: 100px;
+        }
+    } */
+@media screen and (max-width: 360px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        /* width: 160px; */
+        margin-left: 80px;
+        font-size: 9px;
+
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .input-group.input_search_studentsAffairs_studentInfo {
+        /* width: 150px; */
+        margin-left: 50px;
+    }
+}
+@media screen and (max-width: 290px) {
+.input-group.input_search_studentsAffairs_studentInfo {
+        margin-left: 40px;
+        width: 170px;
+
+    }
+}
+
+.btn.btn_studentsAffairs_AddStudent {
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-left: 2%;
+    margin-top: -29px;
+    position: fixed;
+}
+
+@media screen and (max-width:992px) {
+    .btn.btn_studentsAffairs_AddStudent {
+        top: 130px;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .btn.btn_studentsAffairs_AddStudent {
+        font-size: 10px;
+        /* margin-top: 15px; */
+        margin-top: -27px;
+
+
+    }
+}
+
+@media screen and (max-width:450px) {
+    .btn.btn_studentsAffairs_AddStudent {
+        margin-top:-68px;
+        margin-left:25%;
+    }
+}
+@media screen and (max-width:400px) {
+    .btn.btn_studentsAffairs_AddStudent {
+        /* font-size: 9px;
+        padding-right: 1px;
+        padding-left:2px; */
+        margin-left:27%;
+
+    }
+}
+@media screen and (max-width:370px) {
+    .btn.btn_studentsAffairs_AddStudent {
+        /* font-size: 8px;
+        padding-right: 3px; */
+        margin-left:29%;
+        padding-left:3px;
+    }
+}
+@media screen and (max-width:300px) {
+    .btn.btn_studentsAffairs_AddStudent {
+        font-size: 9px;
+        margin-left:30%;
+        padding-left:1px;
+    }
+}
+@media screen and (max-width:280px) {
+    .btn.btn_studentsAffairs_AddStudent {
+        padding-right:3px;
+        margin-left:31%;
+    }
+}
+.btn.deparment_names_dropdown {
+    display:flex;
+    color: black;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    /* width: 20%; */
+    font-size: 12px;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    border: none;
+    height: 30px;
+    margin-top: 7px;
+    margin-left: 70px;
+    padding-top:15px;
+    padding-right:17px;
+
+}
+@media screen and (max-width:400px){
+    .btn.deparment_names_dropdown {
+    margin-left: 50px;
+}
+}
+@media screen and (max-width:370px){
+    .btn.deparment_names_dropdown {
+    margin-left: 30px;
+}
+}
+@media screen and (max-width:355px){
+    .btn.deparment_names_dropdown {
+    margin-left: 20px;
+}
+}
+/* #btn.deparment_names_dropdown{
+    font-size: 11px;
+    font-weight: normal;
+    display:flex;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    height: 30px;
+    margin-left: 50%;
+
+} */
+.btn.typeSysrtem_studying_dropdown{
+    float: right;
+    color: black;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    display:flex;
+    height: 30px;
+    padding-top:15px;
+    /* width: 20%; */
+    font-size: 12px;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    border: none;
+    margin-top: 17px;
+    position: relative;
+    z-index: 1;
+    margin-right: 20px;
+}
+
+.btn.Students_typeStatus_dropdown {
+    display:flex;
+    color: black;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    font-size: 12px;
+    box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+    border: none;
+    height: 30px;
+    margin-top: 17px;
+    margin-left: 70px;
+    padding-top:15px;
+    padding-right:17px;
+}
+@media screen and (max-width:400px){
+    .btn.Students_typeStatus_dropdown {
+    margin-left: 50px;
+}
+}
+@media screen and (max-width:370px){
+    .btn.Students_typeStatus_dropdown {
+    margin-left: 30px;
+}
+}
+@media screen and (max-width:355px){
+    .btn.Students_typeStatus_dropdown {
+    margin-left: 20px;
+}
+}
+.user_profile_modal{
+    margin-left:10%;
+    margin-top:-7px;
+    border-radius:50%;
+    width:100px;
+}
+@media screen and (max-width: 400px){
+    .user_profile_modal{
+        margin-left:7%;
+        width:80px;
+    }
+}
+.btn.btn_edit {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+    color: #0E70F2;
+    border: none;
+    margin: -4px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-size: 10px;
+}
+.btn.btn_detials {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-size: 10px;
+}
+.modal-content.UploadeFileModal
+        {
+            /* height: 700px; */
+            /* overflow: auto; */
+            border-top-left-radius: 35px;
+            border-top-right-radius: 35px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+.modal-header.UploadeFileModal{
+            background-color:#1558DB;
+            color: white;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            text-align: center;
+        }
+        .modal-header.modal_header_delete{
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+        }
+        .btn.btn_save_informModal{
+            font-size: 13px;
+            width: 90px;
+            left: 2%;
+            border-radius: 15px;
+            position: absolute;
+            bottom:-1px;
+        }
+        @media screen and (max-width: 700px){
+            .btn.btn_save_informModal{
+                font-size: 12px;
+            }
+        }
+        @media screen and (max-width: 400px){
+            .btn.btn_save_informModal{
+                width:70px;
+            }
+        }
+        @media screen and (max-width: 350px){
+            .btn.btn_save_informModal{
+                width:60px;
+            }
+        }
+
+        .btn.btn_cancel_informModal {
+            font-size: 13px;
+            width: 90px;
+            float: right;
+            border-radius: 15px;
+        }
+        @media screen and (max-width: 700px){
+            .btn.btn_cancel_informModal{
+                font-size: 12px;
+            }
+        }
+        @media screen and (max-width: 400px){
+            .btn.btn_cancel_informModal{
+                width:70px;
+            }
+        }
+        @media screen and (max-width: 350px){
+            .btn.btn_cancel_informModal{
+                width:60px;
+            }
+        }
+
+        .btn.btn_studentsAffairs_createGroup {
+            font-size: 12px;
+            font-weight: normal;
+            padding-left: 5px;
+            margin-left: 2%;
+            margin-top: -29px;
+            position: fixed;
+        }
+
+        @media screen and (max-width:992px) {
+            .btn.btn_studentsAffairs_createGroup {
+                top: 130px;
+            }
+        }
+        @media screen and (max-width:550px) {
+            .btn.btn_studentsAffairs_createGroup {
+                font-size: 10px;
+                /* margin-top: 15px; */
+                margin-top: -27px;
+            }
+        }
+        @media screen and (max-width:450px) {
+            .btn.btn_studentsAffairs_createGroup {
+                margin-top:-68px;
+                margin-left:25%;
+            }
+        }
+        @media screen and (max-width:400px) {
+            .btn.btn_studentsAffairs_createGroup {
+                /* font-size: 9px;
+                padding-right: 1px;
+                padding-left:2px; */
+                margin-left:27%;
+
+            }
+        }
+        @media screen and (max-width:370px) {
+            .btn.btn_studentsAffairs_createGroup {
+                /* font-size: 8px;
+                padding-right: 3px; */
+                margin-left:29%;
+                padding-left:3px;
+            }
+        }
+        @media screen and (max-width:300px) {
+            .btn.btn_studentsAffairs_createGroup {
+                font-size: 9px;
+                margin-left:30%;
+                padding-left:1px;
+            }
+        }
+        @media screen and (max-width:280px) {
+            .btn.btn_studentsAffairs_createGroup {
+                padding-right:3px;
+                margin-left:31%;
+            }
+        }
+
+        .btn.TypeStudentsGroups_dropdown{
+            font-size: 13px;
+                font-weight: normal;
+                /* left: 65%; */
+                margin-top: 55px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                position: absolute;
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+                left:70%;
+                /* margin-top:-28px; */
+                /* height:30px; */
+        }
+        @media screen and (max-width: 950px) {
+            .btn.TypeStudentsGroups_dropdown{
+                left: 62.5%;
+            }
+        }
+        @media screen and (max-width: 880px) {
+            .btn.TypeStudentsGroups_dropdown{
+                left: 60%;
+            }
+        }
+        @media screen and (max-width: 780px) {
+            .btn.TypeStudentsGroups_dropdown{
+                left: 59%;
+            }
+        }
+        @media screen and (max-width: 741px) {
+            .btn.TypeStudentsGroups_dropdown{
+                left: 55%;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .btn.TypeStudentsGroups_dropdown{
+                left: 75%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.TypeStudentsGroups_dropdown{
+                left: 71%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.TypeStudentsGroups_dropdown{
+                left: 72%;
+            }
+        }
+        @media screen and (max-width: 450px ){
+            .btn.TypeStudentsGroups_dropdown{
+                left:62%;
+                margin-top:18px;
+                /* font-size: 10px; */
+                height: 28px;
+                font-size: 11px;
+            }
+        }
+        @media screen and (max-width: 400px ){
+            .btn.TypeStudentsGroups_dropdown{
+                left:59%;
+                font-size: 10px;
+            }
+        }
+        @media screen and (max-width: 380px ){
+            .btn.TypeStudentsGroups_dropdown{
+                left:62%;
+            }
+        }
+        @media screen and (max-width: 350px ){
+            .btn.TypeStudentsGroups_dropdown{
+                padding-left:7px;
+                /* left:62%; */
+            }
+        }
+        @media screen and (max-width: 330px ){
+            .btn.TypeStudentsGroups_dropdown{
+                left:62.5%;
+                padding-left:5px;
+                padding-right:5px;
+            }
+        }
+        /* @media screen and (max-width:300px) {
+            .btn.TypeStudentsGroups_dropdown{
+                font-size: 9px;
+                padding-left:1px;
+                padding-right:2.5px;
+            }
+        } */
+        @media screen and (max-width:280px) {
+            .btn.TypeStudentsGroups_dropdown{
+                padding-right:7px;
+                /* left:63.5%; */
+            }
+        }
+        .btn.gendar_studentsGroup{
+            float: right;
+            color: black;
+            border-radius: 7px;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            -ms-border-radius: 7px;
+            -o-border-radius: 7px;
+            display:flex;
+            height: 30px;
+            padding-top:15px;
+            padding-right:17px;
+            /* width: 20%; */
+            font-size: 12px;
+            box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+            border: none;
+            margin-top: 7px;
+            position: relative;
+            z-index: 1;
+            margin-right: 5px;
+        }
+        @media screen and (max-width:470px){
+            .btn.gendar_studentsGroup {
+            font-size: 11px;
+        }
+        }
+        @media screen and (max-width:350px){
+            .btn.gendar_studentsGroup {
+                font-size: 10px;
+        }
+        }
+        @media screen and (max-width:320px){
+            .btn.gendar_studentsGroup {
+            padding-left:2px;
+            padding-right:14px;
+        }
+        }
+        .btn.TypeSystem_studying_StudentsGroups_dropdown {
+            display:flex;
+            color: black;
+            border-radius: 7px;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            -ms-border-radius: 7px;
+            -o-border-radius: 7px;
+            /* width: 20%; */
+            font-size: 12px;
+            box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+            border: none;
+            height: 30px;
+            margin-top: 7px;
+            margin-left: 50px;
+            padding-top:15px;
+            padding-right:17px;
+            position: relative;
+            z-index: 1;
+
+        }
+        @media screen and (max-width:470px){
+            .btn.TypeSystem_studying_StudentsGroups_dropdown {
+            margin-left: 30px;
+            font-size: 11px;
+
+        }
+        }
+        @media screen and (max-width:400px){
+            .btn.TypeSystem_studying_StudentsGroups_dropdown {
+            margin-left: 20px;
+        }
+        }
+        @media screen and (max-width:370px){
+            .btn.TypeSystem_studying_StudentsGroups_dropdown {
+            margin-left: 10px;
+        }
+        }
+        @media screen and (max-width:350px){
+            .btn.TypeSystem_studying_StudentsGroups_dropdown {
+            margin-left: 5px;
+            font-size: 10px;
+        }
+        }
+        @media screen and (max-width:320px){
+            .btn.TypeSystem_studying_StudentsGroups_dropdown {
+            padding-left:4px;
+            padding-right:12px;
+        }
+        }
+        .btn.TypeGroups_in_modalAdd_dropdown {
+            display:flex;
+            color: black;
+            border-radius: 7px;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            -ms-border-radius: 7px;
+            -o-border-radius: 7px;
+            /* width: 20%; */
+            font-size: 12px;
+            box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+            border: none;
+            height: 30px;
+            margin-top: -30px;
+            margin-left: 40%;
+            padding-top:15px;
+            padding-right:17px;
+
+        }
+        @media screen and (max-width:470px){
+            .btn.TypeGroups_in_modalAdd_dropdown {
+            font-size: 11px;
+        }
+        }
+        @media screen and (max-width:400px){
+            .btn.TypeGroups_in_modalAdd_dropdown {
+            margin-left:37%;
+            /* margin-top: 17px; */
+        }
+        }
+        @media screen and (max-width:370px){
+            .btn.TypeGroups_in_modalAdd_dropdown {
+            margin-left: 35%;
+
+        }
+        }
+        @media screen and (max-width:350px){
+            .btn.TypeGroups_in_modalAdd_dropdown {
+                font-size: 10px;
+                margin-left: 32%;
+        }
+        }
+        @media screen and (max-width:330px){
+            .btn.TypeGroups_in_modalAdd_dropdown {
+            margin-left: 29%;
+        }
+        }
+        @media screen and (max-width:320px){
+            .btn.TypeGroups_in_modalAdd_dropdown {
+            padding-left:2px;
+            padding-right:14px;
+        }
+        }
+        .input-group.input_search_StudentsAffairs_StudGroupsInform {
+            width: 250px;
+            margin-left: 36%;
+            height: 30px;
+            box-shadow: 2px rgb(72, 72, 72);
+            background-color: #ffffff;
+            color: black;
+            position: relative;
+            margin-top: 10px;
+        }
+        @media screen and (max-width: 1000px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 300px;
+            }
+        }
+        @media screen and (max-width: 950px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 270px;
+            }
+        }
+        @media screen and (max-width: 870px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 220px;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 180px;
+            }
+        }
+        @media screen and (max-width: 740px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 160px;
+                width: 220px;
+
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 240px;
+
+            }
+        }
+        @media screen and (max-width: 650px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 210px;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 190px;
+                width: 200px;
+            }
+        }
+        @media screen and (max-width: 575px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 170px;
+                /* margin-top: 5px; */
+            }
+        }
+        @media screen and (max-width: 550px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 160px;
+                margin-top: 18px;
+
+            }
+        }
+        @media screen and (max-width: 515px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 140px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 140px;
+                width:180px;
+            }
+        }
+        @media screen and (max-width: 460px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 130px;
+            }
+        }
+            @media screen and (max-width: 430px) {
+                .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                    margin-left: 120px;
+                }
+            }
+            @media screen and (max-width: 400px) {
+        .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                    margin-left: 110px;
+                }
+            }
+        @media screen and (max-width: 350px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                width:200px;
+                margin-left: 70px;
+            }
+        }
+        @media screen and (max-width: 330px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                width: 190px;
+                margin-left: 60px;
+            }
+        }
+        @media screen and (max-width: 320px) {
+            .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                width: 180px;
+                margin-left: 50px;
+            }
+        }
+        @media screen and (max-width: 290px) {
+        .input-group.input_search_StudentsAffairs_StudGroupsInform {
+                margin-left: 40px;
+                width: 170px;
+            }
+        }
+
+        .btn.btn_studentsAffairs_AddStudents_into_Group {
+            font-size: 12px;
+            font-weight: normal;
+            padding-left: 5px;
+            margin-left: 2%;
+            margin-top: -29px;
+            position: fixed;
+        }
+        @media screen and (max-width:992px) {
+            .btn.btn_studentsAffairs_AddStudents_into_Group {
+                top: 130px;
+            }
+        }
+        @media screen and (max-width:550px) {
+            .btn.btn_studentsAffairs_AddStudents_into_Group {
+                font-size: 10px;
+                /* margin-top: 15px; */
+                margin-top: -27px;
+            }
+        }
+        @media screen and (max-width:350px) {
+            .btn.btn_studentsAffairs_AddStudents_into_Group {
+                margin-top:-68px;
+                margin-left:38%;
+            }
+        }
+
+        .btn.moveStudent_to_anotherGroup_dropdown {
+            display:flex;
+            color: black;
+            border-radius: 7px;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            -ms-border-radius: 7px;
+            -o-border-radius: 7px;
+            /* width: 20%; */
+            font-size: 12px;
+            box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+            border: none;
+            height: 30px;
+            /* margin-top: -30px;
+            margin-left: 40%; */
+            padding-top:15px;
+            padding-right:17px;
+            float: right;
+        }
+        .table.Table_AddStudentsIntoGroup_in_Modal{
+            text-align: center;
+        }
+        .btn.studentsAffairsTypeTerm_dropdown{
+            font-size: 13px;
+                font-weight: normal;
+                left: 65%;
+                margin-top: 55px;
+                display:flex;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                position: absolute;
+                height: 30px;
+                padding-top: 15px;
+                text-align: right;
+        }
+        @media screen and (max-width: 950px) {
+            .btn.studentsAffairsTypeTerm_dropdown{
+                left: 60.5%;
+            }
+        }
+        @media screen and (max-width: 880px) {
+            .btn.studentsAffairsTypeTerm_dropdown{
+                left: 60%;
+            }
+        }
+        @media screen and (max-width: 780px) {
+            .btn.studentsAffairsTypeTerm_dropdown{
+                left: 55%;
+            }
+        }
+        @media screen and (max-width: 741px) {
+            .btn.studentsAffairsTypeTerm_dropdown{
+                left: 50%;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .btn.studentsAffairsTypeTerm_dropdown{
+                left: 50%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.studentsAffairsTypeTerm_dropdown{
+                left: 47%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .btn.studentsAffairsTypeTerm_dropdown{
+                left: 45%;
+            }
+        }
+        @media screen and (max-width: 450px) {
+            .btn.studentsAffairsTypeTerm_dropdown{
+                left: 40%;
+                /* font-size: 11px; */
+                margin-top: 12px;
+            }
+        }
+        @media screen and (max-width: 350px) {
+            .btn.studentsAffairsTypeTerm_dropdown{
+                font-size: 11px;
+            }
+        }
+
+

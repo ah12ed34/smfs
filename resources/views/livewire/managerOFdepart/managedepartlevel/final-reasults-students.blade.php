@@ -3,7 +3,6 @@
 @endsection
 <div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
-    <div class="content">
 
         <div class="container" style="padding-top: 20px;">
 
@@ -70,7 +69,6 @@
             </div>
         </div>
 
-    </div>
 
 <!-- The ModalDetailsStudents -->
 <div class="modal fade" id="ModaldDetailsStudents">

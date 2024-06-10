@@ -25,8 +25,7 @@
                 <tr class="table-light" id="modldetials" style="margin-top:7px;">
                     <td>
                     @if ($tabActive=='not_delivered')
-                        <button type="submit" class="btn btn-primary btn-sm disabled" id="btn-detials"
-                         >تصحيح التكليف</button>
+                        <button type="submit" class="btn btn-primary btn-sm disabled" id="btn-detials">تصحيح التكليف</button>
                     @else
                     <button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModaldCheckAssignmentsStudents" wire:click='selected({{ $delivery->id }})' >تصحيح التكليف</button>
                     @endif
@@ -119,10 +118,10 @@
 <!-- The ModalDetailsStudents -->
 <div class="modal fade" id="ModaldCheckAssignmentsStudents" wire:ignore.self>
 <div class="modal-dialog ">
-<div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:600px;">
+<div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height:600px;">
 
     <!-- Modal Header -->
-    <div class="modal-header ModaldDetailsAcademic" id="modheader">
+    <div class="modal-header modal_header_css" id="modheader">
          التفاصيل
         <button type="button" class="close" data-dismiss="modal">&times;</button>
     </div>
@@ -230,9 +229,8 @@
     <!-- Modal footer -->
 
     <div class="modal-footer" style="">
-       <button type="submit" class="btn btn-primary" id="btnsave" wire:click='correction'
-       >حفظ</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+       <button type="submit" class="btn btn-primary btn-sm btn_save_informModal " id="" wire:click='correction'>حفظ</button>
+        <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
     </div>
 </div>
 </div>
