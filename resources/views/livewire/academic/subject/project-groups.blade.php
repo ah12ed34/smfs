@@ -413,8 +413,6 @@
 
             <!-- Modal body -->
             <div class="modal-body" style="overflow: auto;">
-                <form
-                 style="display: block;">
                     <div class="form-group">
                         <!-- <label for="usr">Name:</label> -->
                         <div><input type="text" class="form-control" id="inputtext" wire:model='name' placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;"></div>
@@ -474,8 +472,8 @@
                     <!-- <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div> -->
-                </form>
-        </div>
+                {{-- </form> --}}
+            </div>
 
             <!-- Modal footer -->
 

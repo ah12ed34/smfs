@@ -17,6 +17,7 @@ use App\Livewire\Student\StudStudyingBooks\StudStudyingBooks;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Livewire\Quality\DepartLevelsQuality;
+use App\Livewire\Student\Project\StudentProjects;
 use GuzzleHttp\Middleware;
 
 /*
@@ -63,7 +64,7 @@ use GuzzleHttp\Middleware;
 
         });
         Route::prefix('/studProjects')->group(function(){
-           route::get("/",'students\StudProjectsController@index')->name("student-projects");
+           route::get("/",'\\'.StudentProjects::class)->name("student-projects");
         });
         Route::prefix('/studProjectsStastics')->group(function(){
             route::get("/",'students\StudProjectsController@Stastistcex')->name("student-projectsStastics");

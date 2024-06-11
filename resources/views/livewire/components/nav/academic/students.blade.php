@@ -118,12 +118,15 @@
             {{-- <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; "> المجموعة(2)</a>
             <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(3)</a> --}}
         </div>
-        <div id="input-groupstudent" class="input-group mb-3">
-            <input type="text" class="form-control" wire:model='search' wire:keydown.enter='srch()' placeholder="Search">
-            <div class="input-group-append">
-                <button id="form-control" class="btn btn-light" type="submit" wire:click='srch()' ><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
+        @if ($active!='studentsworksStastics')
+            <div id="input-groupstudent" class="input-group mb-3">
+                <input type="text" class="form-control" wire:model='search' wire:keydown.enter='srch()' placeholder="Search">
+                <div class="input-group-append">
+                    <button id="form-control" class="btn btn-light" type="submit" wire:click='srch()' ><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
+                </div>
             </div>
-        </div>
+        @endif
+
         <td><button type="submit" class="btn btn-primary btn-sm" id="btn-uploade-grades" data-toggle="modal" data-target="#myModal"> رفع الدرجات<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> </td>
 
     </div>
