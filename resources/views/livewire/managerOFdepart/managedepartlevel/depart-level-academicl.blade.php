@@ -185,8 +185,8 @@
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">حفظ</button>
+                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
             </div>
         </div>
     </div>
@@ -308,8 +308,8 @@
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">حفظ</button>
+                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
             </div>
         </div>
     </div>

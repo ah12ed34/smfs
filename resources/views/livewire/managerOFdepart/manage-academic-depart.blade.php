@@ -23,7 +23,7 @@
                     <tbody>
                         <tr class="table-light" id="modldetials" style="margin-top:7px;">
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}"id=""  width="15px" ></button> </td>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2">التفاصيل</button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldDetails">التفاصيل</button> </td>
                             <!-- <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}"id=""  width="25px" ></button> </td> -->
                             <td>*******</td>
                             <td>*******</td>
@@ -34,7 +34,7 @@
                         </tr>
                         <tr class="table-light">
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}"id=""  width="15px" ></button> </td>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2">التفاصيل</button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldDetails">التفاصيل</button> </td>
                             <!-- <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}"id=""  width="25px" ></button> </td> -->
                             <td>*******</td>
                             <td>*******</td>
@@ -45,7 +45,7 @@
                         </tr>
                         <tr class="table-light">
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}"id=""  width="15px" ></button> </td>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2">التفاصيل</button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldDetails">التفاصيل</button> </td>
                             <!-- <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}"id=""  width="25px" ></button> </td> -->
                             <td>*******</td>
                             <td>*******</td>
@@ -56,7 +56,7 @@
                         </tr>
                         <tr class="table-light">
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}"id=""  width="15px" ></button> </td>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2">التفاصيل</button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldDetails">التفاصيل</button> </td>
                             <!-- <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}"id=""  width="25px" ></button> </td> -->
                             <td>*******</td>
                             <td>*******</td>
@@ -74,10 +74,10 @@
    <!-- The Modaladdacademic -->
    <div class="modal fade" id="addacademic">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA; height:700px;">
+        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height:700px;">
 
             <!-- Modal Header -->
-            <div class="modal-header" id="modheader">
+            <div class="modal-header modal_header_css" id="modheader">
                   إضافة اكاديمي
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
@@ -224,8 +224,91 @@
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">حفظ</button>
+                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The ModalDetailsacademic -->
+<div class="modal fade" id="myModaldDetails">
+    <div class="modal-dialog ">
+        <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height: 700px;">
+
+            <!-- Modal Header -->
+            <div class="modal-header ModaldDetailsAcademic" id="modheader">
+                 التفاصيل
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body ModaldDetailsAcademic">
+                <form action="/action_page.php" style="display: block;">
+                    <div class="form-group">
+
+                       <img src="{{Vite::image("profile.png")}}"  width="100px" style="margin-left: 45%;  margin-top: -10px; border-radius: 50%;">
+
+                        <div class="table-responsive ">
+                            <table class="table details-academic " style="width:100%;  margin-top: 5px;" >
+
+                                        <tr class="table-light " id="modldetials">
+                                            <td>**********</td>
+                                            <th class="name-group" > الاسم</th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <td>**********</td>
+                                            <th class="name-group"> تاريخ الميلاد</th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <td>**********</td>
+                                            <th class="name-group" > نوع الجندر</th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <td>**********</td>
+                                            <th class="name-group"> الدرجةالعلمية </th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <td>**********</td>
+                                            <th class="name-group"> الإيمل الجامعي </th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <td>**********</td>
+                                            <th class="name-group">التلفون </th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <td>**********</td>
+                                            <th class="name-group">المستوى  </th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <td>**********</td>
+                                            <th class="name-group">المقرر الدراسي </th>
+                                        </tr>
+                                            <tr class="table-light" id="modldetials">
+                                            <td>**********</td>
+                                            <th class="name-group">المجموعات </th>
+                                            </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <td>**********</td>
+                                            <th class="name-group"> المحاضرات الإسيوعية</th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <td>**********</td>
+                                            <th class="name-group">محاضرات الفصل الدراسي </th>
+                                        </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+
+            <div class="modal-footer ModaldDetailsAcademic">
+                <!-- <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button> -->
             </div>
         </div>
     </div>

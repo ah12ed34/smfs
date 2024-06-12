@@ -8,7 +8,7 @@
             <table class="table" style=" width:100%;">
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
-                        <!-- <th>تعديل</th> -->
+                        <th>تسليم المشروع</th>
                         <th>التفاصيل</th>
                         <th>الدردشة </th>
                         <th>الوصف</th>
@@ -27,7 +27,7 @@
                     <tr class="table-light" id="modldetials" @if ($loop->first)
                         style="margin-top:7px;"
                     @endif >
-                        {{-- <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalEdite" id="btn-edit">تعديل</button> </td> --}}
+                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#SendProject">تسليم  </button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModaldetails" id="btn-detials" wire:click='selected({{ $project->id }})' >التفاصيل</button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalchatting" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button></td>
                         <td>{{ $project->description }}</td>
@@ -68,10 +68,10 @@
      <!-- The Modalcreateproject -->
      <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;">
+            <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;">
 
                 <!-- Modal Header -->
-                <div class="modal-header" id="modheader">
+                <div class="modal-header modal_header_css" id="modheader">
                     انشاء مشروع جديد
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -97,8 +97,8 @@
                 <!-- Modal footer -->
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+                    <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">تسليم</button>
+                    <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
                 </div>
             </div>
         </div>
@@ -110,11 +110,12 @@
     <!-- The Modalchatting -->
     <div class="modal fade" id="myModalchatting">
         <div class="modal-dialog">
-            <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height:600px;">
+            <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:600px;">
 
                 <!-- Modal Header -->
-                <div class="modal-header" id="modheader-proj" style="padding-left: 45%">
-                    <div class="">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id="" width="25px"></div>
+                <div class="modal-header modal_header_css" id="modheader" style="padding-left: 45%">
+                    {{-- <div class="">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id="" width="25px"></div> --}}
+                    الدردشة
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -377,10 +378,10 @@
     <!-- The ModalEdite -->
     <div class="modal fade" id="myModalEdite">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content" id="modal-content" style="background-color: #F6F7FA;height: 630px;">
+        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height: 630px;">
 
             <!-- Modal Header -->
-            <div class="modal-header" id="modheader">
+            <div class="modal-header modal_header_css" id="modheader">
                 تعديل
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
@@ -424,11 +425,80 @@
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button>
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">تسليم</button>
+                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
             </div>
         </div>
     </div>
     </div>
+
+    <!-- The ModalCheckProject -->
+<div class="modal fade" id="SendProject">
+    <div class="modal-dialog">
+        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 500px;">
+
+            <!-- Modal Header -->
+            <div class="modal-header modal_header_css" id="modheader">
+                تسليم المشروع
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="/action_page.php" style="display: block;">
+                    <div class="form-group">
+
+                        <div class="table-responsive">
+                            <table class="table" style="width:100%;" dir="rtl">
+                            <tr class="table-primary">
+                                <th>اسم المشروع</th>
+                            </tr>
+                            <tr class="table-light">
+                                <td>********</td>
+                            </tr>
+                            <tr class="table-primary">
+                                <th> رفع الملفات</th>
+                            </tr>
+                            <tr class="table-light">
+                                <td><input type="file" class="form-control-file border" id="file" name="file"></td>
+                            </tr>
+                            {{-- <tr class="table-primary">
+                                <th style="width: 40%" >اسم الطالب</th>
+                                <th style="width: 20%">الدرجة</th>
+                            </tr>
+                            <tr class="table-light">
+                                <td style="width: 30%">********</td>
+                                <td><input type="data" class="form-control" id="" name="grade" placeholder="" ></td>
+                            </tr> --}}
+                            <tr class="table-primary">
+                                <th colspan="2"> ملاحظة</th>
+                            </tr>
+                            <tr class="table-light">
+                                <td colspan="2"><textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder="ملاحظة"></textarea></td>
+                            </tr>
+                            </table>
+                        </div>
+
+                        {{-- <input type="text" class="form-control" id="inputtext" name="projectname" placeholder=" الاسم " style="height: 30px; margin-top:8px">
+                        <input type="date" class="form-control" id="inputtext" name="date" placeholder="تاريخ الميلاد" style="height: 30px; margin-top:8px">
+                        <input type="date" class="form-control" id="inputtext" name="phone" placeholder="تاريخ الإلتحاق  " style="height: 30px; margin-top:8px; color:black;">
+                        <input type="text" class="form-control" id="inputtext" name="email" placeholder="الايمل الجامعي" style="height: 30px; margin-top:8px">
+                        <input type="data" class="form-control" id="inputtext" name="phone" placeholder="التلفون  " style="height: 30px; margin-top:8px; color:black;">
+                        <input type="password" class="form-control" id="inputtext" name="email" placeholder=" كلمة المرور " style="height: 30px; margin-top:8px">--}}
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">تسليم</button>
+                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </div>
