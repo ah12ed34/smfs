@@ -12,7 +12,16 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    {{-- icon --}}
+    <link rel="icon" href="{{ Vite::image('Group 912.png') }}" type="image/x-icon">
+    {{-- add commit --}}
+    <meta name="keywords" content="تعليمي,موقع,تعليم,مدرسة,معلم,طالب,مشروع,درجات,مواد,معلومات,معلوماتية,معلوماتي,SMFS,Student management and follow-up system,نظام إدارة ومتابعة الطلاب">
+    <meta name="author" content="Pro Prog Yemen">
+    <meta name="description" content="نظام إدارة ومتابعة الطلاب">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="google" content="notranslate">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>

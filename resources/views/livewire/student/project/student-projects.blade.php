@@ -1,6 +1,6 @@
 <div>
     @section('nav')
-
+        @livewire('Components.Nav.Student.Project.StudentProjects', ['Tab' => $Tab])
     @endsection
     {{-- Nothing in the world is as soft and yielding as water. --}}
     <div class="container" id="container-project" style="padding-top: 30px;" >
@@ -33,7 +33,7 @@
                         <td>{{ $project->description }}</td>
                         <td>{{ $project->grade }}</td>
                         <td>{{ $project->leader_name }}</td>
-                        <td>{{ $project->delivery_date }}</td>
+                        <td>{{ $project->end_date }}</td>
                         <td>{{ $project->status }}</td>
                         <td>{{ $project->name }}</td>
                         <td>{{ $project->teacher_name }}</td>
@@ -41,8 +41,12 @@
                     </tr>
 
                     @empty
+                    <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                        <td colspan="10">لا يوجد مشاريع</td>
+                    </tr>
 
                     @endforelse
+                    {{-- @dump($Tab) --}}
                     {{-- <tr class="table-light" id="modldetials" style="margin-top:7px;">
                         <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldetails">التفاصيل</button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalchatting" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button></td>
@@ -281,7 +285,7 @@
                         <label class="textdetailsproj" for="">  تاريخ التسليم</label>
                         <div class="projetselements">
                             <div class="card" id="projetselements-name">
-                                **********
+                                {{ $details['end_date'] }}
                             </div>
                         </div>
                     </div>
@@ -290,7 +294,7 @@
                         <label class="textdetailsproj" for="">  الوصف</label>
                         <div class="projetselements">
                             <div class="card" id="projetselements-name">
-                                ********************************************************************************************************************************
+                                {{ $details['description'] }}
                             </div>
                         </div>
                     </div>
@@ -299,7 +303,7 @@
                         <label class="textdetailsproj" for="">  الدرجة</label>
                         <div class="projetselements">
                             <div class="card" id="projetselements-name">
-                                ****************
+                                {{ $details['grade'] }}
                             </div>
                         </div>
                     </div>
@@ -308,7 +312,7 @@
                         <label class="textdetailsproj" for="">  ملاحظة</label>
                         <div class="projetselements">
                             <div class="card" id="projetselements-name">
-                                **************
+                                {{ $details['note'] }}
                             </div>
                         </div>
                     </div>
@@ -318,8 +322,24 @@
                         <label for="" class="textdetailsproj">  الملفات المرفقة   </label>
                         <div class="attchementfile">
                             <div class="card" id="attchementfiles-name">
-                                ********************************************************************************************************************************
-                            </div>
+                                @if ($details['file'] || $details['gp_file'])
+                                    @if ($details['file'])
+                                    <a wire:click="downloadFile({{ $details['file'] }})" href="#" style="color: #007bff;">
+                                        {{ 'تحميل الملف المشروع' }}
+                                    </a>
+                                    @endif
+                                    @if ($details['gp_file'])
+                                    @if ($details['file'])
+                                    <br>
+                                    @endif
+                                    <a wire:click="downloadFile({{ $details['gp_file'] }})" href="#" style="color: #007bff;">
+                                        {{ 'تحميل ملف المجموعة' }}
+                                    </a>
+                                    @endif
+                                @else
+                                    {{ 'لا يوجد ملفات مرفقة' }}
+                                @endif
+
                         </div>
                     </div>
 

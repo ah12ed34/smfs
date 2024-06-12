@@ -18,6 +18,7 @@ class Project extends Model
         'min_student',
         'start_date',
         'end_date',
+        'description',
     ];
     public function getProjectGroup(){
         return $this->hasMany(GroupProject::class);
