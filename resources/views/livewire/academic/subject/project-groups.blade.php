@@ -29,7 +29,12 @@
                     @forelse ($GroupProjects as $projectGroup)
 
                         <tr class="table-light" id="modldetials" @if ($loop->first) style="margin-top:7px;" @endif>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#CheckProject" >تصحيح المشروع </button></td>
+                            @if($projectGroup->file?? false)
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#CheckProject" wire:click='selected({{ $projectGroup->id }})'
+                                 >تصحيح المشروع </button></td>
+                            @else
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" disabled>تصحيح المشروع </button></td>
+                            @endif
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite" wire:click='selected({{ $projectGroup->id }})'>تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
                             @if ($projectGroup->just_created?? false)
                             <td>
@@ -42,17 +47,27 @@
                             </td>
                             <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalchatting" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button></td>
                             @endif
-
-                            <td>{{ '--' }}</td>
+                            {{-- عرض احرف معينه --}}
+                            <td>{{ Str::limit($projectGroup->comment, 10) }}</td>
                             <td>{{ $projectGroup->grade ?? 'N/A' }}</td>
 
-                            <td>{{ $projectGroup->student->user->name?? 'N/A' }}</td>
                             <td>
-                                {{-- @if ($projectGroup->project->date) --}}
-                                    {{ $projectGroup->project->date }}
-                                {{-- @else --}}
-                                    <span class="badge badge-danger">غير محدد</span>
-                                {{-- @endif --}}
+                                @if ($projectGroup->students->where('student_id', $projectGroup->student_id)->first())
+                                    {{ $projectGroup->student->user->name }}
+                                @elseif ($projectGroup->student_id)
+                                    {{-- error user leadir not exit in group --}}
+                                    <span class="badge badge-danger">رئيس المشروع غير موجود ضمن فريق المشروع</span>
+                                @else
+                                    N\A
+                                @endif
+                            </td>
+                            <td>
+                                @if ($projectGroup->delivery_date)
+                                    {{ $projectGroup->delivery_date }}
+                                @else
+                                    {{ __('general.not_delivered') }}
+
+                                @endif
                             </td>
                             <td>
                                 @if ($projectGroup->file)
@@ -241,105 +256,44 @@
 
             <!-- Modal body -->
             <div class="modal-body" id="projectdetails" style="overflow: auto;">
-
             <div class="table-responsive ">
-                <table class="table  " style=" width:100%;" dir="rtl">
 
+                <table class="table  " style=" width:100%;" dir="rtl">
                             <tr class="table-light" id="modldetials">
                                 <th style="width: 25%;">اسم المشروع</th>
-                                <td>**********</td>
+                                <td>{{ $name }}</td>
                             </tr>
                             <tr class="table-light" id="modldetials">
                                 <th style="width: 25%;">رئيس المشروع </th>
-                                <td>**********</td>
+                                <td>{{ $projectDetails->student->user->name ?? 'N/A' }}</td>
                             </tr>
                             <tr class="table-light" id="modldetials">
                                 <th style="width: 25%;">تاريخ التسليم</th>
-                                <td>**********</td>
+                                <td>{{ $projectDetails->delivery_date ?? 'N/A' }}</td>
                             </tr>
                             <tr class="table-light" id="modldetials">
                                 <th style="width: 25%;">الدرجة </th>
-                                <td>**********</td>
+                                <td>{{ $grade }}</td>
                             </tr>
                             <tr class="table-light" id="modldetials">
                                 <th style="width: 25%;">عدد الطلاب</th>
-                                <td>**********</td>
+                                <td>{{ ($projectDetails->students ?? false) ? count($projectDetails->students) : 'N/A' }}</td>
                             </tr>
                             <tr class="table-light" id="modldetials">
                                 <th style="width: 25%;">الوصف</th>
-                                <td>**********</td>
+                                <td>{{ $projectDetails->comment ?? '' }}</td>
                             </tr>
                             <tr class="table-light" id="modldetials">
                                 <th style="width: 25%;">الملف المرفق</th>
-                                <td>**********</td>
+                                <td>
+                                    @if ($projectDetails->file?? false)
+                                        <a wire:click='downloadFile()' style="cursor: pointer;"><i class="bi bi-download"></i></a>
+                                    @else
+                                        {{ __('general.no_file') }}
+                                    @endif
                             </tr>
                 </table>
             </div>
-
-
-                {{-- <div class="detils-name">
-                    <label class="textdetailsproj" for=""> اسم المشروع </label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                            ****************
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detils-name">
-                    <label class="textdetailsproj" for=""> رئيس المشروع</label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                                    ****************
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detils-name">
-                    <label class="textdetailsproj" for="">  تاريخ التسليم</label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                            **********
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detils-name">
-                    <label class="textdetailsproj" for="">  الوصف</label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                            ********************************************************************************************************************************
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detils-name">
-                    <label class="textdetailsproj" for="">  الدرجة</label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                            ****************
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detils-name">
-                    <label class="textdetailsproj" for="">  ملاحظة</label>
-                    <div class="projetselements">
-                        <div class="card" id="projetselements-name">
-                            **************
-                        </div>
-                    </div>
-                </div> --}}
-                <br>
-
-                {{-- <div class="detils-name">
-                    <label for="" class="textdetailsproj">   ملفات المشروع   </label>
-                    <div class="attchementfile">
-                        <div class="card" id="attchementfiles-name">
-                            ********************************************************************************************************************************
-                        </div>
-                    </div>
-                </div> --}}
 
 
                 <div class="">
@@ -353,42 +307,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @forelse ($projectDetails->students?? [] as $student)
                                     <tr class="table-light" id="modldetials"  style="margin-top:7px;" >
-                                <td>*********</td>
-
-                                <td>    {{-- @dump($students) --}}
-                                    {{-- @forelse ($students as $student)
-                                        {{ $student->student->student->user->name }}
-                                        @if (!$loop->last)
-                                            <br>
-                                        @endif
-
-                                    @empty
-                                        {{ __('general.no_students') }}
-
-                                    @endforelse --}}
-                                </td>
+                                {{-- name --}}
+                                <td>{{ $student->grade }}</td>
+                                <td>{{ $student->student->student->user->name }}</td>
                                     </tr>
+                                @empty
+                                    <tr >
+                                        <td colspan="2" style="text-align: center;">{{ __('general.no_students') }}</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
-                    {{-- <div class="projectsmembers">
-                        <div class="card" id="projectsmembers-name">
-                            @dump($students)
-                            @forelse ($students as $student)
-                                {{ $student->student->student->user->name }}
-                                @if (!$loop->last)
-                                    <br>
-                                @endif
 
-                            @empty
-                                {{ __('general.no_students') }}
-
-                            @endforelse
-
-                        </div>
-                    </div> --}}
                 </div>
             </div>
 
@@ -416,9 +349,6 @@
                     <div class="form-group">
                         <!-- <label for="usr">Name:</label> -->
                         <div><input type="text" class="form-control" id="inputtext" wire:model='name' placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;"></div>
-                        <div> <input type="text" class="form-control" id="inputtext"  placeholder=" رئيس المشروع" style="height: 30px; margin-top:8px;"></div>
-                        <div> <input type="text" class="form-control" id="inputtext" wire:model='grade' placeholder="الدرجة" style="height: 30px; margin-top:8px;"></div>
-                        <div> <input type="date" class="form-control" id="inputtext"  placeholder=" تاريخ التسليم" style="height: 30px; margin-top:8px;"></div>
                         {{-- <div> <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder=" وصف المشروع" style=" margin-top:8px"></textarea></div> --}}
                         <!-- <input type="text" class="form-control" id="inputtext" name="username" placeholder=" الحد الأقصى للطلاب" style="height: 30px; margin-top:8px"> -->
                         <!-- <input type="text" class="form-control" id="inputtext" name="username" placeholder="الحد الأدنى للطلاب" style="height: 30px; margin-top:8px"> -->
@@ -443,8 +373,8 @@
                                 <thead class="table-header" style="font-size: 12px;">
                                     <tr class="table-light" id="modldetials">
                                         <th style="width: 7%" >حذف الطالب</th>
-                                        <th style="width: 16%" >الدرجة</th>
                                         <th style="width: 40%">  فريق المشروع</th>
+                                        <th style="width: 40%">رئيس المشروع</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -452,9 +382,10 @@
                                     @forelse ($users as $user)
                                         <tr class="table-light" id="modldetials"  style="margin-top:7px;" >
                                         <td><button class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;" >  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button></td>
-                                        <td><input type="data" class="form-control" id=""  placeholder="" >
                                         </td>
                                         <td>{{ $user['name'] }}</td>
+                                        <td><input type="radio" id="boss" wire:model='boss' value="{{ $user['id'] }}"  ></td>
+
                                         </tr>
                                     @empty
                                         <tr >
@@ -597,7 +528,7 @@
 </div>
 
 <!-- The ModalCheckProject -->
-<div class="modal fade" id="CheckProject">
+<div class="modal fade" id="CheckProject" wire:ignore.self>
     <div class="modal-dialog">
         <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 500px;">
 
@@ -608,33 +539,70 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
-                <form action="/action_page.php" style="display: block;">
+            <div class="modal-body" style="overflow: auto;height: 40vh;">
+                {{-- <form action="/action_page.php" style="display: block;"> --}}
                     <div class="form-group">
-
                         <div class="table-responsive">
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li style="text-align: right;">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
+                        @endif
                             <table class="table" style="width:100%;" dir="rtl">
                             <tr class="table-primary">
-                                <th>اسم المشروع</th>
+                                <th colspan="2" >اسم المشروع</th>
                                 <th>ملفات المشروع</th>
                             </tr>
                             <tr class="table-light">
-                                <td>********</td>
-                                <td><a> <i class="bi bi-download"></i>  </a></td>
+                                <td colspan="2">{{ $projectGroup->project->name . " - ".$name  }}</td>
+                                <td><a wire:click='downloadFile' style="color: #007bff;cursor: pointer;"
+                                    > <i class="bi bi-download"></i>  </a></td>
                             </tr>
                             <tr class="table-primary">
                                 <th style="width: 40%" >اسم الطالب</th>
                                 <th style="width: 20%">الدرجة</th>
+                                <th style="width: 40%">التعليق</th>
                             </tr>
-                            <tr class="table-light">
-                                <td style="width: 30%">********</td>
+                            @forelse ($users as $student)
+                                <tr class="table-light">
+                                    <td>{{ $student['name'] }}</td>
+                                    <td><input type="number" class="form-control" id="{{ $student['id'] }}"
+                                         wire:model='grade_id.{{ $student['id'] }}'
+                                        placeholder="درجة الطالب" min="0" max="{{ $projectGroup->project->grade - ($projectGroup->grade == $grade ? $projectGroup->grade : $grade) }}"
+                                         ></td>
+                                    <td><textarea  class="form-control" rows="1" placeholder="ملاحظة"
+                                        wire:model='comment_id.{{ $student['id'] }}'
+                                        ></textarea></td>
+                                </tr>
+
+                            @empty
+                                <tr >
+                                    <td colspan="2" style="text-align: center;">{{ __('general.no_students') }}</td>
+                                </tr>
+
+                            @endforelse
+                            <tr >
+                                <td colspan="3" style="text-align: center;">
+                                    <input type="number" class="form-control" id="inputtext" wire:model.lazy='grade' placeholder="الدرجة" style="margin-top:8px;" min="0" max="{{ $projectGroup->project->grade }}">
+                                </td>
+                            </tr>
+                            {{-- <tr class="table-light">
+                                <td style="width: 30%"> {{ $projectGroup->students->user->name?? 'N/A' }}</td>
                                 <td><input type="data" class="form-control" id="" name="grade" placeholder="" ></td>
-                            </tr>
-                            <tr class="table-primary">
-                                <th colspan="2"> ملاحظة</th>
+                            </tr> --}}
+                            <tr class="table-primary" >
+                                <th colspan="3"
+                                > ملاحظة</th>
                             </tr>
                             <tr class="table-light">
-                                <td colspan="2"><textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder="ملاحظة"></textarea></td>
+                                <td colspan="3"><textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder="ملاحظة"
+                                    wire:model='comment'
+                                    ></textarea></td>
                             </tr>
                             </table>
                         </div>
@@ -647,19 +615,28 @@
                         <input type="password" class="form-control" id="inputtext" name="email" placeholder=" كلمة المرور " style="height: 30px; margin-top:8px">--}}
                     </div>
 
-                </form>
+                {{-- </form> --}}
             </div>
 
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">حفظ</button>
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" wire:click='correctProject' >حفظ</button>
                 <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
             </div>
         </div>
     </div>
 </div>
 
-
+@section('script')
+    <script>
+        window.addEventListener('closeModal', event => {
+            $('#myModalEdite').modal('hide');
+            $('#myModdelete').modal('hide');
+            $('#myModaldetails').modal('hide');
+            $('#CheckProject').modal('hide');
+        });
+    </script>
+@endsection
 </div>
 </div>

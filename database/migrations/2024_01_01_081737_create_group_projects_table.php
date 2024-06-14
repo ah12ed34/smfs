@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('grade',3,2)->nullable();
             $table->string('file')->nullable();
+            $table->logText('comment')->nullable();
+            $table->logText('comment_teacher')->nullable();
+            // تاريخ التسليم
+            $table->date('delivery_date')->nullable()->comment('تاريخ التسليم');
             $table->foreignId('student_id')->constrained('group_students');
             $table->timestamps();
         });

@@ -2,36 +2,81 @@
 
 namespace App\Livewire\Student\Project;
 
+use App\Models\Group;
+use App\Models\GroupProject;
 use App\Models\Project;
 use App\Models\User;
+use App\Tools\MyApp;
 use App\Tools\ToolsApp;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\On;
+use Livewire\WithFileUploads;
 
 class StudentProjects extends Component
 {
-    use WithPagination;
+    use WithPagination,WithFileUploads;
     public $details = [
         'id' => '',
         'name' => '',
         'subject_name_ar' => '',
         'subject_name_en' => '',
         'teacher_name' => '',
+        'grade' => '',
         'leader_name' => '',
         'gp_name' => '',
         'gp_grade' => '',
         'gp_file' => '',
+        'file' => '',
         'status' => '',
+        'end_date' => '',
+        'description' => '',
+        'note' => '',
         'students' => [],
     ];
+    // tab variable {all, unfinished , finished , not-graded}
+    public $Tab = null;
+    public $search;
+    public $file ;
+    public $comment;
     public function mount()
     {
+        if(request()->has('tab')){
+            switch (strtolower(request()->tab)) {
+                case 'unfinished':
+                    $this->Tab = 'unfinished';
+                    break;
+                case 'finished':
+                    $this->Tab = 'finished';
+                    break;
+                case 'not-graded':
+                    $this->Tab = 'not-graded';
+                    break;
+                default:
+                    if(request()->Tab == 'all'){
+                        $this->Tab = null;
+                    }else{
+                        // dd('error');
+                        return redirect()->route('student-projects');
+                    }
+                    break;
+            }
+        }
 
+    }
+
+
+    #[On('search')]
+    public function search($v){
+        $this->search = $v;
+        $this->resetPage();
     }
 
     public function selected($id)
     {
+        $this->resetErrorBag();
         $details =  $this->projects->firstWhere('id', $id);
         $this->details = [
             'id' => $details->id,
@@ -40,11 +85,22 @@ class StudentProjects extends Component
             'subject_name_en' => $details->subject_name_en,
             'teacher_name' => $details->teacher_name,
             'leader_name' => $details->leader_name,
+            'end_date' => $details->end_date,
             'gp_name' => $details->gp_name,
             'gp_grade' => $details->gp_grade,
             'gp_file' => $details->gp_file,
+            'gp_id' => $details->gp_id,
+            'file' => $details->file,
             'status' => $details->status,
-            'students' => $details->students,
+            'description' => $details->description,
+            'grade' => $details->grade,
+            'note' => $details->gp_description,
+            'students' => User::join('students', 'users.id', '=', 'students.user_id')
+            ->join('group_students', 'students.user_id', '=', 'group_students.student_id')
+            ->join('work_groups', 'group_students.id', '=', 'work_groups.student_id')
+            ->where('work_groups.group_id', $details->gp_id)
+            ->select('users.id',DB::raw("CONCAT(users.name, ' ', users.last_name) as name"))
+            ->get()
         ];
     }
 
@@ -70,36 +126,98 @@ class StudentProjects extends Component
         ->join('users as u', 'u.id', '=', 's.user_id')
 
         ->where('group_students.student_id', $studentId)
+        // search
+
+        ->where(function($query){
+            if($this->search){
+                $query->where('projects.name', 'like', '%'.$this->search.'%')
+                ->orWhere('subjects.name_ar', 'like', '%'.$this->search.'%')
+                ->orWhere('subjects.name_en', 'like', '%'.$this->search.'%')
+                ->orWhere('users.name', 'like', '%'.$this->search.'%')
+                ->orWhere('users.last_name', 'like', '%'.$this->search.'%')
+                ->orWhere('u.name', 'like', '%'.$this->search.'%')
+                ->orWhere('u.last_name', 'like', '%'.$this->search.'%')
+                ->orWhere('group_projects.name', 'like', '%'.$this->search.'%')
+                ->orWhere('group_projects.grade', 'like', '%'.$this->search.'%')
+                ->orWhere('group_projects.file', 'like', '%'.$this->search.'%')
+                ->orWhere('projects.description', 'like', '%'.$this->search.'%')
+                // ->orWhere('group_projects.note', 'like', '%'.$this->search.'%')
+                ;
+            }
+        })
         ->select('projects.*', 'group_projects.grade as gp_grade', 'group_projects.name as gp_name', 'group_projects.file as gp_file', 'group_projects.id as gp_id'
                     ,'academics.user_id as teacher_id', DB::raw("CONCAT(users.name, ' ', users.last_name) as teacher_name")
                     ,'subjects.name_ar as subject_name_ar', 'subjects.name_en as subject_name_en'
-                    ,DB::raw("CONCAT(u.name, ' ', u.last_name) as leader_name")
+                    ,DB::raw("CONCAT(u.name, ' ', u.last_name) as leader_name") , 'u.id as leader_id'
                     )
+
         ->get();
             ;
 
             $projects = $projects->map(function($project){
+                // fillter by tab
+                if($this->Tab == 'unfinished' && $project->gp_file){
+                    return null;
+                }
+                if($this->Tab == 'finished' && !$project->gp_file){
+                    return null;
+                }
+                if($this->Tab == 'not-graded' && $project->grade){
+                    return null;
+                }
                 $project->grade = $project->grade ?? 0;
                 $project->gp_name = $project->gp_name ?? '';
                 $project->status = $project->gp_file ? 'تم التسليم' : 'لم يتم التسليم';
-                $project->students = User::join('students', 'users.id', '=', 'students.user_id')
-                    ->join('group_students', 'students.user_id', '=', 'group_students.student_id')
-                    ->join('work_groups', 'group_students.id', '=', 'work_groups.student_id')
-                    ->where('work_groups.group_id', $project->gp_id)
-                    ->select('users.id',DB::raw("CONCAT(users.name, ' ', users.last_name) as name"))
-                    ->get()
-                    ;
+                // $project->students = User::join('students', 'users.id', '=', 'students.user_id')
+                //     ->join('group_students', 'students.user_id', '=', 'group_students.student_id')
+                //     ->join('work_groups', 'group_students.id', '=', 'work_groups.student_id')
+                //     ->where('work_groups.group_id', $project->gp_id)
+                //     ->select('users.id',DB::raw("CONCAT(users.name, ' ', users.last_name) as name"))
+                //     ->get()
+                //     ;
                     // dd($project->students->toSql());
                 return $project;
-            });
+            })->filter()->values();
             // dd($projects
             //     // ->toSql()
             // );
         return ToolsApp::convertToPagination($projects, 10);
     }
 
+    public function ProjectDelivery()
+    {
+        $this->validate([
+            'file' => 'required|file|mimes:'.MyApp::getFileMime('project').'|max:'.MyApp::getFileSize('project'),
+            'comment' => 'nullable|string',
+        ]);
+        $project = GroupProject::find($this->details['gp_id']);
+
+        if($this->file){
+            $project->file = Storage::put('projects', $this->file);
+            if($project->file&&$this->file){
+                // delete temp file
+                Storage::delete($this->file);
+            }
+        }
+        $project->comment = $this->comment??null;
+        $project->delivery_date = now();
+        if(!$project->save()){
+            Storage::delete($project->file);
+            $this->dispatch('swal:modal', [
+                'type' => 'error',
+                'title' => 'خطأ',
+                'text' => 'حدث خطأ أثناء تسليم المشروع',
+            ]);
+        }
+        $this->file = null;
+        $this->comment = null;
+        $this->dispatch('closeModal');
+
+    }
+
     public function render()
     {
+        // dump($this->tab);
         return view('livewire.student.project.student-projects',[
             'projects'=>$this->projects
         ]);

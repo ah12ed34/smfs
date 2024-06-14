@@ -195,5 +195,6 @@ return[
     'info' => 'معلومات',
     'no_assignments' => 'لا توجد واجبات',
     'no_assignments_found' => 'لم يتم العثور على واجبات',
+    'not_delivered' => 'لم يتم التسليم',
 
 ];
