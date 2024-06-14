@@ -8,7 +8,7 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-7b4eeec0.css",
+    "file": "assets/app-774fdbaf.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -39,6 +39,10 @@
   "resources/images/add_user_avatar.png": {
     "file": "assets/add_user_avatar-a189bd80.png",
     "src": "resources/images/add_user_avatar.png"
+  },
+  "resources/images/admin.png": {
+    "file": "assets/admin-f20872de.png",
+    "src": "resources/images/admin.png"
   },
   "resources/images/allocation (1).png": {
     "file": "assets/allocation (1)-e7be0c63.png",
@@ -92,6 +96,10 @@
     "file": "assets/computer-science-791df635.png",
     "src": "resources/images/computer-science.png"
   },
+  "resources/images/controll.png": {
+    "file": "assets/controll-5f7d578e.png",
+    "src": "resources/images/controll.png"
+  },
   "resources/images/conversation (3).png": {
     "file": "assets/conversation (3)-f7bf26ed.png",
     "src": "resources/images/conversation (3).png"
@@ -123,6 +131,10 @@
   "resources/images/edit.png": {
     "file": "assets/edit-edd1fca1.png",
     "src": "resources/images/edit.png"
+  },
+  "resources/images/empoloyee_scheduls.png": {
+    "file": "assets/empoloyee_scheduls-e2088a14.png",
+    "src": "resources/images/empoloyee_scheduls.png"
   },
   "resources/images/exit.png": {
     "file": "assets/exit-8d5a8c41.png",
@@ -176,6 +188,10 @@
     "file": "assets/magnifying-glass (2)-86dabd36.png",
     "src": "resources/images/magnifying-glass (2).png"
   },
+  "resources/images/managers.png": {
+    "file": "assets/managers-8d2cd551.png",
+    "src": "resources/images/managers.png"
+  },
   "resources/images/open-book.png": {
     "file": "assets/open-book-431303bd.png",
     "src": "resources/images/open-book.png"
@@ -216,6 +232,10 @@
     "file": "assets/project-management-ccb71f91.png",
     "src": "resources/images/project-management.png"
   },
+  "resources/images/quality.png": {
+    "file": "assets/quality-699b4c2f.png",
+    "src": "resources/images/quality.png"
+  },
   "resources/images/routine.png": {
     "file": "assets/routine-6b7067ab.png",
     "src": "resources/images/routine.png"
@@ -239,6 +259,10 @@
   "resources/images/students.png": {
     "file": "assets/students-f245b45f.png",
     "src": "resources/images/students.png"
+  },
+  "resources/images/studentsAffairs.png": {
+    "file": "assets/studentsAffairs-c35edc83.png",
+    "src": "resources/images/studentsAffairs.png"
   },
   "resources/images/studstudyingScheule.png": {
     "file": "assets/studstudyingScheule-c5739303.png",

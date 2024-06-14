@@ -919,5 +919,339 @@ float: right;
                 overflow:auto;
             }
             }
+            .btn.gendar_employee  {
+                float: right;
+                color: black;
+                border-radius: 7px;
+                -webkit-border-radius: 7px;
+                -moz-border-radius: 7px;
+                -ms-border-radius: 7px;
+                -o-border-radius: 7px;
+                display:flex;
+                height: 30px;
+                padding-top:15px;
+                padding-right:17px;
+                /* width: 20%; */
+                font-size: 12px;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                border: none;
+                margin-top: 7px;
+                position: relative;
+                z-index: 1;
+                margin-right: 5px;
+            }
+            @media screen and (max-width:470px){
+                .btn.gendar_employee   {
+                font-size: 11px;
+            }
+            }
+            @media screen and (max-width:350px){
+                .btn.gendar_employee   {
+                    font-size: 10px;
+            }
+            }
+            @media screen and (max-width:320px){
+                .btn.gendar_employee   {
+                padding-left:2px;
+                padding-right:14px;
+            }
+            }
+            /* .btn.employeeDegree_dropdown {
+                display:flex;
+                color: black;
+                border-radius: 7px;
+                -webkit-border-radius: 7px;
+                -moz-border-radius: 7px;
+                -ms-border-radius: 7px;
+                -o-border-radius: 7px;
+                font-size: 12px;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                border: none;
+                height: 30px;
+                margin-top: 7px;
+                margin-left: 50px;
+                padding-top:15px;
+                padding-right:17px;
+                position: relative;
+                z-index: 1;
 
+            }
+            @media screen and (max-width:470px){
+                .btn.employeeDegree_dropdown {
+                margin-left: 30px;
+                font-size: 11px;
 
+            }
+            }
+            @media screen and (max-width:400px){
+                .btn.employeeDegree_dropdown {
+                margin-left: 20px;
+            }
+            }
+            @media screen and (max-width:370px){
+                .btn.employeeDegree_dropdown {
+                margin-left: 10px;
+            }
+            }
+            @media screen and (max-width:350px){
+                .btn.employeeDegree_dropdown {
+                margin-left: 5px;
+                font-size: 10px;
+            }
+            }
+            @media screen and (max-width:320px){
+                .btn.employeeDegree_dropdown {
+                padding-left:4px;
+                padding-right:12px;
+            }
+            } */
+            /* .btn.employeeDegree_dropdown {
+                display:flex;
+                color: black;
+                border-radius: 7px;
+                -webkit-border-radius: 7px;
+                -moz-border-radius: 7px;
+                -ms-border-radius: 7px;
+                -o-border-radius: 7px;
+                font-size: 12px;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                border: none;
+                height: 30px;
+                margin-top: -30px;
+                margin-left: 40%;
+                padding-top:15px;
+                padding-right:17px;
+            }
+            @media screen and (max-width:470px){
+                .btn.employeeDegree_dropdown {
+                font-size: 11px;
+            }
+            }
+            @media screen and (max-width:400px){
+                .btn.employeeDegree_dropdown {
+                margin-left:37%;
+            }
+            }
+            @media screen and (max-width:370px){
+                .btn.employeeDegree_dropdown {
+                margin-left: 34%;
+
+            }
+            }
+            @media screen and (max-width:350px){
+                .btn.employeeDegree_dropdown {
+                    font-size: 10px;
+                    margin-left: 32%;
+            }
+            }
+            @media screen and (max-width:320px){
+                .btn.employeeDegree_dropdown {
+                padding-left:2px;
+                padding-right:14px;
+            }
+            } */
+            .btn.employeeDegree_dropdown {
+                display:flex;
+                color: black;
+                border-radius: 7px;
+                -webkit-border-radius: 7px;
+                -moz-border-radius: 7px;
+                -ms-border-radius: 7px;
+                -o-border-radius: 7px;
+                font-size: 12px;
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                border: none;
+                height: 30px;
+                margin-top: 7px;
+                margin-left: 50px;
+                padding-top:15px;
+                padding-right:17px;
+                position: relative;
+                z-index: 1;
+
+            }
+            @media screen and (max-width:470px){
+                .btn.employeeDegree_dropdown {
+                margin-left: 30px;
+                font-size: 11px;
+            }
+            }
+            @media screen and (max-width:400px){
+                .btn.employeeDegree_dropdown {
+                margin-left: 20px;
+            }
+            }
+            @media screen and (max-width:370px){
+                .btn.employeeDegree_dropdown {
+                margin-left: 10px;
+            }
+            }
+            @media screen and (max-width:350px){
+                .btn.employeeDegree_dropdown {
+                margin-left: 5px;
+                font-size: 10px;
+            }
+            }
+            @media screen and (max-width:320px){
+                .btn.employeeDegree_dropdown {
+                padding-left:4px;
+                padding-right:12px;
+            }
+            }
+            .btn.btn_addEmployee_user {
+                font-size: 12px;
+                font-weight: normal;
+                padding-left: 5px;
+                margin-left: 2%;
+                margin-top: -29px;
+                position: fixed;
+            }
+
+            @media screen and (max-width:992px) {
+                .btn.btn_addEmployee_user {
+                    top: 130px;
+                }
+            }
+
+            @media screen and (max-width:550px) {
+                .btn.btn_addEmployee_user {
+                    font-size: 10px;
+                    /* margin-top: 15px; */
+                    margin-top: -27px;
+                }
+            }
+
+            @media screen and (max-width:450px) {
+                .btn.btn_addEmployee_user {
+                    margin-top:-68px;
+                    margin-left:25%;
+                }
+            }
+            @media screen and (max-width:400px) {
+                .btn.btn_addEmployee_user {
+                    /* font-size: 9px;
+                    padding-right: 1px;
+                    padding-left:2px; */
+                    margin-left:27%;
+                }
+            }
+            @media screen and (max-width:370px) {
+                .btn.btn_addEmployee_user {
+                    /* font-size: 8px;
+                    padding-right: 3px; */
+                    margin-left:29%;
+                    /* padding-left:3px; */
+                }
+            }
+            @media screen and (max-width:300px) {
+                .btn.btn_addEmployee_user {
+                    font-size: 9px;
+                    margin-left:30%;
+                    /* padding-left:1px; */
+                }
+            }
+            @media screen and (max-width:280px) {
+                .btn.btn_addEmployee_user {
+                    /* padding-right:3px; */
+                    margin-left:33%;
+                }
+            }
+            @media screen and (max-width:270px) {
+                .btn.btn_addEmployee_user {
+                    padding-right:3px;
+                    margin-left:32%;
+                }
+            }
+            .btn.btn_uploade_file_information_Users {
+                left:70%;
+                margin-top:-28px;
+                position:absolute;
+                /* height:30px; */
+                font-weight:normal;
+                font-size:12px;
+            }
+            @media screen and (max-width: 1100px ){
+                .btn.btn_uploade_file_information_Users{
+                    left:65%;
+                }
+            }
+            @media screen and (max-width: 950px ){
+                .btn.btn_uploade_file_information_Users{
+                    left:60%;
+                }
+            }
+            @media screen and (max-width: 800px ){
+                .btn.btn_uploade_file_information_Users{
+                    left:57%;
+                }
+            }
+            @media screen and (max-width: 750px ){
+                .btn.btn_uploade_file_information_Users{
+                    left:55%;
+                }
+            }
+            @media screen and (max-width: 700px ){
+                .btn.btn_uploade_file_information_Users{
+                    left:75%;
+                }
+            }
+            @media screen and (max-width: 650px ){
+                .btn.btn_uploade_file_information_Users{
+                    left:73%;
+                }
+            }
+            @media screen and (max-width: 600px ){
+                .btn.btn_uploade_file_information_Users{
+                    left:70%;
+                }
+            }
+            @media screen and (max-width: 550px ){
+                .btn.btn_uploade_file_information_Users{
+                    font-size:10px;
+                    left:72%;
+                }
+            }
+            @media screen and (max-width: 450px ){
+                .btn.btn_uploade_file_information_Users{
+                    left:62%;
+                    margin-top:-70px;
+                }
+            }
+            @media screen and (max-width: 400px ){
+                .btn.btn_uploade_file_information_Users{
+                    left:59%;
+                    padding-left:3px;
+                }
+            }
+            /* @media screen and (max-width: 330px ){
+                .btn.btn_uploade_file_information_Users{
+                    left:59%;
+                    font-size:9px;
+                }
+            } */
+            @media screen and (max-width:300px) {
+                .btn.btn_uploade_file_information_Users{
+                    font-size: 9px;
+                    padding-left:1px;
+                    left:58.5%;
+                    /* padding-right:2.5px; */
+                }
+            }
+            @media screen and (max-width:280px) {
+                .btn.btn_uploade_file_information_Users{
+                    padding-right:3px;
+                    left:58%;
+                }
+            }
+            @media screen and (max-width:270px) {
+                .btn.btn_uploade_file_information_Users{
+                    left:57%;
+                }
+            }
+            .form-control.selectOption {
+                border: none;
+                box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
+                text-align: right;
+                font-size: 12px;
+                color: rgb(67, 111, 206);
+            }

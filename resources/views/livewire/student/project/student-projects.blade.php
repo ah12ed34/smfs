@@ -172,7 +172,6 @@
                                 pm.10:24
                             </div>
                         </div>
-
                     </div>
 
                     <div class="recivers">

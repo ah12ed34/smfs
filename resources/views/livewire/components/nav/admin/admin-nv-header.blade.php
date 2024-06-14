@@ -33,7 +33,7 @@
             </button>
             <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
                 @if ($active != 'department')
-                    <a id="" class="dropdown-item" href="{{ route('department.index') }}" style="padding-left:30px; ">الأقسام</a>
+                    <a id="" class="dropdown-item" href="{{ route('departments_admin') }}" style="padding-left:30px; ">الأقسام</a>
                 @endif
                 @if ($active != 'permission')
                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   الصلاحيات</a>
@@ -44,7 +44,7 @@
                 @if ($active != 'usrs_employers')
                 <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   الموظفين</a>
             @endif
-                @if($active!='statistics')<a id="" class="dropdown-item" href="{{ route('admin.statistics') }}" style="padding-left:30px; ">  الإحصائيات</a>@endif
+                @if($active!='statistics')<a id="" class="dropdown-item" href="{{ route('admin_statistics') }}" style="padding-left:30px; ">  الإحصائيات</a>@endif
                 @if ($active != 'acdemic')
                 <a style="padding-left:20px;"> <button type="button" class="btn  dropdown-toggle " data-toggle="dropdown" dir="rtl"  style="background-color:white;" ></a>
                         الأكادمين
@@ -66,10 +66,10 @@
             <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
 
         <div  class="btn-group btn_group_nav_departments" id="">
-            <button class="btn-departments-Navbar @if($active == 'statistics')active @endif" onclick="window.location='{{ route('admin.statistics') }}'"><label class="proNavbartext">الإحصائيات </label></button>
-            <button class="btn-departments-Navbar"><label class="proNavbartext">  الإشعارات</label></button>
-            <button class="btn-departments-Navbar"><label class="proNavbartext"> الصلاحيات </label></button>
-            <button class="btn-departments-Navbar"><label class="proNavbartext"> الموظفين  </label></button>
+            <button class="btn-departments-Navbar @if($active == 'statistics')active @endif" onclick="window.location='{{ route('admin_statistics') }}'"><label class="proNavbartext">الإحصائيات </label></button>
+            <button class="btn-departments-Navbar"><label class="proNavbartext" onclick="window.location='{{ route('admin_notifications') }}'">  الإشعارات</label></button>
+            <button class="btn-departments-Navbar"><label class="proNavbartext" onclick="window.location='{{ route('permissions_Admin') }}'"> الصلاحيات </label></button>
+            <button class="btn-departments-Navbar"><label class="proNavbartext" onclick="window.location='{{ route('employee_admin') }}'"> الموظفين  </label></button>
             @if($departments->count() > 0)
             <div class="dropdown">
                 <button type="button" class="btn btn-light dropdown-toggle btn-departments-Navbar  @if($active == 'academic')active @endif" data-toggle="dropdown" dir="rtl" >
@@ -88,7 +88,7 @@
                 </div>
         </div>
         @endif
-                    <button class="btn-departments-Navbar @if ($active == 'department') active @endif" onclick="window.location='{{ route('admin.department') }}'"><label class="proNavbartext"> الأقسام</label></button>
+                    <button class="btn-departments-Navbar @if ($active == 'department') active @endif" onclick="window.location='{{ route('departments_admin') }}'"><label class="proNavbartext"> الأقسام</label></button>
 
 
 

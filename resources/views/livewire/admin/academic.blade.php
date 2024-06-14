@@ -1,3 +1,6 @@
+@section('nav')
+@livewire('components\nav\admin.department')
+@endsection
 <div>
         <style>
             #modheader {
@@ -92,7 +95,7 @@
                 <tbody>
                     @forelse ($academics as $academic)
                         <tr class="table-light" @if ($loop->first) id="modldetials" style="margin-top:7px;" @endif>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite" wire:click='select({{ $academic->user_id }})'>تعديل  <img src="{{ Vite::image('edit.png') }}" id=""  width="15px" ></button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite" wire:click='select({{ $academic->user_id }})'>تعديل  <img src="{{ Vite::image('edit.png')}}" id=""  width="15px" ></button> </td>
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" wire:click='select({{ $academic->user_id }})'>التفاصيل</button> </td>
                             <!-- <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="../../images/conversation (3).png" id=""  width="25px" ></button> </td> -->
                             <td>*******</td>

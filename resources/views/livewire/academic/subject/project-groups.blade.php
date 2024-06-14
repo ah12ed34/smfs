@@ -428,8 +428,8 @@
 
                         <div class="card mb-3" style="width: 95%;height:10%; box-shadow:none;">
                             <div class="card-header" style="height: 45px;">
-                                <div> <input type="text" class="form-control" id="inputtext"  placeholder="إضافة طالب" style="height: 30px; margin-top:0px;width:70%;margin-left:30%;"></div>
-                                <button type="submit" class="btn btn-primary" id="btn-add-stu" >إضافة</button>
+                                {{-- <div> <input type="text" class="form-control" id="inputtext"  placeholder="إضافة طالب" style="height: 30px; margin-top:0px;width:70%;margin-left:30%;"></div> --}}
+                                <button type="submit" class="btn btn-primary" id="btn-add-stu" data-toggle="modal" data-target="#MoadalAddStudentsToProject"style="height: 30px; margin-top:0px;width:100%;" >إضافة طالب</button>
                             </div>
                             </div>
                             {{-- <div class="card-body">
@@ -437,9 +437,9 @@
                                 <p class="card-text"></p>
                             </div> --}}
                         </div>
-                        <br>
+
                         <div class="table-responsive">
-                            <table class="table" id="table" style=" margin-right: -30px; " >
+                            <table class="table" id="table" style=" margin-right: -30px;margin-top:-10px; " >
                                 <thead class="table-header" style="font-size: 12px;">
                                     <tr class="table-light" id="modldetials">
                                         <th style="width: 7%" >حذف الطالب</th>
@@ -466,9 +466,6 @@
                                 </tbody>
                             </table>
                         </div>
-
-
-
                     <!-- <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div> -->
@@ -476,7 +473,6 @@
             </div>
 
             <!-- Modal footer -->
-
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" wire:click='updateProjectGroup' >حفظ</button>
                 <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
@@ -485,10 +481,92 @@
     </div>
 </div>
 
+<!-- The ModalDelete -->
+    <div class="modal fade" id="MoadalAddStudentsToProject" wire:ignore style="top: 60px; left:60px;">
+    <div class="modal-dialog ">
+        <div class="modal-content modal_content_css" style="height:50%; width:350px; border-radius:20px;" >
+
+            <!-- Modal Header -->
+            <div class="modal-header" style=" height: 50px; padding-top:6px; background-color:#0E70F2;" >
+
+                                
+                                <div id="" class="input-group mb-3" style="top:15px; height:30px;">
+                                    <input type="text" class="form-control"  placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button id="form-control" class="btn btn-light" type="submit"  ><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
+                                    </div>
+                                </div>
+                        
+                        {{-- <button type="button" class="close" data-dismiss="modal">&times;</button> --}}
+
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" style="overflow: auto;">
+                <form action="/action_page.php" style="display: block;">
+                        <div class="table-responsive">
+                            <table class="table" style="width:100%;" >
+                                {{-- <thead>
+                                    <tr class="table-light" id="">
+                                        <th colspan="2">
+                                        
+                                        </th>
+                                    </tr>
+                                </thead> --}}
+                                <tbody style="overflow: auto;">
+                                    <tr class="table-light">
+                                        <td style="text-align: right;">********</td>
+                                        <td style="width:7%"><input type="checkbox" class="" name="raido"></td>
+                                    </tr>
+                                    <tr class="table-light">
+                                        <td style="text-align: right;">********</td>
+                                        <td style="width: 7%"><input type="checkbox" class="" name="raido"></td>
+                                    </tr>
+                                    <tr class="table-light">
+                                        <td style="text-align: right;">********</td>
+                                        <td style="width:7%"><input type="checkbox" class="" name="raido"></td>
+                                    </tr>
+                                    <tr class="table-light">
+                                        <td style="text-align: right;">********</td>
+                                        <td style="width: 7%"><input type="checkbox" class="" name="raido"></td>
+                                    </tr>
+                                    <tr class="table-light">
+                                        <td style="text-align: right;">********</td>
+                                        <td style="width:7%"><input type="checkbox" class="" name="raido"></td>
+                                    </tr>
+                                    <tr class="table-light">
+                                        <td style="text-align: right;">********</td>
+                                        <td style="width: 7%"><input type="checkbox" class="" name="raido"></td>
+                                    </tr>
+                                    <tr class="table-light">
+                                        <td style="text-align: right;">********</td>
+                                        <td style="width:7%"><input type="checkbox" class="" name="raido"></td>
+                                    </tr>
+                                    <tr class="table-light">
+                                        <td style="text-align: right;">********</td>
+                                        <td style="width: 7%"><input type="checkbox" class="" name="raido"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    
+
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" style="height:30px; width:60px; " >حفظ</button>
+                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="" style="height:30px; width:60px; ">إلغاء</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-  <!-- The ModalDelete -->
-  <div class="modal fade" id="myModdelete" wire:ignore>
+    <!-- The ModalDelete -->
+    <div class="modal fade" id="myModdelete" wire:ignore>
     <div class="modal-dialog ">
         <div class="modal-content" style="height: 150px;">
 
