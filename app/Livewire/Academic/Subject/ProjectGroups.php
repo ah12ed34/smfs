@@ -48,13 +48,83 @@ class ProjectGroups extends Component
         // dd($this->projectDetails);
         $this->name = $this->projectDetails->name ?? '';
         $this->grade = $this->projectDetails->grade;
-        $this->comment = $this->projectDetails->comment;
+        $this->comment = $this->projectDetails->comment_teacher;
         $this->file = $this->projectDetails->file;
         $this->boss = $this->projectDetails->student->user_id ;
 
         $this->users = $this->projectDetails->students->map(function($student){
-            return ['id'=>$student->student->student->user_id,'name'=>$student->student->student->user->name];
+            $this->grade_id[$student->student->student->user_id] = $student->grade;
+            $this->comment_id[$student->student->student->user_id] = $student->description;
+            return ['id'=>$student->student->student->user_id,'name'=>$student->student->student->user->name
+                    ,'student_id'=>$student->student_id,'grade'=>$student->grade,'comment'=>$student->comment];
         });
+    }
+
+    public function updateProjectGroup(){
+        $this->validate([
+            'name' => 'required',
+            'boss' => 'required',
+            'users' => 'required',
+        ]);
+        // dd(is_array($this->users),$this->users->
+        // $student_id = 0;
+        // foreach($this->users as $user){
+        //     if($user['id'] == $this->boss){
+        //         $student_id = $user['student_id'];
+        //         break;
+        //     }
+        // }
+        // dd($student_id);
+        $studentIds = collect($this->users);
+        // dd($studentIds->firstWhere('id',$this->boss)['student_id']);
+        $this->projectDetails->update([
+            'name'=>$this->name,
+            'student_id'=> $studentIds->firstWhere('id',$this->boss)['student_id'],
+        ]);
+        foreach($this->users as $user){
+            if($this->projectDetails->students->where('student_id',$user['student_id'])->count() == 0){
+                $this->projectDetails->students()->create([
+                    'student_id'=>$user['student_id'],
+                ]);
+            }
+        }
+        $this->projectDetails->students->whereNotIn('student_id',$studentIds->pluck('student_id'))->each(function($student){
+            $student->delete();
+        });
+
+        $this->reset(['name','grade','comment','boss','users']);
+        $this->dispatch('closeModal');
+    }
+
+    public function correctProject(){
+        $grade = is_numeric($this->grade)?$this->grade:0;
+        $this->validate([
+            'grade' => 'required|numeric|min:0|max:'.$this->projectDetails->project->grade ,
+            'comment' => 'nullable|string',
+            'grade_id.*' => 'nullable|numeric|min:0|max:'.($this->projectDetails->project->grade - $grade),
+            'comment_id.*' => 'nullable|string',
+        ]);
+
+        if($this->grade!=$this->projectDetails->grade||$this->comment!=$this->projectDetails->comment_teacher){
+            $this->projectDetails->update([
+                'grade'=>$this->grade,
+                'comment_teacher'=>$this->comment,
+            ]);
+        }
+        foreach($this->grade_id as $key=>$grade){
+            // dd($key);
+            $selectedStudent = $this->projectDetails->students->where('student_id',collect($this->users)->where('id',$key)->first()['student_id'])->first();
+            if ($selectedStudent &&
+            ($selectedStudent->grade ?? "" != $grade || $selectedStudent->comment ?? '' != $this->comment_id[$key])) {
+
+            $selectedStudent->update([
+                'grade' => $grade,
+                'description' => isset($this->comment_id[$key])?$this->comment_id[$key]:null,
+            ]);
+        }
+        }
+        $this->reset(['grade','comment','grade_id','comment_id']);
+        $this->dispatch('closeModal');
     }
     public function downloadFile()
     {

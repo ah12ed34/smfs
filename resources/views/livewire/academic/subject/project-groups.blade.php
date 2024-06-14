@@ -47,8 +47,8 @@
                             </td>
                             <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalchatting" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button></td>
                             @endif
-
-                            <td>{{ '--' }}</td>
+                            {{-- عرض احرف معينه --}}
+                            <td>{{ Str::limit($projectGroup->comment, 10) }}</td>
                             <td>{{ $projectGroup->grade ?? 'N/A' }}</td>
 
                             <td>
@@ -256,10 +256,9 @@
 
             <!-- Modal body -->
             <div class="modal-body" id="projectdetails" style="overflow: auto;">
-
             <div class="table-responsive ">
-                <table class="table  " style=" width:100%;" dir="rtl">
 
+                <table class="table  " style=" width:100%;" dir="rtl">
                             <tr class="table-light" id="modldetials">
                                 <th style="width: 25%;">اسم المشروع</th>
                                 <td>{{ $name }}</td>
@@ -282,7 +281,7 @@
                             </tr>
                             <tr class="table-light" id="modldetials">
                                 <th style="width: 25%;">الوصف</th>
-                                <td>{{ $projectDetails->description?? 'N/A' }}</td>
+                                <td>{{ $projectDetails->comment ?? '' }}</td>
                             </tr>
                             <tr class="table-light" id="modldetials">
                                 <th style="width: 25%;">الملف المرفق</th>
@@ -465,8 +464,17 @@
             <div class="modal-body" style="overflow: auto;height: 40vh;">
                 {{-- <form action="/action_page.php" style="display: block;"> --}}
                     <div class="form-group">
-
                         <div class="table-responsive">
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li style="text-align: right;">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
+                        @endif
                             <table class="table" style="width:100%;" dir="rtl">
                             <tr class="table-primary">
                                 <th colspan="2" >اسم المشروع</th>
@@ -535,13 +543,22 @@
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">حفظ</button>
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" wire:click='correctProject' >حفظ</button>
                 <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
             </div>
         </div>
     </div>
 </div>
 
-
+@section('script')
+    <script>
+        window.addEventListener('closeModal', event => {
+            $('#myModalEdite').modal('hide');
+            $('#myModdelete').modal('hide');
+            $('#myModaldetails').modal('hide');
+            $('#CheckProject').modal('hide');
+        });
+    </script>
+@endsection
 </div>
 </div>
