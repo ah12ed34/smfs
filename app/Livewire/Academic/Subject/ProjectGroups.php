@@ -9,6 +9,7 @@ use App\Models\Project ;
 use App\Models\Student;
 use App\Models\User;
 use App\Tools\ToolsApp;
+use Illuminate\Support\Facades\Storage;
 use Livewire\WithPagination;
 class ProjectGroups extends Component
 {
@@ -25,13 +26,15 @@ class ProjectGroups extends Component
         'max_groups'=>0,
         'min_groups'=>0,
     ];
-
     public $users = [];
     public $name;
     public $file;
     public $grade;
     public $comment;
 
+    public $grade_id= [];
+    public $comment_id = [];
+    public $boss = [];
     public function mount($subject_id,$group_id,$project_id)
     {
         $this->group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->first();
@@ -41,16 +44,22 @@ class ProjectGroups extends Component
     public function selected($id)
     {
         $this->projectDetails = $this->GroupProjects->where('id',$id)->first();
+
         // dd($this->projectDetails);
         $this->name = $this->projectDetails->name ?? '';
         $this->grade = $this->projectDetails->grade;
         $this->comment = $this->projectDetails->comment;
         $this->file = $this->projectDetails->file;
+        $this->boss = $this->projectDetails->student->user_id ;
+
         $this->users = $this->projectDetails->students->map(function($student){
             return ['id'=>$student->student->student->user_id,'name'=>$student->student->student->user->name];
         });
     }
-
+    public function downloadFile()
+    {
+        return Storage::download($this->projectDetails->file,$this->name .' - '.$this->projectDetails->project->name);
+    }
     public function getGroupProjectsProperty()
     {
         $this->project_groups = [

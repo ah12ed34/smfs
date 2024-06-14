@@ -20,6 +20,15 @@
         }
     }
 
+    public static function getFileSize($name)
+    {
+        switch($name){
+            case 'project':
+                return 1024;
+                break;
+        }
+    }
+
     public static function getMimes($type)
     {
         switch ($type) {

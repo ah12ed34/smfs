@@ -27,7 +27,20 @@
                     <tr class="table-light" id="modldetials" @if ($loop->first)
                         style="margin-top:7px;"
                     @endif >
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#SendProject">تسليم  </button> </td>
+                        <td>
+                            @if (auth()->user()->id == $project->leader_id)
+                                @if ($project->gp_file)
+                                    <button type="submit" class="btn btn-primary btn-sm" id="btn-detials"  disabled>تم التسليم</button>
+                                @elseif ($project->end_date < now())
+                                    <button type="submit" class="btn btn-primary btn-sm" id="btn-detials"  disabled>منتهي</button>
+                                @else
+                                    <button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModelSendProject" wire:click='selected({{ $project->id }})'>تسليم</button>
+                                @endif
+                            @else
+                                <button type="submit" class="btn btn-primary btn-sm" id="btn-detials"  disabled>غير مسموح</button>
+                            @endif
+
+                        </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModaldetails" id="btn-detials" wire:click='selected({{ $project->id }})' >التفاصيل</button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalchatting" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id=""  width="25px" ></button></td>
                         <td>{{ $project->description }}</td>
@@ -42,7 +55,7 @@
 
                     @empty
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                        <td colspan="10">لا يوجد مشاريع</td>
+                        <td colspan="11">{{ __('general.no_projects') }}</td>
                     </tr>
 
                     @endforelse
@@ -66,7 +79,7 @@
     </div>
 
      <!-- The Modalcreateproject -->
-     <div class="modal fade" id="myModal">
+     {{-- <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;">
 
@@ -102,7 +115,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 
@@ -265,7 +278,7 @@
                 <div class="modal-body" id="projectdetails" style="overflow: auto;">
 
                     <div class="detils-name">
-                        <label class="textdetailsproj" for=""> اسم المشروع </label>
+                        <label class="textdetailsproj" > اسم المشروع </label>
                         <div class="projetselements">
                             <div class="card" id="projetselements-name">
                                 {{ $details['name'] }}
@@ -274,7 +287,7 @@
                     </div>
 
                     <div class="detils-name">
-                        <label class="textdetailsproj" for=""> رئيس المشروع</label>
+                        <label class="textdetailsproj" > رئيس المشروع</label>
                         <div class="projetselements">
                             <div class="card" id="projetselements-name">
                                 {{ $details['leader_name'] }}
@@ -283,7 +296,7 @@
                     </div>
 
                     <div class="detils-name">
-                        <label class="textdetailsproj" for="">  تاريخ التسليم</label>
+                        <label class="textdetailsproj" >  تاريخ التسليم</label>
                         <div class="projetselements">
                             <div class="card" id="projetselements-name">
                                 {{ $details['end_date'] }}
@@ -292,7 +305,7 @@
                     </div>
 
                     <div class="detils-name">
-                        <label class="textdetailsproj" for="">  الوصف</label>
+                        <label class="textdetailsproj" >  الوصف</label>
                         <div class="projetselements">
                             <div class="card" id="projetselements-name">
                                 {{ $details['description'] }}
@@ -301,7 +314,7 @@
                     </div>
 
                     <div class="detils-name">
-                        <label class="textdetailsproj" for="">  الدرجة</label>
+                        <label class="textdetailsproj" >  الدرجة</label>
                         <div class="projetselements">
                             <div class="card" id="projetselements-name">
                                 {{ $details['grade'] }}
@@ -310,7 +323,7 @@
                     </div>
 
                     <div class="detils-name">
-                        <label class="textdetailsproj" for="">  ملاحظة</label>
+                        <label class="textdetailsproj" >  ملاحظة</label>
                         <div class="projetselements">
                             <div class="card" id="projetselements-name">
                                 {{ $details['note'] }}
@@ -320,7 +333,7 @@
                     <br>
 
                     <div class="detils-name">
-                        <label for="" class="textdetailsproj">  الملفات المرفقة   </label>
+                        <label  class="textdetailsproj">  الملفات المرفقة   </label>
                         <div class="attchementfile">
                             <div class="card" id="attchementfiles-name">
                                 @if ($details['file'] || $details['gp_file'])
@@ -346,7 +359,7 @@
 
 
                     <div class="">
-                        <label for="" class="textdetailsproj">   فريق المشروع</label>
+                        <label  class="textdetailsproj">   فريق المشروع</label>
                         <div class="projectsmembers">
                             <div class="card" id="projectsmembers-name">
                                 @foreach ($details['students'] as $student)
@@ -373,10 +386,11 @@
             </div>
         </div>
     </div>
+    </div>
 
 
     <!-- The ModalEdite -->
-    <div class="modal fade" id="myModalEdite">
+    {{-- <div class="modal fade" id="myModalEdite">
     <div class="modal-dialog modal-lg">
         <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height: 630px;">
 
@@ -430,10 +444,11 @@
             </div>
         </div>
     </div>
-    </div>
+    </div> --}}
+
 
     <!-- The ModalCheckProject -->
-<div class="modal fade" id="SendProject">
+<div class="modal fade" id="ModelSendProject" wire:ignore.self>
     <div class="modal-dialog">
         <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 500px;">
 
@@ -445,7 +460,12 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form action="/action_page.php" style="display: block;">
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger" role="alert">
+                        {{ $error }}
+                    </div>
+
+                @endforeach
                     <div class="form-group">
 
                         <div class="table-responsive">
@@ -454,13 +474,13 @@
                                 <th>اسم المشروع</th>
                             </tr>
                             <tr class="table-light">
-                                <td>********</td>
+                                <td>{{ $details['name'] }}</td>
                             </tr>
                             <tr class="table-primary">
                                 <th> رفع الملفات</th>
                             </tr>
                             <tr class="table-light">
-                                <td><input type="file" class="form-control-file border" id="file" name="file"></td>
+                                <td><input type="file" class="form-control-file border" id="file" wire:model="file" style="height: 30px; margin-top:8px;"></td>
                             </tr>
                             {{-- <tr class="table-primary">
                                 <th style="width: 40%" >اسم الطالب</th>
@@ -474,7 +494,8 @@
                                 <th colspan="2"> ملاحظة</th>
                             </tr>
                             <tr class="table-light">
-                                <td colspan="2"><textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder="ملاحظة"></textarea></td>
+                                <td colspan="2"><textarea style="height: 100px;" wire:model='comment'
+                                     class="form-control" rows="5" id="comment" placeholder="ملاحظة"></textarea></td>
                             </tr>
                             </table>
                         </div>
@@ -487,18 +508,19 @@
                         <input type="password" class="form-control" id="inputtext" name="email" placeholder=" كلمة المرور " style="height: 30px; margin-top:8px">--}}
                     </div>
 
-                </form>
             </div>
 
             <!-- Modal footer -->
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">تسليم</button>
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" wire:click='ProjectDelivery' id=""
+                >تسليم</button>
                 <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
             </div>
         </div>
     </div>
 </div>
+
 
 
 </div>

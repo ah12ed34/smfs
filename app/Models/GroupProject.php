@@ -15,6 +15,8 @@ class GroupProject extends Model
         'file',
         'student_id',
         'name',
+        'comment',
+        'delivery_date',
 
     ];
     public function project(){
@@ -24,12 +26,17 @@ class GroupProject extends Model
         return $this->hasOneThrough(Student::class,GroupStudents::class,'id','user_id','student_id','student_id');
     }
     public function students(){
-        // return $this->join('work_groups','group_projects.id','=','work_groups.group_id')
+        // $students = $this->join('work_groups','group_projects.id','=','work_groups.group_id')
         // ->join('group_students','work_groups.student_id','=','group_students.id')
         // ->join('students','group_students.student_id','=','students.user_id')
-        // ->select('students.*')
+        // ->join('users','students.user_id','=','users.id')
+        // ->select('students.*','users.name')
         // ->get();
-        return $this->hasMany(WorkGroup::class,'group_id','id');
+        $students = $this->hasMany(WorkGroup::class,'group_id','id');
+
+
+        return $students;
+        // return $this->hasMany(WorkGroup::class,'group_id','id');
 
     }
 }

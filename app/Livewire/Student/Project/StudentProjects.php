@@ -2,17 +2,22 @@
 
 namespace App\Livewire\Student\Project;
 
+use App\Models\Group;
+use App\Models\GroupProject;
 use App\Models\Project;
 use App\Models\User;
+use App\Tools\MyApp;
 use App\Tools\ToolsApp;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\On;
+use Livewire\WithFileUploads;
 
 class StudentProjects extends Component
 {
-    use WithPagination;
+    use WithPagination,WithFileUploads;
     public $details = [
         'id' => '',
         'name' => '',
@@ -34,6 +39,8 @@ class StudentProjects extends Component
     // tab variable {all, unfinished , finished , not-graded}
     public $Tab = null;
     public $search;
+    public $file ;
+    public $comment;
     public function mount()
     {
         if(request()->has('tab')){
@@ -69,6 +76,7 @@ class StudentProjects extends Component
 
     public function selected($id)
     {
+        $this->resetErrorBag();
         $details =  $this->projects->firstWhere('id', $id);
         $this->details = [
             'id' => $details->id,
@@ -81,6 +89,7 @@ class StudentProjects extends Component
             'gp_name' => $details->gp_name,
             'gp_grade' => $details->gp_grade,
             'gp_file' => $details->gp_file,
+            'gp_id' => $details->gp_id,
             'file' => $details->file,
             'status' => $details->status,
             'description' => $details->description,
@@ -139,7 +148,7 @@ class StudentProjects extends Component
         ->select('projects.*', 'group_projects.grade as gp_grade', 'group_projects.name as gp_name', 'group_projects.file as gp_file', 'group_projects.id as gp_id'
                     ,'academics.user_id as teacher_id', DB::raw("CONCAT(users.name, ' ', users.last_name) as teacher_name")
                     ,'subjects.name_ar as subject_name_ar', 'subjects.name_en as subject_name_en'
-                    ,DB::raw("CONCAT(u.name, ' ', u.last_name) as leader_name")
+                    ,DB::raw("CONCAT(u.name, ' ', u.last_name) as leader_name") , 'u.id as leader_id'
                     )
 
         ->get();
@@ -173,6 +182,37 @@ class StudentProjects extends Component
             //     // ->toSql()
             // );
         return ToolsApp::convertToPagination($projects, 10);
+    }
+
+    public function ProjectDelivery()
+    {
+        $this->validate([
+            'file' => 'required|file|mimes:'.MyApp::getFileMime('project').'|max:'.MyApp::getFileSize('project'),
+            'comment' => 'nullable|string',
+        ]);
+        $project = GroupProject::find($this->details['gp_id']);
+
+        if($this->file){
+            $project->file = Storage::put('projects', $this->file);
+            if($project->file&&$this->file){
+                // delete temp file
+                Storage::delete($this->file);
+            }
+        }
+        $project->comment = $this->comment??null;
+        $project->delivery_date = now();
+        if(!$project->save()){
+            Storage::delete($project->file);
+            $this->dispatch('swal:modal', [
+                'type' => 'error',
+                'title' => 'خطأ',
+                'text' => 'حدث خطأ أثناء تسليم المشروع',
+            ]);
+        }
+        $this->file = null;
+        $this->comment = null;
+        $this->dispatch('closeModal');
+
     }
 
     public function render()
