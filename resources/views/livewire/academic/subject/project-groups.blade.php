@@ -336,7 +336,7 @@
 <!-- The ModalEdite -->
 <div class="modal fade" id="myModalEdite" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content modal_content_css"  id="modal-content" style="background-color: #F6F7FA;height: 550px;">
+        <div class="modal-content modal_content_css"  id="modal-content" style="background-color: #F6F7FA;height: 500px;">
 
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader" >
@@ -412,10 +412,10 @@
     </div>
 </div>
 
-<!-- The ModalDelete -->
-    <div class="modal fade" id="MoadalAddStudentsToProject" wire:ignore style="top: 60px; left:60px;">
+<!-- The MoadalAddStudentsToProject -->
+    <div class="modal fade" id="MoadalAddStudentsToProject" wire:ignore style="top:45px; left:60px;">
     <div class="modal-dialog ">
-        <div class="modal-content modal_content_css" style="height:50%; width:350px; border-radius:20px;" >
+        <div class="modal-content modal_content_css" style="height:40%; width:350px; border-radius:20px;" >
 
             <!-- Modal Header -->
             <div class="modal-header" style=" height: 50px; padding-top:6px; background-color:#0E70F2;" >
