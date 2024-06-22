@@ -39,4 +39,5 @@ class GroupProject extends Model
         // return $this->hasMany(WorkGroup::class,'group_id','id');
 
     }
+
 }
