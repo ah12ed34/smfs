@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\admin.department')
+@livewire('components\nav\admin.send-notifications-students-header')
 @endsection
 <div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
