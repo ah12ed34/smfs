@@ -15,7 +15,17 @@ class ToolsApp{
         $paginatedItems->setPath(LengthAwarePaginator::resolveCurrentPath());
         return $paginatedItems;
     }
+    public static function convertToPaginationAll($collection, $perPage = 10,$pageName = 'page', $currentPage = 1){
+        $currentPage = LengthAwarePaginator::resolveCurrentPage($pageName);
+        $total = $collection->count();
+        $items = $collection->slice(($currentPage - 1) * $perPage, $perPage)->values();
+        $pagination = new LengthAwarePaginator($items, $total, $perPage, $currentPage, [
+            'path' => LengthAwarePaginator::resolveCurrentPath(),
+            'pageName' => $pageName,
+        ]);
 
+        return $pagination;
+    }
     // download file
     public static function downloadFile($id,$name,$type = 'file', $fileS = 'file'){
         $file = null;

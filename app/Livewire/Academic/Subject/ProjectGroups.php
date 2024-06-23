@@ -31,18 +31,24 @@ class ProjectGroups extends Component
     public $file;
     public $grade;
     public $comment;
+    public $parameters;
 
     public $grade_id= [];
     public $comment_id = [];
     public $boss = [];
+
+    public $add_student = false;
     public function mount($subject_id,$group_id,$project_id)
     {
         $this->group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->first();
         $this->project_id = $project_id;
+        $this->parameters =request()->route()->parameters;
+        // dd($parameters);
     }
 
-    public function selected($id)
+    public function selected($id,$add_student = false)
     {
+        $this->add_student = $add_student;
         $this->projectDetails = $this->GroupProjects->where('id',$id)->first();
 
         // dd($this->projectDetails);

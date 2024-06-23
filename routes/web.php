@@ -224,7 +224,7 @@ use GuzzleHttp\Middleware;
 
 
             route::prefix("{subject_id}{group_id}")->group(function(){
-                   route::prefix('students')->group(function(){
+                route::prefix('students')->group(function(){
                     route::get("/",'StudentsController@index')->name("students");
                 });
                 route::prefix("students-persents")->group(function(){

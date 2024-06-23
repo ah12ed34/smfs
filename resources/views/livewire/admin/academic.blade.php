@@ -107,6 +107,9 @@
                         </tr>
 
                     @empty
+                        <tr class="table-light">
+                            <td colspan="8" style="text-align: center;">لا يوجد بيانات</td>
+                        </tr>
 
                     @endforelse
 

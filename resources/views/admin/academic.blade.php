@@ -1,8 +1,8 @@
 @extends('layouts.home')
 
-@section('nav')
+{{-- @section('nav')
     @livewire('components.nav.admin.department',['active' => 'academic','depa' => $depa])
-@endsection
+@endsection --}}
 
 @section('content')
 <div class="container" style="position: absolute;
