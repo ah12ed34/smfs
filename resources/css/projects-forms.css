@@ -1044,6 +1044,9 @@ position: relative;
         border-top-right-radius: 15px;
         text-align: center;
     }
+    .modal-body.modal_body_css{
+    overflow: auto;
+    }
     .modal-footer.ModaldShowDetail{
         height: 30px;
         overflow: auto;

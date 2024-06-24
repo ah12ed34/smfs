@@ -26,8 +26,8 @@
                 <tbody>
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
                         <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف  <img src="{{ Vite::image('delete (1).png')}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeStudentModal">تعديل  <img src="{{ Vite::image('edit.png')}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsStudentsModal">التفاصيل</button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeEmployeesModal">تعديل  <img src="{{ Vite::image('edit.png')}}" id=""  width="15px" ></button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsEmloyeesModal">التفاصيل</button> </td>
                         <td>*******</td>
                         <td>*******</td>
                         <td>*******</td>
@@ -39,8 +39,8 @@
                     </tr>
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
                         <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف  <img src="{{ Vite::image('delete (1).png')}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeStudentModal">تعديل  <img src="{{ Vite::image('edit.png')}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsStudentsModal">التفاصيل</button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeEmployeesModal">تعديل  <img src="{{ Vite::image('edit.png')}}" id=""  width="15px" ></button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsEmloyeesModal">التفاصيل</button> </td>
                         <td>*******</td>
                         <td>*******</td>
                         <td>*******</td>
@@ -52,8 +52,8 @@
                     </tr>
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
                         <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف  <img src="{{ Vite::image('delete (1).png')}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeStudentModal">تعديل  <img src="{{ Vite::image('edit.png')}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsStudentsModal">التفاصيل</button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeEmployeesModal">تعديل  <img src="{{ Vite::image('edit.png')}}" id=""  width="15px" ></button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsEmloyeesModal">التفاصيل</button> </td>
                         <td>*******</td>
                         <td>*******</td>
                         <td>*******</td>
@@ -68,7 +68,6 @@
         </div>
     </div>
 
-</div>
 
 <!-- The ModalUploadeFile -->
 <div class="modal fade" id="UploadeFileModal">
@@ -110,20 +109,20 @@
 <!-- The ModaladdEmployeer -->
 <div class="modal fade" id="AddEmployeerModal">
 <div class="modal-dialog">
-    <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height: 650px;">
+    <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 650px;">
 
         <!-- Modal Header -->
-        <div class="modal-header addacademic" id="modheader">
+        <div class="modal-header modal_header_css" id="modheader">
             إضافة موظف
             <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
         </div>
 
         <!-- Modal body -->
-        <div class="modal-body">
+        <div class="modal-body modal_body_css">
             <form action="/action_page.php" style="display: block;">
                 <div class="form-group">
 
-                    <img src="{{ Vite::image('profile.png')}}"  width="" class="user_profile" >
+                    <img src="{{ Vite::image('profile.png')}}"  width="" class="user_profile_modal" >
 
                     <!-- <input type="number" class="form-control" id="inputtext" name="projectname" placeholder=" الرقم الوظيفي " style="height: 30px; margin-top:8px"> -->
                     <input type="text" class="form-control" id="inputtext" name="date" placeholder=" الاسم" style="height: 30px; margin-top:8px">
@@ -200,23 +199,23 @@
 </div>
 
 
-<!-- The ModalEditeStudents -->
-<div class="modal fade" id="EditeStudentModal">
+<!-- The ModalEditeEmployees -->
+<div class="modal fade" id="EditeEmployeesModal">
 <div class="modal-dialog">
-    <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height: 650px;">
+    <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 650px;">
 
         <!-- Modal Header -->
-        <div class="modal-header addacademic" id="modheader">
+        <div class="modal-header modal_header_css" id="modheader">
             تعديل موظف
             <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
         </div>
 
         <!-- Modal body -->
-        <div class="modal-body">
+        <div class="modal-body modal_body_css">
             <form action="/action_page.php" style="display: block;">
                 <div class="form-group">
 
-                    <img src="{{ Vite::image('profile.png')}}"  width="" class="user_profile" >
+                    <img src="{{ Vite::image('profile.png')}}"  width="" class="user_profile_modal" >
 
                     <!-- <input type="number" class="form-control" id="inputtext" name="projectname" placeholder=" الرقم الوظيفي " style="height: 30px; margin-top:8px"> -->
                     <input type="text" class="form-control" id="inputtext" name="date" placeholder=" الاسم" style="height: 30px; margin-top:8px">
@@ -294,10 +293,10 @@
 </div>
 </div>
 
-<!-- The ModalDetailsStudents -->
-<div class="modal fade" id="DetailsStudentsModal">
+<!-- The DetailsEmloyeesModal -->
+<div class="modal fade" id="DetailsEmloyeesModal">
 <div class="modal-dialog">
-    <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:800px;">
+    <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:660px;">
 
         <!-- Modal Header -->
         <div class="modal-header ModaldDetailsAcademic" id="modheader">
@@ -310,7 +309,7 @@
             <form action="/action_page.php" style="display: block;">
                 <div class="form-group">
 
-                    <img src="{{ Vite::image('profile.png')}}"  width="" class="user_profile" >
+                    <img src="{{ Vite::image('profile.png')}}"  width="" class="user_profile_modal" >
 
                     <div class="table-responsive ">
                         <table class="table details-academic " style="width:100%;" dir="rtl">
@@ -400,7 +399,7 @@
 
         <!-- Modal footer -->
 
-        <div class="modal-footer" style="height: 40px;">
+        <div class="modal-footer" >
             <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" style="height: 30p; width: 80px; font: size 12px;">نعم</button>
             <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="" style="height: 30p; width: 80px; font: size 12px;">لا</button>
         </div>

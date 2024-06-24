@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('nav')
-@livewire('components.nav.admin.department', ['active' => 'statistics'])
+@livewire('components.nav.admin.department',['active' => 'statistics'])
 @endsection
 
 @section('content')

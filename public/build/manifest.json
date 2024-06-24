@@ -8,7 +8,7 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-774fdbaf.css",
+    "file": "assets/app-7c87c589.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -205,8 +205,8 @@
     "src": "resources/images/permissions-Subject.png"
   },
   "resources/images/permissions.png": {
-    "file": "assets/permissions-27c05360.png",
-    "src": "resources/images/permissions.png"
+    "file": "assets/shield-27c05360.png",
+    "src": "resources/images/shield.png"
   },
   "resources/images/plus.png": {
     "file": "assets/plus-a9290ee4.png",
@@ -251,6 +251,10 @@
   "resources/images/setting (2).png": {
     "file": "assets/setting (2)-ab567baf.png",
     "src": "resources/images/setting (2).png"
+  },
+  "resources/images/shield.png": {
+    "file": "assets/shield-27c05360.png",
+    "src": "resources/images/shield.png"
   },
   "resources/images/studentnotif.png": {
     "file": "assets/studentnotif-1fabce69.png",

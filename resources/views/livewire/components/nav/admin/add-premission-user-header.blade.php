@@ -7,17 +7,17 @@
     <div id="" class="input-group input-search-admin">
         <input type="text" class="form-control" placeholder="Search">
         <div class="input-group-append">
-            <button id="form-control" class="btn btn-light" type="submit"><img src="{{ Vite::image('magnifying-glass (2)png')}}" id="spaces2"  width="20px" ></button>
+            <button id="form-control" class="btn btn-light" type="submit"><img src="{{ Vite::image('magnifying-glass (2).png')}}" id="spaces2"  width="20px" ></button>
         </div>
     </div>
 
 
-    <td><button type="submit" class="btn btn-primary btn-sm  btn-addAcademic" id="" data-toggle="modal" data-target="#addUserPermissions"> اضافة مستخدم<img src="{{ Vite::image('pluspng')}}"  width="20px" style="float: left;"></button> </td>
+    <td><button type="submit" class="btn btn-primary btn-sm  btn-addAcademic" id="" data-toggle="modal" data-target="#addUserPermissions"> اضافة مستخدم<img src="{{ Vite::image('plus.png')}}"  width="20px" style="float: left;"></button> </td>
 
 </div>
 
 <div class="hr3">
-    <button id="spacesbtn" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
+    <button id="spacesbtn" onclick="window.location='{{ route('admin.permissions') }}'" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
 
 
 </div>

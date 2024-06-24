@@ -23,7 +23,7 @@
     </div>
 
     <div class="hr3">
-        <button id="spacesbtn" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
+        <button id="spacesbtn" onclick="window.location='{{ route('admin.employees') }}'" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
 
         <!-- <div id="input-groupstudyingbooks" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">

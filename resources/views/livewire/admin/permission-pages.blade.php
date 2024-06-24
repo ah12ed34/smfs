@@ -5,25 +5,18 @@
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
     <div class="container" style="padding-top:20px;">
         <div class="table-responsive">
-
-
             <table class="table table-bordered" style="font-size:10px;">
-
-
-
-
                 <thead class="table-header">
-
                     <tr class="table-light" id="modldetials">
                         <th id="th1" colspan="3" style="background-color: #0E70F2; color:white; padding-bottom:25px;">  الطلاب</th>
                         <th id="th1" colspan="3" style="background-color: #0E70F2; color:white; padding-bottom:25px;">  مساعدعضو هيئة التدريس</th>
                         <th id="th1" colspan="3" style="background-color: #0E70F2; color:white; padding-bottom:25px;">عضو هيئة التدريس</th>
-                        <th id="th1" colspan="3 " style="background-color: #0E70F2; color:white;padding-bottom:25px;">رئيس القسم</th>
+                        <th id="th1" colspan="3" style="background-color: #0E70F2; color:white;padding-bottom:25px;">رئيس القسم</th>
                         <th id="th1"  rowspan="2" style="background-color: #0E70F2; color:white;padding-bottom:25px;">نوع الأجراء </th>
-                        <!-- <th id="th1" colspan="3 " rowspan="3" style="background-color: #0E70F2; color:white; padding: 50px;">
+                        <!-- <th id="th1" colspan="3" rowspan="3" style="background-color: #0E70F2; color:white; padding: 50px;">
                             اسم الطالب
                         </th>
-                        <th colspan="3 " rowspan="3" style="background-color: #0E70F2; color:white; width: 200px; padding:40px;">الرقم الأكاديمي</th> -->
+                        <th colspan="3" rowspan="3" style="background-color: #0E70F2; color:white; width: 200px; padding:40px;">الرقم الأكاديمي</th> -->
 
                     </tr>
 
@@ -54,7 +47,7 @@
                 <tbody>
 
                     <!--  صلاجيات الإشعارات< -->
-                    <tr class="table-light ">
+                    <tr class="table-light">
                         <!--   صلاجيات المقرر الدراسي النظري< -->
                         <!--  النظري< -->
                         <td>
@@ -157,7 +150,7 @@
                                 </div>
                             </form>
                         </td>
-                        <td colspan="3 "> *********</td>
+                        <td colspan="3"> *********</td>
 
                     </tr>
                 </tbody>
@@ -166,29 +159,27 @@
     </div>
 
 
-
-</div>
 <!-- The ModaladdUserPermissions -->
-<div class="modal fade " id="addUserPermissions ">
-<div class="modal-dialog ">
-    <div class="modal-content modal_content_css " id="modal-content " style="width: 300px">
+<div class="modal fade" id="addPermissions">
+<div class="modal-dialog">
+    <div class="modal-content modal_content_css" id="modal-content" style="width: 300px;height:300px">
 
         <!-- Modal Header -->
-        <div class="modal-header modal_header_css " id="modheader ">
+        <div class="modal-header modal_header_css" id="modheader">
                 إضافة  صلاحية إجراء
-            <button type="button " class="close " data-dismiss="modal ">&times;</button>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
         <!-- Modal body -->
-        <div class="modal-body ">
-            <form action=" " style="display: block; ">
-                <div class="form-group ">
-                    <!-- <label for="usr ">Name:</label> -->
+        <div class="modal-body">
+            <form action="" style="display: block;">
+                <div class="form-group">
+                    <!-- <label for="usr">Name:</label> -->
 
-                    <input type="text " class="form-control " id="inputtext " name="adduserName " style="height: 30px; margin-top:8px ">
+                    <input type="text" class="form-control" id="inputtext" name="adduserName" style="height: 30px; margin-top:8px">
                 </div>
-                <!-- <div class="form-group ">
-                    <button type="submit " class="btn btn-primary ">Submit</button>
+                <!-- <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div> -->
             </form>
         </div>

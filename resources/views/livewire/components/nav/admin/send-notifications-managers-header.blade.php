@@ -24,7 +24,7 @@
     </div>
 
     <div class="hr3">
-        <button id="spacesbtn" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
+        <button id="spacesbtn" onclick="window.location='{{ route('admin.notifications') }}'" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
 
         <!-- <td><button type="submit" class="btn btn-primary btn-sm" id="btn-uploade-grades" data-toggle="modal" data-target="#myModal"> رفع ملف<img src="../images/plus.png')}}"  width="20px" style="float: left;"></button> </td> -->
 

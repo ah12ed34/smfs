@@ -7,6 +7,10 @@ use App\Models\Academic;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\User;
+use app\Models\employees;
+use app\Models\permissions;
+use app\Models\notifications;
+
 
 class AdminController extends Controller
 {
@@ -28,5 +32,17 @@ class AdminController extends Controller
     {
         $departments = Department::all();
         return view('admin.department', compact('departments'));
+    }
+    public function employees()
+    {
+        return view('admin.employees');
+    }
+    public function permissions()
+    {
+        return view('admin.permissions');
+    }
+    public function notifications()
+    {
+        return view('admin.notifications');
     }
 }

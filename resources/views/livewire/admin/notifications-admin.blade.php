@@ -22,18 +22,6 @@
             <div class="card-departments-child"  style="background-color:white; color:#34959C">  إشعارات رؤساء الأقسام
             </div>
         </div>
-
-        <!-- <div class="card  cards-departments" id="">
-            <img src="{{ Vite::image('computer-science.png')}}" class="" width="150px">
-            <div class="card-departments-child">  علوم الحاسوب
-            </div>
-        </div>
-
-        <div class="card  cards-departments" id="">
-            <img src="{{ Vite::image('security (3).png')}}" class="" width="150px">
-            <div class="card-departments-child"> الأمن السيبراني
-            </div>
-        </div> -->
-
+        
         </div>
 </div>
