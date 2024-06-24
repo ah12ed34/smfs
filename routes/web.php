@@ -121,13 +121,13 @@ use GuzzleHttp\Middleware;
     });
     Route::group(['prefix'=>'managers_information','middleware'=>'auth'
 ], function(){
-    route::get('/', '\\'. App\livewire\Admin\ManagersInformation::class)->name('managers_information');
-    route::get('employee_information', '\\'.App\livewire\Admin\EmployeesInformation::class)->name('employee_information');
-    route::get('sendNotifications_students','\\'.App\livewire\Admin\SendNotificationsstidents::class)->name('sendNotifications_students');
-    route::get('sendNotifications_academics','\\'.App\livewire\admin\SendNotificttionsacademic::class)->name('sendNotifications_academics');
-    route::get('sendNotifications_managers', '\\'.App\livewire\admin\SendNotificationbossdepartment::class)->name('sendNotifications_managers');
-    route::get('permissions_pages','\\'.App\livewire\admin\PermissionPages::class)->name('permissions_pages');
-    route::get('addUsers_permissions', '\\'.App\livewire\admin\AddPremissionUser::class)->name('addUsers_permissions');
+    route::get('/', '\\'. App\Livewire\Admin\ManagersInformation::class)->name('managers_information');
+    route::get('employee_information', '\\'.App\Livewire\Admin\EmployeesInformation::class)->name('employee_information');
+    route::get('sendNotifications_students','\\'.App\Livewire\Admin\SendNotificationsstidents::class)->name('sendNotifications_students');
+    route::get('sendNotifications_academics','\\'.App\Livewire\Admin\SendNotificttionsacademic::class)->name('sendNotifications_academics');
+    route::get('sendNotifications_managers', '\\'.App\Livewire\Admin\SendNotificationbossdepartment::class)->name('sendNotifications_managers');
+    route::get('permissions_pages','\\'.App\Livewire\Admin\PermissionPages::class)->name('permissions_pages');
+    route::get('addUsers_permissions', '\\'.App\Livewire\Admin\AddPremissionUser::class)->name('addUsers_permissions');
 
 });
 
@@ -367,18 +367,18 @@ use GuzzleHttp\Middleware;
 
 //     Route::group(['prefix'=>'departments_admin','middleware'=>'auth'
 // ], function(){
-//     route::get('/', '\\'. App\livewire\Admin\Departments::class)->name('departments_admin');
-//     route::get('admin_statistics','\\'.App\livewire\Admin\AdminStatistics::class)->name('admin_statistics');
-//     route::get('employee_admin','\\'.App\livewire\Admin\EmployeesAdmin::class)->name('employee_admin');
-//     route::get('employee_information', '\\'.App\livewire\Admin\EmployeesInformation::class)->name('employee_information');
-//     route::get('managers_information', '\\'.App\livewire\Admin\ManagersInformation::class)->name('managers_information');
-//     route::get('admin_notifications', '\\'.App\livewire\Admin\NotificationsAdmin::class)->name('admin_notifications');
-//     route::get('sendNotifications_students','\\'.App\livewire\Admin\SendNotificationsstidents::class)->name('sendNotifications_students');
-//     route::get('sendNotifications_academics','\\'.App\livewire\admin\SendNotificttionsacademic::class)->name('sendNotifications_academics');
-//     route::get('sendNotifications_managers', '\\'.App\livewire\admin\SendNotificationbossdepartment::class)->name('sendNotifications_managers');
-//     route::get('permissions_Admin','\\'.App\livewire\admin\Permissionsadmin::class)->name('permissions_Admin');
-//     route::get('permissions_pages','\\'.App\livewire\admin\PermissionPages::class)->name('permissions_ pages');
-//     route::get('addUsers_permissions', '\\'.App\livewire\admin\AddPremissionUser::class)->name('addUsers_permissions');
+//     route::get('/', '\\'. App\Livewire\Admin\Departments::class)->name('departments_admin');
+//     route::get('admin_statistics','\\'.App\Livewire\Admin\AdminStatistics::class)->name('admin_statistics');
+//     route::get('employee_admin','\\'.App\Livewire\Admin\EmployeesAdmin::class)->name('employee_admin');
+//     route::get('employee_information', '\\'.App\Livewire\Admin\EmployeesInformation::class)->name('employee_information');
+//     route::get('managers_information', '\\'.App\Livewire\Admin\ManagersInformation::class)->name('managers_information');
+//     route::get('admin_notifications', '\\'.App\Livewire\Admin\NotificationsAdmin::class)->name('admin_notifications');
+//     route::get('sendNotifications_students','\\'.App\Livewire\Admin\SendNotificationsstidents::class)->name('sendNotifications_students');
+//     route::get('sendNotifications_academics','\\'.App\Livewire\Admin\SendNotificttionsacademic::class)->name('sendNotifications_academics');
+//     route::get('sendNotifications_managers', '\\'.App\Livewire\Admin\SendNotificationbossdepartment::class)->name('sendNotifications_managers');
+//     route::get('permissions_Admin','\\'.App\Livewire\Admin\Permissionsadmin::class)->name('permissions_Admin');
+//     route::get('permissions_pages','\\'.App\Livewire\Admin\PermissionPages::class)->name('permissions_ pages');
+//     route::get('addUsers_permissions', '\\'.App\Livewire\Admin\AddPremissionUser::class)->name('addUsers_permissions');
 
 // });
     // Route::prefix('managerOFdepart')->group(function () {
