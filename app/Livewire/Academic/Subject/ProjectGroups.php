@@ -8,7 +8,6 @@ use App\Models\GroupSubject;
 use App\Models\Project ;
 use App\Models\Student;
 use App\Models\User;
-use App\Tools\ToolsApp;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithPagination;
 class ProjectGroups extends Component
@@ -31,7 +30,9 @@ class ProjectGroups extends Component
     public $file;
     public $grade;
     public $comment;
+
     public $parameters;
+    public $query;
 
     public $grade_id= [];
     public $comment_id = [];
@@ -43,20 +44,47 @@ class ProjectGroups extends Component
         $this->group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->first();
         $this->project_id = $project_id;
         $this->parameters =request()->route()->parameters;
+        $this->query = request()->query();
         // dd($parameters);
     }
 
     public function selected($id,$add_student = false)
     {
-        $this->add_student = $add_student;
+
         $this->projectDetails = $this->GroupProjects->where('id',$id)->first();
 
+        if($add_student){
+            $this->validate([
+                'name' => 'required',
+                ]);
+                $this->add_student = $add_student;
+            if($this->projectDetails->just_created){
+                $createGP = $this->projectDetails;
+                unset($createGP->just_created,$createGP->count_students,$createGP->count_groups,$createGP->student,
+                $createGP->id);
+                $createGP->save();
+                // dd($createGP);
+            }
+            session()->put(['project_group_id'=>$this->projectDetails->id,'project_id'=>$this->project_id]);
+        }else{
+            $this->add_student = false;
+        }
         // dd($this->projectDetails);
         $this->name = $this->projectDetails->name ?? '';
         $this->grade = $this->projectDetails->grade;
         $this->comment = $this->projectDetails->comment_teacher;
         $this->file = $this->projectDetails->file;
-        $this->boss = $this->projectDetails->student->user_id ;
+        $this->boss = $this->projectDetails->student->user_id ?? null;
+        if(
+            null == $this->projectDetails->just_created
+            ||false == $this->projectDetails->just_created){
+            // $this->users = $this->projectDetails->students->map(function($student){
+            //     return [
+            //         'id'=>$student->student->user_id,
+            //         'student_id'=>$student->student_id,
+            //         'name'=>$student->student->user->name,
+            //     ];
+            // })->toArray();
 
         $this->users = $this->projectDetails->students->map(function($student){
             $this->grade_id[$student->student->student->user_id] = $student->grade;
@@ -64,6 +92,9 @@ class ProjectGroups extends Component
             return ['id'=>$student->student->student->user_id,'name'=>$student->student->student->user->name
                     ,'student_id'=>$student->student_id,'grade'=>$student->grade,'comment'=>$student->comment];
         });
+        }else{
+            $this->users = [];
+        }
     }
 
     public function updateProjectGroup(){
@@ -169,7 +200,7 @@ class ProjectGroups extends Component
                     break;
                 }
                 $group = new GroupProject(['project_id'=>$this->project_id]);
-                $group->id = (int) 0..($this->project_groups['count_groups']+1);
+                $group->id = 'G'.($this->project_groups['count_groups']+1);
                 $group->name = 'Group '.
                 ($this->project_groups['count_groups']+1);
                 $group->student = new Student(['user'=>new User(['name'=>'Sin asignar'])]);
@@ -179,7 +210,7 @@ class ProjectGroups extends Component
                 $GroupProjects->push($group);
             }
         }
-        return ToolsApp::convertToPagination($GroupProjects, $this->perPage);
+        return $GroupProjects->paginate($this->perPage);
 
     }
     public function render()

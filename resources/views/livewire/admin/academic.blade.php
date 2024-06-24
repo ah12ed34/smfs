@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\admin.department')
+@livewire('components.nav.admin.department',['active' => 'academic','depa' => $department])
 @endsection
 <div>
         <style>

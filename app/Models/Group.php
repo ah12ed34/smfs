@@ -26,7 +26,8 @@ class Group extends Model
 
     public function students()
     {
-        return $this->belongsToMany(Student::class, 'group_students', 'group_id', 'student_id');
+        return $this->belongsToMany(Student::class, 'group_students', 'group_id', 'student_id')
+            ->withPivot('id');
     }
 
     public function level()

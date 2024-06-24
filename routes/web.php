@@ -227,6 +227,8 @@ use GuzzleHttp\Middleware;
                 Route::prefix("project")->group(function(){
                     Route::get("/","ProjectController@index")->name("projects");
                     route::get("{project_id}",'\\'.ProjectGroups::class)->name("project");
+                    Route::get('{project_id}/add-student/{pg_id}', '\\'.App\Livewire\Components\Academic\AddStudents::class
+                    )->name('project.add-student');
                 });
 
                 Route::prefix('assignment')->group(function(){

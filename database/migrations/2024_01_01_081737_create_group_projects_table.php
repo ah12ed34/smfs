@@ -21,7 +21,7 @@ return new class extends Migration
             $table->logText('comment_teacher')->nullable();
             // تاريخ التسليم
             $table->date('delivery_date')->nullable()->comment('تاريخ التسليم');
-            $table->foreignId('student_id')->constrained('group_students');
+            $table->foreignId('student_id')->constrained('group_students')->nullable();
             $table->timestamps();
         });
     }

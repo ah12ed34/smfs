@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -36,6 +40,24 @@ class AppServiceProvider extends ServiceProvider
             });
             return str_word_count(trim($value), 0, ' ') >= $parameters[0];
 
+        });
+        Collection::macro('paginate', function($perPage, $pageName = 'page', $total = null, $page = null) {
+            if (!($this instanceof Collection)) {
+                return new LengthAwarePaginator([], 0, $perPage, $page, ['pageName' => $pageName]);
+            }
+
+            $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
+
+            return new LengthAwarePaginator(
+                $this->forPage($page, $perPage)->values(),
+                $total ?: $this->count(),
+                $perPage,
+                $page,
+                [
+                    'path' => LengthAwarePaginator::resolveCurrentPath(),
+                    'pageName' => $pageName,
+                ]
+            );
         });
 
 
