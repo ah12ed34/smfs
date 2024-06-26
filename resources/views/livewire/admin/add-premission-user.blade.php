@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\admin.add-premission-user-header')
+@livewire('components.nav.admin.add-premission-user-header')
 @endsection
 <div>
     {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}

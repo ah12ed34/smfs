@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\admin.employees-information-header')
+@livewire('components.nav.admin.employees-information-header')
 @endsection
 <div>
     {{-- Nothing in the world is as soft and yielding as water. --}}

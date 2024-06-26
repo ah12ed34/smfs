@@ -33,13 +33,20 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('Student', fn () => optional(auth()->user())->isStudent());
         Blade::if('Teacher', fn () => optional(auth()->user())->isAcademic());
         Validator::extend('min_words', function ($attribute, $value, $parameters, $validator) {
-            // $return = str_word_count(trim($value), 0, ' ') >= $parameters[0];
-            // dd(str_word_count(trim($value),0,' '),$parameters[0],$return);
+            // // $return = str_word_count(trim($value), 0, ' ') >= $parameters[0];
+            // // dd(str_word_count(trim($value),0,' '),$parameters[0],$return);
+            // $validator->addReplacer('min_words', function ($message, $attribute, $rule, $parameters) {
+            //     return str_replace(':min', $parameters[0], $message);
+            // });
+            // return str_word_count(trim($value), 0, ' ') >= $parameters[0];
+
+            $words = preg_split('/\s+/', trim($value));
+
             $validator->addReplacer('min_words', function ($message, $attribute, $rule, $parameters) {
                 return str_replace(':min', $parameters[0], $message);
             });
-            return str_word_count(trim($value), 0, ' ') >= $parameters[0];
 
+            return count($words) >= $parameters[0];
         });
         Collection::macro('paginate', function($perPage, $pageName = 'page', $total = null, $page = null) {
             if (!($this instanceof Collection)) {

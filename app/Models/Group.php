@@ -231,15 +231,8 @@ class Group extends Model
         });
         static::deleted(function ($group) {
             if ($group->schedule) {
-                unlink($group->schedule);
+                unlink(asset('storage/' . $group->schedule));
             }
-        });
-        static::creating(function ($group) {
-            // $group->id = uniqid();
-        });
-        static::created(function ($group) {
-
-            $group->save();
         });
     }
 

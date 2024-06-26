@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\managerOFdepart.managedepartlevel.manage-depart-students-final-works-statistics-header')
+@livewire('components.nav.managerOFdepart.managedepartlevel.manage-depart-students-final-works-statistics-header')
 @endsection
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}

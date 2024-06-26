@@ -69,4 +69,53 @@
                 break;
         }
     }
+
+    public static function getAcademicName($name)
+    {
+        return match($name) {
+            'professor' => __('general.professor'),
+            'assistant_professor' => __('general.assistant_professor'),
+            'doctor' => __('general.doctor'),
+            'associate_professor' => __('general.associate_professor'),
+            default => __('general.unknown'),
+        };
+    }
+
+    public static function getAcademicNameAllOut($name)
+    {
+        $academic = [];
+
+        if('professor' != $name)
+            $academic['professor'] = __('general.professor');
+        if('assistant_professor' != $name)
+            $academic['assistant_professor'] = __('general.assistant_professor');
+        if('doctor' != $name)
+            $academic['doctor'] = __('general.doctor');
+        if('associate_professor' != $name)
+            $academic['associate_professor'] = __('general.associate_professor');
+        return $academic;
+    }
+
+    public static function getGender($name)
+    {
+        return match($name)
+        {
+            'male' => __('general.male'),
+            'female' => __('general.female'),
+            default => __('general.unknown'),
+        };
+    }
+
+    public static function getGenderAllOut($name)
+    {
+        $gender = [];
+
+        if('male' != $name)
+            $gender['male'] = __('general.male');
+        if('female' != $name)
+            $gender['female'] = __('general.female');
+        return $gender;
+    }
+
+
 }

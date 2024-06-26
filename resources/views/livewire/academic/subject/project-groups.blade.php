@@ -2,7 +2,7 @@
     @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject])
 @endsection
 {{-- @section('nav')
-@livewire('components\nav\academic.subject.project-groups-header')
+@livewire('components.nav.academic.subject.project-groups-header')
 @endsection --}}
 <div>
 

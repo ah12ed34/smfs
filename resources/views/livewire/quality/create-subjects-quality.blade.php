@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\quality.create-subjects-quality')
+@livewire('components.nav.quality.create-subjects-quality')
 @endsection
 
 <div>

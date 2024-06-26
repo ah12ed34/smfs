@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\admin.admin-nv-header')
+@livewire('components.nav.admin.admin-nv-header')
 @endsection
 <div>
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}

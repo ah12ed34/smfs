@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -53,11 +54,13 @@ class User extends Authenticatable
     ];
 
     public function Roles(){
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class,'has_role','user_id','role_id');
     }
-
+    public function Role(){
+        return $this->Roles()->first();
+    }
     public function Permissions(){
-        return $this->belongsToMany(Permission::class);
+        return $this->belongsToMany(Permission::class,'has_permission_user','user_id','permission_id');
     }
 
     public function isAdmin(): bool{
@@ -96,10 +99,6 @@ class User extends Authenticatable
         return DB::table('academics')->where('user_id',$this->id)->exists();
     }
 
-    public function isTeacher(): bool{
-        return DB::table('teachers')->where('user_id',$this->id)->exists();
-    }
-
     public function student(){
         if($this->isStudent()){
             return $this->hasOne(Student::class,'user_id','id');
@@ -127,5 +126,41 @@ class User extends Authenticatable
     }
     public function getFullNameAttribute(){
         return $this->name . ' ' . $this->last_name;
+    }
+
+    public static function boot(){
+        parent::boot();
+        static::deleting(function($user){
+            try {
+                if ($user->isStudent()) {
+                    $user->student->delete();
+                }
+                if ($user->isAcademic()) {
+                    $user->academic->delete();
+                }
+
+                $user->Roles()->detach();
+                $user->Permissions()->detach();
+                $user->tokens()->delete();
+            } catch (\Exception $e) {
+                throw $e;
+                // Rollback if deletion fails
+                if ($user->isStudent() && !$user->student->exists) {
+                    $user->student()->restore();
+                }
+                if ($user->isAcademic() && !$user->academic->exists) {
+                    $user->academic()->restore();
+                }
+
+                $user->Roles()->attach($user->Roles()->pluck('id')->toArray());
+                $user->Permissions()->attach($user->Permissions()->pluck('id')->toArray());
+                $user->tokens()->restore();
+            }
+        });
+        static::deleted(function($user){
+            if($user->photo){
+                Storage::delete($user->photo);
+            }
+        });
     }
 }

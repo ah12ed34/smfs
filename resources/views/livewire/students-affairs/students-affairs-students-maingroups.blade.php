@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\students-affairs.students-affairs-students-maingroups-header')
+@livewire('components.nav.students-affairs.students-affairs-students-maingroups-header')
 @endsection
 <div>
     {{-- Success is as dangerous as failure. --}}

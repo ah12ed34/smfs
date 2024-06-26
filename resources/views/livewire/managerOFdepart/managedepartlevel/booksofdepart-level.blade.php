@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\managerOFdepart.managedepartlevel.booksofdepart-level-header')
+@livewire('components.nav.managerOFdepart.managedepartlevel.booksofdepart-level-header')
 @endsection
 <div>
     {{-- Success is as dangerous as failure. --}}

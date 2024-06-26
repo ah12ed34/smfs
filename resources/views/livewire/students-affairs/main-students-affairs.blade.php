@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\students-affairs.main-students-affairs-header')
+@livewire('components.nav.students-affairs.main-students-affairs-header')
 @endsection
 <div>
     {{-- Stop trying to control. --}}

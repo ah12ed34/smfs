@@ -1,6 +1,6 @@
 
 @section('nav')
-@livewire('components\nav\students-affairs.depatments-students-affairs-header')
+@livewire('components.nav.students-affairs.depatments-students-affairs-header')
 @endsection
 <div>
     {{-- Because she competes with no one, no one can compete with her. --}}

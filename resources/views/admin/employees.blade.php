@@ -12,7 +12,7 @@
         </div>
     </div>
 
-<div class="card  cards-departments" id="" onclick="window.location='{{ route('employee_information') }}'">
+<div class="card  cards-departments" id="" onclick="window.location='{{ route('employees_information',['StudentAffairs']) }}'">
     <img src="{{ Vite::image('studentsAffairs.png')}}" class="" width="150px">
     <div class="card-departments-child">  موظفين شؤون الطلاب
     </div>

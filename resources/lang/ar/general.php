@@ -196,5 +196,13 @@ return[
     'no_assignments' => 'لا توجد واجبات',
     'no_assignments_found' => 'لم يتم العثور على واجبات',
     'not_delivered' => 'لم يتم التسليم',
+    'delivered' => 'تم التسليم',
+    'gender' => 'جندر',
+    'male' => 'ذكر',
+    'female' => 'أنثى',
+    'scientific_degree' => 'الدرجة العلمية',
+    'degree' => 'الدرجة',
+    'level' => 'المستوى',
+    'department' => 'القسم',
 
 ];
