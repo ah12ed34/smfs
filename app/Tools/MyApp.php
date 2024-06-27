@@ -135,5 +135,38 @@
         return $gender;
     }
 
+    // النظام الدراسي موزي او عام
+    public static function getSystem($name)
+    {
+        return match($name)
+        {
+            'general' => __('general.general'),
+            'parallel' => __('general.parallel'),
+            default => __('general.unknown'),
+        };
+    }
+
+    /***
+     * @param null $name
+     * @param null $only {key or value} if key return key else return value default all
+     * @return array
+     */
+    public static function getSystems($name = null,$only = null)
+    {
+        $systems = [];
+
+        if('general' != $name)
+            $systems['general'] = __('general.general');
+        if('parallel' != $name)
+            $systems['parallel'] = __('general.parallel');
+
+        if('key' == strtolower($only ?? ''))
+            return array_keys($systems);
+        elseif('value' == strtolower($only ?? ''))
+            return array_values($systems);
+
+        return $systems;
+    }
+
 
 }

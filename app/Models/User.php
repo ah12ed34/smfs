@@ -100,10 +100,10 @@ class User extends Authenticatable
     }
 
     public function student(){
-        if($this->isStudent()){
+        // if($this->isStudent()){
             return $this->hasOne(Student::class,'user_id','id');
-        }
-        return null;
+        // }
+        // return null;
     }
 
     public function academic(){

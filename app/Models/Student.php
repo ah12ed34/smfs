@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Tools\MyApp;
+use App\Tools\ToolsApp;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +18,7 @@ class Student extends Model
         'department_id',
         'level_id',
         'is_active',
+        'system',
         'is_graduated',
         'is_suspended',
     ];
@@ -121,6 +124,10 @@ class Student extends Model
     public function group_students() {
         return $this->hasOne
         (GroupStudents::class, 'student_id', 'user_id');
+    }
+
+    public function system(){
+        return MyApp::getSystem($this->system);
     }
 
 }

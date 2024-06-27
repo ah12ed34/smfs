@@ -343,6 +343,7 @@ class ManagersInformation extends Component
         }
     }
 
+
     public function resetManager()
     {
         $this->reset([
@@ -350,7 +351,11 @@ class ManagersInformation extends Component
             'role_id', 'academic_name', 'department_id', 'Eid', 'ManagerData' ,'username'
         ]);
     }
-
+    #[On('addUser')]
+    public function addUser(){
+        $this->resetManager();
+        $this->resetErrorBag();
+    }
 
 
     // public function getManagersProperty()

@@ -18,7 +18,8 @@
 
         <button type="submit" class="btn btn-primary btn-sm btn_uploade_file_information_Users " id="" data-toggle="modal" data-target="#UploadeFileModal"> رفع ملف<img src="{{ Vite::image('plus.png')}}"  width="20px" style="float: left; margin-left:0px;" ></button>
 
-        <button type="submit" class="btn btn-primary btn-sm  btn_addEmployee_user" id="" data-toggle="modal" data-target="#AddEmployeerModal"> اضافة <img src="{{ Vite::image('plus.png')}}"  width="20px" style="float: left;"></button>
+        <button type="submit" class="btn btn-primary btn-sm  btn_addEmployee_user" id="" data-toggle="modal" data-target="#AddEmployeerModal" wire:click="addUser()"
+        > اضافة <img src="{{ Vite::image('plus.png')}}"  width="20px" style="float: left;"></button>
 
 
     </div>

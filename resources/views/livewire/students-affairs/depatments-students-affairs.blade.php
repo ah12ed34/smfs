@@ -10,13 +10,26 @@
         <!-- <a href="board.html"> -->
         <!-- <div class="container"> -->
 
-        <div class="card  cards-departments" id="" onclick="location.href='{{route('depart_levels_studentsAffairs')}}'">
+            @forelse ($departments as $department)
+                <div class="card  cards-departments" id="" onclick="location.href='{{route('depart_levels_studentsAffairs', [$department->id]
+                )}}'">
+                    <img src="{{Vite::image("it.png")}}" class="" width="150px">
+                    <div class="card-departments-child"> {{$department->name}}
+                    </div>
+                </div>
+
+            @empty
+                <div class="alert alert-danger" role="alert">
+                    لا يوجد أقسام
+                </div>
+            @endforelse
+        {{-- <div class="card  cards-departments" id="" onclick="location.href='{{route('depart_levels_studentsAffairs')}}'">
             <img src="{{Vite::image("it.png")}}" class="" width="150px">
             <div class="card-departments-child"> تقنية المعلومات
             </div>
-        </div>
+        </div> --}}
 
-        <div class="card  cards-departments" id="" onclick="location.href='{{route('depart_levels_studentsAffairs')}}'">
+        {{-- <div class="card  cards-departments" id="" onclick="location.href='{{route('depart_levels_studentsAffairs')}}'">
             <img src="{{Vite::image("information-management (1).png")}}" class="" width="150px" >
             <div class="card-departments-child">نظم المعلومات
             </div>
@@ -32,7 +45,7 @@
             <img src="{{Vite::image("security (3).png")}}" class="" width="150px">
             <div class="card-departments-child"> الأمن السيبراني
             </div>
-        </div>
+        </div> --}}
 
 
     </div>

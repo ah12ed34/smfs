@@ -13,6 +13,10 @@ class EmployeesInformationHeader extends Component
     {
         $this->dispatch('search', $this->search);
     }
+
+    public function addUser(){
+        $this->dispatch('addUser');
+    }
     public function render()
     {
         return view('livewire.components.nav.admin.employees-information-header');

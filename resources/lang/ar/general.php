@@ -204,5 +204,7 @@ return[
     'degree' => 'الدرجة',
     'level' => 'المستوى',
     'department' => 'القسم',
+    'general' => 'عام',
+    'parallel' => 'موازي',
 
 ];

@@ -30,7 +30,6 @@ class RolesSeeder extends Seeder
             ['name'=> 'Control', 'description'=> 'كنترول'],
             ['name'=> 'SechadulesManagement', 'description'=> 'ادارة الجداول'],
             ['name'=> 'SuperAdmin', 'description'=> 'مدير عام'],
-            ['name'=> 'Admin', 'description'=> 'مدير النظام'],
             ['name'=> 'Teacher', 'description'=> 'مدرس'],
             ['name'=> 'Dean', 'description'=> 'عميد'],
             ['name'=> 'ViceDeanForStudentAffairs', 'description'=> 'نائب عميد للشؤون الطلاب'],
@@ -38,6 +37,8 @@ class RolesSeeder extends Seeder
             ['name'=> 'ViceDeanForQualityAffairs','description'=> 'نائب عميد للشؤون الجودة'],
             // ['name'=> 'ViceDean', 'description'=> 'نائب عميد'],
             ['name'=> 'HeadOfDepartment', 'description'=> 'رئيس قسم'],
+            ['name'=> 'Admin', 'description'=> 'مدير النظام'],
+
         ];
         foreach ($roles as $role) {
             \App\Models\Role::create($role);

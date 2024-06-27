@@ -36,13 +36,13 @@ class EmployeesInformation extends Component
 
 
 
-    public function mount($name)
+    public function mount($roleName)
     {
         $allowedNames = ['StudentAffairs', 'QualityManagement','EmployeeAffairs','Control','SechadulesManagement'];
-        if (!in_array($name, $allowedNames)) {
+        if (!in_array($roleName, $allowedNames)) {
             abort(404);
         }
-        $this->role = Role::where('name', $name)->firstOrFail();
+        $this->role = Role::where('name', $roleName)->firstOrFail();
         $this->roles = Role::whereIn('name', $allowedNames)->get();
         $this->rolesAll = Role::all();
 
@@ -210,7 +210,7 @@ class EmployeesInformation extends Component
                 'phone' => $this->phone??null,
                 'gender' => $this->gender,
                 'photo' => $avatar,
-                'birthday' => $this->date??null,
+                'birthday' => $this->birthday??null,
                 'academic_name' => $this->academic_name,
                 'department_id' => null,
             ];
@@ -223,6 +223,13 @@ class EmployeesInformation extends Component
             $this->dispatch('closeAddModal');
 
 
+    }
+
+    #[On('addUser')]
+    public function addUser()
+    {
+        $this->resetErrorBag();
+        $this->reset(['name', 'email', 'phone','gender', 'birthday', 'photo', 'username', 'password', 'role_id', 'academic_name', 'Eid','password_confirmation']);
     }
 
 

@@ -122,7 +122,7 @@ use GuzzleHttp\Middleware;
     Route::group(['prefix'=>'managers_information','middleware'=>'auth'
 ], function(){
     route::get('/', '\\'. App\Livewire\Admin\ManagersInformation::class)->name('managers_information');
-    route::get('/{name}/employees_information','\\'.App\Livewire\Admin\EmployeesInformation::class)->name('employees_information');
+    route::get('/{roleName}/employees_information','\\'.App\Livewire\Admin\EmployeesInformation::class)->name('employees_information');
     route::get('employee_information', '\\'.App\Livewire\Admin\EmployeesInformation::class)->name('employee_information');
     route::get('sendNotifications_students','\\'.App\Livewire\Admin\SendNotificationsstidents::class)->name('sendNotifications_students');
     route::get('sendNotifications_academics','\\'.App\Livewire\Admin\SendNotificttionsacademic::class)->name('sendNotifications_academics');
@@ -356,9 +356,9 @@ use GuzzleHttp\Middleware;
     Route::group(['prefix'=>'StudentSaffairs','middleware' => 'auth'
     ], function () {
         route::get('/', '\\'.App\Livewire\StudentsAffairs\DepatmentsStudentsAffairs::class)->name('StudentSaffairs');
-        route::get('depart_levels_studentsAffairs','\\'.App\Livewire\StudentsAffairs\DepartLevelsStudentsAffairs::class)->name('depart_levels_studentsAffairs');
-        route::get('main_studentsAffairs','\\'.App\Livewire\StudentsAffairs\MainStudentsAffairs::class)->name('main_studentsAffairs');
-        route::get('studentsAffairs_main_studentsInformation','\\'.App\Livewire\StudentsAffairs\StudentsAffairsMainStudentsInformation::class)->name('studentsAffairs_main_studentsInformation');
+        route::get('{DId}/depart_levels_studentsAffairs','\\'.App\Livewire\StudentsAffairs\DepartLevelsStudentsAffairs::class)->name('depart_levels_studentsAffairs');
+        route::get('{LId}/main_studentsAffairs','\\'.App\Livewire\StudentsAffairs\MainStudentsAffairs::class)->name('main_studentsAffairs');
+        route::get('{LId}/studentsAffairs_main_studentsInformation','\\'.App\Livewire\StudentsAffairs\StudentsAffairsMainStudentsInformation::class)->name('studentsAffairs_main_studentsInformation');
         route::get('studentsAffairs_main_studentsGroups','\\'.App\Livewire\StudentsAffairs\StudentsAffairsStudentsMaingroups::class)->name('studentsAffairs_main_studentsGroups');
         route::get('studentsAffairs_practicalGroups','\\'.App\Livewire\StudentsAffairs\StudentsAffairsStudentPracticalgroups::class)->name('studentsAffairs_practicalGroups');
         route::get('studentsInformation_InGroup','\\'.App\Livewire\StudentsAffairs\StudentsInformationInGroups::class)->name('studentsInformation_InGroup');

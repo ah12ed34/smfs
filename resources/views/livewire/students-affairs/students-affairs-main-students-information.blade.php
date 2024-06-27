@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.students-affairs.students-affairs-main-students-information-header')
+@livewire('components.nav.students-affairs.students-affairs-main-students-information-header', ['level' => $level])
 @endsection
 <div>
     {{-- In work, do what you enjoy. --}}
@@ -23,7 +23,42 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                        @forelse ($students as $student)
+                        <tr class="table-light" id="modldetials">
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeStudentModal" wire:click='editStudent({{$student->id}})'
+                                >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsStudentsModal" wire:click="showStudent({{$student->id}})"
+                                >التفاصيل</button> </td>
+                            <td>{{$student->phone}}</td>
+                            <td>{{$student->email}}</td>
+                            <td>{{$student->status}}</td>
+                            <td>{{$student->student->system()}}</td>
+                            <td>{{$student->gender_ar()}}</td>
+                            <td>{{$student->name}}</td>
+                            <td>{{$student->id}}</td>
+                        </tr>
+
+                        @empty
+
+                        <tr class="table-light" id="modldetials">
+                            <td>لا يوجد طلاب</td>
+                        </tr>
+
+                        @endforelse
+                        {{-- <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeStudentModal">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsStudentsModal">التفاصيل</button> </td>
+                            <td>*******</td>
+                            <td>*******</td>
+                            <td>*******</td>
+                            <td>*******</td>
+                            <td>*******</td>
+                            <td>*******</td>
+                            <td>*******</td>
+                        </tr> --}}
+                        {{-- <tr class="table-light" id="modldetials" style="margin-top:7px;">
                             <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button> </td>
                             <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeStudentModal">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
                             <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsStudentsModal">التفاصيل</button> </td>
@@ -46,23 +81,13 @@
                             <td>*******</td>
                             <td>*******</td>
                             <td>*******</td>
-                        </tr>
-                        <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                            <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button> </td>
-                            <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeStudentModal">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
-                            <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsStudentsModal">التفاصيل</button> </td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                        </tr>
+                        </tr> --}}
 
                     </tbody>
                 </table>
             </div>
+            <nav >
+                {{ $students->links(myapp::viewPagination) }}
         </div>
 
 
@@ -279,7 +304,7 @@
 </div>
 
 <!-- The ModalDetailsStudents -->
-<div class="modal fade" id="DetailsStudentsModal">
+<div class="modal fade" id="DetailsStudentsModal" wire:ignore.self>
     <div class="modal-dialog">
         <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:800px;">
 
@@ -291,7 +316,7 @@
 
             <!-- Modal body -->
             <div class="modal-body ModaldDetailsAcademic">
-                <form action="/action_page.php" style="display: block;">
+                @if ($studentData&&$studentData->show)
                     <div class="form-group">
 
                         <img src="{{Vite::image("profile.png")}}"  width="" class="user_profile_modal" >
@@ -300,27 +325,27 @@
                             <table class="table details-academic " style="width:100%;" dir="rtl">
                                         <tr class="table-light" id="modldetials">
                                             <th style=" width:25%; "> الرقم الأكاديمي</th>
-                                            <td>**********</td>
+                                            <td>{{$studentData->id}}</td>
                                         </tr>
                                         <tr class="table-light " id="modldetials">
                                             <th style=" width:25%; "> اسم الطالب</th>
-                                            <td>**********</td>
+                                            <td>{{$studentData->name}}</td>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
                                             <th style="width: 25%;"> تاريخ الميلاد</th>
-                                            <td>**********</td>
+                                            <td>{{ $studentData->brithday }}</td>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
                                             <th style="width: 25%;" > نوع الجندر</th>
-                                            <td>**********</td>
+                                            <td>{{$studentData->gender_ar()}}</td>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
                                             <th style="width: 25%;"> القسم</th>
-                                            <td>**********</td>
+                                            <td>{{$studentData->student->department->name}}</td>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
                                             <th style="width: 25%;"> النظام</th>
-                                            <td>**********</td>
+                                            <td>{{ $studentData->student->system() }}</td>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
                                             <th style="width: 25%;"> الحالة</th>
@@ -332,20 +357,20 @@
                                         </tr>
                                         <tr class="table-light" id="modldetials">
                                             <th style="width: 25%;"> الإيمل الجامعي </th>
-                                            <td>**********</td>
+                                            <td>{{ $studentData->email }}</td>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
                                             <th style="width: 25%;">التلفون </th>
-                                            <td>**********</td>
+                                            <td>{{ $studentData->phone }}</td>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <th style="width: 25%;">كلمة المرور  </th>
-                                            <td>**********</td>
+                                            <th style="width: 25%;">اسم المستخدم</th>
+                                            <td>{{ $studentData->username }}</td>
                                         </tr>
                             </table>
                         </div>
                     </div>
-                </form>
+                @endif
             </div>
 
             <!-- Modal footer -->
