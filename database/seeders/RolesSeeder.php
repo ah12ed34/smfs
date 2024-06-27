@@ -12,31 +12,32 @@ class RolesSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        ////             'StudentAffairs'=>"شؤون الطلاب",
+            // 'EmployeeAffairs'=>"شؤون الموظفين",
+            // 'Control'=>"كنترول",
+            // 'QualityManagement'=>"إدارة الجودة",
+            // 'SechadulesManagement'=>"إدارة الجداول",
+            // 'DepartmentsManagement'=>"إدارة الأقسام",
+            // 'ViceDean'=>"وكيل الكلية",
+            // 'Dean'=>"عميد الكلية",
+            // 'Admin'=>"مدير النظام",
+            // 'SuperAdmin'=>"مدير عام",
+            // 'Teacher'=>"مدرس",
         $roles = [
-            // ['name'=> 'admin', 'description'=> 'admin'],
             ['name'=> 'QualityManagement', 'description'=> 'ادارة الجودة'],
             ['name'=> 'StudentAffairs', 'description'=> 'شؤون الطلاب'],
-            ['name'=> 'AcademicAffairs', 'description'=> 'شؤون اكاديمية'],
-            ['name'=> 'FinancialAffairs', 'description'=> 'شؤون مالية'],
-            ['name'=> 'Library', 'description'=> 'مكتبة'],
-            ['name'=> 'HR', 'description'=> 'موارد بشرية'],
-            ['name'=> 'IT', 'description'=> 'تقنية المعلومات'],
-            ['name'=> 'Registrar', 'description'=> 'سجلات'],
-            ['name'=> 'Admission', 'description'=> 'قبول'],
-            ['name'=> 'Exams', 'description'=> 'امتحانات'],
-            ['name'=> 'PublicRelations', 'description'=> 'علاقات عامة'],
-            ['name'=> 'LegalAffairs', 'description'=> 'شؤون قانونية'],
-            ['name'=> 'CommunityService', 'description'=> 'خدمة المجتمع'],
+            ['name'=> 'EmployeeAffairs', 'description'=> 'شؤون الموظفين'],
+            ['name'=> 'Control', 'description'=> 'كنترول'],
+            ['name'=> 'SechadulesManagement', 'description'=> 'ادارة الجداول'],
+            ['name'=> 'SuperAdmin', 'description'=> 'مدير عام'],
+            ['name'=> 'Admin', 'description'=> 'مدير النظام'],
+            ['name'=> 'Teacher', 'description'=> 'مدرس'],
             ['name'=> 'Dean', 'description'=> 'عميد'],
-            ['name'=> 'ViceDean', 'description'=> 'نائب عميد'],
+            ['name'=> 'ViceDeanForStudentAffairs', 'description'=> 'نائب عميد للشؤون الطلاب'],
+            ['name'=> 'ViceDeanForAcademics', 'description'=> 'نائب العميد للشؤون الاكاديمية'],
+            ['name'=> 'ViceDeanForQualityAffairs','description'=> 'نائب عميد للشؤون الجودة'],
+            // ['name'=> 'ViceDean', 'description'=> 'نائب عميد'],
             ['name'=> 'HeadOfDepartment', 'description'=> 'رئيس قسم'],
-
-
-            // ['name'=> 'Instructor', 'description'=> 'محاضر'],
-            // ['name'=> 'Student', 'description'=> 'طالب'],
-            // ['name'=> 'Parent', 'description'=> 'ولي امر'],
-            // ['name'=> 'Guest', 'description'=> 'زائر'],
         ];
         foreach ($roles as $role) {
             \App\Models\Role::create($role);

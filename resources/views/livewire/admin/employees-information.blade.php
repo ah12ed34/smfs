@@ -308,7 +308,7 @@
 
                     <select class="form-control selectOption" id="sel1" wire:model='role_id' style="height: 30px; margin-top:8px">
                         <option>الصلاحية</option>
-                        @foreach ($roles as $role)
+                        @foreach ($rolesAll as $role)
                         <option value="{{ $role->id }}">{{ $role->description }}</option>
                         @endforeach
                     </select>

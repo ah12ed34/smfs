@@ -107,10 +107,7 @@ class User extends Authenticatable
     }
 
     public function academic(){
-        if($this->isAcademic()){
             return $this->hasOne(Academic::class,'user_id','id');
-        }
-        return null;
     }
 
     public function gender_ar(){

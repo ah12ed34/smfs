@@ -18,19 +18,19 @@
     </div>
 </div>
 
-<div class="card  cards-departments" id="" onclick="window.location='{{ route('employee_information') }}'">
+<div class="card  cards-departments" id="" onclick="window.location='{{ route('employees_information',['Control']) }}'" >
     <img src="{{ Vite::image('controll.png')}}" class="" width="150px">
     <div class="card-departments-child"> موظفين الكنترول
     </div>
 </div>
 
-<div class="card  cards-departments" id="" onclick="window.location='{{ route('employee_information') }}'">
+<div class="card  cards-departments" id="" onclick="window.location='{{ route('employees_information',['SechadulesManagement']) }}'">
     <img src="{{ Vite::image('empoloyee_scheduls.png')}}" class="" width="150px">
     <div class="card-departments-child">   موظفين الجداول
     </div>
 </div>
 
-<div class="card  cards-departments" id="" onclick="window.location='{{ route('employee_information') }}'">
+<div class="card  cards-departments" id="" onclick="window.location='{{ route('employees_information',['QualityManagement']) }}'">
     <img src="{{ Vite::image('quality.png')}}" class="" width="150px">
     <div class="card-departments-child"> موظفين الجودة
     </div>

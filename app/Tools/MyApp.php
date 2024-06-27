@@ -80,8 +80,12 @@
             default => __('general.unknown'),
         };
     }
-
-    public static function getAcademicNameAllOut($name)
+    /***
+     * @param null $name
+     * @param null $only {key or value} if key return key else return value default all
+     * @return array
+     */
+    public static function getAcademicNameAllOut($name = null,$only = null)
     {
         $academic = [];
 
@@ -93,6 +97,12 @@
             $academic['doctor'] = __('general.doctor');
         if('associate_professor' != $name)
             $academic['associate_professor'] = __('general.associate_professor');
+
+        if('key' == strtolower($only ?? ''))
+            return array_keys($academic);
+        elseif('value' == strtolower($only ?? ''))
+            return array_values($academic);
+
         return $academic;
     }
 
@@ -105,8 +115,12 @@
             default => __('general.unknown'),
         };
     }
-
-    public static function getGenderAllOut($name)
+    /***
+     * @param null $name
+     * @param null $only {key or value} if key return key else return value default all
+     * @return array
+     */
+    public static function getGenderAllOut($name = null,$only = null)
     {
         $gender = [];
 
@@ -114,6 +128,10 @@
             $gender['male'] = __('general.male');
         if('female' != $name)
             $gender['female'] = __('general.female');
+        if('key' == strtolower($only ?? ''))
+            return array_keys($gender);
+        elseif('value' == strtolower($only ?? ''))
+            return array_values($gender);
         return $gender;
     }
 

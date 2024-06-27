@@ -17,6 +17,7 @@ class EmployeesInformation extends Component
     public $perPage = 10;
     public $employeeData;
 
+    public $rolesAll;
     //employee edit
     public $Eid;
     public $name;
@@ -34,14 +35,16 @@ class EmployeesInformation extends Component
 
 
 
+
     public function mount($name)
     {
-        $allowedNames = ['StudentAffairs', 'AcademicAffairs'];
+        $allowedNames = ['StudentAffairs', 'QualityManagement','EmployeeAffairs','Control','SechadulesManagement'];
         if (!in_array($name, $allowedNames)) {
             abort(404);
         }
         $this->role = Role::where('name', $name)->firstOrFail();
         $this->roles = Role::whereIn('name', $allowedNames)->get();
+        $this->rolesAll = Role::all();
 
 
     }
@@ -100,7 +103,7 @@ class EmployeesInformation extends Component
             'birthday' => 'required|date',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'username' => 'required|string|max:255|unique:users,username,' . $this->Eid,
-            'role_id' => 'nullable|in:' . implode(',', $this->roles->pluck('id')->toArray()),
+            'role_id' => 'nullable|exists:roles,id',
             'academic_name' => 'required|string|in:' . implode(',', array_keys(MyApp::getAcademicNameAllOut('all'))),
             'password' => 'nullable|string|min:6|confirmed',
         ], [], [
@@ -256,7 +259,6 @@ class EmployeesInformation extends Component
     }
     public function render()
     {
-        // dd($this->employees);
         return view('livewire.admin.employees-information', [
             'employees' => $this->employees
         ]);

@@ -39,4 +39,16 @@ class ToolsApp{
             return response()->json(['message' => 'File not found'], 404);
         }
     }
+
+    static function  flattenArray(array $array) {
+        $result = [];
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                $result = array_merge($result, self::flattenArray($value));
+            } else {
+                $result[$key] = $value;
+            }
+        }
+        return $result;
+    }
 }
