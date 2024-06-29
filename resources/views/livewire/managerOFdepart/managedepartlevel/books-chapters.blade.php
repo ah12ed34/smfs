@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\managerOFdepart.managedepartlevel.booksChapters-header')
+@livewire('components.nav.managerOFdepart.managedepartlevel.booksChapters-header')
 @endsection
 <div>
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}

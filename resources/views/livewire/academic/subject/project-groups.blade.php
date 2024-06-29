@@ -2,7 +2,7 @@
     @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject])
 @endsection
 {{-- @section('nav')
-@livewire('components\nav\academic.subject.project-groups-header')
+@livewire('components.nav.academic.subject.project-groups-header')
 @endsection --}}
 <div>
 
@@ -288,7 +288,7 @@
             <div class="modal-body" style="overflow: auto;">
                     <div class="form-group">
                         <!-- <label for="usr">Name:</label> -->
-                        <div><input type="text" class="form-control" id="inputtext" wire:model='name' placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;"></div>
+                        <div><input type="text" class="form-control" id="inputtext" wire:model.lazy='name' placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;"></div>
                         {{-- <div> <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder=" وصف المشروع" style=" margin-top:8px"></textarea></div> --}}
                         <!-- <input type="text" class="form-control" id="inputtext" name="username" placeholder=" الحد الأقصى للطلاب" style="height: 30px; margin-top:8px"> -->
                         <!-- <input type="text" class="form-control" id="inputtext" name="username" placeholder="الحد الأدنى للطلاب" style="height: 30px; margin-top:8px"> -->
@@ -302,6 +302,9 @@
                                 <button type="submit" class="btn btn-primary"
                                 wire:click='selected({{ $projectDetails->id ?? 0 }},true)'
                                 id="btn-add-stu" data-toggle="modal" data-target="#MoadalAddStudentsToProject"style="height: 30px; margin-top:0px;width:100%;"
+
+                                {{-- onclick="window.location.href=
+                                '{{ route('project.add-student',$parameters + ['pg_id' => $projectDetails->id??1]+$query) }}'" --}}
                                 >إضافة طالب</button>
                             </div>
                             </div>
@@ -324,10 +327,10 @@
 
                                     @forelse ($users as $user)
                                         <tr class="table-light" id="modldetials"  style="margin-top:7px;" >
-                                        <td><button class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;" >  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button></td>
+                                        <td><button class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;" >  <img src="{{Vite::image("delete (1).png")}}" id="{{ $user['id'] }}"  width="15px" ></button></td>
                                         </td>
                                         <td>{{ $user['name'] }}</td>
-                                        <td><input type="radio" id="boss" wire:model='boss' value="{{ $user['id'] }}"  ></td>
+                                        <td><input type="radio" id="boss{{ $user['id'] }}" wire:model='boss' value="{{ $user['id'] }}"  ></td>
 
                                         </tr>
                                     @empty
@@ -357,15 +360,9 @@
 
 <!-- The ModalAddStudentsToProject -->
 @if($add_student == true&&$projectDetails??false)
-    {{-- chane url qurey --}}
-    <script>
-        window.history.pushState({}, '', '{{ route('project', $parameters +array_merge(request()->query(),['group_id' => $projectDetails->id,'add_student' => true])) }}');
-        // open modal MoadalAddStudentsToProject
-        // $('#MoadalAddStudentsToProject').modal('show');
-        // console.log('open modal MoadalAddStudentsToProject');
-        console.log('open modal MoadalAddStudentsToProject');
-    </script>
-    <livewire:components.academic.add-students :project_group="$projectDetails" key="add-students-{{ $projectDetails->id }}"  />
+    <livewire:components.academic.add-students
+    {{-- :project_group="$projectDetails" --}}
+     key="add-students-{{ $projectDetails->id }}"  />
 @endif
 
 
@@ -505,10 +502,24 @@
 @section('script')
     <script>
         window.addEventListener('closeModal', event => {
-            $('#myModalEdite').modal('hide');
-            $('#myModdelete').modal('hide');
-            $('#myModaldetails').modal('hide');
-            $('#CheckProject').modal('hide');
+            // console.log(event.detail[0].detail);
+            // console.log('closeModal');
+            // event.detail[0].detail not null or not exist
+            if (event.detail && event.detail[0] && event.detail[0].detail
+            &&event.detail[0].detail == 'add-students') {
+                $('#MoadalAddStudentsToProject').modal('hide');
+                // refresh the page livewire wire:
+                window.location.reload();
+            }else{
+                $('#myModalEdite').modal('hide');
+                $('#myModdelete').modal('hide');
+                $('#myModaldetails').modal('hide');
+                $('#CheckProject').modal('hide');
+            }
+        });
+
+        window.addEventListener('openModal', event => {
+            $('#MoadalAddStudentsToProject').modal('show');
         });
     </script>
     <script>

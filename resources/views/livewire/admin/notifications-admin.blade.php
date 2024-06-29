@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\admin.admin-nv-header')
+@livewire('components.nav.admin.admin-nv-header')
 @endsection
 <div>
     {{-- Be like water. --}}
@@ -22,6 +22,6 @@
             <div class="card-departments-child"  style="background-color:white; color:#34959C">  إشعارات رؤساء الأقسام
             </div>
         </div>
-        
+
         </div>
 </div>

@@ -40,4 +40,14 @@ class GroupProject extends Model
 
     }
 
+    public function is_student_exist(){
+        $studentIds = $this->students->pluck('student_id')->toArray();
+        $exists = $this->project->groupSubject->group->students()
+        ->whereIn('id', $studentIds)
+        ->where('student_id', $this->student_id)
+        ->exists();
+
+    return $exists;
+    }
+
 }

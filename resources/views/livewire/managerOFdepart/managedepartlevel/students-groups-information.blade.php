@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\managerOFdepart.managedepartlevel.students-groups-information-header')
+@livewire('components.nav.managerOFdepart.managedepartlevel.students-groups-information-header')
 @endsection
 <div>
     {{-- The whole world belongs to you. --}}

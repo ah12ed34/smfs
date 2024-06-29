@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\managerOFdepart.managedepartlevel.final-reasults-students-header')
+@livewire('components.nav.managerOFdepart.managedepartlevel.final-reasults-students-header')
 @endsection
 <div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}

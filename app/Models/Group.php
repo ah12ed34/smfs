@@ -16,6 +16,8 @@ class Group extends Model
         'schedule',
         'level_id',
         'group_id',
+        'gender',
+        'system'
     ];
 
     public function subjects()
@@ -26,7 +28,8 @@ class Group extends Model
 
     public function students()
     {
-        return $this->belongsToMany(Student::class, 'group_students', 'group_id', 'student_id');
+        return $this->belongsToMany(Student::class, 'group_students', 'group_id', 'student_id')
+            ->withPivot('id');
     }
 
     public function level()
@@ -230,15 +233,8 @@ class Group extends Model
         });
         static::deleted(function ($group) {
             if ($group->schedule) {
-                unlink($group->schedule);
+                unlink(asset('storage/' . $group->schedule));
             }
-        });
-        static::creating(function ($group) {
-            // $group->id = uniqid();
-        });
-        static::created(function ($group) {
-
-            $group->save();
         });
     }
 

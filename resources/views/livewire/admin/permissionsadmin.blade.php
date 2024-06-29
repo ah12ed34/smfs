@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\admin.department', ['active' => 'department'])
+@livewire('components.nav.admin.department', ['active' => 'department'])
 @endsection
 <div>
     {{-- Care about people's approval and you will be their prisoner. --}}

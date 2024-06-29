@@ -43,8 +43,8 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now(),
             ]);
             $role_id = DB::table('roles')->insertGetId([
-                'name' => 'admin',
-                'description' => 'admin',
+                'name'=> 'Admin',
+                'description'=> 'مدير النظام',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

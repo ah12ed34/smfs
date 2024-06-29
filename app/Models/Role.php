@@ -14,13 +14,13 @@ class Role extends Model
         'name',
         'description',
     ];
-    
+
     protected string $has_role = 'has_role';
     protected string $has_permission = 'has_permission';
     protected string $permission_id = 'permission_id';
     protected string $role_id = 'role_id';
     protected string $user_id = 'user_id';
-    
+
 
 
     public function Permissions(){
@@ -28,7 +28,7 @@ class Role extends Model
     }
 
     public function Users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,'has_role','role_id','user_id');
     }
 
     public function addPermission($permission){

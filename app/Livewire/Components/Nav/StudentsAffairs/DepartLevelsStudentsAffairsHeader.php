@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class DepartLevelsStudentsAffairsHeader extends Component
 {
+    public $department;
     public function render()
     {
         return view('livewire.components.nav.students-affairs.depart-levels-students-affairs-header');

@@ -30,7 +30,7 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
             </li>
         @else
             <li class="page-item">
-                <button type="button" class="page-link" wire:click="previousPage" rel="prev" aria-label="@lang('pagination.previous')">
+                <button type="button" class="page-link" wire:click="previousPage('{{ $paginator->getPageName() }}')" rel="prev" aria-label="@lang('pagination.previous')">
                     <span class="d-none d-md-block">&lsaquo;</span>
                     <span class="d-block d-md-none">@lang('pagination.previous')</span>
                 </button>
@@ -50,7 +50,7 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
                     @if ($page == $paginator->currentPage())
                         <li class="page-item active d-none d-md-block" aria-current="page"><span class="page-link">{{ $page }}</span></li>
                     @else
-                        <li class="page-item d-none d-md-block"><button type="button" class="page-link" wire:click="gotoPage({{ $page }})">{{ $page }}</button></li>
+                        <li class="page-item d-none d-md-block"><button type="button" class="page-link" wire:click="gotoPage({{ $page }},'{{ $paginator->getPageName() }}')">{{ $page }}</button></li>
                     @endif
                 @endforeach
             @endif
@@ -59,7 +59,7 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
             <li class="page-item">
-                <button type="button" class="page-link" wire:click="nextPage" rel="next" aria-label="@lang('pagination.next')">
+                <button type="button" class="page-link" wire:click="nextPage('{{ $paginator->getPageName() }}')" rel="next" aria-label="@lang('pagination.next')">
                     <span class="d-block d-md-none">@lang('pagination.next')</span>
                     <span class="d-none d-md-block">&rsaquo;</span>
                 </button>

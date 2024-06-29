@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components\nav\quality.depart-levels-quality')
+@livewire('components.nav.quality.depart-levels-quality')
 @endsection
 
 

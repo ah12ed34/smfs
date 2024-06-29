@@ -15,16 +15,15 @@ class ToolsApp{
         $paginatedItems->setPath(LengthAwarePaginator::resolveCurrentPath());
         return $paginatedItems;
     }
-    public static function convertToPaginationAll($collection, $perPage = 10,$pageName = 'page', $currentPage = 1){
-        $currentPage = LengthAwarePaginator::resolveCurrentPage($pageName);
-        $total = $collection->count();
-        $items = $collection->slice(($currentPage - 1) * $perPage, $perPage)->values();
-        $pagination = new LengthAwarePaginator($items, $total, $perPage, $currentPage, [
-            'path' => LengthAwarePaginator::resolveCurrentPath(),
-            'pageName' => $pageName,
-        ]);
+    public static function convertToPaginationAll($collection, $perPage = 10,$pageName = 'page'){
 
-        return $pagination;
+        // $pageName = coustom page name
+        $currentPage = LengthAwarePaginator::resolveCurrentPage($pageName);
+        $currentPageItems = $collection->slice(($currentPage - 1) * $perPage, $perPage)->values();
+        $paginatedItems= new LengthAwarePaginator($currentPageItems, count($collection), $perPage,$currentPage);
+        $paginatedItems->setPageName($pageName);
+        $paginatedItems->setPath(LengthAwarePaginator::resolveCurrentPath());
+        return $paginatedItems;
     }
     // download file
     public static function downloadFile($id,$name,$type = 'file', $fileS = 'file'){
@@ -39,5 +38,17 @@ class ToolsApp{
         }else{
             return response()->json(['message' => 'File not found'], 404);
         }
+    }
+
+    static function  flattenArray(array $array) {
+        $result = [];
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                $result = array_merge($result, self::flattenArray($value));
+            } else {
+                $result[$key] = $value;
+            }
+        }
+        return $result;
     }
 }

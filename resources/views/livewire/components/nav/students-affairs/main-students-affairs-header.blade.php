@@ -18,10 +18,11 @@
                 </div>
             </div>
 
-    <div class="dep-name">تقنية معلومات</div>
+    <div class="dep-name">{{ $level->department->name }}</div>
     </div>
      <div class="hr3">
-        <button id="spacesbtn" class="spaces" onclick="location.href='{{route('depart_levels_studentsAffairs')}}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
+        <button id="spacesbtn" class="spaces" onclick="location.href='{{route('depart_levels_studentsAffairs', $level->department_id
+        )}}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
 
        {{-- " <div id="input-groupstudyingbooks" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Tools\MyApp;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -76,12 +77,6 @@ class Academic extends Model
         return $this->hasMany(Group::class);
     }
     public function getNameAttribute() {
-        return match($this->academic_name) {
-            'professor' => __('general.professor'),
-            'assistant_professor' => __('general.assistant_professor'),
-            'doctor' => __('general.doctor'),
-            'associate_professor' => __('general.associate_professor'),
-            default => __('general.unknown'),
-        };
+        return MyApp::getAcademicName($this->academic_name);
     }
 }
