@@ -9,10 +9,10 @@
 
     <div class="dep-name">تقنية معلومات</div>
     </div>
-     <div class="hr3">
+    <div class="hr3">
         <button id="spacesbtn" class="spaces" onclick="location.href='{{route('StudentSaffairs')}}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
 
-       {{-- " <div id="input-groupstudyingbooks" class="input-group mb-3">
+    {{-- " <div id="input-groupstudyingbooks" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">
             <div class="input-group-append">
                 <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>

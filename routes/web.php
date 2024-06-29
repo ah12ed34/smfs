@@ -312,8 +312,6 @@ use GuzzleHttp\Middleware;
             //     route::get("/",'ProfileController@index')->name("profile");
             // });
 
-
-
         });
 
 
