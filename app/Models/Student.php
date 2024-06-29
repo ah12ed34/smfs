@@ -19,6 +19,7 @@ class Student extends Model
         'level_id',
         'is_active',
         'system',
+        'join_date',
         'is_graduated',
         'is_suspended',
     ];
@@ -36,6 +37,7 @@ class Student extends Model
                 'username' => $request['username']??$request['id'],
                 'email' => $request['email']??null,
                 'password' => $request['password'],
+                'birthday' => $request['birthday'],
             ];
 
             $user = User::create($userData);
@@ -59,6 +61,10 @@ class Student extends Model
         } catch (\Exception $e) {
             // يمكنك أيضًا تسجيل الخطأ في السجل أو إعادة رميه إذا لزم الأمر
             // echo($e->getMessage());
+
+            if (isset($user)) {
+                $user->delete();
+            }
             throw $e;
             return false;
         }

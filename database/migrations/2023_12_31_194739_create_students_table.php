@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId("department_id")->constrained("departments");
             $table->foreignId("level_id")->constrained("levels");
             $table->boolean("is_active")->default(true);
+            $table->enum('system', ['general', 'parallel']);
+            $table->year('join_year')->nullable();
             $table->boolean("is_graduated")->default(false);
             $table->boolean("is_suspended")->default(false);
             $table->timestamps();

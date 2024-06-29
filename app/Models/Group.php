@@ -16,6 +16,8 @@ class Group extends Model
         'schedule',
         'level_id',
         'group_id',
+        'gender',
+        'system'
     ];
 
     public function subjects()

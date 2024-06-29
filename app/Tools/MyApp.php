@@ -17,6 +17,8 @@
                 .','.self::getMimes('image')
                 ;
                 break;
+                case 'schedule':
+                return self::getMimes('image');
         }
     }
 
@@ -112,6 +114,7 @@
         {
             'male' => __('general.male'),
             'female' => __('general.female'),
+            'all' => __('general.all'),
             default => __('general.unknown'),
         };
     }
@@ -142,6 +145,7 @@
         {
             'general' => __('general.general'),
             'parallel' => __('general.parallel'),
+            'all' => __('general.all'),
             default => __('general.unknown'),
         };
     }
@@ -166,6 +170,35 @@
             return array_values($systems);
 
         return $systems;
+    }
+
+    public static function getStudentGender($name)
+    {
+        return match($name)
+        {
+            'male' => 'طلاّب',
+            'female' => 'طالبات',
+            'all' => 'طلاب وطالبات',
+            default => 'غير معروف',
+        };
+    }
+
+    public static function getStudentGenders($name = null,$only = null)
+    {
+        $gender = [];
+
+        if('male' != $name)
+            $gender['male'] = 'طلاّب';
+        if('female' != $name)
+            $gender['female'] = 'طالبات';
+        if('all' != $name)
+            $gender['all'] = 'طلاب وطالبات';
+        if('key' == strtolower($only ?? ''))
+            return array_keys($gender);
+        elseif('value' == strtolower($only ?? ''))
+            return array_values($gender);
+        return $gender;
+
     }
 
 
