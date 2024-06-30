@@ -1,5 +1,7 @@
 @section('nav')
-@livewire('components.nav.students-affairs.students-information-in-groups-header')
+@livewire('components.nav.students-affairs.students-information-in-groups-header'
+,['level'=>$level]
+)
 @endsection
 <div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
@@ -18,7 +20,36 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($students as $student)
                         <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                            <td style="width: 10%;">
+                                <div class="dropdown">
+                                    <button type="button"  class="btn btn-light moveStudent_to_anotherGroup_dropdown  dropdown-toggle" data-toggle="dropdown" >
+                                            <div class="textdropdown">{{ $group->name }}</div>
+                                        </button>
+                                        <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
+                                            @forelse ($groups->where('id','!=',$student->group?->id??$group->id) as $groupD)
+                                                <a id="" class="dropdown-item" style="padding-left:30px; "
+                                                wire:click="moveStudent('{{ $student->user_id }}','{{ $groupD->id }}')"
+                                                >{{ $groupD->name }}</a>
+                                            @empty
+
+                                            @endforelse
+                                        </div>
+                                </div>
+                                </td>
+                            <td>*******</td>
+                            <td>{{ $student->system() }}</td>
+                            <td>{{ $student->user->name }}</td>
+                            <td>{{ $student->user_id }}</td>
+
+                        </tr>
+                        @empty
+                            <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                                <td colspan="5">No students found</td>
+                            </tr>
+                        @endforelse
+                        {{-- <tr class="table-light" id="modldetials" style="margin-top:7px;">
                             <!-- <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="../../images/edit.png" id=""  width="15px" ></button> </td> -->
                             <!-- <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModaldDetailsStudents">التفاصيل</button> </td> -->
                             <td style="width: 10%;">
@@ -37,11 +68,25 @@
                             <td>*******</td>
                             <td>*******</td>
                             <td>*******</td>
-                        </tr>
+                        </tr> --}}
 
                     </tbody>
                 </table>
+
             </div>
+            <nav>
+                    {{ $students->links(myapp::viewPagination) }}
+                </nav>
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+
+                @endif
         </div>
 
 

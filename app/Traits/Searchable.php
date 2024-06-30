@@ -8,7 +8,7 @@ use Livewire\Attributes\On;
 trait Searchable
 {
     use WithPagination;
-    public $parPage = MyApp::parPage;
+    public $perPage = MyApp::perPage;
     public $search;
     public $sortField;
     public $sortAsc = true;
@@ -24,7 +24,7 @@ trait Searchable
         $this->resetPage();
     }
 
-    public function updatingParPage()
+    public function updatingperPage()
     {
         $this->resetPage();
     }

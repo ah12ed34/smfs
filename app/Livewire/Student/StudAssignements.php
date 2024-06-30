@@ -19,7 +19,7 @@ class StudAssignements extends Component
     use WithPagination;
     use WithFileUploads;
     public $search;
-    public $perPage = MyApp::parPageLists;
+    public $perPage = MyApp::perPageLists;
     public $active;
     public $user;
     public $file = [];

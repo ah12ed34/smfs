@@ -1,5 +1,6 @@
 @section('nav')
-@livewire('components.nav.students-affairs.students-affairs-students-maingroups-header')
+@livewire('components.nav.students-affairs.students-affairs-students-maingroups-header'
+,['level'=>$level])
 @endsection
 <div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}

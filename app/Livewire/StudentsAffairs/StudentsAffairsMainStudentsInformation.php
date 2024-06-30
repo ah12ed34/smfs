@@ -59,7 +59,7 @@ class StudentsAffairsMainStudentsInformation extends Component
                     ->orWhereRaw("concat(name,' ',last_name) like ?", ['%' . $this->search . '%']);
             })
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-            ->paginate($this->parPage);
+            ->paginate($this->perPage);
             // dd($students);
             return $students;
     }

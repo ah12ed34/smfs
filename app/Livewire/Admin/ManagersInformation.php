@@ -23,7 +23,7 @@ class ManagersInformation extends Component
     public $search;
     public $sortField;
     public $sortAsc;
-    public $perPage = MyApp::parPage;
+    public $perPage = MyApp::perPage;
 
     public $departments;
     public $rolesAll;

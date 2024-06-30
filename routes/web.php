@@ -360,8 +360,8 @@ use GuzzleHttp\Middleware;
         route::get('{LId}/main_studentsAffairs','\\'.App\Livewire\StudentsAffairs\MainStudentsAffairs::class)->name('main_studentsAffairs');
         route::get('{LId}/studentsAffairs_main_studentsInformation','\\'.App\Livewire\StudentsAffairs\StudentsAffairsMainStudentsInformation::class)->name('studentsAffairs_main_studentsInformation');
         route::get('{LId}/studentsAffairs_main_studentsGroups','\\'.App\Livewire\StudentsAffairs\StudentsAffairsStudentsMaingroups::class)->name('studentsAffairs_main_studentsGroups');
-        route::get('studentsAffairs_practicalGroups','\\'.App\Livewire\StudentsAffairs\StudentsAffairsStudentPracticalgroups::class)->name('studentsAffairs_practicalGroups');
-        route::get('studentsInformation_InGroup','\\'.App\Livewire\StudentsAffairs\StudentsInformationInGroups::class)->name('studentsInformation_InGroup');
+        route::get('{LId}/studentsAffairs_practicalGroups','\\'.App\Livewire\StudentsAffairs\StudentsAffairsStudentPracticalgroups::class)->name('studentsAffairs_practicalGroups');
+        route::get('{LId}/studentsInformation_InGroup/{group}','\\'.App\Livewire\StudentsAffairs\StudentsInformationInGroups::class)->name('studentsInformation_InGroup');
 
     });
 

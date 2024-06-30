@@ -15,7 +15,7 @@ class StudBooksChapters extends Component
     use WithPagination;
     public $group_subject;
     public $search;
-    public $perPage = myapp::parPageLists;
+    public $perPage = myapp::perPageLists;
     public $practical = false;
     public function mount($id)
     {
