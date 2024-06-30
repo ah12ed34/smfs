@@ -161,13 +161,10 @@
 </div>
 
 
-
-
 <!-- The Modalchatting -->
 <div class="modal fade" id="myModalchatting">
     <div class="modal-dialog">
-        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:600px;">
-
+        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:95vh;">
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader" style="padding-left: 45%">
                 {{-- <div class="">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id="" width="25px"></div> --}}
@@ -176,134 +173,121 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" id="projectchating">
+            <div class="modal-body modal_body_chattinbox   " id="">
 
-                <div class="senders">
-
-                    <div class="card" id="sendersMessages"> السلام عليكم ورحمة الله وبركاته
-                        <div class="sendingdate">
-                            pm.10:24
+            <div class="container mt-5">
+                <div class="card chatting_card" >
+                    {{-- <div class="card-header text-center">
+                            <h4>الدردشة</h4>
+                        </div> --> --}}
+                        <div class="card-body chatbox " id="chatbox" >
+                            <!-- Messages will be dynamically added here -->
+                            <div class="message sender-message">
+                                <img src="{{Vite::image("user.png")}}" alt="User Profile" class="profile-pic">
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="sender">John Doe</span>
+                                        <!-- <span class="time">10:30 AM</span> -->
+                                    </div>
+                                    <div class="message-body">
+                                        Hello, this is a message!
+                                    </div>
+                                    <div class="message-footer">
+                                        <span class="time">10:32 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="message receiver-message">
+                                <img  src="{{Vite::image("user.png")}}" alt="User Profile" class="profile-pic">
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="sender">Jane Smith</span>
+                                    </div>
+                                    <div class="message-body">
+                                        Hi John, how are you?
+                                    </div>
+                                    <div class="message-footer">
+                                        <span class="time">10:32 AM</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        {{-- <div class="card-footer">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="messageInput" placeholder="Type a message">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" id="sendButton">Send</button>
+                                </div>
+                            </div>
+                        </div> --}}
                     </div>
-
                 </div>
-                <div class="recivers">
-
-                    <div class="card" id="reciversMessages">وعليكم السلام ورحمة الله وبركاته
-                        <div class="recivinggdate">
-                            pm.10:24
-                        </div>
-                    </div>
-
-                </div>
-                <div class="recivers">
-
-                    <div class="card" id="reciversMessages"> وعليكم السلام ورحمة الله وبركاته قد يسوق الله لك أمانيك من أمر لم تكن تتوقعه ولم يكن في بالك بالحسبان، قد تتوقع منفذ واسع يأتيك منه قطار محمل بما تتمنى ويُسيّر الله لك أمانيك، قلبك ذاك يملك أملًا وثقة بالله لا تتنازل عن هذه الثقة
-                        <div class="recivinggdate">
-                            pm.10:24
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="senders">
-
-                    <div class="card" id="sendersMessages"> السلام عليكم ورحمة الله وبركاته
-                        <div class="sendingdate">
-                            pm.10:24
-                        </div>
-                    </div>
-
-                </div>
-                <div class="recivers">
-
-                    <div class="card" id="reciversMessages">وعليكم السلام ورحمة الله وبركاته
-                        <div class="recivinggdate">
-                            pm.10:24
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="senders">
-
-                    <div class="card" id="sendersMessages"> السلام عليكم ورحمة الله وبركاته
-                        <div class="sendingdate">
-                            pm.10:24
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="recivers">
-
-                    <div class="card" id="reciversMessages">وعليكم السلام ورحمة الله وبركاته
-                        <div class="recivinggdate">
-                            pm.10:24
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="senders">
-
-                    <div class="card" id="sendersMessages"> السلام عليكم ورحمة الله وبركاته
-                        <div class="sendingdate">
-                            pm.10:24
-                        </div>
-                    </div>
-
-                </div>
-                <div class="recivers">
-
-                    <div class="card" id="reciversMessages">وعليكم السلام ورحمة الله وبركاته
-                        <div class="recivinggdate">
-                            pm.10:24
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="senders">
-
-                    <div class="card" id="sendersMessages"> السلام عليكم ورحمة الله وبركاته
-                        <div class="sendingdate">
-                            pm.10:24
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="recivers">
-
-                    <div class="card" id="reciversMessages">وعليكم السلام ورحمة الله وبركاته
-                        <div class="recivinggdate">
-                            pm.10:24
-                        </div>
-                    </div>
-
-                </div>
-
-
             </div>
 
             <!-- Modal footer -->
-            <div class="modal-footer" >
+            <div class="modal-footer" style="z-index: 1; ">
                 {{-- <input type="text" class="form-control" id="sendmessa" name="username" placeholder="اكتب ...">
                 <img src="{{Vite::image("send.png")}}" id="send-png" width="25px"> --}}
                 <div  class="input-group mb-3">
-                    <textarea id="send-input"  class="form-control" placeholder="اكتب..." style="height: 35px;margin-top: -10px;"></textarea>
+                    {{-- <textarea  id="messageInput"  class="form-control send-input" placeholder="اكتب..." style="height: 35px;margin-top: -10px;"></textarea> --}}
+                    <input type="text" class="form-control send-input" id="messageInput" placeholder="اكتب..." style="height: 35px;margin-top: -10px;">
                     <div class="input-group-append">
-                        <button  class="btn btn-light" type="submit"  style="margin-top: -10px;height: 35px;margin-left:5px"><img src="{{Vite::image("send.png")}}"   width="24px" ></button>
+                        <button  class="btn btn-light" type="button" id="sendButton"  style="margin-top: -10px;height: 35px;margin-left:5px"><img src="{{Vite::image("send.png")}}"   width="24px" ></button>
                     </div>
                 </div>
                 <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button> -->
             </div>
-
         </div>
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sendButton = document.getElementById("sendButton");
+        const messageInput = document.getElementById("messageInput");
+        const chatbox = document.getElementById("chatbox");
+
+        sendButton.addEventListener("click", () => {
+            const messageText = messageInput.value.trim();
+            if (messageText !== "") {
+                addMessage("You", "{{ Vite::image("user.png") }}", messageText, "sender-message");
+                messageInput.value = "";
+                messageInput.focus();
+            }
+        });
+
+        messageInput.addEventListener("keypress", (event) => {
+            if (event.key === "Enter") {
+                sendButton.click();
+            }
+        });
+
+        function addMessage(sender, profilePic, message, messageType) {
+            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("message", messageType);
+
+            messageElement.innerHTML = `
+                <img src="${profilePic}" alt="User Profile" class="profile-pic">
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="sender">${sender}</span>
+                    </div>
+                    <div class="message-body">
+                        ${message}
+                    </div>
+                    <div class="message-footer">
+                        <span class="time">${time}</span>
+                    </div>
+                </div>
+            `;
+
+            chatbox.appendChild(messageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+    });
+
+</script>
 
 <!-- The Modaldetails -->
 <div class="modal fade" id="myModaldetails" wire:ignore.self>
@@ -510,5 +494,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection

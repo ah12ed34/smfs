@@ -134,7 +134,7 @@
 <!-- The ModalddaStudents -->
 <div class="modal fade" id="AddaStudentModal" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height: 550px;">
+        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height: 95vh;">
 
             <!-- Modal Header -->
             <div class="modal-header addacademic" id="modheader">
@@ -143,7 +143,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body" style="overflow-y: scroll;">
                 {{-- <form action="/action_page.php" style="display: block;"> --}}
                     <div class="form-group">
                         @if ($errors->any())
@@ -238,7 +238,7 @@
 <!-- The ModalEditeStudents -->
 <div class="modal fade" id="EditeStudentModal" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height: 550px;">
+        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height: 95vh;">
 
             <!-- Modal Header -->
             <div class="modal-header addacademic" id="modheader">
@@ -247,7 +247,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body" style="overflow-y: scroll;">
                 @if($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -344,7 +344,7 @@
 <!-- The ModalDetailsStudents -->
 <div class="modal fade" id="DetailsStudentsModal" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:800px;">
+        <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:100vh;">
 
             <!-- Modal Header -->
             <div class="modal-header ModaldDetailsAcademic" id="modheader">
@@ -353,7 +353,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body ModaldDetailsAcademic">
+            <div class="modal-body ModaldDetailsAcademic" style="overflow-y: scroll;">
                 @if ($studentData&&$studentData->show)
                     <div class="form-group">
 

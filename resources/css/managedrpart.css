@@ -836,7 +836,7 @@
         .modal-content.ModaldDetailsAcademic
         {
             /* height: 700px; */
-            overflow: auto;
+            /* overflow: auto; */
             border-top-left-radius: 35px;
             border-top-right-radius: 35px;
             border-bottom-left-radius: 25px;
@@ -869,7 +869,7 @@
         }
         .modal-footer.ModaldDetailsAcademic{
             height: 30px;
-            overflow: auto;
+            /* overflow: auto; */
             background-color:#1558DB;
             border-bottom-left-radius: 25px;
             border-bottom-right-radius: 25px;

@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('nav')
-<div class="hdr2" style=" box-shadow: 10px;"> 
+<div class="hdr2" style=" box-shadow: 10px;">
     <button class="spaces"> <label  class="subjectname" > الدردشة </label><img src="{{Vite::image("conversation (3).png")}}" id="subject-icon-hdr2" width="40px">
     </button>
     <div class="dep-name">تقنة معلومات</div>
@@ -94,10 +94,10 @@
     </div>
 
 
-    
+
     <div class="senders-chatting">
 
-        <div class="card" id="sendersMessages-chatting"> ‏«إنَّ الإيمَانَ مُستقرٌّ فِي أعماقِ كلّ قلب، ولكنّه يحتَاج إلىٰ هزّة شَديدة تُبديه و تُظهِره، لذَلكَ كانتِ المَصائب والأَزَمات سَببًا لظُهور الإيمَان» 
+        <div class="card" id="sendersMessages-chatting"> ‏«إنَّ الإيمَانَ مُستقرٌّ فِي أعماقِ كلّ قلب، ولكنّه يحتَاج إلىٰ هزّة شَديدة تُبديه و تُظهِره، لذَلكَ كانتِ المَصائب والأَزَمات سَببًا لظُهور الإيمَان»
 
             ‏— الطنطاوي.
             <div class="sendingdate-chatting">
@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        
+
     </div>
 
     <div class="recivers-chatting">
@@ -129,7 +129,7 @@
 
     <div class="senders-chatting">
 
-        <div class="card" id="sendersMessages-chatting"> ‏«إنَّ الإيمَانَ مُستقرٌّ فِي أعماقِ كلّ قلب، ولكنّه يحتَاج إلىٰ هزّة شَديدة تُبديه و تُظهِره، لذَلكَ كانتِ المَصائب والأَزَمات سَببًا لظُهور الإيمَان» 
+        <div class="card" id="sendersMessages-chatting"> ‏«إنَّ الإيمَانَ مُستقرٌّ فِي أعماقِ كلّ قلب، ولكنّه يحتَاج إلىٰ هزّة شَديدة تُبديه و تُظهِره، لذَلكَ كانتِ المَصائب والأَزَمات سَببًا لظُهور الإيمَان»
 
             ‏— الطنطاوي.
             <div class="sendingdate-chatting">
@@ -137,10 +137,10 @@
             </div>
         </div>
 
-    </div> 
+    </div>
       <div class="senders-chatting">
 
-        <div class="card" id="sendersMessages-chatting"> ‏«إنَّ الإيمَانَ مُستقرٌّ فِي أعماقِ كلّ قلب، ولكنّه يحتَاج إلىٰ هزّة شَديدة تُبديه و تُظهِره، لذَلكَ كانتِ المَصائب والأَزَمات سَببًا لظُهور الإيمَان» 
+        <div class="card" id="sendersMessages-chatting"> ‏«إنَّ الإيمَانَ مُستقرٌّ فِي أعماقِ كلّ قلب، ولكنّه يحتَاج إلىٰ هزّة شَديدة تُبديه و تُظهِره، لذَلكَ كانتِ المَصائب والأَزَمات سَببًا لظُهور الإيمَان»
 
             ‏— الطنطاوي.
             <div class="sendingdate-chatting">
@@ -148,10 +148,10 @@
             </div>
         </div>
 
-    </div>   
+    </div>
     <div class="senders-chatting">
 
-        <div class="card" id="sendersMessages-chatting"> ‏«إنَّ الإيمَانَ مُستقرٌّ فِي أعماقِ كلّ قلب، ولكنّه يحتَاج إلىٰ هزّة شَديدة تُبديه و تُظهِره، لذَلكَ كانتِ المَصائب والأَزَمات سَببًا لظُهور الإيمَان» 
+        <div class="card" id="sendersMessages-chatting"> ‏«إنَّ الإيمَانَ مُستقرٌّ فِي أعماقِ كلّ قلب، ولكنّه يحتَاج إلىٰ هزّة شَديدة تُبديه و تُظهِره، لذَلكَ كانتِ المَصائب والأَزَمات سَببًا لظُهور الإيمَان»
             ‏— الطنطاوي.
             <div class="sendingdate-chatting">
                 pm.10:24
@@ -170,9 +170,7 @@
                 pm.10:24
             </div>
         </div>
-    <!-- </div>
 
-    <div class="recivers-chatting"> -->
         <div class="card" id="user-icon-chatting"></div>
         <div class="card" id="reciversMessages-chatting"> ‏"يا بُنيّ، إذا أراد الله أمرًا هيَّأ أسبابه، فرُبما سعى المرء بكُلّ سبب فلم يفلح، ثم يَقع له سبب لم يمتهِد له وسيلة قطُّ فإذا هو عند بُغيته، وإذا هو قد ملأ يديهِ مما كان قد يَئِس منه، فلا يكون عجبهُ كيفَ خاب في الأُولى بأشدَّ مِن عجبهِ كيف نجح في الثانية!"
             - مصطفى صادق الرافعي.

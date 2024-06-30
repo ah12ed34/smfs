@@ -122,4 +122,5 @@
 }
 .card.cards-departments.depart-level-quality{
     margin-top: 50px;
+    /* z-index: 1; */
 }

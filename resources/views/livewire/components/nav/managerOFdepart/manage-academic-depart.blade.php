@@ -41,7 +41,7 @@
                 </button>
                 <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
 
-                     <!-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   الصلاحيات</a> -->
+                    <!-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   الصلاحيات</a> -->
                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  العملي</a>
                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  الكل</a>
 
