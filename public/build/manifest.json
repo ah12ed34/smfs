@@ -8,7 +8,7 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-27aa0ad7.css",
+    "file": "assets/app-6ca8c8a0.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -278,7 +278,7 @@
   },
   "resources/images/user (10).png": {
     "file": "assets/user-9d9e3eef.png",
-    "src": "resources/images/user.png"
+    "src": "resources/images/user (10).png"
   },
   "resources/images/user (4).png": {
     "file": "assets/user (4)-2873f8cd.png",
@@ -286,10 +286,10 @@
   },
   "resources/images/user.png": {
     "file": "assets/user-9d9e3eef.png",
-    "src": "resources/images/user.png"
+    "src": "resources/images/user (10).png"
   },
   "resources/js/app.js": {
-    "file": "assets/app-a6ec61cf.js",
+    "file": "assets/app-59bfe6d8.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

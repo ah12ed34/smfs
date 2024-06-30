@@ -59,7 +59,7 @@
     <!-- The ModalAddaStudenGroup -->
 <div class="modal fade" id="AddaStudenGroupModal" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height: 330px;">
+        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height: 80vh;">
 
             <!-- Modal Header -->
             <div class="modal-header addacademic" id="modheader">
@@ -68,7 +68,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body" style="overflow-y: scroll;">
                     <div class="form-group">
 
                         <!-- <img src="{{Vite::image("profile.png")}}"  width="" class="user_profile_modal" > -->
@@ -157,7 +157,7 @@
 <!-- The ModalEditeStudenGroup -->
 <div class="modal fade" id="EditeaStudenGroupModal" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height: 300px;">
+        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height: 80vh;">
 
             <!-- Modal Header -->
             <div class="modal-header addacademic" id="modheader">
@@ -166,7 +166,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body" style="overflow-y: scroll;">
                 @if($groupDitails&&$openType == 'edit')
                 <div class="form-group">
                         <input type="text" class="form-control" id="inputtext" wire:model='name' placeholder=" اسم المجموعة " style="height: 30px; margin-top:8px">

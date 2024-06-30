@@ -48,7 +48,7 @@
 <!-- The ModalDetailsStudents -->
 <div class="modal fade" id="AddStudentsIntoGroupModal">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height:700px;">
+        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height:95vh;">
 
             <!-- Modal Header -->
             <div class="modal-header addacademic" id="modheader">
@@ -57,7 +57,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body " style="overflow: auto;">
+            <div class="modal-body " style="overflow-y: scroll;">
                 <form action="/action_page.php" style="display: block;">
                     <div class="form-group">
 

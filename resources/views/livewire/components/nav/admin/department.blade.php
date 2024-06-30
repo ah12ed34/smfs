@@ -110,8 +110,9 @@
 
     @if ($active == 'academic')
         <div class="dropdown">
-            <button type="button"  class="btn btn-light departmentAcademic_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
-                جميع الأكادميين
+            <button type="button"  class="btn btn-light departmentAcademic_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl" style="padding-left:6px;">
+                <div class="textdropdown" style="margin-top: -10px;margin-right:px5; font-size:12px;">  الكل  </div>
+
                 </button>
                 <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   النظري</a>
