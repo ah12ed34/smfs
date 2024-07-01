@@ -8,6 +8,16 @@ class StudentsInformationInGroupsHeader extends Component
 {
     public $level;
     public $search;
+    public $isP ;
+    public $backUrl;
+
+    public function mount(){
+        if($this->isP){
+            $this->backUrl = route('studentsAffairs_main_studentsGroups',[$this->level?->id,'type'=>'sub']);
+        }else{
+            $this->backUrl = route('studentsAffairs_main_studentsGroups',[$this->level?->id]);
+        }
+    }
 
     public function srch()
     {

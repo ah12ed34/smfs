@@ -22,8 +22,8 @@
     </div>
 
     <div class="hr3">
-        <button id="spacesbtn" class="spaces" onclick="location.href='{{route('studentsAffairs_main_studentsGroups',[$level?->id]
-        )}}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
+        <button id="spacesbtn" class="spaces" onclick="location.href='{{$backUrl
+        }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
 
         <!-- <div id="input-groupstudyingbooks" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">
