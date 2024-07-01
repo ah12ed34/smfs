@@ -13,7 +13,7 @@ class StudStudyingBooks extends Component
     use WithPagination;
     public $user;
     public $search;
-    public $perPage = MyApp::parPageLists;
+    public $perPage = MyApp::perPageLists;
 
     public function mount()
     {

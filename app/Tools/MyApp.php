@@ -3,9 +3,9 @@
 
     class MyApp
 {
-    const parPage = 10;
-    const parPageLists = 5;
-    const parPageItems = 10;
+    const perPage = 10;
+    const perPageLists = 5;
+    const perPageItems = 10;
     const viewPagination = 'vendor.livewire.bootstrap';
 
     public static function getFileMime($name)

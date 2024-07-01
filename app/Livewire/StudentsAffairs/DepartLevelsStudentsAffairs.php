@@ -8,7 +8,7 @@ use App\Models\Department;
 
 class DepartLevelsStudentsAffairs extends Component
 {
-    public $parPage = MyApp::parPageLists;
+    public $perPage = MyApp::perPageLists;
 
     public $department;
 
@@ -18,6 +18,6 @@ class DepartLevelsStudentsAffairs extends Component
     public function render()
     {
         return view('livewire.students-affairs.depart-levels-students-affairs'
-        ,['levels'=>$this->department->levels()->paginate($this->parPage)]);
+        ,['levels'=>$this->department->levels()->paginate($this->perPage)]);
     }
 }

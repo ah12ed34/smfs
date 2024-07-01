@@ -26,7 +26,7 @@
                         @forelse ($groups as $group)
                         <tr class="table-light" id="modldetials" style="margin-top:7px;">
                             <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeaStudenGroupModal" wire:click='editGroup("{{ $group->id }}")'>تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" onclick="location.href='{{route('studentsInformation_InGroup',$group->id)}}'">عرض</button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" onclick="location.href='{{route('studentsInformation_InGroup',[$level->id,$group->id])}}'">عرض</button> </td>
                             <td>{{ myapp::getStudentGender($group->gender) }}</td>
                             <td>{{ $group->system == 'all'? "عام و موازي":myapp::getSystem($group->system) }}</td>
                             <td>{{ $group->students->count().'\\'. $group->max_students }}</td>

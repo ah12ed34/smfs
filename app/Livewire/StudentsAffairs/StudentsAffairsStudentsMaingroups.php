@@ -33,6 +33,7 @@ class StudentsAffairsStudentsMaingroups extends Component
 
     public function addGroup()
     {
+        $this->level_id = $this->level->id;
         if($this?->groupDitails&&$this?->openType != 'add'){
             $this->resetGroup('add');
             $this->openType = 'add';
@@ -70,7 +71,7 @@ class StudentsAffairsStudentsMaingroups extends Component
             $q->whereNotNull('group_id');
         })
         ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-        ->paginate($this->parPage);
+        ->paginate($this->perPage);
 
         return $groups;
     }
