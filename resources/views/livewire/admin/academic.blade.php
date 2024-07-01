@@ -82,7 +82,7 @@
     <div class="container" style="padding-top:20px; ">
 
         <div class="table-responsive-xl">
-            
+
             <table class="table" style=" width:100%;">
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
@@ -118,13 +118,11 @@
 
                     @endforelse
 
-
-
-
                 </tbody>
             </table>
         </div>
     </div>
+
         {{-- اضهار تفاصل الاكادمي --}}
         <div class="modal fade" id="myModal2" wire:ignore.self>
             <div class="modal-dialog modal-lg">
@@ -209,7 +207,7 @@
 
                                 <!-- <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder="  التلفون" style=" margin-top:8px"></textarea> -->
                                 <input type="date" class="form-control" id="barithday" wire:model='date' onfocus="this.showPicker()" style="height: 30px; margin-top:8px; color:black;">
-                        
+
                                 <div class="dropdown">
                                     <button type="button" class="btn btn-light gendar dropdown-toggle" data-toggle="dropdown" >
                                         <div class="textdropdown">@if($gender=="") الجندر @else @if ($gender=='male') ذكر @else انثى @endif @endif
@@ -221,7 +219,7 @@
                                         <a id="" class="dropdown-item"  wire:click='set_gender("female")' style="padding-left:30px; ">   انثى</a>
                                     </div>
                                     </div>
-                                    
+
                                             <div class="dropdown">
                                             <button type="button" class="btn btn-light dregree-of-siencistic dropdown-toggle" data-toggle="dropdown" >
                                                 <div class="textdropdown">@if ($academic_name=="") المسمى الأكاديمي @else @if ($academic_name=='professor') استاذ @elseif ($academic_name=='associate_professor') استاذ مشارك @elseif ($academic_name=='doctor') دكتور @elseif ($academic_name=='assistant_professor') معيد @endif @endif
@@ -235,7 +233,6 @@
 
                                             </div>
                                         </div>
-                                    
                                 <input type="text" class="form-control" id="username" wire:model='username'  placeholder="اسم المستخدم" style="height: 30px; margin-top:8px">
                                 <input type="text" class="form-control" id="email" wire:model='email' placeholder="الايمل" style="height: 30px; margin-top:8px">
                                 <input type="password" class="form-control" id="password" wire:model='password'  placeholder="كلمة المرور" style="height: 30px; margin-top:8px">
@@ -307,7 +304,6 @@
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <th class="name-group">المجموعة (1)</th>
-            
                                         </tr>
                                         <tr>
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
@@ -315,7 +311,6 @@
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <th class="name-group">المجموعة (2)</th>
-            
                                         </tr>
                                         <tr>
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
@@ -323,15 +318,13 @@
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <th class="name-group">المجموعة (3)</th>
-            
                                         </tr>
-         
                                     </table>
-         
+
                                 </div>
                                 <input type="text" class="form-control" id="inputtext" name="totallecturesweekly" placeholder=" اجمالي المحاضرات الأسبوعية " style="height: 30px; margin-top:10px">
                                 <input type="text" class="form-control" id="inputtext" name="totallecturesoftearm" placeholder="   اجمالي محاضرات الفصل الدراسي  " style="height: 30px; margin-top:10px">
-         
+
                                 <!-- <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:8px">
                                 <input type="text" class="form-control" id="inputtext" name="note" placeholder="ملاحظة" style="height: 30px; margin-top:8px"> -->
                             </div>
@@ -340,7 +333,6 @@
                     </div>
 
                     <!-- Modal footer -->
-
                     <div class="modal-footer">
                         <button type="submit"  class="btn btn-primary btn-sm btn_save_informModal" id="btnsave" wire:click='store'>حفظ</button>
                         <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="btncancel">إلغاء</button>
@@ -348,6 +340,7 @@
                 </div>
             </div>
         </div>
+
 
         {{-- <img src="{{ $ava }}" class="image-stastic" width="50px"> --}}
         <div class="modal fade" id="myModalEdite" wire:ignore.self>
@@ -380,7 +373,7 @@
 
                                 <!-- <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder="  التلفون" style=" margin-top:8px"></textarea> -->
                                 <input type="date" class="form-control" id="barithday" wire:model='date' onfocus="this.showPicker()" style="height: 30px; margin-top:8px; color:black;">
-                                
+
                                 <div class="dropdown">
                                     <button type="button" class="btn btn-light gendar dropdown-toggle" data-toggle="dropdown" >
                                         <div class="textdropdown">@if($gender=="") الجندر @else @if ($gender=='male') ذكر @else انثى @endif @endif
@@ -392,7 +385,7 @@
                                         <a id="" class="dropdown-item"  wire:click='set_gender("female")' style="padding-left:30px; ">   انثى</a>
                                     </div>
                                     </div>
-                            
+
                                             <div class="dropdown">
                                             <button type="button" class="btn btn-light dregree-of-siencistic dropdown-toggle" data-toggle="dropdown" >
                                                 <div class="textdropdown">@if ($academic_name=="") المسمى الأكاديمي @else @if ($academic_name=='professor') استاذ @elseif ($academic_name=='associate_professor') استاذ مشارك @elseif ($academic_name=='doctor') دكتور @elseif ($academic_name=='assistant_professor') معيد @endif @endif
@@ -406,7 +399,6 @@
 
                                             </div>
                                         </div>
-                            
                                 <input type="text" class="form-control" id="username" wire:model='username'  placeholder="اسم المستخدم" style="height: 30px; margin-top:8px">
                                 <input type="text" class="form-control" id="email" wire:model='email' placeholder="الايمل" style="height: 30px; margin-top:8px">
                                 <input type="password" class="form-control" id="password" wire:model='password'  placeholder="كلمة المرور" style="height: 30px; margin-top:8px">
@@ -480,7 +472,7 @@
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <th class="name-group">المجموعة (1)</th>
-            
+
                                         </tr>
                                         <tr>
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
@@ -488,7 +480,7 @@
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <th class="name-group">المجموعة (2)</th>
-            
+
                                         </tr>
                                         <tr>
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
@@ -496,15 +488,15 @@
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
                                             <th class="name-group">المجموعة (3)</th>
-            
+
                                         </tr>
-            
+
                                         </table>
-            
+
                                     </div>
                                     <input type="text" class="form-control" id="inputtext" name="totallecturesweekly" placeholder=" اجمالي المحاضرات الأسبوعية " style="height: 30px; margin-top:6px">
                                     <input type="text" class="form-control" id="inputtext" name="totallecturesoftearm" placeholder="   اجمالي محاضرات الفصل الدراسي  " style="height: 30px; margin-top:10px">
-            
+
                             </div>
 
                         </form>
@@ -554,7 +546,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header ModaldDetailsAcademic" id="modheader">
-                 التفاصيل
+                التفاصيل
                 <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
             </div>
 
@@ -623,12 +615,10 @@
                                         </tr>
                             </table>
                         </div>
-
                     </div>
-
                 </form>
             </div>
-            
+
 
             <!-- Modal footer -->
 

@@ -30,12 +30,12 @@
     border-radius: 0.25rem;
     margin: 0%;
     width:114%;
-    margin-top: -65px;
-    /* margin-bottom: 0%; */
-    /* z-index: -1; */
+    margin-top: -55px;
     right: -15px;
     margin-left: -40px;
     margin-bottom: 0px;
+    padding-bottom:60px;
+    padding-top:30px;
     position: absolute;
 }
 /* @media screen and (max-height:300px){
@@ -43,74 +43,79 @@
     max-height: 100vh;
     }
 } */
-@media screen and (max-width:480px){
+@media screen and (max-width:520px){
+    .card-body.chatbox {
+    width:115%;
+    }
+}
+/* @media screen and (max-width:480px){
     .card-body.chatbox {
     width:114%;
     }
-}
+} */
 @media screen and (max-width:450px){
-    .card-body.chatbox {
-    width:115.5%;
-    }
-}
-@media screen and (max-width:430px){
-    .card-body.chatbox {
-    width:116%;
-    }
-}
-@media screen and (max-width:420px){
     .card-body.chatbox {
     width:116.5%;
     }
 }
-@media screen and (max-width:400px){
+@media screen and (max-width:430px){
+    .card-body.chatbox {
+    width:117%;
+    }
+}
+@media screen and (max-width:420px){
     .card-body.chatbox {
     width:117.5%;
     }
 }
-@media screen and (max-width:380px){
+@media screen and (max-width:400px){
     .card-body.chatbox {
-    width:118%;
+    width:118.5%;
     }
 }
-@media screen and (max-width:370px){
+@media screen and (max-width:380px){
     .card-body.chatbox {
     width:119%;
     }
 }
-@media screen and (max-width:350px){
+@media screen and (max-width:370px){
     .card-body.chatbox {
     width:120%;
     }
 }
-@media screen and (max-width:340px){
+@media screen and (max-width:350px){
     .card-body.chatbox {
     width:121%;
     }
 }
+@media screen and (max-width:340px){
+    .card-body.chatbox {
+    width:122%;
+    }
+}
 @media screen and (max-width:330px){
     .card-body.chatbox {
-    width:123%;
+    width:124%;
     }
 }
 @media screen and (max-width:320px){
     .card-body.chatbox {
-    width:124%;
+    width:125%;
     }
 }
 @media screen and (max-width:310px){
     .card-body.chatbox {
-    width:124%;
+    width:126%;
     }
 }
 @media screen and (max-width:300px){
     .card-body.chatbox {
-    width:126%;
+    width:127%;
     }
 }
 @media screen and (max-width:290px){
     .card-body.chatbox {
-    width:127%;
+    width:128%;
     }
 }
 .message {
@@ -177,3 +182,271 @@
 .message-body {
     font-size: 14px;
 }
+.card.header_sendNotifications{
+    /* padding: 10px; */
+    margin-top: -20px;
+    margin-right: 0px;
+    margin-left: -20px;
+    width: 110%;
+    height: 50px;
+    border-radius: 0px;
+    /* position: static; */
+    z-index: 1;
+    }
+    @media screen and (max-width: 450px) {
+        .card.header_sendNotifications{
+            width: 120%;
+            /* margin-left: 0px; */
+        }
+    }
+    .btn.specific_department{
+        font-size: 11px;
+        /* width: 110px; */
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        right: 10%;
+        margin-left: 30%;
+        margin-top: 7px;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        position: absolute;
+        /* color: black; */
+        /* display:flex; */
+        /* text-align: right; */
+    }
+
+    /* Responsive Styles */
+
+    /* @media screen and (max-width: 1100px) {
+        .btn.specific_department{
+            margin-left: 65%;
+        }
+    }
+
+    @media screen and (max-width:992px) {
+        .btn.specific_department{
+            margin-left: 65%;
+        }
+    }
+
+    @media screen and (max-width:930px) {
+        .btn.specific_department{
+            margin-left: 63%;
+        }
+    }
+
+    @media screen and (max-width:900px) {
+        .btn.specific_department{
+            margin-left: 60%;
+        }
+    }
+
+    @media screen and (max-width:826px) {
+        .btn.specific_department{
+            margin-left: 55%;
+        }
+    } */
+
+    @media (max-width: 768px) {
+        .btn.specific_department{
+            font-size: 11px;
+            /* width: 100px; */
+        }
+    }
+
+    @media (max-width: 700px) {
+        .btn.specific_department{
+            font-size: 10px;
+            /* width: 100px; */
+            /* margin-left: 70%; */
+        }
+    }
+
+    @media (max-width: 550px) {
+        .btn.specific_department{
+            font-size: 9px;
+            /* width: 90px; */
+            /* margin-left: 65%; */
+        }
+    }
+
+    /* @media (max-width: 400px) {
+        .btn.specific_department{
+            margin-left: 60%;
+        }
+    }
+    @media (max-width:355px){
+        .btn.specific_department{
+            margin-left:50%;
+        }
+    } */
+
+    .btn.specific_group {
+        font-size: 11px;
+        /* width: 110px; */
+        height: 30px;
+        font-weight: normal;
+        padding-left: 5px;
+        /* right: 20%; */
+        left: 40%;
+        margin-top: 7px;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        position: absolute;
+        /*  color: black; */
+        z-index: 1;
+    }
+    /* @media screen and (max-width: 1100px) {
+    .btn.specific_group {
+        margin-left: 45%;
+    }
+    } */
+
+    /* @media screen and (max-width:992px) {
+    #btn-specific_group {
+        margin-left: 65%;
+    }
+    } */
+
+    /* @media screen and (max-width:930px) {
+    .btn.specific_group {
+        margin-left: 43%;
+    }
+    }
+
+    @media screen and (max-width:900px) {
+    .btn.specific_group {
+        margin-left:40%;
+    }
+    }
+
+    @media screen and (max-width:826px) {
+    .btn.specific_group {
+        margin-left:35%;
+    }
+    } */
+
+    @media (max-width: 768px) {
+    .btn.specific_group {
+        font-size: 11px;
+        /* width: 100px; */
+    }
+    }
+
+    @media (max-width: 700px) {
+    .btn.specific_group {
+        font-size: 10px;
+        /* width: 100px; */
+        /* margin-left: 50%; */
+    }
+    }
+
+    @media (max-width: 550px) {
+    .btn.specific_group {
+        font-size: 9px;
+        /* width: 90px; */
+        /* margin-left: 40%; */
+    }
+    }
+/*
+    @media (max-width: 400px) {
+    .btn.specific_group {
+        margin-left: 33%;
+    }
+    }*/
+    @media (max-width: 350px) {
+        .btn.specific_group {
+            margin-left: -20px;
+            /* right: 40%; */
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+        }
+        @media (max-width: 300px) {
+            .btn.specific_group {
+                margin-left: -25px;
+            }
+            }
+    /* @media (max-width: 330px) {
+            .btn.specific_group {
+                left: 15%;
+            }
+            }
+    @media (max-width: 320px) {
+            .btn.specific_group {
+                left: 10%;
+            }
+            }          */
+
+
+            .btn.specific_students {
+                font-size: 12px;
+                /* width: 110px; */
+                height: 30px;
+                font-weight: normal;
+                padding-left: 5px;
+                left: 10%;
+                margin-top: 7px;
+                /* display: inline; */
+                box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+                position: absolute;
+            }
+
+            /* @media (max-width: 1100px) {
+                .btn.specific_students {
+                    margin-left: 250px;
+                }
+            }
+
+            @media (max-width: 900px) {
+                .btn.specific_students {
+                    margin-left: 200px;
+                }
+            }
+
+            @media screen and (max-width:826px) {
+                .btn.specific_students {
+                    margin-left: 110px;
+                }
+            }
+
+             */
+            /* @media (max-width: 700px) {
+                #btn-specific_students {
+                    font-size: 10px;
+                    width: 100px;
+                    margin-top: -75px;
+                }
+            } */
+
+            @media (max-width: 550px) {
+                .btn.specific_students {
+                    font-size: 9px;
+                    /* width: 90px; */
+                    padding-left: 4px;
+                    padding-right: 4px;
+                    /* margin-top: -23px; */
+                    /* margin-left: 20px;
+                    position: fixed; */
+                }
+            }
+            @media (max-width:350px){
+                .btn.specific_students{
+                    margin-left: -5px;
+                }
+            }
+
+            /* .modal-content.modal_content_css.MoadalspacificStudents{
+                height:40%;
+                width:70%;
+                border-radius:20px;
+            }
+            @media screen and (max-width: 550px) {
+                .modal-content.modal_content_css.MoadalspacificStudents{
+                    width:80%;
+                }
+            }
+            @media screen and (max-width: 450px) {
+                .modal-content.modal_content_css.MoadalspacificStudents{
+                    width:120%;
+                }
+            } */
