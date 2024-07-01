@@ -124,6 +124,7 @@ use GuzzleHttp\Middleware;
     route::get('/', '\\'. App\Livewire\Admin\ManagersInformation::class)->name('managers_information');
     route::get('/{roleName}/employees_information','\\'.App\Livewire\Admin\EmployeesInformation::class)->name('employees_information');
     route::get('employee_information', '\\'.App\Livewire\Admin\EmployeesInformation::class)->name('employee_information');
+    route::get('allEmolpyees_Information', '\\'.App\Livewire\Admin\AllEmolpyeesInformation::class)->name('allEmolpyees_Information');
     route::get('sendNotifications_students','\\'.App\Livewire\Admin\SendNotificationsstidents::class)->name('sendNotifications_students');
     route::get('sendNotifications_academics','\\'.App\Livewire\Admin\SendNotificttionsacademic::class)->name('sendNotifications_academics');
     route::get('sendNotifications_managers', '\\'.App\Livewire\Admin\SendNotificationbossdepartment::class)->name('sendNotifications_managers');

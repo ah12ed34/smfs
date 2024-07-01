@@ -102,7 +102,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body " style="overflow-y: scroll;">
+            <div class="modal-body  modal_body_css">
                 <form action="/action_page.php" style="display: block;">
                     <div class="form-group">
 
