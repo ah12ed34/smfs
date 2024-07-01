@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Department as DepartmentModel;
 class Department extends Component
 {
+    public $card_notification;
     public $active;
     public $depa;
     public $departments;
