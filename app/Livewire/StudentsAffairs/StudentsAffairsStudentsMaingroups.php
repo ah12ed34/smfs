@@ -27,6 +27,9 @@ class StudentsAffairsStudentsMaingroups extends Component
                 $this->typeGroup = $type;
             }
         }
+        if($this->typeGroup == 'sub'){
+            $this->sortField = 'group_id';
+        }
         // dd($this->typeGroup);
 
     }
