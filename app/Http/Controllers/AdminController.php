@@ -10,6 +10,12 @@ use App\Models\User;
 use app\Models\employees;
 use app\Models\permissions;
 use app\Models\notifications;
+use app\Models\levelsOfDepartments;
+use app\Models\students_data;
+
+
+
+
 
 
 class AdminController extends Controller
@@ -44,5 +50,13 @@ class AdminController extends Controller
     public function notifications()
     {
         return view('admin.notifications');
+    }
+    public function levelsOfDepartments()
+    {
+        return view('admin.levelsOfDepartments');
+    }
+    public function students_data()
+    {
+        return view('admin.students_data');
     }
 }

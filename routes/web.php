@@ -117,6 +117,8 @@ use GuzzleHttp\Middleware;
         Route::get('employees', 'AdminController@employees')->name('admin.employees');
         Route::get('permissions', 'AdminController@permissions')->name('admin.permissions');
         Route::get('notifications', 'AdminController@notifications')->name('admin.notifications');
+        Route::get('levelsOfDepartments', 'AdminController@levelsOfDepartments')->name('admin.levelsOfDepartments');
+        Route::get('students_data', 'AdminController@students_data')->name('admin.students_data');
 
     });
     Route::group(['prefix'=>'managers_information','middleware'=>'auth'
@@ -130,6 +132,8 @@ use GuzzleHttp\Middleware;
     route::get('sendNotifications_managers', '\\'.App\Livewire\Admin\SendNotificationbossdepartment::class)->name('sendNotifications_managers');
     route::get('permissions_pages','\\'.App\Livewire\Admin\PermissionPages::class)->name('permissions_pages');
     route::get('addUsers_permissions', '\\'.App\Livewire\Admin\AddPremissionUser::class)->name('addUsers_permissions');
+    route::get('students_information', '\\'.App\Livewire\Admin\LevelStudentsInformation::class)->name('students_information');
+    route::get('students_grades', '\\'.App\Livewire\Admin\StudentsGrades::class)->name('students_grades');
 });
 
     Route::prefix('/academic')->group(function () {
