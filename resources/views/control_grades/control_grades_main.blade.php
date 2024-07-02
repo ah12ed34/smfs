@@ -2,7 +2,7 @@
 @section('nav')
 
 <div class="hdr2" style=" box-shadow: 10px;">
-    <button class=" spaces"> <label  class="subjectname">   الأدمن </label><img src="{{ Vite::image('admin.png')}}" id="subject-icon-hdr2" width="40px" >
+    <button class=" spaces"> <label  class="subjectname">   الكنترول </label><img src="{{ Vite::image('controll.png')}}" id="subject-icon-hdr2" width="40px" >
     </button>
 
 {{-- <div id="" class="input-group input-search-admin">
@@ -18,7 +18,7 @@
 </div>
 
 <div class="hr3">
-<button id="spacesbtn" onclick="window.location='{{ route('admin.levelsOfDepartments') }}'" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
+<button id="spacesbtn" onclick="window.location='{{ route('control_grades_levels') }}'" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
 
 </div>
 @endsection
@@ -28,13 +28,13 @@
         <div class="container" style="padding-top: 30px;">
 
         <div class="card  cards-departments" id="">
-            <img src="{{Vite::image("students.png")}}" class="" width="150px" onclick="location.href='{{route('students_information')}}'">
-            <div class="card-departments-child">    بيانات الطلاب
+            <img src="{{Vite::image("bar-chart (4).png")}}" class="" width="150px" onclick="location.href='{{route('control_grades_statistics')}}'">
+            <div class="card-departments-child">     الإحصائيات
             </div>
         </div>
 
         <div class="card  cards-departments" id="">
-            <img src="{{Vite::image("students.png")}}" class="" width="150px"   onclick="location.href='{{route('students_grades')}}'">
+            <img src="{{Vite::image("students.png")}}" class="" width="150px"   onclick="location.href='{{route('control_students_grade')}}'">
             <div class="card-departments-child"> درجات الطلاب
             </div>
         </div>

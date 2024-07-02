@@ -368,6 +368,22 @@ use GuzzleHttp\Middleware;
 
     });
 
+    route::prefix("control_grades")->group(function(){
+        route::get("/control_grades_departments",'ControlGradesMainController@ControlGradesDepartments')->name("control_grades_departments");
+    // });
+    // route::prefix("control_grades_levels")->group(function(){
+        route::get("/control_grades_levels",'ControlGradesMainController@ControlGradeslevels')->name("control_grades_levels");
+        route::get("/control_grades_main",'ControlGradesMainController@ControlGradesMain')->name("control_grades_main");
+        route::get("/control_grades_statistics",'ControlGradesMainController@ControlGradesStatistics')->name("control_grades_statistics");
+
+    });
+
+    Route::group(['prefix'=>'control_students_grade','middleware' => 'auth'
+], function () {
+        route::get('/', '\\'.App\Livewire\ControlGrades\ControlStudentsGrade::class)->name('control_students_grade');
+        route::get('control_final_reasults_students','\\'.App\Livewire\ControlGrades\ControlFinalReasultsStudents::class)->name('control_final_reasults_students');
+    });
+
 //     Route::group(['prefix'=>'departments_admin','middleware'=>'auth'
 // ], function(){
 //     route::get('/', '\\'. App\Livewire\Admin\Departments::class)->name('departments_admin');
