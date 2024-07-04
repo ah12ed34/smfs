@@ -10,33 +10,33 @@
             <div id="card-HW" class="card bg-light text-dark" style=" color: #0E70F2;">
                 <div class="card-body">
                     <div class="btn-HW">
-                        <a href="{{route("recive-assignments",[$group_subject->subject_id,$group_subject->group_id,$assignment->group_file->id])}}"> <button type="submit" class="btn btn-primary " id="btn-recive-hw" data-toggle="" data-target="#">الواردة </button></a>
-                        <button type="submit" class="btn btn-light " id="btn-recive-edte-hw" data-toggle="modal" data-target="#myModalediteAssign" wire:click='editAssignment({{ $assignment->id }})' >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
+                        <a href="{{route("recive-assignments",[$group_subject->subject_id,$group_subject->group_id,$assignment->group_file->id])}}"> <button type="submit" class="btn btn-primary btn_recive_hw " id="" data-toggle="" data-target="#">الواردة </button></a>
+                        <button type="submit" class="btn btn-light btn_recive_edte_hw " id="" data-toggle="modal" data-target="#myModalediteAssign" wire:click='editAssignment({{ $assignment->id }})' >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
                         @if ($assignment->group_file->is_active)
-                            <button type="submit" class="btn btn-danger " id="btn-recive-hw" data-toggle="modal" data-target="#myModalstop"
+                            <button type="submit" class="btn btn-danger btn_recive_hw " id="" data-toggle="modal" data-target="#myModalstop"
                                 wire:click='selected({{$assignment->id}})'
                             >إيقاف </button>
                         @else
-                            <button type="submit" class="btn btn-success " id="btn-recive-hw" data-toggle="modal" data-target="#myModalstop" wire:click='selected({{ $assignment->id }})'>تفعيل </button>
+                            <button type="submit" class="btn btn-success btn_recive_hw " id="" data-toggle="modal" data-target="#myModalstop" wire:click='selected({{ $assignment->id }})'>تفعيل </button>
                         @endif
-                        {{-- <button type="submit" class="btn btn-danger " id="btn-recive-hw" data-toggle="modal" data-target="#myModalstop">إيقاف </button> --}}
+                        {{-- <button type="submit" class="btn btn-danger btn_recive_hw " id="" data-toggle="modal" data-target="#myModalstop">إيقاف </button> --}}
                     </div>
-                    <table id="table-details-assignements-teacher" dir="rtl">
+                    <table class=" table_details_assignements_teacher"  dir="rtl">
                         <tr>
-                            <th id="table-header-assigne-teacher">اسم التكاليف</th>
-                            <td id="text-table-teacher">{{$assignment->name}}</td>
+                            <th class="table_header_assigne_teacher" id="">اسم التكاليف</th>
+                            <td class="text_table_assigne_teacher">{{$assignment->name}}</td>
                         </tr>
                         <tr>
-                            <th id="table-header-assigne-teacher">الدرجة</th>
-                            <td id="text-table-assigne-teacher">{{$assignment->group_file->grade}}</td>
+                            <th class="table_header_assigne_teacher" id="">الدرجة</th>
+                            <td class="text_table_assigne_teacher" id="">{{$assignment->group_file->grade}}</td>
                         </tr>
                         <tr>
-                            <th id="table-header-assigne-teacher">الوصف</th>
-                            <td id="text-table-assigne-teacher">{{$assignment->description}}</td>
+                            <th class="table_header_assigne_teacher" id="">الوصف</th>
+                            <td class="text_table_assigne_teacher" id="">{{$assignment->description}}</td>
                         </tr>
                         <tr>
-                            <th id="table-header-assigne-teacher">الملف</th>
-                            <td id="text-table-assigne-teacher">
+                            <th class="table_header_assigne_teacher" id="">الملف</th>
+                            <td  class="text_table_assigne_teacher" id="">
                                 @if($assignment->file)
                                     {{-- rename file downled --}}
                                     <a wire:click='download({{ $assignment->id }})' style="cursor: pointer;"
@@ -45,8 +45,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <th id="table-header-assigne-teacher">تاريخ التسليم</th>
-                            <td id="text-table-assigne-teacher">{{$assignment->group_file->due_date
+                            <th class="table_header_assigne_teacher" id="" >تاريخ التسليم</th>
+                            <td class="text_table_assigne_teacher" id="">{{$assignment->group_file->due_date
                             }}</td>
                         </tr>
                     </table>

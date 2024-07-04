@@ -2,7 +2,7 @@
         margin: 0px;
         padding: 0pxs;
     }
-    
+
     .header {
         background-color: rgb(0, 0, 255);
         max-height: 50px;
@@ -10,7 +10,7 @@
         width: 100%;
         padding: 10px;
         position: fixed;
-        z-index: 2;
+        z-index: 3 !important;
     }
     /*button{
 
@@ -22,9 +22,9 @@ border: 1px solid white;
 border-radius: 20px;
 border: 0px;
 color: aliceblue;
-font-size: 10px;    
+font-size: 10px;
 }*/
-    
+
     .user {
         font-size: 9px;
         float: right;
@@ -32,7 +32,7 @@ font-size: 10px;
         margin-top: -24px;
         margin-right: 40px;
     }
-    
+
     .user-icon {
         float: right;
         height: 29px;
@@ -41,7 +41,7 @@ font-size: 10px;
         margin-left: 106px;
         margin-top: -5px;
     }
-    
+
     #notification {
         margin-left: 170px;
         margin-top: -36px;
@@ -51,7 +51,7 @@ font-size: 10px;
         z-index: 3 !important;
         position: relative;
     }
-    
+
     .notification {
         margin-left: 178px;
         margin-top: -34px;
@@ -64,7 +64,7 @@ font-size: 10px;
         z-index: 3 !important;
         position: relative; */
     }
-    
+
     @media screen and (max-width: 500px) {
         .notification {
             margin-left: 77px;
@@ -88,12 +88,12 @@ font-size: 10px;
             margin-left: 5px;
         }
     }
-    
+
     .img10 {
         float: right;
         margin-left: 15px;
     }
-    
+
     div.card {
         width: 220px;
         height: 220px;
@@ -108,7 +108,7 @@ font-size: 10px;
         -ms-border-radius: 5px;
         -o-border-radius: 5px;
     }
-    
+
     /* .card-child-1 {
         width: 220px;
         height: 70px;
@@ -143,7 +143,7 @@ font-size: 10px;
         float: left;
         width: 24.99999%;
     }
-    
+
     @media only screen and (max-width: 700px) {
         .responsive {
             width: 49.99999%;
@@ -155,25 +155,25 @@ font-size: 10px;
             -o-transition: 2;
         }
     }
-    
+
     @media only screen and (max-width: 700px) {
         .responsive {
             width: 100%;
         }
     }
-    
+
     .clearfix:after {
         content: "";
         display: table;
         clear: both;
     }
-    
+
     .img1manu {
         float: right;
         margin-top: 9px;
         margin-left: 80%;
     }
-    
+
     .btn-group2 .button2 {
         background-color: #ffffff;
         border: none;
@@ -188,24 +188,24 @@ font-size: 10px;
         cursor: pointer;
         margin-top: -49px;
     }
-    
+
     .btn-group2 .button:hover2 {
         background-color: #B4DAF6;
         text-decoration: none;
         color: #ffffff;
     }
-    
+
     .button:active {
         background-color: #A0C6F9;
         opacity: 21%;
     }
-    
+
     #active {
         background-color: #a9cbf7;
         text-decoration: none;
         border-bottom: 4px solid #2f81ec;
     }
-    
+
     ul {
         list-style-type: none;
         /* padding: 0; */
@@ -219,12 +219,12 @@ font-size: 10px;
         text-decoration: none;
         padding-right:0%;
     }
-    
+
     li {
         float: right;
         display: block;
     }
-    
+
     li a {
         display: block;
         color: #0E70F2;
@@ -240,19 +240,19 @@ font-size: 10px;
         /* float:right;
         margin-right:0%; */
     }
-    
+
     li a:hover:not(.active) {
         background-color: #B4DAF6;
         text-decoration: none;
         color: #ffffff;
     }
-    
+
     .active {
         background-color: #a9cbf7;
         text-decoration: none;
         border-bottom: 4px solid #2f81ec;
     }
-    
+
     @media screen and (max-width: 915px) {
         .header {
             z-index: 2;
@@ -289,7 +289,7 @@ font-size: 10px;
             border-bottom: 2px solid #2f81ec;
         }
     }
-    
+
     .mainbox {
         display: inline;
     }
@@ -367,7 +367,7 @@ right: -170px; /* Adjust to hide initially, and float to the right */
 margin-right: 50px;
 }
 }*/
-    
+
     .btn-group .button-sidebar {
         background-color: #04AA6D;
         /* Green */
@@ -382,16 +382,16 @@ margin-right: 50px;
         display: table;
         float: right;
     }
-    
+
     .btn-group .button-sidebar:not(:last-child) {
         border-bottom: none;
         /* Prevent double borders */
     }
-    
+
     .btn-group .button-sidebar:hover {
         background-color: #3e8e41;
     }
-    
+
     .button-sidebar {
         background-color: #03174C;
         color: white;
@@ -402,12 +402,12 @@ margin-right: 50px;
         text-align: center;
         padding-top: 12px;
     }
-    
+
     .button-sidebar:hover {
         background-color: #3B5AAC;
         color: #ffffff;
     }
-    
+
     .button-a {
         text-decoration: none;
         color: #ffffff;

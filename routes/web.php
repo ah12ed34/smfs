@@ -228,6 +228,18 @@ use GuzzleHttp\Middleware;
             });
 
 
+            Route::prefix("students")->group(function(){
+                Route::get("/",'\\'.App\Livewire\Students\Chat::class)->name("homeANDchat");
+            });
+
+        //     Route::group(['prefix'=>'homeANDchat','middleware' => 'auth'
+        // ], function () {
+        //         route::get('/', '\\'.App\Livewire\Students\HomeWithChat::class)->name('homeANDchat');
+
+        //     });
+            // Route::get('/homeANDchat','\\'.App\Livewire\Students\Chat::class);
+
+
             route::prefix("{subject_id}{group_id}")->group(function(){
                 route::prefix('students')->group(function(){
                     route::get("/",'StudentsController@index')->name("students");

@@ -258,6 +258,7 @@
     position: fixed;
     margin-bottom: 40px;
     top: 115px;
+    z-index: 1;
 }
 
 .form-control {
