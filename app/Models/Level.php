@@ -28,4 +28,9 @@ class Level extends Model
     {
         return $this->belongsToMany(Subject::class, 'subjects_levels', );
     }
+
+    public function subjectLevels()
+    {
+        return $this->hasMany(SubjectsLevels::class, 'level_id','id');
+    }
 }

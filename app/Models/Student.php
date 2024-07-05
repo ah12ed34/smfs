@@ -124,7 +124,9 @@ class Student extends Model
     }
 
     public function groups() {
-        return $this->belongsToMany(Group::class, 'group_students', 'student_id', 'group_id');
+        return $this->belongsToMany(Group::class, 'group_students', 'student_id', 'group_id', 'user_id', 'id')
+            ->withPivot(['id', 'ay_id'])
+            ;
     }
 
     public function group_students() {

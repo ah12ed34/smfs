@@ -14,6 +14,7 @@ class GroupSubject extends Model
     'group_id',
     'subject_id',
     'teacher_id',
+    'ay_id',
     'is_practical',
     ];
 
@@ -55,6 +56,16 @@ class GroupSubject extends Model
             ->where('subjects_levels.id', $this->subject_id)
             ->select('subjects.*')
             ->first();
+    }
+    public function subjectLevel(){
+        return $this->hasOne(SubjectsLevels::class,'id','subject_id');
+    }
+    public function levelSubjects(){
+        return $this->hasMany(SubjectsLevels::class,'subject_id','subject_id')
+        ;
+    }
+    public function levelSubject(){
+        return $this->hasOne(SubjectsLevels::class,'id','subject_id');
     }
     public function teacher()
     {

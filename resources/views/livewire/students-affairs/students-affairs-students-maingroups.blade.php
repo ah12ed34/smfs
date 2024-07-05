@@ -29,7 +29,8 @@
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" onclick="location.href='{{route('studentsInformation_InGroup',[$level->id,$group->id])}}'">عرض</button> </td>
                             <td>{{ myapp::getStudentGender($group->gender) }}</td>
                             <td>{{ $group->system == 'all'? "عام و موازي":myapp::getSystem($group->system) }}</td>
-                            <td>{{ $group->students->count().'\\'. $group->max_students }}</td>
+                            <td>{{ $group->students()->where('ay_id',$currentAcademicYear->id)->count()
+                            .'\\'. $group->max_students }}</td>
                             @if($typeGroup == 'sub')
                             <td>{{ $group?->group?->name }}</td>
                             @endif
@@ -177,7 +178,7 @@
                             </button>
 
                             <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                                @if($groupDitails->students->count() == 0)
+                                @if($groupDitails->students()->where('ay_id',$currentAcademicYear->id)->count() == 0)
                                     @foreach (myapp::getStudentGenders($gender) as $key=>$value)
                                         <a id="" class="dropdown-item" wire:click='setGender("{{ $key }}")'
                                             style="padding-left:30px; "> {{ $value }}</a>
@@ -191,7 +192,7 @@
                                 <div class="textdropdown">{{ $system ? ($system == 'all'? "عام و موازي":myapp::getSystem($system)) : 'النظام' }} </div>
                             </button>
                             <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                                @if($groupDitails->students->count() == 0)
+                                @if($groupDitails->students()->where('ay_id',$currentAcademicYear->id)->count() == 0)
                                 @foreach (myapp::getSystems($system) as $key=>$value)
                                     <a id="" class="dropdown-item" wire:click='setSystem("{{ $key }}")'
                                         style="padding-left:30px; "> {{ $value }}</a>
@@ -210,7 +211,7 @@
                             </button>
 
                             <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                                @if($groupDitails->students->count() == 0)
+                                @if($groupDitails->students()->where('ay_id',$currentAcademicYear->id)->count() == 0)
                                 @if($group_id)
                                 <a id="" class="dropdown-item" wire:click='setGroup()'
                                     style="padding-left:30px; ">    نظري</a>

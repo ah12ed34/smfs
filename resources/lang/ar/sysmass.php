@@ -28,5 +28,7 @@ return [
     'no_students_subject' => 'لا يوجد طلاب مسجلين لهذه المادة',
     'one_student_subject' => 'يجب إنشاء طالب واحد على الأقل لهذه المادة',
     'create_department_first' => 'يجب إنشاء قسم أولا',
+    'this_term_is_not_available' => 'هذا الترم غير متاح',
+    'term_must_be_a_number' => 'الترم يجب أن يكون رقم',
 
 ];

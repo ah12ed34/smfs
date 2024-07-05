@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use App\Repositories\StudentsRepository;
+use App\Contracts\StudentsInterface;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -18,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
+        $this->app->bind(StudentsInterface::class, StudentsRepository::class);
     }
 
     /**

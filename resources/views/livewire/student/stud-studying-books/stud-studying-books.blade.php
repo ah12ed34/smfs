@@ -2,6 +2,9 @@
 @section("nav")
     @livewire('components.nav.student.stud-studying-books.stud-studying-books'
     ,[ 'active'=>'ssb','department_name'=>$user->student->department->name
+        ,'terms'=>$terms
+        ,'groupStudents'=>$group_students
+        ,'term'=>$term
     ])
 @endsection
 <div>

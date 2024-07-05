@@ -9,8 +9,14 @@ use App\Traits\Searchable;
 use App\Traits\Studentsable;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use App\Contracts\StudentsInterface;
+use App\Livewire\Academic\Student\Students;
+use App\Models\AcademicYear;
+use App\Repositories\StudentsRepository;
+use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\On;
 
-use function PHPSTORM_META\elementType;
+// use function PHPSTORM_META\elementType;
 
 class StudentsInformationInGroups extends Component
 {
@@ -27,6 +33,12 @@ class StudentsInformationInGroups extends Component
     public $group;
     public $groups;
 
+
+    public function __construct()
+    {
+        $this->initializeGroupsable();
+    }
+
     public function mount(Level $LId,Group $group)
     {
         $this->level = $LId;
@@ -38,6 +50,14 @@ class StudentsInformationInGroups extends Component
         }else{
             $this->groups = $this->groups->whereNull('group_id');
         }
+
+        if(request()->has('year')){
+            $year = request('year');
+            if(is_numeric($year)){
+                $this->StudentR->setAYear($year);
+            }
+        }
+
     }
 
     public function moveStudent($id,$group_id)
@@ -46,6 +66,13 @@ class StudentsInformationInGroups extends Component
         if ($this->students->contains($id)) {
             $student = $this->students->find($id);
             $newGroup = $this->groups->find($group_id);
+            if($newGroup){
+                if($newGroup->students()->where('group_students.ay_id',$this->StudentR->getAYear()->id
+                )->count() >= $newGroup->max){
+                    $this->addError('group_id','المجموعة ممتلئة');
+                    return;
+                }
+            }
             $this->moveStudentToGroup($student,$newGroup,$this->group);
             }
             // check if error column not found valdiation error group_id
@@ -56,11 +83,18 @@ class StudentsInformationInGroups extends Component
 
     }
 
+    #[on('refreshStudentsInGroup')]
+    public function refreshStudentsInGroup()
+    {
+        $this->students;
+    }
+
     public function getStudentsProperty()
     {
-        $studentsQuery = $this->group->students();
+        $students = $this->StudentR->
+        getStudentsInGroup($this->group);
         if (!empty($this->search)) {
-            $studentsQuery->whereHas('user', function ($query) {
+            $students->WhereHas('user', function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%')
                     ->orWhere('email', 'like', '%' . $this->search . '%')
                     ->orWhere('phone', 'like', '%' . $this->search . '%')
@@ -69,22 +103,8 @@ class StudentsInformationInGroups extends Component
                     ->orWhereRaw("concat(name, ' ', last_name) like ?", ['%' . $this->search . '%']);
             });
         }
-
-        // ترتيب النتائج بناءً على الحقل المحدد
-        if (in_array($this->sortField, ['id', 'name', 'username', 'email', 'phone', 'user_id', 'group_id', 'system', 'level_id'])) {
-            $studentsQuery->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
-        }
-        // $studentsQuery->map(function ($student) {
-        //     if(!$this->group->group_id){
-        //         $student->group_id = $this->group->id;
-        //     }else{
-        //         $student->group_id = $this->group->id;
-        //     }
-        //     return $student;
-        // });
-        // تنفيذ الاستعلام مع التصفية والفرز
-        $students = $studentsQuery->paginate($this->perPage);
-            // dd($students);
+        $students = $students->paginate($this->perPage);
+        // dd($students->get());
         return $students;
     }
 

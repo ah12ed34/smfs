@@ -351,7 +351,7 @@ use GuzzleHttp\Middleware;
 
     });
 
-    Route::group(['prefix'=>'StudentSaffairs','middleware' => 'auth'
+    Route::group(['prefix'=>'StudentSaffairs','middleware' => ['auth']
     ], function () {
         route::get('/', '\\'.App\Livewire\StudentsAffairs\DepatmentsStudentsAffairs::class)->name('StudentSaffairs');
         route::get('{DId}/depart_levels_studentsAffairs','\\'.App\Livewire\StudentsAffairs\DepartLevelsStudentsAffairs::class)->name('depart_levels_studentsAffairs');
