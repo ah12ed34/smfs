@@ -69,7 +69,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" style="overflow-y: scroll;">
+            <div class="modal-body modal_body_css">
                     <div class="form-group">
 
                         <!-- <img src="{{Vite::image("profile.png")}}"  width="" class="user_profile_modal" > -->
@@ -167,7 +167,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" style="overflow-y: scroll;">
+            <div class="modal-body modal_body_css">
                 @if($groupDitails&&$openType == 'edit')
                 <div class="form-group">
                         <input type="text" class="form-control" id="inputtext" wire:model='name' placeholder=" اسم المجموعة " style="height: 30px; margin-top:8px">

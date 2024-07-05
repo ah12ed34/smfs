@@ -1,4 +1,4 @@
-@extends('layouts.home')
+
 @section('nav')
 
 {{-- <button class="spaces"> <label  class="subjectname" style="margin-left: -20px;"> الصفحة الرئيسية </label><img src="../../images/dashboard (1).png" id="subject-icon-hdr2" width="40px"style="margin-left: -165px;"></button> --}}
@@ -10,7 +10,7 @@
 
 @endsection
 
-@section("content") 
+@section("content")
 
 <div  style="padding-bottom:30px; padding-left:-5px;padding-left:-5px;">
 
@@ -65,94 +65,69 @@
 {{-- onclick="location.href='{{route('#')}}'" --}}
 
 </div>
+
+@livewire('students.chat')
+
 <!-- The Modalchatting -->
 <div class="modal fade" id="myModalchatting">
     <div class="modal-dialog">
-        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:95vh;">
+        <div class="modal-content modal_content_css" style="background-color: #F6F7FA;height:95vh;">
             <!-- Modal Header -->
-            <div class="modal-header modal_header_css" id="modheader" style="padding-left: 45%">
-                {{-- <div class="">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id="" width="25px"></div> --}}
+            <div class="modal-header modal_header_css" style="padding-left: 45%">
                 الدردشة
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body modal_body_chattinbox   " id="">
-
-            <div class="container mt-5">
-                   <div class="card chatting_card" >
-                    {{-- <div class="card-header text-center">
-                            <h4>الدردشة</h4>
-                        </div> --> --}}
-                        <div class="card-body chatbox " id="chatbox" >
-                            <!-- Messages will be dynamically added here -->
-                            <div class="message sender-message">
-                                <img src="{{Vite::image("user.png")}}" alt="User Profile" class="profile-pic">
-                                <div class="message-content">
-                                    <div class="message-header">
-                                        <span class="sender">John Doe</span>
-                                        <!-- <span class="time">10:30 AM</span> -->
-                                    </div>
-                                    <div class="message-body">
-                                        Hello, this is a message!
-                                    </div>
-                                    <div class="message-footer">
-                                        <span class="time">10:32 AM</span>
+            <div class="modal-body modal_body_chattinbox">
+                <div class="container mt-5">
+                    <div class="card chatting_card">
+                        <div class="card-body chatbox" id="chatbox">
+                            @foreach($messages as $msg)
+                                <div class="message {{ $msg['sender'] === 'You' ? 'sender-message' : 'receiver-message' }}">
+                                    <img src="{{ asset($msg['profile_pic']) }}" alt="User Profile" class="profile-pic">
+                                    <div class="message-content">
+                                        <div class="message-header">
+                                            <span class="sender">{{ $msg['sender'] }}</span>
+                                        </div>
+                                        <div class="message-body">
+                                            {{ $msg['message'] }}
+                                        </div>
+                                        <div class="message-footer">
+                                            <span class="time">{{ $msg['time'] }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="message receiver-message">
-                                <img  src="{{Vite::image("user.png")}}" alt="User Profile" class="profile-pic">
-                                <div class="message-content">
-                                    <div class="message-header">
-                                        <span class="sender">Jane Smith</span>
-                                    </div>
-                                    <div class="message-body">
-                                        Hi John, how are you?
-                                    </div>
-                                    <div class="message-footer">
-                                        <span class="time">10:32 AM</span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-                        {{-- <div class="card-footer">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="messageInput" placeholder="Type a message">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" id="sendButton">Send</button>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>
 
             <!-- Modal footer -->
-            <div class="modal-footer" style="z-index: 1; ">
-                {{-- <input type="text" class="form-control" id="sendmessa" name="username" placeholder="اكتب ...">
-                <img src="{{Vite::image("send.png")}}" id="send-png" width="25px"> --}}
-                <div  class="input-group mb-3">
-                    {{-- <textarea  id="messageInput"  class="form-control send-input" placeholder="اكتب..." style="height: 35px;margin-top: -10px;"></textarea> --}}
-                    <input type="text" class="form-control send-input" id="messageInput" placeholder="اكتب..." style="height: 35px;margin-top: -10px;">
+            <div class="modal-footer" style="z-index: 1;">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control send-input" wire:model="message" placeholder="اكتب..." style="height: 35px;margin-top: -10px;">
                     <div class="input-group-append">
-                        <button  class="btn btn-light" type="button" id="sendButton"  style="margin-top: -10px;height: 35px;margin-left:5px"><img src="{{Vite::image("send.png")}}"   width="24px" ></button>
+                        <button class="btn btn-light" wire:click="sendMessage" style="margin-top: -10px;height: 35px;margin-left:5px">
+                            <img src="{{Vite::image("send.png")}}" width="24px">
+                        </button>
                     </div>
                 </div>
-                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button> -->
             </div>
         </div>
     </div>
 </div>
 
+
 </div>
 {{-- <style>
 </style> --}}
-{{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
-    {{-- <script src="script.js"></script> --}}
-    {{-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {

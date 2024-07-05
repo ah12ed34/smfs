@@ -36,6 +36,16 @@
     </div>
     {{-- @endif --}}
 
+    {{-- @if($card_notification == 'ManagersNotifictions') --}}
+    <div class="card  cards-departments" id=""   data-toggle="modal" data-target="#ModalSendNotifictionsEmployees">
+        {{-- <div class="card  cards-departments" id="" onclick="window.location='{{ route('sendNotifications_managers') }}'"> --}}
+            <img src="{{ Vite::image('all_employeesNotifications.png')}}" class="" width="150px">
+            <div class="card-departments-child"  style="background-color:white; color:#34959C">  إشعارات  الموظفين
+            </div>
+        {{-- </div> --}}
+        </div>
+        {{-- @endif --}}
+
 
 
 </div>
@@ -305,6 +315,85 @@
         </div>
     </div>
 </div>
+
+<!-- The ModalSendNotifictionsEmployees -->
+<div class="modal fade" id="ModalSendNotifictionsEmployees">
+    <div class="modal-dialog">
+        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:95vh;">
+            <!-- Modal Header -->
+            <div class="modal-header modal_header_css" id="modheader" style="padding-left: 45%">
+                {{-- <div class="">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id="" width="25px"></div> --}}
+                اشعارات  الموظفين
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body modal_body_chattinbox" id="">
+<div class="card card-light header_sendNotifications">
+
+    <div class="dropdown">
+
+        <button id="" type="button" class="btn btn-light specific_department dropdown-toggle" data-toggle="dropdown" dir="rtl">
+            <!-- <div class="textdropdown"> -->
+                جميع الموظفين
+            </button>
+        <div id="dropdown-menulist" class="dropdown-menu">
+            <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> الإدارين</a>
+            <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:30px;"> شؤون الطلاب</a>
+            <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:30px;">  الجودة</a>
+            <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:30px;">   الكنترول</a>
+            <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:30px;">   الجداول</a>
+
+        </div>
+
+        </div>
+
+        {{-- <button id="" type="button" class="btn btn-primary specific_students" data-toggle="modal" data-target="#MoadalspacificStudents" > تحديد الأكادمين </button> --}}
+
+</div>
+
+            <div class="container mt-5">
+                <div class="card chatting_card" >
+                    {{-- <div class="card-header text-center">
+                            <h4>الدردشة</h4>
+                        </div> --> --}}
+                        <div class="card-body chatbox " id="chatbox" >
+                            <!-- Messages will be dynamically added here -->
+                            <div class="message sender-message">
+                                <img src="{{Vite::image("user.png")}}" alt="User Profile" class="profile-pic">
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="sender">John Doe</span>
+                                    </div>
+                                    <div class="message-body">
+                                        Hello, this is a message!
+                                    </div>
+                                    <div class="message-footer">
+                                        <span class="time">10:32 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer" style="z-index: 1; ">
+                {{-- <input type="text" class="form-control" id="sendmessa" name="username" placeholder="اكتب ...">
+                <img src="{{Vite::image("send.png")}}" id="send-png" width="25px"> --}}
+                <div  class="input-group mb-3">
+                    {{-- <textarea  id="messageInput"  class="form-control send-input" placeholder="اكتب..." style="height: 35px;margin-top: -10px;"></textarea> --}}
+                    <input type="text" class="form-control send-input" id="messageInput" placeholder="اكتب..." style="height: 35px;margin-top: -10px;">
+                    <div class="input-group-append">
+                        <button  class="btn btn-light" type="button" id="sendButton"  style="margin-top: -10px;height: 35px;margin-left:5px"><img src="{{Vite::image("send.png")}}"   width="24px" ></button>
+                    </div>
+                </div>
+                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- The MoadalspacificStudentsOrAcademic -->
 <div class="modal fade " id="MoadalspacificStudents" wire:ignore style="top:45px; left:20px;">

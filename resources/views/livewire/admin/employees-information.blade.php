@@ -124,9 +124,9 @@
 
 
 <!-- The ModaladdEmployeer -->
-<div class="modal fade" id="AddEmployeerModal" wire:ignore.self>
+<div class="modal fade" id="AddEmployeerModal"  wire:ignore.self >
 <div class="modal-dialog">
-    <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 600px;">
+    <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 95vh;">
 
         <!-- Modal Header -->
         <div class="modal-header modal_header_css" id="modheader">
@@ -233,7 +233,7 @@
 <!-- The ModalEditeEmployees -->
 <div class="modal fade" id="EditeEmployeesModal" wire:ignore.self>
 <div class="modal-dialog">
-    <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 600px;">
+    <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 95vh;">
 
         <!-- Modal Header -->
         <div class="modal-header modal_header_css" id="modheader">
@@ -337,7 +337,7 @@
 <!-- The DetailsEmloyeesModal -->
 <div class="modal fade" id="DetailsEmloyeesModal" wire:ignore.self>
 <div class="modal-dialog">
-    <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:660px;">
+    <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:95vh;">
 
         <!-- Modal Header -->
         <div class="modal-header ModaldDetailsAcademic" id="modheader">

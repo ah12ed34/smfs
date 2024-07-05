@@ -40,7 +40,7 @@
     .input-group.input-search-manageDepart {
         margin-left: 160px;
         width: 220px;
-        
+
     }
 }
 @media screen and (max-width: 700px) {
@@ -866,13 +866,16 @@
         .modal-body.ModaldDetailsAcademic{
             /* height: 600px; */
             overflow: auto;
+            scrollbar-width: none;
+            scrollbar-height: none;
+            -ms-overflow-style: none;
         }
         .modal-footer.ModaldDetailsAcademic{
             height: 30px;
             /* overflow: auto; */
             background-color:#1558DB;
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
 
         }
 

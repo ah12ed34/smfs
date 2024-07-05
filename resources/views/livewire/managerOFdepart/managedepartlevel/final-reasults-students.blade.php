@@ -37,33 +37,6 @@
                             <td>*******</td>
                         </tr>
 
-                        <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                            <!-- <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td> -->
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModaldDetailsStudents">عرض</button> </td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                        </tr>
-                        <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                            <!-- <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td> -->
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModaldDetailsStudents">عرض</button> </td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                        </tr>
-
                     </tbody>
                 </table>
             </div>

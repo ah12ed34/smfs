@@ -117,6 +117,8 @@ use GuzzleHttp\Middleware;
         Route::get('employees', 'AdminController@employees')->name('admin.employees');
         Route::get('permissions', 'AdminController@permissions')->name('admin.permissions');
         Route::get('notifications', 'AdminController@notifications')->name('admin.notifications');
+        Route::get('levelsOfDepartments', 'AdminController@levelsOfDepartments')->name('admin.levelsOfDepartments');
+        Route::get('students_data', 'AdminController@students_data')->name('admin.students_data');
 
     });
     Route::group(['prefix'=>'managers_information','middleware'=>'auth'
@@ -124,11 +126,14 @@ use GuzzleHttp\Middleware;
     route::get('/', '\\'. App\Livewire\Admin\ManagersInformation::class)->name('managers_information');
     route::get('/{roleName}/employees_information','\\'.App\Livewire\Admin\EmployeesInformation::class)->name('employees_information');
     route::get('employee_information', '\\'.App\Livewire\Admin\EmployeesInformation::class)->name('employee_information');
+    route::get('allEmolpyees_Information', '\\'.App\Livewire\Admin\AllEmolpyeesInformation::class)->name('allEmolpyees_Information');
     route::get('sendNotifications_students','\\'.App\Livewire\Admin\SendNotificationsstidents::class)->name('sendNotifications_students');
     route::get('sendNotifications_academics','\\'.App\Livewire\Admin\SendNotificttionsacademic::class)->name('sendNotifications_academics');
     route::get('sendNotifications_managers', '\\'.App\Livewire\Admin\SendNotificationbossdepartment::class)->name('sendNotifications_managers');
     route::get('permissions_pages','\\'.App\Livewire\Admin\PermissionPages::class)->name('permissions_pages');
     route::get('addUsers_permissions', '\\'.App\Livewire\Admin\AddPremissionUser::class)->name('addUsers_permissions');
+    route::get('students_information', '\\'.App\Livewire\Admin\LevelStudentsInformation::class)->name('students_information');
+    route::get('students_grades', '\\'.App\Livewire\Admin\StudentsGrades::class)->name('students_grades');
 });
 
     Route::prefix('/academic')->group(function () {
@@ -221,6 +226,18 @@ use GuzzleHttp\Middleware;
             Route::prefix("subject")->group(function(){
                 Route::get("/{subject_id}{group_id}",'SubjectController@index')->name("subject.index");
             });
+
+
+            Route::prefix("students")->group(function(){
+                Route::get("/",'\\'.App\Livewire\Students\Chat::class)->name("homeANDchat");
+            });
+
+        //     Route::group(['prefix'=>'homeANDchat','middleware' => 'auth'
+        // ], function () {
+        //         route::get('/', '\\'.App\Livewire\Students\HomeWithChat::class)->name('homeANDchat');
+
+        //     });
+            // Route::get('/homeANDchat','\\'.App\Livewire\Students\Chat::class);
 
 
             route::prefix("{subject_id}{group_id}")->group(function(){
@@ -361,6 +378,22 @@ use GuzzleHttp\Middleware;
         route::get('{LId}/studentsAffairs_practicalGroups','\\'.App\Livewire\StudentsAffairs\StudentsAffairsStudentPracticalgroups::class)->name('studentsAffairs_practicalGroups');
         route::get('{LId}/studentsInformation_InGroup/{group}','\\'.App\Livewire\StudentsAffairs\StudentsInformationInGroups::class)->name('studentsInformation_InGroup');
 
+    });
+
+    route::prefix("control_grades")->group(function(){
+        route::get("/control_grades_departments",'ControlGradesMainController@ControlGradesDepartments')->name("control_grades_departments");
+    // });
+    // route::prefix("control_grades_levels")->group(function(){
+        route::get("/control_grades_levels",'ControlGradesMainController@ControlGradeslevels')->name("control_grades_levels");
+        route::get("/control_grades_main",'ControlGradesMainController@ControlGradesMain')->name("control_grades_main");
+        route::get("/control_grades_statistics",'ControlGradesMainController@ControlGradesStatistics')->name("control_grades_statistics");
+
+    });
+
+    Route::group(['prefix'=>'control_students_grade','middleware' => 'auth'
+], function () {
+        route::get('/', '\\'.App\Livewire\ControlGrades\ControlStudentsGrade::class)->name('control_students_grade');
+        route::get('control_final_reasults_students','\\'.App\Livewire\ControlGrades\ControlFinalReasultsStudents::class)->name('control_final_reasults_students');
     });
 
 //     Route::group(['prefix'=>'departments_admin','middleware'=>'auth'

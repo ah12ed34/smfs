@@ -8,7 +8,7 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-94ce7dbb.css",
+    "file": "assets/app-844ccb1b.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -43,6 +43,14 @@
   "resources/images/admin.png": {
     "file": "assets/admin-f20872de.png",
     "src": "resources/images/admin.png"
+  },
+  "resources/images/all_employees.png": {
+    "file": "assets/all_employees-b5938363.png",
+    "src": "resources/images/all_employees.png"
+  },
+  "resources/images/all_employeesNotifications.png": {
+    "file": "assets/all_employeesNotifications-768427fa.png",
+    "src": "resources/images/all_employeesNotifications.png"
   },
   "resources/images/allocation (1).png": {
     "file": "assets/allocation (1)-e7be0c63.png",

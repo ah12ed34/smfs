@@ -5,7 +5,7 @@
         </button>
         <div class="dep-sub-name">{{ $group_subject->subject()->name_ar }}</div>
         <div class="container">
-            <button id="btn-groups-assigne" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
+            <button  id="" type="button" class="btn btn-light btn_groups_assigne  dropdown-toggle" data-toggle="dropdown">
             <div class="textdrop2"> {{ $group_subject->group->name }}</div>
            </button>
             <div id="dropdown-menulist" class="dropdown-menu" style="width:130px; color: #0E70F2; ">
@@ -17,13 +17,13 @@
                 <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(2)</a>
                 <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(3)</a> --}}
             </div>
-            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-addHW" data-toggle="modal" data-target="#myModal">إضافة تكليف<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> </td>
+            <td><button type="submit" class="btn btn-primary btn-sm btn_addHW " id="" data-toggle="modal" data-target="#myModal">إضافة تكليف<img src="{{Vite::image("plus.png")}}" class="picture_add"  ></button> </td>
         </div>
     </div>
 
     <div class="hr3">
         <a href="{{route("subject.index",[$group_subject->subject_id,$group_subject->group_id])}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
-        <div id="input-group-assign" class="input-group mb-3">
+        <div id="" class="input-group input_group_assign mb-3">
             <input type="text" class="form-control" placeholder="Search" wire:model='search' wire:keydown.enter='srch'>
             <div class="input-group-append">
                 <button id="form-control" class="btn btn-light" wire:keydown.enter='srch'><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
