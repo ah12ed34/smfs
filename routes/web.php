@@ -121,6 +121,8 @@ use GuzzleHttp\Middleware;
         Route::get('notifications', 'AdminController@notifications')->name('admin.notifications');
         Route::get('{department}/levelsOfDepartments', 'AdminController@levelsOfDepartments')->name('admin.levelsOfDepartments');
         Route::get('{level}/students_data', 'AdminController@students_data')->name('admin.students_data');
+        Route::get('{level}/students_groups', 'AdminController@students_groups')->name('admin.students_groups');
+        Route::get('academic_mobile', 'AdminController@academic_mobile')->name('admin.academic_mobile');
 
     });
     Route::group(['prefix'=>'managers_information','middleware'=>'auth'

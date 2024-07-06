@@ -123,7 +123,7 @@
                             <div class="textdropdown">{{ $gender ?myapp::getGender($gender):__('general.gender') }}</div>
                             </button>
                             <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                                @foreach (myapp::getGenderAllOut($gender) as $key=>$value)
+                                @foreach (myapp::getGenders($gender) as $key=>$value)
                                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; " wire:click='setGender("{{$key}}")'>   {{$value}} </a>
                                 @endforeach
                         </div>
@@ -224,7 +224,8 @@
                             <div class="textdropdown">{{ $gender ?myapp::getGender($gender):__('general.gender') }}</div>
                         </button>
                         <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                            @foreach (myapp::getGenderAllOut($gender) as $key=>$value)
+                            @foreach (myapp::getGenders($gender) as $key=>$value)
+
                                 <a id="" class="dropdown-item" href="#" style="padding-left:30px; " wire:click='setGender("{{$key}}")'>   {{$value}} </a>
                             @endforeach
                         </div>
@@ -273,7 +274,7 @@
                     <input type="text" class="form-control input_Info" id="input_username" wire:model='username' placeholder="اسم المستخدم" style="height: 30px; margin-top:8px">
                     <input type="data" class="form-control input_Info" id="input_phone"  name="phone" wire:model="phone" placeholder="التلفون  " style="height: 30px; margin-top:8px; color:black;">
                     <input type="password" class="form-control input_Info" id="input_password"  name="password" wire:model="password" placeholder=" كلمة المرور " style="height: 30px; margin-top:8px">
-                    <input type="password" class="form-control input_Info" id="input_ensurepassword" name="ensurepassword" wire:model="password_confirmation" placeholder="تأكيد كلمة المرر  " style="height: 30px; margin-top:8px; color:black;"> 
+                    <input type="password" class="form-control input_Info" id="input_ensurepassword" name="ensurepassword" wire:model="password_confirmation" placeholder="تأكيد كلمة المرر  " style="height: 30px; margin-top:8px; color:black;">
 
                 </div>
 

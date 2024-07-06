@@ -339,6 +339,32 @@ float: right;
         font-size: 10px;
     }
 }
+@media screen and (max-width: 500px) {
+    .btn.departmentAcademic_dropdown{
+        margin-right:55%;
+        padding-right: 1%;
+        font-size: 10px;
+        margin-top: 13px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .btn.departmentAcademic_dropdown{
+        margin-right:50%;
+        padding-right: 1%;
+        font-size: 10px;
+        margin-top: 13px;
+    }
+}
+.back_academic_mobile{
+    display:none;
+}
+@media screen and (max-width: 500px) {
+    .back_academic_mobile{
+       display:flex;
+        width: 50px;
+        margin-right:20px;
+    }
+}
 
 .input-group.input-search-admin {
     width: 250px;
@@ -442,7 +468,7 @@ float: right;
 }
 @media screen and (max-width: 360px) {
     .input-group.input-search-admin {
-        width: 160px;
+        /* width: 160px; */
         margin-left: 70px;
         font-size: 9px;
 
@@ -454,14 +480,20 @@ float: right;
 } */
 @media screen and (max-width: 330px) {
     .input-group.input-search-admin {
-        width: 160px;
-        margin-left: 40px;
+        /* width: 160px; */
+        /* margin-left: 40px; */
     }
 }
 @media screen and (max-width: 300px) {
     .input-group.input-search-admin {
+        width: 160px;
+        /* margin-left: 30px; */
+    }
+}
+@media screen and (max-width: 280px) {
+    .input-group.input-search-admin {
         width: 150px;
-        margin-left: 30px;
+        /* margin-left: 30px; */
     }
 }
 .btn.btn-addAcademic {
@@ -481,24 +513,24 @@ float: right;
 
 @media screen and (max-width:550px) {
     .btn.btn-addAcademic {
-        font-size: 10px;
+        font-size: 11px;
     }
 }
 @media screen and (max-width:400px) {
     .btn.btn-addAcademic {
-        font-size: 9px;
-        padding-right: 1px;
+        font-size: 10px;
+        /* padding-right: 1px; */
         padding-left:2px;
     }
 }
-@media screen and (max-width:370px) {
+/* @media screen and (max-width:370px) {
     .btn.btn-addAcademic {
         font-size: 10px;
         padding-right: 3px;
         padding-left:3px;
         margin-top: -70px;
     }
-}
+} */
 /*.btn.gendar{
     font-size: 11px;
     font-weight: normal;

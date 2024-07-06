@@ -48,17 +48,21 @@
                 @if ($active != 'department')
                     <a id="" class="dropdown-item" href="{{ route('department.index') }}" style="padding-left:30px; ">الأقسام</a>
                 @endif
+                @if ($active != 'academic')
+                <a id="" class="dropdown-item" href="#" style="padding-left:30px; " href="{{ route('admin.academic_mobile') }}"> الأكادميين</a>
+                @endif
                 @if ($active != 'permission')
-                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; " href="{{ route('admin.permissions') }}">   الصلاحيات</a>
+                <a id="" class="dropdown-item" href="#" style="padding-left:30px; " href="{{ route('admin.permissions') }}">   الصلاحيات</a>
                 @endif
                 @if ($active != 'notification')
                     <a id="" class="dropdown-item" href="#"style="padding-left:30px; " href="{{ route('admin.notifications') }}">   الإشعارات</a>
                 @endif
                 @if ($active != 'usrs_employers')
                 <a id="" class="dropdown-item" href="#"style="padding-left:30px; "  href="{{ route('admin.employees') }}">   الموظفين</a>
-            @endif
-                @if($active!='statistics')<a id="" class="dropdown-item" href="{{ route('admin.statistics') }}" style="padding-left:30px; ">  الإحصائيات</a>@endif
-                @if ($active != 'academic')
+                @endif
+                @if($active!='statistics')<a id="" class="dropdown-item" href="{{ route('admin.statistics') }}" style="padding-left:30px; ">  الإحصائيات</a>
+                @endif
+               {{--  @if ($active != 'academic')
                 <a style="padding-left:20px;"> <button type="button" class="btn  dropdown-toggle " data-toggle="dropdown" dir="rtl"  style="background-color:white;" ></a>
                         الأكادمين
                     </button>
@@ -70,7 +74,7 @@
 
             </div>
                 @endif
-
+--}}
 
 
             </div>
@@ -111,11 +115,11 @@
     @if ($active == 'academic')
         <div class="dropdown">
             <button type="button"  class="btn btn-light departmentAcademic_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl" style="padding-left:6px;">
-                <div class="textdropdown" style="margin-top: -10px;margin-right:px5; font-size:12px;">  الكل  </div>
+                <div class="textdropdown" style="margin-top: -10px;margin-right:px5; font-size:12px;">   النظري </div>
 
                 </button>
                 <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
-                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   النظري</a>
+                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  الكل </a>
                     <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   العملي</a>
                 </div>
             </div>
@@ -128,7 +132,7 @@
         </div>
 
 
-        <td><button type="submit" class="btn btn-primary btn-sm  btn-addAcademic" id="" wire:click='addacademic' data-toggle="modal" data-target="#addacademic"> اضافة اكاديمي<img src="{{ Vite::image('plus.png') }}"  width="20px" style="float: left;"></button> </td>
+        <td><button type="submit" class="btn btn-primary btn-sm  btn-addAcademic" id="" wire:click='addacademic' data-toggle="modal" data-target="#addacademic"> اضافة <img src="{{ Vite::image('plus.png') }}"  width="20px" style="float: left;"></button> </td>
 
     @endif
 
@@ -136,6 +140,8 @@
 
     @if ($active=='academic')
         <div class="hr3">
+            <button id="spacesbtn" class="spaces back_academic_mobile" > <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
+
 
         </div>
     @endif
