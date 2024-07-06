@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.managerOFdepart.send-notificationmanage-depart-student')
+@livewire('components.nav.manager_of_depart.send-notificationmanage-depart-student')
 @endsection
 
 

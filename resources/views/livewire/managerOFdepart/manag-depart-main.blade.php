@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.managerOFdepart.manag-depart-main')
+@livewire('components.nav.manager_of_depart.manag-depart-main')
 @endsection
 
 <div>

@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.managerOFdepart.managedepartlevel.all-sechedules-studyinhg-header')
+@livewire('components.nav.manager_of_depart.managedepartlevel.all-sechedules-studyinhg-header')
 @endsection
 <div>
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
