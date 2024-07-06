@@ -13,7 +13,7 @@ return [
 'permissions'=>'الصلاحيات', // Added translation for "الصلاحيات"
 'users'=>'المستخدمين', // Added translation for "المستخدمين"
 'roles'=>'الأدوار', // Added translation for "الأدوار"
-'settings'=>'الإعدادات', 
+'settings'=>'الإعدادات',
 'dashboard'=>'لوحة التحكم',
 'schaudule_std'=>'الجدول الدراسي',
 'add'=>'إضافة',
@@ -36,7 +36,7 @@ return [
 'confirm_delete_msg'=>'هل أنت متأكد من حذف هذا العنصر؟',
 
 'confirm_delete_yes'=>'نعم، احذف',
-'confirm_delete_no'=>'لا، إلغاء',   
+'confirm_delete_no'=>'لا، إلغاء',
 'confirm'=>'تأكيد',
 'confirm_msg'=>'هل أنت متأكد من تنفيذ هذا الإجراء؟',
 'confirm_yes'=>'نعم، تنفيذ',
@@ -57,4 +57,7 @@ return [
 'statistics'=>'الإحصائيات',
 'archives'=>'الأرشيف',
 'meun_home'=>'القائمة الرئيسية',
+'manage_department'=>'إدارة الأقسام',
+'manage_level'=>'إدارة المستويات',
+'students_affairs'=>'شؤون الطلاب',
 ];

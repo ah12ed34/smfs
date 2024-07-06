@@ -41,7 +41,8 @@ class Subject extends Model
         'subject_id',
         'id',
         'id'
-    );
+    )
+    ;
 }
 
 }

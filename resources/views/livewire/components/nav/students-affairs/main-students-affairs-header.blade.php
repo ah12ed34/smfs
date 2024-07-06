@@ -5,7 +5,7 @@
         <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;">  الصفحة الرئيسية </label><img src="{{Vite::image("dashboard (1).png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
         </button>
 
-        <div class="dropdown">
+        {{-- <div class="dropdown">
             <button type="button"  class="btn btn-light studentsAffairsTypeTerm_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
                     <div class="textdropdown">    ترم اول</div>
                 </button>
@@ -13,10 +13,10 @@
 
                     <!-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   الصلاحيات</a> -->
                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  ترم ثاني</a>
-                    {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  الكل</a> --}}
+                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  الكل</a>
 
                 </div>
-            </div>
+            </div> --}}
 
     <div class="dep-name">{{ $level->department->name }}</div>
     </div>

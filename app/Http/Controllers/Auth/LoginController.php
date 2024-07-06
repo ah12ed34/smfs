@@ -49,6 +49,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        request()->merge([$this->username() => request()->input('username')]);
     }
 
     public function username(){
@@ -57,7 +58,9 @@ class LoginController extends Controller
         // request()->merge([$field => $login]);
         // $this->username = $field;
         // return $field;
-        return $this->username = filter_var(request()->input('username'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $this->username = filter_var(request()->input('username'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        // dd($this->username);
+        return $this->username;
     }
 
 protected $redirectTo = '/'; // المسار الافتراضي
@@ -65,34 +68,40 @@ protected $redirectTo = '/'; // المسار الافتراضي
     public static function redirectTo() : string
     {
         // تخصيص المسار بناءً على نوع الحساب
-        if (auth::user()->isAdmin()) {
+        if (optional(auth::user())->isAdmin()) {
             return '/admin/dashboard';
-        } elseif (auth::user()->isAcademic() ) {
+        } elseif (optional(auth::user())->isAcademic() ) {
+            if(auth()->user()->academic->courses()->count() == 0){
+                if(optional(auth()->user())->role()->name == 'StudentAffairs'){
+                    return '/StudentSaffairs';
+                }
+            }
             return '/academic';
-        } elseif (auth::user()->isStudent()) {
+        } elseif (optional(auth::user())->isStudent()) {
             return '/student';
         } else {
             return '/home';
+
         }
     }
-    
+
 
     // public function redirectPath()
     // {
     //     if (Auth::check() && Auth::user()->isAdmin()) {
     //         return redirect()->route('admin');
     //     }
-    
+
     //     return redirect()->route('home');
     // }
 
-    
+
 //     protected function authenticated(Request $request, $user)
 // {
 //     // إليك مكان إضافة البيانات الإضافية التي تريد
 //     $user->lest_name = $request->lest_name;
 //     $user->save();
-    
+
 //     return redirect()->intended($this->redirectPath());
 // }
 
@@ -109,7 +118,7 @@ protected $redirectTo = '/'; // المسار الافتراضي
     // ])->redirectTo(route('login'));    }
 
 
- 
+
     // protected function username()
     // {
     //     return $this->username;

@@ -87,7 +87,7 @@
      * @param null $only {key or value} if key return key else return value default all
      * @return array
      */
-    public static function getAcademicNameAllOut($name = null,$only = null)
+    public static function getAcademicNames($name = null,$only = null)
     {
         $academic = [];
 
@@ -123,7 +123,7 @@
      * @param null $only {key or value} if key return key else return value default all
      * @return array
      */
-    public static function getGenderAllOut($name = null,$only = null)
+    public static function getGenders($name = null,$only = null)
     {
         $gender = [];
 

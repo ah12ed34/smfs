@@ -71,7 +71,7 @@
 
 
 <!-- The ModalDetailsStudents -->
-<div class="modal fade" id="AddStudentsIntoGroupModal">
+{{-- <div class="modal fade" id="AddStudentsIntoGroupModal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height:95vh;">
 
@@ -172,16 +172,22 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 
         <livewire:components.academic.students-affairs.add-students-in-group :group="$group" :groups="$groups" />
+        {{-- @livewire('components.academic.students-affairs.add-students-in-group',['group'=>$group,'groups'=>$groups]) --}}
 @section('script')
 <script>
     window.addEventListener('refreshStudentsInGroup', event => {
         $('#AddStudentsIntoGroupModal').modal('hide');
-        window.livewire.emit('refreshStudentsInGroup');
+        // check if errors exist
+        // if(@this.errors.any()){
+        //     return ;
+        // }
+        // window.livewire.dispatchEvent('refreshStudentsInGroup');
+        // window.location.reload();
     });
 </script>
 @endsection

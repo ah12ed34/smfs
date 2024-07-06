@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('group_students', function (Blueprint $table) {
+        Schema::create('academic_years', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("student_id")->constrained("students",'user_id');
-            $table->foreignId("group_id")->constrained("groups");
-            $table->foreignId("ay_id")->constrained("academic_years");
+            $table->string('name');
+            $table->integer('term')->default(1);
             $table->boolean('status')->default(1)->comment('0: Inactive, 1: Active');
-            $table->unique(["student_id", "group_id", "ay_id"]);
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users');
+            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->foreign('updated_by')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('group_students');
+        Schema::dropIfExists('academic_years');
     }
 };

@@ -8,6 +8,9 @@ use App\Models\Student;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
+use App\Contracts\StudentsInterface;
+use App\Repositories\StudentsRepository;
+use PhpParser\Node\Expr\Match_;
 
 trait Groupsable
 {
@@ -25,6 +28,13 @@ trait Groupsable
     public $group_id;
 
     public $openType ;
+
+    protected $StudentR;
+
+    public function initializeGroupsable()
+    {
+        $this->StudentR =  app(StudentsInterface::class);
+    }
 
     public function selected($id){
         $this->groupDitails = Group::where('id',$id)->firstOrFail();
@@ -157,74 +167,85 @@ trait Groupsable
         }
     }
 
-    /**
-     * Move student to another group if the group is not full and the student is allowed to join the group
-     * @param Student $student the student to move
-     * @param Group $group the new group of the student
-     * @param Group $oldGroup the old group of the student
-     * @param string $column the column name to add the error to
-     * @param bool $force if true the student will be moved without checking the group is full or the student is allowed to join
-     * @return void
-     */
     public function moveStudentToGroup(Student $student,Group $group,Group $oldGroup,string $column = 'group_id'
     ,bool $force = false)
     {
-        $this->resetErrorBag($column);
-        if ($force||$this->checkedSysAndGender($student,$group)){
-            if($oldGroup->IsPractical()){
-                if($oldGroup->students()->where('student_id',$student->user_id)->exists()){
-                $oldGroup->students()->where('student_id',$student->user_id)->update(['group_id'=>$group->id,'updated_at'=>now()]);
-                }else{
-                    $this->addError($column, 'الطالب ليس في المجموعة');
-                }
-            }else{
-                // $gs علاقة الطالب بالمجموعة العملي القدية
-                $gs = DB::table('group_students')->where('student_id',$student->user_id)
-                ->whereIn('group_id',Group::where('group_id',$oldGroup->id)->pluck('id')->toArray())
-                ->get();
-                // $temp_sub مجموعات العملي لمجموعة النظري الجديدة
-                $temp_sub = Group::where('group_id',$group->id)->get();
-                if($gs->count() == 0){
-                    DB::table('group_students')->where('student_id',$student->user_id)
-                    ->where('group_id',$oldGroup->id)->update(['group_id'=>$group->id,'updated_at'=>now()]);
-
-                }elseif($temp_sub->count() == 0){
-                    $this->addError($column, 'لا يوجد مجموعات عملي للانضمام لها');
-                }
-                for($i = 0; $i < $gs->count(); $i++){
-                    for($j = 0; $j < $temp_sub->count(); $j++){
-                        if($force||$this->checkedSysAndGender($student,$temp_sub[$j])){
-                            // تحديث علاقة الطالب بالمجموعة العملي الجديدة
-                            DB::table('group_students')->where('id',$gs[$i]->id)
-                            ->update(['group_id'=>$temp_sub[$j]->id,'updated_at'=>now()]);
-                            if($i == $gs->count()-1){
-                                // تحديث علاقة الطالب بالمجموعة النظري الجديدة
-                                DB::table('group_students')->where('student_id',$student->user_id)
-                                ->where('group_id',$oldGroup->id)->update(['group_id'=>$group->id,'updated_at'=>now()]);
-                            }
-                            break;
-                        }elseif($j == $temp_sub->count()-1){
-                            $this->addError($column, 'لا يستوفي الطالب الشروط للانضمام للمجموعة');
-                        }
-                    }
-                }
-            }
-        }else{
-            $this->addError($column, 'لا يستوفي الطالب الشروط للانضمام للمجموعة');
+        if ($this->StudentR === null) {
+            throw new \Exception("StudentR is null");
         }
+
+        $result = $this->StudentR->moveStudentToGroup($student, $group, $oldGroup, $force);
+
+        match ($result) {
+            102 => $this->addError($column, 'الطالب ليس في المجموعة'),
+            105 => $this->addError($column, 'لا يوجد مجموعات عملي للانضمام لها'),
+            106 => $this->addError($column, 'لا يستوفي الطالب الشروط للانضمام للمجموعة من مجموعات العملي'),
+            107 => $this->addError($column, 'لا يستوفي الطالب الشروط للانضمام للمجموعة'),
+            200 => $this->resetErrorBag($column),
+            default => $this->addError($column, 'حدث خطأ ما غير معروف'),
+        };
+        // match ($this->StudentR->moveStudentToGroup($student,$group,$oldGroup,$force)) {
+        //     102 => $this->addError($column, 'الطالب ليس في المجموعة'),
+        //     105 => $this->addError($column, 'لا يوجد مجموعات عملي للانضمام لها'),
+        //     106 => $this->addError($column, 'لا يستوفي الطالب الشروط للانضمام للمجموعة من مجموعات العملي'),
+        //     107 => $this->addError($column, 'لا يستوفي الطالب الشروط للانضمام للمجموعة'),
+        // };
+        // $this->resetErrorBag($column);
+        // if ($force||$this->checkedSysAndGender($student,$group)){
+        //     if($oldGroup->IsPractical()){
+        //         if($oldGroup->students()->where('student_id',$student->user_id)->exists()){
+        //         $oldGroup->students()->where('student_id',$student->user_id)->update(['group_id'=>$group->id,'updated_at'=>now()]);
+        //         }else{
+        //             $this->addError($column, 'الطالب ليس في المجموعة');
+        //         }
+        //     }else{
+        //         // $gs علاقة الطالب بالمجموعة العملي القدية
+        //         $gs = DB::table('group_students')->where('student_id',$student->user_id)
+        //         ->whereIn('group_id',Group::where('group_id',$oldGroup->id)->pluck('id')->toArray())
+        //         ->get();
+        //         // $temp_sub مجموعات العملي لمجموعة النظري الجديدة
+        //         $temp_sub = Group::where('group_id',$group->id)->get();
+        //         if($gs->count() == 0){
+        //             DB::table('group_students')->where('student_id',$student->user_id)
+        //             ->where('group_id',$oldGroup->id)->update(['group_id'=>$group->id,'updated_at'=>now()]);
+
+        //         }elseif($temp_sub->count() == 0){
+        //             $this->addError($column, 'لا يوجد مجموعات عملي للانضمام لها');
+        //         }
+        //         for($i = 0; $i < $gs->count(); $i++){
+        //             for($j = 0; $j < $temp_sub->count(); $j++){
+        //                 if($force||$this->checkedSysAndGender($student,$temp_sub[$j])){
+        //                     // تحديث علاقة الطالب بالمجموعة العملي الجديدة
+        //                     DB::table('group_students')->where('id',$gs[$i]->id)
+        //                     ->update(['group_id'=>$temp_sub[$j]->id,'updated_at'=>now()]);
+        //                     if($i == $gs->count()-1){
+        //                         // تحديث علاقة الطالب بالمجموعة النظري الجديدة
+        //                         DB::table('group_students')->where('student_id',$student->user_id)
+        //                         ->where('group_id',$oldGroup->id)->update(['group_id'=>$group->id,'updated_at'=>now()]);
+        //                     }
+        //                     break;
+        //                 }elseif($j == $temp_sub->count()-1){
+        //                     $this->addError($column, 'لا يستوفي الطالب الشروط للانضمام للمجموعة');
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }else{
+        //     $this->addError($column, 'لا يستوفي الطالب الشروط للانضمام للمجموعة');
+        // }
     }
 
-    /**
-     * Check if the group is full or the student is not allowed to join
-     * @param Student $student
-     * @param Group $group
-     * @return bool
-     */
-    public function checkedSysAndGender(Student $student,Group $group)
-    {
-        return $group->students()->count() < $group->max_students &&
-        in_array($group->system,[$student->system,'all',null]) &&
-        in_array($group->gender,[$student->user->gender,'all',null])
-        ;
-    }
+    // /**
+    //  * Check if the group is full or the student is not allowed to join
+    //  * @param Student $student
+    //  * @param Group $group
+    //  * @return bool
+    //  */
+    // public function checkedSysAndGender(Student $student,Group $group)
+    // {
+    //     return $group->students()->count() < $group->max_students &&
+    //     in_array($group->system,[$student->system,'all',null]) &&
+    //     in_array($group->gender,[$student->user->gender,'all',null])
+    //     ;
+    // }
 }

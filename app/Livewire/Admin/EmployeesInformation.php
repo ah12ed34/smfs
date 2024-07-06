@@ -89,7 +89,7 @@ class EmployeesInformation extends Component
         }
     }
     public function academic($academic_name){
-        if(in_array($academic_name,array_keys(MyApp::getAcademicNameAllOut('all')))){
+        if(in_array($academic_name,array_keys(MyApp::getAcademicNames('all')))){
             return $this->academic_name = $academic_name;
         }
     }
@@ -104,7 +104,7 @@ class EmployeesInformation extends Component
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'username' => 'required|string|max:255|unique:users,username,' . $this->Eid,
             'role_id' => 'nullable|exists:roles,id',
-            'academic_name' => 'required|string|in:' . implode(',', array_keys(MyApp::getAcademicNameAllOut('all'))),
+            'academic_name' => 'required|string|in:' . implode(',', array_keys(MyApp::getAcademicNames('all'))),
             'password' => 'nullable|string|min:6|confirmed',
         ], [], [
             'name' => 'الاسم',
@@ -161,12 +161,12 @@ class EmployeesInformation extends Component
             'name' => 'required|string|min:3|min_words:2',
             'email' => 'nullable|email|max:255|unique:users,email',
             'phone' => 'nullable|string|max:15|regex:/^[0-9]{6,}$/|unique:users,phone',
-            'gender' => 'required|in:' . implode(',',array_keys(MyApp::getGenderAllOut('all'))),
+            'gender' => 'required|in:' . implode(',',array_keys(MyApp::getGenders('all'))),
             'birthday' => 'required|date',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'username' => 'required|string|max:255|unique:users,username|regex:/^[A-Za-z0-9]{3,}$/',
             'role_id' => 'nullable|in:' . implode(',', $this->roles->pluck('id')->toArray()),
-            'academic_name' => 'nullable|string|in:' . implode(',', array_keys(MyApp::getAcademicNameAllOut('all'))),
+            'academic_name' => 'nullable|string|in:' . implode(',', array_keys(MyApp::getAcademicNames('all'))),
             'password' => 'required|string|min:6|confirmed',
         ], [], [
             'name' => 'الاسم',

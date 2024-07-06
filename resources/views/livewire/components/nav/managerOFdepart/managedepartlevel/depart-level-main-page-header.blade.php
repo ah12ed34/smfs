@@ -10,11 +10,11 @@
             <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
 
             <div  class="btn-group btn_group_nav_manageDepart-level" id="">
-                <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_studentsFinalTearmStatistics')}}'"><label class="proNavbartext">الإحصائيات </label></button>
-                <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_allsechedules')}}'"><label class="proNavbartext">  الجدول الدراسي</label></button>
-                <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_Books')}}'"><label class="proNavbartext">  المقرر الدراسي </label></button>
-                <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_academic')}}'"><label class="proNavbartext"> الأكادمين</label></button>
-                <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_Group_mainPage')}}'"><label class="proNavbartext"> المجموعات</label></button>
+                <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_studentsFinalTearmStatistics',$parameter)}}'"><label class="proNavbartext">الإحصائيات </label></button>
+                <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_allsechedules',$parameter)}}'"><label class="proNavbartext">  الجدول الدراسي</label></button>
+                <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_Books',$parameter)}}'"><label class="proNavbartext">  المقرر الدراسي </label></button>
+                <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_academic',$parameter)}}'"><label class="proNavbartext"> الأكادمين</label></button>
+                <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_Group_mainPage',$parameter)}}'"><label class="proNavbartext"> المجموعات</label></button>
         </div>
 
     <div class="dropdown">
@@ -23,10 +23,10 @@
             </button>
             <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
                 {{-- <a id="" class="dropdown-item" href='{{route('depart_level_Group_mainPage')}}' style="padding-left:30px; ">المجموعات  </a> --}}
-                <a id="" class="dropdown-item" href='{{route('depart_level_academic')}}' style="padding-left:30px; ">  الأكادمين</a>
-                <a id="" class="dropdown-item" href='{{route('depart_level_Books')}}' style="padding-left:30px; ">   المقرر الدراسي</a>
-                <a id="" class="dropdown-item" href='{{route('depart_level_allsechedules')}}'style="padding-left:30px; ">   الجدول الدراسي</a>
-                <a id="" class="dropdown-item" href='{{route('depart_level_studentsFinalTearmStatistics')}}' style="padding-left:30px; ">  الإحصائيات</a>
+                <a id="" class="dropdown-item" href='{{route('depart_level_academic',$parameter)}}' style="padding-left:30px; ">  الأكادمين</a>
+                <a id="" class="dropdown-item" href='{{route('depart_level_Books',$parameter)}}' style="padding-left:30px; ">   المقرر الدراسي</a>
+                <a id="" class="dropdown-item" href='{{route('depart_level_allsechedules',$parameter)}}'style="padding-left:30px; ">   الجدول الدراسي</a>
+                <a id="" class="dropdown-item" href='{{route('depart_level_studentsFinalTearmStatistics',$parameter)}}' style="padding-left:30px; ">  الإحصائيات</a>
 
             </div>
         </div>
@@ -42,8 +42,7 @@
                 </div>
             </div>
 
-                <div class="dep-name">تقنية معلومات</div>
-
+                <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div>
         <div id="" class="input-group input_search_manageDepart_StudentsGroups">
             <input type="text" class="form-control" placeholder="Search">
             <div class="input-group-append">

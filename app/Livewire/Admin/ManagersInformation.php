@@ -142,14 +142,14 @@ class ManagersInformation extends Component
     }
 
     public function setAcademicName($name){
-        if(in_array($name,MyApp::getAcademicNameAllOut(only:'key'))){
+        if(in_array($name,MyApp::getAcademicNames(only:'key'))){
             $this->academic_name = $name;
         }
     }
 
     public function setGender($gender){
-        // dd(implode(',',MyApp::getGenderAllOut(only:'key')),$gender);
-        if(in_array($gender,MyApp::getGenderAllOut(only:'key')))
+        // dd(implode(',',MyApp::getGenders(only:'key')),$gender);
+        if(in_array($gender,MyApp::getGenders(only:'key')))
         {
             $this->gender = $gender;
         }
@@ -237,9 +237,9 @@ class ManagersInformation extends Component
             'password' => $passwordIsRequired?'required':'nullable'.'|string|min:8|confirmed',
             'role_id' => 'nullable|exists:roles,id',
             'department_id' => 'nullable|exists:departments,id',
-            'gender' => 'required|in:' . implode(',', MyApp::getGenderAllOut(only:'key')),
+            'gender' => 'required|in:' . implode(',', MyApp::getGenders(only:'key')),
             'birthday' => 'nullable|date|before:today',
-            'academic_name' => 'nullable|string|in:' . implode(',', MyApp::getAcademicNameAllOut(only:'key')),
+            'academic_name' => 'nullable|string|in:' . implode(',', MyApp::getAcademicNames(only:'key')),
         ], [], [
             'name' => 'الاسم',
             'email' => 'البريد الالكتروني',

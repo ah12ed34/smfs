@@ -159,7 +159,7 @@
                             <div class="textdropdown">{{ $gender ? MyApp::getGender($gender) : __('general.gender') }}</div>
                         </button>
                         <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                            @forelse (MyApp::getGenderAllOut($gender) as $key => $value)
+                            @forelse (MyApp::getGenders($gender) as $key => $value)
                                 <a id="" class="dropdown-item" style="padding-left:30px;" wire:click='gen("{{ $key }}")'>{{ $value }}</a>
                             @empty
                                 <a id="" class="dropdown-item" style="padding-left:30px;">لا يوجد أنواع جندر</a>
@@ -186,7 +186,7 @@
                             <div class="textdropdown">{{ $academic_name ? MyApp::getAcademicName($academic_name) : __("general.scientific_degree") }}</div>
                         </button>
                         <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                            @forelse (MyApp::getAcademicNameAllOut($academic_name) as $key => $value)
+                            @forelse (MyApp::getAcademicNames($academic_name) as $key => $value)
                                 <a id="" class="dropdown-item" style="padding-left:30px;" wire:click='academic("{{ $key }}")'>{{ $value }}</a>
                             @empty
                                 <a id="" class="dropdown-item" style="padding-left:30px;">لا يوجد درجات علمية</a>
@@ -294,7 +294,7 @@
                             <div class="textdropdown">{{ MyApp::getAcademicName($academic_name) }}</div>
                         </button>
                         <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                            @forelse (MyApp::getAcademicNameAllOut($academic_name) as $key => $value)
+                            @forelse (MyApp::getAcademicNames($academic_name) as $key => $value)
                                 <a id="" class="dropdown-item" style="padding-left:30px;" wire:click='academic("{{ $key }}")'>{{ $value }}</a>
                             @empty
                                 <a id="" class="dropdown-item" style="padding-left:30px;">لا يوجد درجات علمية</a>

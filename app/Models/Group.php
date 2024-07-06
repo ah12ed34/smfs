@@ -29,7 +29,7 @@ class Group extends Model
     public function students()
     {
         return $this->belongsToMany(Student::class, 'group_students', 'group_id', 'student_id')
-            ->withPivot('id');
+            ->withPivot(['id','ay_id']);
     }
 
     public function level()
@@ -49,12 +49,14 @@ class Group extends Model
 
     public function groupSubjects()
     {
-        return $this->hasMany(GroupSubject::class, 'group_id','id');
+        return $this->hasMany(GroupSubject::class, 'group_id','id')
+            ;
     }
 
     public function groupStudents()
     {
-        return $this->hasMany(GroupStudents::class, 'group_id','id');
+        return $this->hasMany(GroupStudents::class, 'group_id','id')
+        ;
     }
 
     public function IsPractical()

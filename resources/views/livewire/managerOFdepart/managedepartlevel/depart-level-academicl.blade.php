@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.managerOFdepart.managedepartlevel.depart-level-academicl-header')
+@livewire('components.nav.manager_of_depart.managedepartlevel.depart-level-academicl-header')
 @endsection
 <div>
     {{-- Be like water. --}}

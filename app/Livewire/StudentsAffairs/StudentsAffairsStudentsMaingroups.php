@@ -15,6 +15,11 @@ class StudentsAffairsStudentsMaingroups extends Component
     public $level;
     public $typeGroup;
     public $allGroups;
+    public $currentAcademicYear;
+    public function __construct()
+    {
+        $this->initializeGroupsable();
+    }
 
     public function mount(Level $LId)
     {
@@ -31,6 +36,7 @@ class StudentsAffairsStudentsMaingroups extends Component
             $this->sortField = 'group_id';
         }
         // dd($this->typeGroup);
+        $this->currentAcademicYear = $this->StudentR->getAYear();
 
     }
 

@@ -6,7 +6,7 @@
 <div  class="hdr2" style=" box-shadow: 10px;">
     <button class="spaces"> <label  class="subjectname"> الإحصائيات </label><img src="{{Vite::image("bar-chart (4).png")}}" id="subject-icon-hdr2" width="40px">
     </button>
-    <div class="dropdwon">
+    {{-- <div class="dropdwon">
         <button id="btn-studybookStudentsdropdown-levels" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
         <div class="textstudentsdrop">      مستوى رابع | ترم ثاني</div>
        </button>
@@ -20,7 +20,7 @@
             <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding:0%;text-align:center;"> مستوى أول | ترم ثاني</a>
 
         </div>
-    </div>
+    </div> --}}
 
     <div class="dep-name">{{ auth()->user()->student->department->name }} </div>
 

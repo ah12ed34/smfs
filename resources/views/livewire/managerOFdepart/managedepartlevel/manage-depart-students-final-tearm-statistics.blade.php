@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.managerOFdepart.managedepartlevel.manage-depart-students-final-tearm-statistics-header')
+@livewire('components.nav.manager_of_depart.managedepartlevel.manage-depart-students-final-tearm-statistics-header')
 @endsection
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}

@@ -26,13 +26,24 @@
 
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script> --}}
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> --}}
-        
+
         <title>@yield('title',config('app.name'))</title>
         @livewireStyles
         @vite(['resources/css/app.css','resources/sass/app.scss'])
 
         @yield('style')
-
+        <style>
+            .sidebar >* i.bi {
+                margin-top: -10px;
+                font-size: 25px;
+            }
+            .dropdown-menu >* i.bi {
+                float: right;
+                margin-right: -3px;
+                font-size: 17px;
+                width: 25px;
+            }
+        </style>
     </head>
     <body style=" background-color: #E9EEEF;">
 
@@ -59,6 +70,12 @@
             @endguest
             <div class="dropdown-menu" >
                 <a class="dropdown-item" onclick="location.href='{{route('profile')}}'">الحساب<img src="{{ Vite::asset("resources/images/user (10).png")}}" class="img10" width="26px"></a>
+                @Role('HeadOfDepartment')
+                <a class="dropdown-item" onclick="location.href='{{route('managerDepartment')}}'">{{__('layout.manage_department')}}<i class="bi bi-ui-radios-grid"></i></a>
+                @endRole
+                @Role('StudentAffairs')
+                <a class="dropdown-item" onclick="location.href='{{route('StudentSaffairs')}}'">{{__('layout.students_affairs')}}<i class="bi bi-person-lines-fill"></i></a>
+                @endRole
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">{{__('layout.logout')}}<img src="{{ Vite::image('exit.png') }}" class="img10" width="24px"></a>
@@ -73,26 +90,35 @@
         {{-- <button class="btn btn-light" id="notification" type="button" data-toggle="modal" data-target="#myModalnotification" style="z-index: 100%;"><img src="{{ Vite::image('bell.png')}}" width="22px"></button> --}}
         <img src="{{ Vite::image('Group 912.png')}}" width="40px" style="float: right; margin-top:-100px; margin-right:0px;"></div>
         <div id="sidebar" class="sidebar">
-  @Teacher()
+
+            @Teacher()
             <button class="button-sidebar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
+            @endTeacher
+            {{-- @Role('HeadOfDepartment')
+            <button class="button-sidebar" onclick="location.href='{{route('managerDepartment')}}'">
+                <i class="bi bi-ui-radios-grid sidebaricon" ></i>
+                <label class="" >{{__('layout.manage_department')}} </label></button>
+            @endRole --}}
+            @Teacher()
             <button class="button-sidebar" onclick="location.href='{{route('studyingschedule')}}'"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.schaudule_std')}} </button>
             <button class="button-sidebar" onclick="location.href='{{route('archieve')}}'"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.archives')}} </label></button>
             <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
-               @endTeacher
+            @endTeacher
 
-     @Student()
+            @Student()
             <button class="button-sidebar" onclick="location.href='{{route('student')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
             <button class="button-sidebar" onclick="location.href='{{route('student-studyingSchedule')}}'"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.schaudule_std')}} </button>
             <button class="button-sidebar" onclick="location.href='{{route('student-archieve')}}'"><img src="{{ Vite::image('portfolio (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.archives')}} </label></button>
             <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
-               @endStudent
+            @endStudent
 
                @Admin
                <button class="button-sidebar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
-               <button class="button-sidebar" onclick="location.href='{{route('student.create')}}'" ><img src="{{ Vite::image('user (4).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.create_student')}}</label><i class="bi bi-person-add"></i> </button>
-               <button class="button-sidebar" onclick="location.href='{{route('academic.create')}}'"><img src="{{ Vite::image('user (4).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.create_academic')}} </label><i class="bi bi-person-add"></i></button>
+               {{-- <button class="button-sidebar" onclick="location.href='{{route('student.create')}}'" ><img src="{{ Vite::image('user (4).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.create_student')}}</label></button>
+               <button class="button-sidebar" onclick="location.href='{{route('academic.create')}}'"><img src="{{ Vite::image('user (4).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.create_academic')}} </label></button> --}}
                <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
                @endAdmin
+
         </div>
     </div>
     @section('nav')

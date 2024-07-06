@@ -20,9 +20,10 @@ return new class extends Migration
             // $table->foreign('level_id')->references('level_id')->on('subjects_levels');
             $table->foreignId("subject_id")->constrained("subjects_levels");
             $table->foreignId("teacher_id")->constrained("academics", "user_id");
+            $table->foreignId("ay_id")->constrained("academic_years");
             $table->boolean('is_practical')->default(false);
             $table->timestamps();
-            $table->unique(['group_id', 'subject_id']);
+            $table->unique(['group_id', 'subject_id', 'teacher_id', 'ay_id']);
         });
     }
 
