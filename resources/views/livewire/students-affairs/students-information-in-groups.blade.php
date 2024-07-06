@@ -71,7 +71,7 @@
 
 
 <!-- The ModalDetailsStudents -->
-<div class="modal fade" id="AddStudentsIntoGroupModal">
+{{-- <div class="modal fade" id="AddStudentsIntoGroupModal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height:95vh;">
 
@@ -172,7 +172,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 

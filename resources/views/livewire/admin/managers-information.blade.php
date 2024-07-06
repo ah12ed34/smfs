@@ -139,7 +139,7 @@
                             <di class="textdropdown"> {{ $gender ? myapp::getGender($gender) : __('general.gender') }}</di>
                         </button>
                         <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                            @foreach (myapp::getGenderAllOut($gender) as $key => $value)
+                            @foreach (myapp::getGenders($gender) as $key => $value)
                             <a id="" class="dropdown-item"  style="padding-left:30px; " wire:click='setGender("{{ $key }}")'>{{ $value }}</a>
                             @endforeach
                         </div>
@@ -150,7 +150,7 @@
                                     <div class="textdropdown">{{ $academic_name ? myapp::getAcademicName($academic_name) : __('general.scientific_degree') }}</div>
                             </button>
                         <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                            @foreach (myapp::getAcademicNameAllOut($academic_name) as $key => $value)
+                            @foreach (myapp::getAcademicNames($academic_name) as $key => $value)
                             <a id="" class="dropdown-item"  style="padding-left:30px; " wire:click='setAcademicName("{{ $key }}")'>{{ $value }}</a>
                             @endforeach
                             </div>
@@ -230,7 +230,7 @@
                             <div class="textdropdown">{{ $gender ? myapp::getGender($gender) : __('general.gender') }}</div>
                         </button>
                         <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                            @foreach (myapp::getGenderAllOut($gender) as $key => $value)
+                            @foreach (myapp::getGenders($gender) as $key => $value)
                             <a id="" class="dropdown-item"  style="padding-left:30px; " wire:click='setGender("{{ $key }}")'>{{ $value }}</a>
                             @endforeach
                         </div>
@@ -241,7 +241,7 @@
                                     <div class="textdropdown">{{ $academic_name ? myapp::getAcademicName($academic_name) : __('general.scientific_degree') }}</div>
                             </button>
                         <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                            @foreach (myapp::getAcademicNameAllOut($academic_name) as $key => $value)
+                            @foreach (myapp::getAcademicNames($academic_name) as $key => $value)
                             <a id="" class="dropdown-item"  style="padding-left:30px; " wire:click='setAcademicName("{{ $key }}")'>{{ $value }}</a>
                             @endforeach
                             {{--<a id="" class="dropdown-item" href="#" style="padding-left:30px;">   دكتور</a>

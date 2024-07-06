@@ -72,7 +72,7 @@
                 </tr>
                 <tr>
                     <th id="table-th" style="padding-right: 0px"> القسم</th>
-                    <td id="table-td" style="padding-left:100px;">@Teacher(){{ $user->academic->department->name }}@endTeacher@Student(){{ $user->student->department->name }}@endStudent</td>
+                    <td id="table-td" style="padding-left:100px;">@Teacher(){{ $user->academic?->department?->name }}@endTeacher@Student(){{ $user->student?->department?->name }}@endStudent</td>
                 </tr>
                 @Teacher()
                 <tr>

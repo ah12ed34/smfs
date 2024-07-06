@@ -8,7 +8,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header addacademic" id="modheader">
-                     التفاصيل
+                    اضافة الطلاب
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 

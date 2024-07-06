@@ -206,5 +206,7 @@ return[
     'department' => 'القسم',
     'general' => 'عام',
     'parallel' => 'موازي',
-
+    'all' => 'الكل',
+    'photo' => 'الصورة',
+    'system' => 'النظام',
 ];

@@ -5,7 +5,7 @@
     <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;"> المقرر الدراسي </label><img src="{{Vite::image("open-book.png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
     </button>
 
-    <div class="dropdwon">
+    {{-- <div class="dropdwon">
         <button id="btn-studybookStudentsdropdown-levels" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
         <div class="textstudentsdrop">{{ ($term&&$groupStudents) ? collect($terms)->where('term',$term)->where('id',$groupStudents->id)->first()['name'] : 'الفصل الدراسي' }}</div>
        </button>
@@ -17,11 +17,10 @@
                 <a id="dropdown-students-itemlist" class="dropdown-item" style="padding:0%;text-align:center;"
                     href="{{ route(request()->route()->getName(),['term'=>$t['term'],'g'=>$t['id']]) }}"
                 >{{ $t['name'] }}</a>
-                {{-- @dump($t) --}}
             @endforeach
 
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="dep-name">{{ $department_name }}</div>

@@ -17,9 +17,10 @@ trait Searchable
     public function search($v)
     {
         $this->search = $v;
+        $this->resetPage();
     }
 
-    public function updatingSearch()
+    public function updatedSearch()
     {
         $this->resetPage();
     }

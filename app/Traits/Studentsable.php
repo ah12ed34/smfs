@@ -78,7 +78,7 @@ trait Studentsable
             'email' => 'nullable|email|max:255|unique:users,email,' . $this->studentData?->id,
             'phone' => 'nullable|string|ragex:/^([0-9]*)$/|min:6|max:15',
             'name' => 'required|string|min:3|min_words:3',
-            'gender' => 'required|in:' . implode(',', MyApp::getGenderAllOut(only:'key')),
+            'gender' => 'required|in:' . implode(',', MyApp::getGenders(only:'key')),
             'birthday' => 'required|date|before:today',
             'department_id' => 'required|exists:departments,id',
             'level_id' => 'required|exists:levels,id',
@@ -133,7 +133,7 @@ trait Studentsable
 
     public function setGender($gender)
     {
-        if(in_array($gender,MyApp::getGenderAllOut(only:'key'))){
+        if(in_array($gender,MyApp::getGenders(only:'key'))){
             $this->gender = $gender;
         }
     }

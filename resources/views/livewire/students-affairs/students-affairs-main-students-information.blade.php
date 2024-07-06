@@ -165,7 +165,7 @@
                                 <div class="textdropdown">{{ $gender ?myapp::getGender($gender):__('general.gender') }}</div>
                             </button>
                             <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                                @foreach (myapp::getGenderAllOut($gender) as $key=>$value)
+                                @foreach (myapp::getGenders($gender) as $key=>$value)
                                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; " wire:click='setGender("{{$key}}")'>   {{$value}} </a>
                                 @endforeach
                             </div>
@@ -185,7 +185,7 @@
                                     </div>
                         <div class="dropdown">
                             <button type="button" class="btn btn-light typeSysrtem_studying_dropdown dropdown-toggle"  data-toggle="dropdown">
-                                <div class="textdropdown">{{ $system ?myapp::getSystem($system):__('general.system') }}</div>
+                                <div class="textdropdown">{{ $system ?myapp::getSystem($system): __('general.system') }}</div>
                             </button>
                             <div  class="dropdown-menu" style=" color: #0E70F2; ">
                                 @foreach (myapp::getSystems($system) as $key=>$value)
@@ -193,7 +193,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="dropdown">
+                        {{-- <div class="dropdown">
                             <button type="button" class="btn btn-light Students_typeStatus_dropdown dropdown-toggle"  data-toggle="dropdown">
                                 <div class="textdropdown">  الحالة</div>
                             </button>
@@ -201,7 +201,7 @@
                                 <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   مستجد </a>
                                 <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   مستجد</a>
                             </div>
-                        </div>
+                        </div> --}}
                         <select class="form-control" id="inputtext" wire:model='join_date' style="height: 30px; margin-top:8px">
                             <option value>السنة</option>
                             <!-- get years -->
@@ -272,7 +272,7 @@
                                 <div class="textdropdown">{{ $gender ?myapp::getGender($gender):__('general.gender') }}</div>
                             </button>
                             <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                                @foreach (myapp::getGenderAllOut($gender) as $key=>$value)
+                                @foreach (myapp::getGenders($gender) as $key=>$value)
                                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; " wire:click='setGender("{{$key}}")'>   {{$value}} </a>
                                 @endforeach
                                 {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   ذكر </a>
