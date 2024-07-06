@@ -9,9 +9,9 @@
                 <div class="dep-name">بيانات الطلاب</div>
 
         <div id="" class="input-group input_search_studentsAffairs_studentInfo">
-            <input type="text" class="form-control" placeholder="Search"  >
+            <input type="text" class="form-control" placeholder="Search" wire:model='search' wire:keydown.enter='srch'>
             <div class="input-group-append">
-                <button id="form-control" class="btn btn-light" type="submit"><img src="{{ Vite::image('magnifying-glass (2).png')}}" id="spaces2"  width="20px" ></button>
+                <button id="form-control" class="btn btn-light" wire:click='srch'><img src="{{ Vite::image('magnifying-glass (2).png')}}" id="spaces2"  width="20px" ></button>
             </div>
         </div>
 
@@ -23,7 +23,7 @@
     </div>
 
     <div class="hr3">
-        <button id="spacesbtn" onclick="window.location='{{ route('admin.students_data') }}'" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
+        <button id="spacesbtn" onclick="window.location='{{ route('admin.students_data',[ $level->id])}}'" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
 
         <!-- <div id="input-groupstudyingbooks" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">

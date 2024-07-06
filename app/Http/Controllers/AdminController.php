@@ -12,6 +12,10 @@ use app\Models\permissions;
 use app\Models\notifications;
 use app\Models\levelsOfDepartments;
 use app\Models\students_data;
+use App\Tools\MyApp;
+use App\Models\Level;
+
+
 
 
 
@@ -20,6 +24,13 @@ use app\Models\students_data;
 
 class AdminController extends Controller
 {
+    public $perPage = MyApp::perPageLists;
+
+    public $department;
+
+    public function mount($DId){
+        $this->department = Department::findOrFail($DId);
+    }
     //
     public function statistics()
     {
@@ -51,12 +62,29 @@ class AdminController extends Controller
     {
         return view('admin.notifications');
     }
-    public function levelsOfDepartments()
+
+    public function getLevelsByDepartment($departmentId)
     {
-        return view('admin.levelsOfDepartments');
+        // استرجاع المستويات التي تنتمي إلى القسم المحدد
+        $levels = Level::where('department_id', $departmentId)->get();
+        if ($levels->isEmpty()) {
+            // return redirect()->route('level.create')->with('error', __('sysmass.create_level_first'));
+            return response()->json(['error' => __('sysmass.create_level_first')]);
+
+        }
+        return response()->json($levels);
     }
-    public function students_data()
+    public function levelsOfDepartments(Department $department)
     {
-        return view('admin.students_data');
+        $levels = $department->levels()->get();
+        return view('admin.levelsOfDepartments',compact('levels'));
     }
+
+    public function students_data(Level $level)
+    {
+        // $levels = $levels->levels()->get();
+
+        return view('admin.students_data',compact('level'));
+    }
+
 }

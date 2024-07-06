@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Livewire\Quality\DepartLevelsQuality;
 use App\Livewire\Student\Project\StudentProjects;
 use GuzzleHttp\Middleware;
+// use Illuminate\Support\Facades\App;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -117,8 +119,8 @@ use GuzzleHttp\Middleware;
         Route::get('employees', 'AdminController@employees')->name('admin.employees');
         Route::get('permissions', 'AdminController@permissions')->name('admin.permissions');
         Route::get('notifications', 'AdminController@notifications')->name('admin.notifications');
-        Route::get('levelsOfDepartments', 'AdminController@levelsOfDepartments')->name('admin.levelsOfDepartments');
-        Route::get('students_data', 'AdminController@students_data')->name('admin.students_data');
+        Route::get('{department}/levelsOfDepartments', 'AdminController@levelsOfDepartments')->name('admin.levelsOfDepartments');
+        Route::get('{level}/students_data', 'AdminController@students_data')->name('admin.students_data');
 
     });
     Route::group(['prefix'=>'managers_information','middleware'=>'auth'
@@ -132,7 +134,10 @@ use GuzzleHttp\Middleware;
     route::get('sendNotifications_managers', '\\'.App\Livewire\Admin\SendNotificationbossdepartment::class)->name('sendNotifications_managers');
     route::get('permissions_pages','\\'.App\Livewire\Admin\PermissionPages::class)->name('permissions_pages');
     route::get('addUsers_permissions', '\\'.App\Livewire\Admin\AddPremissionUser::class)->name('addUsers_permissions');
-    route::get('students_information', '\\'.App\Livewire\Admin\LevelStudentsInformation::class)->name('students_information');
+    // route::get('students_data','\\'.App\Livewire\Admin\StudentsData::class)->name('students_data');
+    route::get('admin/{level}/students_information', '\\'.App\Livewire\Admin\LevelStudentsInformation::class)->name('students_information');
+    route::get('{LId}/students_main_groups','\\'.App\Livewire\Admin\StudentsMainGroups::class)->name('students_main_groups');
+    route::get('{LId}/show_student_inGroups/{group}','\\'.App\Livewire\Admin\StudentsInformationInGroups::class)->name('show_student_inGroups');
     route::get('students_grades', '\\'.App\Livewire\Admin\StudentsGrades::class)->name('students_grades');
 });
 

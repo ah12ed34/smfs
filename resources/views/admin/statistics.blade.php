@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+<div class="container" style=" padding-botom:80px; margin-bottom:30px;">
 
 <div class="cards-child-stastics">
     <label class="cards-child-title">   الطلاب
@@ -67,6 +68,6 @@
     <div class="cards-child-numbers">0</div>
     <img src="{{ Vite::image('all_employees.png') }}" class="image-stastic" width="50px">
 </div>
-
+</div>
 
 @endsection
