@@ -84,6 +84,7 @@
         scrollbar-height: none;
         -ms-overflow-style: none;
         overflow:auto;
+        padding-bottom:50px;
     }
     /* @media screen and (max-width: 300px) {
     .sidebar {

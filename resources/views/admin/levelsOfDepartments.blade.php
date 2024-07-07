@@ -15,15 +15,34 @@
 
     {{-- Stop trying to control. --}}
 @section('content')
-        <div class="container" style="padding-top: 20px;">
+        <div class="container" >
 
-<div class="card  cards-departments depart-level-quality" id="" onclick="window.location='{{ route('admin.students_data') }}'" >
+
+            {{-- @forelse ($department->levels as $level)
+    <a href="{{ route('admin.students_data', $level->id) }}" style="text-decoration: none; color: black;" >
+        <div class="card  cards-departments" id="{{ $loop->index }}">
+            <img src="{{ Vite::image('it.png') }}" class="" width="150px">
+            <div with="150px">{{ $loop->index +1 }}</div>
+            <div class="card-departments-child"> {{ $level->name }}</div>
+        </div>
+    </a>
+@empty
+
+@endforelse --}}
+
+            @forelse ($levels as $level)
+
+<div class="card  cards-departments depart-level-quality" id="" onclick="window.location='{{ route('admin.students_data',$level->id )}}' " >
     <img src="{{Vite::image("level1.png")}}" class="" width="150px">
-    <div class="card-departments-child">  مستوى  اول
+    <div class="card-departments-child">  {{$level->name}}
     </div>
 </div>
-
-<div class="card  cards-departments depart-level-quality" id="" onclick="window.location='{{ route('admin.students_data') }}'" >
+@empty
+<div class="alert alert-danger" role="alert">
+    لا يوجد مستويات
+</div>
+@endforelse
+{{-- <div class="card  cards-departments depart-level-quality" id="" onclick="window.location='{{ route('admin.students_data') }}'" >
     <img src="{{Vite::image("level2.png")}}" class="" width="150px">
     <div class="card-departments-child"> مستوى ثاني
     </div>
@@ -39,7 +58,7 @@
     <img src="{{Vite::image("level4.png")}}" class="" width="150px">
     <div class="card-departments-child"> مستوى  رابع
     </div>
-</div>
+</div> --}}
 
 </div>
 @endsection

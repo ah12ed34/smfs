@@ -3,7 +3,7 @@
 @livewire('components.nav.admin.department', ['active' => 'notification'])
 @endsection
 @section('content')
-<div class="container" style="padding-top: 30px;">
+<div class="container">
 
 
     {{-- @if ($card_notification == 'StudentNotifictions') --}}

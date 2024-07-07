@@ -18,7 +18,7 @@
 </div>
 
 <div class="hr3">
-<button id="spacesbtn" onclick="window.location='{{ route('admin.levelsOfDepartments') }}'" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
+<button id="spacesbtn" onclick="window.location='{{ route('admin.levelsOfDepartments',[$level?->department?->id]) }}'" class="spaces"> <img src="{{ Vite::image('left-arrow.png')}}" id="spaces1"  width="30px"></button>
 
 </div>
 @endsection
@@ -28,14 +28,22 @@
         <div class="container" style="padding-top: 30px;">
 
         <div class="card  cards-departments" id="">
-            <img src="{{Vite::image("students.png")}}" class="" width="150px" onclick="location.href='{{route('students_information')}}'">
+            <img src="{{Vite::image("students.png")}}" class="" width="150px" onclick="location.href='{{route('students_information', $level->id)}}'">
             <div class="card-departments-child">    بيانات الطلاب
             </div>
         </div>
 
         <div class="card  cards-departments" id="">
-            <img src="{{Vite::image("students.png")}}" class="" width="150px"   onclick="location.href='{{route('students_grades')}}'">
+            {{-- <img src="{{Vite::image("students.png")}}" class="" width="150px"   onclick="location.href='{{route('students_grades')}}'"> --}}
+            <img src="{{Vite::image("students.png")}}" class="" width="150px"  >
+
             <div class="card-departments-child"> درجات الطلاب
+            </div>
+        </div>
+
+        <div class="card  cards-departments" id="">
+            <img src="{{Vite::image("Groups.png")}}" class="" width="150px" style="margin-top:18px;" onclick="location.href='{{route('students_main_groups', $level->id)}}'">
+            <div class="card-departments-child"> المجموعات
             </div>
         </div>
 

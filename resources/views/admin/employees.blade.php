@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-<div class="container" style="padding-top:30px;">
+<div class="container" >
 
     <div class="card  cards-departments" id="" onclick="window.location='{{ route('managers_information') }}'">
         <img src="{{ Vite::image('managers.png')}}" class="" width="150px" >
