@@ -13,12 +13,13 @@ class StudentsAffairsStudentsMaingroups extends Component
     Searchable,
     Groupsable;
     public $level;
-    public $typeGroup;
+    // public $typeGroup;
     public $allGroups;
     public $currentAcademicYear;
     public function __construct()
     {
         $this->initializeGroupsable();
+        $this->PracticalOrTheoretical();
     }
 
     public function mount(Level $LId)

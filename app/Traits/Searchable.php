@@ -10,7 +10,7 @@ trait Searchable
     use WithPagination;
     public $perPage = MyApp::perPage;
     public $search;
-    public $sortField;
+    public $sortField = 'id';
     public $sortAsc = true;
 
     #[On('search')]

@@ -145,7 +145,7 @@
         {
             'general' => __('general.general'),
             'parallel' => __('general.parallel'),
-            'all' => __('general.all'),
+            'all' => __('general.allSystem'),
             default => __('general.unknown'),
         };
     }
@@ -176,10 +176,10 @@
     {
         return match($name)
         {
-            'male' => 'طلاّب',
-            'female' => 'طالبات',
-            'all' => 'طلاب وطالبات',
-            default => 'غير معروف',
+            'male' => __('general.maleStudent'),
+            'female' => __('general.femaleStudent'),
+            'all' => __('general.allGenderStudent'),
+            default => __('general.unknown'),
         };
     }
 

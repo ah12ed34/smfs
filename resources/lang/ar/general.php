@@ -206,7 +206,12 @@ return[
     'department' => 'القسم',
     'general' => 'عام',
     'parallel' => 'موازي',
+    'allSystem' => 'موازي وعام',
+    'allGenderStudent' => 'طلاّب وطالبات',
+    'maleStudent' => 'طلاّب',
+    'femaleStudent' => 'طالبات',
     'all' => 'الكل',
     'photo' => 'الصورة',
     'system' => 'النظام',
+    'No data' => 'لا توجد بيانات',
 ];

@@ -109,7 +109,7 @@
     </div>
 
     @if ($active == 'academic')
-        <div class="dropdown">
+        {{-- <div class="dropdown">
             <button type="button"  class="btn btn-light departmentAcademic_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl" style="padding-left:6px;">
                 <div class="textdropdown" style="margin-top: -10px;margin-right:px5; font-size:12px;">  الكل  </div>
 
@@ -118,7 +118,7 @@
                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   النظري</a>
                     <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   العملي</a>
                 </div>
-            </div>
+            </div> --}}
 
         <div id="" class="input-group input-search-admin">
             <input type="text" class="form-control" wire:model='search_model' placeholder="Search" wire:keydown.enter='search()' >

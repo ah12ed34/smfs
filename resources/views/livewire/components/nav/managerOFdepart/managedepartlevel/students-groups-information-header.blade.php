@@ -32,14 +32,14 @@
         </div> --}}
 
 
-                <div class="dep-name">تقنية معلومات</div>
+                <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div>
 
 
 
         <div id="" class="input-group input_search_manageDepart_students">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" wire:model="search" wire:keydown.enter='srch' >
             <div class="input-group-append">
-                <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}"id="spaces2"  width="20px" ></button>
+                <button id="form-control" class="btn btn-light" type="submit" wire:click='srch'><img src="{{Vite::image("magnifying-glass (2).png")}}"id="spaces2"  width="20px" ></button>
             </div>
         </div>
 
@@ -50,7 +50,7 @@
     </div>
 
     <div class="hr3">
-        <button id="spacesbtn" class="spaces" onclick="location.href='{{route('depart_level_Group_mainPage')}}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
+        <button id="spacesbtn" class="spaces" onclick="location.href='{{route('depart_level_Group_mainPage',[$level->id])}}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
 
         <!-- <div id="input-groupstudyingbooks" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">

@@ -26,6 +26,8 @@ trait Studentsable
     public $birthday;
     public $SId;
 
+    public $openType;
+
     public function selected($id){
         $this->studentData = $this->students->where('id',$id)->firstOrFail();
     }
@@ -34,6 +36,7 @@ trait Studentsable
     {
         $this->selected($id);
         $this->studentData->show = true;
+        $this->openType = 'show';
     }
 
     public function addStudent()

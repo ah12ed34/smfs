@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('academic_name')->nullable();
             $table->string('schedule')->nullable();
+            $table->integer('Weekly_lectures')->nullable();
+            $table->integer('Quarterly_lectures')->nullable();
             $table->primary('user_id');
             $table->timestamps();
         });

@@ -354,7 +354,7 @@ use GuzzleHttp\Middleware;
         route::get('sendnotification_managerdepart_academic','\\'.App\Livewire\ManagerOfDepart\SendNotificationmanageDepartAcademic::class)->name('sendnotification_managerdepart_academic');
         route::get('sendnotification_managerdepart_student', '\\'.App\Livewire\ManagerOfDepart\SendNotificationmanageDepartStudent::class)->name('sendnotification_managerdepart_student');
         route::get('managerdepart_Stastistic','\\'.App\Livewire\ManagerOfDepart\ManageDepartStastistic::class)->name('managerdepart_Stastistic');
-        // Route::group(['prefix'=>'{level}'], function(){
+        Route::group(['prefix'=>'{level}'], function(){
             Route::get('depart_level_Group_mainPage','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\DepartLevelMainPage::class)->name('depart_level_Group_mainPage');
             Route::get('practical_groups','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\Practicalgroups::class)->name('practical_groups');
             Route::get('depart_level_academic','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\DepartLevelAcademicl::class)->name('depart_level_academic');
@@ -363,10 +363,14 @@ use GuzzleHttp\Middleware;
             Route::get('depart_level_allsechedules','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\AllSechedulesStudyinhg::class)->name('depart_level_allsechedules');
             Route::get('depart_level_studentsFinalTearmStatistics','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\ManageDepartStudentsFinalTearmStatistics::class)->name('depart_level_studentsFinalTearmStatistics');
             Route::get('depart_level_studentsFinalWorkStatistics','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\ManageDepartStudentsFinalWorksStatistics::class)->name('depart_level_studentsFinalWorkStatistics');
-            Route::get('students_group_information','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\StudentsGroupsInformation::class)->name('students_group_information');
+            // Route::get('students_group_information','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\StudentsGroupsInformation::class)->name('students_group_information');
             Route::get('final_results_students','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\FinalReasultsStudents::class)->name('final_results_students');
+            route::prefix('{group}')
+            ->group(function(){
+                route::get('studentsInformationInGroup','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\StudentsGroupsInformation::class)->name('students_group_information');
+            });
 
-        // });
+        });
 
 
     });

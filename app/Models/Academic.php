@@ -18,7 +18,8 @@ class Academic extends Model
         'status',
         'academic_name',
         'schedule',
-        'name',
+        'Weekly_lectures',
+        'Quarterly_lectures',
     ];
     public static function create($parameters): bool
     {
