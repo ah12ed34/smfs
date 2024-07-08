@@ -101,8 +101,10 @@ class AdminController extends Controller
         return view('admin.students_data',compact('level'));
     }
 
-    public function academic_mobile()
+    public function academic_mobile(Department $department)
     {
-        return view('admin.academic_mobile');
+        $departments = Department::all();
+        
+        return view('admin.academic_mobile',compact('departments'));
     }
 }

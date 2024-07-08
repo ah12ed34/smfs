@@ -4,6 +4,7 @@ namespace App\Livewire\Components\Nav\Admin;
 
 use Livewire\Component;
 use App\Models\Department as DepartmentModel;
+use App\Models\Academic;
 class Department extends Component
 {
     public $card_notification;
@@ -26,6 +27,7 @@ class Department extends Component
     }
     public function render()
     {
+
         return view('livewire.components.nav.admin.department');
     }
 }
