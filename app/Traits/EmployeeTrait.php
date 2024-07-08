@@ -7,7 +7,9 @@ use App\Models\Department;
 use App\Models\Role;
 use App\Models\User;
 use App\Tools\MyApp;
+use App\Repositories\EmployeesRepository;
 use Livewire\WithFileUploads;
+use PhpParser\Node\Expr\Cast\Array_;
 
 trait EmployeeTrait
 {
@@ -16,6 +18,8 @@ trait EmployeeTrait
     public $role;
     public $roles;
     public $employeeData;
+
+    protected $EmployeesR;
 
     public $departments;//departments
 
@@ -36,11 +40,14 @@ trait EmployeeTrait
     public $department_id;
     public $stutes;
     public $schedule;
+    public $weekly_lectures;
+    public $quarterly_lectures;
 
     public $openType ;
 
     public function initializeEmployeeTrait()
     {
+        $this->EmployeesR =  new EmployeesRepository();
         $this->roles = Role::all();
         $this->departments = Department::all();
         $this->rolesAll = Role::all();
@@ -50,12 +57,35 @@ trait EmployeeTrait
     public function selected($id)
     {
         $this->employeeData = User::find($id);
+        //  $result = [];
+        // $subjects = $this->EmployeesR->getSubjectsableByAcademicAndLevel($this->employeeData->id,$this->level->id)->get();
+
+        // $groupedSubjects = [];
+        // foreach ($subjects as $subject) {
+        //     $subjectName = $subject->subject;
+        //     if (!isset($groupedSubjects[$subjectName])) {
+        //         $groupedSubjects[$subjectName] = [
+        //             'subject' => $subjectName,
+        //             'groups' => [],
+        //             'isGroup' => [],
+        //         ];
+        //     }
+        //     $groupedSubjects[$subjectName]['groups'][] = $subject->group;
+        //     if (!empty($subject->group_name)&&!in_array($subject->group_name, $groupedSubjects[$subjectName]['isGroup'])) {
+        //         $groupedSubjects[$subjectName]['isGroup'][] = $subject->group_name;
+        //     }
+        // }
+
+        // // Convert associative array to indexed array
+        // $result = array_values($groupedSubjects);
+
+        // dd(collect($result));
     }
 
     public function showEmployee($id)
     {
         $this->selected($id);
-        $this->employeeData->show = true;
+        // $this->employeeData->show = true;
         $this->openType = 'show';
     }
 
@@ -78,6 +108,8 @@ trait EmployeeTrait
         $this->academic_name = $this->employeeData?->academic?->academic_name;
         $this->department_id = $this->employeeData?->academic?->department_id;
         $this->stutes = $this->employeeData?->academic?->stutes;
+        $this->weekly_lectures = $this->employeeData?->academic?->Weekly_lectures;
+        $this->quarterly_lectures = $this->employeeData?->academic?->Quarterly_lectures;
         // $this->schedule = $this->employeeData?->academic?->schedule;
 
     }
@@ -96,6 +128,11 @@ trait EmployeeTrait
         $this->stutes = null;
         $this->schedule = null;
         $this->employeeData = null;
+        $this->openType = null;
+        $this->password = null;
+        $this->password_confirmation = null;
+        $this->weekly_lectures = null;
+        $this->quarterly_lectures = null;
         $this->resetErrorBag();
     }
 
@@ -113,10 +150,13 @@ trait EmployeeTrait
             'department_id' => 'nullable|exists:departments,id',
             'stutes' => 'nullable|string|min:3|max:255',
             'schedule' => 'nullable|file|mimes:'.MyApp::getMimes('image'),
+            'password' => 'nullable|string|min:8|confirmed',
+            // weekly_lectures minthen quaterly_lectures
+            'weekly_lectures' => 'nullable|numeric|min:1|lte:quarterly_lectures',
+            'quarterly_lectures' => 'nullable|numeric|min:1|gte:weekly_lectures',
         ];
         if($type == 'add'){
             $rules['Eid'] = 'nullable|numeric|unique:users,id,'.$this->employeeData?->id;
-            $rules['password'] = 'required|string|min:8|confirmed';
         }
         $this->validate($rules,[],[
             'name' => __('general.name'),
@@ -131,6 +171,8 @@ trait EmployeeTrait
             'stutes' => __('general.stutes'),
             'schedule' => __('general.schedule'),
             'password' => __('general.password'),
+            'weekly_lectures' => __('general.weekly_lectures'),
+            'quarterly_lectures' => __('general.quarterly_lectures'),
         ]);
     }
     public function deleteEmployee()
@@ -180,7 +222,6 @@ trait EmployeeTrait
 
     private function prepareName()
     {
-        $this->validate(['name'=> 'nullable|string|min:3|min_words:2|max:255']);
         $this->name = trim($this->name);
         $nameParts = explode(' ', $this->name);
         $last_name = array_pop($nameParts);
@@ -220,6 +261,8 @@ trait EmployeeTrait
                 'department_id' => $this->department_id,
                 'stutes' => $this->stutes,
                 'schedule' => $this->schedule,
+                'Weekly_lectures' => $this->weekly_lectures,
+                'Quarterly_lectures' => $this->quarterly_lectures,
             ]);
 
             if($this->password){
@@ -251,7 +294,10 @@ trait EmployeeTrait
                 'department_id' => $this->department_id,
                 'stutes' => $this->stutes,
                 'schedule' => $this->schedule,
+                'Weekly_lectures' => $this->weekly_lectures,
+                'Quarterly_lectures' => $this->quarterly_lectures,
             ]);
+
             $this->employeeData->Roles()->sync($this->role_id);
             $this->employeeData->save();
             $this->dispatch('closeModal');

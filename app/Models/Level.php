@@ -14,6 +14,11 @@ class Level extends Model
         'department_id',
     ];
 
+    protected $casts = [
+        'id' => 'integer',
+        'department_id' => 'integer',
+    ];
+
     public function groups()
     {
         return $this->hasMany(Group::class);

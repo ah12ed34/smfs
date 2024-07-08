@@ -4,11 +4,13 @@ namespace App\Livewire\Components\Nav\ManagerOFdepart\Managedepartlevel;
 
 use Livewire\Component;
 use App\Models\Level;
+use App\Traits\Searching;
 
 class DepartLevelMainPageHeader extends Component
 {
+    use Searching;
     public $level;
-    public $search;
+    public $typeGroup = 'main';
     public $parameter;
     public function mount(Level $level){
         $this->level = $level;

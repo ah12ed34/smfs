@@ -62,7 +62,7 @@
                 @if ($active != 'usrs_employers')
                 <a id="" class="dropdown-item" style="padding-left:30px; "  href="{{ route('admin.employees') }}">   الموظفين</a>
                 @endif
-                @if($active!='statistics')<a id="" class="dropdown-item" href="{{ route('admin.statistics') }}" style="padding-left:30px; ">  الإحصائيات</a>
+                @if($active!='statistics')<a  class="dropdown-item" href="{{ route('admin.statistics') }}" style="padding-left:30px; ">  الإحصائيات</a>
                 @endif
                {{--  @if ($active != 'academic')
                 <a style="padding-left:20px;"> <button type="button" class="btn  dropdown-toggle " data-toggle="dropdown" dir="rtl"  style="background-color:white;" ></a>
@@ -124,6 +124,16 @@
     <div class="dropdown">
         <button type="button"  class="btn btn-light departmentAcademic_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl" style="padding-left:6px;">
             <div class="textdropdown" style="margin-top: -10px;margin-right:px5; font-size:12px;">   النظري </div>
+        {{-- <div class="dropdown">
+            <button type="button"  class="btn btn-light departmentAcademic_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl" style="padding-left:6px;">
+                <div class="textdropdown" style="margin-top: -10px;margin-right:px5; font-size:12px;">   النظري </div>
+
+                </button>
+                <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
+                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  الكل </a>
+                    <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   العملي</a>
+                </div>
+            </div> --}}
 
             </button>
             <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">

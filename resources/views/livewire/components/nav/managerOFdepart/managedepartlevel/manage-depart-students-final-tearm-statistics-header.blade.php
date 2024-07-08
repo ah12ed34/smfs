@@ -8,7 +8,7 @@
 
             <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
 
-            <div  class="btn-group btn_group_nav_manageDepart-level" id="">
+            {{-- <div  class="btn-group btn_group_nav_manageDepart-level" id="">
                 <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_studentsFinalTearmStatistics')}}'"><label class="proNavbartext">الإحصائيات </label></button>
                 <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_allsechedules')}}'"><label class="proNavbartext">  الجدول الدراسي</label></button>
                 <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_Books')}}'"><label class="proNavbartext">  المقرر الدراسي </label></button>
@@ -27,13 +27,14 @@
                 <a id="" class="dropdown-item" href='{{route('depart_level_academic')}}' style="padding-left:30px; ">  الأكادمين</a>
                 <a id="" class="dropdown-item" href='{{route('depart_level_Books')}}' style="padding-left:30px; ">   المقرر الدراسي</a>
                 <a id="" class="dropdown-item" href='{{route('depart_level_allsechedules')}}'style="padding-left:30px; ">   الجدول الدراسي</a>
-                {{-- <a id="" class="dropdown-item" href='{{route('depart_level_studentsFinalTearmStatistics')}}' style="padding-left:30px; ">  الإحصائيات</a> --}}
+                <a id="" class="dropdown-item" href='{{route('depart_level_studentsFinalTearmStatistics')}}' style="padding-left:30px; ">  الإحصائيات</a>
 
             </div>
-        </div>
+        </div> --}}
 
+    @include('components.layouts.manager_department.header')
 
-                <div class="dep-name">تقنية معلومات</div>
+                <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div>
 
                 <div class="dropdown">
                     <button type="button"  class="btn btn-light MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
