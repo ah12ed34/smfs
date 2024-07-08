@@ -35,20 +35,21 @@ class DepartLevelAcademicl extends Component
     }
     public function getAcademicsProperty()
     {
-        $academics = $this->level->department->academics()
-            ->whereHas('user', function ($query) {
-                $query->where('name', 'like', '%' . $this->search . '%')
-                    ->orWhere('email', 'like', '%' . $this->search . '%')
-                    ->orWhere('phone', 'like', '%' . $this->search . '%')
-                    ->orWhere('id', 'like', '%' . $this->search . '%')
-                    ->orWhere('username', 'like', '%' . $this->search . '%')
-                    ->orWhereRaw("concat(name, ' ', last_name) like ?", ['%' . $this->search . '%'])
-                ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                    ;
-            })
-
-            ->paginate($this->perPage);
-        return $academics;
+        $academics =
+        $this->EmployeesR?->getAcademicsByLevel($this->level->id)
+        ->whereHas('user', function ($query) {
+            $query->where('name', 'like', '%' . $this->search . '%')
+                ->orWhere('email', 'like', '%' . $this->search . '%')
+                ->orWhere('phone', 'like', '%' . $this->search . '%')
+                ->orWhere('id', 'like', '%' . $this->search . '%');
+                if(in_array($this->sortField, ['name','email','phone','id','created_at','updated_at','username'])) {
+                    $query->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
+                }
+        });
+        if(in_array($this->sortField, ['user_id','academic_name'])) {
+            $academics = $academics->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
+        }
+        return $academics->paginate($this->perPage);
     }
 
     public function render()

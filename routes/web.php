@@ -361,7 +361,8 @@ use GuzzleHttp\Middleware;
         route::get('sendnotification_managerdepart_academic','\\'.App\Livewire\ManagerOfDepart\SendNotificationmanageDepartAcademic::class)->name('sendnotification_managerdepart_academic');
         route::get('sendnotification_managerdepart_student', '\\'.App\Livewire\ManagerOfDepart\SendNotificationmanageDepartStudent::class)->name('sendnotification_managerdepart_student');
         route::get('managerdepart_Stastistic','\\'.App\Livewire\ManagerOfDepart\ManageDepartStastistic::class)->name('managerdepart_Stastistic');
-        Route::group(['prefix'=>'{level}'], function(){
+        // يتم استخدام البرنامج الوسيط للتحقق من ملكية المستوى هنا للتحقق مما إذا كان المستخدم هو رئيس القسم  الخاص بالمستوى
+        Route::group(['prefix'=>'{level}','middleware'=>"verifyLevelOwnership"], function(){
             Route::get('depart_level_Group_mainPage','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\DepartLevelMainPage::class)->name('depart_level_Group_mainPage');
             Route::get('practical_groups','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\Practicalgroups::class)->name('practical_groups');
             Route::get('depart_level_academic','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\DepartLevelAcademicl::class)->name('depart_level_academic');

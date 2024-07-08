@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('term')->default(1);
             $table->boolean('status')->default(1)->comment('0: Inactive, 1: Active');
+            $table->string('schedule')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users');
             $table->unsignedBigInteger('updated_by')->nullable();

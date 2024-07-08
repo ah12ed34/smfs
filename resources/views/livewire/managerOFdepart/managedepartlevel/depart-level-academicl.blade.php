@@ -1,7 +1,7 @@
 @section('nav')
-@livewire('components.nav.manager_of_depart.managedepartlevel.depart-level-main-page-header', ['level' => $level])
+{{-- @livewire('components.nav.manager_of_depart.managedepartlevel.depart-level-main-page-header', ['level' => $level]) --}}
 
-{{-- @livewire('components.nav.manager_of_depart.managedepartlevel.depart-level-academicl-header') --}}
+@livewire('components.nav.manager_of_depart.managedepartlevel.depart-level-academicl-header', ['level' => $level])
 @endsection
 <div>
     {{-- Be like water. --}}

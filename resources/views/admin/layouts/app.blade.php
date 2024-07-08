@@ -46,8 +46,8 @@
         <div id="sidebar" class="sidebar">
 
                 <button class="button-sidebar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
-                <button class="button-sidebar" onclick="location.href='{{route('student.create')}}'" ><label class="" >{{__('layout.create_student')}}</label><i class="bi bi-person-add"></i> </button>
-                <button class="button-sidebar" onclick="location.href='{{route('academic.create')}}'"><label class="" >{{__('layout.create_academic')}} </label><i class="bi bi-person-add"></i></button>
+                {{-- <button class="button-sidebar" onclick="location.href='{{route('student.create')}}'" ><label class="" >{{__('layout.create_student')}}</label><i class="bi bi-person-add"></i> </button>
+                <button class="button-sidebar" onclick="location.href='{{route('academic.create')}}'"><label class="" >{{__('layout.create_academic')}} </label><i class="bi bi-person-add"></i></button> --}}
                 <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
         </div>
     </div>
@@ -59,9 +59,12 @@
           <button class="button" >الرئيسية </button>
 </div-->
         <ul>
-            <li><a href="#">{{__('layout.statistics')}}</a></li>
-            <li><a href="#">{{__('layout.permissions')}}</a></li>
-            <li><a class="active" href="#" style="text-decoration: none; float:right;">{{__('layout.home')}}</a></li>
+            <li><a href="{{route('statistics')}}"
+                >{{__('layout.statistics')}}</a></li>
+            <li><a href="{{ route('permissions') }}"
+                >{{__('layout.permissions')}}</a></li>
+            <li><a class="active" href="{{ route('home') }}
+                " style="text-decoration: none; float:right;">{{__('layout.home')}}</a></li>
 
         </ul>
     </div>
@@ -91,9 +94,12 @@
        @yield('content')
     </div>
     <div class="bottomNavbar">
-        <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
-        <button class="btn-bottomNavbar"><img src="{{ Vite::image('portfolio (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
-        <button class="btn-bottomNavbar"><img src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الجدول </label></button>
+        <button class="btn-bottomNavbar" onclick="location.href='{{route('settings')}}'"
+        ><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
+        <button class="btn-bottomNavbar" onclick="location.href='{{route('archive')}}'"
+        ><img src="{{ Vite::image('portfolio (2).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الأرشيف</label></button>
+        <button class="btn-bottomNavbar" onclick="location.href='{{route('schedule')}}'"
+        ><img src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">الجدول </label></button>
         <button class="btn-bottomNavbar" onclick="location.href='{{route('home')}}'"  ><img src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">القائمة</label></button>
     </div>
     {{-- @vite('resources/js/app.js') --}}

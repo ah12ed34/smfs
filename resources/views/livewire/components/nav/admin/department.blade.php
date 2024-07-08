@@ -49,18 +49,19 @@
                     <a id="" class="dropdown-item" href="{{ route('department.index') }}" style="padding-left:30px; ">الأقسام</a>
                 @endif
                 @if ($active != 'academic')
-                <a id="" class="dropdown-item" href="#" style="padding-left:30px; " href="{{ route('admin.academic_mobile') }}"> الأكادميين</a>
+                <a id="" class="dropdown-item" style="padding-left:30px; " href="{{ route('admin.academic_mobile') }}"
+                > الأكادميين</a>
                 @endif
                 @if ($active != 'permission')
-                <a id="" class="dropdown-item" href="#" style="padding-left:30px; " href="{{ route('admin.permissions') }}">   الصلاحيات</a>
+                <a id="" class="dropdown-item" href="{{ route('admin.permissions') }}" style="padding-left:30px; ">   الصلاحيات</a>
                 @endif
                 @if ($active != 'notification')
-                    <a id="" class="dropdown-item" href="#"style="padding-left:30px; " href="{{ route('admin.notifications') }}">   الإشعارات</a>
+                    <a id="" class="dropdown-item"  style="padding-left:30px; " href="{{ route('admin.notifications') }}">   الإشعارات</a>
                 @endif
                 @if ($active != 'usrs_employers')
-                <a id="" class="dropdown-item" href="#"style="padding-left:30px; "  href="{{ route('admin.employees') }}">   الموظفين</a>
+                <a id="" class="dropdown-item" style="padding-left:30px; "  href="{{ route('admin.employees') }}">   الموظفين</a>
                 @endif
-                @if($active!='statistics')<a id="" class="dropdown-item" href="{{ route('admin.statistics') }}" style="padding-left:30px; ">  الإحصائيات</a>
+                @if($active!='statistics')<a  class="dropdown-item" href="{{ route('admin.statistics') }}" style="padding-left:30px; ">  الإحصائيات</a>
                 @endif
                {{--  @if ($active != 'academic')
                 <a style="padding-left:20px;"> <button type="button" class="btn  dropdown-toggle " data-toggle="dropdown" dir="rtl"  style="background-color:white;" ></a>

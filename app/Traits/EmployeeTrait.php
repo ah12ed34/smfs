@@ -57,31 +57,29 @@ trait EmployeeTrait
     public function selected($id)
     {
         $this->employeeData = User::find($id);
-         $result = [];
-        dd(
-            $this->EmployeesR->getSubjectsableByAcademicAndLevel($this->employeeData->id,$this->level->id)->get()
-            ->map(function($item)use(&$result){
-                if(empty($result)||array_search($item->subject, Array_column($result, 'subject')) === false){
-                    $result[] =
-                    [
-                        'subject' => $item->subject,
-                        'groups' => [$item->group],
-                        'isGroup' => [$item->group_name],
-                    ]
-                    ;
-                }else{
-                    if(!in_array($item->group, $result[array_search($item->subject, Array_column($result, 'subject'))]['groups']))
-                        $result[array_search($item->subject, Array_column($result, 'subject'))]['groups'][] = $item->group;
-                        if($item->group_name && !in_array($item->group_name, $result[array_search($item->subject, Array_column($result, 'subject'))]['isGroup']))
-                        $result[array_search($item->subject, Array_column($result, 'subject'))]['isGroup'][] = $item->group_name;
+        //  $result = [];
+        // $subjects = $this->EmployeesR->getSubjectsableByAcademicAndLevel($this->employeeData->id,$this->level->id)->get();
 
-                }
+        // $groupedSubjects = [];
+        // foreach ($subjects as $subject) {
+        //     $subjectName = $subject->subject;
+        //     if (!isset($groupedSubjects[$subjectName])) {
+        //         $groupedSubjects[$subjectName] = [
+        //             'subject' => $subjectName,
+        //             'groups' => [],
+        //             'isGroup' => [],
+        //         ];
+        //     }
+        //     $groupedSubjects[$subjectName]['groups'][] = $subject->group;
+        //     if (!empty($subject->group_name)&&!in_array($subject->group_name, $groupedSubjects[$subjectName]['isGroup'])) {
+        //         $groupedSubjects[$subjectName]['isGroup'][] = $subject->group_name;
+        //     }
+        // }
 
-                return $item;
+        // // Convert associative array to indexed array
+        // $result = array_values($groupedSubjects);
 
-            }),$result
-        );
-
+        // dd(collect($result));
     }
 
     public function showEmployee($id)

@@ -19,7 +19,7 @@ class EmployeesRepository extends AcademicYRepository
         join('groups', 'group_subjects.group_id', '=', 'groups.id')->
         where('group_subjects.ay_id', $this->currentAcademicYear->id)->
         where('subjects_levels.semester', $this->currentAcademicYear->term)->
-        select('subjects.name as subject', 'levels.name as level', 'departments.name as department', 'groups.name as group'
+        select('subjects.name_ar as subject', 'levels.name as level', 'departments.name as department', 'groups.name as group'
             ,'subjects_levels.semester as semester' ,'subjects_levels.id as subject_level_id',
             'group_subjects.id as group_subject_id','group_subjects.group_id as group_id'
             ,'group_subjects.subject_id as subject_id','group_subjects.teacher_id as teacher_id'
@@ -91,5 +91,21 @@ class EmployeesRepository extends AcademicYRepository
             ,'gs.name as group_name'
     );
 
+    }
+    public function getAcademicsByLevel($level_id)
+    {
+        if(is_numeric($level_id))
+        return Academic::whereIn('user_id', function ($query) use ($level_id) {
+            $query->select('academics.user_id')
+                ->from('academics')
+                ->join('group_subjects', 'academics.user_id', '=', 'group_subjects.teacher_id')
+                ->join('subjects_levels', 'group_subjects.subject_id', '=', 'subjects_levels.id')
+                ->join('levels', 'subjects_levels.level_id', '=', 'levels.id')
+                ->where('levels.id', $level_id)
+                ->where('group_subjects.ay_id', $this->currentAcademicYear->id)
+                ->where('subjects_levels.semester', $this->currentAcademicYear->term)
+                ->groupBy('academics.user_id');
+        });
+        ;
     }
 }
