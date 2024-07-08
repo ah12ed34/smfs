@@ -21,7 +21,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                        @forelse ($academics as $academic)
+                        <tr class="table-light" id="modldetials">
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite"
+
+                                >تعديل  <img src="{{Vite::image("edit.png")}}"id=""  width="15px" ></button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldDetails" wire:click="showEmployee({{$academic->user->id}})">التفاصيل</button> </td>
+                            <td>{{$academic->user?->role()?->name}}</td>
+                            <td>{{$academic->user->phone}}</td>
+                            <td>{{$academic->user->gender_ar()}}</td>
+                            <td>{{$academic->user->email}}</td>
+                            <td>{{$academic->name }}</td>
+                            <td>{{$academic->user->full_name}}</td>
+                        </tr>
+                        @empty
+                        <tr  class="table-light" id="modldetials" >
+                            <td colspan="8">لا يوجد بيانات</td>
+                        </tr>
+
+                        @endforelse
+
+                        {{-- <tr class="table-light" id="modldetials" style="margin-top:7px;">
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}"id=""  width="15px" ></button> </td>
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldDetails">التفاصيل</button> </td>
                             <!-- <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="{{Vite::image("conversation (3).png")}}"id=""  width="25px" ></button> </td> -->
@@ -64,7 +84,7 @@
                             <td>*******</td>
                             <td>*******</td>
                             <td>*******</td>
-                        </tr>
+                        </tr> --}}
 
                     </tbody>
                 </table>
@@ -232,7 +252,7 @@
 </div>
 
 <!-- The ModalDetailsacademic -->
-<div class="modal fade" id="myModaldDetails">
+<div class="modal fade" id="myModaldDetails" wire:ignore.self>
     <div class="modal-dialog ">
         <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height: 700px;">
 
@@ -244,64 +264,76 @@
 
             <!-- Modal body -->
             <div class="modal-body ModaldDetailsAcademic">
-                <form action="/action_page.php" style="display: block;">
+                @if($employeeData&&$openType == 'show')
+                {{-- <form action="/action_page.php" style="display: block;"> --}}
                     <div class="form-group">
 
-                       <img src="{{Vite::image("profile.png")}}"  width="100px" style="margin-left: 45%;  margin-top: -10px; border-radius: 50%;">
+                       <img src="{{ $employeeData->photo ? asset('storage/'.$employeeData->photo):Vite::image("user.png")
+                       }}"  width="100px" style="margin-left: 45%;  margin-top: -10px; border-radius: 50%;">
 
                         <div class="table-responsive ">
                             <table class="table details-academic " style="width:100%;  margin-top: 5px;" >
 
                                         <tr class="table-light " id="modldetials">
-                                            <td>**********</td>
+                                            <td>{{ $employeeData->full_name }}</td>
                                             <th class="name-group" > الاسم</th>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <td>**********</td>
+                                            <td>{{ $employeeData->birthday }}</td>
                                             <th class="name-group"> تاريخ الميلاد</th>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <td>**********</td>
+                                            <td>{{ $employeeData->gender_ar() }}</td>
                                             <th class="name-group" > نوع الجندر</th>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <td>**********</td>
+                                            <td>{{ $employeeData->academic->name }}</td>
                                             <th class="name-group"> الدرجةالعلمية </th>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <td>**********</td>
+                                            <td>{{ $employeeData->email }}</td>
                                             <th class="name-group"> الإيمل الجامعي </th>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <td>**********</td>
+                                            <td>{{ $employeeData->phone }}</td>
                                             <th class="name-group">التلفون </th>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <td>**********</td>
+                                            <td>
+                                                {{
+                                                    $employeeData->levels->map(function($level){
+                                                        return $level->name;
+                                                    })->implode(' - ')
+                                                }}
+                                            </td>
                                             <th class="name-group">المستوى  </th>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <td>**********</td>
+                                            <td>{{ $employeeData->subjects->map(function($subject){
+                                                return $subject->name_ar;
+                                            })->implode(' - ') }}</td>
                                             <th class="name-group">المقرر الدراسي </th>
                                         </tr>
                                             <tr class="table-light" id="modldetials">
-                                            <td>**********</td>
+                                            <td>{{ $employeeData->academic->groups->map(function($group){
+                                                return $group->name;
+                                            })->unique()->implode(' - ') }}</td>
                                             <th class="name-group">المجموعات </th>
                                             </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <td>**********</td>
+                                            <td>{{ $employeeData->academic->Weekly_lectures }}</td>
                                             <th class="name-group"> المحاضرات الإسيوعية</th>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <td>**********</td>
+                                            <td>{{ $employeeData->academic->Quarterly_lectures }}</td>
                                             <th class="name-group">محاضرات الفصل الدراسي </th>
                                         </tr>
                             </table>
                         </div>
 
                     </div>
-
-                </form>
+                    @endif
+                {{-- </form> --}}
             </div>
 
             <!-- Modal footer -->

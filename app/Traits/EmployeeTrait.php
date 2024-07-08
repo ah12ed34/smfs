@@ -56,7 +56,7 @@ trait EmployeeTrait
 
     public function selected($id)
     {
-        $this->employeeData = User::find($id);
+        $this->employeeData = User::findOrfail($id);
         //  $result = [];
         // $subjects = $this->EmployeesR->getSubjectsableByAcademicAndLevel($this->employeeData->id,$this->level->id)->get();
 
@@ -87,6 +87,8 @@ trait EmployeeTrait
         $this->selected($id);
         // $this->employeeData->show = true;
         $this->openType = 'show';
+        $this->employeeData->levels = $this->getLevels();
+        $this->employeeData->subjects = $this->EmployeesR->getSubjectsByAcademic($this->employeeData->id);
     }
 
     public function EditEmployee($id)
@@ -306,6 +308,32 @@ trait EmployeeTrait
 
 
 
+    }
+
+    public function getLevels() : \Illuminate\Support\Collection
+    {
+        return $this->EmployeesR->getLevelsByAcademic($this->employeeData->id);
+    }
+
+    public function getSubjects() : \Illuminate\Support\Collection
+    {
+        if($this->employeeData?->academic){
+            $subjects = [];
+            foreach ($this->employeeData->academic->groups as $groups)
+            {
+                foreach ($groups->subjects as $subject)
+                {
+                    if(!isset($subjects[$subject->id])){
+                        $subjects[$subject->id] =
+                            $subject;
+                    }
+                }
+            }
+            $subjects = array_values($subjects);
+            // dd($subjects);
+            return collect($subjects);
+        }
+        return collect([]);
     }
 
 

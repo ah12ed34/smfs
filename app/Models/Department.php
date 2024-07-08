@@ -64,4 +64,12 @@ class Department extends Model
             return $s;
     }
 
+    // public function groups(){
+    //     $groups = collect();
+    //     foreach ($this->levels as $level) {
+    //         $groups = $groups->merge($level->groups);
+    //     }
+    //     return $groups;
+    // }
+
 }
