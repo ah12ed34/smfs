@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Academic;
+use App\Models\Level;
 use Illuminate\Support\Facades\DB;
 
 class EmployeesRepository extends AcademicYRepository
@@ -108,4 +109,54 @@ class EmployeesRepository extends AcademicYRepository
         });
         ;
     }
+
+    public function getAcademicsByDepartment($department_id)
+    {
+        if(is_numeric($department_id))
+        return Academic::whereIn('user_id', function ($query) use ($department_id) {
+            $query->select('academics.user_id')
+                ->from('academics')
+                ->where('academics.department_id', $department_id)
+                ;
+        });
+        ;
+    }
+
+    public function getLevelsByAcademic($academic_id)
+    {
+        $employeeData = Academic::where('user_id', $academic_id)->first();
+        if($employeeData){
+            $levels = Level::whereIn('id', function ($query) use ($employeeData) {
+                $query->select('groups.level_id')
+                    ->from('group_subjects')
+                    ->leftJoin('groups', 'group_subjects.group_id', '=', 'groups.id')
+                    ->where('group_subjects.ay_id', $this->currentAcademicYear->id)
+                    ->where('group_subjects.teacher_id', $employeeData->user_id)
+                    ->where('groups.level_id', '!=', null)
+                    ->distinct('groups.level_id')
+                    ;
+            });
+            return $levels->get();
+        }
+        return collect([]);
+    }
+
+    public function getSubjectsByAcademic($academic_id)
+    {
+        $employeeData = Academic::where('user_id', $academic_id)->first();
+        if($employeeData){
+            $subjects = DB::table('subjects')->whereIn('id', function ($query) use ($employeeData) {
+                $query->select('subjects_levels.subject_id')
+                    ->from('group_subjects')
+                    ->join('subjects_levels', 'group_subjects.subject_id', '=', 'subjects_levels.id')
+                    ->where('group_subjects.ay_id', $this->currentAcademicYear->id)
+                    ->where('group_subjects.teacher_id', $employeeData->user_id)
+
+                    ;
+            });
+            return $subjects->get();
+        }
+        return collect([]);
+    }
+
 }

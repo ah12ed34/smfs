@@ -75,7 +75,7 @@ class Academic extends Model
     }
 
     public function groups() {
-        return $this->hasMany(Group::class);
+        return $this->hasManyThrough(Group::class, GroupSubject::class, 'teacher_id', 'id', 'user_id', 'group_id');
     }
     public function getNameAttribute() {
         return MyApp::getAcademicName($this->academic_name);
