@@ -19,6 +19,7 @@ class Department extends Component
     }
 
     public function search(){
+
         $this->dispatch('search',$this->search_model);
     }
 
