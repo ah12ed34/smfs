@@ -151,8 +151,9 @@ class GroupSubject extends Model
         Group::join('group_subjects', 'groups.id', '=', 'group_subjects.group_id')
             ->where('group_subjects.subject_id', $this->subject_id)
             ->where('group_subjects.teacher_id', auth()->user()->academic->user_id)
+            ->where('group_subjects.ay_id', AcademicYear::currentAcademicYear()->id)
             ->where('groups.id', '!=', $this->group_id)
-            ->select('groups.*')
+            ->select('groups.*','group_subjects.id as group_subject_id')
             ->get();
     }
 

@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
+use App\Livewire\Academic\Student\AssignmentsgrdesStu;
+use App\Livewire\Academic\Student\Midexam;
+use App\Livewire\Academic\Student\ProjectsGradesStu;
+use App\Livewire\Academic\Student\Students;
+use App\Livewire\Academic\Student\StudentsPersents;
 use App\Livewire\Academic\Subject\Assignments;
 use App\Livewire\Academic\Subject\FormsQuiz;
 use App\Livewire\Academic\Subject\ProjectGroups;
@@ -125,7 +130,7 @@ use GuzzleHttp\Middleware;
         Route::get('academic_departments', 'AdminController@academic_mobile')->name('admin.academic_departments');
 
     });
-    Route::group(['prefix'=>'managers_information','middleware'=>'auth'
+    Route::group(['prefix'=>'managers_information','middleware'=>['auth','role:admin']
 ], function(){
     route::get('/', '\\'. App\Livewire\Admin\ManagersInformation::class)->name('managers_information');
     route::get('/{roleName}/employees_information','\\'.App\Livewire\Admin\EmployeesInformation::class)->name('employees_information');
@@ -231,7 +236,7 @@ use GuzzleHttp\Middleware;
         Route::group(['middleware' => ['role:academic']], function () {
             route::get('/', 'AcademicController@index')->name('academic.home');
             Route::prefix("subject")->group(function(){
-                Route::get("/{subject_id}{group_id}",'SubjectController@index')->name("subject.index");
+                Route::get("/{group_subject}",'SubjectController@index')->name("subject.index");
             });
 
 
@@ -247,22 +252,24 @@ use GuzzleHttp\Middleware;
             // Route::get('/homeANDchat','\\'.App\Livewire\Students\Chat::class);
 
 
-            route::prefix("{subject_id}{group_id}")->group(function(){
-                route::prefix('students')->group(function(){
-                    route::get("/",'StudentsController@index')->name("students");
-                });
-                route::prefix("students-persents")->group(function(){
-                    route::get("/",'StudentspersentsController@index')->name("students-persents");
-                });
-                route::prefix("midexam")->group(function(){
-                route::get("/",'MidexamController@index')->name("midexam");
-                });
-                route::prefix("assignmentsgrdes-stu")->group(function (){
-                    route::get("/",'AssignmentsGrdesStuController@index')->name("assignmentsgrdes-stu");
-                });
-                route::prefix("projectsgrades-stu")->group(function(){
-                    route::get("/",'ProjectssGrdesStuController@index')->name("projectsgrades-stu");
-                });
+            route::prefix("{group_subject}")->group(function(){
+                route::get('students','\\'.Students::class)->name("students");
+                route::get('students-persents','\\'.StudentsPersents::class)->name("students-persents");
+                route::get('midexam','\\'.Midexam::class)->name("midexam");
+                route::get('assignmentsgrdes-stu','\\'.AssignmentsgrdesStu::class
+                )->name("assignmentsgrdes-stu");
+                route::get('projectsgrades-stu','\\'.ProjectsGradesStu::class)->name("projectsgrades-stu");
+                route::get('studentsworksStastics','StudentsworksStasticsController@index')->name("studentsworksStastics");
+
+                               // route::prefix("midexam")->group(function(){
+                // route::get("/",'MidexamController@index')->name("midexam");
+                // });
+                // route::prefix("assignmentsgrdes-stu")->group(function (){
+                //     route::get("/",'AssignmentsGrdesStuController@index')->name("assignmentsgrdes-stu");
+                // });
+                // route::prefix("projectsgrades-stu")->group(function(){
+                //     route::get("/",'ProjectssGrdesStuController@index')->name("projectsgrades-stu");
+                // });
 
                 Route::prefix("project")->group(function(){
                     Route::get("/","ProjectController@index")->name("projects");
@@ -286,9 +293,9 @@ use GuzzleHttp\Middleware;
                 route::prefix("forms-quiz")->group(function(){
                 route::get("/",'\\'.FormsQuiz::class)->name("forms-quiz");
                 });
-                route::prefix("studentsworksStastics")->group(function(){
-                    route::get("/",'StudentsworksStasticsController@index')->name("studentsworksStastics");
-                });
+                // route::prefix("studentsworksStastics")->group(function(){
+                //     route::get("/",'StudentsworksStasticsController@index')->name("studentsworksStastics");
+                // });
 
             });
 

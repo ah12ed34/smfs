@@ -62,7 +62,7 @@ class GroupFile extends Model
 
     public function file()
     {
-        return $this->belongsTo(File::class);
+        return $this->hasOne(File::class, 'id', 'file_id');
     }
 
     public function user()

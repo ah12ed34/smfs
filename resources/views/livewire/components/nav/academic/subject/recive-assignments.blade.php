@@ -87,7 +87,7 @@ button.active {
     </div>
 
     <div class="hr3">
-        <a href="{{route("assignment",[$group_subject->subject_id,$group_subject->group_id])}}">     <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
+        <a href="{{route("assignment",[$group_subject->id])}}">     <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
         <div id="" class="input-group mb-3 input_group_reciv_assign">
             <input type="text" class="form-control" placeholder="Search" wire:model='search' wire:keydown.enter='srch()' >
             <div class="input-group-append">

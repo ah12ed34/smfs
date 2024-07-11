@@ -27,9 +27,10 @@ class Assignments extends Component
         $this->search = $v;
     }
 
-    public function mount($subject_id,$group_id)
+    public function mount($group_subject)
     {
-        $this->group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->first();
+        $this->group_subject = GroupSubject::where('id',$group_subject)->where('teacher_id',auth()->user()->academic->user_id)
+        ->firstOrFail();
     }
 
     public function getAssignmentsProperty()

@@ -10,7 +10,7 @@
             <div id="card-HW" class="card bg-light text-dark" style=" color: #0E70F2;">
                 <div class="card-body">
                     <div class="btn-HW">
-                        <a href="{{route("recive-assignments",[$group_subject->subject_id,$group_subject->group_id,$assignment->group_file->id])}}"> <button type="submit" class="btn btn-primary btn_recive_hw " id="" data-toggle="" data-target="#">الواردة </button></a>
+                        <a href="{{route("recive-assignments",[$group_subject->id,$assignment->group_file->id])}}"> <button type="submit" class="btn btn-primary btn_recive_hw " id="" data-toggle="" data-target="#">الواردة </button></a>
                         <button type="submit" class="btn btn-light btn_recive_edte_hw " id="" data-toggle="modal" data-target="#myModalediteAssign" wire:click='editAssignment({{ $assignment->id }})' >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
                         @if ($assignment->group_file->is_active)
                             <button type="submit" class="btn btn-danger btn_recive_hw " id="" data-toggle="modal" data-target="#myModalstop"

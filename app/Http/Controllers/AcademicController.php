@@ -5,8 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Academic;
 use Illuminate\Http\Request;
 use App\Models\Department;
+use App\Repositories\EmployeesRepository;
+
 class AcademicController extends Controller
 {
+    protected $academicR;
+
+    public function __construct()
+    {
+        $this->academicR = new EmployeesRepository();
+    }
     /**
      * Display a listing of the resource.
      */
@@ -14,7 +22,10 @@ class AcademicController extends Controller
     {
         //
         $academic = Academic::findOrfail(auth()->user()->id);
-        return view('academic.home',['academic'=>$academic]);
+        // dd(
+        //     $this->academicR->getCoursesByAcademic($academic)->get(),
+        // );
+        return view('academic.home',['academic'=>$this->academicR->getCoursesByAcademic($academic)]);
     }
 
     /**

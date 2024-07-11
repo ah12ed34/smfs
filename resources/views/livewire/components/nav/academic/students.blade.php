@@ -9,25 +9,25 @@
             <button id="btn-studentsNavbar" class="btn btn-light" @if ($active == 'studentsworksStastics')
                 style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
 
-            @endif  onclick="location.href='{{route('studentsworksStastics',[$group_subject->subject_id,$group_subject->group_id])}}'"><label class="proNavbartext">الإحصائيات</label></button>
+            @endif  onclick="location.href='{{route('studentsworksStastics',[$group_subject->id])}}'"><label class="proNavbartext">الإحصائيات</label></button>
             <button id="btn-studentsNavbar" class="btn btn-light" @if ($active == 'projectsgrades-stu')
                 style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
 
-            @endif onclick="location.href='{{route('projectsgrades-stu',[$group_subject->subject_id,$group_subject->group_id])}}'"><label class="proNavbartext">   المشاريع</label></button>
+            @endif onclick="location.href='{{route('projectsgrades-stu',[$group_subject->id])}}'"><label class="proNavbartext">   المشاريع</label></button>
                 <button id="btn-studentsNavbar" class="btn btn-light" @if ($active == 'assignmentsgrdes-stu')
                     style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
 
-                @endif onclick="location.href='{{route('assignmentsgrdes-stu',[$group_subject->subject_id,$group_subject->group_id])}}'"><label class="proNavbartext">   التكاليف</label></button>
+                @endif onclick="location.href='{{route('assignmentsgrdes-stu',[$group_subject->id])}}'"><label class="proNavbartext">   التكاليف</label></button>
                   <button id="btn-studentsNavbar" class="btn btn-light" @if ($active == 'midexam')
                       style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
 
-                  @endif onclick="location.href='{{route('midexam',[$group_subject->subject_id,$group_subject->group_id])}}'"><label class="proNavbartext">   النصفي</label></button>
+                  @endif onclick="location.href='{{route('midexam',[$group_subject->id])}}'"><label class="proNavbartext">   النصفي</label></button>
                       <button id="btn-studentsNavbar" class="btn btn-light" @if ($active == 'students-persents')
                           style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
-                      @endif onclick="location.href='{{route('students-persents',[$group_subject->subject_id,$group_subject->group_id])}}'"><label class="proNavbartext"> الحضور والغياب </label></button>
+                      @endif onclick="location.href='{{route('students-persents',[$group_subject->id])}}'"><label class="proNavbartext"> الحضور والغياب </label></button>
             <button id="btn-studentsNavbar" class="btn btn-light" @if ($active == 'students')
             style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
-            @endif   onclick="location.href='{{route('students',[$group_subject->subject_id,$group_subject->group_id])}}'"><label class="proNavbartext"> قائمة الطلاب</label></button>
+            @endif   onclick="location.href='{{route('students',[$group_subject->id])}}'"><label class="proNavbartext"> قائمة الطلاب</label></button>
         </div>
         <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
             <label class="bottomNavbartext">القائمة</label>
@@ -61,35 +61,39 @@
         </button>
     <div id="dropdown-menulist" class="dropdown-menu" style="width:100px;  ">
         @if($active != 'students')
-            <a  href="{{route("students",[$group_subject->subject_id,$group_subject->group_id])}}" id="dropdown-students-itemlist" class="dropdown-item" style="padding-left:40px; border-bottom: 1px solid #e0e0e0;">  قائمة الطلاب</a>
+            <a  href="{{route("students",[$group_subject->id])}}" id="dropdown-students-itemlist" class="dropdown-item" style="padding-left:40px; border-bottom: 1px solid #e0e0e0;">  قائمة الطلاب</a>
         @endif
         @if ($active != 'students-persents')
-            <a  href="{{route("students-persents",[$group_subject->subject_id,$group_subject->group_id])}}" id="dropdown-students-itemlist" class="dropdown-item" style="padding-left:40px; ">  الحضور والغياب</a>
+            <a  href="{{route("students-persents",[$group_subject->id])}}" id="dropdown-students-itemlist" class="dropdown-item" style="padding-left:40px; ">  الحضور والغياب</a>
         @endif
         @if ($active != 'midexam')
-            <a  href="{{route("midexam",[$group_subject->subject_id,$group_subject->group_id])}}" id="dropdown-students-itemlist" class="dropdown-item" style="padding-left:40px; ">  الاختبار النصفي</a>
+            <a  href="{{route("midexam",[$group_subject->id])}}" id="dropdown-students-itemlist" class="dropdown-item" style="padding-left:40px; ">  الاختبار النصفي</a>
 
         @endif
-    {{-- <a  href="{{route("midexam",[$group_subject->subject_id,$group_subject->group_id])}}" id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:40px; ">  الاختبار النصفي</a> --}}
+    {{-- <a  href="{{route("midexam",[$group_subject->id])}}" id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:40px; ">  الاختبار النصفي</a> --}}
         @if($active != 'assignmentsgrdes-stu')
-            <a   href="{{route("assignmentsgrdes-stu",[$group_subject->subject_id,$group_subject->group_id])}}" id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:47px; ">التكاليف</a>
+            <a   href="{{route("assignmentsgrdes-stu",[$group_subject->id])}}" id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:47px; ">التكاليف</a>
         @endif
         @if($active != 'projectsgrades-stu')
-            <a   href="{{route("projectsgrades-stu",[$group_subject->subject_id,$group_subject->group_id])}}" id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:47px; "> المشاريع</a>
+            <a   href="{{route("projectsgrades-stu",[$group_subject->id])}}" id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:47px; "> المشاريع</a>
         @endif
         @if($active != 'studentsworksStastics')
-            <a  href="{{route("studentsworksStastics",[$group_subject->subject_id,$group_subject->group_id])}}"   id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:45px; "> الإحصائيات</a>
+            <a  href="{{route("studentsworksStastics",[$group_subject->id])}}"   id="dropdown-students-itemlist" class="dropdown-item"  style="padding-left:45px; "> الإحصائيات</a>
         @endif
         </div>
 
 
         <div class="dropdown">
         <button id="btn-groups-student2" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
-            <div class="textdrop2">  جميع المجموعات</div>
+            <div class="textdrop2"> {{ $group_subject->group->name }}</div>
            </button>
         <div id="dropdown-menulist" class="dropdown-menu">
-            @foreach ($otherGroups as $group)
-                <a id="dropdown-students-itemlist" class="dropdown-item" href="{{ route(request()->route()->getName(),[$group_subject->subject_id,$group->id]) }}"
+            @foreach ($group_subject->getOtherGroups()
+            as $group)
+                <a id="dropdown-students-itemlist" class="dropdown-item"
+
+                href="{{ route($urlName??'students',
+                 ['group_subject' => $group->group_subject_id]) }}"
                  style="padding-left:40px;">{{ $group->name }}</a>
             @endforeach
             {{-- <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(2)</a>
@@ -100,16 +104,18 @@
 
 
 
-
+{{-- @dump($urlName,$this->getRouteName(),$this->parameters) --}}
 
     <div  class="hr3-students">
-        <a href="{{route("subject.index",[$group_subject->subject_id,$group_subject->group_id])}}">    <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
+        <a href="{{route("subject.index",[$group_subject->id])}}">    <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
         <button id="btn-groups-students" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
-            <div class="textdrop2">  جميع المجموعات</div>
+            <div class="textdrop2"> {{ $group_subject->group->name }}</div>
            </button>
         <div id="dropdown-menulist" class="dropdown-menu">
-            @foreach ($otherGroups as $group)
-                <a id="dropdown-students-itemlist" class="dropdown-item" href="{{ route(request()->route()->getName(),[$group_subject->subject_id,$group->id]) }}"
+            @foreach ($group_subject->getOtherGroups() as $group)
+                <a id="dropdown-students-itemlist" class="dropdown-item"
+                href="{{ route($urlName
+                ,[$group->group_subject_id]) }}"
 
                  style="padding-left:40px;">{{ $group->name }}</a>
 
@@ -164,6 +170,7 @@
         </div>
     </div>
 </div>
+
 </div>
 
 
