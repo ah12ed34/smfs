@@ -1,13 +1,13 @@
 #btn-group-studyingbooks {
     margin-left: 40%;
-    margin-top: 21px;
+    margin-top: -29px;
     position: fixed;
 }
 
 #btn-studyingbooksNavbar {
     background-color: white;
     color: #0E70F2;
-    top: -50px;
+    /* top: -50px; */
     text-align: center;
     padding: 8px 11px;
     width: 90px;
@@ -33,16 +33,16 @@
 @media screen and (max-width: 992px) {
     #btn-group-studyingbooks {
         margin-left: 32%;
+        margin-top: -24px;
     }
     #btn-studyingbooksNavbar {
         padding: 5px 8px;
         width: 80px;
         height: 30px;
         font-size: 10px;
-        top: -45px;
+        /* top: -45px; */
     }
 }
-
 
 /* @media screen and (max-width: 930px) {
         #btn-group-studyingbooks {
@@ -50,8 +50,6 @@
         }
     }
      */
-
-
 /* @media screen and (max-width: 860px) {
         #btn-group-studyingbooks {
             padding: 5px 8px;
@@ -60,8 +58,6 @@
             top: 84px;
         }
     } */
-
-
 /* @media (max-width: 799px) {
         #btn-group-studyingbooks {
             display: none;
@@ -70,22 +66,34 @@
 
 @media screen and (max-width: 850px) {
     #btn-group-studyingbooks {
+        margin-left: 27%;
+    }
+}
+@media screen and (max-width: 800px) {
+    #btn-group-studyingbooks {
+        margin-left: 25%;
+    }
+}
+@media screen and (max-width: 770px) {
+    #btn-group-studyingbooks {
+        margin-left: 24%;
+    }
+}
+@media screen and (max-width: 750px) {
+    #btn-group-studyingbooks {
+        margin-left: 23%;
+    }
+}
+@media screen and (max-width: 730px) {
+    #btn-group-studyingbooks {
         margin-left: 22%;
     }
 }
-
-@media screen and (max-width: 740px) {
-    #btn-group-studyingbooks {
-        margin-left: 18%;
-    }
-}
-
 @media screen and (max-width: 700px) {
     #btn-group-studyingbooks {
         margin-left: 30%;
     }
 }
-
 @media screen and (max-width: 600px) {
     #btn-group-studyingbooks {
         margin-left: 25%;
@@ -589,7 +597,7 @@
 .btn-subject-book-Navbar {
     background-color: white;
     color: #0E70F2;
-    top: -80px;
+    /* top: -80px; */
     text-align: center;
     padding: 6px 9px;
     width: 90px;
@@ -721,13 +729,13 @@
             margin-left: 40%;
         }
     }
-    
+
     @media screen and (max-width:768px) {
         #btn-subject-book-Navbar-dropdown {
             margin-left: 40%;
         }
     }
-    
+
     @media screen and (max-width:700px) {
         #btn-subject-book-Navbar-dropdown {
             margin-left: 61%;
@@ -953,7 +961,7 @@
     }
     #card-studyingbooks-child {
         width:250px;
-        
+
     }
     #card-studyingbooks-child-2 {
         width:250px;
@@ -964,7 +972,7 @@
     #card-studyingbooks-student {
         width: 250px;
     }
-    #btn-download {     
+    #btn-download {
     width:250px;
     }
     .chapters-image{

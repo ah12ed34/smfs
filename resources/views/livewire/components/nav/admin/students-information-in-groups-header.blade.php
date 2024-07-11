@@ -1,7 +1,7 @@
 <div>
     {{-- The whole world belongs to you. --}}
     <div class="hdr2" style=" box-shadow: 10px;">
-        <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;">  الصفحة الرئيسية </label><img src="{{Vite::image("dashboard (1).png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
+        <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;">   الأدمن </label><img src="{{ Vite::image('admin.png')}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
         </button>
 
                 <div class="dep-name">{{ $level?->department?->name }}</div>
@@ -25,7 +25,7 @@
         <button id="spacesbtn" class="spaces" onclick="location.href='{{ $backUrl
         }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
 
-       
+
 
     </div>
 </div>

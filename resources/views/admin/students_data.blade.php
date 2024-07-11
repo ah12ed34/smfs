@@ -15,6 +15,8 @@
 
 {{-- <td><button type="submit" class="btn btn-primary btn-sm  btn-addAcademic" id="" data-toggle="modal" data-target="#addPermissions"> اضافة صلاحية<img src="{{ Vite::image('plus.png')}}"  width="20px" style="float: left;"></button> </td> --}}
 
+<div class="dep-name" >{{ $department_name }}</div>
+
 </div>
 
 <div class="hr3">

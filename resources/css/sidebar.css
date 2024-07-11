@@ -233,7 +233,7 @@ position: fixed;
         /* margin-left: 10px; */
     }
 
-    .dep-sub-name {
+    /* .dep-sub-name {
         width: 75px;
         background-color: white;
         font-size: 10px;
@@ -250,8 +250,136 @@ position: fixed;
         padding-top: 10px;
         padding-left: 9px;
         padding-right: 10px;
+    } */
+
+    .dep-sub-name {
+        width: 10%;
+        background-color: white;
+        font-size: 1vw;
+        height: 35px;
+        margin-top: 9px;
+        margin-left: 5px;
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        border: none;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        padding-top: 10px;
+        text-align: center;
+        /* padding-left: 11px;
+        padding-right: 10px; */
+    }
+    @media screen and (max-width: 850px;) {
+        .dep-sub-name {
+            width: 11%;
+            font-size: 1.1vw;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+    @media screen and (max-width: 800px) {
+        .dep-sub-name {
+            width: 11.5%;
+            font-size: 1.1vw;
+        }
+    }
+    @media screen and (max-width: 780px) {
+        .dep-sub-name {
+            width: 12%;
+            font-size: 1.2vw;
+        }
     }
 
+    @media screen and (max-width: 780px) {
+        .dep-sub-name {
+            width: 12.5%;
+            font-size: 1.2vw;
+        }
+    }
+    @media screen and (max-width: 750px) {
+        .dep-sub-name {
+            width: 13%;
+            font-size: 1.3vw;
+        }
+    }
+    @media screen and (max-width: 700px) {
+        .dep-sub-name {
+            width: 13.5%;
+            font-size: 1.4vw;
+        }
+    }
+    @media screen and (max-width: 650px) {
+        .dep-sub-name {
+            width: 14%;
+            font-size: 1.4vw;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .dep-sub-name {
+            width: 14.5%;
+            font-size: 1.5.5vw;
+        }
+    }
+
+    @media screen and (max-width: 550px) {
+        .dep-sub-name {
+            width: 15%;
+            font-size: 1.5vw;
+            height: 25px;
+            margin-top: 15px;
+            padding-top: 7px;
+
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .dep-sub-name {
+            width: 15.5%;
+            font-size: 1.6vw;
+        }
+    }
+    @media screen and (max-width: 450px) {
+        .dep-sub-name {
+            width: 16.5%;
+            /* font-size: 1.7vw; */
+        }
+    }
+    @media screen and (max-width: 400px) {
+        .dep-sub-name {
+            width: 17.6%;
+            font-size: 1.7vw;
+        }
+    }   @media screen and (max-width: 360px) {
+        .dep-sub-name {
+            width: 20%;
+            font-size: 1.9vw;
+        }
+    }
+    @media screen and (max-width: 320px) {
+        .dep-sub-name {
+            width: 21%;
+            font-size: 2vw;
+        }
+    }
+    @media screen and (max-width: 300px) {
+        .dep-sub-name {
+            width: 22%;
+            font-size: 2.1vw;
+        }
+    }
+    @media screen and (max-width: 280px) {
+        .dep-sub-name {
+            width: 24%;
+            font-size: 2.2vw;
+        }
+    }
+    @media screen and (max-width: 260px) {
+        .dep-sub-name {
+            width: 26%;
+            font-size: 2.3vw;
+        }
+    }
     /* .cards-child {
         background-color: white;
         width: 170px;
@@ -304,16 +432,16 @@ position: fixed;
 ]    margin-right:3%;
     }
 } */
-     @media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) {
         #container-cards-subject{
         padding-left:0%;
         /* margin-right:6.6%; */
         padding-right:1%;
         }
     }
-   /* @media screen and (max-width: 700px) {
+    /* @media screen and (max-width: 700px) {
         #container-cards-subject{
-         padding-left:1%;
+        padding-left:1%;
         padding-right:0.5%;
         margin-right:9.5%;
         align-items:center;
@@ -420,14 +548,14 @@ position: fixed;
     }
 
     @media screen and (max-width: 550px) {
-        .dep-sub-name {
+        /* .dep-sub-name {
             width: 60px;
             font-size: 9px;
             height: 25px;
             padding-left: 10px;
             margin-top: 15px;
             padding-top: 5px;
-        }
+        } */
         .dep-icon-hdr2 {
             display: none;
         }
@@ -504,9 +632,9 @@ position: fixed;
      /* main css students */
 
      .dep-name {
-        width: 80px;
+        width: 9%;
         background-color: white;
-        font-size: 11px;
+        font-size: 1vw;
         height: 35px;
         margin-top: 9px;
         margin-left: 5px;
@@ -520,16 +648,112 @@ position: fixed;
         padding-top: 10px;
         padding-left: 11px;
         padding-right: 10px;
+        text-align: center;
+    }
+    @media screen and (max-width: 850px) {
+        .dep-name {
+            width: 10%;
+            font-size: 1.1vw;
+        }
+    }
+    @media screen and (max-width: 800px) {
+        .dep-name {
+            width: 10.5%;
+            font-size: 1.1vw;
+        }
+    }
+    @media screen and (max-width: 780px) {
+        .dep-name {
+            width: 11%;
+            font-size: 1.2vw;
+        }
+    }
+
+    @media screen and (max-width: 780px) {
+        .dep-name {
+            width: 11%;
+            font-size: 1.2vw;
+        }
+    }
+    @media screen and (max-width: 750px) {
+        .dep-name {
+            width: 12%;
+            font-size: 1.3vw;
+        }
+    }
+    @media screen and (max-width: 700px) {
+        .dep-name {
+            width: 13%;
+            font-size: 1.4vw;
+        }
+    }
+    @media screen and (max-width: 650px) {
+        .dep-name {
+            width: 13%;
+            font-size: 1.4vw;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .dep-name {
+            width: 14.5%;
+            font-size: 1.5.5vw;
+        }
     }
 
     @media screen and (max-width: 550px) {
         .dep-name {
-            width: 62px;
-            font-size: 9px;
+            width: 14%;
+            font-size: 1.5vw;
             height: 25px;
-            padding-left: 7px;
             margin-top: 15px;
-            padding-top: 5px;
+            padding-top: 7px;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .dep-name {
+            width: 15%;
+            font-size: 1.6vw;
+        }
+    }
+    @media screen and (max-width: 450px) {
+        .dep-name {
+            width: 16%;
+            /* font-size: 1.7vw; */
+        }
+    }
+    @media screen and (max-width: 400px) {
+        .dep-name {
+            width: 17%;
+            font-size: 1.7vw;
+        }
+    }   @media screen and (max-width: 360px) {
+        .dep-name {
+            width: 19%;
+            font-size: 1.9vw;
+        }
+    }
+    @media screen and (max-width: 320px) {
+        .dep-name {
+            width: 20%;
+            font-size: 2vw;
+        }
+    }
+    @media screen and (max-width: 300px) {
+        .dep-name {
+            width: 21%;
+            font-size: 2.1vw;
+        }
+    }
+    @media screen and (max-width: 280px) {
+        .dep-name {
+            width: 23%;
+            font-size: 2.2vw;
+        }
+    }
+    @media screen and (max-width: 260px) {
+        .dep-name {
+            width: 25%;
+            font-size: 2.3vw;
         }
     }
     #btn-group-mainpage {
@@ -555,7 +779,6 @@ position: fixed;
         font-weight: normal;
     }
 
-
     /* Responsive Styles */
 
     @media screen and (max-width: 1100px) {
@@ -563,7 +786,6 @@ position: fixed;
             margin-left: 35%;
         }
     }
-
     @media screen and (max-width: 992px) {
         #btn-group-mainpage {
             margin-left: 32%;
@@ -577,15 +799,12 @@ position: fixed;
         }
     }
 
-
     /* @media screen and (max-width: 930px) {
     #btn-group-mainpage {
                 margin-left: 12%;
             }
         }
          */
-
-
     /* @media screen and (max-width: 860px) {
     #btn-group-mainpage {
                 padding: 5px 8px;
@@ -594,8 +813,6 @@ position: fixed;
                 top: 84px;
             }
         } */
-
-
     /* @media (max-width: 799px) {
     #btn-group-mainpage {
                 display: none;

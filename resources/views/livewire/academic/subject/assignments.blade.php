@@ -108,7 +108,7 @@
 
     <div class="modal fade" id="myModalediteAssign" wire:ignore.self>
         <div class="modal-dialog">
-            <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;">
+            <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:90vh">
 
                 <!-- Modal Header -->
                 <div class="modal-header modal_header_css" id="modheader">
@@ -117,7 +117,7 @@
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body modal_body_css">
                     <form action="" style="display: block;">
                         <div class="form-group">
                             <!-- <label for="usr">Name:</label> -->

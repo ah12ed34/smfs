@@ -119,7 +119,7 @@
     </div>
 
     @if ($active == 'academic')
-    <div class="dep-name" >{{ $department->name }}</div>
+    <div class="dep-name" >{{ $depa->name }}</div>
 
     <div class="dropdown">
         <button type="button"  class="btn btn-light departmentAcademic_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl" style="padding-left:6px;">

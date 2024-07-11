@@ -87,7 +87,7 @@ style="90vh"
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body ModaldDetailsAcademic">
+            <div class="modal-body modal_body_css">
                 @if ($openType == 'show')
                     <div class="form-group">
 

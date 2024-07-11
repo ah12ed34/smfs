@@ -4,6 +4,8 @@
     <button class=" spaces" onclick="window.location='{{ route('admin.department') }}'" > <label  class="subjectname">   الأدمن </label><img src="{{ Vite::image('left-arrow.png')}}" id="subject-icon-hdr2" width="40px" >
     </button>
 
+    <div class="dep-name" >{{ $department_name }}</div>
+
 
 </div>
 

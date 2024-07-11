@@ -93,7 +93,7 @@
     <!-- The Modaladdacademic -->
 <div class="modal fade" id="addacademic">
     <div class="modal-dialog">
-        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height:700px;">
+        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height:95vh;">
 
             <!-- Modal Header -->
             <div class="modal-header addacademic" id="modheader">
@@ -102,7 +102,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body modal_body_css">
                 <form action="/action_page.php" style="display: block;">
                     <div class="form-group">
 
@@ -216,7 +216,7 @@
 <!-- The ModalEditeacademic -->
 <div class="modal fade" id="myModalEdite" wire:ignore.self>
     <div class="modal-dialog ">
-        <div class="modal-content ModalEditeacademic " id="modal-content" style="background-color: #F6F7FA; height:700px;">
+        <div class="modal-content ModalEditeacademic " id="modal-content" style="background-color: #F6F7FA; height:95vh;">
 
             <!-- Modal Header -->
             <div class="modal-header ModalEditeacademic" id="modheader">
@@ -225,7 +225,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body modal_body_css">
                 @if ($employeeData&&$openType == 'edit')
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -361,7 +361,7 @@
 <!-- The ModalDetailsacademic -->
 <div class="modal fade" id="myModaldDetails" wire:ignore.self>
     <div class="modal-dialog ">
-        <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height: 700px;">
+        <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height: 95vh;">
 
             <!-- Modal Header -->
             <div class="modal-header ModaldDetailsAcademic" id="modheader">
@@ -370,7 +370,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body ModaldDetailsAcademic">
+            <div class="modal-body modal_body_css">
                 {{-- <form action="/action_page.php" style="display: block;"> --}}
                     @if ($openType == 'show')
                     <div class="form-group">

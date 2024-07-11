@@ -5,6 +5,7 @@
         </button>
 
 
+        <div class="dep-name" >{{ $department->name }}</div>
 
     </div>
 

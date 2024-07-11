@@ -6,7 +6,7 @@
         </button>
 
 
-                <div class="dep-name">بيانات الطلاب</div>
+        <div class="dep-name" >{{ $department_name }}</div>
 
         <div id="" class="input-group input_search_studentsAffairs_studentInfo">
             <input type="text" class="form-control" placeholder="Search" wire:model='search' wire:keydown.enter='srch'>

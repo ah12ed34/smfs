@@ -119,7 +119,7 @@
         </a>
     </div>
 
-    <div class="card" id="statistics-container">
+    {{-- <div class="card" id="statistics-container">
 
         <div style="margin-top:0px">نسبة نجاح الطلاب</div>
         <div style="float: left; margin-top:45px; margin-left:5px;">100% <br>90% <br>80%<br> 70%<br> 60% <br>50% <br>40% <br>30%<br> 20%<br> 10%</div>
@@ -154,7 +154,7 @@
         <div class="card" id="card-stastic-2" style="max-height:100%;"></div>
         <div class="card" id="card-stastic-2" style="max-height:60%;"></div>
         <br>
-        <!-- <div>1&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 4 5 6 7 8 9 10 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div> -->
+
         <label id="labelstatisc-2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</label>
         <label id="labelstatisc-2"> &nbsp;&nbsp;2 </label>
         <label id="labelstatisc-2">&nbsp;3&nbsp; </label>
@@ -168,7 +168,7 @@
         <label id="labelstatisc-2">11</label>
         <label id="labelstatisc-2">12</label>
 
-    </div>
+    </div> --}}
 </div>
 
 

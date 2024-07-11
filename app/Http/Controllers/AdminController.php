@@ -91,20 +91,21 @@ class AdminController extends Controller
     public function levelsOfDepartments(Department $department)
     {
         $levels = $department->levels()->get();
-        return view('admin.levelsOfDepartments',compact('levels'));
+        return view('admin.levelsOfDepartments',['levels'=>$levels, 'department_name'=>$department->name]);
     }
 
-    public function students_data(Level $level)
+    public function students_data(Department $department , Level $level )
     {
-        // $levels = $levels->levels()->get();
-
-        return view('admin.students_data',compact('level'));
+        $levels = $department->levels()->get();
+        $department = Department::find($level->department_id);
+        $levels = Level::where('department_id', $level->department_id)->get();
+        return view('admin.students_data',['level'=>$level, 'department_name'=>$department->name]);
     }
 
     public function academic_mobile(Department $department)
     {
         $departments = Department::all();
-        
+
         return view('admin.academic_mobile',compact('departments'));
     }
 }

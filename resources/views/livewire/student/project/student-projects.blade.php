@@ -213,7 +213,7 @@
 
                 <!-- Modal body -->
 
-                <div class="modal-body" id="projectdetails" style="overflow: auto;">
+                <div class="modal-body modal_body_css" id="projectdetails" style="overflow: auto;">
 
                     <div class="detils-name">
                         <label class="textdetailsproj" > اسم المشروع </label>
@@ -397,7 +397,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body modal_body_css">
                 @foreach ($errors->all() as $error)
                     <div class="alert alert-danger" role="alert">
                         {{ $error }}

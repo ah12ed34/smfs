@@ -185,7 +185,7 @@
 <!-- The Modaldetails -->
 <div class="modal fade" id="myModaldetails" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content ModaldShowDetail" id="modal-content" style="background-color: #F6F7FA; height:550px;">
+        <div class="modal-content ModaldShowDetail" id="modal-content" style="background-color: #F6F7FA; height:95vh;">
 
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader" >
@@ -195,7 +195,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" id="projectdetails" style="overflow: auto;">
+            <div class="modal-body modal_body_css" id="projectdetails" style="overflow: auto;">
             <div class="table-responsive ">
 
                 <table class="table  " style=" width:100%;" dir="rtl">
@@ -276,7 +276,7 @@
 <!-- The ModalEdite -->
 <div class="modal fade" id="myModalEdite" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content modal_content_css"  id="modal-content" style="background-color: #F6F7FA;height: 500px;">
+        <div class="modal-content modal_content_css"  id="modal-content" style="background-color: #F6F7FA;height: 95vh">
 
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader" >
@@ -285,7 +285,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" style="overflow: auto;">
+            <div class="modal-body modal_body_css" style="overflow: auto;">
                     <div class="form-group">
                         <!-- <label for="usr">Name:</label> -->
                         <div><input type="text" class="form-control" id="inputtext" wire:model.lazy='name' placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;"></div>
@@ -401,7 +401,7 @@
 <!-- The ModalCheckProject -->
 <div class="modal fade" id="CheckProject" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 500px;">
+        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 95vh">
 
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader">
@@ -410,7 +410,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" style="overflow: auto;height: 40vh;">
+            <div class="modal-body modal_body_css" style="overflow: auto;height: 40vh;">
                 {{-- <form action="/action_page.php" style="display: block;"> --}}
                     <div class="form-group">
                         <div class="table-responsive">
@@ -527,7 +527,7 @@
             const sendButton = document.getElementById("sendButton");
             const messageInput = document.getElementById("messageInput");
             const chatbox = document.getElementById("chatbox");
-    
+
             sendButton.addEventListener("click", () => {
                 const messageText = messageInput.value.trim();
                 if (messageText !== "") {
@@ -536,18 +536,18 @@
                     messageInput.focus();
                 }
             });
-    
+
             messageInput.addEventListener("keypress", (event) => {
                 if (event.key === "Enter") {
                     sendButton.click();
                 }
             });
-    
+
             function addMessage(sender, profilePic, message, messageType) {
                 const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 const messageElement = document.createElement("div");
                 messageElement.classList.add("message", messageType);
-    
+
                 messageElement.innerHTML = `
                     <img src="${profilePic}" alt="User Profile" class="profile-pic">
                     <div class="message-content">
@@ -562,12 +562,12 @@
                         </div>
                     </div>
                 `;
-    
+
                 chatbox.appendChild(messageElement);
                 chatbox.scrollTop = chatbox.scrollHeight;
             }
         });
-    
+
     </script>
 @endsection
 </div>

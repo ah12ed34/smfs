@@ -56,7 +56,7 @@
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body modal_body_css">
                     <form action="/action_page.php" style="display: block;">
                         <div class="form-group">
                             <input type="text" class="form-control" id="inputtext" wire:model='name' placeholder="اسم المشروع " style="height: 30px; margin-top:-6px">
@@ -249,7 +249,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" id="projectdetails" style="overflow: auto;">
+            <div class="modal-body modal_body_css" id="projectdetails" style="overflow: auto;">
 
                 <div class="table-responsive ">
                     <table class="table  " style=" width:100%;" dir="rtl">
@@ -316,7 +316,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" style="overflow: auto;">
+            <div class="modal-body modal_body_css" style="overflow: auto;">
                 <form  style="display: block;">
                     <div class="form-group">
                         <input type="text" class="form-control" id="inputtext" wire:model='name'  placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;">
