@@ -1,4 +1,7 @@
 <div>
+@section('nav')
+    @livewire('components.nav.academic.students',['group_subject'=>$group_subject,'active'=>'midexam'])
+@endsection
     {{-- In work, do what you enjoy. --}}
 
     <div class="responsive"></div>
@@ -10,7 +13,6 @@
             <table class="table" style=" width:100%;">
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
-                        <th>ملاحظة</th>
                         <th>الدرجة </th>
                         <th>اسم الطالب</th>
                         <th>الرقم الأكاديمي </th>
@@ -20,8 +22,8 @@
                     @forelse ($students as $student)
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
 
-                        <td> ******</td>
-                        <td>*******</td>
+
+                        <td>{{ $student->helf_exem ?? '' }}</td>
                         <td>{{ $student->user->full_name }}</td>
                         <td>{{ $student->user_id }}</td>
                     </tr>

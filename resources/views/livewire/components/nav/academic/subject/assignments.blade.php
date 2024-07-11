@@ -10,7 +10,7 @@
            </button>
             <div id="dropdown-menulist" class="dropdown-menu" style="width:130px; color: #0E70F2; ">
                 @foreach ($otherGroups as $group)
-                <a id="dropdown-itemlist" class="dropdown-item" href="{{ route(request()->route()->getName(),[$group_subject->subject_id,$group->id]) }}" style="padding-left:40px;">{{ $group->name }}</a>
+                <a id="dropdown-itemlist" class="dropdown-item" href="{{ route(request()->route()->getName(),[$group->group_subject_id]) }}"style="padding-left:40px;">{{ $group->name }}</a>
 
                 @endforeach
                 {{-- <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px;">(1)المجموعة</a>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="hr3">
-        <a href="{{route("subject.index",[$group_subject->subject_id,$group_subject->group_id])}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
+        <a href="{{route("subject.index",[$group_subject->id])}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
         <div id="" class="input-group input_group_assign mb-3">
             <input type="text" class="form-control" placeholder="Search" wire:model='search' wire:keydown.enter='srch'>
             <div class="input-group-append">

@@ -92,28 +92,28 @@
         <div class="cards-child-stastics">
             <label class="cards-child-title">  تكاليف لم يتم تسليمها
         </label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['notDeliveredCount'] }}</div>
             <img src="{{Vite::image("homework (3).png")}}" class="image-stastic" width="50px">
         </div>
         </a>
         <a href="{{route("worksStasticsAssignements")}}">
         <div class="cards-child-stastics">
             <label class="cards-child-title"> تكاليف تم تسليمها</label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['deliveryAssessmentCount'] }}</div>
             <img src="{{Vite::image("homework (3).png")}}" class="image-stastic" width="50px">
         </div>
         </a>
         <a href="{{route("worksStasticsProjects")}}">
         <div class="cards-child-stastics">
             <label class="cards-child-title">  مشاربع لم يتم تسليمها</label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['projectsNotDeliveredCount'] }}</div>
             <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
         </div>
         </a>
         <a href="{{route("worksStasticsProjects")}}">
         <div class="cards-child-stastics">
             <label class="cards-child-title"> مشاربع تم تسليمها</label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['projectsCount'] }}</div>
             <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
         </div>
         </a>

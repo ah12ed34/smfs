@@ -2,6 +2,9 @@
 
 namespace App\Livewire\Academic\Student;
 
+use App\Models\GroupSubject;
+use App\Repositories\EmployeesRepository;
+use App\Traits\Searchable;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
@@ -9,10 +12,9 @@ use Illuminate\Support\Collection;
 
 class Students extends Component
 {
-    use WithPagination;
+    use Searchable;
     public $group_subject;
     public $search;
-    public $perPage = 10;
     public $student_selected ;
     // public $total = [];
     // public $persents = [];
@@ -20,22 +22,19 @@ class Students extends Component
     // public $helf_exem = [];
     // public $addional_grades = [];
 
-
-
-
-    public function updatingSearch()
+    protected $AcademicR;
+    public function __construct()
     {
-        $this->resetPage();
+        $this->AcademicR = new EmployeesRepository();
     }
-    #[On('search')]
-    public function search($v){
-        $this->search = $v;
-    }
-
-    public function mount($group_subject)
+    public function mount(GroupSubject $group_subject)
     {
+        if($group_subject->teacher_id != auth()->user()->academic->user_id)
+            abort(403);
         $this->group_subject = $group_subject;
         // $this->getPageData();
+        $this->sortField = 'user_id';
+
 
     }
 
@@ -100,9 +99,19 @@ public function getData($user_id,$returnData)
     public function getStudentsProperty()
     {
         // dd($this->group_subject->students);
-        $students = $this->group_subject->getStudentsInGroupBySubject($this->search)
-            ->paginate($this->perPage);
+        // $students = $this->group_subject->getStudentsInGroupBySubject($this->search)
+        //     ->paginate($this->perPage);
 
+        $students = $this->AcademicR->getStudentsInGroupBySubject($this->group_subject)
+            ->whereHas('user', function ($query) {
+                $query->where('name', 'like', '%' . $this->search . '%')->
+                orWhere('email', 'like', '%' . $this->search . '%')
+                ->orWhere('phone', 'like', '%' . $this->search . '%')
+                ->orWhere('id', 'like', '%' . $this->search . '%');
+            })
+            //sortField
+            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+            ->paginate($this->perPage);
         // $students = $students->map(function($student) {
         //     $student->studying = $this->group_subject->studying->where('student_id', $student->pivot->id)
         //     ->first();

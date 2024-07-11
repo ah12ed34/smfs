@@ -9,8 +9,8 @@ use App\Models\GroupSubject;
 class StudentsController extends Controller
 {
     //
-    public function index($subject_id ,$group_id){
-        $group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->
+    public function index($group_subject){
+        $group_subject = GroupSubject::where('id',$group_subject)->
         where('teacher_id',auth()->user()->academic->user_id)->firstOrFail();
         return view('academic.student.students',compact('group_subject'));
     }

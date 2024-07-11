@@ -22,7 +22,7 @@
                 <tbody>
                     @forelse ($projects as $project)
                     <tr class="table-light" id="modldetials" @if ($loop->first) style="margin-top:7px;" @endif>
-                        <td><button  class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" onclick="window.location.href='{{ route('project', [$group_subject->subject_id, $group_subject->group_id, $project->id
+                        <td><button  class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" onclick="window.location.href='{{ route('project', [$group_subject->id, $project->id
                         ]) }}' "
                              >المجموعات</button>  </td>
                         <td><button class="btn btn-primary btn-sm" id="btn-chat-edit" wire:click='selected({{ $project->id }})' data-toggle="modal" data-target="#myModalEdite" >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>

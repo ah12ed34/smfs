@@ -39,9 +39,9 @@ class ProjectGroups extends Component
     public $boss = [];
 
     public $add_student = false;
-    public function mount($subject_id,$group_id,$project_id)
+    public function mount(GroupSubject $group_subject,$project_id)
     {
-        $this->group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->first();
+        $this->group_subject = $group_subject;
         $this->project_id = $project_id;
         $this->parameters =request()->route()->parameters;
         $this->query = request()->query();

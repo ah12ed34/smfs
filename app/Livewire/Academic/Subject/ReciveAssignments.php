@@ -3,6 +3,7 @@
 namespace App\Livewire\Academic\Subject;
 
 use App\Models\Delivery;
+use App\Models\Group;
 use Livewire\Component;
 use App\Models\GroupSubject;
 use App\Tools\ToolsApp;
@@ -28,13 +29,13 @@ class ReciveAssignments extends Component
     public $commentD = null ;
     public $gradeD = null ;
     // protected $queryString = ['search'];
-    public function mount($subject_id, $group_id,$id)
+    public function mount(GroupSubject $group_subject,$id)
     {
-        $this->group_subject = GroupSubject::where('group_id', $group_id)
-            ->where('subject_id', $subject_id)
-            ->first();
-        $this->group_id = $group_id;
-        $this->subject_id = $subject_id;
+        if($group_subject->teacher_id != auth()->user()->academic->user_id)
+            abort(403);
+        $this->group_subject = $group_subject;
+        // $this->group_id = $group_id;
+        // $this->subject_id = $subject_id;
         $this->id = $id;
         if(request()->has('tab'))
             $this->tabActive = request('tab');
@@ -131,7 +132,7 @@ class ReciveAssignments extends Component
     public function getReciveAssignmentsProperty()
     {
         $assignmentsR = $this->group_subject->GroupFiles()->where('id', $this->id)
-            ->first();
+            ->firstOrFail();
             $this->assignment_grade = $assignmentsR->grade;
         $assignmentsR =  $assignmentsR->deliverys
         ->map(function ($delivery) {

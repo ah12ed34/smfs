@@ -17,9 +17,9 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($subject_id,$group_id)
+    public function index($group_subject)
     {
-        $group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->first();
+        $group_subject = GroupSubject::where('id',$group_subject)->where('teacher_id',auth()->user()->academic->user_id)->firstOrFail();
         return view("academic.project.project",compact('group_subject'));
     }
 

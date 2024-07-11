@@ -3,6 +3,8 @@
 namespace App\Repositories;
 
 use App\Models\Academic;
+use App\Models\GroupStudents;
+use App\Models\GroupSubject;
 use App\Models\Level;
 use Illuminate\Support\Facades\DB;
 
@@ -157,6 +159,71 @@ class EmployeesRepository extends AcademicYRepository
             return $subjects->get();
         }
         return collect([]);
+    }
+
+    public function getCoursesByAcademic(Academic $academic)
+    {
+
+        return $academic->courses()->where('group_subjects.ay_id', $this->currentAcademicYear->id)
+        ->whereHas('levelSubject', function ($query) {
+            $query->where('semester', $this->currentAcademicYear->term);
+        });
+    }
+
+    public function getStudentsInGroupBySubject(GroupSubject $group_subject){
+        return $group_subject->students()
+        ->whereIn('students.user_id', function ($query) use ($group_subject) {
+            $query->select('group_students.student_id')
+                ->from('group_students')
+                ->where('group_id', $group_subject->group_id)
+                // ->rightjoin('studyings', 'group_students.id', '=', 'studyings.student_id')
+                // ->where('studyings.subject_id', $group_subject->id)
+                ->where('group_students.ay_id',$group_subject->ay_id)
+                ;
+        })->leftjoin('studyings',function($join)use($group_subject){
+            $join->on('group_students.id', '=', 'studyings.student_id')
+            ->where('studyings.subject_id', $group_subject->id);
+        })
+
+       ;
+    }
+
+    public function getStudentsInGroupBySubjectDeliveryAssessment(GroupSubject $group_subject){
+        return $group_subject->students()
+        ->whereIn('students.user_id', function ($query) use ($group_subject) {
+            $query->select('group_students.student_id')
+                ->from('group_students')
+                ->where('group_students.group_id', $group_subject->group_id)
+                ->where('group_students.ay_id',$group_subject->ay_id)
+                ->join('deliveries', 'group_students.id', '=', 'deliveries.student_group_id')
+                ->join('group_files', 'deliveries.file_id', '=', 'group_files.id')
+                ->join('files', 'group_files.file_id', '=', 'files.id')
+                ->where('files.type', 'assessment')
+
+                // ->where()
+                ;
+        });
+    }
+
+    public function getStudentsInGroupBySubjectProject(GroupSubject $group_subject){
+        return $group_subject->students()
+        ->whereIn('students.user_id', function ($query) use ($group_subject) {
+            $query->select('group_students.student_id')
+                ->from('group_students')
+                ->where('group_students.group_id', $group_subject->group_id)
+                ->where('group_students.ay_id',$group_subject->ay_id)
+                ->rightjoin('group_subjects', 'group_students.group_id', '=', 'group_subjects.group_id')
+                ->rightjoin('projects', 'group_subjects.id', '=', 'projects.subject_id')
+                ->rightjoin('group_projects', 'projects.id', '=', 'group_projects.project_id')
+                ->rightjoin('work_groups',function($join){
+                    $join->on('group_projects.id', '=', 'work_groups.group_id')
+                    ->on('work_groups.student_id', '=', 'group_students.id');
+                    ;
+                })
+                ->where('group_subjects.id', $group_subject->id)
+
+                ;
+        });
     }
 
 }

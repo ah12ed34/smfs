@@ -58,7 +58,7 @@ class File extends Model
     }
 
     public function deliveries(){
-        return $this->hasMany(Delivery::class);
+        return $this->hasManyThrough(Delivery::class,GroupFile::class,'file_id','file_id','id','id');
     }
 
     public function user(){
