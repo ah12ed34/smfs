@@ -2,7 +2,9 @@
 @livewire('components.nav.admin.department',['active' => 'academic','depa' => $department])
 @endsection
 
-        <style>
+
+<div>
+    <style>
             #modheader {
                 border-radius: 30px 30px 0px 0px;
             }
@@ -78,7 +80,6 @@
             }
 
             </style>
-<div>
     <div class="container" style="padding-top:20px; ">
 
         <div class="table-responsive-xl">
@@ -100,7 +101,7 @@
                     @forelse ($academics as $academic)
                         <tr class="table-light" @if ($loop->first) id="modldetials" style="margin-top:7px;" @endif>
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite" wire:click='select({{ $academic->user_id }})'>تعديل  <img src="{{ Vite::image('edit.png')}}" id=""  width="15px" ></button> </td>
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldDetails" >التفاصيل</button> </td>
+                            <td><button class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldDetails" wire:click='select({{ $academic->user_id }})' >التفاصيل</button> </td>
                             {{-- <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" wire:click='select({{ $academic->user_id }})'>التفاصيل</button> </td> --}}
                             <!-- <td><button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1" id="btn-chat-edit">الدردشة <img src="../../images/conversation (3).png" id=""  width="25px" ></button> </td> -->
                             <td>{{ $academic->user->role()->description ?? ' ' }}
@@ -121,6 +122,99 @@
                 </tbody>
             </table>
         </div>
+    </div>
+
+        <!-- The ModalDetailsacademic -->
+<div class="modal fade" id="myModaldDetails" wire:ignore.self>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height: 95vh;">
+
+            <!-- Modal Header -->
+            <div class="modal-header ModaldDetailsAcademic" id="modheader">
+                التفاصيل
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body ModaldDetailsAcademic">
+                    @if ($acad)
+                    <div class="form-group">
+
+                    <img src="{{ $avatarPreview ?? Vite::image("profile.png")}}"  width="" class="user_profile_modal">
+
+
+                        <div class="table-responsive ">
+                            <table class="table details-academic " style="width:100%;  margin-top: 5px;" dir="rtl" >
+
+                                        <tr class="table-primary " id="modldetials">
+                                            <th class="name-group "  style="padding-right:40px;"> الاسم</th>
+                                            <th class="name-group" > تاريخ الميلاد</th>
+                                            <th class="name-group"  > نوع الجندر</th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            {{-- @dd($acad) --}}
+                                            <td  style="padding-right:40px;">{{ $acad->user->full_name }}</td>
+                                            <td>**********</td>
+                                            <td>{{ $acad->user->gender_ar() }}</td>
+                                        </tr>
+                                        <tr class="table-primary" id="modldetials">
+                                            <th class="name-group" style="padding-right:40px;"> الدرجةالعلمية </th>
+                                            <th class="name-group" > الإيمل الجامعي </th>
+                                            <th class="name-group">التلفون </th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <td style="padding-right:40px;">{{ $academic->name }}</td>
+                                            <td>{{ $academic->user->email }}</td>
+                                            <td>{{ $academic->user->phone }}</td>
+                                        </tr>
+                                        <tr class="table-primary" id="modldetials">
+                                            <th class="name-group" style="padding-right:40px;">المستوى  </th>
+                                            <th class="name-group">المقرر الدراسي </th>
+                                            <th class="name-group">المجموعات </th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <th style="padding-right:40px;">مستوى اول</th>
+                                            <td>**********</td>
+                                            <td>**********</td>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <th style="padding-right:40px;">مستوى ثاني</th>
+                                            <td>**********</td>
+                                            <td>**********</td>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <th style="padding-right:40px;">مستوى ثالث</th>
+                                            <td>**********</td>
+                                            <td>**********</td>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <th style="padding-right:40px;">مستوى رابع</th>
+                                            <td>**********</td>
+                                            <td>**********</td>
+                                        </tr>
+                                        <tr class="table-primary" id="modldetials">
+                                            <th class="name-group" colspan="2" style="padding-right:60px;"> المحاضرات الإسيوعية</th>
+                                            <th class="name-group">محاضرات الفصل الدراسي </th>
+                                        </tr>
+                                        <tr class="table-light" id="modldetials">
+                                            <td colspan="2" style="padding-right:60px;">**********</td>
+                                            <td>**********</td>
+                                        </tr>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+
+
+            <!-- Modal footer -->
+
+            <div class="modal-footer ModaldDetailsAcademic">
+                <!-- <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button> -->
+            </div>
+        </div>
+    </div>
     </div>
 
         {{-- اضهار تفاصل الاكادمي --}}
@@ -539,100 +633,7 @@
             </div>
         @endif
 
-        <!-- The ModalDetailsacademic -->
-<div class="modal fade" id="myModaldDetails">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height: 95vh;">
-
-            <!-- Modal Header -->
-            <div class="modal-header ModaldDetailsAcademic" id="modheader">
-                التفاصيل
-                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body ModaldDetailsAcademic">
-                <form action="/action_page.php" style="display: block;">
-                    <div class="form-group">
-
-                    <img src="{{Vite::image("profile.png")}}"  width="" class="user_profile_modal">
-
-                        <div class="table-responsive ">
-                            <table class="table details-academic " style="width:100%;  margin-top: 5px;" dir="rtl" >
-
-                                        <tr class="table-primary " id="modldetials">
-                                            <th class="name-group "  style="padding-right:40px;"> الاسم</th>
-                                            <th class="name-group" > تاريخ الميلاد</th>
-                                            <th class="name-group"  > نوع الجندر</th>
-                                        </tr>
-                                        <tr class="table-light" id="modldetials">
-                                            <td  style="padding-right:40px;">**********</td>
-                                            <td>**********</td>
-                                            <td>**********</td>
-                                        </tr>
-                                        <tr class="table-primary" id="modldetials">
-                                            <th class="name-group" style="padding-right:40px;"> الدرجةالعلمية </th>
-                                            <th class="name-group" > الإيمل الجامعي </th>
-                                            <th class="name-group">التلفون </th>
-                                        </tr>
-                                        <tr class="table-light" id="modldetials">
-                                            <td style="padding-right:40px;">**********</td>
-                                            <td>**********</td>
-                                            <td>**********</td>
-                                        </tr>
-                                        <tr class="table-primary" id="modldetials">
-                                            <th class="name-group" style="padding-right:40px;">المستوى  </th>
-                                            <th class="name-group">المقرر الدراسي </th>
-                                            <th class="name-group">المجموعات </th>
-                                        </tr>
-                                        <tr class="table-light" id="modldetials">
-                                            <th style="padding-right:40px;">مستوى اول</th>
-                                            <td>**********</td>
-                                            <td>**********</td>
-                                        </tr>
-                                        <tr class="table-light" id="modldetials">
-                                            <th style="padding-right:40px;">مستوى ثاني</th>
-                                            <td>**********</td>
-                                            <td>**********</td>
-                                        </tr>
-                                        <tr class="table-light" id="modldetials">
-                                            <th style="padding-right:40px;">مستوى ثالث</th>
-                                            <td>**********</td>
-                                            <td>**********</td>
-                                        </tr>
-                                        <tr class="table-light" id="modldetials">
-                                            <th style="padding-right:40px;">مستوى رابع</th>
-                                            <td>**********</td>
-                                            <td>**********</td>
-                                        </tr>
-                                        <tr class="table-primary" id="modldetials">
-                                            <th class="name-group" colspan="2" style="padding-right:60px;"> المحاضرات الإسيوعية</th>
-                                            <th class="name-group">محاضرات الفصل الدراسي </th>
-                                        </tr>
-                                        <tr class="table-light" id="modldetials">
-                                            <td colspan="2" style="padding-right:60px;">**********</td>
-                                            <td>**********</td>
-                                        </tr>
-                            </table>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-            <!-- Modal footer -->
-
-            <div class="modal-footer ModaldDetailsAcademic">
-                <!-- <button type="submit" class="btn btn-primary" id="btnsave">حفظ</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncancel">إلغاء</button> -->
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
-
-
-        <script>
+<script>
 
             // var file = document.getElementById('file');
             // var image = document.getElementById('img');
@@ -661,4 +662,8 @@
             });
 
         </script>
+</div>
+
+
+
 {{-- </div> --}}

@@ -35,7 +35,7 @@ class Academic extends Component
     {
         $this->department = $d;
         $this->academics = $d->academics;
-        $this->acad = new AcademicModel();
+        // $this->acad = new AcademicModel();
         foreach($this->academics as $academic){
             if($academic->user->photo){
                 // dump(Storage::exists('public/'.$academic->user->photo));
@@ -177,6 +177,7 @@ class Academic extends Component
         $this->restall();
         $this->user_id_selected = $id;
         $academic = $this->academics->where('user_id',$id)->first();
+        $this->acad = $academic;
         $this->name = $academic->user->name . ' ' . $academic->user->last_name;
         $this->email = $academic->user->email;
         $this->phone = $academic->user->phone;
@@ -185,7 +186,7 @@ class Academic extends Component
         $this->date = $academic->user->birthday;
         $this->academic_name = $academic->academic_name;
         $this->avatarPreview = $academic->user->photo?asset('storage/'.$academic->user->photo):null;
-        $this->acad = $academic;
+
     }
 
     public function editUser()
