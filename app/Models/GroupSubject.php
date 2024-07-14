@@ -201,7 +201,7 @@ class GroupSubject extends Model
                 return false;
             }
         }else{
-            new \Exception('This is a practical subject');
+            return false;
         }
     }
     public function IsPractical(){

@@ -13,7 +13,7 @@ use App\Livewire\Academic\Subject\ProjectGroups;
 use App\Livewire\Academic\Subject\ReciveAssignments;
 use App\Livewire\Academic\Subject\Studyingbooks;
 use App\Livewire\Global\GroupSubject\Index;
-use App\Livewire\global\Levelsubject\AddSubject;
+use App\Livewire\Global\Levelsubject\AddSubject;
 use App\Livewire\Global\PracticalGroup\AddStudents;
 use App\Livewire\Global\User\Profile;
 use App\Livewire\Student\StudAssignements;

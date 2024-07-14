@@ -18,6 +18,9 @@
                         {{-- <th>ملاحظة</th> --}}
                         <th>التقدير</th>
                         <th>المجموع</th>
+                        @if($group_subject->HasPractical())
+                        <th>العملي</th>
+                        @endif
                         <th>المشاريع </th>
                         <th>التكاليف</th>
                         <th>النصفي</th>
@@ -36,7 +39,10 @@
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModalDisplay" wire:click='select({{ $student->user_id }})' >عرض</button> </td>
                             {{-- <td>*******</td> --}}
                             <td>{{ $student->Appreciation }}</td>
-                            <td>{{ $student->totle_grades }}</td>
+                            <td>{{ $student->total_grade }}</td>
+                            @if($group_subject->HasPractical())
+                            <td>{{ $student->practical_total_grade }}</td>
+                            @endif
                             <td>{{ $student->work_grade+$student->group_grade }}</td>
                             <td>{{ $student->delivery_grade }}</td>
                             <td>{{ $student->helf_grade }}</td>
@@ -114,40 +120,66 @@
                     </div>
 
                     <div class="modal-body">
-                        <form action="/action_page.php" style="display: block;">
+                        @if($student_selected)
                             <div class="form-group">
                                 <label style="font-size: 14px;">الرقم الأكاديمي: {{ $student_selected->user_id ?? ''}}</label>
                                 <br> <label style="font-size: 14px;">اسم الطالب: {{ $student_selected->user->full_name ?? '' }}</label>
+                                <br> <label style="font-size: 14px;">المادة: {{ $group_subject->subject()->name_ar ?? '' }}</label>
 
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class="table-header" style="font-size: 11px;">
                                             <tr class="table-primary" id="modldetials">
-                                                <th>ملاحظة</th>
+                                                {{-- <th>ملاحظة</th> --}}
                                                 <th>التقدير</th>
+                                                @if($group_subject->HasPractical())
+                                                <th>المجموع الكلي</th>
+                                                @endif
                                                 <th>المجموع</th>
                                                 <th>المشاريع </th>
                                                 <th>التكاليف</th>
                                                 <th>النصفي</th>
                                                 <th>المشاركة </th>
                                                 <th>الحضور </th>
-                                                <th>المادة </th>
+                                                <th>نوع المادة</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                                                <td>*******</td>
-                                                <td>*****</td>
-                                                <td>{{ $this->getData($student_selected->user_id??null,'total') }}</td>
-                                                <td>*******</td>
-                                                <td>*******</td>
-                                                <td>{{ $this->getData($student_selected->user_id??null,'helf_exem') }}</td>
-                                                <td> ******</td>
-                                                <td>{{ $this->getData($student_selected->user_id??null,'persents') }}</td>
-                                                <td>{{ $this->group_subject->subject()->name_ar }}</td>
-
+                                                @if($group_subject->HasPractical())
+                                                <td style="align-content: center;"
+                                                    rowspan="2"
+                                                    >{{ $student_selected->Appreciation }}</td>
+                                                <td style="align-content: center;" rowspan="2">{{ $student_selected->total_grade }}</td>
+                                                <td>{{ $student_selected->theory_total_grade }}</td>
+                                                @else
+                                                <td>{{ $student_selected->Appreciation }}</td>
+                                                <td>{{ $student_selected->total_grade }}</td>
+                                                @endif
+                                                <td>{{ $student_selected->work_grade+$student_selected->group_grade }}</td>
+                                                <td>{{ $student_selected->delivery_grade }}</td>
+                                                <td>{{ $student_selected->helf_grade }}</td>
+                                                <td>{{ $student_selected->addional_grades }}</td>
+                                                <td>{{ $student_selected->persents }}</td>
+                                                @if($group_subject->IsPractical())
+                                                <td>عملي</td>
+                                                @else
+                                                <td>نظري</td>
+                                                @endif
                                             </tr>
+                                                @if($group_subject->HasPractical())
+                                                <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                                                    {{-- <td rowspan=""></td> --}}
+                                                    <td>{{ $student_selected->practical_total_grade }}</td>
+                                                    <td>{{ $student_selected->practical_work_grade+$student_selected->practical_group_grade }}</td>
+                                                    <td>{{ $student_selected->practical_delivery_grade }}</td>
+                                                    <td>{{ $student_selected->practical_helf_grade }}</td>
+                                                    <td>{{ $student_selected->practical_addional_grades }}</td>
+                                                    <td>{{ $student_selected->practical_persents }}</td>
+                                                    <td>عملي</td>
+                                                </tr>
+                                                @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -156,13 +188,13 @@
                             <!-- <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div> -->
-                        </form>
+                        @endif
                     </div>
 
                     <!-- Modal footer -->
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-light" id="print">طباعة  <img src="{{Vite::image("printing.png")}}" id=""  width="15px"  ></button>
+                        <button type="submit" class="btn btn-light" id="print" disabled>طباعة  <img src="{{Vite::image("printing.png")}}" id=""  width="15px"  ></button>
                     </div>
                 </div>
             </div>
@@ -189,28 +221,15 @@
                                     <table class="table">
                                         <thead class="table-header" style="font-size: 12px;">
                                             <tr class="table-light" id="modldetials">
-                                                <th colspan="2" style="width:200px">ملاحظة</th>
-                                                <th>التقدير</th>
-                                                <th>المجموع</th>
-                                                <th>المشاريع </th>
-                                                <th>التكاليف</th>
                                                 <th>النصفي</th>
                                                 <th>المشاركة </th>
-                                                <th>الحضور </th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                                                <td colspan="2" style="width:200px;"> <input type="text" class="form-control" id="inputtext" name="notes" placeholder="" style="height: 30px; margin-top:-6px;width:200px;box-shadow:none;border:none;"></td>
-                                                <td> <input type="text" class="form-control" id="inputtext" name="estimated" placeholder="" style="height: 30px; margin-top:-6px;box-shadow:none;border:none;"></td>
-                                                <td> <input type="text" class="form-control" id="inputtext" name="total" placeholder="" style="height: 30px; margin-top:-6px;box-shadow:none;border:none;text-align:center;"></td>
-                                                <td> <input type="text" class="form-control" id="inputtext" name="projects" placeholder="" style="height: 30px; margin-top:-6px;box-shadow:none;border:none;text-align:center;"></td>
-                                                <td> <input type="text" class="form-control" id="inputtext" name="assignements" placeholder="" style="height: 30px; margin-top:-6px;box-shadow:none;border:none;text-align:center;"></td>
-                                                <td> <input type="text" class="form-control" id="inputtext" name="midexam" placeholder="" style="height: 30px; margin-top:-6px;box-shadow:none;border:none;text-align:center;"></td>
-                                                <td> <input type="text" class="form-control" id="inputtext" name="working" placeholder="" style="height: 30px; margin-top:-6px;box-shadow:none;border:none;text-align:center;"></td>
-                                                <td> <input type="text" class="form-control" id="inputtext" name="persents" placeholder="" style="height: 30px; margin-top:-6px;box-shadow:none;border:none;text-align:center;"></td>
 
+                                                <td> <input type="number" class="form-control" id="inputtext" wire:model='helf_exem' placeholder="" style="height: 30px; margin-top:-6px;box-shadow:none;border:none;text-align:center;"></td>
+                                                <td> <input type="number" class="form-control" id="inputtext" wire:model="working" placeholder="" style="height: 30px; margin-top:-6px;box-shadow:none;border:none;text-align:center;"></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -226,7 +245,9 @@
                     <!-- Modal footer -->
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" >حفظ</button>
+                        <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" wire:click='save'
+                        wire:loading.attr="disabled" wire:target="save">حفظ</button>
+                        {{-- >حفظ</button> --}}
                         <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
                     </div>
                 </div>
@@ -241,6 +262,14 @@
         <img src="{{Vite::image("allocation (1).png")}}" class="" width="150px">
         <div class="card-child-1"> Networks Management إدارة شبكات <br> تقنية معلومات - مستوى رابع<br>أ.منال العريقي
         </div> -->
-
+@section('script')
+    <script>
+        window.addEventListener('closeModal', event => {
+            $('#myModal').modal('hide');
+            $('#myModalDisplay').modal('hide');
+            $('#myModalEdite').modal('hide');
+        });
+    </script>
+@endsection
 
 </div>
