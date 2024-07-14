@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PhpParser\Node\Expr\Throw_;
 
 class GroupSubject extends Model
 {
@@ -20,7 +21,7 @@ class GroupSubject extends Model
 
     public function group()
     {
-        return $this->belongsTo(Group::class);
+        return $this->hasOne(Group::class, 'id', 'group_id');
     }
 
     public function subjects()
@@ -74,18 +75,22 @@ class GroupSubject extends Model
 
     public function practicalGroups()
     {
-        return $this->belongsToMany(Group::class, 'practical_groups', 'group_subject_id', 'group_id');
+        return $this->belongsToMany(Group::class, 'groups' , 'group_id', 'group_id', 'group_id', 'id')
+           ;
     }
 
     public function students()
     {
         return $this->belongsToMany(Student::class, 'group_students', 'group_id','student_id'
-        ,'group_id','user_id')->withPivot('id');
+        ,'group_id','user_id')
+        ->where('group_students.ay_id', $this->ay_id)
+        ->where('group_students.group_id', $this->group_id)
+        ->withPivot('id');
 
     }
 
     public function studying(){
-        return $this->hasOne(Studying::class,'subject_id','id');
+        return $this->hasMany(Studying::class,'subject_id','id');
     }
 
     public function isNotNullStudying(){
@@ -185,6 +190,22 @@ class GroupSubject extends Model
         });
 
         return $subjects;
+    }
+
+    public function HasPractical(){
+        if(!$this->is_practical){
+            if($this->levelSubject->has_practical)
+            {
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            new \Exception('This is a practical subject');
+        }
+    }
+    public function IsPractical(){
+        return $this->is_practical;
     }
 
 

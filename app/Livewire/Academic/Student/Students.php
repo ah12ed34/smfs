@@ -46,11 +46,15 @@ class Students extends Component
 public function getData($user_id,$returnData)
 {
     if(!$user_id) return 0;
-    $id = $this->group_subject->students()->where('user_id',$user_id)->first()->pivot->id;
+    $id = $this->group_subject->students()->where('user_id',$user_id)
+    ->first()->pivot->id;
+    // dd($id);
     $studying = null ;
     if($this->group_subject->studying){
         // dd($this->group_subject->studying);
-        $studying = $this->group_subject->studying->where('student_id', $id)->first();
+        $studying = $this->group_subject->studying->where('student_id', $id)
+        // ->where('subject_id', $this->group_subject->id)
+        ->first();
     }
     if(!$studying) return 0;
     switch($returnData){
@@ -101,7 +105,7 @@ public function getData($user_id,$returnData)
         // dd($this->group_subject->students);
         // $students = $this->group_subject->getStudentsInGroupBySubject($this->search)
         //     ->paginate($this->perPage);
-
+        // dd($this->AcademicR->getStudentsInGroupBySubject($this->group_subject)->paginate($this->perPage));
         $students = $this->AcademicR->getStudentsInGroupBySubject($this->group_subject)
             ->whereHas('user', function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%')->
@@ -110,15 +114,36 @@ public function getData($user_id,$returnData)
                 ->orWhere('id', 'like', '%' . $this->search . '%');
             })
             //sortField
-            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')->get()->map(function($student) {
+                $student->totle_grades = $student->helf_grade + $student->delivery_grade + $student->addional_grades + $student->persents + $student->work_grade+$student->group_grade ;
+                if($student->totle_grades > 100)
+                    $student->totle_grades = 100;
+                else if($student->totle_grades < 0)
+                    $student->totle_grades = 0;
+                $student->Appreciation = $this->Appreciation($student->totle_grades);
+                return $student;
+            })
             ->paginate($this->perPage);
         // $students = $students->map(function($student) {
         //     $student->studying = $this->group_subject->studying->where('student_id', $student->pivot->id)
         //     ->first();
         //     return $student;
         // });
-
+// dd($students);
         return $students;
+    }
+
+    public function Appreciation($total)
+    {
+        if($total >= 90)
+            return 'ممتاز';
+        if($total >= 80)
+            return 'جيد جدا';
+        if($total >= 70)
+            return 'جيد';
+        if($total >= 60)
+            return 'مقبول';
+        return 'راسب';
     }
 
     public function render()

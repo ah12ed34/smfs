@@ -125,7 +125,10 @@ class StudAssignements extends Component
             'comment' => $comment,
         ]);
 
-        dd($send);
+        // dd($send);
+        $this->file = [];
+        $this->comment = [];
+        $this->dispatch('closeModal');
 
     }
 

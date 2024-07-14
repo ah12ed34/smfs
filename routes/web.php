@@ -13,6 +13,7 @@ use App\Livewire\Academic\Subject\ProjectGroups;
 use App\Livewire\Academic\Subject\ReciveAssignments;
 use App\Livewire\Academic\Subject\Studyingbooks;
 use App\Livewire\Global\GroupSubject\Index;
+use App\Livewire\global\Levelsubject\AddSubject;
 use App\Livewire\Global\PracticalGroup\AddStudents;
 use App\Livewire\Global\User\Profile;
 use App\Livewire\Student\StudAssignements;
@@ -51,7 +52,9 @@ use GuzzleHttp\Middleware;
 
             });
             Route::prefix('level')->group(function () {
-                Route::get('/addSubject/{level}','SubjectLevelController@addSubjectLevel')->name('level.addsubject');
+                Route::get('/addSubject/{level}','\\'
+                .AddSubject::class
+                )->name('level.addsubject');
                 Route::get('/','SubjectLevelController@index')->name('level.index');
 
             });

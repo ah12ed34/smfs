@@ -76,7 +76,7 @@
         <div class="cards-child-stastics">
             <label class="cards-child-title">   الراسبين
         </label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['failedCount'] }}</div>
             <img src="{{Vite::image("students.png")}}" class="image-stastic" width="50px">
         </div>
         </a>
@@ -84,7 +84,7 @@
         <div class="cards-child-stastics">
             <label class="cards-child-title">   الناجحين
         </label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['successCount'] }}</div>
             <img src="{{Vite::image("students.png")}}" class="image-stastic" width="50px">
         </div>
         </a>

@@ -64,20 +64,21 @@ class Assignments extends Component
         $this->assName = $assignment->name;
         $this->description = $assignment->description;
         $this->due_date = $assignment->group_file->due_date;
-        $this->file = $assignment->file;
+        // $this->file = $assignment->file;
         $this->grade = $assignment->group_file->grade;
         // $this->dispatch('openModal');
     }
 
     public function editAssignmentSave(){
+        $assignment = $this->assignments->where('id',$this->selected_id)->first();
         $this->validate([
             'assName' => 'required',
             'grade' => 'required',
             'due_date' => 'required',
-            'file' => ($this->description == null) ? 'required' : 'nullable' .'|file|mimes:pdf,doc,docx,zip,png,jpg,jpeg,txt',
-            'description' => ($this->file == null) ? 'required' : 'nullable',
+            'file' => ($this->description == null &&$assignment->file == null
+            ) ? 'required' : 'nullable' .'|file|mimes:pdf,doc,docx,zip,png,jpg,jpeg,txt',
+            'description' => ($this->file == null &&$assignment->file == null) ? 'required' : 'nullable',
         ]);
-        $assignment = $this->assignments->where('id',$this->selected_id)->first();
         $file = $assignment->file;
         if($this->file != null){
             $file = $this->file->store('subjects/assignments');

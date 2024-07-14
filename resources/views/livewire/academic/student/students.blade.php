@@ -15,7 +15,7 @@
                     <tr class="table-light" id="modldetials">
                         <th>تعديل</th>
                         <th>عرض</th>
-                        <th>ملاحظة</th>
+                        {{-- <th>ملاحظة</th> --}}
                         <th>التقدير</th>
                         <th>المجموع</th>
                         <th>المشاريع </th>
@@ -34,14 +34,14 @@
                         <tr class="table-light" id="modldetials" style="margin-top:7px;">
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModalEdite" wire:click='select({{ $student->user_id }})'>تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModalDisplay" wire:click='select({{ $student->user_id }})' >عرض</button> </td>
-                            <td>*******</td>
-                            <td>*****</td>
-                            <td>{{ $this->getData($student->user_id,'total') }}</td>
-                            <td>*******</td>
-                            <td>*******</td>
-                            <td>{{ $this->getData($student->user_id,'helf_exem') }}</td>
-                            <td>{{ $this->getData($student->user_id,'addional_grades') }}</td>
-                            <td>{{ $this->getData($student->user_id,'persents') }}</td>
+                            {{-- <td>*******</td> --}}
+                            <td>{{ $student->Appreciation }}</td>
+                            <td>{{ $student->totle_grades }}</td>
+                            <td>{{ $student->work_grade+$student->group_grade }}</td>
+                            <td>{{ $student->delivery_grade }}</td>
+                            <td>{{ $student->helf_grade }}</td>
+                            <td>{{ $student->addional_grades }}</td>
+                            <td>{{ $student->persents }}</td>
                             {{-- <td>{{ $addional_grades[$student->user_id] }}</td>
                             <td>{{  }}
                             <td>{{ $persents[$student->user_id] }}</td> --}}

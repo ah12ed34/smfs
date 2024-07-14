@@ -23,7 +23,7 @@
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
 
 
-                        <td>{{ $student->helf_exem ?? '' }}</td>
+                        <td>{{ $student->helf_grade }}</td>
                         <td>{{ $student->user->full_name }}</td>
                         <td>{{ $student->user_id }}</td>
                     </tr>

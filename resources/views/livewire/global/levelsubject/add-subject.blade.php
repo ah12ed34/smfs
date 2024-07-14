@@ -30,9 +30,11 @@
                 <th>{{ __('general.active') }}</th>
                 <th>{{ __('general.practical') }}</th>
                 <th>{{ __('general.semester') }}</th>
+                <th>درجة العملي</th>
                 <th>{{ __("general.subjectname") }}</th>
                 <th>{{ __("general.subjectname") }}</th>
                 <th>{{ __("general.code_subject") }}</th>
+
                 <th ><input type="checkbox"  wire:model.lazy='selectAll' ></th>
             </tr>
         </thead>
@@ -42,11 +44,18 @@
                 $i = $perPage * ($page -1);
             @endphp --}}
             @forelse($subjects as $subject)
+            {{-- @dd($subject) --}}
             <tr>
 
                 <td><input type="checkbox" wire:model.lazy='isActivated.{{ $subject->id }}' id='isActivated.{{ $subject->id }}' ></td>
                 <td><input type="checkbox" wire:model.lazy='has_practical.{{ $subject->id }}' id='has_practical.{{ $subject->id }}' ></td>
                 <td><input type="number" value="1" wire:model='semester.{{ $subject->id }}' id='semester.{{ $subject->id }}' placeholder="semester" ></td>
+                <td>
+                    @if($subject->has_practical||(isset($has_practical[$subject->id])&&$has_practical[$subject->id]))
+                    <input type="number"  wire:model='practical_grade.{{ $subject->id }}' id='practical_grade{{ $subject->id }}' placeholder="درجة العملي" >
+
+                    @endif
+                </td>
                 <td>{{ $subject->name_en }}</td>
                 <td>{{ $subject->name_ar }}</td>
                 <td>{{ $subject->id }}</td>
@@ -61,7 +70,7 @@
             </tr>
             @endforelse
             <tr>
-                <td colspan="7"><button type="submit" class="btn btn-primary">{{ __("general.add") }}</button></td>
+                <td colspan="8"><button type="submit" class="btn btn-primary">{{ __("general.add") }}</button></td>
             </tr>
             </form>
 
