@@ -42,8 +42,25 @@ class File extends Model
         // 'start_date',
         // 'due_date',
     ];
+    protected static $deleting = false;
     protected static function boot(){
         parent::boot();
+        static::deleting(function($file){
+            if (self::$deleting) {
+                return;
+            }
+
+            self::$deleting = true;
+
+            if($file->group_files->count()==1){
+                $file->group_files->first()->delete();
+            }elseif($file->group_files->count()>1){
+                self::$deleting = false;
+                // Cancel the deletion process
+                return false;
+            }
+            self::$deleting = false;
+        });
         static::deleted(function($file){
             if($file->file){
                 Storage::delete($file->file);
@@ -54,7 +71,7 @@ class File extends Model
         });
     }
     public function group_files(){
-        return $this->hasMany(GroupFile::class);
+        return $this->hasMany(GroupFile::class,'file_id','id');
     }
 
     public function deliveries(){

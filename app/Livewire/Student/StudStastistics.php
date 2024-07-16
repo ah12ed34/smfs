@@ -5,6 +5,7 @@ namespace App\Livewire\Student;
 use Livewire\Component;
 use App\Models\Delivery;
 use App\Models\Project;
+use App\Models\AcademicYear;
 
 class StudStastistics extends Component
 {
@@ -15,10 +16,16 @@ class StudStastistics extends Component
     public $projectsUnfinished;
 
 
+    private $ay_id;
+    private $semester;
+
     public function mount()
     {
         $this->user = auth()->user();
+        $this->ay_id = AcademicYear::currentAcademicYear()->id;
+        $this->semester = AcademicYear::getTerm();
         $this->getCountAssignements();
+
     }
 
     public function getCountAssignements(){
@@ -28,6 +35,12 @@ class StudStastistics extends Component
         $this->projectsUnfinished = 0;
         $assignements = $this->user->student->groups->flatMap(function ($group) {
             return $group->groupSubjects->flatMap(function ($groupSubject) {
+                if($groupSubject->ay_id != $this->ay_id ||
+                $groupSubject->subjectLevel->semester !=
+                $this->semester
+                ){
+                    return [];
+                }
                 return $groupSubject->getFilesInGroupBySubject('assignment',null)
                     ->where('is_active', 1)
                     ->get()
@@ -67,6 +80,8 @@ class StudStastistics extends Component
         ->join('users as u', 'u.id', '=', 's.user_id')
 
         ->where('group_students.student_id', $this->user->student->user_id)
+        ->where('group_students.ay_id', $this->ay_id)
+        ->where('subjects_levels.semester', $this->semester)
         ->select('projects.*', 'group_projects.grade as gp_grade', 'group_projects.name as gp_name', 'group_projects.file as gp_file', 'group_projects.id as gp_id'
                     ,'academics.user_id as teacher_id',
                     )

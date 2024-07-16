@@ -1,8 +1,8 @@
+<div>
 @section('nav')
-    @livewire('components.nav.academic.subject.nav-studying-books',['group_subject'=>$group_subject])
+    @livewire('components.nav.academic.subject.nav-studying-books',['group_subject'=>$group_subject,'active'=>$active])
 
 @endsection
-<div>
 <div class="container" style="padding-top:40px; padding-bottom:20px;">
         <div class="card" id="contents-book">
             <div class="responsive">
@@ -14,10 +14,24 @@
                         <img src="{{ $studyingbook->icon() }}"
                           class="chapters" >
                         {{-- <img src="{{Vite::image("chapter.png")}}"  class="chapters" > --}}
-                        <label class="texttitlechapter">{{$studyingbook->name}}</label>
+                        <label class="texttitlechapter">{{$studyingbook->name}}
+                            </label>
+                            @if($studyingbook->file)
+                                <br>
+                                <a href="{{ asset('storage/'.$studyingbook->file) }}" download='{{$studyingbook->name}}'>
+                                    <i class="bi bi-download"></i>
+                                </a>
+                                @if($studyingbook->file2)
+                                    <a href="{{ asset('storage/'.$studyingbook->file2) }}" download='{{$studyingbook->name}}_sub'>
+                                        <i class="bi bi-download" style="color: green"></i>
+                                    </a>
+                                @endif
+
+                            @endif
                     </div>
                     <div id="card-studyingbooks-child-2">
                         <div class="form-group">
+
                             <input type="file" class="form-control-file border" id="uploadefile" wire:click='selected({{ $studyingbook->id }})' wire:model.lazy="file2">
                         </div>
                     </div>

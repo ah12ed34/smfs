@@ -15,8 +15,8 @@ class StudStudyingBooksController extends Controller
     public function indexChapters(){
         return view('students.studStudyingbooks.studBooksChapters');
     }
-    public function indexFormQuiz(){
-        return view('students.studStudyingbooks.studFormQuiz');
+    public function indexFormQuiz($id){
+        return view('students.studStudyingbooks.studFormQuiz', compact('id'));
     }
     public function indexChaptersSummaries(){
         return view('students.studStudyingbooks.studChaptersSummaries');

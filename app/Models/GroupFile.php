@@ -97,4 +97,24 @@ class GroupFile extends Model
             ->select('group_subjects.*')
             ->first();
     }
+
+    protected static $deleting = false;
+    protected static function boot()
+    {
+        parent::boot();
+        static::deleting(function ($groupFile) {
+            if (self::$deleting) {
+                return;
+            }
+
+            self::$deleting = true;
+
+            if ($groupFile->file->group_files()->count() == 1) {
+                $groupFile->file->delete();
+            }
+
+            self::$deleting = false;
+        });
+
+    }
 }

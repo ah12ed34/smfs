@@ -7,12 +7,27 @@
 
         <div class="dropdown">
             <button id="btn-subject-book-Navbar-dropdown" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
-                <div class="textdrop2">   نظري </div>
+                <div class="textdrop2">@switch($practical)
+                    @case('practical')
+                        عملي
+                        @break
+
+                    @default
+                        نظري
+                @endswitch
             </button>
             <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
-                <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> عملي</a>
-                <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">   ملخصات</a>
-                <a href="{{route("student-formQuiz")}}" id="dropdown-itemlist" class="dropdown-item"  style="padding-left:40px;">نماذج </a>
+                @if(!(!$active && !$practical))
+                    <a href="{{route("student-booksChapters",[$group_subject->id])}}" id="dropdown-itemlist" class="dropdown-item"  style="padding-left:40px;"> نظري</a>
+                @endif
+                @if(!$practical)
+                    <a id="dropdown-itemlist" class="dropdown-item" href="{{route("student-booksChapters",[$group_subject->id,'practical'])}}" style="padding-left:40px;"> عملي</a>
+                @endif
+                {{-- <a id="dropdown-itemlist" class="dropdown-item" href="{{
+                    route("student-booksChapters",[$group_subject->id,'practical'])
+                    }}" style="padding-left:40px;"> عملي</a> --}}
+                <a id="dropdown-itemlist" class="dropdown-item" href="{{route("student-formQuiz",[ $group_subject->id,'summaries'])}}" style="padding-left:40px; ">   ملخصات</a>
+                <a href="{{route("student-formQuiz",[ $group_subject->id])}}" id="dropdown-itemlist" class="dropdown-item"  style="padding-left:40px;">نماذج </a>
 
             </div>
         </div>
@@ -21,8 +36,9 @@
 
         <div id="btn-group-nav-subjectbooks" class="btn-group">
             <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
-            <a href="{{route("student-formQuiz")}}">   <button class="btn-subject-book-Navbar"><label class="proNavbartext">نماذج </label></button></a>
-            <button class="btn-subject-book-Navbar"><label class="proNavbartext">  ملخصات</label></button>
+            <a href="{{route("student-formQuiz",[ $group_subject->id])}}">   <button class="btn-subject-book-Navbar"><label class="proNavbartext">نماذج </label></button></a>
+            <a href="{{route("student-formQuiz",[ $group_subject->id,'summaries'])}}"><button class="btn-subject-book-Navbar"><label class="proNavbartext">  ملخصات</label></button></a>
+
             <a href="{{route("student-booksChapters",[
                 $group_subject->id,
                 'practical'])}}">
@@ -45,7 +61,7 @@
             ><label class="proNavbartext"> نظري</label></button></a>
         </div>
 
-        <div class="dep-name">تقنة معلومات</div>
+        <div class="dep-name">{{ $group_subject->subjects->name_ar }}
     </div>
 
     {{-- </div> --}}

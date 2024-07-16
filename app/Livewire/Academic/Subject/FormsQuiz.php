@@ -5,28 +5,23 @@ namespace App\Livewire\Academic\Subject;
 use App\Models\File;
 use Livewire\Component;
 use App\Models\GroupSubject;
-use Livewire\WithPagination;
-use Livewire\Attributes\On;
+use App\Traits\Searchable;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 
 
 class FormsQuiz extends Component
 {
-    use WithPagination;
+    use Searchable;
     use WithFileUploads;
     public $group_subject;
-    public $search;
-    public $perPage = 10;
     public $selected_id = null;
     public $nameFile;
     public $file;
 
-    public function mount($group_id, $subject_id)
+    public function mount(GroupSubject $group_subject)
     {
-        $this->group_subject = GroupSubject::where('group_id', $group_id)
-            ->where('subject_id', $subject_id)
-            ->first();
+        $this->group_subject = $group_subject;
     }
 
     public function selected($id)
@@ -38,7 +33,7 @@ class FormsQuiz extends Component
     public function deleteQuiz()
     {
         $quiz = File::find($this->selected_id);
-        if ($quiz->group_files->count() > 1){
+        if ($quiz->group_files()->count() > 1){
             $quiz->group_files->delete();
         }else{
             $quiz->group_file->delete();
@@ -56,7 +51,7 @@ class FormsQuiz extends Component
         $file = null;
         try{
             if($this->file != null){
-                $file = $this->file->store('subject/summaries');
+                $file = $this->file->store('subject/form_exem');
                 unlink($this->file->getRealPath());
             }
             $this->group_subject->files()->find($this->selected_id)->update([
@@ -84,7 +79,7 @@ class FormsQuiz extends Component
     public function getQuizzesProperty()
     {
         return $this->group_subject
-            ->getFilesInGroupBySubject('summary', $this->search)
+            ->getFilesInGroupBySubject('form_exem', $this->search)
             ->paginate($this->perPage);
     }
     public function render()

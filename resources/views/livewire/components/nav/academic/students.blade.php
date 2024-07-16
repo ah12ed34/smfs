@@ -92,8 +92,8 @@
             as $group)
                 <a id="dropdown-students-itemlist" class="dropdown-item"
 
-                href="{{ route($urlName??'students',
-                 ['group_subject' => $group->group_subject_id]) }}"
+                href="{{ route($urlName??'students',array_merge($this->parameters??[],
+                 ['group_subject' => $group->group_subject_id])) }}"
                  style="padding-left:40px;">{{ $group->name }}</a>
             @endforeach
             {{-- <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(2)</a>
@@ -114,8 +114,8 @@
         <div id="dropdown-menulist" class="dropdown-menu">
             @foreach ($group_subject->getOtherGroups() as $group)
                 <a id="dropdown-students-itemlist" class="dropdown-item"
-                href="{{ route($urlName
-                ,[$group->group_subject_id]) }}"
+                href="{{ route($urlName,array_merge($this->parameters??[],
+                 ['group_subject' => $group->group_subject_id])) }}"
 
                  style="padding-left:40px;">{{ $group->name }}</a>
 

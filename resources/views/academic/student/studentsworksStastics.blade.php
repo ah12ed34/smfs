@@ -72,7 +72,7 @@
 
 
     <div>
-        <a href="{{route("worksStasticsStudentsSuccess")}}">
+        <a href="{{route("worksStasticsStudentsSuccess",[$group_subject->id,'fail'])}}">
         <div class="cards-child-stastics">
             <label class="cards-child-title">   الراسبين
         </label>
@@ -80,7 +80,7 @@
             <img src="{{Vite::image("students.png")}}" class="image-stastic" width="50px">
         </div>
         </a>
-        <a href="{{route("worksStasticsStudentsSuccess")}}">
+        <a href="{{route("worksStasticsStudentsSuccess",[$group_subject->id,'success'])}}">
         <div class="cards-child-stastics">
             <label class="cards-child-title">   الناجحين
         </label>
@@ -88,7 +88,7 @@
             <img src="{{Vite::image("students.png")}}" class="image-stastic" width="50px">
         </div>
         </a>
-        <a href="{{route("worksStasticsAssignements")}}">
+        <a >
         <div class="cards-child-stastics">
             <label class="cards-child-title">  تكاليف لم يتم تسليمها
         </label>
@@ -96,21 +96,21 @@
             <img src="{{Vite::image("homework (3).png")}}" class="image-stastic" width="50px">
         </div>
         </a>
-        <a href="{{route("worksStasticsAssignements")}}">
+        <a >
         <div class="cards-child-stastics">
             <label class="cards-child-title"> تكاليف تم تسليمها</label>
             <div class="cards-child-numbers">{{ $stastistics['deliveryAssessmentCount'] }}</div>
             <img src="{{Vite::image("homework (3).png")}}" class="image-stastic" width="50px">
         </div>
         </a>
-        <a href="{{route("worksStasticsProjects")}}">
+        <a >
         <div class="cards-child-stastics">
             <label class="cards-child-title">  مشاربع لم يتم تسليمها</label>
             <div class="cards-child-numbers">{{ $stastistics['projectsNotDeliveredCount'] }}</div>
             <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
         </div>
         </a>
-        <a href="{{route("worksStasticsProjects")}}">
+        <a >
         <div class="cards-child-stastics">
             <label class="cards-child-title"> مشاربع تم تسليمها</label>
             <div class="cards-child-numbers">{{ $stastistics['projectsCount'] }}</div>
