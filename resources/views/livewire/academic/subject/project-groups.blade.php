@@ -251,7 +251,7 @@
                                     <tr class="table-light" id="modldetials"  style="margin-top:7px;" >
                                 {{-- name --}}
                                 <td>{{ $student->grade }}</td>
-                                <td>{{ $student->student->student->user->name }}</td>
+                                <td>{{ $student->student->user->name }}</td>
                                     </tr>
                                 @empty
                                     <tr >
@@ -327,7 +327,8 @@
 
                                     @forelse ($users as $user)
                                         <tr class="table-light" id="modldetials"  style="margin-top:7px;" >
-                                        <td><button class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;" >  <img src="{{Vite::image("delete (1).png")}}" id="{{ $user['id'] }}"  width="15px" ></button></td>
+                                        <td><button class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;"
+                                            wire:click='select_delete("{{ $user['id'] }}")' >  <img src="{{Vite::image("delete (1).png")}}" id="{{ $user['id'] }}"  width="15px" ></button></td>
                                         </td>
                                         <td>{{ $user['name'] }}</td>
                                         <td><input type="radio" id="boss{{ $user['id'] }}" wire:model='boss' value="{{ $user['id'] }}"  ></td>
@@ -391,7 +392,7 @@
             <!-- Modal footer -->
 
             <div class="modal-footer" style="height: 40px;">
-                <button type="submit" class="btn btn-primary" id="btnOkYes" wire:click='deleteQuiz'>نعم</button>
+                <button type="submit" class="btn btn-primary" id="btnOkYes" wire:click='delete_student'>نعم</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnNO">لا</button>
             </div>
         </div>
@@ -449,6 +450,10 @@
                                     <td><textarea  class="form-control" rows="1" placeholder="ملاحظة"
                                         wire:model='comment_id.{{ $student['id'] }}'
                                         ></textarea></td>
+                                        {{-- error delete --}}
+                                        @if ($errors->has('grade_id.'.$student['id']))
+
+                                        @endif
                                 </tr>
 
                             @empty
@@ -518,11 +523,27 @@
             }
         });
 
+        window.addEventListener("deleteError", event => {
+            // if show model
+            // console.log(event.detail);
+
+            setTimeout(() => {
+                $('#myModdelete').modal('hide');
+            }, 500);
+
+        });
+
         window.addEventListener('openModal', event => {
             $('#MoadalAddStudentsToProject').modal('show');
         });
-    </script>
-    <script>
+        window.addEventListener('closeModalDelete', event => {
+            $('#myModdelete').modal('hide');
+            @if ($projectDetails)
+                @this.selected({{ $projectDetails->id }});
+            @endif
+        });
+
+
         document.addEventListener("DOMContentLoaded", () => {
             const sendButton = document.getElementById("sendButton");
             const messageInput = document.getElementById("messageInput");
@@ -542,7 +563,6 @@
                     sendButton.click();
                 }
             });
-
             function addMessage(sender, profilePic, message, messageType) {
                 const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 const messageElement = document.createElement("div");

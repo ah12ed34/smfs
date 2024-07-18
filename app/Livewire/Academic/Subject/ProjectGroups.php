@@ -87,9 +87,16 @@ class ProjectGroups extends Component
             // })->toArray();
 
         $this->users = $this->projectDetails->students->map(function($student){
-            $this->grade_id[$student->student->student->user_id] = $student->grade;
-            $this->comment_id[$student->student->student->user_id] = $student->description;
-            return ['id'=>$student->student->student->user_id,'name'=>$student->student->student->user->name
+            if(!$student->student){
+                $student->delete();
+                return;
+            }
+            if(!$student?->student){
+                dd($student->student);
+            }
+            $this->grade_id[$student->student->user_id] = $student->grade;
+            $this->comment_id[$student->student->user_id] = $student->description;
+            return ['id'=>$student->student->user_id,'name'=>$student->student->user->name
                     ,'student_id'=>$student->student_id,'grade'=>$student->grade,'comment'=>$student->comment];
         });
         }else{
@@ -167,6 +174,52 @@ class ProjectGroups extends Component
     {
         return Storage::download($this->projectDetails->file,$this->name .' - '.$this->projectDetails->project->name);
     }
+    public $student_delete = null;
+    // delete student from group
+    public function select_delete($user_id)
+    {
+        if($this->projectDetails->project->min_students >= $this->projectDetails->students->count()){
+            $this->addError('deleteE','لا يمكن حذف الطالب لأن عدد الطلاب أقل من الحد الأدنى');
+            $this->dispatch('deleteError');
+            return;
+        }
+
+
+        $this->student_delete = $user_id;
+        // dd($this->student_delete,$user_id);
+    }
+    public function delete_student()
+    {
+        if($this->student_delete == null){
+            $this->dispatch('closeModalDelete');
+            return;
+        }
+        $this->projectDetails->students->each(function($student){
+            // dd($student->student->user_id,$this->student_delete);
+            if($student->student->user_id == $this->student_delete){
+                // dd($student->student->user_id,$this->student_delete);
+                $student->delete();
+                $this->dispatch('closeModalDelete');
+                if(false == $this->projectDetails->just_created)
+                $this->users = $this->projectDetails->students->map(function($student){
+                    if(!$student->student){
+                        $student->delete();
+                        return;
+                    }
+                    if(!$student?->student){
+                        dd($student->student);
+                    }
+                    $this->grade_id[$student->student->user_id] = $student->grade;
+                    $this->comment_id[$student->student->user_id] = $student->description;
+                    return ['id'=>$student->student->user_id,'name'=>$student->student->user->name
+                            ,'student_id'=>$student->student_id,'grade'=>$student->grade,'comment'=>$student->comment];
+                });
+
+                return;
+            }
+        });
+    }
+
     public function getGroupProjectsProperty()
     {
         $this->project_groups = [

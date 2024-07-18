@@ -9,7 +9,7 @@ use App\Traits\SubjectsTrait;
 
 class BooksOfdepartLevel extends Component
 {
-    use Searchable,SubjectsTrait;
+    use SubjectsTrait , Searchable;
     public $level;
 
     public function mount(Level $level)
@@ -20,9 +20,19 @@ class BooksOfdepartLevel extends Component
 
     public function getSubjectsProperty()
     {
+        if(!isset($this->SubjectsR))
+        {
+            $this->initializeSubjects();
+
+        }
+
         $s = $this->SubjectsR->getSubjectsByLevelAndTerm($this->level->id)
-        ->where('name','like','%'.$this->search.'%')
         ->orderBy($this->sortField,$this->sortAsc ? 'asc' : 'desc')
+        ->get()->filter(function($subject){
+            return $this->search == '' || str_contains($subject->name_ar,$this->search)
+            || str_contains($subject->name_en,$this->search)
+            || str_contains($subject->id,$this->search);
+        })
         ->paginate($this->perPage);
         return $s;
     }

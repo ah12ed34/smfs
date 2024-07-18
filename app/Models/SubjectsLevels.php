@@ -34,6 +34,16 @@ class SubjectsLevels extends Model
         return $this->hasMany(Group::class);
     }
 
+    public function groupFiles()
+    {
+        return $this->hasManyThrough(GroupFile::class, GroupSubject::class, 'subject_id', 'group_id', 'id', 'group_id');
+    }
+
+    public function groupSubjects()
+    {
+        return $this->hasMany(GroupSubject::class, 'subject_id', 'id');
+    }
+
 
 
 }

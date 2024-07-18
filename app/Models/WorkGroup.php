@@ -21,7 +21,10 @@ class WorkGroup extends Model
         return $this->belongsTo(GroupProject::class,'group_id','id');
     }
     public function student(){
-        return $this->belongsTo(GroupStudents::class,'student_id','id');
+        return $this->hasOneThrough(Student::class,GroupStudents::class,'id','user_id','student_id','student_id');
+        return $this->
+        hasManyThrough(Student::class,GroupStudents::class
+        ,'id','user_id','student_id','student_id');
     }
 
 }

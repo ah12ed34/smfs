@@ -1,5 +1,6 @@
 @section('nav')
-@livewire('components.nav.manager_of_depart.managedepartlevel.depart-level-main-page-header', ['level' => $level,'typeGroup' => $typeGroup])
+@livewire('components.nav.manager_of_depart.managedepartlevel.depart-level-main-page-header',
+['level' => $level,'typeGroup' => $typeGroup,])
 @endsection
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}

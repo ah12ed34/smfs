@@ -6,7 +6,34 @@
     <div class="container"  style="padding-top:30px;">
     <div class="card" id="contents-book">
         <div class="container" style="padding-top:30px; ">
-            <div id="card-studyingbooks-student" class="card">
+            @forelse ($chapters as $chapter)
+                <div id="card-studyingbooks-student" class="card">
+                    <div id="card-studyingbooks-child">
+                        <img src="{{ $chapter->icon() }}" class="chapters-image" width="180px">
+                        <label class="texttitlechapter">{{ $chapter->name }}</label>
+                    </div>
+                    <div id="card-studyingbooks-child-three">
+                        <button type="submit"
+                        wire:click="download({{ $chapter->id }})"
+                        class="btn btn-primary" id="btn-download"  ><img src="{{Vite::image("download-file.png")}}" id="image-download"  width="15px" ></button>
+                        @if ($chapter->file2)
+
+                            <button type="submit"
+                            wire:click="download({{ $chapter->id }},2)"
+                            class="btn btn-primary" id="btn-download"  ><img src="{{Vite::image("download-file.png")}}" id="image-download"  width="15px" ></button>
+
+                        @endif
+                    </div>
+                </div>
+
+            @empty
+
+                <center>
+                    <h1>لا يوجد بيانات</h1>
+                </center>
+
+            @endforelse
+            {{-- <div id="card-studyingbooks-student" class="card">
                 <div id="card-studyingbooks-child">
                     <img src="{{Vite::image("chapter.png")}}" class="chapters-image" width="180px">
 
@@ -103,7 +130,7 @@
                     <!-- <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModal3" style="margin-left: 50px;">تعديل  <img src="../images/edit.png")}}" id=""  width="15px" ></button> -->
 
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

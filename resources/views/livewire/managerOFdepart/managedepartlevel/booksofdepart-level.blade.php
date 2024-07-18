@@ -19,11 +19,10 @@
 
 
             @empty
-            <div class="card" id="cards-subject-students" onclick="location.href='{{route('depart_level_booksChapters',[$level->id])}}'">
-                <img src="{{Vite::image("allocation (1).png")}}" class="" width="150px">
-                <div class="card-subject-child"> لا يوجد مواد دراسية
-                </div>
-            </div>
+            <center style='margin-top: 25vh;'>
+                <h1>لا يوجد بيانات</h1>
+            </center>
+
             @endforelse
             {{-- <div class="card" id="cards-subject-students" onclick="location.href='{{route('depart_level_booksChapters',[$level->id])}}'">
                 <img src="{{Vite::image("allocation (1).png")}}" class="" width="150px">

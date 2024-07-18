@@ -14,6 +14,7 @@ trait Searching {
     public function initializeSearching(){
         $this->parameters = request()->route()->parameters();
         $this->qurey = request()->query();
+        // qurey
         // $this->urlName = request()->route()->getName();
     }
 

@@ -1,9 +1,35 @@
+<?php
+    if(!isset($active['tab'])){
+        $active['tab'] = null ;
+    }
+?>
 <div  class="btn-group btn_group_nav_manageDepart-level" id="">
-    <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_studentsFinalTearmStatistics',$parameter)}}'"><label class="proNavbartext">الإحصائيات </label></button>
-    <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_allsechedules',$parameter)}}'"><label class="proNavbartext">  الجدول الدراسي</label></button>
-    <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_Books',$parameter)}}'"><label class="proNavbartext">  المقرر الدراسي </label></button>
-    <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_academic',$parameter)}}'"><label class="proNavbartext"> الأكادمين</label></button>
-    <button class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_Group_mainPage',$parameter)}}'"><label class="proNavbartext"> المجموعات</label></button>
+    <button
+    @if($active['tab'] == 'statistics')
+        style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
+    @endif
+    class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_studentsFinalTearmStatistics',$parameter)}}'"><label class="proNavbartext">الإحصائيات </label></button>
+
+    <button
+    @if ($active['tab'] == 'schedules')
+        style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
+    @endif
+    class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_allsechedules',$parameter)}}'"><label class="proNavbartext">  الجدول الدراسي</label></button>
+    <button
+    @if ($active['tab'] == 'books')
+        style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
+    @endif
+    class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_Books',$parameter)}}'"><label class="proNavbartext">  المقرر الدراسي </label></button>
+    <button
+    @if ($active['tab'] == 'academic')
+        style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
+    @endif
+    class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_academic',$parameter)}}'"><label class="proNavbartext"> الأكادمين</label></button>
+    <button
+    @if($active['tab'] == 'groups')
+        style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
+    @endif
+    class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_Group_mainPage',$parameter)}}'"><label class="proNavbartext"> المجموعات</label></button>
 </div>
 
 <div class="dropdown">

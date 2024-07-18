@@ -10,7 +10,7 @@
          <img src="{{ $course->subject()->image ? asset('storage/'.$course->subject()->image) :
             Vite::image('allocation (1).png') }}"  width="150px">
             <div class="card-child-1"> {{ $course->subject()->name_ar .' '.$course->subject()->name_en }} <br>{{ $course->group->level->name .' - '.$course->group->level->department->name }}<br>
-            {{ $course->teacher->user->name }}
+            {{ $course->group->name }}<br>
         </div>
     </div>
 

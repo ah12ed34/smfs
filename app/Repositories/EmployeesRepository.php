@@ -191,7 +191,12 @@ class EmployeesRepository extends AcademicYRepository
         $students = $group_subject->students()
         ->AddSelect(
             'students.*',
+            'group_projects.id  as group_project_id',
+            // count distinct deliveries grade
             DB::raw('
+                COUNT(DISTINCT deliveries.id) as count_deliveries,
+                COUNT(DISTINCT work_groups.id) as count_works,
+                COUNT(DISTINCT group_projects.delivery_date) as count_groups,
                 SUM(DISTINCT COALESCE(deliveries.grade, 0)) as delivery_grade,
                 SUM(DISTINCT COALESCE(work_groups.grade, 0)) as work_grade,
                 SUM(DISTINCT COALESCE(group_projects.grade, 0)) as group_grade,
@@ -204,6 +209,7 @@ class EmployeesRepository extends AcademicYRepository
             ')
         )
         ->join('group_subjects', 'group_students.group_id', '=', 'group_subjects.group_id')
+        ->join('subjects_levels', 'group_subjects.subject_id', '=', 'subjects_levels.id')
         ->where('group_subjects.id', $group_subject->id)
         ->leftJoin('studyings', function ($join) use ($group_subject) {
             $join->on('group_students.id', '=', 'studyings.student_id')
@@ -217,7 +223,10 @@ class EmployeesRepository extends AcademicYRepository
                      $join->on('group_projects.project_id', '=', 'projects.id')
                         ->where('projects.subject_id', $group_subject->id);
                  })
-                 ->whereNotNull('group_projects.grade');
+                    ->where('group_projects.delivery_date', '!=', null)
+                    ->whereNotNull('group_projects.file')
+                //  ->whereNotNull('group_projects.grade')
+                 ;
         })
         ->leftJoin('deliveries', function ($join) use ($group_subject) {
             $join->on('group_students.id', '=', 'deliveries.student_group_id')
@@ -227,7 +236,7 @@ class EmployeesRepository extends AcademicYRepository
                  ->where('group_files.group_subject_id', $group_subject->id);
         })
         ->where('group_students.ay_id', $group_subject->ay_id)
-        ->groupBy('group_students.id')
+        ->groupBy('group_students.id','subjects_levels.semester')
         // ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
         ;
         // dd($group_subject->students()->get());
@@ -240,11 +249,16 @@ class EmployeesRepository extends AcademicYRepository
         $students = $group_subject->students()
     ->AddSelect(
     'students.*',
+    'group_projects.id  as group_project_id',
+    'practical_group_projects.id  as practical_group_project_id',
     'subjects_levels.practical_grade as practical_grade',
     'practical_group_students.id as practical_group_student_id',
     'practical_group_students.group_id as practical_group_id',
     'practical_group_subjects.id as practical_group_subject_id',
     DB::raw('
+        COUNT(DISTINCT deliveries.id) as count_deliveries,
+        COUNT(DISTINCT work_groups.id) as count_works,
+        COUNT(DISTINCT group_projects.delivery_date) as count_groups,
         SUM(DISTINCT COALESCE(deliveries.grade, 0)) as delivery_grade,
         SUM(DISTINCT COALESCE(work_groups.grade, 0)) as work_grade,
         SUM(DISTINCT COALESCE(group_projects.grade, 0)) as group_grade,
@@ -259,6 +273,9 @@ class EmployeesRepository extends AcademicYRepository
                 //
 
     DB::raw('
+        COUNT(DISTINCT practical_deliveries.id) as practical_count_deliveries,
+        COUNT(DISTINCT practical_work_groups.id) as practical_count_works,
+        COUNT(DISTINCT practical_group_projects.delivery_date) as practical_count_groups,
         SUM(DISTINCT COALESCE(practical_deliveries.grade, 0)) as practical_delivery_grade,
         SUM(DISTINCT COALESCE(practical_work_groups.grade, 0)) as practical_work_grade,
         SUM(DISTINCT COALESCE(practical_group_projects.grade, 0)) as practical_group_grade,
@@ -291,7 +308,10 @@ class EmployeesRepository extends AcademicYRepository
             $join->on('group_projects.project_id', '=', 'projects.id')
                 ->where('projects.subject_id', $group_subject->id);
         })
-        ->whereNotNull('group_projects.grade');
+        ->where('group_projects.delivery_date', '!=', null)
+        ->whereNotNull('group_projects.file')
+        // ->whereNotNull('group_projects.grade')
+        ;
 })
 ->leftJoin('deliveries', function ($join) use ($group_subject) {
     $join->on('group_students.id', '=', 'deliveries.student_group_id')
@@ -324,7 +344,9 @@ class EmployeesRepository extends AcademicYRepository
                 ->leftJoin('projects as practical_projects', function ($join) use ($group_subject) {
                     $join->on('practical_group_projects.project_id', '=', 'practical_projects.id');
                 })->on('practical_projects.subject_id', 'practical_group_subjects.id')
-                ->whereNotNull('practical_group_projects.grade');
+                // ->whereNotNull('practical_group_projects.grade')
+                ->where('practical_group_projects.delivery_date', '!=', null)
+                ;
         })
         ->leftJoin('deliveries as practical_deliveries', function ($join) {
             $join->on('practical_group_students.id', '=', 'practical_deliveries.student_group_id')
@@ -336,7 +358,7 @@ class EmployeesRepository extends AcademicYRepository
         })
 ->where('group_students.ay_id', $group_subject->ay_id)
 ->groupBy('group_students.id', 'subjects_levels.practical_grade', 'practical_group_students.id'
-    ,'practical_group_subjects.id','practical_deliveries.grade')
+    ,'practical_group_subjects.id','practical_deliveries.grade','subjects_levels.semester')
 ;
 
 // $students = $students->get()->map(function ($student) {

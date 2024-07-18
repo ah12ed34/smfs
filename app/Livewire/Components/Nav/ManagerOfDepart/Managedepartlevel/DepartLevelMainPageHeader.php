@@ -12,6 +12,9 @@ class DepartLevelMainPageHeader extends Component
     public $level;
     public $typeGroup = 'main';
     public $parameter;
+    public $active = [
+            'tab' => 'groups',
+    ];
     public function mount(Level $level){
         $this->level = $level;
         $this->parameter = request()->route()->parameters();

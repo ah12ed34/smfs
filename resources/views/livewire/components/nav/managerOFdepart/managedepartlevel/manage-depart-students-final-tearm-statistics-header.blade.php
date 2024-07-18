@@ -38,35 +38,53 @@
 
                 <div class="dropdown">
                     <button type="button"  class="btn btn-light MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
-                    <div class="textdropdown"> الترم الاول</div>
+                    <div class="textdropdown">{{ $active['term'] != 'all'? $terms->where('id',$active['term'])->first()->name : 'كل الترام'}}</div>
                 </button>
                 <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
-                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; "> الترم الثاني</a>
+                    @foreach ($terms->where('id','!=',$active['term']) as $term)
+                        <a id="" class="dropdown-item" href="{{route('depart_level_studentsFinalTearmStatistics',[$level->id]+array_merge($qurey,['term'=>$term->id]))}}"
+                         style="padding-left:30px; ">{{ $term->name }}</a>
+                    @endforeach
+                    {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; "> الترم الثاني</a> --}}
                 </div>
             </div>
 
             <div class="dropdown">
             <button type="button"  class="btn btn-light MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
-                    <div class="textdropdown">    كل المجموعات</div>
+                    <div class="textdropdown">{{ $active['group'] != 'all'? $groups->where('id',$active['group'])->first()->name : 'كل المجموعات'}}</div>
                 </button>
                 <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
-
-                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   مجموعة(1)</a>
+                    @if($active['group'] != 'all')
+                    <a id="" class="dropdown-item" href="{{route('depart_level_studentsFinalTearmStatistics',[$level->id]+array_merge($qurey,['group'=>null]))}}"
+                        style="padding-left:30px; ">كل المجموعات</a>
+                    @endif
+                    @foreach ($groups->where('id','!=',$active['group']) as $group)
+                        <a id="" class="dropdown-item" href="{{route('depart_level_studentsFinalTearmStatistics',[$level->id]+array_merge($qurey,['group'=>$group->id]))}}"
+                         style="padding-left:30px; ">{{ $group->name }}</a>
+                    @endforeach
+                    {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   مجموعة(1)</a>
                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  مجموعة(2)</a>
-                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  مجموعة(3)</a>
+                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  مجموعة(3)</a> --}}
 
                 </div>
             </div>
 
             <div class="dropdown">
                 <button type="button"  class="btn btn-light MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
-                        <div class="textdropdown">    جميع المقرر   </div>
+                        <div class="textdropdown">{{ $active['subject'] != 'all'? $subjects->where('pivot.id',$active['subject'])->first()->name_ar : 'كل المواد'}}</div>
                     </button>
                     <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
-
-                        <a id="" class="dropdown-item" href="#" style="padding-left:30px; "> نظم موزعة</a>
+                        @if($active['subject'] != 'all')
+                            <a id="" class="dropdown-item" href="{{route('depart_level_studentsFinalTearmStatistics',[$level->id]+array_merge($qurey,['subject'=>null]))}}"
+                             style="padding-left:30px; ">كل المواد</a>
+                        @endif
+                        @foreach ($subjects->where('pivot.id','!=',$active['subject']) as $subject)
+                            <a id="" class="dropdown-item" href="{{route('depart_level_studentsFinalTearmStatistics',[$level->id]+array_merge($qurey,['subject'=>$subject->pivot->id]))}}"
+                             style="padding-left:30px; ">{{ $subject->name_ar }}</a>
+                        @endforeach
+                        {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; "> نظم موزعة</a>
                         <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  التحقيق الرقمي </a>
-                        <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   التجارة الالكترونية </a>
+                        <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   التجارة الالكترونية </a> --}}
 
 
                     </div>

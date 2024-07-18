@@ -32,11 +32,13 @@
             </div>
         </div> --}}
 @include('components.layouts.manager_department.header')
-                <div class="dep-name">تقنية معلومات</div>
+                <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div>
 
                 <div class="dropdown">
                     <button type="button"  class="btn btn-light MnageDepart_sechedule_studentsGroups_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
-                            <div class="textdropdown">    كل المجموعات</div>
+                            <div class="textdropdown">{{ (
+                                isset($active['group']) && $active['group'] != 'all'
+                            )? $groups->where('id',$active['group'])->first()->name : 'كل المجموعات'}}</div>
                         </button>
                         <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
 
@@ -47,7 +49,7 @@
                         </div>
                     </div>
 
-                    <div class="dropdown">
+                    {{-- <div class="dropdown">
                         <button type="button"  class="btn btn-light MnageDepart_sechedule_Teacher_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
                                 <div class="textdropdown">    <label class="hidpartname_dropdown">حسب </label>المدرس</div>
                             </button>
@@ -56,8 +58,9 @@
                                 <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  ******</a>
 
                             </div>
-                        </div>
-
+                        </div> --}}
+                        {{-- @dd($active['teacher']) --}}
+                        @include('components.navSelect.teacher')
                         <div class="dropdown">
                             <button type="button"  class="btn btn-light MnageDepart_sechedule_classrooms_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
                                     <div class="textdropdown">     <label class="hidpartname_dropdown">جدول </label>القاعات</div>
