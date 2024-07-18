@@ -48,7 +48,9 @@
                 <button class="button-sidebar" onclick="location.href='{{route('home')}}'"><img src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.meun_home')}} </label></button>
                 {{-- <button class="button-sidebar" onclick="location.href='{{route('student.create')}}'" ><label class="" >{{__('layout.create_student')}}</label><i class="bi bi-person-add"></i> </button>
                 <button class="button-sidebar" onclick="location.href='{{route('academic.create')}}'"><label class="" >{{__('layout.create_academic')}} </label><i class="bi bi-person-add"></i></button> --}}
+                <button class="button-sidebar"><img src="{{ Vite::image('calendar (3).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.classes_sechedules')}} </label></button>
                 <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png')}}" class="sidebaricon" width="26px"><label class="" >{{__('layout.settings')}} </label></button>
+                
         </div>
     </div>
     @section('nav')
