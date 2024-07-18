@@ -65,7 +65,7 @@
  --}}
 
 
-
+@livewire('components.nav.academic.students')
 @endsection
 @section("content")
 
@@ -78,7 +78,7 @@
             <table class="table" style=" width:100%;">
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
-                        <th>ملاحظة</th>
+                        {{-- <th>ملاحظة</th> --}}
                         <th>التقدير </th>
                         <th>المجموع</th>
                         <th>الإختبار النهائي</th>
@@ -94,21 +94,7 @@
                 </thead>
                 <tbody>
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                        <td>*******</td>
-                        <td>*******</td>
-                        <td>*******</td>
-                        <td>***** </td>
-                        <td>***** </td>
-                        <td>***** </td>
-                        <td>*******</td>
-                        <td>*******</td>
-                        <td>*******</td>
-                        <td>***** </td>
-                        <td>***** </td>
-                        <td>***** </td>
-                    </tr>
-                    <tr class="table-light">
-                        <td>*******</td>
+                        {{-- <td>*******</td> --}}
                         <td>*******</td>
                         <td>*******</td>
                         <td>***** </td>
@@ -122,7 +108,21 @@
                         <td>***** </td>
                     </tr>
                     <tr class="table-light">
+                        {{-- <td>*******</td> --}}
                         <td>*******</td>
+                        <td>*******</td>
+                        <td>***** </td>
+                        <td>***** </td>
+                        <td>***** </td>
+                        <td>*******</td>
+                        <td>*******</td>
+                        <td>*******</td>
+                        <td>***** </td>
+                        <td>***** </td>
+                        <td>***** </td>
+                    </tr>
+                    <tr class="table-light">
+                        {{-- <td>*******</td> --}}
                         <td>*******</td>
                         <td>*******</td>
                         <td>***** </td>
@@ -148,7 +148,7 @@
 
 
     <!-- The Modal -->
-    <div class="modal fade" id="myModal">
+    {{-- <div class="modal fade" id="myModal">
         <div class="modal-dialog">
             <div class="modal-content" id="modal-content2">
 
@@ -180,5 +180,5 @@
         </div>
     </div>
 
-</div>
+</div> --}}
 @endsection

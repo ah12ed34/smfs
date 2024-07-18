@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Student;
 
+use App\Models\AcademicYear;
 use App\Models\Delivery;
 use App\Models\File;
 use Livewire\Component;
@@ -32,8 +33,14 @@ class StudAssignements extends Component
     ];
     public $subjects = [];
 
+    private $ay_id;
+    private $semester;
+
+
     public function mount()
     {
+        $this->ay_id = AcademicYear::currentAcademicYear()->id;
+        $this->semester = AcademicYear::getTerm();
         $this->user = auth()->user();
         if (request()->has('perPage')) {
             if (request()->perPage == 'all') {
@@ -125,17 +132,26 @@ class StudAssignements extends Component
             'comment' => $comment,
         ]);
 
-        dd($send);
+        // dd($send);
+        $this->file = [];
+        $this->comment = [];
+        $this->dispatch('closeModal');
 
     }
 
     public function getAssignementsProperty()
     {
 
+
         $assignments = $this->user->student->groups->flatMap(function ($group) {
             return $group->groupSubjects->flatMap(function ($groupSubject) {
+                if($groupSubject->ay_id != $this->ay_id
+                || $groupSubject->subjectLevel->semester != $this->semester)
+                    return null;
+
                 return $groupSubject->getFilesInGroupBySubject('assignment', $this->search)
                 ->where('is_active', 1)
+                // ->where('ay_id', AcademicYear::getAcademicYear()->id)
                 ->get()->map(function ($file) {
                     $file = $file;
                     $file->subject_name = $file->group_file->group_subject->subject()->name_ar;

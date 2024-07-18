@@ -13,6 +13,7 @@ use App\Livewire\Academic\Subject\ProjectGroups;
 use App\Livewire\Academic\Subject\ReciveAssignments;
 use App\Livewire\Academic\Subject\Studyingbooks;
 use App\Livewire\Global\GroupSubject\Index;
+use App\Livewire\Global\Levelsubject\AddSubject;
 use App\Livewire\Global\PracticalGroup\AddStudents;
 use App\Livewire\Global\User\Profile;
 use App\Livewire\Student\StudAssignements;
@@ -23,7 +24,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Livewire\Quality\DepartLevelsQuality;
 use App\Livewire\Student\Project\StudentProjects;
-use GuzzleHttp\Middleware;
+use App\Livewire\Academic\Student\WorksStasticsStudentsSuccess;
+use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
 // use Illuminate\Support\Facades\App;
 
 
@@ -51,7 +53,9 @@ use GuzzleHttp\Middleware;
 
             });
             Route::prefix('level')->group(function () {
-                Route::get('/addSubject/{level}','SubjectLevelController@addSubjectLevel')->name('level.addsubject');
+                Route::get('/addSubject/{level}','\\'
+                .AddSubject::class
+                )->name('level.addsubject');
                 Route::get('/','SubjectLevelController@index')->name('level.index');
 
             });
@@ -90,10 +94,10 @@ use GuzzleHttp\Middleware;
          });
          Route::prefix('/studBooksChapters/{id}')->group(function(){
          route::get("/", '\\'.StudBooksChapters::class)->name('student-booksChapters');
+         route::get("studFormQuiz", '\\'.StudFormQuiz::class
+         )->name('student-formQuiz');
+
             });
-         Route::prefix('/studFormQuiz')->group(function(){
-            route::get("/", 'students\StudStudyingbooksController@indexFormQuiz')->name('student-formQuiz');
-         });
          Route::prefix('/studChaptersSummaries')->group(function(){
             route::get("/", 'students\StudStudyingbooksController@indexChaptersSummaries')->name('student-ChaptersSummaries');
          });
@@ -260,6 +264,9 @@ use GuzzleHttp\Middleware;
                 )->name("assignmentsgrdes-stu");
                 route::get('projectsgrades-stu','\\'.ProjectsGradesStu::class)->name("projectsgrades-stu");
                 route::get('studentsworksStastics','StudentsworksStasticsController@index')->name("studentsworksStastics");
+                route::get("worksStasticsStudents/{s}",'\\'. WorksStasticsStudentsSuccess::class)->name("worksStasticsStudentsSuccess");
+                route::get("studyingbooks",'\\'.Studyingbooks::class)->name("studyingbooks");
+                route::get("forms-quiz",'\\'.FormsQuiz::class)->name("forms-quiz");
 
                                // route::prefix("midexam")->group(function(){
                 // route::get("/",'MidexamController@index')->name("midexam");
@@ -286,13 +293,12 @@ use GuzzleHttp\Middleware;
                 route::get("recive-assignments/{id}",'\\'.ReciveAssignments::class
                 )->name("recive-assignments");
 
-                route::prefix("studyingbooks")->group(function(){
-                route::get("/",'\\'.Studyingbooks::class)->name("studyingbooks");
-                });
+                // route::prefix("")->group(function(){
+                // });
 
-                route::prefix("forms-quiz")->group(function(){
-                route::get("/",'\\'.FormsQuiz::class)->name("forms-quiz");
-                });
+                // route::prefix("forms-quiz")->group(function(){
+                // route::get("forms-quiz",'\\'.FormsQuiz::class)->name("forms-quiz");
+                // });
                 // route::prefix("studentsworksStastics")->group(function(){
                 //     route::get("/",'StudentsworksStasticsController@index')->name("studentsworksStastics");
                 // });
@@ -322,9 +328,6 @@ use GuzzleHttp\Middleware;
             });
             route::prefix("permissionsSubject")->group(function(){
                 route::get("/", 'PermissionController@indexpermissSubject')->name("permissionsSubject");
-            });
-            route::prefix("worksStasticsStudentsSuccess")->group(function(){
-                route::get("/",'WorksStasticsStudentsSuccessController@index')->name("worksStasticsStudentsSuccess");
             });
             route::prefix("worksStasticsAssignements")->group(function(){
                 route::get("/",'WorksStasticsAssignementsController@index')->name("worksStasticsAssignements");
@@ -452,6 +455,8 @@ use GuzzleHttp\Middleware;
             abort(404);
         }
         if(strpos($path,'.') === false){
+            abort(404);
+        }elseif(!auth()->check()&&in_array( pathinfo($path, PATHINFO_EXTENSION),['txt','pdf','powerpoint','excel','zip','rar','7z'])){
             abort(404);
         }
         $file = Storage::get( $path);

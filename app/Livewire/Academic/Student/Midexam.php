@@ -33,7 +33,8 @@ class Midexam extends Component
     public function getStudentsProperty()
     {
         // dd($this->getStudents($this->group_subject));
-    return $this->getStudents($this->group_subject)->paginate($this->perPage);
+    return $this->getStudents($this->group_subject)->
+    paginate($this->perPage);
     }
     public function render()
     {

@@ -13,7 +13,7 @@
                         <p class="card-text">اقصى عدد للطلاب: {{$group->max_students}}</p>
                         <p class="card-text">التخصص: {{$group->level->department->name}}</p>
                         <p class="card-text">المستوى: {{$group->level->name}}</p>
-                        <p class="card-text">المجموعة الرئيسية: {{$group->group->name??__("general.no_groups")}}</p>
+                        {{-- <p class="card-text">المجموعة الرئيسية: {{$group->group->name??__("general.no_groups")}}</p> --}}
 
                     </div>
                 </div>
@@ -24,7 +24,11 @@
                         <thead>
                             <tr>
                                 <th>{{ __("general.subjectname") }}</th>
+                                <th>{{ __("general.subjectname") }}</th>
                                 <th>{{ __("general.add") }}</th>
+                                @foreach ($group->groups as $gro)
+                                <th>{{ $gro->name }}</th>
+                                @endforeach
                             </tr>
                         </thead>
                         <tbody>
@@ -38,6 +42,20 @@
                                     <option value="{{ $teacher->user_id }}">{{ $teacher->user->full_name }}</option>
                                     @endforeach
                                 </select></td>
+                                @if($subject->has_practical)
+                                @foreach ($group->groups as $grou)
+                                <td><select class="form-control" id="{{ $subject->id.''.$grou->id }}" wire:model.lazy="sup_teacher_subject.{{ $grou->id.' '.$subject->id }}">
+                                    <option value="">{{ __("general.choose") }}</option>
+                                    @foreach ($teachers as $teacher)
+                                    <option value="{{ $teacher->user_id }}">{{ $teacher->user->full_name }}</option>
+                                    @endforeach
+                                </select></td>
+                                @endforeach
+                                @else
+                                <td colspan="{{ ($group->groups)->count() }}">
+                                    المادة لا تحتوي على عملي
+                                </td>
+                                @endif
 
 
                                 {{-- <td><a href="{{ route('groupsubject.create', $subject->id) }}" class="btn btn-primary">{{ __("general.add") }}</a></td> --}}

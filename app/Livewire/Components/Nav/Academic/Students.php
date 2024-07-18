@@ -19,6 +19,7 @@ class Students extends Component
     {
         $this->group_subject = $group_subject;
         $this->urlName = request()->route()->getName();
+        $this->initializeSearching();
         // $this->otherGroups = $this->group_subject->getOtherGroups();
 
 

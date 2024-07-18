@@ -97,5 +97,13 @@
         {{ $assignements->links(myapp::viewPagination) }}
     </nav>
 </div>
+{{-- @section('script')
+    <script>
+        window.addEventListener('closeModal', event => {
+            $('#exampleModal').modal('hide');
+        });
+    </script>
+
+@endsection --}}
 
 </div>

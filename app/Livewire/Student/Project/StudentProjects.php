@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Student\Project;
 
+use App\Models\AcademicYear;
 use App\Models\Group;
 use App\Models\GroupProject;
 use App\Models\Project;
@@ -126,6 +127,9 @@ class StudentProjects extends Component
         ->join('users as u', 'u.id', '=', 's.user_id')
 
         ->where('group_students.student_id', $studentId)
+        ->where('group_students.ay_id', AcademicYear::currentAcademicYear()->id)
+        ->where('group_subjects.ay_id', AcademicYear::currentAcademicYear()->id)
+        ->where('subjects_levels.semester', AcademicYear::getTerm())
         // search
 
         ->where(function($query){

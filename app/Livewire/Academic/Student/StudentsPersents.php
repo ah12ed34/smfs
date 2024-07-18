@@ -59,18 +59,19 @@ class StudentsPersents extends Component
             $id = $this->group_subject->students()->where('user_id',$keyX)->first()->pivot->id;
             // dd($this->group_subject->studying);
             $studying = null ;
-            if(!$this->group_subject->studying){
+            if(!$studying = $this->group_subject->studying->where('student_id',$id)->first()){
                 // dd($this->group_subject->studying);
                 $studying = $this->group_subject->studying()->create([
                     'student_id' => $id,
                     'subject_id' => $this->group_subject->id,
                 ]);
-            }else{
-            $studying = $this->group_subject->studying->where('student_id',$id)->firstOrCreate(
-                ['subject_id' => $this->group_subject->id,
-                'student_id' => $id, ]
-            );
             }
+            // else{
+            // $studying = $this->group_subject->studying->where('student_id',$id)->firstOrCreate(
+            //     ['subject_id' => $this->group_subject->id,
+            //     'student_id' => $id, ]
+            // );
+            // }
             foreach ($value as $keyY => $value) {
                 $studying->{'persents'.($keyY)} = $value;
             }

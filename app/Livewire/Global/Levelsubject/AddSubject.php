@@ -2,6 +2,7 @@
 
 namespace App\Livewire\global\Levelsubject;
 
+use App\Models\Level;
 use App\Models\Subject;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -24,9 +25,10 @@ class AddSubject extends Component
     public $refresh = false;
     public $page = 1;
     public $upd = [];
+    public $practical_grade = [];
 
 
-    public function mount($level)
+    public function mount(Level $level)
     {
         $this->level = $level;
         SubjectsLevels::where('level_id',$level->id)->get()->each(function($subject){
@@ -35,6 +37,7 @@ class AddSubject extends Component
             $this->semester[$subject->subject_id] = $subject->semester;
             $this->isActivated[$subject->subject_id] = $subject->isActivated == 1;
             $this->has_practical[$subject->subject_id] = $subject->has_practical == 1;
+            $this->practical_grade[$subject->subject_id] = $subject->practical_grade;
         });
         $this->page = request()->page ?? 1;
 
@@ -62,7 +65,7 @@ class AddSubject extends Component
 
     public function updating($porporty,$value){
         $pro = explode('.',$porporty);
-        if(in_array($pro[0],[ 'semester','isActivated','has_practical'])
+        if(in_array($pro[0],[ 'semester','isActivated','has_practical','practical_grade'])
             &&in_array($pro[1],array_keys($this->upd))){
                 $this->upd[$pro[1]] = true;
                 // dd($porporty,$value,$this->upd);
@@ -70,6 +73,14 @@ class AddSubject extends Component
 
     }
 
+    // public function updatingHasPractical($value,$key){
+    //     // dd($value,$key);
+    //     if($value){
+    //         unset($this->practical_grade[$key]);
+    //     }else{
+    //         $this->practical_grade[$key] = '40';
+    //     }
+    // }
     public function updatedSelectAll($value)
     {
         $this->selectAll = $value;
@@ -144,6 +155,11 @@ class AddSubject extends Component
                     $subject->semester = $this->semester[$key]??1;
                     $subject->has_practical = $this->has_practical[$key]??false;
                     $subject->isActivated = $this->isActivated[$key]?:true;
+                    if($subject->has_practical){
+                        $subject->practical_grade = $this->practical_grade[$key]??40;
+                    }else{
+                        $subject->practical_grade = null;
+                    }
                     $subject->updated_at = $date;
                     $subject->save();
                 }
@@ -165,27 +181,57 @@ class AddSubject extends Component
     }
     public function getSubjectsProperty()
     {
-        $subjects = Subject::whereIn('id', function($query)  {
-            $query->select('subject_id')
-                    ->from('subjects_levels')
-                    ->where('level_id', $this->level->id)->orderBy('subject_id');
-        })
-        ->union(
-            Subject::whereNotIn('id', function($query)  {
-                $query->select('subject_id')
-                        ->from('subjects_levels')
-                        ->where('level_id', $this->level->id);
-            })->where(function($query)  {
-                $query->where('name_ar', 'like', "%$this->search%")
-                        ->orWhere('name_en', 'like', "%$this->search%")
-                        ->orWhere('id', 'like', "%$this->search%");
-            })
-        )->where(function($query)  {
-            $query->where('name_ar', 'like', "%$this->search%")
-                    ->orWhere('name_en', 'like', "%$this->search%")
-                    ->orWhere('id', 'like', "%$this->search%");
-        })
-        ->paginate($this->perPage);
+        // $subjects =
+        // // Subject::whereIn('id', function($query)  {
+        // //     $query->select('subject_id')
+        // //             ->from('subjects_levels')
+        // //             ->where('level_id', $this->level->id)->orderBy('subject_id');
+        // // })
+        // // ->union(
+        // //     Subject::whereNotIn('id', function($query)  {
+        // //         $query->select('subject_id')
+        // //                 ->from('subjects_levels')
+        // //                 ->where('level_id', $this->level->id);
+        // //     })->where(function($query)  {
+        // //         $query->where('name_ar', 'like', "%$this->search%")
+        // //                 ->orWhere('name_en', 'like', "%$this->search%")
+        // //                 ->orWhere('id', 'like', "%$this->search%");
+        // //     })
+        // // )->where(function($query)  {
+        // //     $query->where('name_ar', 'like', "%$this->search%")
+        // //             ->orWhere('name_en', 'like', "%$this->search%")
+        // //             ->orWhere('id', 'like', "%$this->search%");
+        // // })
+        // Subject::join('subjects_levels', 'subjects_levels.subject_id', '=', 'subjects.id')
+        // ->where('subjects_levels.level_id', $this->level->id)
+        // ->where(function ($query) {
+        //     $query->where('subjects.name_ar', 'like', '%' . $this->search . '%')
+        //         ->orWhere('subjects.name_en', 'like', '%' . $this->search . '%')
+        //         ->orWhere('subjects.id', 'like', '%' . $this->search . '%');
+        // })->select('subjects.*','subjects_levels.*','subjects.id as id')
+        // ->union(
+        //     Subject::join('subjects_levels', 'subjects_levels.subject_id', '=', 'subjects.id')
+        //     ->where('subjects_levels.level_id', $this->level->id)
+
+        // )->select('subjects.*','subjects_levels.*','subjects.id as id')
+        // ->paginate($this->perPage);
+        // dd($subjects);
+        $subjects = Subject::leftJoin('subjects_levels', function($join){
+            $join->on('subjects_levels.subject_id', '=', 'subjects.id')
+            ->where('subjects_levels.level_id', $this->level->id);
+        })->
+        where(function($query){
+            $query->where('subjects.name_ar', 'like', "%$this->search%")
+            ->orWhere('subjects.name_en', 'like', "%$this->search%")
+            ->orWhere('subjects.id', 'like', "%$this->search%");
+        })->addSelect('subjects.*','subjects_levels.*','subjects.id as id')
+        ->orderByRaw("CASE WHEN subjects_levels.level_id IS NOT NULL THEN 0 ELSE 1 END")
+        ->orderBy('subjects_levels.semester')
+    ->paginate($this->perPage);
+
+    // dd($subjects);
+
+return $subjects;
 
         return $subjects;
     }

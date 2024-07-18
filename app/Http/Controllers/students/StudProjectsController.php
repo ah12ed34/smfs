@@ -5,11 +5,19 @@ namespace App\Http\Controllers\students;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use app\models\file;
+use App\Models\AcademicYear;
 use App\Models\Project;
 
 class StudProjectsController extends Controller
 {
+    private $ay_id;
+    private $semester;
     //
+    public function __construct()
+    {
+        $this->ay_id = AcademicYear::currentAcademicYear()->id;
+        $this->semester = AcademicYear::getTerm();
+    }
     public function index(){
         return view('students.studProjects.studProjects');
     }
@@ -41,6 +49,9 @@ class StudProjectsController extends Controller
         ->join('users as u', 'u.id', '=', 's.user_id')
 
         ->where('group_students.student_id', $user->student->user_id)
+        ->where('group_students.ay_id', $this->ay_id)
+        ->where('group_subjects.ay_id', $this->ay_id)
+        ->where('subjects_levels.semester', $this->semester)
         ->select('projects.*', 'group_projects.grade as gp_grade', 'group_projects.name as gp_name', 'group_projects.file as gp_file', 'group_projects.id as gp_id'
                     ,'academics.user_id as teacher_id',
                     )
