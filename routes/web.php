@@ -313,8 +313,17 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
             route::prefix("sendnotification")->group(function(){
                 route::get("/",'SendnotificationController@index')->name("sendnotification");
             });
-            route::prefix("studyingschedule")->group(function(){
-                route::get("/",'StudyingScheduleController@index')->name("studyingschedule");
+            route::prefix('main_academic_sechedules')->group(function(){
+                route::get("/",'StudyingScheduleController@main_academic_sechedules')->name("main_academic_sechedules");
+            });
+            route::prefix("mySchedule_studying")->group(function(){
+                route::get("/",'StudyingScheduleController@academic_schedule')->name("mySchedule_studying");
+            });
+            route::prefix('students_Schedule_studying')->group(function(){
+                route::get("/",'StudyingScheduleController@students_Schedule_studying')->name("students_Schedule_studying");
+            });
+            route::prefix('classes_Schedules_studying')->group(function(){
+                route::get("/",'StudyingScheduleController@classes_Schedules_studying')->name("classes_Schedules_studying");
             });
             route::prefix(("projectsStastics"))->group(function(){
                 route::get("/",'ProjectsStasticsController@index')->name("projectsStastics");

@@ -8,7 +8,7 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-3e8d18e7.css",
+    "file": "assets/app-b20d25ff.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -83,6 +83,10 @@
   "resources/images/calendar (4).png": {
     "file": "assets/calendar (4)-a8a0a513.png",
     "src": "resources/images/calendar (4).png"
+  },
+  "resources/images/calendar_students.png": {
+    "file": "assets/calendar_students-a8f46bdb.png",
+    "src": "resources/images/calendar_students.png"
   },
   "resources/images/cancelbtn.png": {
     "file": "assets/cancelbtn-3d0bb25e.png",
@@ -287,6 +291,14 @@
   "resources/images/studyingScheule.png": {
     "file": "assets/studyingScheule-4ce10d05.png",
     "src": "resources/images/studyingScheule.png"
+  },
+  "resources/images/timetable_academic.png": {
+    "file": "assets/timetable_academic-fd73d3ff.png",
+    "src": "resources/images/timetable_academic.png"
+  },
+  "resources/images/timetable_classes.png": {
+    "file": "assets/timetable_classes-e0945ed6.png",
+    "src": "resources/images/timetable_classes.png"
   },
   "resources/images/upload.png": {
     "file": "assets/upload-5686daec.png",

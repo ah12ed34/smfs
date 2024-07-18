@@ -35,7 +35,7 @@
             @endforelse
 
 
-            {{-- <div id="card-studyingbooks-student" class="card">
+            {{--  <div  class="card card-light card_studyingbooks_student" id="">
                 <div id="card-studyingbooks-child">
                     <img src="{{Vite::image("chapter (2).png")}}" class="chapters-image" width="180px">
 
@@ -46,7 +46,7 @@
 
                 </div>
 
-                <div id="card-studyingbooks-child-three">
+                    <div id="card-studyingbooks-child-three" class="card">
 
                     <button type="submit" class="btn btn-primary" id="btn-download" data-toggle="modal" data-target="#myModal3"><img src="{{Vite::image("download-file.png")}}" id="image-download"  width="15px" ></button>
                     <!-- <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModal3" style="margin-left: 30px;">  <img src="../images/delete (1).png")}}" id=""  width="15px" ></button>
