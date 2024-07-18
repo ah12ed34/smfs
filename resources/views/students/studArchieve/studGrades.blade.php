@@ -4,9 +4,9 @@
 <div class="hdr2" style=" box-shadow: 10px;">
     <button class="spaces"> <label  class="subjectname">  الدرجات </label><img src="{{Vite::image("degrees.png")}}" id="subject-icon-hdr2" width="40px" >
     </button>
-    <div class="dep-name">تقنة معلومات</div>
+    <div class="dep-name"> اسم القسم</div>
 
-    <div class="dropdwon">
+    {{-- <div class="dropdwon">
         <button id="btn-studybookStudentsdropdown-levels" style="margin-top:-30px;" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
             <div class="textstudentsdrop">      مستوى رابع | ترم ثاني</div>
        </button>
@@ -20,7 +20,27 @@
             <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding:0%;text-align:center;"> مستوى أول | ترم ثاني</a>
 
         </div>
+    </div> --}}
+
+    <div class="dropdwon">
+        <button id="btn-studybookStudentsdropdown-levels" style="margin-top:-30px;" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+            <div class="textstudentsdrop">مستوى رابع | ترم ثاني</div>
+        </button>
+        <div id="dropdown-menulist" class="dropdown-menu" style="width: 140px;">
+            @foreach ([
+                'مستوى رابع | ترم أول',
+                'مستوى ثالث | ترم اول',
+                'مستوى ثالث | ترم ثاني',
+                'مستوى ثاني | ترم أول',
+                'مستوى ثاني | ترم ثاني',
+                'مستوى أول | ترم أول',
+                'مستوى أول | ترم ثاني'
+            ] as $level)
+                <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding:0%;text-align:center;">{{ $level }}</a>
+            @endforeach
+        </div>
     </div>
+
 </div>
 
 <div class="hr3">
@@ -98,7 +118,36 @@
 
 
             <tbody>
-
+                @foreach ($grades as $grade)
+                <tr class="table-light">
+                    <td>{{ $grade->estimate }}</td>
+                    <td>{{ $grade->final_total }}</td>
+                    <td>{{ $grade->final_exam }}</td>
+                    <td>{{ $grade->result_practical }}</td>
+                    <td>{{ $grade->result_theoretical }}</td>
+                    <td>{{ $grade->quiz_practical }}</td>
+                    <td>{{ $grade->quiz_theoretical }}</td>
+                    <td>{{ $grade->midterm_practical }}</td>
+                    <td>{{ $grade->midterm_theoretical }}</td>
+                    <td>{{ $grade->assignment_practical }}</td>
+                    <td>{{ $grade->assignment_theoretical }}</td>
+                    <td>{{ $grade->project_practical }}</td>
+                    <td>{{ $grade->project_theoretical }}</td>
+                    <td>{{ $grade->attendance_practical }}</td>
+                    <td>{{ $grade->attendance_theoretical }}</td>
+                    <td>{{ $grade->subject }}</td>
+                    <td>{{ $grade->number }}</td>
+                </tr>
+                @endforeach
+                <tr class="table-light" dir="rtl">
+                    <td colspan="4" style="text-align: right">{{ $overallGrade }}</td>
+                    <th colspan="2">التفدير</th>
+                    <td colspan="2" style="text-align: right;padding-right:-10px;">{{ $cumulativeAverage }}</td>
+                    <th colspan="4">المعدل التراكمي</th>
+                    <td colspan="2" style="text-align: right; right:0px;">{{ $totalSum }}</td>
+                    <th colspan="4">المجموع الكلي</th>
+                </tr>
+{{--
                 <tr class="table-light ">
                     <!--   التقدير -->
                     <td>***</td>
@@ -193,20 +242,23 @@
                 </tr>
                 <tr class="table-light " dir="rtl">
 
+                    <!--   التفدير -->
                     <td colspan="4" style="text-align: right">***</td>
                     <th colspan="2" >التفدير  </th>
+
+                    <!--  المعدل التراكمي -->
                     <td colspan="2" style="text-align: right;padding-right:-10px;">***</td>
                     <th colspan="4">المعدل التراكمي</th>
+
+                    <!--  المجموع الكلي -->
                     <td colspan="2"style="text-align: right; right:0px;">***</td>
                     <th colspan="4">المجموع الكلي </th>
 
-                </tr>
+                </tr> --}}
                 </tbody>
         </table>
     </div>
-    {{-- <div class="card" id="alltotal-degrees"><label>المجموع الكلي </label></div>
-    <div class="card" id="avarage-rate-degrees"><label>المعدل التراكمي</label></div>
-    <div class="card" id="prancipation-as-estimation-degrees"><label>التفدير</label></div> --}}
+
 </div>
 
 

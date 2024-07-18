@@ -8,7 +8,7 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-347a2d53.css",
+    "file": "assets/app-0928edcd.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -287,6 +287,10 @@
   "resources/images/studyingScheule.png": {
     "file": "assets/studyingScheule-4ce10d05.png",
     "src": "resources/images/studyingScheule.png"
+  },
+  "resources/images/upload.png": {
+    "file": "assets/upload-5686daec.png",
+    "src": "resources/images/upload.png"
   },
   "resources/images/user (10).png": {
     "file": "assets/user-9d9e3eef.png",
