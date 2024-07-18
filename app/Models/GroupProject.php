@@ -20,7 +20,7 @@ class GroupProject extends Model
 
     ];
     public function project(){
-        return $this->belongsTo(Project::class);
+        return $this->hasOne(Project::class,'id','project_id');
     }
     public function student(){
         return $this->hasOneThrough(Student::class,GroupStudents::class,'id','user_id','student_id','student_id');

@@ -10,6 +10,15 @@ class ManageDepartStudentsFinalTearmStatisticsHeader extends Component
     use Searching;
     public $level;
     public $parameter ;
+    public $groups;
+    public $subjects;
+    public $terms;
+    public $active = [
+        'group' => 'all',
+        'subject' => 'all',
+        'term' => '1',
+        'tab' => 'statistics',
+    ];
     public function mount()
     {
         $this->initializeSearching();

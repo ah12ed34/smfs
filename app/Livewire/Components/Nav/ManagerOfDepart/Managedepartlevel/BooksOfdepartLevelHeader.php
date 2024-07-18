@@ -11,6 +11,9 @@ class BooksOfdepartLevelHeader extends Component
 
     public $level;
     public $parameter ;
+    public $active = [
+        'tab' => 'books',
+    ];
     public function mount()
     {
             $this->initializeSearching();

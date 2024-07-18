@@ -11,6 +11,9 @@ class DepartLevelAcademiclHeader extends Component
 
     public $level;
     public $parameter ;
+    public $active = [
+        'tab' => 'academic',
+    ];
     public function mount()
     {
 

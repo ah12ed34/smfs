@@ -377,7 +377,7 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
             Route::get('practical_groups','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\Practicalgroups::class)->name('practical_groups');
             Route::get('depart_level_academic','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\DepartLevelAcademicl::class)->name('depart_level_academic');
             Route::get('depart_level_Books','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\BooksOfdepartLevel::class)->name('depart_level_Books');
-            Route::get('depart_level_booksChapters','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\BooksChapters::class)->name('depart_level_booksChapters');
+            Route::get('depart_level_booksChapters/{level_subject}','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\BooksChapters::class)->name('depart_level_booksChapters');
             Route::get('depart_level_allsechedules','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\AllSechedulesStudyinhg::class)->name('depart_level_allsechedules');
             Route::get('depart_level_studentsFinalTearmStatistics','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\ManageDepartStudentsFinalTearmStatistics::class)->name('depart_level_studentsFinalTearmStatistics');
             Route::get('depart_level_studentsFinalWorkStatistics','\\'.App\Livewire\ManagerOfDepart\ManageDepartLevel\ManageDepartStudentsFinalWorksStatistics::class)->name('depart_level_studentsFinalWorkStatistics');

@@ -34,9 +34,11 @@
     @include('components.layouts.manager_department.header')
                 <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div>
         <div id="" class="input-group input_search_manageDepart_students">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" wire:model="search" wire:keydown.enter='srch' >
             <div class="input-group-append">
-                <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}"id="spaces2"  width="20px" ></button>
+                <button id="form-control" class="btn btn-light" type="submit"
+                wire:click='srch'
+                ><img src="{{Vite::image("magnifying-glass (2).png")}}"id="spaces2"  width="20px" ></button>
             </div>
         </div>
 

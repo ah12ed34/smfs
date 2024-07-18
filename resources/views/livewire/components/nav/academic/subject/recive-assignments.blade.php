@@ -68,7 +68,7 @@ button.active {
                 </div>
             </div>
 
-        <div class="dropdown">
+        {{-- <div class="dropdown">
         <button  type="button" class="btn btn-light reice_Assignements_StudentsGroups_dropdown  dropdown-toggle" data-toggle="dropdown" >
             <div class="textdropdown">  جميع المجموعات</div>
         </button>
@@ -77,7 +77,7 @@ button.active {
                 <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(2)</a>
                 <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(3)</a>
             </div>
-        </div>
+        </div> --}}
 
             <div class="dep-sub-name">{{ $group_subject->subject()->name_ar }}</div>
 

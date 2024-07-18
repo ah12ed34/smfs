@@ -160,7 +160,9 @@ class ReciveAssignments extends Component
             })->filter();
             if($this->tabActive=='not_delivered')
             {
-                $assignmentsR = $this->group_subject->students->map(function ($student) use ($assignmentsR) {
+                $assignmentsR = $this->group_subject->students()
+                ->get()
+                ->map(function ($student) use ($assignmentsR) {
                     // dd();
                     if($assignmentsR->where('student_group_id',$student->pivot->id)->count() == 0)
                     {

@@ -99,7 +99,7 @@ class SubjectsRepository extends StudentsRepository implements SubjectsInterface
             ->join('levels', 'subjects_levels.level_id', '=', 'levels.id')
             ->where('levels.id', $level_id)
             ->where('subjects_levels.semester', $this->currentAcademicYear->term)
-            ->select('subjects.*')
+            ->select('subjects.*', 'subjects.id as id')
             ;
     }
 
