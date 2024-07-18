@@ -15,7 +15,7 @@
                     @default
                         نظري
                 @endswitch
-            </button>
+                </div> </button>
             <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
                 @if(!(!$active && !$practical))
                     <a href="{{route("student-booksChapters",[$group_subject->id])}}" id="dropdown-itemlist" class="dropdown-item"  style="padding-left:40px;"> نظري</a>
@@ -64,7 +64,7 @@
         <div class="dep-name">{{ $group_subject->subjects->name_ar }}
     </div>
 
-    {{-- </div> --}}
+    </div>
     <div class="hr3">
         <a href="{{route("student-studyingbooks")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
         <div id="input-group-search-sub-file" class="input-group mb-3">

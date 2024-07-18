@@ -1,18 +1,21 @@
 <div>
+
 @section('nav')
     @livewire('components.nav.academic.subject.nav-studying-books',['group_subject'=>$group_subject,'active'=>$active])
 
 @endsection
-<div class="container" style="padding-top:40px; padding-bottom:20px;">
-        <div class="card" id="contents-book">
-            <div class="responsive">
-            </div>
+            {{-- <div class="responsive">
+    </div> --}}
+    {{-- <div class="container contents_book" style="padding-top: 30px" > --}}
+
+        <div class="container " id="" style="padding-top: 30px">
+
 
             @forelse ($studyingbooks as $studyingbook)
                 <div id="card-studyingbooks" class="card">
                     <div id="card-studyingbooks-child">
                         <img src="{{ $studyingbook->icon() }}"
-                          class="chapters" >
+                        class="chapters" >
                         {{-- <img src="{{Vite::image("chapter.png")}}"  class="chapters" > --}}
                         <label class="texttitlechapter">{{$studyingbook->name}}
                             </label>
@@ -49,11 +52,11 @@
             @endforelse
 
 
-            </div>
+            {{-- </div> --}}
             <nav>
                 {{ $studyingbooks->links(myapp::viewPagination) }}
             </nav>
-        </div>
+
 
         <!-- The ModalEdite -->
         <div class="modal fade" id="myModaledite" wire:ignore.self>
@@ -127,6 +130,8 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
         <script>
             window.addEventListener('closeModal', event => {

@@ -73,7 +73,7 @@
             </div>
 
     </div>
-    <div  class="hr3-students">
+    <div  class="hr3">
         <a href="{{route("subject.index",[$group_subject->id])}}">    <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button></a>
 
         <div id="input-groupstudyingbooks" class="input-group mb-3">

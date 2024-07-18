@@ -311,7 +311,9 @@
 } */
 #card-studyingbooks {
     width: 200px;
-    height: 60%;
+    /* position:fixed; */
+    box-shadow: none;
+    height:340px;
 }
 
 #card-studyingbooks-child {
@@ -372,8 +374,12 @@
     margin-top: 7px;
     box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
     bottom: 0%;
+    left:0px !important;
+    right:0% !important;
+    margin-left:0px;
+    margin-bottom:0px;
     position: absolute;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 #btn-edit {
@@ -450,9 +456,32 @@
 
 /* main css students */
 
+.card.card_studyingbooks_student {
+    width: 200px;
+    min-height:300px;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin-top: 40px;
+    margin-left: 15px;
+    display: inline-block;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    /* position: absolute; */
+    transition: 1;
+    -webkit-transition: 1;
+    -moz-transition: 1;
+    -ms-transition: 1;
+    -o-transition: 1;
+}
+
+
 #cards-subject-students {
     width: 220px;
-    height: 220px;
+    height: 300px ;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
     margin-top: 40px;
@@ -907,7 +936,37 @@
 #image-download {
     margin-top: -5px;
 }
-#contents-book {
+
+.container.contents_book {
+    box-shadow: none;
+    height: 100%;
+    /* width: 100%; */
+    top: 140px;
+    /* align-items: center;
+    justify-content: center; */
+    /* position: fixed; */
+    /* display:inline-block; */
+     overflow-y:scroll;
+    /*margin-right: 150px;
+    left: 0% !important;
+    right: 0%;
+    padding-right: 10px;
+    padding-left: 40px; */
+    background-color: #E9EEEF;
+}
+@media screen and (max-width: 700px) {
+    .container.contents_book {
+        margin-right: 0px !important;
+        left: 0%;
+        /* position:relative; */
+        right: 0% !important;
+        margin-left: 0%;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+
+ #contents-book {
     box-shadow: none;
     height: 100%;
     width: 100%;
