@@ -18,6 +18,7 @@ class Academic extends Model
         'status',
         'academic_name',
         'schedule',
+        'schedule2',
         'Weekly_lectures',
         'Quarterly_lectures',
     ];
@@ -83,5 +84,34 @@ class Academic extends Model
 
     public function getFNameAttribute() {
         return mb_substr($this->name,0,1,'utf-8') .'. '.explode(' ',$this->user->name)[0].' '.$this->user->last_name;
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::updated(function ($academic) {
+            // delete file schedule if schedule changed
+            if ($academic->isDirty('schedule')) {
+                $oldSchedule = $academic->getOriginal('schedule');
+                if ($oldSchedule) {
+                    $oldSchedule = asset('storage/' . $oldSchedule);
+                    if (file_exists($oldSchedule)) {
+                        unlink($oldSchedule);
+                    }
+                }
+            }
+            if ($academic->isDirty('schedule2')) {
+                $oldSchedule = $academic->getOriginal('schedule2');
+                if ($oldSchedule) {
+                    $oldSchedule = asset('storage/' . $oldSchedule);
+                    if (file_exists($oldSchedule)) {
+                        unlink($oldSchedule);
+                    }
+                }
+            }
+        });
+        static::deleting(function ($academic) {
+            $academic->user->delete();
+        });
     }
 }

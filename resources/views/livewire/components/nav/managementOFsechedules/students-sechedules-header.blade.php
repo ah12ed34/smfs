@@ -8,7 +8,7 @@
 
 
 
-                <div class="dep-name">تقنية معلومات</div>
+                <div class="dep-name">*********</div>
 
         <div id="" class="input-group input_search_manageDepart_StudentsGroups">
             <input type="text" class="form-control" placeholder="Search">
@@ -24,7 +24,7 @@
     </div>
 
     <div class="hr3">
-        <button id="spacesbtn" class="spaces"  onclick="window.location='{{ route('levels_sechedules') }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
+        <button id="spacesbtn" class="spaces"  onclick="window.location='{{ route('levels_sechedules',$parameters) }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
 
         <!-- <div id="input-groupstudyingbooks" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">

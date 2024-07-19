@@ -272,7 +272,7 @@
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">الوصف</th>
-                                    <td>**********</td>
+                                    <td>{{ $projectDetails->description }}</td>
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">الملف المرفق</th>

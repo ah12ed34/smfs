@@ -427,19 +427,14 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
         route::get('academics_sechedules','\\'.App\Livewire\ManagementOFSechedules\AcademicsSechedules::class)->name('academics_sechedules');
         route::get('levels_sechedules','\\'.App\Livewire\ManagementOFSechedules\LevelsSechedules::class)->name('levels_sechedules');
         route::group(['prefix'=>'{level}','middleware'=>'verifyLevelOwnership'],function(){
-            //
-            // route::group(['prefix'=>'{main}','middleware'=>'verifyMainOwnership'],function(){
-            // //     route::get('classes_sechedules','\\'.App\Livewire\ManagementOFSechedules\ClassesSechedules::class)->name('classes_sechedules');
-            // //
-            // //     route::get('students_sechedules','\\'.App\Livewire\ManagementOFSechedules\StudentsSechedules::class)->name('students_sechedules');
-            // });
+            route::get('students_sechedules', '\\'.App\Livewire\ManagementOFSechedules\StudentsSechedules::class)->name('students_sechedules');
         });
     });
     // route::get('levels_sechedules','\\'.App\Livewire\ManagementOFSechedules\LevelsSechedules::class)->name('levels_sechedules');
     // route::get('main_sechedules','\\'.App\Livewire\ManagementOFSechedules\MainSechedules::class)->name('main_sechedules');
     route::get('classes_sechedules', '\\'.App\Livewire\ManagementOFSechedules\ClassesSechedules::class)->name('classes_sechedules');
     // route::get('academics_sechedules', '\\'.App\Livewire\ManagementOFSechedules\AcademicsSechedules::class)->name('academics_sechedules');
-    route::get('students_sechedules', '\\'.App\Livewire\ManagementOFSechedules\StudentsSechedules::class)->name('students_sechedules');
+
 
 });
     // Route::prefix('managerOFdepart')->group(function () {

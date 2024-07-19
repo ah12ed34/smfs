@@ -10,7 +10,6 @@ use App\Models\Student;
 use App\Models\User;
 use App\Traits\Searchable;
 use Illuminate\Support\Facades\Storage;
-use Livewire\WithPagination;
 class ProjectGroups extends Component
 {
     use Searchable;
@@ -38,12 +37,20 @@ class ProjectGroups extends Component
     public $boss = [];
 
     public $add_student = false;
+    public $active = [
+        'tab'=>null,
+    ];
     public function mount(GroupSubject $group_subject,$project_id)
     {
         $this->group_subject = $group_subject;
         $this->project_id = $project_id;
         $this->parameters =request()->route()->parameters;
         $this->query = request()->query();
+        if(isset($this->query['tab'])&&$this->query['tab'] != null
+        && in_array($this->query['tab'],['done','not_done'])
+        ){
+            $this->active['tab'] = $this->query['tab'];
+        }
         // dd($parameters);
     }
 
@@ -265,10 +272,21 @@ class ProjectGroups extends Component
 
         return $GroupProjects
         ->filter(function($group){
-            return $this->search == '' || strpos($group->name,$this->search) !== false
-            || strpos($group?->student?->user?->name
-            ,$this->search) !== false
-            || strpos($group?->student?->user_id,$this->search) !== false;
+            if($this->active['tab'] == 'done'){
+                return $group->file != null;
+            }elseif($this->active['tab'] == 'not_done'){
+                return $group->file == null;
+            }else{
+                return true;
+            }
+        })
+        ->filter(function($group){
+            // search by name of group
+
+                return
+                $this->search == '' ||
+                str_contains($group->name,$this->search) !== false;
+
         })
         ->paginate($this->perPage);
 

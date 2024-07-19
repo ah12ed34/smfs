@@ -3,6 +3,7 @@
 namespace App\Livewire\ManagementOFSechedules;
 
 use App\Models\Department;
+use App\Traits\SchedulesTrait;
 use App\Traits\Searchable;
 use App\Traits\ToolsNav;
 use Illuminate\Support\Facades\DB;
@@ -10,12 +11,17 @@ use Livewire\Component;
 
 class AcademicsSechedules extends Component
 {
-    use ToolsNav,Searchable;
+    use ToolsNav,Searchable,SchedulesTrait;
     public Department $department;
 
     public function mount()
     {
         $this->initializeToolsNav($this->department->levels->first(),['term','type']);
+        if(request()->has('term')&&is_numeric(request()->term)){
+            $this->term_id = request()->term;
+        }else{
+            $this->term_id = 1;
+        }
     }
 
     public function getAcademicsParameters()
@@ -32,7 +38,12 @@ class AcademicsSechedules extends Component
             ;
         })
         ->orderBy($this->sortField,$this->sortAsc ? 'asc' : 'desc')
-        ->paginate($this->perPage);
+        ->get()
+        ->filter(function($academic){
+            return $academic->term == null || $academic->term->id == $this->term_id;
+        })
+        ->paginate($this->perPage)
+        ;
     }
 
 

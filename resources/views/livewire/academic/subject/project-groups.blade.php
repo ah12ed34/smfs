@@ -1,5 +1,7 @@
 @section('nav')
-    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject,'backName'=>'projects'])
+    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject,'backName'=>'projects'
+    ,'active'=>$active,'deny'=>['create'],
+    ])
 @endsection
 {{-- @section('nav')
 @livewire('components.nav.academic.subject.project-groups-header')
@@ -63,7 +65,12 @@
                             </td>
                             <td>
                                 @if ($projectGroup->delivery_date)
-                                    {{ $projectGroup->delivery_date }}
+                                    {{-- @if ($projectGroup->delivery_date > $projectGroup->project->end_date)
+                                        {{ 'متاخر ب ' . \Carbon\Carbon::parse($projectGroup->delivery_date)->diffInDays(\Carbon\Carbon::parse($projectGroup->project->end_date)) . ' يوم' }}
+                                    @else --}}
+                                        {{ $projectGroup->delivery_date }}
+                                    {{-- @endif --}}
+
                                 @else
                                     {{ __('general.not_delivered') }}
 
@@ -71,7 +78,11 @@
                             </td>
                             <td>
                                 @if ($projectGroup->file)
+                                    @if($projectGroup->delivery_date > $projectGroup->project->end_date)
+                                        <span class="badge badge-warning">متأخر</span>
+                                    @else
                                     <span class="badge badge-success">مكتمل</span>
+                                    @endif
                                 @else
                                     <span class="badge badge-danger">غير مكتمل</span>
                                 @endif

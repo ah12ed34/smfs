@@ -3,16 +3,18 @@
 <div class="hdr2" style=" box-shadow: 10px;">
     <button class="spaces"> <label  class="subjectname"> المشاريع </label><img src="{{Vite::image("project-management.png")}}" id="subject-icon-hdr2" width="40px">
     </button>
-    <div   class=" dep-sub-name"> نظم موزعة </div>
+    <div   class=" dep-sub-name"> {{ $gs->subject()->name_ar }} </div>
 
     <div id="btn-group-proj" class="btn-group">
         <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
-        <a href="
-        {{-- {{route("projectsStastics")}} --}}
-        ">  <button class="btn-projctsNavbarproj" style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label class="proNavbartext">الإحصائيات</label></button></a>
-        <button class="btn-projctsNavbarproj"><label class="proNavbartext"> غير منجزة</label></button>
-        <button class="btn-projctsNavbarproj"><label class="proNavbartext"> منجزة </label></button>
-        <a href="{{ route('project',[$group_subject,$group_project]) }}
+        <a href="{{route("projectsStastics",array_merge($parameters,$qurey))}}">
+            <button class="btn-projctsNavbarproj" style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label class="proNavbartext">الإحصائيات</label></button></a>
+        <a href="{{ route('project',array_merge($parameters,$qurey,['tab'=>'not_done'])) }}">
+        <button class="btn-projctsNavbarproj"><label class="proNavbartext"> غير منجزة</label></button></a>
+        <a href="{{ route('project',array_merge($parameters,$qurey,['tab'=>'done'])) }}">
+            <button class="btn-projctsNavbarproj"><label class="proNavbartext"> منجزة </label></button>
+        </a>
+        <a href="{{ route('project',array_merge($parameters,$qurey,['tab'=>null])) }}
         ">  <button class="btn-projctsNavbarproj"><label class="proNavbartext">الكل</label></button></a>
     </div>
     <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
@@ -56,28 +58,28 @@
 <div class="container" id="container-project" style="padding-top: 30px;" >
 
 
-    <div class="cards-child-stastics">
+    <div class="cards-child-stastics" onclick="window.location.href='{{route("project",array_merge($parameters,$qurey,['tab'=>'not_done']))}}'">
         <label class="cards-child-title">المشاريع غير منجزة
         </label>
-        <div class="cards-child-numbers">0</div>
+        <div class="cards-child-numbers">{{ $stastics['count_not_done'] }}</div>
         <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
     </div>
 
-    <div class="cards-child-stastics">
+    <div class="cards-child-stastics" >
         <label class="cards-child-title">المشاريع المتأخرة</label>
-        <div class="cards-child-numbers">0</div>
+        <div class="cards-child-numbers">{{ $stastics['count_late'] }}</div>
         <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
     </div>
 
-    <div class="cards-child-stastics">
+    <div class="cards-child-stastics" onclick="window.location.href='{{route("project",array_merge($parameters,$qurey,['tab'=>'done']))}}'">
         <label class="cards-child-title"> المشاريع المنجزة</label>
-        <div class="cards-child-numbers">0</div>
+        <div class="cards-child-numbers">{{ $stastics['count_done'] }}</div>
         <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
     </div>
 
-    <div class="cards-child-stastics">
+    <div class="cards-child-stastics" onclick="window.location.href='{{route("project",array_merge($parameters,$qurey))}}'">
         <label class="cards-child-title">جميع المشاريع</label>
-        <div class="cards-child-numbers">0</div>
+        <div class="cards-child-numbers">{{ $stastics['count_groups'] }}</div>
         <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
     </div>
 

@@ -7,7 +7,7 @@
         <div class="dep-name"> الجودة </div>
     </div>
     <div class="hr3">
-        <button id="spacesbtn" class="spaces"  onclick="window.location='{{ route('main_sechedules') }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
+        <button id="spacesbtn" class="spaces"  onclick="window.location='{{ route('main_sechedules',$parameters) }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
 
         <!-- <div id="input-groupstudyingbooks" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">
@@ -24,11 +24,11 @@
 <div class="container">
 
     @foreach ($levels as $level)
-
-    <div class="card  cards-departments depart-level-quality" id=""  onclick="window.location='{{ route('main_sechedules',
-    [$parameters, $level->id
+    {{-- number of loob --}}
+    <div class="card  cards-departments depart-level-quality" id=""  onclick="window.location='{{ route('students_sechedules',
+    $parameters+ [$level->id]
     ) }}'">
-        <img src="{{Vite::image("level$level->id.png")}}"
+        <img src="{{Vite::image("level$loop->iteration.png")}}"
          class="" width="150px">
         <div class="card-departments-child">{{$level->name}}
         </div>
