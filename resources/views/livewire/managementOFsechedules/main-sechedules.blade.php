@@ -19,7 +19,7 @@
         <div class="dep-name"> الجودة </div>
     </div>
     <div class="hr3">
-    <button id="spacesbtn" class="spaces" onclick="window.location='{{ route('departments_sechedules') }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
+    <button id="spacesbtn" class="spaces" onclick="window.location='{{ route('departments_sechedules',[$department->id]) }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
 
         <!-- <div id="input-groupstudyingbooks" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">
@@ -36,13 +36,13 @@
     <div class="container" style="padding-top: 40px;">
 
     <div class="card  cards-departments" id="">
-        <img src="{{Vite::image("students.png")}}" class="" width="150px" onclick="location.href='{{route('levels_sechedules')}}'">
+        <img src="{{Vite::image("students.png")}}" class="" width="150px" onclick="location.href='{{route('levels_sechedules',[$department->id])}}'">
         <div class="card-departments-child">    جدول الطلاب
         </div>
     </div>
 
     <div class="card  cards-departments" id="">
-        <img src="{{Vite::image("academics.png")}}" class="" width="150px"  onclick="location.href='{{route('academics_sechedules')}}'">
+        <img src="{{Vite::image("academics.png")}}" class="" width="150px"  onclick="location.href='{{route('academics_sechedules',[$department->id])}}'">
         <div class="card-departments-child"> جدول الأكادميين
         </div>
     </div>

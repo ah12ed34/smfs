@@ -20,7 +20,7 @@ class Department extends Model
     }
 
     public function Academics(){
-        return $this->hasMany(Academic::class);
+        return $this->hasMany(Academic::class,'department_id','id');
     }
 
     public function Subjects()

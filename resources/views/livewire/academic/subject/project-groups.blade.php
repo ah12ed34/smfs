@@ -1,5 +1,5 @@
 @section('nav')
-    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject])
+    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject,'backName'=>'projects'])
 @endsection
 {{-- @section('nav')
 @livewire('components.nav.academic.subject.project-groups-header')
@@ -82,7 +82,7 @@
 
                     @empty
                         <tr >
-                            <td colspan="9" style="text-align: center;">{{ __('general.no_projects') }}</td>
+                            <td colspan="10" style="text-align: center;">{{ __('general.no_projects') }}</td>
                         </tr>
 
                     @endforelse
@@ -425,6 +425,7 @@
                             </div>
 
                         @endif
+                        @if($users)
                             <table class="table" style="width:100%;" dir="rtl">
                             <tr class="table-primary">
                                 <th colspan="2" >اسم المشروع</th>
@@ -481,6 +482,7 @@
                                     ></textarea></td>
                             </tr>
                             </table>
+                        @endif
                         </div>
 
                         {{-- <input type="text" class="form-control" id="inputtext" name="projectname" placeholder=" الاسم " style="height: 30px; margin-top:8px">

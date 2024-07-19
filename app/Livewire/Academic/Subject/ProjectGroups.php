@@ -8,14 +8,13 @@ use App\Models\GroupSubject;
 use App\Models\Project ;
 use App\Models\Student;
 use App\Models\User;
+use App\Traits\Searchable;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithPagination;
 class ProjectGroups extends Component
 {
-    use WithPagination;
+    use Searchable;
     public $group_subject;
-    public $search;
-    public $perPage = 10;
     public $projectDetails;
     public $project_id;
     public $project_groups = [
@@ -236,7 +235,7 @@ class ProjectGroups extends Component
         $this->project_groups['min_groups'] = ceil($count_students / $project->max_students);
 
         $GroupProjects = $project->GroupProjects()
-        ->where('name','like','%'.$this->search.'%')
+        // ->where('name','like','%'.$this->search.'%')
         ->get()
         ->map(function($group){
             $group->count_students = $group->students->count();
@@ -263,7 +262,15 @@ class ProjectGroups extends Component
                 $GroupProjects->push($group);
             }
         }
-        return $GroupProjects->paginate($this->perPage);
+
+        return $GroupProjects
+        ->filter(function($group){
+            return $this->search == '' || strpos($group->name,$this->search) !== false
+            || strpos($group?->student?->user?->name
+            ,$this->search) !== false
+            || strpos($group?->student?->user_id,$this->search) !== false;
+        })
+        ->paginate($this->perPage);
 
     }
     public function render()

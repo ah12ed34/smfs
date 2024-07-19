@@ -24,8 +24,15 @@
         <!-- <div class="responsive"></div> -->
         <!-- <a href="board.html"> -->
         <!-- <div class="container"> -->
+            @foreach ($departments as $department)
+            <div class="card  cards-departments" id=""  onclick="window.location='{{ route('main_sechedules',$department->id) }}'">
+                <img src="{{Vite::image("it.png")}}" class="" width="150px">
+                <div class="card-departments-child"> {{$department->name}}
+                </div>
+            </div>
 
-        <div class="card  cards-departments" id=""  onclick="window.location='{{ route('main_sechedules') }}'">
+            @endforeach
+        {{-- <div class="card  cards-departments" id=""  onclick="window.location='{{ route('main_sechedules') }}'">
             <img src="{{Vite::image("it.png")}}" class="" width="150px">
             <div class="card-departments-child"> تقنية المعلومات
             </div>
@@ -47,7 +54,7 @@
             <img src="{{Vite::image("security (3).png")}}" class="" width="150px">
             <div class="card-departments-child"> الأمن السيبراني
             </div>
-        </div>
+        </div> --}}
 
     </div>
 </div>

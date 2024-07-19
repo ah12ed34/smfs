@@ -1,5 +1,7 @@
 @section('nav')
-@livewire('components.nav.managementOFsechedules.academics-sechedules-header')
+@livewire('components.nav.managementOFsechedules.academics-sechedules-header',
+['department'=>$department,'active'=>$active,'terms'=>$terms,'types'=>$types])
+
 @endsection
 <div>
     {{-- Do your work, then step back. --}}
@@ -18,7 +20,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                    @forelse ($academics as $academic)
+                        <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف الجدول <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#UploadeFileModal">رفع جدول  <img src="{{Vite::image("upload.png")}}" id=""  width="15px" ></button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DisplaySeheduleModal">عرض الجدول</button> </td>
+                            <td>{{ $academic->name }}</td>
+                            <td>{{ $academic->user->gender_ar() }}</td>
+                            <td>{{ $academic->f_name }}</td>
+                        </tr>
+                    @empty
+
+                        <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                            <td
+                                colspan="6"
+                            >{{ __('No data') }}</td>
+                        </tr>
+                    @endforelse
+
+                    {{-- <tr class="table-light" id="modldetials" style="margin-top:7px;">
                         <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف الجدول <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#UploadeFileModal">رفع جدول  <img src="{{Vite::image("upload.png")}}" id=""  width="15px" ></button> </td>
                         <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DisplaySeheduleModal">عرض الجدول</button> </td>
@@ -49,11 +69,14 @@
                         <td>*******</td>
                         <td>*******</td>
                         <td>*******</td>
-                    </tr>
+                    </tr> --}}
 
                 </tbody>
             </table>
         </div>
+        <nav>
+            {{ $academics->links() }}
+        </nav>
     </div>
 
 

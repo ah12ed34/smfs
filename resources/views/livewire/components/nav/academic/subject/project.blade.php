@@ -3,31 +3,33 @@
         <button class="spaces"> <label  class="subjectname"> المشاريع </label><img src="{{Vite::image("project-management.png")}}" id="subject-icon-hdr2" width="40px">
         </button>
         <div class="dep-sub-name">{{$group_subject->subject()->name_ar}} </div>
-
+            @if(!in_array('tab',$deny))
         <div id="btn-group-proj" class="btn-group">
-        <a href="{{route("projectsStastics",[$group_subject->id]
+
+        <a href="{{route("projectsStastics",$parameters
         )}}">  <button class="btn-projctsNavbarproj" ><label class="proNavbartext">الإحصائيات</label></button></a>
             <button class="btn-projctsNavbarproj"><label class="proNavbartext"> غير منجزة</label></button>
             <button class="btn-projctsNavbarproj"><label class="proNavbartext"> منجزة </label></button>
+
             <a href="{{route("projects",[$group_subject->id])}}">  <button class="btn-projctsNavbarproj"style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label class="proNavbartext">الكل</label></button></a>
-        </div>
+        </div> @endif
         <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
             <label class="bottomNavbartext">القائمة</label>
             </button> -->
-
+            @if(!in_array('tab',$deny))
         <button id="button-hdr2" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown" >
-                 <div class="textdrop">  جميع المشاريع</div>
+            <div class="textdrop">  جميع المشاريع</div>
                 </button>
         <div id="dropdown-menulist" class="dropdown-menu" style="width:130px; color: #0E70F2; ">
             <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">منجزة</a>
             <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:30px; ">غير منجزة</a>
-            <a id="dropdown-itemlist" class="dropdown-item" href="{{route("projectsStastics",[$group_subject->id])}}"> الإحصائيات</a>
+            <a id="dropdown-itemlist" class="dropdown-item" href="{{route("projectsStastics",$parameters)}}"> الإحصائيات</a>
         </div>
-
+        @endif
     </div>
 
     <div class="hr3">
-        <a href="{{route("subject.index",[$group_subject->id])}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
+        <a href="{{route($backName,[$group_subject->id])}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
         <div id="input-group-proj" class="input-group mb-3">
             <input type="text" class="form-control" wire:model='search' wire:keydown.enter="srch"
                     placeholder="Search">

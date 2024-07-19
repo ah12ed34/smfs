@@ -23,7 +23,20 @@
 
 <div class="container">
 
-    <div class="card  cards-departments depart-level-quality" id=""  onclick="window.location='{{ route('students_sechedules') }}'">
+    @foreach ($levels as $level)
+
+    <div class="card  cards-departments depart-level-quality" id=""  onclick="window.location='{{ route('main_sechedules',
+    [$parameters, $level->id
+    ) }}'">
+        <img src="{{Vite::image("level$level->id.png")}}"
+         class="" width="150px">
+        <div class="card-departments-child">{{$level->name}}
+        </div>
+    </div>
+
+    @endforeach
+
+    {{-- <div class="card  cards-departments depart-level-quality" id=""  onclick="window.location='{{ route('students_sechedules') }}'">
         <img src="{{Vite::image("level1.png")}}" class="" width="150px">
         <div class="card-departments-child">  مستوى  اول
         </div>
@@ -45,7 +58,7 @@
         <img src="{{Vite::image("level4.png")}}" class="" width="150px">
         <div class="card-departments-child"> مستوى  رابع
         </div>
-    </div>
+    </div> --}}
 
 </div>
 </div>

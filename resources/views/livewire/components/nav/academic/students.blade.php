@@ -88,13 +88,12 @@
             <div class="textdrop2"> {{ $group_subject->group->name }}</div>
            </button>
         <div id="dropdown-menulist" class="dropdown-menu">
-            @foreach ($group_subject->getOtherGroups()
+            @foreach ($group_subject->getOtherGroupss
             as $group)
                 <a id="dropdown-students-itemlist" class="dropdown-item"
-
-                href="{{ route($urlName??'students',array_merge($this->parameters??[],
-                 ['group_subject' => $group->group_subject_id])) }}"
-                 style="padding-left:40px;">{{ $group->name }}</a>
+                href="{{ route($routeName??'students',array_merge($parameters??[],
+                 ['group_subject' => $group->id])) }}"
+                 style="padding-left:40px;">{{ $group->group->name }}</a>
             @endforeach
             {{-- <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(2)</a>
             <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> المجموعة(3)</a> --}}
@@ -112,12 +111,12 @@
             <div class="textdrop2"> {{ $group_subject->group->name }}</div>
            </button>
         <div id="dropdown-menulist" class="dropdown-menu">
-            @foreach ($group_subject->getOtherGroups() as $group)
+            @foreach ($group_subject->getOtherGroupss as $group)
                 <a id="dropdown-students-itemlist" class="dropdown-item"
-                href="{{ route($urlName,array_merge($this->parameters??[],
-                 ['group_subject' => $group->group_subject_id])) }}"
+                href="{{ route($routeName,array_merge($parameters??[],
+                 ['group_subject' => $group->id])) }}"
 
-                 style="padding-left:40px;">{{ $group->name }}</a>
+                 style="padding-left:40px;">{{ $group->group->name }}</a>
 
             @endforeach
             {{-- <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">(1)المجموعة</a> --}}

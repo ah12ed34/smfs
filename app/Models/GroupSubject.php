@@ -158,8 +158,14 @@ class GroupSubject extends Model
             ->where('group_subjects.teacher_id', auth()->user()->academic->user_id)
             ->where('group_subjects.ay_id', AcademicYear::currentAcademicYear()->id)
             ->where('groups.id', '!=', $this->group_id)
-            ->select('groups.*','group_subjects.id as group_subject_id')
+            ->addSelect('groups.name as name','group_subjects.id as id')
             ->get();
+            ;
+    }
+    public function getOtherGroupss(){
+        return $this->hasMany(GroupSubject::class,'subject_id','subject_id')
+        ->where('group_id','!=',$this->group_id)
+        ->where('ay_id',$this->ay_id);
     }
 
     public function files()

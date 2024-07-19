@@ -12,8 +12,7 @@
         ">  <button class="btn-projctsNavbarproj" style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label class="proNavbartext">الإحصائيات</label></button></a>
         <button class="btn-projctsNavbarproj"><label class="proNavbartext"> غير منجزة</label></button>
         <button class="btn-projctsNavbarproj"><label class="proNavbartext"> منجزة </label></button>
-        <a href="
-        {{-- {{route("projects")}} --}}
+        <a href="{{ route('project',[$group_subject,$group_project]) }}
         ">  <button class="btn-projctsNavbarproj"><label class="proNavbartext">الكل</label></button></a>
     </div>
     <!-- <button class="btn-bottomNavbar"><i id="bottombaricon" class="bi bi-house-fill custom-width-icon" width="30px" height="30px"></i><br>
@@ -33,14 +32,14 @@
 
 <div class="hr3">
     <a href="
-    {{-- {{route("student")}} --}}
+    {{route("projects",[$group_subject])}}
     ">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
-    <div id="input-group-students-search" class="input-group mb-3">
+    {{-- <div id="input-group-students-search" class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search">
         <div class="input-group-append">
             <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
         </div>
-    </div>
+    </div> --}}
     {{-- <button class="Addbtn-projctsNavbar" data-toggle="modal" data-target="#myModal"><label class="proNavbartext">إنشاء مشروع</label><img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> --}}
 
 </div>

@@ -8,11 +8,11 @@
         </button>
         <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
             @if($active['teacher'] != null)
-                <a id="" class="dropdown-item" href="{{route($routeName ,array_merge($parameter,$qurey,['teacher'=>null]))}}"
+                <a id="" class="dropdown-item" href="{{route($routeName ,array_merge($parameters,$qurey,['teacher'=>null]))}}"
                  style="padding-left:30px; ">كل المدرسين</a>
             @endif
             @foreach ($teachers->where('user_id','!=',$active['teacher']) as $teacher)
-            <a id="" class="dropdown-item" href="{{ route($routeName,$parameter+array_merge($qurey, ['teacher' => $teacher->user_id])) }}" style="padding-left:30px;">
+            <a id="" class="dropdown-item" href="{{ route($routeName,$parameters+array_merge($qurey, ['teacher' => $teacher->user_id])) }}" style="padding-left:30px;">
             {{ $teacher->user->name }}</a>
             @endforeach
             {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  ******</a> --}}

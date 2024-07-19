@@ -17,6 +17,7 @@ trait ToolsNav
     public $subjects;
     public $terms;
     public $teachers;
+    public $types;
 
 
     /**
@@ -35,7 +36,7 @@ trait ToolsNav
         }
 
         if(in_array('all', $selectActive)){
-            $selectActive = ['group', 'term', 'subject','teacher'];
+            $selectActive = ['group', 'term', 'subject','teacher','type'];
         }
         if (in_array('group', $selectActive)) {
             if(isset($selectActive['group'])&&is_array($selectActive['group'])){
@@ -55,6 +56,24 @@ trait ToolsNav
         if(in_array('teacher', $selectActive)){
             $this->initializeTeacher($request, $level);
         }
+
+        if (in_array('type', $selectActive)) {
+            $this->initializeType($request);
+        }
+    }
+
+    public function initializeType(Request $request){
+        if($request->has('type')){
+            $this->active['type'] = $request->type;
+        }else{
+            $this->active['type'] = null;
+        }
+        $this->types = collect([
+            (object)['id' => null, 'name' => 'الكل'],
+            (object)['id' => 'practical', 'name' => 'العملي'],
+            (object)['id' => 'theory', 'name' => 'النظري'],
+        ]);
+
     }
 
     /**
