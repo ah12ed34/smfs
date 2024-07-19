@@ -30,7 +30,9 @@
     <div class="dep-name">تقنة معلومات</div>
 </div>
 
-</div>
+
+
+
 <div class="hr3">
     <a href="{{route("student-studyingbooks")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
     <div id="input-group-search-sub-file" class="input-group mb-3">
@@ -55,7 +57,7 @@
                 <label class="texttitlechapter">Lecture 1</label>
             </div>
 
-         
+
             <div id="card-studyingbooks-child-three">
 
                 <button type="submit" class="btn btn-primary" id="btn-download"  ><img src="{{Vite::image("download-file.png")}}" id="image-download"  width="15px" ></button>
@@ -78,7 +80,7 @@
                 </label>
 
             </div>
-        
+
             <div id="card-studyingbooks-child-three">
 
                 <button type="submit" class="btn btn-primary" id="btn-download" data-toggle="modal" data-target="#myModal3"><img src="{{Vite::image("download-file.png")}}" id="image-download"  width="15px" ></button>
