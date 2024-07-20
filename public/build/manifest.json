@@ -8,7 +8,7 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-b20d25ff.css",
+    "file": "assets/app-e66aff8a.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -35,6 +35,14 @@
   "resources/images/M.L.H DS Mid exams_page-0004.jpg": {
     "file": "assets/M.L.H DS Mid exams_page-0004-22b56b26.jpg",
     "src": "resources/images/M.L.H DS Mid exams_page-0004.jpg"
+  },
+  "resources/images/Path 350.png": {
+    "file": "assets/Path 350-6c8fee78.png",
+    "src": "resources/images/Path 350.png"
+  },
+  "resources/images/Path 360.png": {
+    "file": "assets/Path 360-9bcc3fbf.png",
+    "src": "resources/images/Path 360.png"
   },
   "resources/images/academics.png": {
     "file": "assets/academics-68dc28a9.png",
@@ -155,6 +163,10 @@
   "resources/images/exit.png": {
     "file": "assets/exit-8d5a8c41.png",
     "src": "resources/images/exit.png"
+  },
+  "resources/images/faculty.png": {
+    "file": "assets/faculty-578ab126.png",
+    "src": "resources/images/faculty.png"
   },
   "resources/images/folder (1).png": {
     "file": "assets/folder (1)-c169ae87.png",

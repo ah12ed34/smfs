@@ -106,7 +106,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body modal_body_css">
                 <form action="" style="display: block;">
                     <div class="form-group">
                         <!-- <label for="usr">Name:</label> -->
@@ -425,7 +425,7 @@
  <!-- The ModalMessageApprovementDelete -->
  <div class="modal fade" id="MessageApprovementDeleteModal" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content UploadeFileModal" id="modal-content2" style="height: 190px;">
+        <div class="modal-content UploadeFileModal" id="modal-content2" style="height:35vh;">
 
             <!-- Modal Header -->
             <div class="modal-header modal_header_delete" id="modheader" style="height:40px; background-color:#F6F7FA ;color: rgb(67, 111, 206);">
@@ -434,7 +434,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" style="text-align: center;">
+            <div class="modal-body modal_body_css" style="text-align: center;">
                 <form action="" style="display: block;">
                     <div class="form-group">
                         <!-- <label for="usr">Name:</label> -->
@@ -449,10 +449,10 @@
             <!-- Modal footer -->
 
             <div class="modal-footer" style="">
-                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" style="height: 30p; width: 80px; font: size 12px; bottom:0px;"
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id=""
                 wire:click='deleteStudent()'
                 >نعم</button>
-                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="" style="height: 30px; width: 80px; font: size 12px;">لا</button>
+                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="" >لا</button>
             </div>
         </div>
     </div>
