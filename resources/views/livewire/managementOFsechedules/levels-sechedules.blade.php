@@ -4,7 +4,7 @@
         <button class=" spaces"> <label  class="subjectname" >   مسؤول الجداول </label><img src="{{Vite::image("empoloyee_scheduls.png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
         </button>
 
-        <div class="dep-name"> الجودة </div>
+        <div class="dep-name">{{ $department->name }}</div>
     </div>
     <div class="hr3">
         <button id="spacesbtn" class="spaces"  onclick="window.location='{{ route('main_sechedules',$parameters) }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>

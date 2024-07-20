@@ -22,6 +22,7 @@ class AcademicsSechedules extends Component
         }else{
             $this->term_id = 1;
         }
+        $this->initializeSchedules();
     }
 
     public function getAcademicsParameters()
@@ -41,6 +42,8 @@ class AcademicsSechedules extends Component
         ->get()
         ->filter(function($academic){
             return $academic->term == null || $academic->term->id == $this->term_id;
+        })->filter(function($academic){
+            return $academic->type == null || $academic->type->id == $this->type;
         })
         ->paginate($this->perPage)
         ;

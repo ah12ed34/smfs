@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class StudentsSechedulesHeader extends SearchingComponent
 {
+    public $department;
+    public $level;
     public function mount()
     {
         $this->initializeSearching();

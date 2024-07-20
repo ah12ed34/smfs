@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class Group extends Model
 {
@@ -228,14 +229,22 @@ class Group extends Model
     public static function boot()
     {
         parent::boot();
+        static::updated(function ($group) {
+            if ($group->isDirty('schedule')) {
+                if($group->getOriginal('schedule')&&Storage::exists($group->getOriginal('schedule'))){
+                    Storage::delete($group->getOriginal('schedule'));
+                }
+
+            }
+        });
         static::deleting(function ($group) {
             $group->subjects()->detach();
             $group->students()->detach();
             $group->groups()->delete();
         });
         static::deleted(function ($group) {
-            if ($group->schedule) {
-                unlink(asset('storage/' . $group->schedule));
+            if($group->schedule&&Storage::exists($group->schedule)){
+                Storage::delete($group->schedule);
             }
         });
     }

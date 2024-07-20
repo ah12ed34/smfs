@@ -14,6 +14,11 @@ trait SchedulesTrait
     public $nameSchedule = 'schedule';
     public $openType = null;
 
+    public function initializeSchedules()
+    {
+        $this->nameSchedule = ($this->term_id == 1) ? 'schedule' : 'schedule2';
+    }
+
     public function selectedSchedule($user_id,$delete = false)
     {
         if($this?->academicData?->user_id != $user_id){

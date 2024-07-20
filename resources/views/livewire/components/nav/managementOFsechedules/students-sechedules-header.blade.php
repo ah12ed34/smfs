@@ -8,15 +8,16 @@
 
 
 
-                <div class="dep-name">*********</div>
+                <div class="dep-name">{{ $department->name }}</div>
 
         <div id="" class="input-group input_search_manageDepart_StudentsGroups">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" wire:model="search" wire:keydown.enter='srch'>
             <div class="input-group-append">
-                <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
+                <button id="form-control" class="btn btn-light" type="submit" wire:click='srch'><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
             </div>
         </div>
 
+        {{-- @include('components.navSelect.search') --}}
 
         <!-- <td><button type="submit" class="btn btn-primary btn-sm  manageDepart-addAcademic" id="" data-toggle="modal" data-target="#addacademic"> اضافة اكاديمي<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> </td> -->
 
