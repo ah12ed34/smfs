@@ -7,8 +7,20 @@
     "file": "assets/bootstrap-icons-476adf42.woff2",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
+  "public/app/images/Path 350.png": {
+    "file": "assets/Path 350-6c8fee78.png",
+    "src": "public/app/images/Path 350.png"
+  },
+  "public/app/images/Path 360.png": {
+    "file": "assets/Path 360-9bcc3fbf.png",
+    "src": "public/app/images/Path 360.png"
+  },
+  "public/app/images/faculty.png": {
+    "file": "assets/faculty-578ab126.png",
+    "src": "public/app/images/faculty.png"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-e66aff8a.css",
+    "file": "assets/app-dea17909.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -38,11 +50,11 @@
   },
   "resources/images/Path 350.png": {
     "file": "assets/Path 350-6c8fee78.png",
-    "src": "resources/images/Path 350.png"
+    "src": "public/app/images/Path 350.png"
   },
   "resources/images/Path 360.png": {
     "file": "assets/Path 360-9bcc3fbf.png",
-    "src": "resources/images/Path 360.png"
+    "src": "public/app/images/Path 360.png"
   },
   "resources/images/academics.png": {
     "file": "assets/academics-68dc28a9.png",
@@ -166,7 +178,7 @@
   },
   "resources/images/faculty.png": {
     "file": "assets/faculty-578ab126.png",
-    "src": "resources/images/faculty.png"
+    "src": "public/app/images/faculty.png"
   },
   "resources/images/folder (1).png": {
     "file": "assets/folder (1)-c169ae87.png",
@@ -343,8 +355,12 @@
     "src": "resources/svg/doc.svg"
   },
   "resources/svg/file.svg": {
-    "file": "assets/file-2e9ede66.svg",
+    "file": "assets/file-86a803a6.svg",
     "src": "resources/svg/file.svg"
+  },
+  "resources/svg/not_file.svg": {
+    "file": "assets/not_file-50d2e7ad.svg",
+    "src": "resources/svg/not_file.svg"
   },
   "resources/svg/pdf.svg": {
     "file": "assets/pdf-8da2e484.svg",

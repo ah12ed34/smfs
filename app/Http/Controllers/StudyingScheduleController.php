@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use app\Models\file;
 use App\Models\Academic;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 class StudyingScheduleController extends Controller
 {
     //
@@ -33,7 +35,12 @@ class StudyingScheduleController extends Controller
     }
     public function classes_Schedules_studying()
     {
-        // $academic = auth()->user()->academic;
-        return view("academic.studyingschedule.classes_Schedules_studying");
+        $schedule = AcademicYear::currentAcademicYear()->schedule;
+        return view("academic.studyingschedule.classes_Schedules_studying",compact('schedule'));
+    }
+
+    public function download_schedule(){
+        $schedule = AcademicYear::currentAcademicYear()->schedule;
+        return Storage::download($schedule, 'schedule' . '.' . pathinfo($schedule, PATHINFO_EXTENSION));
     }
 }

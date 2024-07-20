@@ -8,10 +8,13 @@
         <div id="card-studyingbooks" class="card">
 
             <div id="card-studyingbooks-child">
-                <img src="{{Vite::image("chapter.png")}}"  class="chapters" >
+                <img src="{{ icon::getIcon($schedule,true) }}"  class="chapters"
+
+                @if (!$schedule) style="cursor: not-allowed;" disabled @else  wire:click="downloadFile" @endif
+                >
 
                 <!-- <div id="card-studyingbooks-child-2"> -->
-                <label class="texttitlechapter">Lecture 1</label>
+                <label class="texttitlechapter"> جدول القاعات </label>
             </div>
 
             {{-- <div id="card-studyingbooks-child-2">
@@ -21,7 +24,7 @@
             </div> --}}
 
             <div id="card-studyingbooks-child-three">
-                <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#MessageApprovementDeleteModal" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
+                <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#MessageApprovementDeleteModal" style="margin-left: 30px;" @if(!$schedule) disabled @endif >  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
                 <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#EditeSecheduleModal" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
 
             </div>
@@ -53,8 +56,8 @@
 
 
 
-<!-- The AddSecheduleModal -->
-<div class="modal fade" id="AddSecheduleModal">
+{{-- <!-- The AddSecheduleModal -->
+<div class="modal fade" id="AddSecheduleModal" wire:ignore.self>
 <div class="modal-dialog">
     <div class="modal-content UploadeFileModal" id="modal-content2" style="height: 250px;">
 
@@ -84,10 +87,10 @@
         </div>
     </div>
 </div>
-</div>
+</div> --}}
 
 <!-- The EditeSecheduleModal -->
-<div class="modal fade" id="EditeSecheduleModal">
+<div class="modal fade" id="EditeSecheduleModal" wire:ignore.self>
 <div class="modal-dialog">
     <div class="modal-content UploadeFileModal" id="modal-content2" style="height: 250px;">
 
@@ -101,10 +104,11 @@
         <div class="modal-body">
             <form action="" style="display: block;">
                 <div class="form-group">
-                    <!-- <label for="usr">Name:</label> -->
-                    <input type="text" class="form-control" id="inputtext" name="phone" placeholder="  اسم الجدول  " style="height: 30px; margin-top:8px; color:black;">
-                    <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:8px">
-                    <!-- <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px"> -->
+
+                    <input type="file" class="form-control-file border" id="file" wire:model="uplodedFile" style="height: 30px; margin-top:8px">
+                    @if($errors->has('uplodedFile'))
+                    <div class="alert alert-danger">{{ $errors->first('uplodedFile') }}</div>
+                    @endif
                 </div>
             </form>
         </div>
@@ -112,7 +116,7 @@
         <!-- Modal footer -->
 
         <div class="modal-footer">
-            <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">حفظ</button>
+            <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" wire:click='uploadFileSave'>حفظ</button>
             <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
         </div>
     </div>
@@ -151,7 +155,7 @@
  --}}
 
 <!-- The ModalMessageApprovementDelete -->
-<div class="modal fade" id="MessageApprovementDeleteModal">
+<div class="modal fade" id="MessageApprovementDeleteModal" wire:ignore.self>
 <div class="modal-dialog">
     <div class="modal-content UploadeFileModal" id="modal-content2" style="height: 35vh">
 
@@ -177,11 +181,20 @@
         <!-- Modal footer -->
 
         <div class="modal-footer" >
-            <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" >نعم</button>
+            <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id=""
+            wire:click="deleteFile()"
+            >نعم</button>
             <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="" >لا</button>
         </div>
     </div>
 </div>
 </div>
-
+@section('script')
+<script>
+    window.addEventListener('closeModal', event => {
+        $('#MessageApprovementDeleteModal').modal('hide');
+        $('#EditeSecheduleModal').modal('hide');
+    });
+</script>
+@endsection
 </div>

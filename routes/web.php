@@ -322,6 +322,7 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
             route::prefix('classes_Schedules_studying')->group(function(){
                 route::get("/",'StudyingScheduleController@classes_Schedules_studying')->name("classes_Schedules_studying");
             });
+            route::get('download_schedule','StudyingScheduleController@download_schedule')->name('download_schedule');
 
 
             route::prefix("stasticsallsubject")->group(function(){
