@@ -16,7 +16,7 @@
 
 
 
-        <div class="dep-name"> الجودة </div>
+        <div class="dep-name">{{ $department->name }}</div>
     </div>
     <div class="hr3">
     <button id="spacesbtn" class="spaces" onclick="window.location='{{ route('departments_sechedules',[$department->id]) }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>

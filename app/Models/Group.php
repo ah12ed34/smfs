@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Tools\MyApp;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -226,6 +227,20 @@ class Group extends Model
         return $this->hasMany(Project::class);
     }
 
+    public function getScheduleAttribute()
+    {
+        return $this->attributes['schedule'] ? asset('storage/' . $this->attributes['schedule']) : null;
+    }
+
+    public function getGGenderAttribute()
+    {
+        return MyApp::getStudentGender($this->gender);
+    }
+
+    public function getGSystemAttribute()
+    {
+        return MyApp::getSystem($this->system);
+    }
     public static function boot()
     {
         parent::boot();

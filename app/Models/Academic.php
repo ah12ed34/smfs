@@ -69,7 +69,8 @@ class Academic extends Model
         return $this->hasOne(Department::class, 'id', 'department_id');
     }
     public function courses() {
-        return $this->hasMany(GroupSubject::class, 'teacher_id', 'user_id');
+        return $this->hasMany(GroupSubject::class, 'teacher_id', 'user_id')
+            ->where('ay_id', AcademicYear::currentAcademicYear()->id);
     }
     public function subjects() {
         return $this->hasMany(Subject::class);

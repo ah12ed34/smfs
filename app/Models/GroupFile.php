@@ -108,8 +108,8 @@ class GroupFile extends Model
             }
 
             self::$deleting = true;
-
-            if ($groupFile->file->group_files()->count() == 1) {
+            // dd($groupFile->file->group_files->count());
+            if (1 == $groupFile?->file?->group_files?->count()) {
                 $groupFile->file->delete();
             }
 

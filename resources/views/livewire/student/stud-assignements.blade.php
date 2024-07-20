@@ -100,7 +100,7 @@
 {{-- @section('script')
     <script>
         window.addEventListener('closeModal', event => {
-            $('#exampleModal').modal('hide');
+            @this.updatedData();
         });
     </script>
 

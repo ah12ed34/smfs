@@ -315,9 +315,10 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
             route::prefix("mySchedule_studying")->group(function(){
                 route::get("/",'StudyingScheduleController@academic_schedule')->name("mySchedule_studying");
             });
-            route::prefix('students_Schedule_studying')->group(function(){
-                route::get("/",'StudyingScheduleController@students_Schedule_studying')->name("students_Schedule_studying");
-            });
+            // route::prefix('students_Schedule_studying')->group(function(){
+            //     route::get("/",'StudyingScheduleController@students_Schedule_studying')->name("students_Schedule_studying");
+            // });
+            route::get('students_Schedule_studying','\\'.App\Livewire\Academic\StudyingSchedule\StudentsScheduleStudying::class)->name('students_Schedule_studying');
             route::prefix('classes_Schedules_studying')->group(function(){
                 route::get("/",'StudyingScheduleController@classes_Schedules_studying')->name("classes_Schedules_studying");
             });

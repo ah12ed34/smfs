@@ -83,7 +83,7 @@ class File extends Model
     }
 
     public function group_file(){
-        return $this->hasOne(GroupFile::class);
+        return $this->hasOne(GroupFile::class,'file_id','id');
     }
 
     public function GroupSubjects(){

@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.managementOFsechedules.students-sechedules-header',
+@livewire('components.nav.management_o_f_sechedules.students-sechedules-header',
 ['level' => $level,'department' => $department,])
 @endsection
 <div>
