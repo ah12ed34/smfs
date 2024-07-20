@@ -8,14 +8,12 @@ use App\Models\GroupSubject;
 use App\Models\Project ;
 use App\Models\Student;
 use App\Models\User;
+use App\Traits\Searchable;
 use Illuminate\Support\Facades\Storage;
-use Livewire\WithPagination;
 class ProjectGroups extends Component
 {
-    use WithPagination;
+    use Searchable;
     public $group_subject;
-    public $search;
-    public $perPage = 10;
     public $projectDetails;
     public $project_id;
     public $project_groups = [
@@ -39,12 +37,20 @@ class ProjectGroups extends Component
     public $boss = [];
 
     public $add_student = false;
+    public $active = [
+        'tab'=>null,
+    ];
     public function mount(GroupSubject $group_subject,$project_id)
     {
         $this->group_subject = $group_subject;
         $this->project_id = $project_id;
         $this->parameters =request()->route()->parameters;
         $this->query = request()->query();
+        if(isset($this->query['tab'])&&$this->query['tab'] != null
+        && in_array($this->query['tab'],['done','not_done'])
+        ){
+            $this->active['tab'] = $this->query['tab'];
+        }
         // dd($parameters);
     }
 
@@ -236,7 +242,7 @@ class ProjectGroups extends Component
         $this->project_groups['min_groups'] = ceil($count_students / $project->max_students);
 
         $GroupProjects = $project->GroupProjects()
-        ->where('name','like','%'.$this->search.'%')
+        // ->where('name','like','%'.$this->search.'%')
         ->get()
         ->map(function($group){
             $group->count_students = $group->students->count();
@@ -263,7 +269,26 @@ class ProjectGroups extends Component
                 $GroupProjects->push($group);
             }
         }
-        return $GroupProjects->paginate($this->perPage);
+
+        return $GroupProjects
+        ->filter(function($group){
+            if($this->active['tab'] == 'done'){
+                return $group->file != null;
+            }elseif($this->active['tab'] == 'not_done'){
+                return $group->file == null;
+            }else{
+                return true;
+            }
+        })
+        ->filter(function($group){
+            // search by name of group
+
+                return
+                $this->search == '' ||
+                str_contains($group->name,$this->search) !== false;
+
+        })
+        ->paginate($this->perPage);
 
     }
     public function render()

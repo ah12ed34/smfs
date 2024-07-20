@@ -1,6 +1,6 @@
 <div>
 @section('nav')
-    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject])
+    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject,'deny'=>['tab']])
 @endsection
     <div class="responsive"></div>
     <div class="container" id="container-project" style="padding-top: 20px;" >
@@ -272,7 +272,7 @@
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">الوصف</th>
-                                    <td>**********</td>
+                                    <td>{{ $projectDetails->description }}</td>
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">الملف المرفق</th>

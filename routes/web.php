@@ -208,13 +208,7 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
             Route::delete('/delete/{id}', 'PermissionController@delete')->name('primmision.delete');
         });
 
-        Route::prefix('project')->group(function () {
 
-        });
-
-        Route::prefix('assignment')->group(function () {
-
-        });
         Route::prefix('group')->group(function () {
             Route::get('/{id}', 'GroupController@index')->name('group');
             Route::get('/create', 'GroupController@create')->name('group.create')->middleware('perm:addgroup');
@@ -280,15 +274,17 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
 
                 Route::prefix("project")->group(function(){
                     Route::get("/","ProjectController@index")->name("projects");
-                    route::get("{project_id}",'\\'.ProjectGroups::class)->name("project");
+                    route::group(['prefix'=>'{project_id}'],function(){
+                        route::get("",'\\'.ProjectGroups::class)->name("project");
+                        route::get("projectsStastics",'ProjectsStasticsController@index')->name("projectsStastics");
+                    });
+
                     Route::get('{project_id}/add-student/{pg_id}', '\\'.App\Livewire\Components\Academic\AddStudents::class
                     )->name('project.add-student');
                 });
 
-                Route::prefix('assignment')->group(function(){
-                    Route::get("/",'\\'.Assignments::class
+                Route::get("assignment",'\\'.Assignments::class
                     )->name("assignment");
-                });
 
                 route::get("recive-assignments/{id}",'\\'.ReciveAssignments::class
                 )->name("recive-assignments");
@@ -325,9 +321,7 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
             route::prefix('classes_Schedules_studying')->group(function(){
                 route::get("/",'StudyingScheduleController@classes_Schedules_studying')->name("classes_Schedules_studying");
             });
-            route::prefix(("projectsStastics"))->group(function(){
-                route::get("/",'ProjectsStasticsController@index')->name("projectsStastics");
-            });
+
 
             route::prefix("stasticsallsubject")->group(function(){
                 route::get("/",'StasticsallsubjectController@index')->name("stasticsallsubject");
@@ -428,11 +422,19 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
     Route::group(['prefix'=>'departments_sechedules','middleware'=>['auth','role:SechadulesManagement']
 ], function(){
     route::get('/', '\\'. App\Livewire\ManagementOFSechedules\DepartmentsSechedules::class)->name('departments_sechedules');
-    route::get('levels_sechedules','\\'.App\Livewire\ManagementOFSechedules\LevelsSechedules::class)->name('levels_sechedules');
-    route::get('main_sechedules','\\'.App\Livewire\ManagementOFSechedules\MainSechedules::class)->name('main_sechedules');
+    route::group(['prefix'=>'{department}'],function(){
+        route::get('main_sechedules','\\'.App\Livewire\ManagementOFSechedules\MainSechedules::class)->name('main_sechedules');
+        route::get('academics_sechedules','\\'.App\Livewire\ManagementOFSechedules\AcademicsSechedules::class)->name('academics_sechedules');
+        route::get('levels_sechedules','\\'.App\Livewire\ManagementOFSechedules\LevelsSechedules::class)->name('levels_sechedules');
+        route::group(['prefix'=>'{level}'],function(){
+            route::get('students_sechedules', '\\'.App\Livewire\ManagementOFSechedules\StudentsSechedules::class)->name('students_sechedules');
+        });
+    });
+    // route::get('levels_sechedules','\\'.App\Livewire\ManagementOFSechedules\LevelsSechedules::class)->name('levels_sechedules');
+    // route::get('main_sechedules','\\'.App\Livewire\ManagementOFSechedules\MainSechedules::class)->name('main_sechedules');
     route::get('classes_sechedules', '\\'.App\Livewire\ManagementOFSechedules\ClassesSechedules::class)->name('classes_sechedules');
-    route::get('academics_sechedules', '\\'.App\Livewire\ManagementOFSechedules\AcademicsSechedules::class)->name('academics_sechedules');
-    route::get('students_sechedules', '\\'.App\Livewire\ManagementOFSechedules\StudentsSechedules::class)->name('students_sechedules');
+    // route::get('academics_sechedules', '\\'.App\Livewire\ManagementOFSechedules\AcademicsSechedules::class)->name('academics_sechedules');
+
 
 });
     // Route::prefix('managerOFdepart')->group(function () {

@@ -5,9 +5,9 @@
         </button>
 
 
-                <div class="dep-name">تقنية معلومات</div>
+                <div class="dep-name">{{ $department->name }}</div>
 
-<div class="dropdown">
+{{-- <div class="dropdown">
             <button type="button"  class="btn btn-light TypeTerm_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
                     <div class="textdropdown">    ترم اول</div>
                 </button>
@@ -15,10 +15,11 @@
 
                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  ترم ثاني</a>
                 </div>
-            </div>
+            </div> --}}
 
+            @include('components.navSelect.term')
 
-            <div class="dropdown">
+            {{-- <div class="dropdown">
                 <button type="button"  class="btn btn-light TypeAcademicsSechedules_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
                         <div class="textdropdown">     نظري</div>
                     </button>
@@ -26,8 +27,9 @@
 
                         <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   عملي</a>
                     </div>
-                </div>
+                </div> --}}
 
+                @include('components.navSelect.type')
 
 
         <!-- <td><button type="submit" class="btn btn-primary btn-sm  manageDepart-addAcademic" id="" data-toggle="modal" data-target="#addacademic"> اضافة اكاديمي<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> </td> -->
@@ -36,15 +38,9 @@
     </div>
 
     <div class="hr3">
-        <button id="spacesbtn" class="spaces"  onclick="window.location='{{ route('main_sechedules') }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
+        <button id="spacesbtn" class="spaces"  onclick="window.location='{{ route('main_sechedules',$department->id) }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
 
-
-<div id="" class="input-group input_search_sechedules">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-append">
-                <button id="form-control" class="btn btn-light" type="submit"><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
-            </div>
-        </div>
+        @include('components.navSelect.search')
 
     </div>
 </div>

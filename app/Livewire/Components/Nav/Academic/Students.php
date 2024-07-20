@@ -5,10 +5,10 @@ namespace App\Livewire\Components\Nav\Academic;
 use Livewire\Component;
 use App\Models\Group;
 use App\Traits\Searching;
+use App\Traits\SearchingComponent;
 
-class Students extends Component
+class Students extends SearchingComponent
 {
-    use Searching;
     public $active ;
     public $urlName = 'students';
     public $group_subject;

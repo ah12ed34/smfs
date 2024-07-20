@@ -1,6 +1,7 @@
 @section('title', 'التكاليف')
 @section('nav')
-    @livewire('components.nav.academic.subject.assignments',['group_subject'=>$group_subject])
+    @livewire('components.nav.academic.subject.assignments',['group_subject'=>$group_subject
+    ,'otherGroups'=>$otherGroups])
 @endsection
 <div>
 

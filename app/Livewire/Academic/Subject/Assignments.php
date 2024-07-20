@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Academic\Subject;
 
+use App\Livewire\Admin\Academic;
+use App\Models\AcademicYear;
 use Livewire\Component;
 use App\Models\GroupSubject;
 use Illuminate\Support\Facades\Storage;
@@ -21,16 +23,22 @@ class Assignments extends Component
     public $due_date;
     public $file;
     public $grade;
+    public $otherGroups;
 
     #[On('search')]
     public function search($v){
         $this->search = $v;
     }
 
-    public function mount($group_subject)
+    public function mount(GroupSubject $group_subject)
     {
-        $this->group_subject = GroupSubject::where('id',$group_subject)->where('teacher_id',auth()->user()->academic->user_id)
-        ->firstOrFail();
+        // $this->group_subject = GroupSubject::where('id',$group_subject)->where('teacher_id',auth()->user()->academic->user_id)
+        // ->firstOrFail();
+        if($group_subject->teacher_id != auth()->user()->academic->user_id||$group_subject->ay_id != AcademicYear::currentAcademicYear()->id){
+            abort(403);
+        }
+        $this->group_subject = $group_subject;
+        $this->otherGroups = $group_subject->getOtherGroups();
     }
 
     public function getAssignmentsProperty()

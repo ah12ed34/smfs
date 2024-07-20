@@ -2,16 +2,16 @@
 
 namespace App\Livewire\Components\Nav\Academic\Subject;
 
-use Livewire\Component;
-
-class Project extends Component
+use App\Traits\SearchingComponent;
+class Project extends SearchingComponent
 {
     public $group_subject;
-    public $search;
-
-    public function srch()
+    public $deny = [];
+    public $backName = 'subject.index';
+    public $active = ['tab'=>null] ;
+    public function mount()
     {
-        $this->dispatch('search', $this->search);
+        $this->initializeSearching();
     }
     public function render()
     {

@@ -321,7 +321,7 @@
 
         <!-- Modal body -->
         <div class="modal-body modal_body_css">
-            @if ($employeeData?->show)
+            @if ($openType == 'show')
                 <div class="form-group">
 
                     <img src="{{ Vite::image('profile.png')}}"  width="" class="user_profile_modal" >
