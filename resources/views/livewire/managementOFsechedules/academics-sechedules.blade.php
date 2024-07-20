@@ -69,7 +69,7 @@
         </div>
 
         <!-- Modal body -->
-        <div class="modal-body">
+        <div class="modal-body modal_body_css ">
             <form action="" style="display: block;">
                 <div class="form-group">
                     <!-- <label for="usr">Name:</label> -->
@@ -134,7 +134,7 @@
         </div>
 
         <!-- Modal body -->
-        <div class="modal-body" style="text-align: center;">
+        <div class="modal-body modal_body_css" style="text-align: center;">
             <form action="" style="display: block;">
                 <div class="form-group">
                     <!-- <label for="usr">Name:</label> -->
@@ -149,8 +149,8 @@
         <!-- Modal footer -->
 
         <div class="modal-footer" style="height: 40px;">
-            <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" style="height: 30p; width: 80px; font: size 12px;">نعم</button>
-            <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="" style="height: 30p; width: 80px; font: size 12px;">لا</button>
+            <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" >نعم</button>
+            <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">لا</button>
         </div>
     </div>
 </div>
