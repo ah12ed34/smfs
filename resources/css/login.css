@@ -1,4 +1,4 @@
-body, html {
+.login_body {
     height: 100%;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -20,24 +20,24 @@ body, html {
 }
 
 .overlay {
-    background: rgba(0, 0, 255, 0.5); 
+    background: rgba(0, 0, 255, 0.5);
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     /* opacity: 0.8; */
-    background: url('../Path 350.png') no-repeat center center/cover; 
+    background: url('../Path 350.png') no-repeat center center/cover;
     bottom: 0;
 }
 /* @media screen and (max-width: 1323px){
     .overlay {
-        background: url('../Path 372.png') no-repeat center center/cover; 
+        background: url('../Path 372.png') no-repeat center center/cover;
     }
 } */
 @media screen and (max-width: 1280px){
     .overlay {
-        background: url('../Path 360.png') no-repeat center center/cover; 
+        background: url('../Path 360.png') no-repeat center center/cover;
     }
 }
 @media screen and (max-width: 1100px){
@@ -60,7 +60,7 @@ body, html {
         background: url('../Path 360.png') no-repeat center center/cover; /* Replace with your background image URL */
     }
 }
-    
+
 
 
 .navbar {
@@ -73,7 +73,7 @@ body, html {
     color: #fff !important;
 }
 
-.content {
+.content.login {
     display: flex;
     align-items: center;
     justify-content: center;

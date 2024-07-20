@@ -14,13 +14,12 @@
                 <label class="texttitlechapter">Lecture 1</label>
             </div>
 
-            <div id="card-studyingbooks-child-2">
+            {{-- <div id="card-studyingbooks-child-2">
                 <div class="form-group">
-                    <!-- <label for="usr">Name:</label> -->
                     <input type="file" class="form-control-file border" id="uploadefile" name="file">
                 </div>
+            </div> --}}
 
-            </div>
             <div id="card-studyingbooks-child-three">
                 <button type="submit" class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#MessageApprovementDeleteModal" style="margin-left: 30px;">  <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button>
                 <button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#EditeSecheduleModal" style="margin-left: 50px;">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
