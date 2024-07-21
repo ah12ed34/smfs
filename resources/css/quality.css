@@ -124,3 +124,68 @@
     margin-top: 50px;
     /* z-index: 1; */
 }
+.container.add_subject{
+    width: 100%;
+    padding-right: 10;
+    padding-left: 10;
+    overflow:auto ;
+    /* scrollbar-width: none; */
+    /* scrollbar-height: none; */
+    -ms-overflow-style: none;
+    /* left: -30px; */
+    /* margin-right: 10%; */
+}
+@media screen and (max-width: 1300px) {
+    .container.add_subject{
+        width: 95%;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .container.add_subject{
+        width: 90%;
+        /* left: -60px; */
+    }
+}
+@media screen and (max-width: 992px) {
+    .container.add_subject{
+        width: 95% ;
+        /* left: -90px; */
+        /* right: 10%; */
+    }
+}
+@media screen and (max-width: 700px) {
+    .container.add_subject{
+        width: 100vw ;
+        position: absolute;
+        right: 0;
+        left: 0;
+
+
+        /* left: -90px; */
+        /* right: 10%; */
+    }
+}
+
+.table.add_subject{
+    width: 95%;
+    margin-top: 50px;
+    /* margin-bottom: 10px; */
+    /* margin-left: 10px; */
+    /* margin-right: 10px; */
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+    overflow-x: auto;
+    overflow-y: auto;
+}
+@media screen and (max-width:740px;) {
+    .table.add_subject{
+    width: 88% !important;
+    margin-right: 40px !important;
+
+    }
+}
+@media screen and (max-width:700px) {
+    .table.add_subject{
+        width: 100%;
+    }
+}

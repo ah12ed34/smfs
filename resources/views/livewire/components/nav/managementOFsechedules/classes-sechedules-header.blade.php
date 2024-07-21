@@ -7,7 +7,7 @@
 
                 <div class="dep-name">تقنية معلومات</div>
 
-<div class="dropdown">
+        <div class="dropdown">
             <button type="button"  class="btn btn-light TypeTerm_dropdown Sechedule  dropdown-toggle" data-toggle="dropdown" dir="rtl">
                     <div class="textdropdown">    ترم اول</div>
                 </button>
@@ -19,7 +19,6 @@
             </div>
 
         <!-- <td><button type="submit" class="btn btn-primary btn-sm  manageDepart-addAcademic" id="" data-toggle="modal" data-target="#addacademic"> اضافة اكاديمي<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> </td> -->
-        <button type="submit" class="btn btn-primary btn-sm  btn_Add_Sechedule" id="" data-toggle="modal" data-target="#AddSecheduleModal"> اضافة <img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button>
 
 
     </div>

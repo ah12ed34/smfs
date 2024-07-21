@@ -361,8 +361,7 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
 ], function () {
         route::get('/', '\\'.App\Livewire\Quality\QualityMain::class)->name('qualityMain');
         route::get('departlevelquality','\\'.DepartLevelsQuality::class)->name('departlevelquality');
-
-
+        route::get('create_subject','\\'.App\Livewire\Quality\CreateSubjectsQuality::class)->name('create_subject');
     });
 
 

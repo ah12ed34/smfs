@@ -2,9 +2,10 @@
 
 namespace App\Livewire\Quality;
 
+use App\Traits\SearchingComponent;
 use Livewire\Component;
 
-class CreateSubjectsQuality extends Component
+class CreateSubjectsQuality extends SearchingComponent
 {
     public function render()
     {
