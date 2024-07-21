@@ -20,11 +20,7 @@
     "src": "public/app/images/faculty.png"
   },
   "resources/css/app.css": {
-<<<<<<< HEAD
-    "file": "assets/app-7b52676d.css",
-=======
-    "file": "assets/app-dea17909.css",
->>>>>>> 7e023675dba3b3bc20fe9e0c339db4a73259a25a
+    "file": "assets/app-40d70646.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -359,7 +355,7 @@
     "src": "resources/svg/doc.svg"
   },
   "resources/svg/file.svg": {
-    "file": "assets/file-86a803a6.svg",
+    "file": "assets/file-2e9ede66.svg",
     "src": "resources/svg/file.svg"
   },
   "resources/svg/not_file.svg": {
