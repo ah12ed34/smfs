@@ -51,7 +51,7 @@
 <!-- The ModalDetailsStudents -->
 <div class="modal fade" id="DisplaySeheduleModal" wire:ignore.self>
     <div class="modal-dialog  modal-lg">
-        <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:95vh;">
+        <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:90vh;">
 
             <!-- Modal Header -->
             <div class="modal-header ModaldDetailsAcademic" id="modheader">

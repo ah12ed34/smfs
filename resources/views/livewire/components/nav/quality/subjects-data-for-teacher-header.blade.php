@@ -1,8 +1,8 @@
 <div>
-    {{-- If your happiness depends on money, you will never be happy with yourself. --}}
+    {{-- Because she competes with no one, no one can compete with her. --}}
 
     <div class="hdr2" style=" box-shadow: 10px;">
-        <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;">   مسؤول الجداول </label><img src="{{Vite::image("empoloyee_scheduls.png")}}" id="subject-icon-hdr2" width="40px" >
+        <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;"> تقنية معلومات </label><img src="{{Vite::image("it.png")}}" id="subject-icon-hdr2" width="40px">
         </button>
 
 
@@ -45,7 +45,7 @@
                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  ترم ثاني</a>
                 </div>
             </div>
-        <button type="submit" class="btn btn-primary btn-sm  btn_Add_Sechedule" id="" data-toggle="modal" data-target="#create-subject"> اضافة مادة<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button>
+        {{-- <button type="submit" class="btn btn-primary btn-sm  btn_Add_Sechedule" id="" data-toggle="modal" data-target="#create-subject"> اضافة مادة<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> --}}
 
 
     </div>
@@ -71,3 +71,4 @@
 
 
 </div>
+

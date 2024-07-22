@@ -17,7 +17,7 @@
                 <div class="container">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button> 
+                    </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
@@ -55,7 +55,7 @@
                     <div class="form-group">
                         <input type="password" class="form-control input_userInfo" placeholder="كلمة المرور...." name="password" required autocomplete="current-password">
                     </div>
-
+                    <div>تذكرني  <input type="checkbox"  class="checkbox" name="raido"></div>
                     <button type="submit" class="btn btn-primary btn-block btn_login">تسجيل دخول</button>
                 </form>
             </div>

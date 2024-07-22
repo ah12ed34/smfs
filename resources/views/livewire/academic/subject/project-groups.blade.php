@@ -112,7 +112,7 @@
     <!-- The Modalchatting -->
 <div class="modal fade" id="myModalchatting">
     <div class="modal-dialog">
-        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:95vh;">
+        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:90vh;">
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader" style="padding-left: 45%">
                 {{-- <div class="">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id="" width="25px"></div> --}}
@@ -196,7 +196,7 @@
 <!-- The Modaldetails -->
 <div class="modal fade" id="myModaldetails" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content ModaldShowDetail" id="modal-content" style="background-color: #F6F7FA; height:95vh;">
+        <div class="modal-content ModaldShowDetail" id="modal-content" style="background-color: #F6F7FA; height:90vh;">
 
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader" >
@@ -287,7 +287,7 @@
 <!-- The ModalEdite -->
 <div class="modal fade" id="myModalEdite" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content modal_content_css"  id="modal-content" style="background-color: #F6F7FA;height: 95vh">
+        <div class="modal-content modal_content_css"  id="modal-content" style="background-color: #F6F7FA;height: 90vh">
 
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader" >

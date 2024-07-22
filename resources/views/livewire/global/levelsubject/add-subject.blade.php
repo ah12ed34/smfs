@@ -84,7 +84,7 @@
 {{-- </div> --}}
 
 <!-- EditeSubjectModal -->
-<div class="modal fade" id="EditeSubjectModal">
+<div class="modal fade" wire:ignore.self id="EditeSubjectModal">
     <div class="modal-dialog">
         <div class="modal-content modal_content_css" id="modal-content2" style="height: 60vh;">
 

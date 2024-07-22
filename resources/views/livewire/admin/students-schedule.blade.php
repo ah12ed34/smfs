@@ -1,12 +1,15 @@
 @section('nav')
-@livewire('components.nav.management_o_f_sechedules.students-sechedules-header',
-['level' => $level,'department' => $department,])
+@livewire('components.nav.admin.students-schedule-header', ['level' => $level])
 @endsection
 <div>
-    {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
+    {{-- The Master doesn't talk, he acts. --}}
 
     <div class="container" style="padding-top: 30px;">
 
+        @livewire('managementOFsechedules.students-sechedules')
+
+
+{{--
         <div class="table-responsive-xl">
             <table class="table" style=" width:100%;">
                 <thead class="table-header" style="font-size: 12px;">
@@ -36,45 +39,13 @@
                             <td colspan="6">{{ __('No data') }}</td>
                         </tr>
                     @endforelse
-                    {{-- // <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف الجدول <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button> </td>
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#UploadeFileModal">رفع جدول  <img src="{{Vite::image("upload.png")}}" id=""  width="15px" ></button> </td>
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DisplaySeheduleModal">عرض الجدول</button> </td>
-                    //     <td>*******</td>
-                    //     <td>*******</td>
-                    //     <td>*******</td>
-                    // </tr>
-                    // <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف الجدول <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button> </td>
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#UploadeFileModal">رفع جدول  <img src="{{Vite::image("upload.png")}}" id=""  width="15px" ></button> </td>
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DisplaySeheduleModal">عرض الجدول</button> </td>
-                    //     <td>*******</td>
-                    //     <td>*******</td>
-                    //     <td>*******</td>
-                    // </tr>
-                    // <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف الجدول <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button> </td>
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#UploadeFileModal">رفع جدول  <img src="{{Vite::image("upload.png")}}" id=""  width="15px" ></button> </td>
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DisplaySeheduleModal">عرض الجدول</button> </td>
-                    //     <td>*******</td>
-                    //     <td>*******</td>
-                    //     <td>*******</td>
-                    // </tr>
-                    // <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف الجدول <img src="{{Vite::image("delete (1).png")}}" id=""  width="15px" ></button> </td>
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#UploadeFileModal">رفع جدول  <img src="{{Vite::image("upload.png")}}" id=""  width="15px" ></button> </td>
-                    //     <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DisplaySeheduleModal">عرض الجدول</button> </td>
-                    //     <td>*******</td>
-                    //     <td>*******</td>
-                    //     <td>*******</td>
-                    // </tr> --}}
 
                 </tbody>
             </table>
         </div>
         <nav>
             {{ $groups->links(myapp::viewPagination) }}
-        </nav>
+        </nav> --}}
     </div>
 
 
@@ -123,7 +94,7 @@
 <!-- The ModalDetailsStudents -->
 <div class="modal fade" id="DisplaySeheduleModal" wire:ignore.self>
 <div class="modal-dialog  modal-lg">
-    <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:90vh;">
+    <div class="modal-content ModaldDetailsAcademic" id="modal-content" style="background-color: #F6F7FA; height:95vh;">
 
         <!-- Modal Header -->
         <div class="modal-header ModaldDetailsAcademic" id="modheader">

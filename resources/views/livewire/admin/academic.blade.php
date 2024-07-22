@@ -80,11 +80,11 @@
             }
 
             </style>
-    <div class="container" style="padding-top:20px; ">
+    <div class="container" style=" width:100%;margin-left:0%">
 
-        <div class="table-responsive-xl">
+        <div class="table-responsive" >
 
-            <table class="table" style=" width:100%;">
+            <table class="table academic_table" style="width:100%">
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
                         <th>تعديل</th>

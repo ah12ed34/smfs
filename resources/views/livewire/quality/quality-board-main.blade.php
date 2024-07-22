@@ -1,7 +1,7 @@
 <div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
+    {{-- Success is as dangerous as failure. --}}
     <div class="hdr2" style=" box-shadow: 10px;">
-        <button class=" spaces"> <label  class="subjectname" >  الصفحة الرئيسية </label><img src="{{Vite::image("dashboard (1).png")}}" id="subject-icon-hdr2" width="40px">
+        <button class=" spaces"> <label  class="subjectname" >   مسؤول الجداول </label><img src="{{Vite::image("empoloyee_scheduls.png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
         </button>
 
 
@@ -16,10 +16,12 @@
 
 
 
-        <div class="dep-name"> الجودة </div>
+        {{-- <div class="dep-name">{{ $department->name }}</div> --}}
+        <div class="dep-name">الجودة</div>
+
     </div>
     <div class="hr3">
-        <a href="{{route("quality_departments")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button></a>
+    <button id="spacesbtn" class="spaces" onclick="window.location='{{ route('departlevelquality') }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
 
         <!-- <div id="input-groupstudyingbooks" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">
@@ -31,6 +33,24 @@
 
         <button type="submit" class="btn btn-primary btn-sm  btn-addsubject" id="" data-toggle="modal" data-target="#create-subject"> اضافة مادة<img src="../../images/plus.png"  width="20px" style="float: left;"></button> -->
 
-
 </div>
+
+    <div class="container" style="padding-top: 40px;">
+
+    <div class="card  cards-departments" id="">
+        <img src="{{Vite::image("open-book.png")}}" class="" width="150px" onclick="location.href='{{route('create_subject')}}'">
+        <div class="card-departments-child">     عرض وإضافة المقررات
+        </div>
+    </div>
+
+    <div class="card  cards-departments" id="">
+        <img src="{{Vite::image("academics.png")}}" class="" width="150px"  onclick="location.href='{{route('subjectsData_forTeacher')}}'">
+        <div class="card-departments-child">  بيانات مقررات الأكادميين
+        </div>
+    </div>
+
+    </div>
+
+
+
 </div>

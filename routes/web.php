@@ -150,6 +150,10 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
     route::get('{LId}/students_main_groups','\\'.App\Livewire\Admin\StudentsMainGroups::class)->name('students_main_groups');
     route::get('{LId}/show_student_inGroups/{group}','\\'.App\Livewire\Admin\StudentsInformationInGroups::class)->name('show_student_inGroups');
     route::get('students_grades', '\\'.App\Livewire\Admin\StudentsGrades::class)->name('students_grades');
+    // route::group(['prefix'=>'{level}'],function(){
+    //     route::get('students_schedule','\\'.App\Livewire\Admin\StudentsSchedule::class)->name('students_schedule');
+    // });
+    route::get('students_schedule/{level}','\\'.App\Livewire\Admin\StudentsSchedule::class)->name('students_schedule');
 });
 
     Route::prefix('/academic')->group(function () {
@@ -359,11 +363,14 @@ use App\Livewire\Student\StudStudyingBooks\FormQuiz as StudFormQuiz;
 
     })->middleware('auth');
 
-    Route::group(['prefix'=>'qualityMain','middleware' => 'auth'
+    Route::group(['prefix'=>'quality_departments','middleware' => 'auth'
 ], function () {
-        route::get('/', '\\'.App\Livewire\Quality\QualityMain::class)->name('qualityMain');
+        route::get('/', '\\'.App\Livewire\Quality\QualityDepartments::class)->name('quality_departments');
         route::get('departlevelquality','\\'.DepartLevelsQuality::class)->name('departlevelquality');
+        route::get('quality_board_main','\\'.App\Livewire\Quality\QualityBoardMain::class)->name('quality_board_main');
         route::get('create_subject','\\'.App\Livewire\Quality\CreateSubjectsQuality::class)->name('create_subject');
+        route::get('subjectsData_forTeacher','\\'.App\Livewire\Quality\SubjectsDataForTeacher::class)->name('subjectsData_forTeacher');
+
     });
 
 

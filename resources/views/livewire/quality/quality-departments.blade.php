@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.quality.quality-main')
+@livewire('components.nav.quality.quality-departments')
 @endsection
 <div>
     {{-- Because she competes with no one, no one can compete with her. --}}

@@ -4,10 +4,10 @@ namespace App\Livewire\Quality;
 
 use Livewire\Component;
 
-class QualityMain extends Component
+class QualityDepartments extends Component
 {
     public function render()
     {
-        return view('livewire.quality.quality-main');
+        return view('livewire.quality.quality-departments');
     }
 }
