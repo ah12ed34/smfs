@@ -145,10 +145,14 @@ Route::group([
     route::get('permissions_pages', '\\' . App\Livewire\Admin\PermissionPages::class)->name('permissions_pages');
     route::get('addUsers_permissions', '\\' . App\Livewire\Admin\AddPremissionUser::class)->name('addUsers_permissions');
     // route::get('students_data','\\'.App\Livewire\Admin\StudentsData::class)->name('students_data');
-    route::get('admin/{level}/students_information', '\\' . App\Livewire\Admin\LevelStudentsInformation::class)->name('students_information');
-    route::get('{LId}/students_main_groups', '\\' . App\Livewire\Admin\StudentsMainGroups::class)->name('students_main_groups');
-    route::get('{LId}/show_student_inGroups/{group}', '\\' . App\Livewire\Admin\StudentsInformationInGroups::class)->name('show_student_inGroups');
-    route::get('students_grades', '\\' . App\Livewire\Admin\StudentsGrades::class)->name('students_grades');
+    route::get('admin/{level}/students_information', '\\'.App\Livewire\Admin\LevelStudentsInformation::class)->name('students_information');
+    route::get('{LId}/students_main_groups','\\'.App\Livewire\Admin\StudentsMainGroups::class)->name('students_main_groups');
+    route::get('{LId}/show_student_inGroups/{group}','\\'.App\Livewire\Admin\StudentsInformationInGroups::class)->name('show_student_inGroups');
+    route::get('students_grades', '\\'.App\Livewire\Admin\StudentsGrades::class)->name('students_grades');
+    // route::group(['prefix'=>'{level}'],function(){
+    //     route::get('students_schedule','\\'.App\Livewire\Admin\StudentsSchedule::class)->name('students_schedule');
+    // });
+    route::get('students_schedule/{level}','\\'.App\Livewire\Admin\StudentsSchedule::class)->name('students_schedule');
 });
 
 Route::prefix('/academic')->group(function () {
@@ -363,12 +367,15 @@ Route::prefix('/academic')->group(function () {
     });
 })->middleware('auth');
 
-Route::group([
-    'prefix' => 'qualityMain', 'middleware' => 'auth'
+    Route::group(['prefix'=>'qualityMain','middleware' => 'auth'
 ], function () {
-    route::get('/', '\\' . App\Livewire\Quality\QualityMain::class)->name('qualityMain');
-    route::get('departlevelquality', '\\' . DepartLevelsQuality::class)->name('departlevelquality');
-});
+        route::get('/', '\\'.App\Livewire\Quality\QualityDepartments::class)->name('quality_departments');
+        route::get('departlevelquality','\\'.DepartLevelsQuality::class)->name('departlevelquality');
+        route::get('quality_board_main','\\'.App\Livewire\Quality\QualityBoardMain::class)->name('quality_board_main');
+        route::get('create_subject','\\'.App\Livewire\Quality\CreateSubjectsQuality::class)->name('create_subject');
+        route::get('subjectsData_forTeacher','\\'.App\Livewire\Quality\SubjectsDataForTeacher::class)->name('subjectsData_forTeacher');
+
+    });
 
 
 Route::group([

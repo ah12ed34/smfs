@@ -16,11 +16,11 @@
     "src": "public/app/images/Path 360.png"
   },
   "public/app/images/faculty.png": {
-    "file": "assets/faculty-578ab126.png",
+    "file": "assets/faculty-e4cdbb31.png",
     "src": "public/app/images/faculty.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-dea17909.css",
+    "file": "assets/app-623ec0b6.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -177,7 +177,7 @@
     "src": "resources/images/exit.png"
   },
   "resources/images/faculty.png": {
-    "file": "assets/faculty-578ab126.png",
+    "file": "assets/faculty-e4cdbb31.png",
     "src": "public/app/images/faculty.png"
   },
   "resources/images/folder (1).png": {
@@ -355,7 +355,7 @@
     "src": "resources/svg/doc.svg"
   },
   "resources/svg/file.svg": {
-    "file": "assets/file-86a803a6.svg",
+    "file": "assets/file-2e9ede66.svg",
     "src": "resources/svg/file.svg"
   },
   "resources/svg/not_file.svg": {

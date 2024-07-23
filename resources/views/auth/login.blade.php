@@ -55,7 +55,7 @@
                     <div class="form-group">
                         <input type="password" class="form-control input_userInfo" placeholder="كلمة المرور...." name="password" required autocomplete="current-password">
                     </div>
-
+                    <div>تذكرني  <input type="checkbox"  class="checkbox" name="raido"></div>
                     <button type="submit" class="btn btn-primary btn-block btn_login">تسجيل دخول</button>
                 </form>
             </div>
