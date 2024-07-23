@@ -13,7 +13,7 @@
             @include('components.layouts.manager_department.header')
 
                 <div class="dropdown">
-                    <button type="button"  class="btn btn-light departmentTypeStudentsGroups_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
+                    <button type="button"  class="btn btn-light departmentTypeStudentsGroups_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl" style="left: 2%">
                         <div class="textdropdown">{{ $typeGroup == 'sub' ? 'العملي' : 'النظري' }} </div>
                     </button>
                     <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">

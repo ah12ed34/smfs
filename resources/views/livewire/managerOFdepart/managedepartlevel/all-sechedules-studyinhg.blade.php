@@ -1,6 +1,6 @@
 @section('nav')
 @livewire('components.nav.manager_of_depart.managedepartlevel.all-sechedules-studyinhg-header',
-['level'=>$level,'active'=>$active,'groups'=>$groups,'teachers'=>$teachers
+['level'=>$level,'schedules'=>$active,'groups'=>$groups,'teachers'=>$teachers
 ])
 @endsection
 <div>

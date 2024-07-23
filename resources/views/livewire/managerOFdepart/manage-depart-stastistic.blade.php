@@ -4,7 +4,7 @@
 
 <div>
     {{-- Nothing in the world is as soft and yielding as water. --}}
-    <div class="content">
+
         <div class="container"  style="padding-top: 30px;" >
 
         <div class="cards-child-stastics">
@@ -49,5 +49,5 @@
         </div>
     </div>
 
-</div>
+
 </div>
