@@ -62,11 +62,6 @@ class NotificationsSender extends Component
             $this->target = 'student';
         }
     }
-    // public $nameRoute;
-    // public $parameters;
-    // public $query;
-
-
     public function sendMessage()
     {
         $this->validate([

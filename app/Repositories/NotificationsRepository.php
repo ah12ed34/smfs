@@ -218,23 +218,4 @@ class NotificationsRepository extends AcademicYRepository
             ->pluck('id')
             ->toArray();
     }
-
-    public function senedNotification($data)
-    {
-        $notification = Notification::create($data);
-        $users = $data['users'];
-        $users = is_array($users) ? $users : [$users];
-        $users = array_unique($users);
-        $users = array_filter($users);
-        $users = array_values($users);
-        $users = User::whereIn('id', $users)
-            ->whereNot('id', $data['sender_id'])->get();
-        $users->each(function ($user) use ($notification) {
-            Recipient::create([
-                'notification_id' => $notification->id,
-                'user_id' => $user->id,
-            ]);
-        });
-        return $notification;
-    }
 }
