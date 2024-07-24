@@ -92,7 +92,7 @@ style="90vh"
                     <div class="form-group">
 
                     <img src="{{ $studentData?->user?->photo ? asset('storage/' . $studentData->user->photo) : Vite::image("profile.png")
-                     }}"  width="100px" style="margin-left: 45%;  margin-top: 10px; border-radius: 50%;">
+                     }}"  width="" class="user_profile_modal">
 
 
 

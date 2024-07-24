@@ -106,7 +106,7 @@
                 <form action="/action_page.php" style="display: block;">
                     <div class="form-group">
 
-                        <img src="{{Vite::image("profile.png")}}"  width="100px" style="margin-left: 45%;  margin-top: -10px; border-radius: 50%;">
+                        <img src="{{Vite::image("profile.png")}}"  width="" class="user_profile_modal">
 
                         <!-- <label for="usr">Name:</label> -->
                         <input type="text" class="form-control" id="inputtext" name="projectname" placeholder=" الاسم " style="height: 30px; margin-top:-6px">
@@ -240,7 +240,7 @@
                     <div class="form-group">
 
                         <img src="{{ $employeeData->photo ? asset('storage/' . $employeeData->photo) : Vite::image("profile.png")
-                        }}"  width="100px" style="margin-left: 45%;  margin-top: -10px; border-radius: 50%;">
+                        }}"  width="100px" width="" class="user_profile_modal">
 
                         <!-- <label for="usr">Name:</label> -->
                         <input type="text" class="form-control" id="inputtext" wire:model='name' placeholder=" الاسم " style="height: 30px; margin-top:-6px">
@@ -376,7 +376,7 @@
                     <div class="form-group">
 
                         <img src="{{ $employeeData?->photo ? asset('storage/' . $employeeData->photo) : Vite::image("profile.png")
-                        }}"  width="100px" style="margin-left: 45%;  margin-top: -10px; border-radius: 50%;">
+                        }}"  width="" class="user_profile_modal">
 
                         <div class="table-responsive ">
                             <table class="table details-academic " style="width:100%;  margin-top: 5px;" >

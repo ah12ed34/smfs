@@ -35,18 +35,34 @@
                     <div class="cards-child-numbers">{{ $studentsCount }}</div>
                     <img src="{{Vite::image("students.png")}}" class="image-stastic" width="50px">
                 </div>
+                
                 <div class="cards-child-stastics" >
-                    <label class="cards-child-title">  إجمالي عدد ass
+                    <label class="cards-child-title">   التكاليف المسلمة
                 </label>
                     <div class="cards-child-numbers">{{ $studentsCountDeliveries }}</div>
-                    <img src="{{Vite::image("students.png")}}" class="image-stastic" width="50px">
+                    <img src="{{Vite::image("homework (3).png")}}" class="image-stastic" width="50px">
                 </div>
+
+                {{-- <div class="cards-child-stastics" >
+                    <label class="cards-child-title">   التكاليف الغير مسلمة
+                </label>
+                    <div class="cards-child-numbers">{{ $studentsCountDeliveries }}</div>
+                    <img src="{{Vite::image("homework (3).png")}}" class="image-stastic" width="50px">
+                </div> --}}
+
                 <div class="cards-child-stastics" >
-                    <label class="cards-child-title">  
+                    <label class="cards-child-title">  المشاريع المسلمة
                 </label>
                     <div class="cards-child-numbers">{{ $studentsCountGroupProjects }}</div>
-                    <img src="{{Vite::image("students.png")}}" class="image-stastic" width="50px">
+                    <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
                 </div>
+
+                {{-- <div class="cards-child-stastics" >
+                    <label class="cards-child-title">  المشاريع الغير مسلمة
+                </label>
+                    <div class="cards-child-numbers">{{ $studentsCountGroupProjects }}</div>
+                    <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
+                </div> --}}
 
             </div>
 

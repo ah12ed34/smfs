@@ -7,7 +7,7 @@
 
 
         <div class="dropdown">
-            <button type="button"  class="btn btn-light departmentNavbar_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
+            <button type="button"  class="btn btn-light departmentNavbar_dropdown academicNavbar_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
                 <div class="textdropdown"> الأكادمين   </div>
             </button>
             <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
@@ -36,7 +36,7 @@
         </div>
 
         <div class="dropdown">
-            <button type="button"  class="btn btn-light departmentTypeAcademic_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
+            <button type="button"  class="btn btn-light departmentTypeAcademic_dropdown   dropdown-toggle" data-toggle="dropdown" dir="rtl">
                     <div class="textdropdown">    النظري</div>
                 </button>
                 <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">

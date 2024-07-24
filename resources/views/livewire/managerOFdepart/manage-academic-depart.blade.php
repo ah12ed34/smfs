@@ -269,7 +269,7 @@
                     <div class="form-group">
 
                        <img src="{{ $employeeData->photo ? asset('storage/'.$employeeData->photo):Vite::image("user.png")
-                       }}"  width="100px" style="margin-left: 45%;  margin-top: -10px; border-radius: 50%;">
+                       }}"  width="" class="user_profile_modal">
 
                         <div class="table-responsive ">
                             <table class="table details-academic " style="width:100%;  margin-top: 5px;" >
