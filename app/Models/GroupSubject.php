@@ -171,12 +171,14 @@ class GroupSubject extends Model
     {
         return $this->hasMany(GroupSubject::class, 'subject_id', 'subject_id')
             ->where('group_id', '!=', $this->group_id)
+            ->where('teacher_id', $this->teacher_id)
             ->where('ay_id', $this->ay_id);
     }
 
     public function getGroups()
     {
         return $this->hasMany(GroupSubject::class, 'subject_id', 'subject_id')
+            ->where('teacher_id', $this->teacher_id)
             ->where('ay_id', $this->ay_id)->get()->map(function ($group) {
                 return $group->group;
             });

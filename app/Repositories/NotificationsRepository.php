@@ -189,6 +189,7 @@ class NotificationsRepository extends AcademicYRepository
 
     public function getUsersByDepartmentAndGroupAndSubject($department_id = null, $group_id = null, $subject_id = null)
     {
+        $subject = DB::table('group_subjects')->where('id', $subject_id)->first();
         return DB::table('users')
             ->join('students', 'users.id', '=', 'students.user_id')
             ->join('group_students', 'students.user_id', '=', 'group_students.student_id')
@@ -198,11 +199,12 @@ class NotificationsRepository extends AcademicYRepository
             }, function ($query) {
                 $query->whereNotNull('groups.id');
             })
-            ->when($subject_id, function ($query) use ($subject_id) {
-                $query->join('group_subjects', function ($join) use ($subject_id) {
+            ->when($subject_id, function ($query) use ($subject_id, $subject) {
+                $query->join('group_subjects', function ($join) use ($subject_id, $subject) {
                     $join->on('group_students.group_id', '=', 'group_subjects.group_id')
                         ->where('group_subjects.ay_id', $this->currentAcademicYear->id)
-                        ->where('group_subjects.subject_id', DB::table('group_subjects')->where('id', $subject_id)->first()->subject_id);
+                        ->where('group_subjects.subject_id', $subject->subject_id)
+                        ->where('group_subjects.teacher_id', $subject->teacher_id);;
                 });
             })
             ->when($department_id, function ($query) use ($department_id) {

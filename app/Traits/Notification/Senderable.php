@@ -23,7 +23,7 @@ trait Senderable
     {
         $this->RNotifi = new NotificationsRepository();
         $user = auth()->user();
-        if ($user->hasRole('admin')) {
+        if (optional($user)->hasRole('admin')) {
             $this->sender_type = 'admin';
         } else {
             $this->sender_type = 'teacher';

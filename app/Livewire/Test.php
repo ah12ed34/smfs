@@ -31,7 +31,7 @@ class Test extends Component
 
         // dd($groups);
         $this->noti = new NotificationsRepository();
-        dd(Notification::find(20)->subject->subjects);
+        // dd(Notification::find(20)->subject->subjects);
         // dd($this->noti->getUsersIsStudentByDepartmentAndLevelAndGroup(1, null, 1));
     }
 

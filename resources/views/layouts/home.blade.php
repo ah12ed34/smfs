@@ -104,7 +104,7 @@
                 src="{{ Vite::image('bell.png') }}" width="22px"></div>
 
         {{-- <button class="btn btn-light" id="notification" type="button" data-toggle="modal" data-target="#myModalnotification" style="z-index: 100%;"><img src="{{ Vite::image('bell.png')}}" width="22px"></button> --}}
-        <img src="{{ Vite::image('Group 912.png') }}" width="40px"
+        <img src="{{ Vite::image('Group 912.png') }}" width="40px" onclick="location.href='{{ route('home') }}'"
             style="float: right; margin-top:-100px; margin-right:0px;">
     </div>
     <div id="sidebar" class="sidebar">
