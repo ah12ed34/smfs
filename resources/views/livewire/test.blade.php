@@ -8,8 +8,8 @@
         الاقسام</button>
 
     <!-- The Modal -->
-    @livewire('components.notifications.notifications-sender', ['NotificationActive' => $notiActive],
-    key('notifications-sender'))
+    {{-- @livewire('components.notifications.notifications-sender', ['NotificationActive' => $notiActive],
+    key('notifications-sender')) --}}
     {{--
     <livewire:components.notifications.notifications-sender :NotificationActive=$notiActive /> --}}
 </div>

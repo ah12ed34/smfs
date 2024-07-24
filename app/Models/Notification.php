@@ -25,9 +25,13 @@ class Notification extends Model
         return $this->belongsTo(User::class, 'sender_id');
     }
 
-    public function subject()
+    public function groupSubject()
     {
-        return $this->belongsTo(GroupSubject::class, 'subject_id')
+        // dd(
+        //     $this->hasOne(GroupSubject::class, 'subject_id', 'id')
+        //         ->where('group_subjects.ay_id', $this->ay_id)->get()
+        // );
+        return $this->hasOne(GroupSubject::class, 'id', 'subject_id')
             ->where('group_subjects.ay_id', $this->ay_id);
     }
 
@@ -41,6 +45,14 @@ class Notification extends Model
         return $this->hasMany(Recipient::class, 'notification_id');
     }
 
+    public function getNameAttribute()
+    {
+        if ($this->sender_type == 'admin') {
+            return $this->sender->name;
+        } elseif ($this->sender_type == 'teacher' && $this->subject_id) {
+            return $this?->groupSubject?->subjects?->name_ar ?? '';
+        }
+    }
     public function markAsReadByUser($user)
     {
         $recipient = $this->recipients()->where('user_id', $user->id)->first();
@@ -112,6 +124,4 @@ class Notification extends Model
                 $query->where('user_id', $user->id);
             });
     }
-
-    
 }

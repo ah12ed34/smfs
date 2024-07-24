@@ -85,18 +85,18 @@ class NotificationsRepository extends AcademicYRepository
         return Notification::forUser($user)->read()->count();
     }
 
-    function getUsersByRole($role_id = null)
+    function getUsersByRole($role_id = null, $notRole = ['admin'])
     {
-        return User::whereHas('roles', function ($query) use ($role_id) {
+        return User::whereHas('roles', function ($query) use ($role_id, $notRole) {
             $query->when($role_id, function ($query) use ($role_id) {
                 $query->where('role_id', $role_id);
-            }, function ($query) {
-                $query->whereIn('role_id', Role::All()->where('name', '!=', 'admin')->pluck('id')->toArray());
+            }, function ($query) use ($notRole) {
+                $query->whereIn('role_id', Role::All()->whereNotIn('name', $notRole)->pluck('id')->toArray());
             });
         })->get()->pluck('id')->toArray();
     }
 
-    public function getUsersByDepartment($department_id = null)
+    public function getUsersIsTeacherByDepartment($department_id = null)
     {
         return User::whereHas('academic', function ($query) use ($department_id) {
             $query->when($department_id, function ($query) use ($department_id) {
@@ -141,7 +141,7 @@ class NotificationsRepository extends AcademicYRepository
         })->get()->pluck('id')->toArray();
     }
 
-    public function getUsersByHeadOfDepartment($department_id = null)
+    public function getUsersIsHeadOfDepartmentByDepartment($department_id = null)
     {
         return $this->getUsersByDepartmentAndRole($department_id, Role::where('name', 'HeadOfDepartment')->first()->id);
     }
@@ -155,12 +155,16 @@ class NotificationsRepository extends AcademicYRepository
         })->get()->pluck('id')->toArray();
     }
 
-    public function getUsersIsStudentByDepartmentAndGroup($department_id = null, $group_id = null)
+    public function getUsersIsStudentByDepartmentAndLevelAndGroup($department_id = null, $level_id = null, $group_id = null)
     {
         return DB::table('users')
             ->join('students', 'users.id', '=', 'students.user_id')
             ->join('group_students', 'students.user_id', '=', 'group_students.student_id')
             ->join('groups', 'group_students.group_id', '=', 'groups.id')
+            ->join('levels', function ($join) {
+                $join->on('groups.level_id', '=', 'levels.id')
+                    ->on('students.level_id', '=', 'levels.id');
+            })
             ->where('group_students.ay_id', $this->currentAcademicYear->id)
             ->when($group_id, function ($query) use ($group_id) {
                 $query->where('group_students.group_id', $group_id);
@@ -171,6 +175,10 @@ class NotificationsRepository extends AcademicYRepository
                 $query->where('students.department_id', $department_id);
             }, function ($query) {
                 $query->whereNotNull('students.department_id');
+            })->when($level_id, function ($query) use ($level_id) {
+                $query->where('levels.id', $level_id);
+            }, function ($query) {
+                $query->whereNotNull('students.level_id');
             })
             ->select('users.id')
             ->distinct()
@@ -218,7 +226,7 @@ class NotificationsRepository extends AcademicYRepository
         $users = array_filter($users);
         $users = array_values($users);
         $users = User::whereIn('id', $users)
-        ->whereNot('id', $data['sender_id'])->get();
+            ->whereNot('id', $data['sender_id'])->get();
         $users->each(function ($user) use ($notification) {
             Recipient::create([
                 'notification_id' => $notification->id,

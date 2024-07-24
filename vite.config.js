@@ -15,6 +15,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': '/resources',
+            'socket.io-client': './node_modules/socket.io-client/dist/socket.io.js',
         },
     },
 });

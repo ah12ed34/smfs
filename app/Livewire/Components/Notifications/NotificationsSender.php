@@ -15,6 +15,7 @@ class NotificationsSender extends Component
     use ToolsNav, Senderable;
     public $NotificationActive = '';
     public $selectActive = [];
+    public $group_subject = null;
     protected $listeners = ['na' => 'getNA'];
 
     public function getNA($value)
@@ -22,7 +23,11 @@ class NotificationsSender extends Component
         $this->NotificationActive = $value;
         switch ($value) {
             case 'student_a':
-                $this->selectActive = ['department', 'level', 'group'];
+                if ($this->sender_type == 'admin') {
+                    $this->selectActive = ['department', 'level', 'group'];
+                } else {
+                    $this->selectActive = ['group'];
+                }
                 $this->target = 'student';
                 break;
             case 'teacher_a':
@@ -51,15 +56,11 @@ class NotificationsSender extends Component
     {
         $this->initializeToolsNav(selectActive: $this->selectActive, isRequest: false);
         $this->initializeSenderable();
-        $user = auth()->user();
-        if ($user->hasRole('admin')) {
-            $this->sender_type = 'admin';
-        } else {
-            $this->sender_type = 'teacher';
+        if ($this->group_subject) {
+            $this->groups = $this->group_subject->getGroups();
+            $this->subject_id = $this->group_subject->id;
+            $this->target = 'student';
         }
-        // $this->nameRoute = request()->route()->getName();
-        // $this->parameters = request()->route()->parameters();
-        // $this->query = request()->query();
     }
     // public $nameRoute;
     // public $parameters;
@@ -68,10 +69,17 @@ class NotificationsSender extends Component
 
     public function sendMessage()
     {
-
-        // $this->sendNotification($this->message, $this->subject_id, $this->target, auth()->user(), $this->recipients);
+        $this->validate([
+            'message' => 'required|string'
+        ]);
+        $this->sendNotificationToAll($this->active['department'], $this->active['level'], $this->active['group'], $this->active['role']);
+        $this->resetMassage();
     }
 
+    public function resetMassage()
+    {
+        $this->reset('message');
+    }
 
 
     public function getNotificationsProperty()

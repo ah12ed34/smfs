@@ -341,12 +341,12 @@
     "src": "resources/images/user.png"
   },
   "resources/js/app.js": {
-    "file": "assets/app-59bfe6d8.js",
+    "file": "assets/app-a2891428.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-9ac7b1ee.css",
+    "file": "assets/app-a4d178ce.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   },
@@ -355,7 +355,7 @@
     "src": "resources/svg/doc.svg"
   },
   "resources/svg/file.svg": {
-    "file": "assets/file-2e9ede66.svg",
+    "file": "assets/file-86a803a6.svg",
     "src": "resources/svg/file.svg"
   },
   "resources/svg/not_file.svg": {
