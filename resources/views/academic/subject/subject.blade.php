@@ -38,12 +38,12 @@
     </div> --}}
 
         {{-- <a href="{{route("projects")}}"> --}}
-        <div class="card" id="cards-child-subject" onclick="location.href='{{ route('permissionsSubject') }}'"><img
+        {{-- <div class="card" id="cards-child-subject" onclick="location.href='{{ route('permissionsSubject') }}'"><img
                 src="{{ Vite::image('permissions-Subject.png') }}" class="imgs-boards" width="100px"
                 style="margin-left: -18px; margin-top:10px;">
             <div class="cards-child-child">الصلاحيات
             </div>
-        </div>
+        </div> --}}
 
         {{-- <a href="{{route("sendnotification")}}">    --}}
         <div class="card" id="cards-child-subject" data-toggle="modal" data-target="#ModalSendNotifictionsStudents"><img

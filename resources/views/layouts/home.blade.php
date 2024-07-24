@@ -185,9 +185,9 @@
             <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
 
             <div id="btn-group-mainpage" class="btn-group">
-                <button id="btn-mainpageNavbar" class="btn btn-light"
+                {{-- <button id="btn-mainpageNavbar" class="btn btn-light"
                     onclick="location.href='{{ route('permissions') }}'"><label class="proNavbartext">
-                        {{ __('layout.permissions') }} </label></button>
+                        {{ __('layout.permissions') }} </label></button> --}}
                 <button id="btn-mainpageNavbar" class="btn btn-light" onclick="location.href='{{ route('home') }}'"
                     style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label
                         class="proNavbartext"> {{ __('layout.home') }} </label></button>

@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use App\Tools\MyApp;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Vite;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Group extends Model
 {
@@ -24,14 +25,13 @@ class Group extends Model
 
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class, 'group_subjects', 'group_id', 'subject_id')
-            ;
+        return $this->belongsToMany(Subject::class, 'group_subjects', 'group_id', 'subject_id');
     }
 
     public function students()
     {
         return $this->belongsToMany(Student::class, 'group_students', 'group_id', 'student_id')
-            ->withPivot(['id','ay_id']);
+            ->withPivot(['id', 'ay_id']);
     }
 
     public function level()
@@ -51,19 +51,17 @@ class Group extends Model
 
     public function groupSubjects()
     {
-        return $this->hasMany(GroupSubject::class, 'group_id','id')
-            ;
+        return $this->hasMany(GroupSubject::class, 'group_id', 'id');
     }
 
     public function groupStudents()
     {
-        return $this->hasMany(GroupStudents::class, 'group_id','id')
-        ;
+        return $this->hasMany(GroupStudents::class, 'group_id', 'id');
     }
 
     public function IsPractical()
     {
-        return $this->group_id ;
+        return $this->group_id;
     }
 
     // public function getStudentsInGroup($search = '',$page = 5 ,$selectedStudents = null,$sort = 'DESC')
@@ -123,7 +121,7 @@ class Group extends Model
     // * @param string $sortBy [user_id, name, email, phone] sort by column
     // * @return \Illuminate\Pagination\LengthAwarePaginator [students] students in group
     // */
-    public function getStudentsInGroup($search = '', $page = 5, $selectedStudents = null,$sortBy ='user_id', $sort = true)
+    public function getStudentsInGroup($search = '', $page = 5, $selectedStudents = null, $sortBy = 'user_id', $sort = true)
     {
         $query = Student::join('users', 'users.id', '=', 'students.user_id')
             ->where('students.level_id', $this->level_id);
@@ -154,7 +152,6 @@ class Group extends Model
                         $join->on('groups.id', '=', 'group_students.group_id')
                             ->whereNull('groups.group_id');
                     });
-
             });
 
             // dd($query->toSql());
@@ -162,13 +159,13 @@ class Group extends Model
         // exit students finsh studing all subjects is_completed = 1
         $query->whereNotExists(function ($subquery) {
             $subquery->select(DB::raw(1))
-            ->from('group_subjects')
-            ->whereRaw('group_subjects.group_id =' . $this->id)
-            ->join('studyings', function ($join) {
-                $join->on('studyings.subject_id', '=', 'group_subjects.id')
-                    ->where('studyings.student_id', '=', 'group_students.id')
-                    ->where('studyings.is_completed', '=', 0);
-            });
+                ->from('group_subjects')
+                ->whereRaw('group_subjects.group_id =' . $this->id)
+                ->join('studyings', function ($join) {
+                    $join->on('studyings.subject_id', '=', 'group_subjects.id')
+                        ->where('studyings.student_id', '=', 'group_students.id')
+                        ->where('studyings.is_completed', '=', 0);
+                });
             // dd($subquery->get());
         });
         if (!empty($search)) {
@@ -184,10 +181,10 @@ class Group extends Model
 
         if (!empty($selectedStudents)) {
             $studentIds = $selectedStudents === true ? $this->students->pluck('user_id')->toArray() : $selectedStudents;
-            if(!empty($studentIds)){
-                if($sort){
+            if (!empty($studentIds)) {
+                if ($sort) {
                     arsort($studentIds);
-                }else{
+                } else {
                     asort($studentIds);
                 }
                 $query->orderByRaw('FIELD(students.user_id, ' . implode(',', $studentIds) . ') DESC ');
@@ -206,17 +203,16 @@ class Group extends Model
                 ->first();
 
             if ($student) {
-                if($student->level_id == $this->level_id &&!$student->groups->isEmpty()){
-                    session()->flash('warning',__('general.student_not_found_in_group_exist_in_other_group',['group'=>$student->groups->first()->name]));
-                }elseif($student->level_id != $this->level_id){
-                    if($student->level->department_id != $this->level->department_id){
-                        session()->flash('warning',__('general.student_not_found_in_department_exist_in_other_department',['department'=>$student->level->department->name]));
-                    }else{
-                        session()->flash('warning',__('general.student_not_found_in_level_exist_in_other_level',['level'=>$student->level->name]));
+                if ($student->level_id == $this->level_id && !$student->groups->isEmpty()) {
+                    session()->flash('warning', __('general.student_not_found_in_group_exist_in_other_group', ['group' => $student->groups->first()->name]));
+                } elseif ($student->level_id != $this->level_id) {
+                    if ($student->level->department_id != $this->level->department_id) {
+                        session()->flash('warning', __('general.student_not_found_in_department_exist_in_other_department', ['department' => $student->level->department->name]));
+                    } else {
+                        session()->flash('warning', __('general.student_not_found_in_level_exist_in_other_level', ['level' => $student->level->name]));
                     }
                 }
             }
-
         }
 
         return $students;
@@ -229,7 +225,7 @@ class Group extends Model
 
     public function getScheduleAttribute()
     {
-        return $this->attributes['schedule'] ? asset('storage/' . $this->attributes['schedule']) : null;
+        return $this->attributes['schedule'] ? asset('storage/' . $this->attributes['schedule']) : Vite::asset('resources/svg/file.svg');
     }
 
     public function getGGenderAttribute()
@@ -246,10 +242,9 @@ class Group extends Model
         parent::boot();
         static::updated(function ($group) {
             if ($group->isDirty('schedule')) {
-                if($group->getOriginal('schedule')&&Storage::exists($group->getOriginal('schedule'))){
+                if ($group->getOriginal('schedule') && Storage::exists($group->getOriginal('schedule'))) {
                     Storage::delete($group->getOriginal('schedule'));
                 }
-
             }
         });
         static::deleting(function ($group) {
@@ -258,12 +253,9 @@ class Group extends Model
             $group->groups()->delete();
         });
         static::deleted(function ($group) {
-            if($group->schedule&&Storage::exists($group->schedule)){
+            if ($group->schedule && Storage::exists($group->schedule)) {
                 Storage::delete($group->schedule);
             }
         });
     }
-
-
-
 }

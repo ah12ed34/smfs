@@ -14,10 +14,9 @@ class NavStudBooksChapters extends Component
     public $active;
     public function mount()
     {
-        if (request()->has('practical')) {
+        if (request()->has('practical') && $this->group_subject->has_practical) {
             if (request()->practical == 'false') {
                 $this->practical = false;
-                
             } else {
                 $this->practical = true;
             }

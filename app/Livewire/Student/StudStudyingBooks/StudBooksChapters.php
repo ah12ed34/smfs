@@ -10,6 +10,7 @@ use Livewire\WithPagination;
 use Livewire\Attributes\On;
 use App\Tools\MyApp as myapp;
 use App\Models\File;
+
 class StudBooksChapters extends Component
 {
     use WithPagination;
@@ -22,23 +23,23 @@ class StudBooksChapters extends Component
         $this->group_subject = GroupSubject::where('id', $id)
             // ->where('practical', $this->practical)
             ->firstOrFail();
-            if(request()->has('practical')){
-                if(request()->practical == 'false'){
-                    $this->practical = false;
-                }else{
-                    $this->practical = true;
-                }
-                // dd($this->practical);
+        if (request()->has('practical') && $this->group_subject->has_practical) {
+            if (request()->practical == 'false') {
+                $this->practical = false;
+            } else {
+                $this->practical = true;
             }
-            $this->group_subject->students()->where('user_id', auth()->id())
+            // dd($this->practical);
+        }
+        $this->group_subject->students()->where('user_id', auth()->id())
             ->firstOrFail();
 
-        if(request()->has('perPage')){
-            if(request()->perPage == 'all'){
+        if (request()->has('perPage')) {
+            if (request()->perPage == 'all') {
                 $this->perPage = $this->chapters->count();
-            }elseif(is_numeric(request()->perPage)){
+            } elseif (is_numeric(request()->perPage)) {
                 $perPage = request()->perPage;
-                if($perPage > 0){
+                if ($perPage > 0) {
                     $this->perPage = $perPage;
                 }
             }
@@ -61,7 +62,7 @@ class StudBooksChapters extends Component
     {
         $file = $this->group_subject->files()->find($id);
         // dd($this->group_subject->subject());
-        return Storage::download($file->file, $file->name.'-'.$this->group_subject->subject()->name_en);
+        return Storage::download($file->file, $file->name . '-' . $this->group_subject->subject()->name_en);
     }
 
     public function getChaptersProperty()
@@ -78,42 +79,46 @@ class StudBooksChapters extends Component
 
         // return $groupSubjects;
         $group_id = null;
-        if($this->practical){
-            if($this->group_subject->is_practical){
+        if ($this->practical) {
+            if ($this->group_subject->is_practical) {
                 $group_id = $this->group_subject->group_id;
-            }else{
+            } else {
                 $group_id = Group::where('groups.group_id', $this->group_subject->group_id)
-                ->join('group_students', 'groups.id', '=', 'group_students.group_id')
-                ->where('group_students.student_id', auth()->id())
-                ->first()->group->id;
+                    ->join('group_students', 'groups.id', '=', 'group_students.group_id')
+                    ->where('group_students.student_id', auth()->id())
+                    ->first()->group->id;
                 // dd($group_id);
             }
-        }else{
-            if($this->group_subject->is_practical){
+        } else {
+            if ($this->group_subject->is_practical) {
                 $group_id = Group::where('groups.id', $this->group_subject->group_id)
-                ->join('group_students', 'groups.id', '=', 'group_students.group_id')
-                ->where('group_students.student_id', auth()->id())
-                ->first()->group_id;
-            }else{
+                    ->join('group_students', 'groups.id', '=', 'group_students.group_id')
+                    ->where('group_students.student_id', auth()->id())
+                    ->first()->group_id;
+            } else {
                 $group_id = $this->group_subject->group_id;
             }
         }
         $file = GroupSubject::where('subject_id', $this->group_subject->subject_id)
-        ->where('group_id', $group_id)
-        ->where('is_practical', $this->practical)
-        ->first();
-        if(!$file){
-            if($this->practical){
-                redirect()->route(request()->route()->getName(),
-                        ['id' => $this->group_subject->id]);
-            }else{
-                redirect()->route(request()->route()->getName(),
-                        ['id' => $this->group_subject->id,'practical' => 'false']);
+            ->where('group_id', $group_id)
+            ->where('is_practical', $this->practical)
+            ->first();
+        if (!$file) {
+            if ($this->practical) {
+                redirect()->route(
+                    request()->route()->getName(),
+                    ['id' => $this->group_subject->id]
+                );
+            } else {
+                redirect()->route(
+                    request()->route()->getName(),
+                    ['id' => $this->group_subject->id, 'practical' => 'false']
+                );
             }
             return [];
         }
         $file = $file
-        ->files()->where('type', 'chapter')
+            ->files()->where('type', 'chapter')
             ->where('name', 'like', '%' . $this->search . '%')
             ->paginate($this->perPage);
         return $file;
