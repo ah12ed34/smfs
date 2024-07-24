@@ -17,7 +17,9 @@
         <label class="cards-child-title">المشاريع غير منجزة
         </label>
 
-        <div class="cards-child-numbers">{{ $counts['unfinished'] }}</div>
+        <div class="cards-child-numbers">
+
+            {{ $counts['unfinished'] }}</div>
         <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
     </div>
 
