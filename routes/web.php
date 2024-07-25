@@ -188,14 +188,14 @@ Route::prefix('/academic')->group(function () {
         Route::put('/update/{id}', 'LevelController@update')->name('level.update');
         Route::delete('/delete/{id}', 'LevelController@delete')->name('level.delete');
     });
-    Route::prefix('subject')->group(function () {
-        Route::get('/index', 'SubjectController@index')->name('subject.index');
-        Route::get('/create', 'SubjectController@create')->name('subject.create');
-        Route::post('/store', 'SubjectController@store')->name('subject.store');
-        Route::get('/edit/{id}', 'SubjectController@edit')->name('subject.edit');
-        Route::put('/update/{id}', 'SubjectController@update')->name('subject.update');
-        Route::delete('/delete/{id}', 'SubjectController@delete')->name('subject.delete');
-    });
+    // Route::prefix('subject')->group(function () {
+    //     Route::get('/index', 'SubjectController@index')->name('subject.index');
+    //     Route::get('/create', 'SubjectController@create')->name('subject.create');
+    //     Route::post('/store', 'SubjectController@store')->name('subject.store');
+    //     Route::get('/edit/{id}', 'SubjectController@edit')->name('subject.edit');
+    //     Route::put('/update/{id}', 'SubjectController@update')->name('subject.update');
+    //     Route::delete('/delete/{id}', 'SubjectController@delete')->name('subject.delete');
+    // });
     Route::prefix('role')->group(function () {
         Route::get('/index', 'RoleController@index')->name('role.index');
         Route::get('/create', 'RoleController@create')->name('role.create');

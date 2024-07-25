@@ -32,17 +32,40 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+import {  io } from 'socket.io-client';
+window.io = io;
+// import { socketIOClient } from 'socket.io-client';
+// window.socketIOClient = socketIOClient;
 
 // jQuery
-import { $, jQuery } from 'jquery';
-window.$ = $;
-window.jQuery = jQuery;
+// import { $, jQuery } from 'jquery';
+// window.$ = $;
+// window.jQuery = jQuery;
 
-// Popper.js
-import Popper from 'popper.js';
-window.Popper = Popper;
+// // Popper.js
+// import Popper from 'popper.js';
+// window.Popper = Popper;
+
+// import { Livewire } from '../../vendor/livewire/livewire/dist/livewire.esm';
+// import Alpine from 'alpinejs';
+// import Clipboard from '@ryangjchandler/alpine-clipboard';
+
+// Alpine.plugin(Clipboard);
+
+// window.Alpine = Alpine;
+// window.Livewire = Livewire;
+
+// Livewire.start();
+// Alpine.start();
 
 
+// let port = '3000';
+//             let url = 'https://server-v02x.onrender.com/';
+//             let socket = io(url);
+//             console.log(socket);
+//             socket.on('connect', function() {
+//                 console.log('Connected to server');
+//             });
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 // import 'bootstrap-icons/font/bootstrap-icons.css';

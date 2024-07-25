@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Events\NotificationSent;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Recipient extends Model
 {
@@ -70,5 +71,20 @@ class Recipient extends Model
     public function scopeRead($query)
     {
         return $query->where('status', 'read');
+    }
+    public function scopeUnreads()
+    {
+        return $this->hasMany(Recipient::class, 'user_id', 'user_id')->where('status', 'unread');
+    }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($recipient) {
+            $recipient->status = 'unread';
+        });
+        static::created(function ($recipient) {
+            event(new NotificationSent('notifi_' . $recipient->user_id, $recipient->scopeUnreads()->count()));
+        });
     }
 }

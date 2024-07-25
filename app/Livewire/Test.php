@@ -6,6 +6,7 @@ use App\Repositories\NotificationsRepository;
 use Livewire\Component;
 use App\Models\Department;
 use App\Models\Level;
+use App\Models\Notification;
 use App\Traits\Tools;
 
 
@@ -29,17 +30,15 @@ class Test extends Component
         // })->get();
 
         // dd($groups);
-        // $this->noti = new NotificationsRepository();
-        // dd($this->noti->getUsersByDepartmentAndGroupAndSubject(2,group_id: 3, subject_id: 4));
-
-
-
+        $this->noti = new NotificationsRepository();
+        // dd(Notification::find(20)->subject->subjects);
+        // dd($this->noti->getUsersIsStudentByDepartmentAndLevelAndGroup(1, null, 1));
     }
 
-    public function setA($a)
-    {
-        $this->dispatch('na', $a);
-    }
+    // public function setA($a)
+    // {
+    //     $this->dispatch('na', $a);
+    // }
 
     public function render()
     {

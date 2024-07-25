@@ -1,377 +1,378 @@
 {
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
-    "file": "assets/bootstrap-icons-bb1de989.woff",
+    "file": "assets/bootstrap-icons-BOrJxbIo.woff",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
   },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
-    "file": "assets/bootstrap-icons-476adf42.woff2",
+    "file": "assets/bootstrap-icons-BtvjY1KL.woff2",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "public/app/images/Path 350.png": {
-    "file": "assets/Path 350-6c8fee78.png",
+    "file": "assets/Path 350-y8IbIBTo.png",
     "src": "public/app/images/Path 350.png"
   },
   "public/app/images/Path 360.png": {
-    "file": "assets/Path 360-9bcc3fbf.png",
+    "file": "assets/Path 360-ByeKZh59.png",
     "src": "public/app/images/Path 360.png"
   },
   "public/app/images/faculty.png": {
-    "file": "assets/faculty-e4cdbb31.png",
+    "file": "assets/faculty-BMRiLYGJ.png",
     "src": "public/app/images/faculty.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-145bdf5a.css",
-    "isEntry": true,
-    "src": "resources/css/app.css"
+    "file": "assets/app-7yqKEL-b.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
   },
   "resources/images/Group 912.png": {
-    "file": "assets/Group 912-05c07297.png",
+    "file": "assets/Group 912-BGt9z0TD.png",
     "src": "resources/images/Group 912.png"
   },
   "resources/images/Groups.png": {
-    "file": "assets/Groups-1eabb5b2.png",
+    "file": "assets/Groups-L1R8Ub-0.png",
     "src": "resources/images/Groups.png"
   },
   "resources/images/M.L.H DS Mid exams_page-0001.jpg": {
-    "file": "assets/M.L.H DS Mid exams_page-0001-0fe177af.jpg",
+    "file": "assets/M.L.H DS Mid exams_page-0001-D1XV_nCD.jpg",
     "src": "resources/images/M.L.H DS Mid exams_page-0001.jpg"
   },
   "resources/images/M.L.H DS Mid exams_page-0002.jpg": {
-    "file": "assets/M.L.H DS Mid exams_page-0002-f807a38c.jpg",
+    "file": "assets/M.L.H DS Mid exams_page-0002-DbqdbegE.jpg",
     "src": "resources/images/M.L.H DS Mid exams_page-0002.jpg"
   },
   "resources/images/M.L.H DS Mid exams_page-0003.jpg": {
-    "file": "assets/M.L.H DS Mid exams_page-0003-ce23dc58.jpg",
+    "file": "assets/M.L.H DS Mid exams_page-0003-BWZhzLCR.jpg",
     "src": "resources/images/M.L.H DS Mid exams_page-0003.jpg"
   },
   "resources/images/M.L.H DS Mid exams_page-0004.jpg": {
-    "file": "assets/M.L.H DS Mid exams_page-0004-22b56b26.jpg",
+    "file": "assets/M.L.H DS Mid exams_page-0004-BSheRAAE.jpg",
     "src": "resources/images/M.L.H DS Mid exams_page-0004.jpg"
   },
   "resources/images/Path 350.png": {
-    "file": "assets/Path 350-6c8fee78.png",
+    "file": "assets/Path 350-y8IbIBTo.png",
     "src": "public/app/images/Path 350.png"
   },
   "resources/images/Path 360.png": {
-    "file": "assets/Path 360-9bcc3fbf.png",
+    "file": "assets/Path 360-ByeKZh59.png",
     "src": "public/app/images/Path 360.png"
   },
   "resources/images/academics.png": {
-    "file": "assets/academics-68dc28a9.png",
+    "file": "assets/academics-BpI9s49t.png",
     "src": "resources/images/presentation (2).png"
   },
   "resources/images/add_user_avatar.png": {
-    "file": "assets/add_user_avatar-a189bd80.png",
+    "file": "assets/add_user_avatar-DjD1QMVB.png",
     "src": "resources/images/add_user_avatar.png"
   },
   "resources/images/admin.png": {
-    "file": "assets/admin-f20872de.png",
+    "file": "assets/admin-BzXof4uv.png",
     "src": "resources/images/admin.png"
   },
   "resources/images/all_employees.png": {
-    "file": "assets/all_employees-b5938363.png",
+    "file": "assets/all_employees-DHfhQLu5.png",
     "src": "resources/images/all_employees.png"
   },
   "resources/images/all_employeesNotifications.png": {
-    "file": "assets/all_employeesNotifications-768427fa.png",
+    "file": "assets/all_employeesNotifications-ClvCyvAb.png",
     "src": "resources/images/all_employeesNotifications.png"
   },
   "resources/images/allocation (1).png": {
-    "file": "assets/allocation (1)-e7be0c63.png",
+    "file": "assets/allocation (1)-KkeFCGty.png",
     "src": "resources/images/allocation (1).png"
   },
   "resources/images/allusers.png": {
-    "file": "assets/allusers-81ce5e1a.png",
+    "file": "assets/allusers-cp_QcR12.png",
     "src": "resources/images/allusers.png"
   },
   "resources/images/bar-chart (4).png": {
-    "file": "assets/bar-chart (4)-074be65a.png",
+    "file": "assets/bar-chart (4)-DhAMU82V.png",
     "src": "resources/images/bar-chart (4).png"
   },
   "resources/images/bell.png": {
-    "file": "assets/bell-77314ab4.png",
+    "file": "assets/bell-BOQkxN4S.png",
     "src": "resources/images/bell.png"
   },
   "resources/images/bossesofdepartmentsnotif.png": {
-    "file": "assets/bossesofdepartmentsnotif-8c50cb02.png",
+    "file": "assets/bossesofdepartmentsnotif-BBjvsFgc.png",
     "src": "resources/images/bossesofdepartmentsnotif.png"
   },
   "resources/images/calendar (3).png": {
-    "file": "assets/calendar (3)-d89fdbf1.png",
+    "file": "assets/calendar (3)-CTb0-TK9.png",
     "src": "resources/images/calendar (3).png"
   },
   "resources/images/calendar (4).png": {
-    "file": "assets/calendar (4)-a8a0a513.png",
+    "file": "assets/calendar (4)-BweIUrpS.png",
     "src": "resources/images/calendar (4).png"
   },
   "resources/images/calendar_students.png": {
-    "file": "assets/calendar_students-a8f46bdb.png",
+    "file": "assets/calendar_students-DVelwpex.png",
     "src": "resources/images/calendar_students.png"
   },
   "resources/images/cancelbtn.png": {
-    "file": "assets/cancelbtn-3d0bb25e.png",
+    "file": "assets/cancelbtn-B3BJ3D_p.png",
     "src": "resources/images/cancelbtn.png"
   },
   "resources/images/chapter (2).png": {
-    "file": "assets/chapter (2)-287d5e64.png",
+    "file": "assets/chapter (2)-4-pLYiPL.png",
     "src": "resources/images/chapter (2).png"
   },
   "resources/images/chapter 3.png": {
-    "file": "assets/chapter 3-40a47dd5.png",
+    "file": "assets/chapter 3-0c2qKEh8.png",
     "src": "resources/images/chapter 3.png"
   },
   "resources/images/chapter 4.png": {
-    "file": "assets/chapter 4-659f0cbf.png",
+    "file": "assets/chapter 4-D3Zaw3qU.png",
     "src": "resources/images/chapter 4.png"
   },
   "resources/images/chapter.png": {
-    "file": "assets/chapter-8d55d8b9.png",
+    "file": "assets/chapter-yLcP2QXv.png",
     "src": "resources/images/chapter.png"
   },
   "resources/images/computer-science.png": {
-    "file": "assets/computer-science-791df635.png",
+    "file": "assets/computer-science-BPxh3nrP.png",
     "src": "resources/images/computer-science.png"
   },
   "resources/images/controll.png": {
-    "file": "assets/controll-5f7d578e.png",
+    "file": "assets/controll-BPY9TBO0.png",
     "src": "resources/images/controll.png"
   },
   "resources/images/conversation (3).png": {
-    "file": "assets/conversation (3)-f7bf26ed.png",
+    "file": "assets/conversation (3)-Bv5b92fU.png",
     "src": "resources/images/conversation (3).png"
   },
   "resources/images/dashboard (1).png": {
-    "file": "assets/dashboard (1)-6486eb66.png",
+    "file": "assets/dashboard (1)-BOvvLMLo.png",
     "src": "resources/images/dashboard (1).png"
   },
   "resources/images/degrees.png": {
-    "file": "assets/degrees-6312102a.png",
+    "file": "assets/degrees-CNjnaB2S.png",
     "src": "resources/images/degrees.png"
   },
   "resources/images/delete (1).png": {
-    "file": "assets/delete (1)-58b1e793.png",
+    "file": "assets/delete (1)-DGYt-6ot.png",
     "src": "resources/images/delete (1).png"
   },
   "resources/images/digital.png": {
-    "file": "assets/digital-f66cf649.png",
+    "file": "assets/digital-BpXYn99W.png",
     "src": "resources/images/digital.png"
   },
   "resources/images/download-file.png": {
-    "file": "assets/download-file-6d6caf60.png",
+    "file": "assets/download-file-B18fvBWg.png",
     "src": "resources/images/download-file.png"
   },
   "resources/images/ecommerce-website.png": {
-    "file": "assets/ecommerce-website-0478dbb4.png",
+    "file": "assets/ecommerce-website-vj1DB_JY.png",
     "src": "resources/images/ecommerce-website.png"
   },
   "resources/images/edit.png": {
-    "file": "assets/edit-edd1fca1.png",
+    "file": "assets/edit-CqbWj4bA.png",
     "src": "resources/images/edit.png"
   },
   "resources/images/empoloyee_scheduls.png": {
-    "file": "assets/empoloyee_scheduls-e2088a14.png",
+    "file": "assets/empoloyee_scheduls-CzrXdyqE.png",
     "src": "resources/images/empoloyee_scheduls.png"
   },
   "resources/images/exit.png": {
-    "file": "assets/exit-8d5a8c41.png",
+    "file": "assets/exit-ByHlk3WB.png",
     "src": "resources/images/exit.png"
   },
   "resources/images/faculty.png": {
-    "file": "assets/faculty-e4cdbb31.png",
+    "file": "assets/faculty-BMRiLYGJ.png",
     "src": "public/app/images/faculty.png"
   },
   "resources/images/folder (1).png": {
-    "file": "assets/folder (1)-c169ae87.png",
+    "file": "assets/folder (1)-BwOyB_QG.png",
     "src": "resources/images/folder (1).png"
   },
   "resources/images/home (1).png": {
-    "file": "assets/home (1)-d2886832.png",
+    "file": "assets/home (1)-iAmdNKhC.png",
     "src": "resources/images/home (1).png"
   },
   "resources/images/homework (3).png": {
-    "file": "assets/homework (3)-61effed2.png",
+    "file": "assets/homework (3)-C83igRDH.png",
     "src": "resources/images/homework (3).png"
   },
   "resources/images/information-management (1).png": {
-    "file": "assets/information-management (1)-29713a81.png",
+    "file": "assets/information-management (1)-DJ6zQSJX.png",
     "src": "resources/images/information-management (1).png"
   },
   "resources/images/instructorsnotif.png": {
-    "file": "assets/instructorsnotif-b203dd69.png",
+    "file": "assets/instructorsnotif-dFeSMBOX.png",
     "src": "resources/images/instructorsnotif.png"
   },
   "resources/images/it.png": {
-    "file": "assets/it-fbb655bb.png",
+    "file": "assets/it-DSSDFjdv.png",
     "src": "resources/images/it.png"
   },
   "resources/images/left-arrow.png": {
-    "file": "assets/left-arrow-b007cb2a.png",
+    "file": "assets/left-arrow-BzSOme0-.png",
     "src": "resources/images/left-arrow.png"
   },
   "resources/images/level1.png": {
-    "file": "assets/level1-afec7619.png",
+    "file": "assets/level1-ByiMUXw4.png",
     "src": "resources/images/level1.png"
   },
   "resources/images/level2.png": {
-    "file": "assets/level2-7112b4e4.png",
+    "file": "assets/level2-Bkm-w9Hz.png",
     "src": "resources/images/level2.png"
   },
   "resources/images/level3.png": {
-    "file": "assets/level3-1834d496.png",
+    "file": "assets/level3-BTOPQGqz.png",
     "src": "resources/images/level3.png"
   },
   "resources/images/level4.png": {
-    "file": "assets/level4-e89f388b.png",
+    "file": "assets/level4-381leJQM.png",
     "src": "resources/images/level4.png"
   },
   "resources/images/magnifying-glass (2).png": {
-    "file": "assets/magnifying-glass (2)-86dabd36.png",
+    "file": "assets/magnifying-glass (2)-BH4izKl6.png",
     "src": "resources/images/magnifying-glass (2).png"
   },
   "resources/images/managers.png": {
-    "file": "assets/managers-8d2cd551.png",
+    "file": "assets/managers-DrK2hFlT.png",
     "src": "resources/images/managers.png"
   },
   "resources/images/open-book.png": {
-    "file": "assets/open-book-431303bd.png",
+    "file": "assets/open-book-D_-giPRa.png",
     "src": "resources/images/open-book.png"
   },
   "resources/images/paper-plane.png": {
-    "file": "assets/paper-plane-876c1872.png",
+    "file": "assets/paper-plane-BXIliz_V.png",
     "src": "resources/images/paper-plane.png"
   },
   "resources/images/permissions-Subject.png": {
-    "file": "assets/permissions-Subject-2e2e216f.png",
+    "file": "assets/permissions-Subject-Dy3p5XCt.png",
     "src": "resources/images/permissions-Subject.png"
   },
   "resources/images/permissions.png": {
-    "file": "assets/shield-27c05360.png",
+    "file": "assets/shield-BBQICWL8.png",
     "src": "resources/images/shield.png"
   },
   "resources/images/plus.png": {
-    "file": "assets/plus-a9290ee4.png",
+    "file": "assets/plus-qlm-jlej.png",
     "src": "resources/images/plus.png"
   },
   "resources/images/portfolio (2).png": {
-    "file": "assets/portfolio (2)-e3e4d9e0.png",
+    "file": "assets/portfolio (2)-Bd_iXce-.png",
     "src": "resources/images/portfolio (2).png"
   },
   "resources/images/presentation (2).png": {
-    "file": "assets/academics-68dc28a9.png",
+    "file": "assets/academics-BpI9s49t.png",
     "src": "resources/images/presentation (2).png"
   },
   "resources/images/printing.png": {
-    "file": "assets/printing-e70b3518.png",
+    "file": "assets/printing-C2IQbxuc.png",
     "src": "resources/images/printing.png"
   },
   "resources/images/profile.png": {
-    "file": "assets/profile-e5d65ab2.png",
+    "file": "assets/profile-CZH-Ebd_.png",
     "src": "resources/images/profile.png"
   },
   "resources/images/project-management.png": {
-    "file": "assets/project-management-ccb71f91.png",
+    "file": "assets/project-management-DtLOmjQg.png",
     "src": "resources/images/project-management.png"
   },
   "resources/images/quality.png": {
-    "file": "assets/quality-699b4c2f.png",
+    "file": "assets/quality-9aFls5Ij.png",
     "src": "resources/images/quality.png"
   },
   "resources/images/routine.png": {
-    "file": "assets/routine-6b7067ab.png",
+    "file": "assets/routine-C-RLidLi.png",
     "src": "resources/images/routine.png"
   },
   "resources/images/security (3).png": {
-    "file": "assets/security (3)-a3863002.png",
+    "file": "assets/security (3)-CL9wOpKy.png",
     "src": "resources/images/security (3).png"
   },
   "resources/images/send.png": {
-    "file": "assets/send-7d8a65a9.png",
+    "file": "assets/send-B5UBuEZk.png",
     "src": "resources/images/send.png"
   },
   "resources/images/setting (2).png": {
-    "file": "assets/setting (2)-ab567baf.png",
+    "file": "assets/setting (2)-DyWQebqZ.png",
     "src": "resources/images/setting (2).png"
   },
   "resources/images/shield.png": {
-    "file": "assets/shield-27c05360.png",
+    "file": "assets/shield-BBQICWL8.png",
     "src": "resources/images/shield.png"
   },
   "resources/images/studentnotif.png": {
-    "file": "assets/studentnotif-1fabce69.png",
+    "file": "assets/studentnotif-BzJMy2sa.png",
     "src": "resources/images/studentnotif.png"
   },
   "resources/images/students.png": {
-    "file": "assets/students-f245b45f.png",
+    "file": "assets/students-TPWgFObl.png",
     "src": "resources/images/students.png"
   },
   "resources/images/studentsAffairs.png": {
-    "file": "assets/studentsAffairs-c35edc83.png",
+    "file": "assets/studentsAffairs-BNsZySEE.png",
     "src": "resources/images/studentsAffairs.png"
   },
   "resources/images/studstudyingScheule.png": {
-    "file": "assets/studstudyingScheule-c5739303.png",
+    "file": "assets/studstudyingScheule-DlrL62Sk.png",
     "src": "resources/images/studstudyingScheule.png"
   },
   "resources/images/studyingScheule.png": {
-    "file": "assets/studyingScheule-4ce10d05.png",
+    "file": "assets/studyingScheule-Do0UhBEz.png",
     "src": "resources/images/studyingScheule.png"
   },
   "resources/images/timetable_academic.png": {
-    "file": "assets/timetable_academic-fd73d3ff.png",
+    "file": "assets/timetable_academic-DIN0UMhM.png",
     "src": "resources/images/timetable_academic.png"
   },
   "resources/images/timetable_classes.png": {
-    "file": "assets/timetable_classes-e0945ed6.png",
+    "file": "assets/timetable_classes-CsNfFrgq.png",
     "src": "resources/images/timetable_classes.png"
   },
   "resources/images/upload.png": {
-    "file": "assets/upload-5686daec.png",
+    "file": "assets/upload-VlVS9cYj.png",
     "src": "resources/images/upload.png"
   },
   "resources/images/user (10).png": {
-    "file": "assets/user-9d9e3eef.png",
+    "file": "assets/user-fFfByky6.png",
     "src": "resources/images/user.png"
   },
   "resources/images/user (4).png": {
-    "file": "assets/user (4)-2873f8cd.png",
+    "file": "assets/user (4)-d0-IQqex.png",
     "src": "resources/images/user (4).png"
   },
   "resources/images/user.png": {
-    "file": "assets/user-9d9e3eef.png",
+    "file": "assets/user-fFfByky6.png",
     "src": "resources/images/user.png"
   },
   "resources/js/app.js": {
-    "file": "assets/app-59bfe6d8.js",
-    "isEntry": true,
-    "src": "resources/js/app.js"
+    "file": "assets/app-BKglogtV.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-9ac7b1ee.css",
-    "isEntry": true,
-    "src": "resources/sass/app.scss"
+    "file": "assets/app-Cb6BU2IT.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
   },
   "resources/svg/doc.svg": {
-    "file": "assets/doc-ff1f0dd7.svg",
+    "file": "assets/doc-DTuD_k-S.svg",
     "src": "resources/svg/doc.svg"
   },
   "resources/svg/file.svg": {
-    "file": "assets/file-2e9ede66.svg",
+    "file": "assets/file-BR_ypkm5.svg",
     "src": "resources/svg/file.svg"
   },
   "resources/svg/not_file.svg": {
-    "file": "assets/not_file-50d2e7ad.svg",
+    "file": "assets/not_file-BaeHQqzB.svg",
     "src": "resources/svg/not_file.svg"
   },
   "resources/svg/pdf.svg": {
-    "file": "assets/pdf-8da2e484.svg",
+    "file": "assets/pdf-sgPTvCKk.svg",
     "src": "resources/svg/pdf.svg"
   },
   "resources/svg/ppt.svg": {
-    "file": "assets/ppt-b0629a78.svg",
+    "file": "assets/ppt-DIemwaKr.svg",
     "src": "resources/svg/ppt.svg"
   },
   "resources/svg/zip.svg": {
-    "file": "assets/zip-09d282f2.svg",
+    "file": "assets/zip-SCZFZbSY.svg",
     "src": "resources/svg/zip.svg"
   }
 }
