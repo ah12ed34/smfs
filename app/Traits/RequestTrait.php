@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Helpers\Logger;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
@@ -32,8 +33,13 @@ trait RequestTrait
                 'body' => json_decode($response->getBody(), true),
             ];
         } catch (Exception $e) {
+            Logger::log('error', $e->getMessage(), 'notification');
             return ['error' => $e->getMessage()];
         } catch (ClientException $e) {
+            Logger::log('error', $e->getMessage(), 'notification');
+            return ['error' => $e->getMessage()];
+        } catch (\Throwable $e) {
+            Logger::log('error', $e->getMessage(), 'notification');
             return ['error' => $e->getMessage()];
         }
     }

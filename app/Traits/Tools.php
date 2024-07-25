@@ -4,7 +4,8 @@ namespace App\Traits;
 
 trait Tools
 {
-    function convertNumberToWord($number) {
+    function convertNumberToWord($number)
+    {
         $arabicOnes = [
             "", "واحد", "اثنان", "ثلاثة", "أربعة", "خمسة", "ستة", "سبعة", "ثمانية", "تسعة",
             "عشرة", "أحد عشر", "اثنا عشر", "ثلاثة عشر", "أربعة عشر", "خمسة عشر", "ستة عشر", "سبعة عشر", "ثمانية عشر", "تسعة عشر"
@@ -24,7 +25,7 @@ trait Tools
         } elseif ($number < 100) {
             return $arabicTens[intval($number / 10)] . " و " . $arabicOnes[$number % 10];
         } elseif ($number < 1000) {
-            return $arabicHundreds[intval($number / 100)] . " و " .$this->convertNumberToWord($number % 100);
+            return $arabicHundreds[intval($number / 100)] . " و " . $this->convertNumberToWord($number % 100);
         } elseif ($number < 1000000) {
             return $this->convertNumberToWord(intval($number / 1000)) . " " . $arabicThousands[3] . " و " . $this->convertNumberToWord($number % 1000);
         } elseif ($number < 1000000000) {
@@ -34,7 +35,8 @@ trait Tools
         }
     }
 
-    public function numberToOrdinal($number) {
+    public function numberToOrdinal($number)
+    {
         if (!is_numeric($number) || $number <= 0) {
             return "غير صالح"; // Handle invalid input
         }
@@ -65,7 +67,7 @@ trait Tools
             if ($tens == 1) {
                 $suffix = 'عشر';
             } else {
-                $suffix =$this->numberToOrdinal($tens) . ' عشر';
+                $suffix = $this->numberToOrdinal($tens) . ' عشر';
             }
 
             if ($units > 0) {
