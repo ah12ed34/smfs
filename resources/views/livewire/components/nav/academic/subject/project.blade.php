@@ -3,6 +3,35 @@
         <button class="spaces"> <label  class="subjectname"> المشاريع </label><img src="{{Vite::image("project-management.png")}}" id="subject-icon-hdr2" width="40px">
         </button>
         <div class="dep-sub-name">{{$group_subject->subject()->name_ar}} </div>
+        @if(in_array('tab',$deny))
+        <div class="dropdown">
+            <button type="button"  class="btn btn-light projects_studentsGroups_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
+                <div class="textdropdown">
+                    {{ $group_subject->group->name }}
+                {{-- كل المجموعات --}}
+                        {{-- {{ (
+                        isset($active['group']) && $active['group'] != 'all'
+                    )? $groups->where('id',$active['group'])->first()->name : 'كل المجموعات'}} --}}
+                    </div>
+
+                </button>
+                 <div id="dropdown-menulist" class="dropdown-menu" style="width:130px; color: #0E70F2; ">
+                     @foreach ($group_subject->getOtherGroupss as $group)
+                     @if($search == 'search')
+                     <div class="alert alert-success" role="alert">
+                         @dd($otherGroups)
+                     </div>
+                     @endif
+                     <a id="dropdown-itemlist" class="dropdown-item" href="{{ route($routeName,[$group->id]) }}"style="padding-left:40px;">{{ $group->group->name }}</a>
+
+                     @endforeach
+                    {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   مجموعة(1)</a>
+                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  مجموعة(2)</a>
+                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  مجموعة(3)</a> --}}
+
+                </div>
+    </div>
+    @endif
             @if(!in_array('tab',$deny))
         <div id="btn-group-proj" class="btn-group">
 
@@ -57,6 +86,10 @@
             <a id="dropdown-itemlist" class="dropdown-item" href="{{route("projectsStastics",$parameters)}}"> الإحصائيات</a>
         </div>
         @endif
+
+    @if(!in_array('create',$deny))
+        <button class="btn btn-primary btn_addProjct" data-toggle="modal" data-target="#myModal"><label class="proNavbartext">إنشاء مشروع</label><img src="{{Vite::image("plus.png")}}" class="image_add"  width="20px;" ></button>
+        @endif
     </div>
 
     <div class="hr3">
@@ -68,8 +101,6 @@
                 <button id="form-control" class="btn btn-light" type="submit" wire:click='srch'><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
             </div>
         </div>
-        @if(!in_array('create',$deny))
-        <button class="Addbtn-projctsNavbar" data-toggle="modal" data-target="#myModal"><label class="proNavbartext">إنشاء مشروع</label><img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button>
-        @endif
+
     </div>
 </div>
