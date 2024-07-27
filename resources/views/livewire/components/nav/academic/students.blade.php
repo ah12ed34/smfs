@@ -136,7 +136,7 @@
 
     </div>
 <!-- The Modal -->
-<div class="modal fade" id="myModal">
+{{-- <div class="modal fade" id="myModal">
     <div class="modal-dialog">
         <div class="modal-content modal_content_css" id="modal-content2">
 
@@ -168,7 +168,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 </div>
 

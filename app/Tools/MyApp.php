@@ -8,6 +8,8 @@ class MyApp
     const perPageLists = 5;
     const perPageItems = 10;
     const viewPagination = 'vendor.livewire.bootstrap';
+    const defaultPassword = '123000';
+    const defaultGender = 'male';
 
     public static function getFileMime($name)
     {

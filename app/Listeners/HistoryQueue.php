@@ -3,7 +3,8 @@
 namespace App\Listeners;
 
 use App\Models\HistoryQueue as HistoryQueueModel;
-use App\Events\ProgressData ;
+use App\Events\ProgressData;
+
 class HistoryQueue
 {
     /**
@@ -18,30 +19,31 @@ class HistoryQueue
      * Handle the event.
      */
     public function handle(ProgressData $event): void
-{
-    $hQ = HistoryQueueModel::where('user_id', $event->user_id)->where('file', $event->file)->first();
+    {
+        $hQ = HistoryQueueModel::where('user_id', $event->user_id)->where('file', $event->file)->first();
 
-    if ($hQ) {
-        $hQ->Progress = $event->Progress;
-        $hQ->status = $event->status;
-        if (!empty($event->log)){
-            // $hQ->log += ' \n ' . $event->log;
-            if (empty($hQ->log)) {
-                $hQ->log = $event->log;
-            } else
-                $hQ->log .= PHP_EOL . $event->log;
+        if ($hQ) {
+            $hQ->Progress = $event->Progress;
+            if ($hQ->status != 'warning') {
+                $hQ->status = $event->status;
+            }
+            if (!empty($event->log)) {
+                // $hQ->log += ' \n ' . $event->log;
+                if (empty($hQ->log)) {
+                    $hQ->log = $event->log;
+                } else
+                    $hQ->log .= PHP_EOL . $event->log;
+            }
+
+            $hQ->save();
+        } else {
+            HistoryQueueModel::create([
+                'user_id' => $event->user_id,
+                'file' => $event->file,
+                'Progress' => $event->Progress,
+                'status' => $event->status,
+                'log' => $event->log ?? null,
+            ]);
         }
-
-        $hQ->save();
-    } else {
-        HistoryQueueModel::create([
-            'user_id' => $event->user_id,
-            'file' => $event->file,
-            'Progress' => $event->Progress,
-            'status' => $event->status,
-            'log' => $event->log??null,
-        ]);
     }
-}
-
 }

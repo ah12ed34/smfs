@@ -2,17 +2,20 @@
 
 namespace App\Livewire;
 
-use App\Repositories\NotificationsRepository;
+use App\Models\Level;
+use App\Traits\Tools;
 use Livewire\Component;
 use App\Models\Department;
-use App\Models\Level;
+use App\Models\GroupSubject;
 use App\Models\Notification;
-use App\Traits\Tools;
+use App\Repositories\FileRepsitory;
+use App\Repositories\FileRepository;
+use App\Repositories\NotificationsRepository;
 
 
 class Test extends Component
 {
-    protected $noti;
+    protected $test;
 
     public $notiActive = 'student_a';
 
@@ -30,9 +33,12 @@ class Test extends Component
         // })->get();
 
         // dd($groups);
-        $this->noti = new NotificationsRepository();
-        // dd(Notification::find(20)->subject->subjects);
-        // dd($this->noti->getUsersIsStudentByDepartmentAndLevelAndGroup(1, null, 1));
+        $this->test = new FileRepository();
+        $keys = $this->test->getArrayHeaderKey(["id",    "midterm_exam"]);
+
+        $s = $this->test->getStudentAndGradeToAcademic(['20163132'], $keys);
+        $ss = GroupSubject::find(7)->groupStudents->where('student_id', $s['id'])->first();
+        dd($ss, $s['id']);
     }
 
     // public function setA($a)

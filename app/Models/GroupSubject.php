@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use PhpParser\Node\Expr\Throw_;
+
 
 class GroupSubject extends Model
 {
@@ -75,6 +75,12 @@ class GroupSubject extends Model
     public function practicalGroups()
     {
         return $this->belongsToMany(Group::class, 'groups', 'group_id', 'group_id', 'group_id', 'id');
+    }
+
+    public function groupStudents()
+    {
+        return $this->hasMany(GroupStudents::class, 'group_id', 'group_id')
+            ->where('ay_id', $this->ay_id);
     }
 
     public function students()
