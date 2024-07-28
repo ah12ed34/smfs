@@ -916,6 +916,11 @@
                 font-size: 10px;
             }
         }
+        @media screen and (max-width: 450px) {
+            .btn.departmentNavbar_dropdown.academicNavbar_dropdown {
+                left: 55%;
+            }
+        }
         .btn.departmentTypeAcademic_dropdown{
             font-size: 13px;
                 font-weight: normal;
@@ -1128,44 +1133,45 @@
         }
         @media screen and (max-width: 550px) {
             .input-group.input_search_manageDepart_StudentsGroups {
-                margin-left: 160px;
-                margin-top: 15px;
+                /* margin-left: 160px; */
+                margin-top: 17px;
 
             }
         }
-        @media screen and (max-width: 515px) {
+         @media screen and (max-width: 500px) {
             .input-group.input_search_manageDepart_StudentsGroups {
                 margin-left: 140px;
             }
         }
-        @media screen and (max-width: 480px) {
+        /* @media screen and (max-width: 480px) {
             .input-group.input_search_manageDepart_StudentsGroups {
                 margin-left: 110px;
                 width:180px;
             }
-        }
-        @media screen and (max-width: 460px) {
+        }*/
+        @media screen and (max-width: 450px) {
             .input-group.input_search_manageDepart_StudentsGroups {
-                margin-left: 80px;
+                margin-left: 120px;
             }
         }
             @media screen and (max-width: 400px) {
                 .input-group.input_search_manageDepart_StudentsGroups {
-                    /* margin-left: 60px; */
-                    width:160px;
+                    margin-left: 110px;
+                    width: 200px;
+
+                    /* width:160px; */
 
                 }
             }
             @media screen and (max-width: 380px) {
                 .input-group.input_search_manageDepart_StudentsGroups {
-                    margin-left: 70px;
-                    width:160px;
-
+                    /* margin-left: 120px; */
+                    width:170px;
                 }
             }
             @media screen and (max-width: 350px) {
                 .input-group.input_search_manageDepart_StudentsGroups {
-                    margin-left: 40px;
+                    margin-left: 90px;
                     width:160px;
 
                 }
@@ -1175,32 +1181,54 @@
                     /* margin-left: 30px; */
                     /* width:160px; */
                     width:150px;
-
-
                 }
             }
-            @media screen and (max-width: 311px) {
+            /* @media screen and (max-width: 311px) {
                 .input-group.input_search_manageDepart_StudentsGroups {
                     margin-left: 30px;
-                    /* width:140px; */
+                    width:140px;
 
                 }
-            }
+            } */
             @media screen and (max-width: 300px) {
                 .input-group.input_search_manageDepart_StudentsGroups {
-                    /* margin-left: 20px; */
+                    margin-left: 80px;
                     width:140px;
 
                 }
             }
             @media screen and (max-width: 290px) {
                 .input-group.input_search_manageDepart_StudentsGroups {
-                    margin-left: 20px;
+                    margin-left: 70.50px;
                     /* width:140px; */
 
                 }
             }
+            @media screen and (max-width: 280px) {
+                .input-group.input_search_manageDepart_StudentsGroups {
+                    margin-left: 70px;
+                    /* width:140px; */
 
+                }
+            }
+            /* @media screen and (max-width: 270px) {
+                .input-group.input_search_manageDepart_StudentsGroups {
+                    margin-left: 40px;
+
+                }
+            }
+            @media screen and (max-width: 260px) {
+                .input-group.input_search_manageDepart_StudentsGroups {
+                    margin-left: 30px;
+
+                }
+            }
+            @media screen and (max-width: 250px) {
+                .input-group.input_search_manageDepart_StudentsGroups {
+                    margin-left: 40px;
+
+                }
+            } */
 
         .input-group.input_search_manageDepart_students {
             width: 250px;
@@ -1646,11 +1674,11 @@
                 /* width: 80px; */
             }
         }
-        /* @media screen and (max-width: 450px) {
-            .btn.manageDepartNavbarMainforLevel_dropdown {
+        @media screen and (max-width: 450px) {
+            .btn.manageDepartNavbarMainforLevel_dropdown.final_tearm_statistics {
                 left: 54%;
             }
-        } */
+        }
         @media screen and (max-width: 350px) {
             .btn.manageDepartNavbarMainforLevel_dropdown {
                 font-size: 10px;
@@ -1661,12 +1689,23 @@
                 left: 37%;
             }
         } */
+        @media screen and (max-width: 310px) {
+            .btn.manageDepartNavbarMainforLevel_dropdown.final_tearm_statistics {
+                left: 57%;
+            }
+        }
+        @media screen and (max-width: 275px) {
+            .btn.manageDepartNavbarMainforLevel_dropdown.final_tearm_statistics {
+                font-size: 9px;
+            }
+        }
         /* @media screen and (max-width: 300px) {
             .btn.manageDepartNavbarMainforLevel_dropdown {
               padding-right: 1%;
               font-size: 10px;
             }
         } */
+
         .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
                 font-size: 13px;
                 font-weight: normal;
@@ -1694,9 +1733,24 @@
                 left: 64%;
             }
         }
+        @media screen and (max-width: 900px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 60%;
+            }
+        }
         @media screen and (max-width: 880px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
-                left: 58%;
+                left: 55%;
+            }
+        }
+        @media screen and (max-width: 850px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 52%;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
+                left: 47%;
             }
         }
         @media screen and (max-width: 780px) {
@@ -1724,14 +1778,14 @@
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
                 margin-top: 15px;
                 font-size: 12px;
-
             }
         }
         @media screen and (max-width: 450px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
-                left: 25%;
+                left: 28%;
                 font-size: 11px;
                 margin-top: -28px;
+            
             }
         }
         /* @media screen and (max-width: 400px) {
@@ -1740,44 +1794,43 @@
                 font-size: 10px;
             }
         } */
-        @media screen and (max-width: 370px) {
+        /* @media screen and (max-width: 370px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
-                left: 30%;
-                /* margin-top: 12px; */
+                left: 55%;
             }
-        }
+        } 
         @media screen and (max-width: 350px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
-                left: 30%;
+                left: 58%;
             }
-        }
+        }*/
 
-        @media screen and (max-width: 340px) {
+        /* @media screen and (max-width: 340px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
                 left:28%;
             }
-        }
-        @media screen and (max-width: 330px) {
+        } */
+        /* @media screen and (max-width: 330px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
-                left:27%;
+                left:55%;
                 font-size: 10px;
             }
-        }
-        @media screen and (max-width: 311px) {
+        } */
+        @media screen and (max-width: 310px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
-                left: 28%;
+                left: 27%;
             }
         }
-        @media screen and (max-width: 300px) {
+        /* @media screen and (max-width: 300px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
-                left: 31%;
+                left: 56%;
                 font-size: 9px;
                 width:60px;
-                padding-right: 5px;
-
+                padding-right: 7px;
+                padding-left: 7px;
 
             }
-        }
+        } */
         /* @media screen and (max-width: 280px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
                 margin-left: 50%;
@@ -1785,13 +1838,13 @@
 
             }
         } */
-        /*
-        @media screen and (max-width: 350px) {
+        @media screen and (max-width: 275px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown{
-                font-size: 10px;
-            }
-        } */
+                /* margin-left: 50%; */
+                font-size: 9px;
 
+            }
+        }
 
         .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
             font-size: 13px;
@@ -1815,34 +1868,49 @@
                 left: 45%;
             }
         }
-        @media screen and (max-width: 880px) {
-            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
-                left: 41%;
-            }
-        }
-        @media screen and (max-width: 780px) {
-            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
-                left: 38%;
-            }
-        }
-        @media screen and (max-width: 760px) {
+        @media screen and (max-width: 900px) {
             .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
                 left: 36%;
             }
         }
-        @media screen and (max-width: 741px) {
+        @media screen and (max-width: 880px) {
             .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
                 left: 34%;
             }
         }
+        /* @media screen and (max-width: 850px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 28%;
+            }
+        } */
+        @media screen and (max-width: 800px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 31%;
+            }
+        }
+        @media screen and (max-width: 780px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 29%;
+            }
+        }
+        @media screen and (max-width: 760px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 28%;
+            }
+        }
+        @media screen and (max-width: 741px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                left: 26%;
+            }
+        }
         @media screen and (max-width: 700px) {
             .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
-                left: 45%;
+                left: 40%;
             }
         }
         @media screen and (max-width: 600px) {
             .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
-                left: 41%;
+                left: 38%;
             }
         }
         @media screen and (max-width: 550px) {
@@ -1853,7 +1921,7 @@
         }
         @media screen and (max-width: 450px) {
             .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
-                left: 60%;
+                left: 56%;
                 font-size: 11px;
                 /* margin-top: 12px; */
             }
@@ -1864,47 +1932,50 @@
                 font-size: 10px;
             }
         } */
-        @media screen and (max-width: 370px) {
+        /* @media screen and (max-width: 370px) {
             .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
-               left: 55%;
-                /* margin-top: 12px; */
+                left: 25%;
+                margin-top: 12px;
             }
-        }
+        } */
         @media screen and (max-width: 350px) {
             .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
-               left: 54%;
+            left: 50%;
                 /* margin-top: 12px; */
             }
             .hidpartname_dropdown{
                 display: none;
             }
         }
-
         @media screen and (max-width: 330px) {
             .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
-              left: 51%;
-                /* margin-top: 12px; */
+            left: 53%;
             }
         }
         @media screen and (max-width: 311px) {
             .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
                 /* margin-left: 50%; */
+                left: 52%;
                 font-size: 10px;
             }
         }
-        @media screen and (max-width: 300px) {
-            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
-                /* margin-left: 50%; */
-                font-size: 9px;
-            }
-        }
-        /* @media screen and (max-width: 280px) {
+        /* @media screen and (max-width: 300px) {
             .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
                 margin-left: 50%;
                 font-size: 9px;
-
+                padding-right: 5px;
+                padding-left: 5px;
             }
         } */
+        @media screen and (max-width: 280px) {
+            .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
+                /* margin-left: 50%;*/
+                font-size: 9px;
+                padding-right: 5px;
+                padding-left: 5px;
+
+            }
+        }
         /*
         @media screen and (max-width: 350px) {
             .btn.MnageDepart_studentsGroupsFinalWorks_Statistics_dropdown{
@@ -1926,7 +1997,7 @@
         }
         /* @media screen and (max-width: 1000px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
-               left: 38.5%;
+            left: 38.5%;
             }
         } */
         @media screen and (max-width: 950px) {
@@ -1934,82 +2005,107 @@
                 left: 30.5%;
             }
         }
-        @media screen and (max-width: 880px) {
-            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
-                left: 28%;
-            }
-        }
-        @media screen and (max-width: 780px) {
-            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
-                left: 25%;
-            }
-        }
-        @media screen and (max-width: 760px) {
-            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
-                left: 22%;
-            }
-        }
-        @media screen and (max-width: 741px) {
-            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
-                left: 18%;
-            }
-        }
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 900px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
                 left: 20%;
             }
         }
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 880px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
                 left: 18%;
             }
         }
-        @media screen and (max-width: 550px) {
+        @media screen and (max-width: 850px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 15%;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 12%;
+            }
+        }
+        /* @media screen and (max-width: 780px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 25%;
+            }
+        } */
+        /* @media screen and (max-width: 760px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 22%;
+            }
+        } */
+        @media screen and (max-width: 741px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 8%;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 1%;
+            }
+        }
+        /* @media screen and (max-width: 600px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                left: 18%;
+            }
+        }
+         @media screen and (max-width: 550px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
                 left: 17%;
                 margin-top: 15px;
                 font-size: 12px;
             }
-        }
+        } */
          @media screen and (max-width: 450px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
-                left: 30%;
+                /* left: 30%; */
                 font-size: 11px;
                 /* margin-top: 12px; */
             }
         }
+        /*  
         @media screen and (max-width: 400px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
                 left: 29%;
                 font-size: 10px;
-                /* margin-top: 12px; */
+                margin-top: 12px;
             }
         }
         @media screen and (max-width: 350px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
                 left: 28%;
-                /* margin-top: 12px; */
+                margin-top: 12px;
             }
         }
         @media screen and (max-width: 330px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
                 left: 22%;
                 font-size: 10px;
-                /* margin-top: 12px; */
+                margin-top: 12px;
             }
-        }
+         } */
         @media screen and (max-width: 311px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
                 /* margin-left: 24%; */
                 font-size: 10px;
                 /* margin-top: 12px; */
             }
-        }
-        @media screen and (max-width: 300px) {
+        } 
+        /* @media screen and (max-width: 300px) {
             .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
-                /* margin-left: 22%; */
+                margin-left: 22%; 
                 font-size: 9px;
-                /* margin-top: 12px; */
+                margin-top: 12px; 
+                padding-right: 7px;
+                padding-left: 5px;
+            }
+        } */
+        @media screen and (max-width: 280px) {
+            .btn.MnageDepart_studentsFinalWorks_Statistics_Subjec_dropdown{
+                font-size: 9px;
+                padding-right: 7px;
+                padding-left: 5px;
             }
         }
 
@@ -2049,5 +2145,8 @@
             .btn.MnageDepart_studentsFinalWorks_Statistics_TypeSubjec_dropdown{
                 font-size: 9px;
                 /* margin-top: 12px; */
+                padding-right: 5px;
+                padding-left: 5px;
+
             }
         }

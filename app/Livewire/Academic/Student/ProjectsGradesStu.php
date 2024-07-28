@@ -2,31 +2,43 @@
 
 namespace App\Livewire\Academic\Student;
 
+use App\Models\GroupSubject;
+use App\Traits\Academic\studentAT;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
 
 class ProjectsGradesStu extends Component
 {
-    use WithPagination;
+    use studentAT;
     public $group_subject;
-    public $search;
-    public $perPage = 10;
+    // public $search;
+    // public $perPage = 10;
 
-    public function mount($group_subject)
+    public function __construct(){
+        $this->initializeStudentAT();
+    }
+    public function mount(GroupSubject $group_subject)
     {
         $this->group_subject = $group_subject;
     }
 
-    #[On('search')]
-    public function search($v){
-        $this->search = $v;
-    }
+    // #[On('search')]
+    // public function search($v){
+    //     $this->search = $v;
+    // }
 
     public function getStudentsProperty()
     {
-        return $this->group_subject->getStudentsInGroupBySubject($this->search)
-        ->paginate($this->perPage);
+        $students = $this->getStudents($this->group_subject);
+        $students = $students->get()->map(function($student){
+            $student->projects_name = $this->group_subject->projects->pluck('name')->implode(' , ');
+            $student->projects = $this->getStudentProjects($student, $this->group_subject);
+            return $student;
+        });
+
+
+        return $students->paginate($this->perPage);
     }
     public function render()
     {

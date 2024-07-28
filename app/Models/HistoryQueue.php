@@ -13,6 +13,8 @@ class HistoryQueue extends Model
         'file',
         'Progress',
         'status',
+        'upload',
+        'read_at',
         'log'
     ];
     public function user()

@@ -94,4 +94,13 @@ class SubjectsRepository extends StudentsRepository implements SubjectsInterface
         return $subjects;
     }
 
+    public function getSubjectsByLevelAndTerm($level_id){
+        return Subject::join('subjects_levels', 'subjects.id', '=', 'subjects_levels.subject_id')
+            ->join('levels', 'subjects_levels.level_id', '=', 'levels.id')
+            ->where('levels.id', $level_id)
+            ->where('subjects_levels.semester', $this->currentAcademicYear->term)
+            ->select('subjects.*', 'subjects.id as id')
+            ;
+    }
+
 }

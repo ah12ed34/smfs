@@ -111,7 +111,9 @@ return [
         ],
     ],
     'min_words' => 'يجب أن يحتوي :attribute على أكثر من :min كلمة',
-
+    'nameIsNotValid' => 'الاسم غير صحيح',
+    'studentIdIsNotValid' => 'رقم الطالب :attribute غير صحيح',
+    'gradeIsNotValid' => 'الدرجة غير صحيحة',
 
 
 

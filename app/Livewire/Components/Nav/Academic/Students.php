@@ -4,28 +4,30 @@ namespace App\Livewire\Components\Nav\Academic;
 
 use Livewire\Component;
 use App\Models\Group;
+use App\Traits\Searching;
+use App\Traits\SearchingComponent;
 
-class Students extends Component
+class Students extends SearchingComponent
 {
     public $active ;
+    public $urlName = 'students';
     public $group_subject;
-    public $search;
-    public $otherGroups;
+    // public $otherGroups;
+    // public $search;
+
     public function mount($group_subject)
     {
         $this->group_subject = $group_subject;
-        $this->otherGroups = Group::join('group_subjects', 'groups.id', '=', 'group_subjects.group_id')
-            ->where('group_subjects.subject_id', $group_subject->subject_id)
-            ->where('group_subjects.teacher_id', auth()->user()->academic->user_id)
-            ->where('groups.id', '!=', $group_subject->group_id)
-            ->select('groups.*')
-            ->get();
+        $this->urlName = request()->route()->getName();
+        $this->initializeSearching();
+        // $this->otherGroups = $this->group_subject->getOtherGroups();
+
+
     }
 
-    public function srch()
-    {
-        $this->dispatch('search', $this->search);
-    }
+    // public function srch(){
+    //     $this->dispatch('search', $this->search);
+    // }
 
     public function render()
     {

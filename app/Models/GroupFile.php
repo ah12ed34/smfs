@@ -62,7 +62,7 @@ class GroupFile extends Model
 
     public function file()
     {
-        return $this->belongsTo(File::class);
+        return $this->hasOne(File::class, 'id', 'file_id');
     }
 
     public function user()
@@ -96,5 +96,25 @@ class GroupFile extends Model
             ->where('group_files.file_id', $this->file_id)
             ->select('group_subjects.*')
             ->first();
+    }
+
+    protected static $deleting = false;
+    protected static function boot()
+    {
+        parent::boot();
+        static::deleting(function ($groupFile) {
+            if (self::$deleting) {
+                return;
+            }
+
+            self::$deleting = true;
+            // dd($groupFile->file->group_files->count());
+            if (1 == $groupFile?->file?->group_files?->count()) {
+                $groupFile->file->delete();
+            }
+
+            self::$deleting = false;
+        });
+
     }
 }

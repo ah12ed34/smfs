@@ -20,7 +20,7 @@ class Department extends Model
     }
 
     public function Academics(){
-        return $this->hasMany(Academic::class);
+        return $this->hasMany(Academic::class,'department_id','id');
     }
 
     public function Subjects()
@@ -63,5 +63,13 @@ class Department extends Model
             // dd($s);
             return $s;
     }
+
+    // public function groups(){
+    //     $groups = collect();
+    //     foreach ($this->levels as $level) {
+    //         $groups = $groups->merge($level->groups);
+    //     }
+    //     return $groups;
+    // }
 
 }

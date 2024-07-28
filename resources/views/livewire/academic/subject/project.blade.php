@@ -1,6 +1,6 @@
 <div>
 @section('nav')
-    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject])
+    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject,'deny'=>['tab']])
 @endsection
     <div class="responsive"></div>
     <div class="container" id="container-project" style="padding-top: 20px;" >
@@ -9,7 +9,7 @@
             <table class="table" style=" width:100%;">
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
-
+                        <th>توقيف/تفعيل </th>
                         <th>عرض المشاريع</th>
                         <th>تعديل</th>
                         <th>التفاصيل</th>
@@ -22,7 +22,15 @@
                 <tbody>
                     @forelse ($projects as $project)
                     <tr class="table-light" id="modldetials" @if ($loop->first) style="margin-top:7px;" @endif>
-                        <td><button  class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" onclick="window.location.href='{{ route('project', [$group_subject->subject_id, $group_subject->group_id, $project->id
+                       <td> @if ($project?->is_active )
+                            <button type="submit" class="btn btn-danger btn-sm btn_detials" id="" data-toggle="modal" data-target="#myModalstop"
+                                wire:click='selected({{$project->id}})'
+                            >توقيف </button>
+                            @else
+                            <button type="submit" class="btn btn-success  btn-sm btn_detials " id="" data-toggle="modal" data-target="#myModalstop" wire:click='selected({{ $project->id }})'>تفعيل </button>
+                        @endif
+                       </td>
+                        <td><button  class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModal2" onclick="window.location.href='{{ route('project', [$group_subject->id, $project->id
                         ]) }}' "
                              >المجموعات</button>  </td>
                         <td><button class="btn btn-primary btn-sm" id="btn-chat-edit" wire:click='selected({{ $project->id }})' data-toggle="modal" data-target="#myModalEdite" >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
@@ -43,6 +51,40 @@
         </div>
     </div>
 
+     <!-- The Modal -->
+     <div class="modal fade" id="myModalstop" wire:ignore.self>
+        <div class="modal-dialog ">
+            <div class="modal-content" style="height: 150px;">
+
+                <!-- Modal Header -->
+                <div class="modal-header" style="padding-left:50%; height: 40px; padding-top:6px;">
+                    تنبيه!
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="text-align:center ;">
+                    <form action="" style="display: block;">
+
+                        {{ $message_confirmation }}
+
+
+                        <!-- <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div> -->
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+
+                <div class="modal-footer" style="height: 40px;">
+                    <button type="submit" class="btn btn-primary" id="btnOkYes" wire:click='stopProject'>نعم</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnNO">لا</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- The Modalcreateproject -->
     <div class="modal fade" id="myModal" wire:ignore.self>
@@ -56,7 +98,7 @@
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body modal_body_css">
                     <form action="/action_page.php" style="display: block;">
                         <div class="form-group">
                             <input type="text" class="form-control" id="inputtext" wire:model='name' placeholder="اسم المشروع " style="height: 30px; margin-top:-6px">
@@ -249,7 +291,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" id="projectdetails" style="overflow: auto;">
+            <div class="modal-body modal_body_css" id="projectdetails" style="overflow: auto;">
 
                 <div class="table-responsive ">
                     <table class="table  " style=" width:100%;" dir="rtl">
@@ -272,7 +314,7 @@
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">الوصف</th>
-                                    <td>**********</td>
+                                    <td>{{ $projectDetails->description }}</td>
                                 </tr>
                                 <tr class="table-light" id="modldetials">
                                     <th style="width: 25%;">الملف المرفق</th>
@@ -316,7 +358,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" style="overflow: auto;">
+            <div class="modal-body modal_body_css" style="overflow: auto;">
                 <form  style="display: block;">
                     <div class="form-group">
                         <input type="text" class="form-control" id="inputtext" wire:model='name'  placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;">
@@ -392,7 +434,10 @@
         $('#myModaldetails').modal('hide');
         $('#myModal2').modal('hide');
         $('#myModalchatting').modal('hide');
+        $('#myModalstop').modal('hide');
+        location.reload();
     });
+
     window.addEventListener('openModal', event => {
         $('#myModal').modal('show');
     });

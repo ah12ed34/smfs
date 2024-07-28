@@ -1,5 +1,8 @@
 <div>
-
+@section('nav')
+    @livewire('components.nav.academic.students'
+    ,['group_subject'=>$group_subject,'active'=>'assignmentsgrdes-stu'])
+@endsection
     <div class="container" id="container-project" style="  padding-top: 30px;">
 
         <div class="table-responsive-xl">

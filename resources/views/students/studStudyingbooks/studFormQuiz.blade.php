@@ -12,7 +12,7 @@
             <div class="textdrop2">  نماذج  </div>
         </button>
         <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
-         <a href="{{route("student-booksChapters")}}" id="dropdown-itemlist" class="dropdown-item"  style="padding-left:40px;"> نظري</a>
+         <a href="{{route("student-booksChapters",[$id])}}" id="dropdown-itemlist" class="dropdown-item"  style="padding-left:40px;"> نظري</a>
             <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> عملي</a>
             <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px; ">   ملخصات</a>
 
@@ -23,10 +23,10 @@
 
     <div id="btn-group-nav-subjectbooks" class="btn-group">
         <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
-        <a href="{{route("student-formQuiz")}}">  <button class="btn-subject-book-Navbar"><label class="proNavbartext">نماذج </label></button></a>
+        <a href="{{route("student-formQuiz",[$id])}}">  <button class="btn-subject-book-Navbar"><label class="proNavbartext">نماذج </label></button></a>
         <button class="btn-subject-book-Navbar"><label class="proNavbartext">  ملخصات</label></button>
         <button class="btn-subject-book-Navbar"><label class="proNavbartext">  عملي </label></button>
-        <a href="{{route("student-booksChapters")}}">  <button class="btn-subject-book-Navbar"><label class="proNavbartext"> نظري</label></button></a>
+        <a href="{{route("student-booksChapters",[$id])}}">  <button class="btn-subject-book-Navbar"><label class="proNavbartext"> نظري</label></button></a>
     </div>
 
     <div class="dep-name">تقنية معلومات</div>
@@ -34,7 +34,7 @@
 
 </div>
 <div class="hr3">
-    <a href="{{route("student-studyingbooks")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
+    <a href="{{route("student-studyingbooks",[$id])}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
     <div id="input-group-search-sub-file" class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search">
         <div class="input-group-append">

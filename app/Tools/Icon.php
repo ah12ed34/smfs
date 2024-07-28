@@ -5,8 +5,11 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Vite;
 class Icon{
 
-    public static function getIcon(string $file = null){
+    public static function getIcon(string $file = null,bool $isFile = false){
         if(!$file){
+            if($isFile){
+                return Vite::asset('resources/svg/not_file.svg');
+            }
             return null;
         }
         $pathFile = Storage::path($file);

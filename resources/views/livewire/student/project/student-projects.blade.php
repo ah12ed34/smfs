@@ -23,7 +23,7 @@
                 </thead>
                 <tbody>
                     @forelse ($projects as $project)
-
+                     @if ($project?->is_active )
                     <tr class="table-light" id="modldetials" @if ($loop->first)
                         style="margin-top:7px;"
                     @endif >
@@ -52,8 +52,11 @@
                         <td>{{ $project->teacher_name }}</td>
                         <td>{{ $project->subject_name_ar }}</td>
                     </tr>
+                    @else
 
-                    @empty
+                    @endif
+
+                @empty
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
                         <td colspan="11">{{ __('general.no_projects') }}</td>
                     </tr>
@@ -213,7 +216,7 @@
 
                 <!-- Modal body -->
 
-                <div class="modal-body" id="projectdetails" style="overflow: auto;">
+                <div class="modal-body modal_body_css" id="projectdetails" style="overflow: auto;">
 
                     <div class="detils-name">
                         <label class="textdetailsproj" > اسم المشروع </label>
@@ -397,7 +400,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body modal_body_css">
                 @foreach ($errors->all() as $error)
                     <div class="alert alert-danger" role="alert">
                         {{ $error }}

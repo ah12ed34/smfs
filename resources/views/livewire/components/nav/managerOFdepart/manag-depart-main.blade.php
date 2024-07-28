@@ -2,8 +2,8 @@
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
 
     <div class="hdr2" style=" box-shadow: 10px;">
-        <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;">  الصفحة الرئيسية </label><img src="{{Vite::image("dashboard (1).png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
-        </button>
+        {{-- <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;">  الصفحة الرئيسية </label><img src="{{Vite::image("dashboard (1).png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
+        </button> --}}
 
 
     <div class="dropdown">

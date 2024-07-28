@@ -19,7 +19,7 @@
         <div class="dep-name"> الجودة </div>
     </div>
     <div class="hr3">
-        <a href="{{route("departlevelquality")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button></a>
+        <a href="{{route("quality_departments")}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button></a>
 
         <!-- <div id="input-groupstudyingbooks" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search">

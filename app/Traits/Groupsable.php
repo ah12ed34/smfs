@@ -17,6 +17,7 @@ trait Groupsable
     use WithFileUploads;
 
     public $groupDitails;
+    public $typeGroup = 'main';
 
     public $GId;
     public $name;
@@ -31,11 +32,25 @@ trait Groupsable
 
     protected $StudentR;
 
+
     public function initializeGroupsable()
     {
         $this->StudentR =  app(StudentsInterface::class);
     }
 
+    public function PracticalOrTheoretical()
+    {
+        $this->sortField = 'name';
+        if(request()->has('type')){
+            $type = request()->type;
+            if(in_array($type,['main','sub'])){
+                $this->typeGroup = $type;
+            }
+        }
+        if($this->typeGroup == 'sub'){
+            $this->sortField = 'group_id';
+        }
+    }
     public function selected($id){
         $this->groupDitails = Group::where('id',$id)->firstOrFail();
         $this->openType = 'selected';

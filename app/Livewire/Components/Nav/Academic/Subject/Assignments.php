@@ -2,18 +2,15 @@
 
 namespace App\Livewire\Components\Nav\Academic\Subject;
 
-use Livewire\Component;
-use App\Models\File;
+use App\Traits\SearchingComponent;
 // use Livewire\Features\SupportFileUploads\WithFileUploads;
 use Livewire\WithFileUploads;
-use Ramsey\Uuid\Type\Decimal;
 
-class Assignments extends Component
+class Assignments extends SearchingComponent
 {
     use WithFileUploads;
     // use WithFileUploads;
     public $group_subject;
-    public $search;
     public $otherGroups;
     public $assName;
     public $grade;
@@ -23,13 +20,10 @@ class Assignments extends Component
 
     public function mount()
     {
-
-        $this->otherGroups = $this->group_subject->getOtherGroups();
+        $this->initializeSearching();
+        // $this->otherGroups = $this->group_subject->getOtherGroups();
     }
 
-    public function srch(){
-        $this->dispatch('search', $this->search);
-    }
 
     public function updatedFile(){
         if (empty($this->file)) {

@@ -1,13 +1,13 @@
 #btn-group-studyingbooks {
     margin-left: 40%;
-    margin-top: 21px;
+    margin-top: -29px;
     position: fixed;
 }
 
 #btn-studyingbooksNavbar {
     background-color: white;
     color: #0E70F2;
-    top: -50px;
+    /* top: -50px; */
     text-align: center;
     padding: 8px 11px;
     width: 90px;
@@ -33,16 +33,16 @@
 @media screen and (max-width: 992px) {
     #btn-group-studyingbooks {
         margin-left: 32%;
+        margin-top: -24px;
     }
     #btn-studyingbooksNavbar {
         padding: 5px 8px;
         width: 80px;
         height: 30px;
         font-size: 10px;
-        top: -45px;
+        /* top: -45px; */
     }
 }
-
 
 /* @media screen and (max-width: 930px) {
         #btn-group-studyingbooks {
@@ -50,8 +50,6 @@
         }
     }
      */
-
-
 /* @media screen and (max-width: 860px) {
         #btn-group-studyingbooks {
             padding: 5px 8px;
@@ -60,8 +58,6 @@
             top: 84px;
         }
     } */
-
-
 /* @media (max-width: 799px) {
         #btn-group-studyingbooks {
             display: none;
@@ -70,22 +66,34 @@
 
 @media screen and (max-width: 850px) {
     #btn-group-studyingbooks {
+        margin-left: 27%;
+    }
+}
+@media screen and (max-width: 800px) {
+    #btn-group-studyingbooks {
+        margin-left: 25%;
+    }
+}
+@media screen and (max-width: 770px) {
+    #btn-group-studyingbooks {
+        margin-left: 24%;
+    }
+}
+@media screen and (max-width: 750px) {
+    #btn-group-studyingbooks {
+        margin-left: 23%;
+    }
+}
+@media screen and (max-width: 730px) {
+    #btn-group-studyingbooks {
         margin-left: 22%;
     }
 }
-
-@media screen and (max-width: 740px) {
-    #btn-group-studyingbooks {
-        margin-left: 18%;
-    }
-}
-
 @media screen and (max-width: 700px) {
     #btn-group-studyingbooks {
         margin-left: 30%;
     }
 }
-
 @media screen and (max-width: 600px) {
     #btn-group-studyingbooks {
         margin-left: 25%;
@@ -303,7 +311,9 @@
 } */
 #card-studyingbooks {
     width: 200px;
-    height: 60%;
+    /* position:fixed; */
+    box-shadow: none;
+    height:340px;
 }
 
 #card-studyingbooks-child {
@@ -364,8 +374,12 @@
     margin-top: 7px;
     box-shadow: 0px 0px 2px 0px rgb(67, 111, 206);
     bottom: 0%;
+    left:0px !important;
+    right:0% !important;
+    margin-left:0px;
+    margin-bottom:0px;
     position: absolute;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 #btn-edit {
@@ -442,9 +456,32 @@
 
 /* main css students */
 
+.card.card_studyingbooks_student {
+    width: 200px;
+    min-height:300px;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin-top: 40px;
+    margin-left: 15px;
+    display: inline-block;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    /* position: absolute; */
+    transition: 1;
+    -webkit-transition: 1;
+    -moz-transition: 1;
+    -ms-transition: 1;
+    -o-transition: 1;
+}
+
+
 #cards-subject-students {
     width: 220px;
-    height: 220px;
+    height: 200px ;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
     margin-top: 40px;
@@ -589,7 +626,7 @@
 .btn-subject-book-Navbar {
     background-color: white;
     color: #0E70F2;
-    top: -80px;
+    /* top: -80px; */
     text-align: center;
     padding: 6px 9px;
     width: 90px;
@@ -721,13 +758,13 @@
             margin-left: 40%;
         }
     }
-    
+
     @media screen and (max-width:768px) {
         #btn-subject-book-Navbar-dropdown {
             margin-left: 40%;
         }
     }
-    
+
     @media screen and (max-width:700px) {
         #btn-subject-book-Navbar-dropdown {
             margin-left: 61%;
@@ -899,7 +936,37 @@
 #image-download {
     margin-top: -5px;
 }
-#contents-book {
+
+.container.contents_book {
+    box-shadow: none;
+    height: 100%;
+    /* width: 100%; */
+    top: 140px;
+    /* align-items: center;
+    justify-content: center; */
+    /* position: fixed; */
+    /* display:inline-block; */
+     overflow-y:scroll;
+    /*margin-right: 150px;
+    left: 0% !important;
+    right: 0%;
+    padding-right: 10px;
+    padding-left: 40px; */
+    background-color: #E9EEEF;
+}
+@media screen and (max-width: 700px) {
+    .container.contents_book {
+        margin-right: 0px !important;
+        left: 0%;
+        /* position:relative; */
+        right: 0% !important;
+        margin-left: 0%;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+
+ #contents-book {
     box-shadow: none;
     height: 100%;
     width: 100%;
@@ -953,7 +1020,7 @@
     }
     #card-studyingbooks-child {
         width:250px;
-        
+
     }
     #card-studyingbooks-child-2 {
         width:250px;
@@ -964,7 +1031,7 @@
     #card-studyingbooks-student {
         width: 250px;
     }
-    #btn-download {     
+    #btn-download {
     width:250px;
     }
     .chapters-image{

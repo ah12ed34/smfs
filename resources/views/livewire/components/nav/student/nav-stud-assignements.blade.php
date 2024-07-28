@@ -23,24 +23,66 @@
             <a href="{{route("student-assignements",array_merge(request()->query(), ['active' => null])
             )}}"><button id="btn-assignementsStudentsksNavbar" class="btn btn-light" @if ($activeTab == 'all' || $activeTab == null )
                 style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
-            @endif ><label class="">  القائمة </label></button></a>
-        </div>
+            @endif ><label class="">  القائمة </label></button>
+        </a>
+
+    </div>
         <button id="btn-assignementsStudentsdropdown" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-            <div class="textstudentsdrop">     القائمة</div>
+            <div class="textstudentsdrop">@switch($activeTab)
+                @case('send')
+                    مرسلة
+                    @break
+                @case('notSent')
+                    غير مرسلة
+                    @break
+                @default
+                    القائمة
+            @endswitch
            </button>
         <div id="dropdown-menulist" class="dropdown-menu" style="width:100px;">
-            <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;">  غير مرسلة </a>
-            <a id="dropdown-students-itemlist" class="dropdown-item" href="{{route("student-DoneAssignements")}}" style="padding-left:40px;"> مرسلة</a>
+            @if($activeTab != 'send')
+                <a id="dropdown-students-itemlist" class="dropdown-item" href="{{route("student-assignements" , array_merge(request()->query(),['active' => 'send'])
+                )}}" style="padding-left:40px;">  مرسلة </a>
+            @endif
+            @if($activeTab != 'notSent')
+                <a id="dropdown-students-itemlist" class="dropdown-item" href="{{route("student-assignements", array_merge(request()->query(),['active' => 'notSent']))}}" style="padding-left:40px;"> غير مرسلة</a>
+            @endif
+            @if($activeTab != 'all' && $activeTab != null)
+                <a id="dropdown-students-itemlist" class="dropdown-item" href="{{route("student-assignements",array_merge(request()->query(), ['active' => null])
+                )}}" style="padding-left:40px;"> القائمة </a>
+            @endif
+            {{-- <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;">  غير مرسلة </a>
+            <a id="dropdown-students-itemlist" class="dropdown-item" href="{{route("student-DoneAssignements")}}" style="padding-left:40px;"> مرسلة</a> --}}
         </div>
         <!-- <td><button type="submit" class="btn btn-primary btn-sm" id="btn-addHW" data-toggle="modal" data-target="#myModal">إضافة تكليف<img src="../../images/plus.png"  width="20px" style="float: left;"></button> </td> -->
         <div class="dropdwon">
             <button id="btn-assignementsStudentsdropdown-HW-mobile" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-            <div class="textstudentsdrop">     جميع التكاليف</div>
+            <div class="textstudentsdrop">{{ $name  }}  </div>
            </button>
             <div id="dropdown-menulist" class="dropdown-menu" style="width:100px;">
-                <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> *****</a>
+
+                @php
+                    $continue = false;
+                @endphp
+                @foreach ($subjects as $subject)
+                {{-- @dd($subject) --}}
+                    @if ($subject['name'] == $name)
+                        @php
+                            $continue = true;
+                        @endphp
+                        @continue
+                    @endif
+                    <a id="dropdown-students-itemlist" class="dropdown-item" href="{{ route('student-assignements', array_merge(request()->query(),['subject' => $subject['code']])) }}"
+                    style="padding-left:40px;"> {{ $subject['name'] }}</a>
+                @endforeach
+                @if($continue)
+                    <a id="dropdown-students-itemlist" class="dropdown-item" href="{{ route('student-assignements', array_merge(request()->query(),['subject' => null])) }}"
+                        style="padding-left:40px;"> جميع المواد</a>
+                    @endif
+
+                {{--               <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> *****</a>
                 <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> ****</a>
-                <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> *****</a>
+                <a id="dropdown-students-itemlist" class="dropdown-item" href="#" style="padding-left:40px;"> *****</a> --}}
             </div>
         </div>
     </div>

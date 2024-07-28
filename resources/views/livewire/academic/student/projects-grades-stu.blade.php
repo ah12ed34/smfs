@@ -1,5 +1,8 @@
 <div>
-
+@section('nav')
+    @livewire('components.nav.academic.students'
+    ,['group_subject'=>$group_subject,'active'=>'projectsgrades-stu'])
+@endsection
     <div class="responsive"></div>
 
 
@@ -9,7 +12,7 @@
             <table class="table" style=" width:100%;">
                 <thead class="table-header" style="font-size: 12px;">
                     <tr class="table-light" id="modldetials">
-                        <th>ملاحظة</th>
+                        {{-- <th>ملاحظة</th> --}}
                         <th>مجموع الدرجة </th>
                         <th> درجة المشروع</th>
                         <th> درجة المناقشة </th>
@@ -21,11 +24,11 @@
                 <tbody>
                     @forelse ($students as $student)
                     <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                        <td>*******</td>
-                        <td> ******</td>
-                        <td>*******</td>
-                        <td> ******</td>
-                        <td>*******</td>
+                        {{-- <td>{{ $student->projects->pluck('comment')->implode(' - ') }}</td> --}}
+                        <td>{{ $student?->projects?->sum('globalgrade') + $student?->projects?->sum('selfgrade') }}</td>
+                        <td>{{ $student?->projects?->pluck('globalgrade')->implode(' - ')??'N/A' }}</td>
+                        <td>{{ $student?->projects?->pluck('selfgrade')->implode(' - ') }}</td>
+                        <td>{{ $student?->projects_name }}</td>
                         <td>{{ $student->user->full_name }}</td>
                         <td>{{ $student->user_id }}</td>
                     </tr>

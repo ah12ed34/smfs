@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Academic\Subject;
 
+use App\Livewire\Admin\Academic;
+use App\Models\AcademicYear;
 use Livewire\Component;
 use App\Models\GroupSubject;
 use Illuminate\Support\Facades\Storage;
@@ -21,15 +23,22 @@ class Assignments extends Component
     public $due_date;
     public $file;
     public $grade;
+    public $otherGroups;
 
     #[On('search')]
     public function search($v){
         $this->search = $v;
     }
 
-    public function mount($subject_id,$group_id)
+    public function mount(GroupSubject $group_subject)
     {
-        $this->group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->first();
+        // $this->group_subject = GroupSubject::where('id',$group_subject)->where('teacher_id',auth()->user()->academic->user_id)
+        // ->firstOrFail();
+        if($group_subject->teacher_id != auth()->user()->academic->user_id||$group_subject->ay_id != AcademicYear::currentAcademicYear()->id){
+            abort(403);
+        }
+        $this->group_subject = $group_subject;
+        $this->otherGroups = $group_subject->getOtherGroups();
     }
 
     public function getAssignmentsProperty()
@@ -63,20 +72,21 @@ class Assignments extends Component
         $this->assName = $assignment->name;
         $this->description = $assignment->description;
         $this->due_date = $assignment->group_file->due_date;
-        $this->file = $assignment->file;
+        // $this->file = $assignment->file;
         $this->grade = $assignment->group_file->grade;
         // $this->dispatch('openModal');
     }
 
     public function editAssignmentSave(){
+        $assignment = $this->assignments->where('id',$this->selected_id)->first();
         $this->validate([
             'assName' => 'required',
             'grade' => 'required',
             'due_date' => 'required',
-            'file' => ($this->description == null) ? 'required' : 'nullable' .'|file|mimes:pdf,doc,docx,zip,png,jpg,jpeg,txt',
-            'description' => ($this->file == null) ? 'required' : 'nullable',
+            'file' => ($this->description == null &&$assignment->file == null
+            ) ? 'required' : 'nullable' .'|file|mimes:pdf,doc,docx,zip,png,jpg,jpeg,txt',
+            'description' => ($this->file == null &&$assignment->file == null) ? 'required' : 'nullable',
         ]);
-        $assignment = $this->assignments->where('id',$this->selected_id)->first();
         $file = $assignment->file;
         if($this->file != null){
             $file = $this->file->store('subjects/assignments');

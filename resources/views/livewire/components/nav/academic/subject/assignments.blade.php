@@ -9,8 +9,13 @@
             <div class="textdrop2"> {{ $group_subject->group->name }}</div>
            </button>
             <div id="dropdown-menulist" class="dropdown-menu" style="width:130px; color: #0E70F2; ">
-                @foreach ($otherGroups as $group)
-                <a id="dropdown-itemlist" class="dropdown-item" href="{{ route(request()->route()->getName(),[$group_subject->subject_id,$group->id]) }}" style="padding-left:40px;">{{ $group->name }}</a>
+                @foreach ($group_subject->getOtherGroupss as $group)
+                @if($search == 'search')
+                <div class="alert alert-success" role="alert">
+                    @dd($otherGroups)
+                </div>
+                @endif
+                <a id="dropdown-itemlist" class="dropdown-item" href="{{ route($routeName,[$group->id]) }}"style="padding-left:40px;">{{ $group->group->name }}</a>
 
                 @endforeach
                 {{-- <a id="dropdown-itemlist" class="dropdown-item" href="#" style="padding-left:40px;">(1)المجموعة</a>
@@ -22,11 +27,19 @@
     </div>
 
     <div class="hr3">
-        <a href="{{route("subject.index",[$group_subject->subject_id,$group_subject->group_id])}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
-        <div id="" class="input-group input_group_assign mb-3">
+        <a href="{{route("subject.index",[$group_subject->id])}}">  <button id="spacesbtn" class="spaces"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px" ></button></a>
+        {{-- <div id="" class="input-group input_group_assign mb-3">
             <input type="text" class="form-control" placeholder="Search" wire:model='search' wire:keydown.enter='srch'>
             <div class="input-group-append">
                 <button id="form-control" class="btn btn-light" wire:keydown.enter='srch'><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
+            </div>
+        </div> --}}
+        <div id="" class="input-group input_search_sechedules search_assign">
+            <input type="text" class="form-control" placeholder="Search" wire:model="search" wire:keydown.enter='srch' >
+            <div class="input-group-append">
+                <button id="form-control" class="btn btn-light" type="submit"
+                wire:click='srch'
+                ><img src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
             </div>
         </div>
     </div>

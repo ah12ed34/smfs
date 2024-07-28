@@ -7,6 +7,7 @@ use App\Models\Group;
 use App\Models\Subject;
 use App\Models\groupSubject;
 use App\Models\Academic as teacher;
+use App\Models\AcademicYear;
 use Illuminate\Support\Facades\Log;
 use Livewire\WithPagination;
 
@@ -22,26 +23,49 @@ class Index extends Component
     public $search;
     public $teacher_subject = [];
     public $perPage = 10;
+    // public $group
     protected $queryString = ['search'];
 
+    public $ay_id;
+    public $sup_teacher_subject = [];
     public function mount(Group $group)
     {
+        if($group->group_id){
+            return redirect()->route("groupsubject", $group->group_id);
+        }
+
         $this->group = $group;
         $this->teachers = teacher::all();
+        $this->ay_id = AcademicYear::currentAcademicYear()->id;
+        $this->groupSubject = GroupSubject::where('group_id', $this->group->id)
+                        ->where('ay_id', $this->ay_id)->get();
+        $this->teacher_subject =
+            $this->groupSubject->where('is_practical', 0)->pluck('teacher_id', 'subject_id')->toArray()
+            // +
+            //
+            ;
+        GroupSubject::whereIn('group_id',$group->groups()->pluck('id'))
+        ->where('is_practical', 1)->get()->map(function($items){
+            $this->sup_teacher_subject[$items->group_id.' '.$items->subject_id] = $items->teacher_id.'';
+        });
+        // $this->sup_teacher_subject = $sup_teacher_subject
+        ;
 
-        $this->groupSubject = GroupSubject::where('group_id', $this->group->id)->get();
-        $this->teacher_subject = $this->groupSubject->pluck('teacher_id', 'subject_id')->toArray();
+        // dd($this->teacher_subject,
+        // $this->sup_teacher_subject,
+        // );
 
         // dd($this->teachers);
     }
 
     public function updatedTeacherSubject($value, $key)
     {
+        // dd($this->ay_id);
         if(empty($key)){
             return;
         }
         if(!empty($value)){
-            if(!teacher::find($value)){
+            if(!teacher::find($value)&&!is_array($value)){
                 return redirect()->route("groupsubject", $this->group->id)->with("error", "Teacher not found!");
             }
             if($this->group->IsPractical()){
@@ -51,32 +75,39 @@ class Index extends Component
                 );
             }else{
             GroupSubject::updateOrCreate(
-            ['group_id' => $this->group->id, 'subject_id' => $key],
+            ['group_id' => $this->group->id, 'subject_id' => $key,'ay_id' => AcademicYear::currentAcademicYear()->id],
             ['teacher_id' => $value]
             );
         }
     }else{
-        GroupSubject::where('group_id', $this->group->id)->where('subject_id', $key)->delete();
+        GroupSubject::where('group_id', $this->group->id)
+        ->where('ay_id', $this->ay_id)
+        ->where('subject_id', $key)->delete();
     }
-        // if($value == null){
-        //     $info = GroupSubject::where('group_id', $this->group->id)->where('subject_id', $key)->delete();
-
-        // }else{
-        //     if($this->group->IsPractical()){
-        //         $info = GroupSubject::updateOrCreate(
-        //         ['group_id' => $this->group->id, 'subject_id' => $key,'is_practical' => 1],
-        //         ['teacher_id' => $value]
-        //         );
-        //     }else{
-        //     $info = GroupSubject::updateOrCreate(
-        //     ['group_id' => $this->group->id, 'subject_id' => $key],
-        //     ['teacher_id' => $value]
-        //     );
-        // }
-        // }
     }
 
 
+    public function updatedSupTeacherSubject($value, $key)
+    {
+        if(empty($key)&&explode(' ', $key)[0] == null){
+            return;
+        }
+        if(!empty($value)){
+            if(!teacher::find($value)){
+                return redirect()->route("groupsubject", $this->group->id)->with("error", "Teacher not found!");
+            }
+            $supGroup_v = explode(' ', $key)[0];
+            $subject_v = explode(' ', $key)[1];
+
+            GroupSubject::updateOrCreate(
+            ['group_id' => $supGroup_v,'subject_id' => $subject_v,'is_practical' => 1,'ay_id' => $this->ay_id],
+            ['teacher_id' => $value]
+            );
+        }else{
+            GroupSubject::where('ay_id', $this->ay_id)
+            ->where('group_id', explode(' ', $key)[0])->where('subject_id', explode(' ', $key)[1])->delete();
+        }
+    }
     // public function getSubjectsProperty()
     // {
     //     if($this->group->group_id){

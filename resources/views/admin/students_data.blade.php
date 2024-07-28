@@ -15,6 +15,8 @@
 
 {{-- <td><button type="submit" class="btn btn-primary btn-sm  btn-addAcademic" id="" data-toggle="modal" data-target="#addPermissions"> اضافة صلاحية<img src="{{ Vite::image('plus.png')}}"  width="20px" style="float: left;"></button> </td> --}}
 
+<div class="dep-name" >{{ $department_name }}</div>
+
 </div>
 
 <div class="hr3">
@@ -44,6 +46,14 @@
         <div class="card  cards-departments" id="">
             <img src="{{Vite::image("Groups.png")}}" class="" width="150px" style="margin-top:18px;" onclick="location.href='{{route('students_main_groups', $level->id)}}'">
             <div class="card-departments-child"> المجموعات
+            </div>
+        </div>
+
+        <div class="card  cards-departments" id="" onclick="location.href='{{route('students_schedule', $level->id)}}'">
+            {{-- <img src="{{Vite::image("students.png")}}" class="" width="150px"   onclick="location.href='{{route('students_grades')}}'"> --}}
+            <img src="{{Vite::image("calendar_students.png")}}" class="" width="150px"  >
+
+            <div class="card-departments-child">  جدول الطلاب
             </div>
         </div>
 

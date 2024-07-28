@@ -20,14 +20,14 @@
     border-bottom-left-radius: 0%;
 }
 
-.Addbtn-projctsNavbar {
-    background-color: #2459D4;
+.btn.btn_addProjct {
+    /* background-color: #2459D4; */
     color: white;
-    margin-top: 3px;
+    margin-top: 15px;
     text-align: center;
-    padding: 6px 8px;
-    padding-left: 4px;
-    width: 100px;
+    /* padding: 6px 8px;
+    padding-left: 4px; */
+    /* width: 100px; */
     height: 30px;
     font-size: 12px;
     float: left;
@@ -38,24 +38,52 @@
     -o-border-radius: 5px;
     border: none;
     margin-left: 10px;
+    position:absolute;
 }
 
 @media screen and (max-width: 550px) {
-    .Addbtn-projctsNavbar {
-        width: 85px;
+    .btn.btn_addProjct {
+        /* width: 85px; */
         height: 28px;
         font-size: 10px;
-        padding: 6px 6px;
-        padding-left: 4px;
+        /* padding: 6px 6px;
+        padding-left: 4px; */
+        margin-top:20px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .btn.btn_addProjct {
+        /* padding: 6px 6px;*/
+        padding-left: 5px;
+        margin-top:-25px;
+        margin-left: 25%;
+        /* z-index:4 !important;
+        position:relative; */
+
     }
 }
 @media screen and (max-width: 330px) {
-    .Addbtn-projctsNavbar {
-        width: 75px;
-        height: 28px;
+    .btn.btn_addProjct {
+        /* width: 75px; */
+        /* height: 28px; */
         font-size: 10px;
         padding: 5px 3px;
         padding-left: 2px;
+
+    }
+}
+@media screen and (max-width: 300px) {
+    .btn.btn_addProjct {
+        margin-left: 27%;
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+}
+@media screen and (max-width: 280px) {
+    .btn.btn_addProjct {
+        margin-left: 29%;
+        /* padding-right: 6px;
+        padding-left: 6px; */
     }
 }
 
@@ -342,43 +370,63 @@
 }
 @media screen and (max-width: 490px) {
     #input-group-proj {
-        width: 180px;
+        /* width: 180px; */
         margin-left: 160px;
     }
 }
 @media screen and (max-width: 450px) {
     #input-group-proj {
-        width: 180px;
-        margin-left: 150px;
-    }
-}
-@media screen and (max-width: 420px) {
-    #input-group-proj {
-        width: 180px;
+        /* width: 180px; */
         margin-left: 130px;
     }
 }
-@media screen and (max-width: 371px) {
+@media screen and (max-width: 425px) {
     #input-group-proj {
-        width: 150px;
-        margin-left: 120px;
+        /* width: 180px; */
+        margin-left: 115px;
     }
 }
-@media screen and (max-width: 325px) {
+@media screen and (max-width: 400px) {
     #input-group-proj {
-        width: 150px;
+      /* width: 180px; */
         margin-left: 100px;
     }
 }
-@media screen and (max-width: 310px) {
+@media screen and (max-width: 375px) {
     #input-group-proj {
-        width: 140px;
+        /* width: 150px; */
+        margin-left: 90px;
+    }
+}
+@media screen and (max-width: 350px) {
+    #input-group-proj {
+        /* width: 150px; */
+        margin-left: 70px;
+    }
+}
+@media screen and (max-width: 330px) {
+    #input-group-proj {
+        /* width: 150px; */
+        margin-left: 60px;
+    }
+}
+@media screen and (max-width: 315px) {
+    #input-group-proj {
+        width: 180px;
+        margin-left: 55px;
+
     }
 }
 @media screen and (max-width: 300px) {
     #input-group-proj {
-        width: 130px;
-        margin-left: 95px;
+        /* width: 160px; */
+        margin-left: 45px;
+    }
+}
+@media screen and (max-width: 280px) {
+    #input-group-proj {
+        width: 160px;
+        margin-left: 40px;
     }
 }
 
@@ -1071,4 +1119,79 @@ position: relative;
         text-align: right;
         font-size: 12px;
         color: rgb(67, 111, 206);
+    }
+
+    .btn.projects_studentsGroups_dropdown {
+        font-size: 12px;
+        font-weight: normal;
+        /* padding-left: 5px; */
+        padding-top:14px;
+        margin-left: 45%;
+        margin-top: -30px;
+        display:flex;
+        /* color: black; */
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -ms-border-radius: 7px;
+        -o-border-radius: 7px;
+        /* width: 20%; */
+        box-shadow: 0px 0px 2px 0px rgb(72, 72, 72);
+        border: none;
+        height: 30px;
+        position: absolute;
+    }
+    @media screen and (max-width:995px) {
+        .btn.projects_studentsGroups_dropdown {
+            margin-left: 40%;
+        }
+    }
+    @media screen and (max-width:777px) {
+        .btn.projects_studentsGroups_dropdown {
+            margin-left: 28%;
+        }
+    }
+
+    @media screen and (max-width:700px) {
+        .btn.projects_studentsGroups_dropdown {
+            margin-left: 50%;
+            /* position: fixed; */
+        }
+    }
+
+    @media screen and (max-width:550px) {
+        .btn.projects_studentsGroups_dropdown {
+            /* width: 100px; */
+            margin-top: -25px;
+            font-size: 10px;
+            background-color: #ffffff;
+        }
+    }
+    @media screen and (max-width:450px) {
+        .btn.projects_studentsGroups_dropdown {
+            /* width: 100px; */
+            /* margin-top: -25px;
+            font-size: 10px;
+            background-color: #ffffff; */
+            height: 28px;
+            margin-left: 55%;
+
+
+        }
+    }
+    @media screen and (max-width:300px) {
+        .btn.projects_studentsGroups_dropdown {
+            /* margin-left: 52%; */
+            padding-right: 6px;
+            padding-left: 6px;
+        }
+    }
+    .image_add{
+        width:20px;
+        float: left;
+    }
+    @media screen and (max-width:300px) {
+        .image_add{
+            display:none;
+        }
     }

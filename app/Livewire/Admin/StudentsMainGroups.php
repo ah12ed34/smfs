@@ -14,7 +14,7 @@ class StudentsMainGroups extends Component
     Searchable,
     Groupsable;
     public $level;
-    public $typeGroup;
+    // public $typeGroup;
     public $allGroups;
 
     public function mount(Level $LId)

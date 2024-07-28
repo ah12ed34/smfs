@@ -14,6 +14,7 @@ return [
 'users'=>'المستخدمين', // Added translation for "المستخدمين"
 'roles'=>'الأدوار', // Added translation for "الأدوار"
 'settings'=>'الإعدادات',
+'classes_sechedules'=>'جدول القاعات',
 'dashboard'=>'لوحة التحكم',
 'schaudule_std'=>'الجدول الدراسي',
 'add'=>'إضافة',

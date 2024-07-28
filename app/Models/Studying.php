@@ -28,16 +28,18 @@ class Studying extends Model
         'persents15',
         'is_completed',
         'addional_grades',
-        'helf_exem',
+        'midterm_exam',
         'final_exem',
 
 
     ];
 
-    public function teacher() {
+    public function teacher()
+    {
         return $this->hasOne(Academic::class);
     }
-    public function students() {
+    public function students()
+    {
         return $this->hasMany(Student::class);
     }
 }

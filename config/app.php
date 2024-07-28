@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Aden',
 
     /*
     |--------------------------------------------------------------------------
@@ -184,6 +184,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'myapp' => App\Tools\MyApp::class,
+        'icon' => App\Tools\Icon::class,
     ])->toArray(),
 
 ];

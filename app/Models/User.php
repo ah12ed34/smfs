@@ -53,81 +53,119 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function Roles(){
-        return $this->belongsToMany(Role::class,'has_role','user_id','role_id');
+    public function Roles()
+    {
+        return $this->belongsToMany(Role::class, 'has_role', 'user_id', 'role_id');
     }
-    public function Role(){
+    public function Role()
+    {
         return $this->Roles()->first();
     }
-    public function Permissions(){
-        return $this->belongsToMany(Permission::class,'has_permission_user','user_id','permission_id');
+    public function Permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'has_permission_user', 'user_id', 'permission_id');
     }
 
-    public function isAdmin(): bool{
+    public function isAdmin(): bool
+    {
         return $this->hasRole('admin');
         return false;
     }
-    public function hasRole($name, int $user_id = null): bool{
-        if(DB::table('roles')->where('name',$name)->exists()){
+    public function hasRole($name, int $user_id = null): bool
+    {
+        if (DB::table('roles')->where('name', $name)->exists()) {
 
-            if(DB::table('roles')->select('roles.*')->where('name',$name)->join('has_role','roles.id','=','has_role.role_id')->where('has_role.user_id',$user_id ?? $this->id)->exists()){
+            if (DB::table('roles')->select('roles.*')->where('name', $name)->join('has_role', 'roles.id', '=', 'has_role.role_id')->where('has_role.user_id', $user_id ?? $this->id)->exists()) {
                 return true;
             }
         }
         return false;
     }
-    public function hasPermission($name, int $user_id = null): bool{
+    public function hasPermission($name, int $user_id = null): bool
+    {
 
-            if($this->isAdmin()){
-                return true;
-            }else
-            if(DB::table('permissions')->select('permissions.*')->where('name',$name)->join('has_permission_user','permissions.id','=','has_permission_user.permission_id')->where('has_permission_user.user_id',$user_id ?? $this->id)->exists()){
-                return true;
-            }elseif(DB::table('permissions')->select('permissions.*')->where('name',$name)->join('has_permission','permissions.id','=','has_permission.role_id')
-                                                                                        ->join('has_role','has_permission.role_id','=','has_role.role_id')
-            ->where('has_role.user_id',$user_id ?? $this->id)->exists()){
-                return true;
-            }
+        if ($this->isAdmin()) {
+            return true;
+        } else
+            if (DB::table('permissions')->select('permissions.*')->where('name', $name)->join('has_permission_user', 'permissions.id', '=', 'has_permission_user.permission_id')->where('has_permission_user.user_id', $user_id ?? $this->id)->exists()) {
+            return true;
+        } elseif (DB::table('permissions')->select('permissions.*')->where('name', $name)->join('has_permission', 'permissions.id', '=', 'has_permission.role_id')
+            ->join('has_role', 'has_permission.role_id', '=', 'has_role.role_id')
+            ->where('has_role.user_id', $user_id ?? $this->id)->exists()
+        ) {
+            return true;
+        }
         return false;
-
     }
 
-    public function isStudent(): bool{
-        return DB::table('students')->where('user_id',$this->id)->exists();
+    public function isStudent(): bool
+    {
+        return DB::table('students')->where('user_id', $this->id)->exists();
     }
-    public function isAcademic(): bool{
-        return DB::table('academics')->where('user_id',$this->id)->exists();
+    public function isAcademic(): bool
+    {
+        return DB::table('academics')->where('user_id', $this->id)->exists();
     }
 
-    public function student(){
+    public function student()
+    {
         // if($this->isStudent()){
-            return $this->hasOne(Student::class,'user_id','id');
+        return $this->hasOne(Student::class, 'user_id', 'id');
         // }
         // return null;
     }
 
-    public function academic(){
-            return $this->hasOne(Academic::class,'user_id','id');
+    public function academic()
+    {
+        return $this->hasOne(Academic::class, 'user_id', 'id');
     }
 
-    public function gender_ar(){
-        if($this->gender == null || empty($this->gender)){
+    public function Recipients()
+    {
+        return $this->hasMany(Recipient::class, 'user_id', 'id');
+    }
+
+    public function gender_ar()
+    {
+        if ($this->gender == null || empty($this->gender)) {
             return ' ';
         }
-        return match($this->gender){
+        return match ($this->gender) {
             'male' => 'ذكر',
             'female' => 'أنثى',
             default => ' ',
         };
-
     }
-    public function getFullNameAttribute(){
+    public function getFullNameAttribute()
+    {
         return $this->name . ' ' . $this->last_name;
     }
 
-    public static function boot(){
+    // public function getPhotoAttribute($value)
+    // {
+    //     if ($value) {
+    //         return asset('storage/' . $value);
+    //     }
+    //     return \Vite::asset('resources/images/user.png');
+    // }
+
+    public function getAgeAttribute()
+    {
+        if ($this->birthday) {
+            return now()->diffInYears($this->birthday);
+        }
+        return null;
+    }
+
+    public function getRoleAttribute()
+    {
+        return $this->Role()->name;
+    }
+
+    public static function boot()
+    {
         parent::boot();
-        static::deleting(function($user){
+        static::deleting(function ($user) {
             try {
                 if ($user->isStudent()) {
                     $user->student->delete();
@@ -154,8 +192,8 @@ class User extends Authenticatable
                 $user->tokens()->restore();
             }
         });
-        static::deleted(function($user){
-            if($user->photo){
+        static::deleted(function ($user) {
+            if ($user->photo) {
                 Storage::delete($user->photo);
             }
         });

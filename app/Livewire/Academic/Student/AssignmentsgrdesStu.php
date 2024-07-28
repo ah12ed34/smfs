@@ -3,19 +3,21 @@
 namespace App\Livewire\Academic\Student;
 
 use App\Models\Delivery;
+use App\Models\Group;
+use App\Models\GroupSubject;
+use App\Traits\Academic\studentAT;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
 class AssignmentsgrdesStu extends Component
 {
-    use WithPagination;
+    use WithPagination,studentAT;
     public $group_subject;
     public $search;
     public $perPage = 10;
     public $columnsName=[];
-    public function mount($group_subject)
+    public function mount(GroupSubject $group_subject)
     {
-        $this->group_subject = $group_subject;
         $group_subject->getFilesInGroupBySubject('assignment',null)->where('is_active',1)->get()
         ->each(function($item){
             $this->columnsName[] = [
@@ -32,11 +34,9 @@ class AssignmentsgrdesStu extends Component
 
     public function getStudentsProperty()
     {
-        $students = $this->group_subject->getStudentsInGroupBySubject($this->search)
+        $students = $this->getStudents($this->group_subject);
 
-        ->paginate($this->perPage);
-
-        $students->getCollection()->transform(function($item){
+        $students = $students->get()->transform(function($item){
             $item->grade = 0;
             $item->count_deliveries = 0;
             $item->count_not_deliveries = 0;
@@ -55,7 +55,7 @@ class AssignmentsgrdesStu extends Component
             });
             return $item;
         });
-        return $students;
+        return $students->paginate($this->perPage);
     }
 
     public function render()

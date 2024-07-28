@@ -1,3 +1,7 @@
+@section('nav')
+@livewire('components.nav.academic.students', ['group_subject' => $group_subject, 'active' => 'students-persents'])
+
+@endsection
 <div>
 
     <div class="responsive"></div>

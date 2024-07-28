@@ -10,6 +10,7 @@ use App\Models\Project as ProjectModel;
 use App\Tools\MyApp;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
+use App\Models\GroupSubject;
 
 
 class Project extends Component
@@ -27,7 +28,8 @@ class Project extends Component
     public $max_students;
     public $min_students;
     public $end_date;
-
+    public $selected_id = null;
+    public $message_confirmation = null;
 
     public function mount($group_subject)
     {
@@ -42,7 +44,7 @@ class Project extends Component
     public function getProjectsProperty()
     {
         // dd($this->group_subject);
-        $count_students = $this->group_subject->students->count();
+        $count_students = $this->group_subject?->students?->count();
         $projects = $this->group_subject->
         projects()
         ->where('name','like','%'.$this->search.'%')->get()
@@ -60,6 +62,14 @@ class Project extends Component
         //     return $student->pivot->id;
         // })
 
+        $this->selected_id = $id;
+        if($this->projects->where('id',$id)->first()->is_active == 1){
+            $this->message_confirmation = __('general.assignment_deactivation_confirmation');
+        }else{
+            $this->message_confirmation = __('general.assignment_activation_confirmation');
+        }
+
+
         $projectDetails = $this->projectDetails = $this->projects->where('id',$id)->first();
         $this->name = $projectDetails->name;
         $this->grade = $projectDetails->grade;
@@ -67,6 +77,15 @@ class Project extends Component
         $this->min_students = $projectDetails->min_students;
         $this->end_date = $projectDetails->end_date;
 
+    }
+
+    public function stopProject(){
+        $project = ProjectModel::where('id',$this->selected_id)->first();
+        $project->is_active = !$project->is_active;
+        $project->save();
+        $this->selected_id = null;
+        $this->message_confirmation = null;
+        $this->dispatch('closeModal');
     }
 
     public function resetData(){
@@ -104,9 +123,6 @@ class Project extends Component
         {
             unset($this->file);
         }
-
-
-
 
         $project = new ProjectModel();
         $project->name = $this->name;

@@ -8,14 +8,12 @@ use App\Models\GroupSubject;
 use App\Models\Project ;
 use App\Models\Student;
 use App\Models\User;
+use App\Traits\Searchable;
 use Illuminate\Support\Facades\Storage;
-use Livewire\WithPagination;
 class ProjectGroups extends Component
 {
-    use WithPagination;
+    use Searchable;
     public $group_subject;
-    public $search;
-    public $perPage = 10;
     public $projectDetails;
     public $project_id;
     public $project_groups = [
@@ -39,12 +37,20 @@ class ProjectGroups extends Component
     public $boss = [];
 
     public $add_student = false;
-    public function mount($subject_id,$group_id,$project_id)
+    public $active = [
+        'tab'=>null,
+    ];
+    public function mount(GroupSubject $group_subject,$project_id)
     {
-        $this->group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->first();
+        $this->group_subject = $group_subject;
         $this->project_id = $project_id;
         $this->parameters =request()->route()->parameters;
         $this->query = request()->query();
+        if(isset($this->query['tab'])&&$this->query['tab'] != null
+        && in_array($this->query['tab'],['done','not_done'])
+        ){
+            $this->active['tab'] = $this->query['tab'];
+        }
         // dd($parameters);
     }
 
@@ -87,9 +93,16 @@ class ProjectGroups extends Component
             // })->toArray();
 
         $this->users = $this->projectDetails->students->map(function($student){
-            $this->grade_id[$student->student->student->user_id] = $student->grade;
-            $this->comment_id[$student->student->student->user_id] = $student->description;
-            return ['id'=>$student->student->student->user_id,'name'=>$student->student->student->user->name
+            if(!$student->student){
+                $student->delete();
+                return;
+            }
+            if(!$student?->student){
+                dd($student->student);
+            }
+            $this->grade_id[$student->student->user_id] = $student->grade;
+            $this->comment_id[$student->student->user_id] = $student->description;
+            return ['id'=>$student->student->user_id,'name'=>$student->student->user->name
                     ,'student_id'=>$student->student_id,'grade'=>$student->grade,'comment'=>$student->comment];
         });
         }else{
@@ -167,6 +180,52 @@ class ProjectGroups extends Component
     {
         return Storage::download($this->projectDetails->file,$this->name .' - '.$this->projectDetails->project->name);
     }
+    public $student_delete = null;
+    // delete student from group
+    public function select_delete($user_id)
+    {
+        if($this->projectDetails->project->min_students >= $this->projectDetails->students->count()){
+            $this->addError('deleteE','لا يمكن حذف الطالب لأن عدد الطلاب أقل من الحد الأدنى');
+            $this->dispatch('deleteError');
+            return;
+        }
+
+
+        $this->student_delete = $user_id;
+        // dd($this->student_delete,$user_id);
+    }
+    public function delete_student()
+    {
+        if($this->student_delete == null){
+            $this->dispatch('closeModalDelete');
+            return;
+        }
+        $this->projectDetails->students->each(function($student){
+            // dd($student->student->user_id,$this->student_delete);
+            if($student->student->user_id == $this->student_delete){
+                // dd($student->student->user_id,$this->student_delete);
+                $student->delete();
+                $this->dispatch('closeModalDelete');
+                if(false == $this->projectDetails->just_created)
+                $this->users = $this->projectDetails->students->map(function($student){
+                    if(!$student->student){
+                        $student->delete();
+                        return;
+                    }
+                    if(!$student?->student){
+                        dd($student->student);
+                    }
+                    $this->grade_id[$student->student->user_id] = $student->grade;
+                    $this->comment_id[$student->student->user_id] = $student->description;
+                    return ['id'=>$student->student->user_id,'name'=>$student->student->user->name
+                            ,'student_id'=>$student->student_id,'grade'=>$student->grade,'comment'=>$student->comment];
+                });
+
+                return;
+            }
+        });
+    }
+
     public function getGroupProjectsProperty()
     {
         $this->project_groups = [
@@ -183,7 +242,7 @@ class ProjectGroups extends Component
         $this->project_groups['min_groups'] = ceil($count_students / $project->max_students);
 
         $GroupProjects = $project->GroupProjects()
-        ->where('name','like','%'.$this->search.'%')
+        // ->where('name','like','%'.$this->search.'%')
         ->get()
         ->map(function($group){
             $group->count_students = $group->students->count();
@@ -210,7 +269,26 @@ class ProjectGroups extends Component
                 $GroupProjects->push($group);
             }
         }
-        return $GroupProjects->paginate($this->perPage);
+
+        return $GroupProjects
+        ->filter(function($group){
+            if($this->active['tab'] == 'done'){
+                return $group->file != null;
+            }elseif($this->active['tab'] == 'not_done'){
+                return $group->file == null;
+            }else{
+                return true;
+            }
+        })
+        ->filter(function($group){
+            // search by name of group
+
+                return
+                $this->search == '' ||
+                str_contains($group->name,$this->search) !== false;
+
+        })
+        ->paginate($this->perPage);
 
     }
     public function render()

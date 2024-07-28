@@ -3,11 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\GroupSubject;
+use App\Traits\Academic\studentAT;
+
 class StudentsworksStasticsController extends Controller
 {
+    use studentAT;
+    public function __construct()
+    {
+        $this->initializeStudentAT();
+    }
     //
-    public function index($subject_id,$group_id){
-        $group_subject = GroupSubject::where('subject_id',$subject_id)->where('group_id',$group_id)->first();
-        return view('academic.student.studentsworksStastics',compact('group_subject'));
+    public function index(GroupSubject $group_subject){
+        $group_subject = $group_subject;
+        $stastistics =(
+            $this->getStastistics($group_subject)
+        );
+        return view('academic.student.studentsworksStastics',compact('group_subject','stastistics'));
     }
 }

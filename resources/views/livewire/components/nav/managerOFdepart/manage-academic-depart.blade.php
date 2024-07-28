@@ -7,7 +7,7 @@
 
 
         <div class="dropdown">
-            <button type="button"  class="btn btn-light departmentNavbar_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
+            <button type="button"  class="btn btn-light departmentNavbar_dropdown academicNavbar_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
                 <div class="textdropdown"> الأكادمين   </div>
             </button>
             <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
@@ -36,7 +36,7 @@
         </div>
 
         <div class="dropdown">
-            <button type="button"  class="btn btn-light departmentTypeAcademic_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
+            <button type="button"  class="btn btn-light departmentTypeAcademic_dropdown   dropdown-toggle" data-toggle="dropdown" dir="rtl">
                     <div class="textdropdown">    النظري</div>
                 </button>
                 <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
@@ -47,12 +47,13 @@
 
                 </div>
             </div>
-        <div class="dep-name">تقنية معلومات</div>
+        <div class="dep-name">{{ auth()->user()->academic->department->name }}</div>
 
         <div id="" class="input-group input-search-manageDepart">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" wire:model="search" wire:keydown.enter="srch">
             <div class="input-group-append">
-                <button id="form-control" class="btn btn-light" type="submit"><img  src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
+                <button id="form-control" class="btn btn-light" wire:click="srch"
+                type="submit"><img  src="{{Vite::image("magnifying-glass (2).png")}}" id="spaces2"  width="20px" ></button>
             </div>
         </div>
 

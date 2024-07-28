@@ -1,75 +1,77 @@
-@extends('layouts.app')
+@extends('layouts.login')
+
+@section('style')
+    <style>
+
+    </style>
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __("general.login") }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+    <body class="login_body">
+        <div class="container-fluid p-0">
+
+            <div class="overlay">
+                <div class="card-primary">
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <div class="container">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ml-auto">
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link" href="#">حول الموقع</a>
+                                </li> --}}
+                                <li class="nav-item">
+                                    {{-- <a class="nav-link" href="{{ route('vision_of_system') }}" >الرؤية</a> --}}
+                                    <a class="nav-link" href="#" >الرؤية</a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">الرسالة</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">الأهداف</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">دخول</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="navbar-nav">
+                            <a class="nav-link" href="#"><i class="fas fa-globe"></i></a>
+                        </div>
+                        <div class="img-fluid logo_system"><img src="{{ Vite::image('Group 912.png') }}" width="40%">
+                        </div>
+                    </div>
+                </nav>
+                <div class="content login" style="background: no-repeat;">
+                    <form class="login-form" method="POST" action="{{ route('login') }}">
                         @csrf
-
-                        <div class="row mb-3">
-                            <label for="username" class="col-md-4 col-form-label text-md-end">{{ __("general.userormail") }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="text" class="form-control @if($errors->has('email') || $errors->has('username')) is-invalid @endif" name="username" value="{{ old('email') ?: old('username') }}" required autocomplete="username" autofocus>
-
-                                @if ($errors->has('email') || $errors->has('username'))
-                                <div class="invalid-feedback" role="alert">
-                                    <strong>
-                                        {{ $errors->first('email') ?: $errors->first('username') }}
-                                    </strong>
-                                </div>
-                                @endif
-                            </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control input_userInfo" placeholder="الإيميل...."
+                                @if ($errors->has('email') || $errors->has('username')) is-invalid @endif" name="username"
+                                value="{{ old('email') ?: old('username') }}" required autocomplete="username" autofocus>
+                            @if ($errors->has('email') || $errors->has('username'))
+                                <strong>
+                                    {{ $errors->first('email') ?: $errors->first('username') }}
+                                </strong>
+                            @endif
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('general.password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control input_userInfo" placeholder="كلمة المرور...."
+                                name="password" required autocomplete="current-password">
                         </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __("general.remember_me") }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('general.login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
+                        <div>تذكرني <input type="checkbox" class="checkbox" name="remember" id="remember"
+                                {{ old('remember') ? 'checked' : '' }}></div>
+                        <button type="submit" class="btn btn-primary btn-block btn_login">تسجيل دخول</button>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+
+    </body>
 @endsection

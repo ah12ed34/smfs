@@ -1,16 +1,18 @@
 @section('title', 'التكاليف')
 @section('nav')
-    @livewire('components.nav.academic.subject.assignments',['group_subject'=>$group_subject])
+    @livewire('components.nav.academic.subject.assignments',['group_subject'=>$group_subject
+    ,'otherGroups'=>$otherGroups])
 @endsection
 <div>
 
     <div class="responsive"></div>
-    <div class="container">
+    <div class="container" style="padding-top:30px">
         @forelse ($assignments as $assignment)
-            <div id="card-HW" class="card bg-light text-dark" style=" color: #0E70F2;">
-                <div class="card-body">
-                    <div class="btn-HW">
-                        <a href="{{route("recive-assignments",[$group_subject->subject_id,$group_subject->group_id,$assignment->group_file->id])}}"> <button type="submit" class="btn btn-primary btn_recive_hw " id="" data-toggle="" data-target="#">الواردة </button></a>
+            <div id="" class="card bg-light  " style=" color: #0E70F2;  width:95%; height:250px; position: static;">
+                <div class="card bg-light" style="overflow-x: auto; margin-top:0%;width:95%;height:200px;box-shadow:none;left:-10px;right:5%; padding-top:0px;"  >
+                <div class="card-body" >
+                    {{-- <div class="card " style="width: 100%; bottom:0%">
+                        <a href="{{route("recive-assignments",[$group_subject->id,$assignment->group_file->id])}}"> <button type="submit" class="btn btn-primary btn_recive_hw " id="" data-toggle="" data-target="#">الواردة </button></a>
                         <button type="submit" class="btn btn-light btn_recive_edte_hw " id="" data-toggle="modal" data-target="#myModalediteAssign" wire:click='editAssignment({{ $assignment->id }})' >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
                         @if ($assignment->group_file->is_active)
                             <button type="submit" class="btn btn-danger btn_recive_hw " id="" data-toggle="modal" data-target="#myModalstop"
@@ -19,26 +21,26 @@
                         @else
                             <button type="submit" class="btn btn-success btn_recive_hw " id="" data-toggle="modal" data-target="#myModalstop" wire:click='selected({{ $assignment->id }})'>تفعيل </button>
                         @endif
+                    </div> --}}
                         {{-- <button type="submit" class="btn btn-danger btn_recive_hw " id="" data-toggle="modal" data-target="#myModalstop">إيقاف </button> --}}
-                    </div>
-                    <table class=" table_details_assignements_teacher"  dir="rtl">
+
+                    {{-- <table class=" table table_details_assignements_teacher"  dir="rtl">
                         <tr>
                             <th class="table_header_assigne_teacher" id="">اسم التكاليف</th>
-                            <td class="text_table_assigne_teacher">{{$assignment->name}}</td>
+                            <td colspan="2" class="text_table_assigne_teacher">{{$assignment->name}}</td>
                         </tr>
                         <tr>
                             <th class="table_header_assigne_teacher" id="">الدرجة</th>
-                            <td class="text_table_assigne_teacher" id="">{{$assignment->group_file->grade}}</td>
+                            <td  colspan="2" class="text_table_assigne_teacher" id="">{{$assignment->group_file->grade}}</td>
                         </tr>
                         <tr>
                             <th class="table_header_assigne_teacher" id="">الوصف</th>
-                            <td class="text_table_assigne_teacher" id="">{{$assignment->description}}</td>
+                            <td  colspan="2" class="text_table_assigne_teacher" id="">{{$assignment->description}}</td>
                         </tr>
                         <tr>
                             <th class="table_header_assigne_teacher" id="">الملف</th>
-                            <td  class="text_table_assigne_teacher" id="">
+                            <td  colspan="2"  class="text_table_assigne_teacher" id="">
                                 @if($assignment->file)
-                                    {{-- rename file downled --}}
                                     <a wire:click='download({{ $assignment->id }})' style="cursor: pointer;"
                                         >تحميل الملف</a>
                                 @endif
@@ -46,12 +48,91 @@
                         </tr>
                         <tr>
                             <th class="table_header_assigne_teacher" id="" >تاريخ التسليم</th>
-                            <td class="text_table_assigne_teacher" id="">{{$assignment->group_file->due_date
+                            <td  colspan="2" class="text_table_assigne_teacher" id="">{{$assignment->group_file->due_date
                             }}</td>
                         </tr>
-                    </table>
+                        <tr>
+                            <td class="text_table_assigne_teacher" id="" >
+                                <a href="{{route("recive-assignments",[$group_subject->id,$assignment->group_file->id])}}"> <button type="submit" class="btn btn-primary  " id="" data-toggle="" data-target="#">الواردة </button></a>
+                            </td>
+                            <td   class="text_table_assigne_teacher" id="">
+                                <button type="submit" class="btn btn-light  " id="" data-toggle="modal" data-target="#myModalediteAssign" wire:click='editAssignment({{ $assignment->id }})' >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
+                            </td>
+                            <td   class="text_table_assigne_teacher" id=""></td>
+                            @if ($assignment->group_file->is_active)
+                            <button type="submit" class="btn btn-danger  " id="" data-toggle="modal" data-target="#myModalstop"
+                                wire:click='selected({{$assignment->id}})'
+                            >إيقاف </button>
+                        @else
+                            <button type="submit" class="btn btn-success  " id="" data-toggle="modal" data-target="#myModalstop" wire:click='selected({{ $assignment->id }})'>تفعيل </button>
+                        @endif
+                        </tr>
+                    </table>--}}
+            <div class="table-responsive">
+            <table class=" table " style='margin-top:0%;'  dir="rtl">
+                <tr>
+                    <th class="" id="" style="width:17%;">اسم التكاليف</th>
+                    <td colspan="2" class="">{{$assignment->name}}</td>
+                </tr>
+                <tr>
+                    <th class="" id="" style="width:17%;" >الدرجة</th>
+                    <td  colspan="2" class="" id="">{{$assignment->group_file->grade}}</td>
+                </tr>
+                <tr>
+                    <th class="" id="" style="width:17%;" >الوصف</th>
+                    <td  colspan="2" class="" id="">{{$assignment->description}}</td>
+                </tr>
+                <tr>
+                    <th class="" id="" style="width:17%;">الملف</th>
+                    <td  colspan="2"  class="" id="">
+                        @if($assignment->file)
+                            {{-- rename file downled --}}
+                            <a wire:click='download({{ $assignment->id }})' style="cursor: pointer;"
+                                >تحميل الملف</a>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <th class="" id="" style="width:17%;" >تاريخ التسليم</th>
+                    <td  colspan="2" class="" id="">{{$assignment->group_file->due_date
+                    }}</td>
+                </tr>
+                {{-- <tr>
+                    <td class="" id="" >
+                        <a href="{{route("recive-assignments",[$group_subject->id,$assignment->group_file->id])}}"> <button type="submit" class="btn btn-primary  " id="" data-toggle="" data-target="#">الواردة </button></a>
+                    </td>
+                    <td   class="" id="">
+                        <button type="submit" class="btn btn-light  " id="" data-toggle="modal" data-target="#myModalediteAssign" wire:click='editAssignment({{ $assignment->id }})' >تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
+                    </td>
+                    <td   class="" id=""></td>
+                    @if ($assignment->group_file->is_active)
+                    <button type="submit" class="btn btn-danger  " id="" data-toggle="modal" data-target="#myModalstop"
+                        wire:click='selected({{$assignment->id}})'
+                    >إيقاف </button>
+                @else
+                    <button type="submit" class="btn btn-success  " id="" data-toggle="modal" data-target="#myModalstop" wire:click='selected({{ $assignment->id }})'>تفعيل </button>
+                @endif
+                </tr> --}}
+            </table>
+
+            </div>
+
+                </div>
+                </div>
+                <div class="card  " style="width: 90%;  left:0%; right:0%; height:45px;top:0px; position:static;margin-top:-35px; box-shadow:none;border:none;padding-top:10px padding-bottom:5px">
+                    <a href="{{route("recive-assignments",[$group_subject->id,$assignment->group_file->id])}}"> <button type="submit" class="btn btn-primary btns_edite"  id="" data-toggle="" data-target="#" style="">الواردة </button></a>
+                    <button type="submit" class="btn btn-light btns_assigne" id="" data-toggle="modal" data-target="#myModalediteAssign" wire:click='editAssignment({{ $assignment->id }})' style="">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button>
+                    @if ($assignment->group_file->is_active)
+                        <button type="submit" class="btn btn-danger btns_edite" id="" data-toggle="modal" data-target="#myModalstop" style=""
+                            wire:click='selected({{$assignment->id}})'
+                        >إيقاف </button>
+                    @else
+                        <button type="submit" class="btn btn-success btns_edite" id="" data-toggle="modal" data-target="#myModalstop" wire:click='selected({{ $assignment->id }})'style="">تفعيل </button>
+                    @endif
                 </div>
             </div>
+
+
         @empty
             <div class="alert alert-warning" role="alert">
                 لا يوجد تكاليف
@@ -59,9 +140,9 @@
 
         @endforelse
 
-    </div>
 
 
+        </div>
     {{-- <div class="modal fade" id="myModal">
         <div class="modal-dialog">
             <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;">
@@ -108,7 +189,7 @@
 
     <div class="modal fade" id="myModalediteAssign" wire:ignore.self>
         <div class="modal-dialog">
-            <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;">
+            <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:90vh">
 
                 <!-- Modal Header -->
                 <div class="modal-header modal_header_css" id="modheader">
@@ -117,7 +198,7 @@
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body modal_body_css">
                     <form action="" style="display: block;">
                         <div class="form-group">
                             <!-- <label for="usr">Name:</label> -->

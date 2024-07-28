@@ -72,54 +72,54 @@
 
 
     <div>
-        <a href="{{route("worksStasticsStudentsSuccess")}}">
+        <a href="{{route("worksStasticsStudentsSuccess",[$group_subject->id,'fail'])}}">
         <div class="cards-child-stastics">
             <label class="cards-child-title">   الراسبين
         </label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['failedCount'] }}</div>
             <img src="{{Vite::image("students.png")}}" class="image-stastic" width="50px">
         </div>
         </a>
-        <a href="{{route("worksStasticsStudentsSuccess")}}">
+        <a href="{{route("worksStasticsStudentsSuccess",[$group_subject->id,'success'])}}">
         <div class="cards-child-stastics">
             <label class="cards-child-title">   الناجحين
         </label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['successCount'] }}</div>
             <img src="{{Vite::image("students.png")}}" class="image-stastic" width="50px">
         </div>
         </a>
-        <a href="{{route("worksStasticsAssignements")}}">
+        <a >
         <div class="cards-child-stastics">
             <label class="cards-child-title">  تكاليف لم يتم تسليمها
         </label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['notDeliveredCount'] }}</div>
             <img src="{{Vite::image("homework (3).png")}}" class="image-stastic" width="50px">
         </div>
         </a>
-        <a href="{{route("worksStasticsAssignements")}}">
+        <a >
         <div class="cards-child-stastics">
             <label class="cards-child-title"> تكاليف تم تسليمها</label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['deliveryAssessmentCount'] }}</div>
             <img src="{{Vite::image("homework (3).png")}}" class="image-stastic" width="50px">
         </div>
         </a>
-        <a href="{{route("worksStasticsProjects")}}">
+        <a >
         <div class="cards-child-stastics">
             <label class="cards-child-title">  مشاربع لم يتم تسليمها</label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['projectsNotDeliveredCount'] }}</div>
             <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
         </div>
         </a>
-        <a href="{{route("worksStasticsProjects")}}">
+        <a >
         <div class="cards-child-stastics">
             <label class="cards-child-title"> مشاربع تم تسليمها</label>
-            <div class="cards-child-numbers">0</div>
+            <div class="cards-child-numbers">{{ $stastistics['projectsCount'] }}</div>
             <img src="{{Vite::image("project-management.png")}}" class="image-stastic" width="50px">
         </div>
         </a>
     </div>
 
-    <div class="card" id="statistics-container">
+    {{-- <div class="card" id="statistics-container">
 
         <div style="margin-top:0px">نسبة نجاح الطلاب</div>
         <div style="float: left; margin-top:45px; margin-left:5px;">100% <br>90% <br>80%<br> 70%<br> 60% <br>50% <br>40% <br>30%<br> 20%<br> 10%</div>
@@ -154,7 +154,7 @@
         <div class="card" id="card-stastic-2" style="max-height:100%;"></div>
         <div class="card" id="card-stastic-2" style="max-height:60%;"></div>
         <br>
-        <!-- <div>1&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 4 5 6 7 8 9 10 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div> -->
+
         <label id="labelstatisc-2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</label>
         <label id="labelstatisc-2"> &nbsp;&nbsp;2 </label>
         <label id="labelstatisc-2">&nbsp;3&nbsp; </label>
@@ -168,7 +168,7 @@
         <label id="labelstatisc-2">11</label>
         <label id="labelstatisc-2">12</label>
 
-    </div>
+    </div> --}}
 </div>
 
 

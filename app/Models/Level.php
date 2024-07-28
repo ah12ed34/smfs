@@ -14,6 +14,11 @@ class Level extends Model
         'department_id',
     ];
 
+    protected $casts = [
+        'id' => 'integer',
+        'department_id' => 'integer',
+    ];
+
     public function groups()
     {
         return $this->hasMany(Group::class);
@@ -26,11 +31,17 @@ class Level extends Model
 
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class, 'subjects_levels', );
+        return $this->belongsToMany(Subject::class, 'subjects_levels', 'level_id', 'subject_id')
+            ->withPivot('id', 'semester', 'isActivated');
     }
 
     public function subjectLevels()
     {
         return $this->hasMany(SubjectsLevels::class, 'level_id','id');
+    }
+
+    public function students()
+    {
+        return $this->hasMany(Student::class);
     }
 }

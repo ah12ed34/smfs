@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.manager_of_depart.manag-depart-main')
+    @livewire('components.nav.manager_of_depart.manag-depart-main')
 @endsection
 
 <div>
@@ -8,16 +8,21 @@
     <div class="container" style="padding-top: 20px;">
 
         @forelse ($levels as $level)
-        <div class="card  cards-departments depart-level-quality" id="" onclick="location.href='{{route('depart_level_Group_mainPage', $level->id)}}'" >
-            <img src="{{Vite::image("level1.png")}}" class="" width="150px">
-            <div class="card-departments-child">  {{$level->name}}
+            <div class="card  cards-departments depart-level-quality" id=""
+                onclick="location.href='{{ route('depart_level_Group_mainPage', $level->id) }}'">
+                {{-- get int loop --}}
+                @if ($loop->iteration <= 4)
+                    <img src="{{ Vite::image("level$loop->iteration.png") }}" class="" width="150px">
+                @else
+                    <img src="{{ Vite::image('level4.png') }}" class="" width="150px">
+                @endif
+                <div class="card-departments-child"> {{ $level->name }}
+                </div>
             </div>
-        </div>
         @empty
-        <div class="alert alert-warning" role="alert">
-            {{ __('sysmass.no_levels_department') }}
-        </div>
-
+            <div class="alert alert-warning" role="alert">
+                {{ __('sysmass.no_levels_department') }}
+            </div>
         @endforelse
         {{-- <div class="card  cards-departments depart-level-quality" id="" onclick="location.href='{{route('depart_level_Group_mainPage')}}'" >
             <img src="{{Vite::image("level1.png")}}" class="" width="150px">
@@ -43,6 +48,6 @@
             </div>
         </div> --}}
 
-</div>
+    </div>
 
 </div>

@@ -178,23 +178,23 @@
 }
 @media screen and (max-width: 850px) {
     .btn-group.btn_group_nav_departments {
-        margin-left: 16%;
+        margin-left: 18%;
     }
 }
-@media screen and (max-width: 830px) {
+/* @media screen and (max-width: 830px) {
     .btn-group.btn_group_nav_departments {
         margin-left: 15.5%;
     }
-}
+} */
 /* @media screen and (max-width: 820px) {
     .btn-group.btn_group_nav_departments {
         margin-left: 15%;
     }
 } */
 @media screen and (max-width: 800px) {
-    .btn-group.btn_group_nav_departments {
+    /* .btn-group.btn_group_nav_departments {
         margin-left: 15%;
-    }
+    } */
     .btn-departments-Navbar{
         font-size: 11px;
         padding: 8px 8px;
@@ -205,7 +205,7 @@
     }
 
 }
-@media screen and (max-width: 780px) {
+/* @media screen and (max-width: 780px) {
     .btn-group.btn_group_nav_departments {
         margin-left: 13%;
     }
@@ -229,12 +229,20 @@
         font-size: 10px;
         padding: 5px 7px;
     }
-}
+} */
 
 @media screen and (max-width: 700px) {
     .btn-group.btn_group_nav_departments {
         margin-left: 26%;
         /* position: fixed; */
+    }
+    .btn-departments-Navbar{
+        font-size: 10px;
+        padding: 9px 7px;
+    }
+    .btn.btn-departments-Navbar{
+        font-size: 10px;
+        padding: 5px 7px;
     }
 }
 @media screen and (max-width: 600px) {
@@ -516,13 +524,13 @@ float: right;
     font-weight: normal;
     padding-left: 5px;
     margin-left: 2%;
-    margin-top: -30px;
+    margin-top: 0px;
     position: fixed;
 }
 
 @media screen and (max-width:992px) {
     .btn.btn-addAcademic {
-        top: 130px;
+        top: 100px;
     }
 }
 
@@ -1385,4 +1393,30 @@ float: right;
                 text-align: right;
                 font-size: 12px;
                 color: rgb(67, 111, 206);
+            }
+
+    .table.academic_table{
+        width: 100%;
+        /* margin-top: 50px; */
+        right: 0%;
+        /* margin-bottom: 10px; */
+        /* margin-left: 10px; */
+        /* margin-right: 10px; */
+        /* padding-left: 10px; */
+        /* padding-right: 10px; */
+        overflow-x: auto;
+        overflow-y: auto;
+            }
+            @media screen and (max-width:740px;) {
+                .table.academic_table{
+                width: 100% !important;
+                /* margin-right: 40px !important; */
+
+                }
+            }
+            @media screen and (max-width:700px) {
+                .table.academic_table{
+                    width: 130%;
+                    margin-right: 0% !important;
+                }
             }

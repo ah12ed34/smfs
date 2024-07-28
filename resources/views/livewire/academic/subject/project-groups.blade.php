@@ -1,5 +1,7 @@
 @section('nav')
-    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject])
+    @livewire('components.nav.academic.subject.project', ['group_subject'=>$group_subject,'backName'=>'projects'
+    ,'active'=>$active,'deny'=>['create'],
+    ])
 @endsection
 {{-- @section('nav')
 @livewire('components.nav.academic.subject.project-groups-header')
@@ -63,7 +65,12 @@
                             </td>
                             <td>
                                 @if ($projectGroup->delivery_date)
-                                    {{ $projectGroup->delivery_date }}
+                                    {{-- @if ($projectGroup->delivery_date > $projectGroup->project->end_date)
+                                        {{ 'متاخر ب ' . \Carbon\Carbon::parse($projectGroup->delivery_date)->diffInDays(\Carbon\Carbon::parse($projectGroup->project->end_date)) . ' يوم' }}
+                                    @else --}}
+                                        {{ $projectGroup->delivery_date }}
+                                    {{-- @endif --}}
+
                                 @else
                                     {{ __('general.not_delivered') }}
 
@@ -71,7 +78,11 @@
                             </td>
                             <td>
                                 @if ($projectGroup->file)
+                                    @if($projectGroup->delivery_date > $projectGroup->project->end_date)
+                                        <span class="badge badge-warning">متأخر</span>
+                                    @else
                                     <span class="badge badge-success">مكتمل</span>
+                                    @endif
                                 @else
                                     <span class="badge badge-danger">غير مكتمل</span>
                                 @endif
@@ -82,7 +93,7 @@
 
                     @empty
                         <tr >
-                            <td colspan="9" style="text-align: center;">{{ __('general.no_projects') }}</td>
+                            <td colspan="10" style="text-align: center;">{{ __('general.no_projects') }}</td>
                         </tr>
 
                     @endforelse
@@ -101,7 +112,7 @@
     <!-- The Modalchatting -->
 <div class="modal fade" id="myModalchatting">
     <div class="modal-dialog">
-        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:95vh;">
+        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:90vh;">
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader" style="padding-left: 45%">
                 {{-- <div class="">الدردشة <img src="{{Vite::image("conversation (3).png")}}" id="" width="25px"></div> --}}
@@ -185,7 +196,7 @@
 <!-- The Modaldetails -->
 <div class="modal fade" id="myModaldetails" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content ModaldShowDetail" id="modal-content" style="background-color: #F6F7FA; height:550px;">
+        <div class="modal-content ModaldShowDetail" id="modal-content" style="background-color: #F6F7FA; height:90vh;">
 
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader" >
@@ -195,7 +206,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" id="projectdetails" style="overflow: auto;">
+            <div class="modal-body modal_body_css" id="projectdetails" style="overflow: auto;">
             <div class="table-responsive ">
 
                 <table class="table  " style=" width:100%;" dir="rtl">
@@ -251,7 +262,7 @@
                                     <tr class="table-light" id="modldetials"  style="margin-top:7px;" >
                                 {{-- name --}}
                                 <td>{{ $student->grade }}</td>
-                                <td>{{ $student->student->student->user->name }}</td>
+                                <td>{{ $student->student->user->name }}</td>
                                     </tr>
                                 @empty
                                     <tr >
@@ -276,7 +287,7 @@
 <!-- The ModalEdite -->
 <div class="modal fade" id="myModalEdite" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content modal_content_css"  id="modal-content" style="background-color: #F6F7FA;height: 500px;">
+        <div class="modal-content modal_content_css"  id="modal-content" style="background-color: #F6F7FA;height: 90vh">
 
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader" >
@@ -285,7 +296,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" style="overflow: auto;">
+            <div class="modal-body modal_body_css" style="overflow: auto;">
                     <div class="form-group">
                         <!-- <label for="usr">Name:</label> -->
                         <div><input type="text" class="form-control" id="inputtext" wire:model.lazy='name' placeholder="اسم المشروع" style="height: 30px; margin-top:-6px;"></div>
@@ -327,7 +338,8 @@
 
                                     @forelse ($users as $user)
                                         <tr class="table-light" id="modldetials"  style="margin-top:7px;" >
-                                        <td><button class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;" >  <img src="{{Vite::image("delete (1).png")}}" id="{{ $user['id'] }}"  width="15px" ></button></td>
+                                        <td><button class="btn btn-primary btn-sm" id="btn-delete" data-toggle="modal" data-target="#myModdelete" style="margin-left: 30px;"
+                                            wire:click='select_delete("{{ $user['id'] }}")' >  <img src="{{Vite::image("delete (1).png")}}" id="{{ $user['id'] }}"  width="15px" ></button></td>
                                         </td>
                                         <td>{{ $user['name'] }}</td>
                                         <td><input type="radio" id="boss{{ $user['id'] }}" wire:model='boss' value="{{ $user['id'] }}"  ></td>
@@ -391,7 +403,7 @@
             <!-- Modal footer -->
 
             <div class="modal-footer" style="height: 40px;">
-                <button type="submit" class="btn btn-primary" id="btnOkYes" wire:click='deleteQuiz'>نعم</button>
+                <button type="submit" class="btn btn-primary" id="btnOkYes" wire:click='delete_student'>نعم</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnNO">لا</button>
             </div>
         </div>
@@ -401,7 +413,7 @@
 <!-- The ModalCheckProject -->
 <div class="modal fade" id="CheckProject" wire:ignore.self>
     <div class="modal-dialog">
-        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 500px;">
+        <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 95vh">
 
             <!-- Modal Header -->
             <div class="modal-header modal_header_css" id="modheader">
@@ -410,7 +422,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" style="overflow: auto;height: 40vh;">
+            <div class="modal-body modal_body_css" style="overflow: auto;height: 40vh;">
                 {{-- <form action="/action_page.php" style="display: block;"> --}}
                     <div class="form-group">
                         <div class="table-responsive">
@@ -424,6 +436,7 @@
                             </div>
 
                         @endif
+                        @if($users)
                             <table class="table" style="width:100%;" dir="rtl">
                             <tr class="table-primary">
                                 <th colspan="2" >اسم المشروع</th>
@@ -449,6 +462,10 @@
                                     <td><textarea  class="form-control" rows="1" placeholder="ملاحظة"
                                         wire:model='comment_id.{{ $student['id'] }}'
                                         ></textarea></td>
+                                        {{-- error delete --}}
+                                        @if ($errors->has('grade_id.'.$student['id']))
+
+                                        @endif
                                 </tr>
 
                             @empty
@@ -476,6 +493,7 @@
                                     ></textarea></td>
                             </tr>
                             </table>
+                        @endif
                         </div>
 
                         {{-- <input type="text" class="form-control" id="inputtext" name="projectname" placeholder=" الاسم " style="height: 30px; margin-top:8px">
@@ -518,16 +536,32 @@
             }
         });
 
+        window.addEventListener("deleteError", event => {
+            // if show model
+            // console.log(event.detail);
+
+            setTimeout(() => {
+                $('#myModdelete').modal('hide');
+            }, 500);
+
+        });
+
         window.addEventListener('openModal', event => {
             $('#MoadalAddStudentsToProject').modal('show');
         });
-    </script>
-    <script>
+        window.addEventListener('closeModalDelete', event => {
+            $('#myModdelete').modal('hide');
+            @if ($projectDetails)
+                @this.selected({{ $projectDetails->id }});
+            @endif
+        });
+
+
         document.addEventListener("DOMContentLoaded", () => {
             const sendButton = document.getElementById("sendButton");
             const messageInput = document.getElementById("messageInput");
             const chatbox = document.getElementById("chatbox");
-    
+
             sendButton.addEventListener("click", () => {
                 const messageText = messageInput.value.trim();
                 if (messageText !== "") {
@@ -536,18 +570,17 @@
                     messageInput.focus();
                 }
             });
-    
+
             messageInput.addEventListener("keypress", (event) => {
                 if (event.key === "Enter") {
                     sendButton.click();
                 }
             });
-    
             function addMessage(sender, profilePic, message, messageType) {
                 const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 const messageElement = document.createElement("div");
                 messageElement.classList.add("message", messageType);
-    
+
                 messageElement.innerHTML = `
                     <img src="${profilePic}" alt="User Profile" class="profile-pic">
                     <div class="message-content">
@@ -562,12 +595,12 @@
                         </div>
                     </div>
                 `;
-    
+
                 chatbox.appendChild(messageElement);
                 chatbox.scrollTop = chatbox.scrollHeight;
             }
         });
-    
+
     </script>
 @endsection
 </div>
