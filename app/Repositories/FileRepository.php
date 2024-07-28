@@ -3,11 +3,18 @@
 namespace App\Repositories;
 
 
-use App\Models\GroupStudents;
 use App\Tools\MyApp;
-use App\Repositories\AcademicYRepository;
+use App\Models\GroupStudents;
+use App\Models\GroupSubject;
 
 use function Laravel\Prompts\text;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use App\Repositories\AcademicYRepository;
+use Illuminate\Contracts\Cache\Store;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
 class FileRepository extends AcademicYRepository
 {
@@ -71,6 +78,59 @@ class FileRepository extends AcademicYRepository
         // $student['error'] = $error;
         // return $student;
 
+    }
+
+    public function DownloadFileSAFTA(int $group_subject_id)
+    {
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $group_subject = GroupSubject::find($group_subject_id);
+        $studing = DB::table('group_subjects')
+            ->leftJoin('group_students', function ($join) {
+                $join->on('group_subjects.group_id', '=', 'group_students.group_id')
+                    ->on('group_subjects.ay_id', '=', 'group_students.ay_id');
+            })
+            ->leftJoin('students', 'group_students.student_id', '=', 'students.user_id')
+            ->leftJoin('studyings', function ($join) {
+                $join->on('group_subjects.id', '=', 'studyings.subject_id')
+                    ->on('group_students.id', '=', 'studyings.student_id');
+            })
+
+            ->select('students.user_id as الرقم الجامعي', 'studyings.midterm_exam as الاختبار النصفي', 'studyings.addional_grades as المشاركة')
+            ->where('group_subjects.id', $group_subject_id)
+            // ->where('group_subjects.ay_id', 1)
+
+            ->get();
+        $rowNumber = 1; // بدء من الصف الأول
+
+        foreach ($studing as $key => $value) {
+            $colNumber = 1;
+            foreach ($value as $k => $v) {
+                $cell = Coordinate::stringFromColumnIndex($colNumber);
+                if ($rowNumber == 1) {
+                    // كتابة العناوين في الصف الأول
+                    $sheet->setCellValue($cell . $rowNumber, $k);
+                }
+                // كتابة القيم في الصفوف التالية
+                $sheet->setCellValue($cell . ($key + 2), $v);
+                $colNumber++;
+            }
+            $rowNumber++;
+        }
+
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        $filePath = Storage::path('/temp/createing/' . $group_subject_id . '.xlsx');
+        // add authors = url software
+        $spreadsheet->getProperties()->setCreator(env('APP_URL'))
+            ->setTitle(
+                env('APP_NAME')
+            )->setSubject(
+                $group_subject->subject()->name_ar
+            )->setDescription('نموذج تحميل الدرجات');
+        $writer->save($filePath);
+
+        return response()->download($filePath)->deleteFileAfterSend(true);
     }
 
     public function getStudentAndGradeToAcademic(array $row, array $key)

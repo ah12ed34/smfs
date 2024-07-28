@@ -124,6 +124,7 @@ trait Uploadable
     {
         return HistoryQueue::where('user_id', Auth::user()->id)
             ->where('upload', $this->uploadName)
+            ->whereNotNull('read_at')
             ->where('status', 'warning')->orderBy('id', 'desc')->first();
     }
     #[on('refreshComponent')]
@@ -136,10 +137,12 @@ trait Uploadable
                 ->where('upload', $this->uploadName)
                 ->whereIn('status', ['pending', 'processing'])->orderBy('id', 'desc')->first();
 
-        if ($this->HistoryQueue?->status == 'pending') {
-            if (DB::table('jobs')->count() == 0) {
-                $this->HistoryQueue->status = 'failed';
-                $this->HistoryQueue->save();
+        if ($this->HistoryQueue) {
+            if ($this->HistoryQueue?->status == 'pending') {
+                if (DB::table('jobs')->count() == 0) {
+                    $this->HistoryQueue->status = 'failed';
+                    $this->HistoryQueue->save();
+                }
             }
             $this->progress = $this->HistoryQueue->Progress;
             $this->status = $this->HistoryQueue->status;
@@ -153,6 +156,12 @@ trait Uploadable
     public function pollLivewire()
     {
         $this->polling = !in_array($this->status, ['completed', 'failed']);
+        // wite some time to refresh
+        // try {
+        //     sleep(5);
+        // } catch (\Exception $e) {
+        // }
+        // $this->refreshComponent();
         $this->dispatch('refreshComponent');
     }
 }
