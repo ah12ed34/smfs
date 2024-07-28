@@ -1,4 +1,4 @@
-<div id="" class="input-group input_search_sechedules search_assign">
+<div id="" class="input-group input_search_sechedules">
     <input type="text" class="form-control" placeholder="Search" wire:model="search" wire:keydown.enter='srch' >
     <div class="input-group-append">
         <button id="form-control" class="btn btn-light" type="submit"

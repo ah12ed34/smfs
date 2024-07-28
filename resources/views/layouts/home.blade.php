@@ -188,14 +188,10 @@
 
                     @Teacher()
 
-                    <?php
-                    if(!isset($active['tab'])){
-                        $active['tab'] =null  ;
-                    }
-                    ?>
 
 
-                        @if ($active ['tab'] != 'Teacher')
+
+                        {{-- @if ($active ['tab'] != 'Teacher') --}}
                         {{-- @if ($active ['tab'] == 'HeadOfDepartment') --}}
                         {{-- @if ($active ['tab'] == 'HeadOfDepartment') --}}
             <button class="button-sidebar " onclick="location.href='{{ route('home') }}'"><img
@@ -211,12 +207,12 @@
                         class="">{{ __('layout.archives') }} </label></button>
                 <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png') }}" class="sidebaricon"
                         width="26px"><label class="">{{ __('layout.settings') }} </label></button> --}}
-                            @endif
+                            {{-- @endif --}}
 
             @endTeacher
                         {{-- @endRole --}}
                     @endRole
-                    @HeadOfDepartment()
+                    {{-- @HeadOfDepartment()
                     @if (  $active ['tab']== 'Teacher')
                     <button class="button-sidebar " onclick="location.href='{{ route('managerDepartment') }}'"><img
                         src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label
@@ -226,7 +222,7 @@
                         class="">{{ __('layout.schaudule_std') }} </button>
                             @endif
 
-                    @endHeadOfDepartment
+                    @endHeadOfDepartment --}}
 
     </div>
     @section('nav')
