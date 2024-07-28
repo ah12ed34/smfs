@@ -62,6 +62,10 @@ class StudBooksChapters extends Component
     {
         $file = $this->group_subject->files()->find($id);
         // dd($this->group_subject->subject());
+        if (!$file || !Storage::exists($file->file)) {
+            $this->dispatch('error', __('general.file_not_found'));
+            return;
+        }
         return Storage::download($file->file, $file->name . '-' . $this->group_subject->subject()->name_en);
     }
 

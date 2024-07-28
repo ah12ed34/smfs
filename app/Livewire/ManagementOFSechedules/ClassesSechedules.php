@@ -12,7 +12,7 @@ class ClassesSechedules extends Component
     use WithFileUploads;
     public $schedule;
     public $AcademicYear;
-    public $uplodedFile ;
+    public $uplodedFile;
 
     public function mount()
     {
@@ -25,9 +25,9 @@ class ClassesSechedules extends Component
         $this->validate([
             'uplodedFile' => 'required|file|mimes:pdf,docx,doc|max:10240',
         ]);
-        if($this->uplodedFile){
-        $file = $this->uplodedFile->store('schedules');
-        unlink($this->uplodedFile->getRealPath());
+        if ($this->uplodedFile) {
+            $file = $this->uplodedFile->store('schedules');
+            unlink($this->uplodedFile->getRealPath());
         }
         $this->AcademicYear->schedule = $file;
         $this->AcademicYear->save();
@@ -41,23 +41,22 @@ class ClassesSechedules extends Component
         $this->AcademicYear->schedule = null;
         $this->AcademicYear->save();
         $this->setSchedule();
-
     }
 
     public function downloadFile()
     {
-        if(!$this->schedule){
-            return;
+        if ($this->schedule && Storage::exists($this->schedule)) {
+            return Storage::download($this->schedule, 'schedule' . '.' . pathinfo($this->schedule, PATHINFO_EXTENSION));
+        } else {
+            $this->dispatch('error', __('general.file_not_found'));
         }
-        return Storage::download($this->schedule, 'schedule' . '.' . pathinfo($this->schedule, PATHINFO_EXTENSION));
     }
 
     public function setSchedule()
     {
-        if($this->AcademicYear->schedule){
+        if ($this->AcademicYear->schedule) {
             $this->schedule = $this->AcademicYear->schedule;
-        }else
-        {
+        } else {
             $this->schedule = null;
         }
 

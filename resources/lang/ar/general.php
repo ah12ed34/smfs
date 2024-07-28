@@ -1,5 +1,5 @@
 <?php
-return[
+return [
     'welcome' => 'مرحبا بكم في موقعنا',
     'about' => 'حول',
     'contact' => 'اتصل',
@@ -106,13 +106,13 @@ return[
     'subjectnameArabic' => ' اسم المادة عربي',
     'subjectnameEnglish' => ' اسم المادة انجليزي',
     'subjectcode' => 'رمز المادة',
-    'Type_subject'=>'نوع المادة',
-    'edite_subjct'=>'تعديل ',
+    'Type_subject' => 'نوع المادة',
+    'edite_subjct' => 'تعديل ',
     'image' => 'صورة',
     'groupname' => 'اسم المجموعة',
-    'groupnameOne'=>'المجموعة(1)',
-    'groupnameTwo'=>'المجموعة(2)',
-    'groupnameThree'=>'المجموعة(3)',
+    'groupnameOne' => 'المجموعة(1)',
+    'groupnameTwo' => 'المجموعة(2)',
+    'groupnameThree' => 'المجموعة(3)',
 
     'maxstudent' => 'الحد الأقصى للطلاب',
     'nathing' => 'لا شيء',
@@ -224,4 +224,6 @@ return[
     'No data' => 'لا توجد بيانات',
     'no_file' => 'لا يوجد ملف',
     'N/A' => 'غير متاح',
+    'file_not_found' => 'الملف غير موجود',
+
 ];
