@@ -23,6 +23,7 @@ trait Uploadable
 
     public $uploadName = null;
     public $updateId = null;
+    public $level = null;
     // prossing file
     public $position = 0;
     public $positionChunk = 0;
@@ -63,6 +64,7 @@ trait Uploadable
     {
         $this->fileRep = new FileRepository();
         // dd($this->uploadName);
+        // dd($this->level);
         $path = Storage::path($this->pathFile);
         if (!file_exists($path)) {
             new \Exception('File not found');
@@ -78,6 +80,7 @@ trait Uploadable
                 break;
             }
         }
+        // dd($this->headerRowKeys);
         $this->sizeAll = sizeof($sheetData);
         $rowsChunk = array_chunk($sheetData, $this->chunk);
         $this->count = sizeof($rowsChunk);
@@ -93,9 +96,9 @@ trait Uploadable
             case 'students_upload_grades':
                 $data['subject_id'] = $this->updateId;
                 break;
-            case 'students_upload':
-                $data['department_id'] = $this->department_id;
-                $data['level_id'] = $this->level_id;
+            case 'uploadeNewStudentFile':
+                $data['department_id'] = $this->level->department_id;
+                $data['level_id'] = $this->level->id;
                 break;
         }
         foreach ($rowsChunk as $key => $rows) {

@@ -20,12 +20,11 @@ class FileRepository extends AcademicYRepository
 {
 
     private $columnsMap = [
-        'id' => ['الرقم', 'الرقم الاكاديمي', 'الرقم الجامعي', 'الرقم الطلابي', 'الرقم الوظيفي', 'id', 'student_id', 'employee_id', 'user_id', 'id student', 'id employee', 'id user', 'كود الطالب', 'كود الموظف', 'كود المستخدم'],
+        'id' => ['الرقم', 'كود الطالب', 'الرقم الاكاديمي', 'الرقم الجامعي', 'الرقم الطلابي', 'الرقم الوظيفي', 'id', 'student_id', 'employee_id', 'user_id', 'id student', 'id employee', 'id user', 'كود الطالب', 'كود الموظف', 'كود المستخدم'],
         'name' => ['name', 'الاسم', 'اسم الطالب', 'اسم الموظف', 'اسم المستخدم', 'name employee', 'name student', 'name user', 'name_student', 'name_employee', 'name_user'],
         'last_name' => ['last_name', 'اللقب', 'last name', 'last name student', 'last name employee', 'last name user'],
-        'first_name' => ['first_name', 'الاسم الاول', 'first name', 'first name student', 'first name employee', 'first name user'],
         'birthday' => ['brithday', 'تاريخ الميلاد', 'brithday student', 'brithday employee', 'brithday user'],
-        'email' => ['email', 'البريد الالكتروني', 'البريد', 'email student', 'email employee', 'email user'],
+        'email' => ['email', 'البريد الالكتروني', 'البريد', 'الايميل', 'email student', 'email employee', 'email user'],
         'phone' => ['phone', 'الهاتف', 'الجوال', 'phone student', 'phone employee', 'phone user'],
         'address' => ['address', 'العنوان', 'address student', 'address employee', 'address user'],
         'password' => ['password', 'كلمة المرور', 'password student', 'password employee', 'password user'],
@@ -33,10 +32,10 @@ class FileRepository extends AcademicYRepository
         'level' => ['level', 'المستوى', 'level student', 'level user'],
         'department' => ['department', 'القسم', 'department student', 'department user'],
         'system' => ['system', 'النظام', 'system student', 'system user'],
-        'join_date' => ['joindate', 'تاريخ الانضمام', 'joindate student', 'joindate user'],
+        'join_date' => ['joindate', 'تاريخ الانضمام', 'joindate student', 'joindate user', 'عام الإنضمام'],
         'is_active' => ['is_active', 'الحالة', 'is_active student', 'is_active user'],
         'is_graduated' => ['is_graduated', 'التخرج', 'is_graduated student', 'is_graduated user'],
-        'gender' => ['gender', 'الجنس', 'جندر', 'الجندر'],
+        'gender' => ['gender', 'الجنس', 'جندر', 'الجندر', 'النوع', 'sex'],
         'username' => ['username', 'اسم المستخدم', 'username student', 'username employee', 'username user'],
         'midterm_exam' => ['midterm_exam', 'الاختبار النصفي', 'midterm exam', 'midterm_exam', 'midterm exam student', 'midterm exam user'],
         'final_exam' => ['exam', 'الاختبار النهائي', 'exam student', 'exam user', 'final exam', 'final_exam', 'final exam student', 'final exam user'],
@@ -69,15 +68,23 @@ class FileRepository extends AcademicYRepository
 
     public function getStudent(array $row, array $keys)
     {
-        // $student = [];
-        // $error = null;
-        // $student['id'] = $this->studnetId($row[$keys['id']], $error);
-        // (list($student['name'], $student['last_name']) = $this->nameAndLastName($row[$keys['name']], $row[$keys['last_name']], $error));
-        // $student['first_name'] = $row[$keys['first_name']];
+        $student = [];
+        $error = null;
+        $student['id'] = $this->studnetId($row[$keys['id'] ?? null] ?? null, $error);
+        $name = $this->nameAndLastName($row[$keys['name'] ?? null] ?? null, $row[$keys['last_name'] ?? null] ?? null, $error);
+        $student['name'] = $name['name'] ?? null;;
+        $student['last_name'] = $name['last_name'] ?? null;
+        $student['email'] = $this->checkEmail($row[$keys['email'] ?? null] ?? null, $error);
+        $student['birthday'] = $this->checkDate($rom[$keys['birthday'] ?? null] ?? null, $error);
+        $student['phone'] = $this->checkPhone($row[$keys['phone'] ?? null] ?? null, $error);
+        $student['system'] = $this->getSystem($row[$keys['system'] ?? null] ?? null, $error);
+        $student['join_date'] = $this->checkYear($row[$key['join_date'] ?? null] ?? null, $error);
+        $student['username'] = $this->checkusername($row[$keys['username'] ?? null] ?? null, $error) ?? $student['id'];
+        $student['gender'] = $this->checkgender($row[$keys['gender'] ?? null] ?? null, $error);
+        $student['password'] = $this->checkPassowrd($row[$keys['password'] ?? null] ?? null, $error);
 
-        // $student['error'] = $error;
-        // return $student;
-
+        $student['error'] = $error;
+        return $student;
     }
 
     public function DownloadFileSAFTA(int $group_subject_id)
@@ -141,7 +148,7 @@ class FileRepository extends AcademicYRepository
             $id = $this->studnetId($row[$key['id']], $error);
             $student['id'] = $id;
             if ($error || !$student['id']) {
-                $error = __('validation.studentIdIsNotValid', ['attribute' => $row[$key['id']]]);
+                $error .= __('validation.studentIdIsNotValid', ['attribute' => $row[$key['id']]]);
                 $student['error'] = $error;
                 return $student;
             }
@@ -149,7 +156,7 @@ class FileRepository extends AcademicYRepository
 
             $student['addional_grades'] = $this->checkGrade($row[$key['participation'] ?? null] ?? null, $error) ?? null;
             if ($student['midterm_exam'] === null && $student['addional_grades'] === null) {
-                $error = __('لا يوجد درجات');
+                $error .= __('لا يوجد درجات');
             }
             // any null value = null in unset
             // foreach ($student as $key => $value) {
@@ -163,6 +170,7 @@ class FileRepository extends AcademicYRepository
             return $e->getMessage() . 'file repository';
         }
     }
+
     function getSet($row, $key)
     {
         return $row[$key] ?? null;
@@ -183,7 +191,7 @@ class FileRepository extends AcademicYRepository
             }
         }
 
-        $error = __('validation.studentIdIsNotValid');
+        $error .= __('validation.studentIdIsNotValid');
         return null;
     }
 
@@ -191,7 +199,7 @@ class FileRepository extends AcademicYRepository
     {
         if (!$lest) {
             if ($this->checkName($name)) {
-                $error = __('validation.nameIsNotValid');
+                $error .= __('validation.nameIsNotValid');
                 return null;
             }
             $fullName = explode(' ', $name);
@@ -199,12 +207,12 @@ class FileRepository extends AcademicYRepository
                 $lest = array_pop($fullName);
                 $name = implode(' ', $fullName);
             } else {
-                $error = 'last name not found';
+                $error .= 'last name not found';
                 return null;
             }
         } else {
             if ($this->checkName($name) || $this->checkName($lest)) {
-                $error = __('validation.nameIsNotValid');
+                $error .= __('validation.nameIsNotValid');
                 return null;
             }
         }
@@ -216,8 +224,11 @@ class FileRepository extends AcademicYRepository
     }
     function checkPassowrd($password, &$error)
     {
+        if (!$password) {
+            return MyApp::defaultPassword;
+        } else
         if (!preg_match('/^[\w*&^%#@!]{4,15}$/', $password)) {
-            $error = __('validation.passwordIsNotValid');
+            $error['password'] = __('validation.passwordIsNotValid');
             return MyApp::defaultPassword;
         }
         return $password;
@@ -226,7 +237,7 @@ class FileRepository extends AcademicYRepository
     function checkEmail($email, &$error)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error = __('validation.emailIsNotValid');
+            $error .= __('validation.emailIsNotValid');
             return null;
         }
         return $email;
@@ -235,7 +246,7 @@ class FileRepository extends AcademicYRepository
     function checkPhone($phone, &$error)
     {
         if (!preg_match('/^\d{6,15}$/', $phone)) {
-            $error = __('validation.phoneIsNotValid');
+            $error['phone'] .= __('validation.phoneIsNotValid');
             return null;
         }
         return $phone;
@@ -244,16 +255,25 @@ class FileRepository extends AcademicYRepository
     function checkDate($date, &$error)
     {
         if (!preg_match('/^\d{2}-\d{2}-\d{4}$/', $date)) {
-            $error = __('validation.dateIsNotValid');
+            $error .= __('validation.dateIsNotValid');
             return null;
         }
         return $date;
     }
 
+    function checkYear($year, &$error)
+    {
+        if (!preg_match('/^\d{2}-\d{2}-\d{4}$/', $year)) {
+            $error .= __('validation.dateIsNotValid');
+            return null;
+        }
+        return $year;
+    }
+
     function checkusername($username, &$error)
     {
         if (!preg_match('/^[a-zA-Z0-9_]{6,255}$/', $username)) {
-            $error = __('validation.usernameIsNotValid');
+            $error .= __('validation.usernameIsNotValid');
             return false;
         }
         return true;
@@ -267,7 +287,7 @@ class FileRepository extends AcademicYRepository
         } elseif (is_bool($value)) {
             return $value;
         }
-        $error = __('validation.booleanIsNotValid');
+        $error .= __('validation.booleanIsNotValid');
         return null;
     }
 
@@ -284,13 +304,13 @@ class FileRepository extends AcademicYRepository
         if (isset($mapping[$gender])) {
             return $mapping[$gender];
         }
-        $error = __('validation.genderIsNotValid');
+        $error .= __('validation.genderIsNotValid');
         return Myapp::defaultGender;
     }
     function checkNumeric($value, &$error)
     {
         if (!is_numeric($value)) {
-            $error = __('validation.numericIsNotValid');
+            $error .= __('validation.numericIsNotValid');
             return false;
         }
         return true;
@@ -308,7 +328,7 @@ class FileRepository extends AcademicYRepository
         }
         // and 2.5
         if (!preg_match('/^\d{1,2}(\.\d{1,2})?$/', $grade)) {
-            $error = __('validation.gradeIsNotValid');
+            $error .= __('validation.gradeIsNotValid');
             return null;
         }
         return $grade;
@@ -316,9 +336,22 @@ class FileRepository extends AcademicYRepository
     function checkNotExists($model, $column, $value, &$error = null)
     {
         if ($model::where($column, $value)->exists()) {
-            $error = __('validation.exists', ['attribute' => $value]);
+            $error .= __('validation.exists', ['attribute' => $value]);
             return false;
         }
         return true;
+    }
+
+    function getSystem($call, &$error)
+    {
+        $call = strtolower($call);
+        $mapping = [
+            'النظام العام', 'العام', 'عام', 'general'
+        ];
+        if (in_array($call, $mapping)) {
+            return 'general';
+        } else {
+            return 'parallel';
+        }
     }
 }
