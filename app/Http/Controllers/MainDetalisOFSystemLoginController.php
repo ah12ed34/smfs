@@ -11,9 +11,9 @@ class MainDetalisOFSystemLoginController extends Controller
     {
         return view('detailsSystem.vision_of_system');
     }
-    public function message_of_system()
+    public function messageOFsystem()
     {
-        return view('detailsSystem.message_of_system');
+        return view('detailsSystem.messageOFsystem');
     }
     public function targets_of_system()
     {

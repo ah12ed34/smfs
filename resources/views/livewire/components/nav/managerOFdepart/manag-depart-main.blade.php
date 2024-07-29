@@ -1,9 +1,21 @@
+
+{{-- <style>
+.active {
+            background-color: #a9cbf7;
+            text-decoration: none;
+            border-bottom: 4px solid #2f81ec;
+        }
+
+
+</style> --}}
+    </style>
 <div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
 
     <div class="hdr2" style=" box-shadow: 10px;">
-        {{-- <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;">  الصفحة الرئيسية </label><img src="{{Vite::image("dashboard (1).png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
-        </button> --}}
+        <button class=" spaces" onclick="location.href='{{route('managerDepartment')}}'"> <label  class="subjectname" style="margin-left: -10px;">   {{ auth()->user()?->academic?->department?->name }} </label><img src="{{Vite::image("it.png")}}" id="subject-icon-hdr2" width="40px" style="">
+        </button>
+        {{-- @include('components.layouts.manager_department.main_header') --}}
 
 
     <div class="dropdown">
@@ -47,7 +59,7 @@
 
             </div>
         </div> --}}
-    <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div>
+    {{-- <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div> --}}
     </div>
      <div class="hr3">
         {{-- <button id="spacesbtn" class="spaces"> <img src="../../images/left-arrow.png" id="spaces1"  width="30px"></button> --}}

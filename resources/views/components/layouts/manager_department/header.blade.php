@@ -3,12 +3,21 @@
         $active['tab'] = null ;
     }
 ?>
+<style>
+/* .active {
+            background-color: #a9cbf7;
+            text-decoration: none;
+            border-bottom: 4px solid #2f81ec;
+        } */
+
+
+</style>
 <div  class="btn-group btn_group_nav_manageDepart-level" id="">
     <button
     @if($active['tab'] == 'statistics')
         style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"
     @endif
-    class="btn-manageDepart-level-Navbar" onclick="location.href='{{route('depart_level_studentsFinalTearmStatistics',$parameter)}}'"><label class="proNavbartext">الإحصائيات </label></button>
+    class="btn-manageDepart-level-Navbar active" onclick="location.href='{{route('depart_level_studentsFinalTearmStatistics',$parameter)}}'"><label class="proNavbartext">الإحصائيات </label></button>
 
     <button
     @if ($active['tab'] == 'schedules')

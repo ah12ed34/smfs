@@ -26,18 +26,17 @@
                                     <a class="nav-link" href="#">حول الموقع</a>
                                 </li> --}}
                                 <li class="nav-item">
-                                    {{-- <a class="nav-link" href="{{ route('vision_of_system') }}" >الرؤية</a> --}}
-                                    <a class="nav-link" href="#" >الرؤية</a>
+                                    <a class="nav-link" href="{{ route('vision_of_system') }}" >الرؤية</a>
 
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">الرسالة</a>
+                                    <a class="nav-link" href="{{ route('messageOFsystem') }}">الرسالة</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">الأهداف</a>
+                                    <a class="nav-link" href="{{ route('targets_of_system') }}">الأهداف</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">دخول</a>
+                                    <a class="nav-link" href="{{ route('login') }}">دخول</a>
                                 </li>
                             </ul>
                         </div>

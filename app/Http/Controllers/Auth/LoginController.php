@@ -124,6 +124,6 @@ protected $redirectTo = '/'; // المسار الافتراضي
     //     return $this->username;
     // }
     public function vision_of_system(){
-        return view('auth.vision_of_system');
+        // return view('auth.vision_of_system');
     }
 }
