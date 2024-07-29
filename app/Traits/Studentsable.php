@@ -80,7 +80,7 @@ trait Studentsable
             'SId' => 'required|numeric|unique:users,id,' . $this->studentData?->id,
             'username' => $unr ? 'required' : 'nullable' . '|string|min:3|max:255|unique:users,username,' . $this->studentData?->id,
             'email' => 'nullable|email|max:255|unique:users,email,' . $this->studentData?->id,
-            'phone' => 'nullable|string|ragex:/^([0-9]*)$/|min:6|max:15',
+            'phone' => 'nullable|string|min:6|max:15|unique:users,phone,' . $this->studentData?->id,
             'name' => 'required|string|min:3|min_words:3',
             'gender' => 'required|in:' . implode(',', MyApp::getGenders(only: 'key')),
             'birthday' => 'required|date|before:today',

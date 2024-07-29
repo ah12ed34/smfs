@@ -23,7 +23,7 @@ class LevelStudentsInformation extends Component
     {
         $this->level = $level;
         $this->departments = Department::all();
-        $this->sortField = 'name';
+        $this->sortField = 'id';
     }
 
     public function setDepartment($id)

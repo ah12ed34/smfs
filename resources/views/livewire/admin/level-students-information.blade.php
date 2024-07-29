@@ -334,10 +334,6 @@
                                             <td>{{ $studentData->student->system() }}</td>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <th style="width: 25%;"> الحالة</th>
-                                            <td>**********</td>
-                                        </tr>
-                                        <tr class="table-light" id="modldetials">
                                             <th style="width: 25%;"> تاريخ الإلتحاق</th>
                                             <td>{{ $studentData->student->join_date }}</td>
                                         </tr>

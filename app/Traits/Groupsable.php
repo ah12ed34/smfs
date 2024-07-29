@@ -28,7 +28,7 @@ trait Groupsable
     public $schedule;
     public $group_id;
 
-    public $openType ;
+    public $openType;
 
     protected $StudentR;
 
@@ -41,23 +41,25 @@ trait Groupsable
     public function PracticalOrTheoretical()
     {
         $this->sortField = 'name';
-        if(request()->has('type')){
+        if (request()->has('type')) {
             $type = request()->type;
-            if(in_array($type,['main','sub'])){
+            if (in_array($type, ['main', 'sub'])) {
                 $this->typeGroup = $type;
             }
         }
-        if($this->typeGroup == 'sub'){
+        if ($this->typeGroup == 'sub') {
             $this->sortField = 'group_id';
         }
     }
-    public function selected($id){
-        $this->groupDitails = Group::where('id',$id)->firstOrFail();
+    public function selected($id)
+    {
+        $this->groupDitails = Group::where('id', $id)->firstOrFail();
         $this->openType = 'selected';
     }
 
     public function showGroup($id)
-    {   $this->groupDitails->show = true;
+    {
+        $this->groupDitails->show = true;
         $this->selected($id);
         $this->openType = 'show';
     }
@@ -77,7 +79,7 @@ trait Groupsable
 
     public function editGroup($id)
     {
-        $this->resetGroup('edit',$id);
+        $this->resetGroup('edit', $id);
         $this->selected($id);
 
 
@@ -87,31 +89,30 @@ trait Groupsable
         $this->gender = $this->groupDitails->gender;
         $this->max_students = $this->groupDitails->max_students;
         $this->system = $this->groupDitails->system;
-        $this->schedule = $this->groupDitails->schedule;
+        // $this->schedule = $this->groupDitails->schedule;
         $this->group_id = $this->groupDitails->group_id;
 
 
 
         $this->groupDitails->edit = true;
         $this->openType = 'edit';
-
     }
 
     public function resetGroup($type = 'add', $id = null)
     {
-        if($this?->groupDitails?->id != $id||!$id){
-        $this->reset([
-            'GId',
-            'name',
-            'level_id',
-            'gender',
-            'max_students',
-            'system',
-            'schedule',
-            'group_id',
-        ]);
+        if ($this?->groupDitails?->id != $id || !$id) {
+            $this->reset([
+                'GId',
+                'name',
+                'level_id',
+                'gender',
+                'max_students',
+                'system',
+                'schedule',
+                'group_id',
+            ]);
         }
-        if($this?->openType != $type||$this?->groupDitails?->id != $id||!$id){
+        if ($this?->openType != $type || $this?->groupDitails?->id != $id || !$id) {
             $this->resetErrorBag();
         }
     }
@@ -136,12 +137,11 @@ trait Groupsable
             $photo = null;
             try {
 
-                    $photo = $this->schedule->store('groups/schedule');
-                    $this->groupDitails->schedule = $photo;
-
+                $photo = $this->schedule->store('groups/schedule');
+                $this->groupDitails->schedule = $photo;
             } catch (\Exception $e) {
                 $this->addError('schedule', $e->getMessage());
-            }finally{
+            } finally {
                 Storage::delete($this->schedule->getRealPath());
             }
         }
@@ -152,18 +152,18 @@ trait Groupsable
         $this->valdation();
         $this->uploadeSchedule();
         $data = [
-            'id' => $this->GId??null,
+            'id' => $this->GId ?? null,
             'name' => $this->name,
             'level_id' => $this->level_id,
             'gender' => $this->gender,
             'max_students' => $this->max_students,
             'system' => $this->system,
-            'schedule' => $this?->groupDitails?->schedule??null,
+            'schedule' => $this?->groupDitails?->schedule ?? null,
             'group_id' => $this->group_id,
         ];
-        if($type == 'add'){
+        if ($type == 'add') {
             Group::create($data);
-        }elseif($type == 'edit'){
+        } elseif ($type == 'edit') {
             Group::updated($data);
         }
         $this->dispatch('closeModal');
@@ -171,20 +171,24 @@ trait Groupsable
 
     public function setGender($gender)
     {
-        if(in_array($gender,MyApp::getStudentGenders(only:'key'))){
+        if (in_array($gender, MyApp::getStudentGenders(only: 'key'))) {
             $this->gender = $gender;
         }
     }
     public function setSystem($id)
     {
-        if(in_array($id,array_merge(MyApp::getSystems(only:'key'),['all']))){
+        if (in_array($id, array_merge(MyApp::getSystems(only: 'key'), ['all']))) {
             $this->system = $id;
         }
     }
 
-    public function moveStudentToGroup(Student $student,Group $group,Group $oldGroup,string $column = 'group_id'
-    ,bool $force = false)
-    {
+    public function moveStudentToGroup(
+        Student $student,
+        Group $group,
+        Group $oldGroup,
+        string $column = 'group_id',
+        bool $force = false
+    ) {
         if ($this->StudentR === null) {
             throw new \Exception("StudentR is null");
         }

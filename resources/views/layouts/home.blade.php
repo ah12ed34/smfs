@@ -192,11 +192,11 @@
                 <button class="button-sidebar " onclick="location.href='{{ route('home') }}'"><img
                         src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label
                         class="">{{ __('layout.meun_home') }} </label></button>
-
-                <button class="button-sidebar " onclick="location.href='{{ route('main_academic_sechedules') }}'"><img
-                        src="{{ Vite::image('calendar (3).png') }}" class="sidebaricon" width="26px"><label
-                        class="">{{ __('layout.schaudule_std') }} </button>
-
+                @if (auth()?->user()?->academic?->department_id)
+                    <button class="button-sidebar " onclick="location.href='{{ route('main_academic_sechedules') }}'"><img
+                            src="{{ Vite::image('calendar (3).png') }}" class="sidebaricon" width="26px"><label
+                            class="">{{ __('layout.schaudule_std') }} </button>
+                @endif
                 {{-- <button class="button-sidebar" onclick="location.href='{{ route('archieve') }}'"><img
                         src="{{ Vite::image('portfolio (2).png') }}" class="sidebaricon" width="26px"><label
                         class="">{{ __('layout.archives') }} </label></button>
@@ -327,14 +327,11 @@
             {{-- @endManagementOFSechedules --}}
         @else
             @Teacher()
-                <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon"
-                        width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
-                <button class="btn-bottomNavbar"onclick="location.href='{{ route('archieve') }}'"><img
-                        src="{{ Vite::image('portfolio (2).png') }}" class="bottombaricon" width="20px"><br><label
-                        class="bottomNavbartext">الأرشيف</label></button>
-                <button class="btn-bottomNavbar" onclick="location.href='{{ route('main_academic_sechedules') }}'"><img
-                        src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label
-                        class="bottomNavbartext">الجدول </label></button>
+                @if (auth()?->user()?->academic?->department_id)
+                    <button class="btn-bottomNavbar" onclick="location.href='{{ route('main_academic_sechedules') }}'"><img
+                            src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label
+                            class="bottomNavbartext">الجدول </label></button>
+                @endif
                 <button class="btn-bottomNavbar" onclick="location.href='{{ route('home') }}'"><img
                         src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label
                         class="bottomNavbartext">القائمة</label></button>

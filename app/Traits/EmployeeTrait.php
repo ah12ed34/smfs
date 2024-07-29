@@ -144,7 +144,7 @@ trait EmployeeTrait
             'name' => 'required|string|min:3|min_words:2|max:255',
             'photo' => 'nullable|file|mimes:' . MyApp::getMimes('image'),
             'email' => 'nullable|email|unique:users,email,' . $this->employeeData?->id,
-            'phone' => 'nullable|string|regex:/^([0-9]*)$/|min:6|max:15,unique:users,phone,' . $this->employeeData?->id,
+            'phone' => 'nullable|string|min:6|max:15,unique:users,phone,' . $this->employeeData?->id,
             'username' => 'required|string|min:3|max:255|unique:users,username,' . $this->employeeData?->id,
             'role_id' => 'nullable|exists:roles,id',
             'academic_name' => 'nullable|string|min:3|max:255|in:' . implode(',', MyApp::getAcademicNames(only: 'key')),
