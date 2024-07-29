@@ -167,7 +167,7 @@
                                             <td>{{ $academic->user->email }}</td>
                                             <td>{{ $academic->user->phone }}</td>
                                         </tr>
-                                        <tr class="table-primary" id="modldetials">
+                                        {{-- <tr class="table-primary" id="modldetials">
                                             <th class="name-group" style="padding-right:40px;">المستوى  </th>
                                             <th class="name-group">المقرر الدراسي </th>
                                             <th class="name-group">المجموعات </th>
@@ -199,7 +199,7 @@
                                         <tr class="table-light" id="modldetials">
                                             <td colspan="2" style="padding-right:60px;">**********</td>
                                             <td>**********</td>
-                                        </tr>
+                                        </tr> --}}
                             </table>
                         </div>
                     </div>
@@ -331,7 +331,7 @@
                                 <input type="text" class="form-control" id="email" wire:model='email' placeholder="الايمل" style="height: 30px; margin-top:8px">
                                 <input type="password" class="form-control" id="password" wire:model='password'  placeholder="كلمة المرور" style="height: 30px; margin-top:8px">
 
-                                <div class="table-responsive">
+                                {{-- <div class="table-responsive">
                                     <table class="table" style="width:100%;">
                                         <tr>
                                             <th>المستوى الرابع</th>
@@ -380,7 +380,7 @@
                                  <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   *** </a>
                                 <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   ***</a>
                             </div>
-                                </div></td>
+                                </div></td> --}}
                                 <!-- <td>
                                     <div class="dropdown">
                         <button type="button" class="btn btn-light studyingbooks-acade dropdown-toggle" >
@@ -391,7 +391,7 @@
                             <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   ***</a>
                         </div>
                         </div></td>                     -->
-                                </tr>
+                                {{-- </tr>
                                         <tr>
                                             <td><input type="checkbox"  class="checkbox" name="raido"></td>
                                             <td><input type="checkbox" class="checkbox" name="raido"></td>
@@ -417,7 +417,7 @@
 
                                 </div>
                                 <input type="text" class="form-control" id="inputtext" name="totallecturesweekly" placeholder=" اجمالي المحاضرات الأسبوعية " style="height: 30px; margin-top:10px">
-                                <input type="text" class="form-control" id="inputtext" name="totallecturesoftearm" placeholder="   اجمالي محاضرات الفصل الدراسي  " style="height: 30px; margin-top:10px">
+                                <input type="text" class="form-control" id="inputtext" name="totallecturesoftearm" placeholder="   اجمالي محاضرات الفصل الدراسي  " style="height: 30px; margin-top:10px"> --}}
 
                                 <!-- <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:8px">
                                 <input type="text" class="form-control" id="inputtext" name="note" placeholder="ملاحظة" style="height: 30px; margin-top:8px"> -->
@@ -499,7 +499,7 @@
                                 <input type="file" class="form-control-file border" id="file#schedule"  wire:model='schedule' style="height: 30px; margin-top:8px;" accept=".pdf , .png , .jpg , .jpeg">
                                 <!-- <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:8px">
                                 <input type="text" class="form-control" id="inputtext" name="note" placeholder="ملاحظة" style="height: 30px; margin-top:8px"> -->
-                                <div class="table-responsive">
+                                {{-- <div class="table-responsive">
                                     <table class="table" style="width:100%;">
                                         <tr>
                                             <th>المستوى الرابع</th>
@@ -589,7 +589,7 @@
 
                                     </div>
                                     <input type="text" class="form-control" id="inputtext" name="totallecturesweekly" placeholder=" اجمالي المحاضرات الأسبوعية " style="height: 30px; margin-top:6px">
-                                    <input type="text" class="form-control" id="inputtext" name="totallecturesoftearm" placeholder="   اجمالي محاضرات الفصل الدراسي  " style="height: 30px; margin-top:10px">
+                                    <input type="text" class="form-control" id="inputtext" name="totallecturesoftearm" placeholder="   اجمالي محاضرات الفصل الدراسي  " style="height: 30px; margin-top:10px"> --}}
 
                             </div>
 

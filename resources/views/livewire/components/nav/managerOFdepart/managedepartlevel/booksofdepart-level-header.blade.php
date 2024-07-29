@@ -34,7 +34,7 @@
     @include('components.layouts.manager_department.header')
 
                 {{-- <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div> --}}
-                <div class="dep-name"> {{ $level?->name }}</div>
+                <div class="dep-name" style="border: none;box-shadow:none; "></div>
 
         <div id="" class="input-group input_search_manageDepart_students">
             <input type="text" class="form-control" placeholder="Search" wire:model="search" wire:keydown.enter='srch' >

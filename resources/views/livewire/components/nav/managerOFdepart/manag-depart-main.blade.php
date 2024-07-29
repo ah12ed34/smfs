@@ -37,10 +37,12 @@
 
         <div  class="btn-group btn_group_nav_manageDepart" id="">
             <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('managerdepart_Stastistic')}}'"><label class="proNavbartext">الإحصائيات </label></button>
-            <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('notifications_manageDrpart')}}'"><label class="proNavbartext">  الإشعارات</label></button>
+            {{-- <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('notifications_manageDrpart')}}'"><label class="proNavbartext">  الإشعارات</label></button> --}}
             <!-- <button class="btn-departments-Navbar"><label class="proNavbartext">  الصلاحيات </label></button> -->
             <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('managerDepartAcademics')}}'"><label class="proNavbartext"> الأكادمين</label></button>
-            <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('managerDepartment')}}'"><label class="proNavbartext"> المستويات</label></button>
+            <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('managerDepartment')}}'" style="background-color: #a9cbf7;
+            text-decoration: none;
+            border-bottom: 4px solid #2f81ec;"><label class="proNavbartext"> المستويات</label></button>
 
 
 
@@ -61,17 +63,10 @@
         </div> --}}
     {{-- <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div> --}}
     </div>
-     <div class="hr3">
-        {{-- <button id="spacesbtn" class="spaces"> <img src="../../images/left-arrow.png" id="spaces1"  width="30px"></button> --}}
+     {{-- <div class="hr3">
 
-       {{-- " <div id="input-groupstudyingbooks" class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-append">
-                <button id="form-control" class="btn btn-light" type="submit"><img src="../images/magnifying-glass (2).png" id="spaces2"  width="20px" ></button>
-            </div>
-        </div>
-        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-uploade-grades" data-toggle="modal" data-target="#myModal"> رفع ملف<img src="../images/plus.png"  width="20px" style="float: left;"></button> </td>" --}}
 
-    </div>
+
+    </div> --}}
 
 </div>

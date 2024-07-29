@@ -5,7 +5,7 @@
 <div>
     {{-- Care about people's approval and you will be their prisoner. --}}
 
-    <div class="container" style="padding-top: 20px;">
+    <div class="container" style="">
 
         @forelse ($levels as $level)
             <div class="card  cards-departments depart-level-quality" id=""

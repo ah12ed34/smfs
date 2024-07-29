@@ -33,7 +33,7 @@
         </div> --}}
 
     @include('components.layouts.manager_department.header')
-    
+
     <div class="dropdown">
         <button type="button"  class="btn btn-light manageDepartNavbarMainforLevel_dropdown final_tearm_statistics  dropdown-toggle" data-toggle="dropdown" dir="rtl">
             <div class="textdropdown">    الإحصائيات</div>
@@ -44,12 +44,14 @@
             <a id="" class="dropdown-item" href='{{route('depart_level_Books',$parameter)}}' style="padding-left:30px; ">   المقرر الدراسي</a>
             <a id="" class="dropdown-item" href='{{route('depart_level_allsechedules',$parameter)}}'style="padding-left:30px; ">   الجدول الدراسي</a>
             {{-- <a id="" class="dropdown-item" href='{{route('depart_level_studentsFinalTearmStatistics',$parameter)}}' style="padding-left:30px; ">  الإحصائيات</a> --}}
-        
+
         </div>
     </div>
-    
 
-                <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div>
+
+{{-- <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div> --}}
+<div class="dep-name" style="border: none;box-shadow:none; "></div>
+
 
                 <div class="dropdown">
                     <button type="button"  class="btn btn-light MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">

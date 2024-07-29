@@ -36,10 +36,11 @@
         {{-- @forelse ($levels as $level) --}}
 
                 {{-- <div class="dep-name">{{  auth()->user()->academic?->department?->level?->name }}</div> --}}
-                <div class="dep-name"> {{ $level?->name }}</div>
+                {{-- <div class="dep-name"> {{ $level?->name }}</div> --}}
+                <div class="dep-name" style="border: none;box-shadow:none; "></div>
 
                 {{-- @endforelse --}}
-                
+
 
 
 
