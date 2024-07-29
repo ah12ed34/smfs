@@ -3,9 +3,8 @@
 @endsection
 <div>
     {{-- Stop trying to control. --}}
-    <div class="content">
 
-        <div class="container" style="padding-top: 40px;">
+    <div class="container " style="padding-top:30px">
 
         <div class="card  cards-departments" id="">
             <img src="{{Vite::image("students.png")}}" class="" width="150px" onclick="location.href='{{route('studentsAffairs_main_studentsInformation', $level->id)}}'">
@@ -22,5 +21,5 @@
         </div>
 
 
-    </div>
+
 </div>

@@ -4,6 +4,7 @@ namespace App\Livewire\Components\Nav\ManagerOFdepart\Managedepartlevel;
 
 use Livewire\Component;
 use App\Traits\Searching;
+use app\Models\Level;
 
 class BooksOfdepartLevelHeader extends Component
 {
