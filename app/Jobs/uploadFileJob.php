@@ -10,7 +10,9 @@ use Illuminate\Queue\SerializesModels;
 use App\Events\ProgressData;
 use App\Models\GroupStudents;
 use App\Models\GroupSubject;
+use App\Models\Student;
 use App\Models\Studying;
+use App\Models\User;
 use App\Repositories\FileRepository;
 
 class uploadFileJob implements ShouldQueue
@@ -41,6 +43,7 @@ class uploadFileJob implements ShouldQueue
         $this->fileRep = new FileRepository();
     }
 
+    public $logs = '';
     /**
      * Execute the job.
      */
@@ -52,13 +55,15 @@ class uploadFileJob implements ShouldQueue
             ]);
             $i = $this->possition * $this->chunk - $this->chunk;
             foreach ($this->rows as $row) {
-
                 $i++;
 
+                $this->progress = $i / $this->sizeAll * 100;
                 if ($this->data['uploadName'] == 'students_upload_grades') {
                     $this->uploadGrades($this->fileRep->getStudentAndGradeToAcademic($row, $this->headerRow));
+                } elseif ($this->data['uploadName'] == 'uploadeNewStudentFile') {
+                    $this->uploadStudent($this->fileRep->getStudent($row, $this->headerRow));
                 }
-                $this->progress = $i / $this->sizeAll * 100;
+
                 if (sizeof($this->rows) >= 10 && $i % 10 == 0) {
                     $this->eventPDHQ([
                         'status' => 'processing',
@@ -79,7 +84,7 @@ class uploadFileJob implements ShouldQueue
         } catch (\Exception $e) {
             $this->eventPDHQ([
                 'status' => 'warning',
-                'log' => $e->getMessage(),
+                'log' => $e->getMessage() . ' handle ' . $this->logs,
             ]);
         }
     }
@@ -120,6 +125,36 @@ class uploadFileJob implements ShouldQueue
             $this->eventPDHQ([
                 'status' => 'warning',
                 'log' => $e->getMessage() . ' uploadGrades',
+            ]);
+        }
+    }
+
+    function uploadStudent($data)
+    {
+        try {
+            if ($data['id'] == null || $data['error']) {
+                $this->eventPDHQ([
+                    'status' => 'warning',
+                    'log' => $data['error'] . ' ' . $data['id'] . ' uploadStudent',
+                ]);
+                return;
+            }
+            $data['level_id'] = $this->data['level_id'];
+            $data['department_id'] = $this->data['department_id'];
+            $this->logs = print_r($data, true);
+            $id = User::where('id', $data['id'])?->first()?->id;
+            if ($id) {
+                $this->eventPDHQ([
+                    'status' => 'warning',
+                    'log' => 'Student already exist ' . $data['id'],
+                ]);
+            } else {
+                Student::create_student($data);
+            }
+        } catch (\Exception $e) {
+            $this->eventPDHQ([
+                'status' => 'warning',
+                'log' => $e->getMessage() . ' uploadStudent',
             ]);
         }
     }

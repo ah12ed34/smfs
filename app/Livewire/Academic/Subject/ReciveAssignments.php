@@ -100,6 +100,7 @@ class ReciveAssignments extends Component
 
     public function download($id, $file=null){
         $recive = $this->reciveAssignments->where('id',$id)->first();
+        
         return ToolsApp::downloadFile($id,$recive->nameAssignment .'-'.$recive->student,'delivery',$file??'file');
     }
 

@@ -105,13 +105,14 @@
 
         {{-- <button class="btn btn-light" id="notification" type="button" data-toggle="modal" data-target="#myModalnotification" style="z-index: 100%;"><img src="{{ Vite::image('bell.png')}}" width="22px"></button> --}}
         <div class="system_name">
-            <label class="" style="float: right;  color: white; margin-top:-90px; margin-right:50px;">نظام إدارة ومتابعة الطلاب</label>
+            <label class="" style="float: right;  color: white; margin-top:-90px; margin-right:50px;">نظام إدارة
+                ومتابعة الطلاب</label>
             <img src="{{ Vite::image('Group 912.png') }}" width="40px" onclick="location.href='{{ route('home') }}'"
-            style="float: right; margin-top:-100px; margin-right:0px;">
+                style="float: right; margin-top:-100px; margin-right:0px;">
 
 
         </div>
-</div>
+    </div>
     <div id="sidebar" class="sidebar">
 
         {{-- @Teacher()
@@ -164,7 +165,7 @@
 
 
             {{-- @ManagementOFSechedules() --}}
-        {{-- @else
+            {{-- @else
 
             @Role('HeadOfDepartment')
             <?php
@@ -174,7 +175,7 @@
             ?>
 
 
-                @if ($active ['tab'] != 'HeadOfDepartment')
+                @if ($active['tab'] != 'HeadOfDepartment')
         <button class="button-sidebar " onclick="location.href='{{ route('managerDepartment') }}'"><img
                 src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label
                 class="">{{ __('layout.meun_home') }} </label></button>
@@ -183,20 +184,14 @@
                 class="">{{ __('layout.schaudule_std') }} </button>
                 @endif
  --}}
-
-                @else
-
-                    @Teacher()
-
-
-
-
-                        {{-- @if ($active ['tab'] != 'Teacher') --}}
-                        {{-- @if ($active ['tab'] == 'HeadOfDepartment') --}}
-                        {{-- @if ($active ['tab'] == 'HeadOfDepartment') --}}
-            <button class="button-sidebar " onclick="location.href='{{ route('home') }}'"><img
-                src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label
-                class="">{{ __('layout.meun_home') }} </label></button>
+        @else
+            @Teacher()
+                {{-- @if ($active['tab'] != 'Teacher') --}}
+                {{-- @if ($active['tab'] == 'HeadOfDepartment') --}}
+                {{-- @if ($active['tab'] == 'HeadOfDepartment') --}}
+                <button class="button-sidebar " onclick="location.href='{{ route('home') }}'"><img
+                        src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label
+                        class="">{{ __('layout.meun_home') }} </label></button>
 
                 <button class="button-sidebar " onclick="location.href='{{ route('main_academic_sechedules') }}'"><img
                         src="{{ Vite::image('calendar (3).png') }}" class="sidebaricon" width="26px"><label
@@ -207,13 +202,12 @@
                         class="">{{ __('layout.archives') }} </label></button>
                 <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png') }}" class="sidebaricon"
                         width="26px"><label class="">{{ __('layout.settings') }} </label></button> --}}
-                            {{-- @endif --}}
-
+                {{-- @endif --}}
             @endTeacher
-                        {{-- @endRole --}}
-                    @endRole
-                    {{-- @HeadOfDepartment()
-                    @if (  $active ['tab']== 'Teacher')
+            {{-- @endRole --}}
+        @endRole
+        {{-- @HeadOfDepartment()
+                    @if ($active['tab'] == 'Teacher')
                     <button class="button-sidebar " onclick="location.href='{{ route('managerDepartment') }}'"><img
                         src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label
                         class="">{{ __('layout.meun_home') }} </label></button>
@@ -239,10 +233,10 @@
             <!-- <button class="Addbtn-projctsNavbar"><label class="proNavbartext">إنشاء مشروع</label></button> -->
 
             {{-- <div id="btn-group-mainpage" class="btn-group"> --}}
-                {{-- <button id="btn-mainpageNavbar" class="btn btn-light"
+            {{-- <button id="btn-mainpageNavbar" class="btn btn-light"
                     onclick="location.href='{{ route('permissions') }}'"><label class="proNavbartext">
                         {{ __('layout.permissions') }} </label></button> --}}
-                {{-- <button id="btn-mainpageNavbar" class="btn btn-light" onclick="location.href='{{ route('home') }}'"
+            {{-- <button id="btn-mainpageNavbar" class="btn btn-light" onclick="location.href='{{ route('home') }}'"
                     style="background-color: #a9cbf7;text-decoration: none;border-bottom: 4px solid #2f81ec;"><label
                         class="proNavbartext"> {{ __('layout.home') }} </label></button>
             </div> --}}
@@ -271,7 +265,7 @@
                 <strong>{{ session()->get('info') }}</strong>
             </div>
         @endif
-
+        @livewire('components.alert')
         @yield('content')
 
     </div>

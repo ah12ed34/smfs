@@ -9,10 +9,11 @@ use App\Models\GroupSubject;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
+use Livewire\WithFileUploads;
 
 class Assignments extends Component
 {
-    use WithPagination;
+    use WithPagination, WithFileUploads;
     public $group_subject;
     public $search;
     public $perPage = 10;
@@ -26,7 +27,8 @@ class Assignments extends Component
     public $otherGroups;
 
     #[On('search')]
-    public function search($v){
+    public function search($v)
+    {
         $this->search = $v;
     }
 
@@ -34,7 +36,7 @@ class Assignments extends Component
     {
         // $this->group_subject = GroupSubject::where('id',$group_subject)->where('teacher_id',auth()->user()->academic->user_id)
         // ->firstOrFail();
-        if($group_subject->teacher_id != auth()->user()->academic->user_id||$group_subject->ay_id != AcademicYear::currentAcademicYear()->id){
+        if ($group_subject->teacher_id != auth()->user()->academic->user_id || $group_subject->ay_id != AcademicYear::currentAcademicYear()->id) {
             abort(403);
         }
         $this->group_subject = $group_subject;
@@ -43,22 +45,23 @@ class Assignments extends Component
 
     public function getAssignmentsProperty()
     {
-        return $this->group_subject->getFilesInGroupBySubject('assignment',$this->search)
-        ->paginate($this->perPage);
+        return $this->group_subject->getFilesInGroupBySubject('assignment', $this->search)
+            ->paginate($this->perPage);
     }
 
     public function selected($id)
     {
         $this->selected_id = $id;
-        if($this->assignments->where('id',$id)->first()->group_file->is_active == 1){
+        if ($this->assignments->where('id', $id)->first()->group_file->is_active == 1) {
             $this->message_confirmation = __('general.assignment_deactivation_confirmation');
-        }else{
+        } else {
             $this->message_confirmation = __('general.assignment_activation_confirmation');
         }
     }
 
-    public function stopAssignment(){
-        $assignment = $this->assignments->where('id',$this->selected_id)->first();
+    public function stopAssignment()
+    {
+        $assignment = $this->assignments->where('id', $this->selected_id)->first();
         $assignment->group_file->is_active = !$assignment->group_file->is_active;
         $assignment->group_file->save();
         $this->selected_id = null;
@@ -66,9 +69,10 @@ class Assignments extends Component
         $this->dispatch('closeModal');
     }
 
-    public function editAssignment($id){
+    public function editAssignment($id)
+    {
         $this->selected_id = $id;
-        $assignment = $this->assignments->where('id',$this->selected_id)->first();
+        $assignment = $this->assignments->where('id', $this->selected_id)->first();
         $this->assName = $assignment->name;
         $this->description = $assignment->description;
         $this->due_date = $assignment->group_file->due_date;
@@ -77,20 +81,22 @@ class Assignments extends Component
         // $this->dispatch('openModal');
     }
 
-    public function editAssignmentSave(){
-        $assignment = $this->assignments->where('id',$this->selected_id)->first();
+    public function editAssignmentSave()
+    {
+        $assignment = $this->assignments->where('id', $this->selected_id)->first();
         $this->validate([
             'assName' => 'required',
             'grade' => 'required',
             'due_date' => 'required',
-            'file' => ($this->description == null &&$assignment->file == null
-            ) ? 'required' : 'nullable' .'|file|mimes:pdf,doc,docx,zip,png,jpg,jpeg,txt',
-            'description' => ($this->file == null &&$assignment->file == null) ? 'required' : 'nullable',
+            'file' => ($this->description == null && $assignment->file == null
+            ) ? 'required' : 'nullable' . '|file|mimes:pdf,doc,docx,zip,png,jpg,jpeg,txt',
+            'description' => ($this->file == null && $assignment->file == null) ? 'required' : 'nullable',
         ]);
         $file = $assignment->file;
-        if($this->file != null){
+        if ($this->file != null) {
             $file = $this->file->store('subjects/assignments');
-            unlink($this->file);
+            //delet temp file
+            unlink($this->file->GetRealPath());
         }
         $assignment->name = $this->assName;
         $assignment->group_file->grade = $this->grade;
@@ -99,13 +105,21 @@ class Assignments extends Component
         $assignment->file = $file;
         $assignment->group_file->save();
         $assignment->save();
-        $this->reset(['assName','grade','due_date','file','description']);
+        $this->reset(['assName', 'grade', 'due_date', 'file', 'description']);
         $this->dispatch('closeModal');
     }
 
-    public function download($id){
-        $assignment = $this->assignments->where('id',$id)->first();
-        return Storage::download($assignment->file,$assignment->name);
+    public function download($id)
+    {
+        $assignment = $this->assignments->where('id', $id)->first();
+        if ($assignment == null) {
+            return $this->dispatch('alert', ['message' => __('general.file_not_found'), 'type' => 'error']);
+        } elseif (Storage::missing($assignment->file)) {
+            return $this->dispatch('alert', ['message' => __('general.file_not_found'), 'type' => 'error']);
+        } else {
+            return Storage::download($assignment->file, $assignment->name);
+        }
+        // return Storage::download($assignment->file, $assignment->name);
     }
 
 

@@ -67,7 +67,6 @@ class StudentsAffairsMainStudentsInformation extends Component
 
     public function render()
     {
-        return view('livewire.students-affairs.students-affairs-main-students-information'
-            , ['students' => $this->students]);
+        return view('livewire.students-affairs.students-affairs-main-students-information', ['students' => $this->students]);
     }
 }

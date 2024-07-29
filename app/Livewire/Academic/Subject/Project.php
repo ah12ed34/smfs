@@ -35,24 +35,23 @@ class Project extends Component
     {
         $this->group_subject = $group_subject;
         $this->projectDetails = new ProjectModel();
-
     }
     #[On('search')]
-    public function search($v){
+    public function search($v)
+    {
         $this->search = $v;
     }
     public function getProjectsProperty()
     {
         // dd($this->group_subject);
         $count_students = $this->group_subject?->students?->count();
-        $projects = $this->group_subject->
-        projects()
-        ->where('name','like','%'.$this->search.'%')->get()
-        ->map(function($project) use ($count_students){
-            $project->count_groups
-            =ceil( $count_students / $project->max_students ) .' - ' .ceil($count_students/$project->min_students);
-            return $project;
-        });
+        $projects = $this->group_subject->projects()
+            ->where('name', 'like', '%' . $this->search . '%')->get()
+            ->map(function ($project) use ($count_students) {
+                $project->count_groups
+                    = ceil($count_students / $project->max_students) . ' - ' . ceil($count_students / $project->min_students);
+                return $project;
+            });
         return ToolsApp::convertToPagination($projects, $this->perPage);
     }
     public function selected($id)
@@ -63,24 +62,24 @@ class Project extends Component
         // })
 
         $this->selected_id = $id;
-        if($this->projects->where('id',$id)->first()->is_active == 1){
+        if ($this->projects->where('id', $id)->first()->is_active == 1) {
             $this->message_confirmation = __('general.assignment_deactivation_confirmation');
-        }else{
+        } else {
             $this->message_confirmation = __('general.assignment_activation_confirmation');
         }
 
 
-        $projectDetails = $this->projectDetails = $this->projects->where('id',$id)->first();
+        $projectDetails = $this->projectDetails = $this->projects->where('id', $id)->first();
         $this->name = $projectDetails->name;
         $this->grade = $projectDetails->grade;
         $this->max_students = $projectDetails->max_students;
         $this->min_students = $projectDetails->min_students;
         $this->end_date = $projectDetails->end_date;
-
     }
 
-    public function stopProject(){
-        $project = ProjectModel::where('id',$this->selected_id)->first();
+    public function stopProject()
+    {
+        $project = ProjectModel::where('id', $this->selected_id)->first();
         $project->is_active = !$project->is_active;
         $project->save();
         $this->selected_id = null;
@@ -88,7 +87,8 @@ class Project extends Component
         $this->dispatch('closeModal');
     }
 
-    public function resetData(){
+    public function resetData()
+    {
         $this->reset([
             'name',
             'file',
@@ -102,15 +102,21 @@ class Project extends Component
 
     public function downloadFile($id)
     {
-        $project = $this->projects->where('id',$id)->first();
-        return storage::download($project->file, $project->name.'.'.pathinfo($project->file, PATHINFO_EXTENSION));
+        $project = $this->projects->where('id', $id)->first();
+        if ($project == null) {
+            return $this->dispatch('alert', ['message' => __('general.file_not_found'), 'type' => 'error']);
+        } elseif (Storage::missing($project->file)) {
+            return $this->dispatch('alert', ['message' => __('general.file_not_found'), 'type' => 'error']);
+        } else {
+            return storage::download($project->file, $project->name . '.' . pathinfo($project->file, PATHINFO_EXTENSION));
+        }
     }
 
     public function addProject()
     {
         $this->validate([
             'name' => 'required|string',
-            'file' => 'required|file|mimes:'.MyApp::getFileMime('project'),
+            'file' => 'required|file|mimes:' . MyApp::getFileMime('project'),
             'grade' => 'required',
             'max_students' => 'required|integer',
             'min_students' => 'required|integer',
@@ -119,8 +125,7 @@ class Project extends Component
 
         $file = $this->file->store('projects');
 
-        if($this->file)
-        {
+        if ($this->file) {
             unset($this->file);
         }
 
@@ -144,15 +149,14 @@ class Project extends Component
         $this->validate([
             'name' => 'required',
             'grade' => 'required',
-            'file' => 'nullable|file|mimes:'.MyApp::getFileMime('project'), // 'nullable'
+            'file' => 'nullable|file|mimes:' . MyApp::getFileMime('project'), // 'nullable'
             'max_students' => 'required',
             'min_students' => 'required',
             'end_date' => 'required|date|after:today',
         ]);
 
         $file = null;
-        if($this->file)
-        {
+        if ($this->file) {
             $file = $this->file->store('projects');
             $this->projectDetails->file = $file;
             unset($this->file);

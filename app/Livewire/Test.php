@@ -2,15 +2,20 @@
 
 namespace App\Livewire;
 
+use App\Models\File;
 use App\Models\Level;
 use App\Traits\Tools;
 use Livewire\Component;
+use App\Models\Studying;
 use App\Models\Department;
 use App\Models\GroupSubject;
 use App\Models\Notification;
+use Illuminate\Support\Facades\DB;
 use App\Repositories\FileRepsitory;
 use App\Repositories\FileRepository;
-use App\Repositories\NotificationsRepository;
+use Illuminate\Support\Facades\Storage;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
 
 class Test extends Component
@@ -34,11 +39,25 @@ class Test extends Component
 
         // dd($groups);
         $this->test = new FileRepository();
-        $keys = $this->test->getArrayHeaderKey(["id",    "midterm_exam"]);
+        // $keys = $this->test->getArrayHeaderKey(["id",    "midterm_exam"]);
 
-        $s = $this->test->getStudentAndGradeToAcademic(['20163132'], $keys);
-        $ss = GroupSubject::find(7)->groupStudents->where('student_id', $s['id'])->first();
-        dd($ss, $s['id']);
+        // $s = $this->test->getStudentAndGradeToAcademic(['20163132'], $keys);
+        // $ss = GroupSubject::find(7)->groupStudents->where('student_id', $s['id'])->first();
+        // dd($ss, $s['id']);
+
+        // Storage::download('/temp/createing/Hello World.xlsx', 'Hello World.xlsx', [
+        //     'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        // ]);
+
+    }
+    public function setA()
+    {
+        // $g = GroupSubject::find(4);
+        // dd(
+        //     $g->subject()->name_ar
+        // );
+        $this->test = new FileRepository();
+        return $this->test->DownloadFileSAFTA(4);
     }
 
     // public function setA($a)
@@ -48,6 +67,15 @@ class Test extends Component
 
     public function render()
     {
+
+
+        // // download file and delete file
+        // if (file_exists($filePath)) {
+
+        //     Storage::download('/temp/createing/Hello World.xlsx', 'Hello World.xlsx', [
+        //         'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        //     ]);
+        // }
         return view('livewire.test');
     }
 }

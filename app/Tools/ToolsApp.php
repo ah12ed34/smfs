@@ -42,7 +42,7 @@ class ToolsApp
         if ($file && Storage::exists($file)) {
             return Storage::download($file, $name);
         } else {
-            return response()->json(['message' => 'File not found'], 404);
+            event(new \App\Events\AlertEvent('error', __('general.file_not_found')));
         }
     }
 
