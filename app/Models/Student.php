@@ -47,6 +47,8 @@ class Student extends Model
                     'user_id' => $user->id,
                     'department_id' => $request['department_id'],
                     'level_id' => $request['level_id'],
+                    'system' => $request['system'],
+                    'join_date' => $request['join_date'] ?? date('Y'),
                     'is_active' => $request['is_active'] ?? true,
                     'is_graduated' => $request['is_graduated'] ?? false,
                     'is_suspended' => $request['is_suspended'] ?? false,

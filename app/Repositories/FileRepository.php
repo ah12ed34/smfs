@@ -23,7 +23,7 @@ class FileRepository extends AcademicYRepository
         'id' => ['الرقم', 'كود الطالب', 'الرقم الاكاديمي', 'الرقم الجامعي', 'الرقم الطلابي', 'الرقم الوظيفي', 'id', 'student_id', 'employee_id', 'user_id', 'id student', 'id employee', 'id user', 'كود الطالب', 'كود الموظف', 'كود المستخدم'],
         'name' => ['name', 'الاسم', 'اسم الطالب', 'اسم الموظف', 'اسم المستخدم', 'name employee', 'name student', 'name user', 'name_student', 'name_employee', 'name_user'],
         'last_name' => ['last_name', 'اللقب', 'last name', 'last name student', 'last name employee', 'last name user'],
-        'birthday' => ['brithday', 'تاريخ الميلاد', 'brithday student', 'brithday employee', 'brithday user'],
+        'birthday' => ['brithday', 'تاريخ الميلاد', 'brithday student', 'brithday employee', 'brithday user', 'birthday'],
         'email' => ['email', 'البريد الالكتروني', 'البريد', 'الايميل', 'email student', 'email employee', 'email user'],
         'phone' => ['phone', 'الهاتف', 'الجوال', 'phone student', 'phone employee', 'phone user'],
         'address' => ['address', 'العنوان', 'address student', 'address employee', 'address user'],
@@ -68,8 +68,14 @@ class FileRepository extends AcademicYRepository
 
     public function getStudent(array $row, array $keys)
     {
+        if (empty($keys)) {
+            return null;
+        }
+        if (empty($row) || $row == null || (is_array($row) && empty(array_filter($row)))) {
+            return null;
+        }
         $student = [];
-        $error = null;
+        $error = [];
         $student['id'] = $this->studnetId($row[$keys['id'] ?? null] ?? null, $error);
         $name = $this->nameAndLastName($row[$keys['name'] ?? null] ?? null, $row[$keys['last_name'] ?? null] ?? null, $error);
         $student['name'] = $name['name'] ?? null;;
@@ -83,7 +89,9 @@ class FileRepository extends AcademicYRepository
         $student['gender'] = $this->checkgender($row[$keys['gender'] ?? null] ?? null, $error);
         $student['password'] = $this->checkPassowrd($row[$keys['password'] ?? null] ?? null, $error);
 
-        $student['error'] = $error;
+        // $student['error'] = [$error['id'] ?? null, $error['name'] ?? null] ;
+        $student['error'] = array_filter([$error['id'] ?? null, $error['name'] ?? null]);
+        $student['warning'] = [$error['password'] ?? null, $error['lest'] ?? null, $error['email'] ?? null, $error['phone'] ?? null, $error['address'] ?? null];
         return $student;
     }
 
@@ -191,7 +199,7 @@ class FileRepository extends AcademicYRepository
             }
         }
 
-        $error .= __('validation.studentIdIsNotValid');
+        $error['id'] = __('validation.studentIdIsNotValid', ['attribute' => $cell]);
         return null;
     }
 
@@ -199,20 +207,23 @@ class FileRepository extends AcademicYRepository
     {
         if (!$lest) {
             if ($this->checkName($name)) {
-                $error .= __('validation.nameIsNotValid');
+                $error['name'] = __('validation.nameIsNotValid');
                 return null;
             }
             $fullName = explode(' ', $name);
             if (sizeof($fullName) > 1) {
                 $lest = array_pop($fullName);
                 $name = implode(' ', $fullName);
+            } elseif (sizeof($fullName) == 1) {
+                $error['lest'] = 'lasr name not found';
+                return ['name' => $name];
             } else {
-                $error .= 'last name not found';
+                $error['name'] = $error['lest'] = 'not fund name';
                 return null;
             }
         } else {
             if ($this->checkName($name) || $this->checkName($lest)) {
-                $error .= __('validation.nameIsNotValid');
+                $error['name'] = $error['lest'] = __('validation.nameIsNotValid');
                 return null;
             }
         }
@@ -226,8 +237,7 @@ class FileRepository extends AcademicYRepository
     {
         if (!$password) {
             return MyApp::defaultPassword;
-        } else
-        if (!preg_match('/^[\w*&^%#@!]{4,15}$/', $password)) {
+        } elseif (!preg_match('/^[\w*&^%#@!]{4,15}$/', $password)) {
             $error['password'] = __('validation.passwordIsNotValid');
             return MyApp::defaultPassword;
         }
@@ -237,7 +247,7 @@ class FileRepository extends AcademicYRepository
     function checkEmail($email, &$error)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error .= __('validation.emailIsNotValid');
+            $error["email"] = __('validation.emailIsNotValid');
             return null;
         }
         return $email;
@@ -246,7 +256,7 @@ class FileRepository extends AcademicYRepository
     function checkPhone($phone, &$error)
     {
         if (!preg_match('/^\d{6,15}$/', $phone)) {
-            $error['phone'] .= __('validation.phoneIsNotValid');
+            $error['phone'] = __('validation.phoneIsNotValid');
             return null;
         }
         return $phone;
@@ -254,29 +264,42 @@ class FileRepository extends AcademicYRepository
 
     function checkDate($date, &$error)
     {
-        if (!preg_match('/^\d{2}-\d{2}-\d{4}$/', $date)) {
-            $error .= __('validation.dateIsNotValid');
-            return null;
+        $supportedFormats = ['d-m-Y', 'd/m/Y', 'd.m.Y', 'Y-m-d', 'Y/m/d'];
+
+        foreach ($supportedFormats as $format) {
+            $d = \DateTime::createFromFormat($format, $date);
+            if ($d && $d->format($format) == $date) {
+                return $date;
+            }
         }
-        return $date;
+
+        $error['date'] = __('validation.dateIsNotValid');
+        return null;
     }
 
     function checkYear($year, &$error)
     {
-        if (!preg_match('/^\d{2}-\d{2}-\d{4}$/', $year)) {
-            $error .= __('validation.dateIsNotValid');
+        if (!preg_match('/^\d{4}$/', $year)) {
+            $error['year'] = __('validation.yearIsNotValid');
             return null;
         }
+
+        // Check if the year is within a reasonable range
+        if ($year < 1900 || $year > (int)date("Y")) {
+            $error['year'] = __('validation.yearOutOfRange');
+            return null;
+        }
+
         return $year;
     }
 
     function checkusername($username, &$error)
     {
         if (!preg_match('/^[a-zA-Z0-9_]{6,255}$/', $username)) {
-            $error .= __('validation.usernameIsNotValid');
-            return false;
+            $error['username'] = __('validation.usernameIsNotValid');
+            return null;
         }
-        return true;
+        return $username;
     }
     function checkBoolean($value, &$error)
     {
@@ -304,7 +327,7 @@ class FileRepository extends AcademicYRepository
         if (isset($mapping[$gender])) {
             return $mapping[$gender];
         }
-        $error .= __('validation.genderIsNotValid');
+        $error['gender'] = __('validation.genderIsNotValid');
         return Myapp::defaultGender;
     }
     function checkNumeric($value, &$error)

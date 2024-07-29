@@ -7,7 +7,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header modal_header_css" id="modheader">
-                    رفع الدرجات
+                    رفع
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 

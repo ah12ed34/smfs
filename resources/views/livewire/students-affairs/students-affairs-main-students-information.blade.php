@@ -15,7 +15,6 @@
                             <th> التفاصيل </th>
                             <th> التلفون </th>
                             <th>   الأيمل</th>
-                            <th>   الحالة </th>
                             <th> النظام </th>
                             <th> الجندر </th>
                             <th>  اسم الطالب</th>
@@ -33,7 +32,6 @@
                                 >التفاصيل</button> </td>
                             <td>{{$student->phone}}</td>
                             <td>{{$student->email}}</td>
-                            <td>{{$student->status}}</td>
                             <td>{{$student->student->system()}}</td>
                             <td>{{$student->gender_ar()}}</td>
                             <td>{{$student->name}}</td>
@@ -389,15 +387,11 @@
                                             <td>{{ $studentData->student->system() }}</td>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <th style="width: 25%;"> الحالة</th>
-                                            <td>**********</td>
-                                        </tr>
-                                        <tr class="table-light" id="modldetials">
                                             <th style="width: 25%;"> تاريخ الإلتحاق</th>
                                             <td>{{ $studentData->student->join_date }}</td>
                                         </tr>
                                         <tr class="table-light" id="modldetials">
-                                            <th style="width: 25%;"> الإيمل الجامعي </th>
+                                            <th style="width: 25%;">البريد الكتروني</th>
                                             <td>{{ $studentData->email }}</td>
                                         </tr>
                                         <tr class="table-light" id="modldetials">

@@ -4,10 +4,12 @@ namespace App\Livewire\Admin;
 
 use Livewire\Component;
 use Livewire\Attributes\On;
-use App\Models\Academic as AcademicModel;
-use App\Models\Department as DepartmentModel;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Academic as AcademicModel;
+use App\Models\Department as DepartmentModel;
+use App\Models\User;
+
 class Academic extends Component
 {
     use WithFileUploads;
@@ -24,20 +26,20 @@ class Academic extends Component
     public $avatarPreview;
     public $date;
     public $image;
-    public $department ;
+    public $department;
     public $user_id_selected;
     public $schedule;
 
 
-    public $ava ;
+    public $ava;
 
     public function mount(DepartmentModel $d)
     {
         $this->department = $d;
         $this->academics = $d->academics;
         // $this->acad = new AcademicModel();
-        foreach($this->academics as $academic){
-            if($academic->user->photo){
+        foreach ($this->academics as $academic) {
+            if ($academic->user->photo) {
                 // dump(Storage::exists('public/'.$academic->user->photo));
                 $this->ava = Storage::url($academic->user->photo);
             }
@@ -46,71 +48,85 @@ class Academic extends Component
 
 
     #[On('search')]
-    public function search($v){
+    public function search($v)
+    {
         // academic (name_academic,department_id,user_id) user (id,name,username,password,email)
-        if(!$v){
+        if (!$v) {
             $this->academics = $this->department->academics;
             return;
         }
-        $this->academics = AcademicModel::where('department_id',$this->department->id)
-        ->whereIn('user_id',function($q) use($v){
-            $q->select('id')->from('users')
-            ->where('name','like','%'.$v.'%')
-            ->orWhere('username','like','%'.$v.'%')
-            ->orWhere('email','like','%'.$v.'%')
-            ->orWhere('phone','like','%'.$v.'%');
-        })->get();
-
+        $this->academics = AcademicModel::where('department_id', $this->department->id)
+            ->whereIn('user_id', function ($q) use ($v) {
+                $q->select('id')->from('users')
+                    ->where('name', 'like', '%' . $v . '%')
+                    ->orWhere('username', 'like', '%' . $v . '%')
+                    ->orWhere('email', 'like', '%' . $v . '%')
+                    ->orWhere('phone', 'like', '%' . $v . '%');
+            })->get();
     }
     //# rest all inputs in form
     #[On('addacademic')]
-    public function restall(){
-        $this->reset(['name','email','phone','username','password','academic_name','gender','avatar','avatarPreview','date','image','acad']);
+    public function restall()
+    {
+        $this->reset(['name', 'email', 'phone', 'username', 'password', 'academic_name', 'gender', 'avatar', 'avatarPreview', 'date', 'image', 'acad']);
     }
 
-    public function set_gender($v){
-        if(in_array($v,['male','female'])){
+    public function set_gender($v)
+    {
+        if (in_array($v, ['male', 'female'])) {
             $this->gender = $v;
-        }else{
-            $this->addError('gender','this field must');
+        } else {
+            $this->addError('gender', 'this field must');
         }
     }
 
-    public function set_academic_name($v){
-        if(in_array($v,['professor','assistant_professor','doctor','associate_professor'])){
+    public function set_academic_name($v)
+    {
+        if (in_array($v, ['professor', 'assistant_professor', 'doctor', 'associate_professor'])) {
             $this->academic_name = $v;
-        }else{
-            $this->addError('academic_name','this field must');
+        } else {
+            $this->addError('academic_name', 'this field must');
         }
     }
 
 
-
+    private function IdGenration()
+    {
+        if (!$this->Eid) {
+            $user_id = 16 + AcademicModel::all()->count();
+            while (User::where('id', $user_id)->exists()) {
+                $user_id++;
+            }
+            return $user_id;
+        }
+        return $this->Eid;
+    }
     public function updatedAvatar()
     {
         $this->avatarPreview = null;
         $this->validate([
             'avatar' => 'image|mimes:png,jpeg,jpg',
-            ],[],[
-                'avatar' => 'الصورة الشخصية',
-            ]);
+        ], [], [
+            'avatar' => 'الصورة الشخصية',
+        ]);
         $this->avatarPreview = $this->avatar->temporaryUrl();
     }
     public function store()
     {
-        $this->validate([
-            'name' => 'required',
-            'email' => 'nullable|email|unique:users,email', // 'nullable
-            'phone' => 'nullable|numeric',
-            'gender' => 'required',
-            'date' => 'nullable|date', // 'nullable
-            'username' => 'required|unique:users,username',
-            'password' => 'required|min:6',
-            'academic_name' => 'required|in:professor,assistant_professor,doctor,associate_professor',
-            'avatar' => 'nullable|image|mimes:png,jpeg,jpg',
-            ]
-
-            ,[],[
+        $this->validate(
+            [
+                'name' => 'required',
+                'email' => 'nullable|email|unique:users,email', // 'nullable
+                'phone' => 'nullable|numeric',
+                'gender' => 'required',
+                'date' => 'nullable|date', // 'nullable
+                'username' => 'required|unique:users,username',
+                'password' => 'required|min:6',
+                'academic_name' => 'required|in:professor,assistant_professor,doctor,associate_professor',
+                'avatar' => 'nullable|image|mimes:png,jpeg,jpg',
+            ],
+            [],
+            [
                 'name' => 'الاسم',
                 'email' => 'البريد الالكتروني',
                 'phone' => 'الهاتف',
@@ -122,49 +138,47 @@ class Academic extends Component
                 'avatar' => 'الصورة الشخصية',
             ]
         );
-            // create user id is auto increment frist number is not used
-            // $this->dispatch('closeModal');
-            $avatar = null;
-            $user_id = 160000000 + AcademicModel::all()->count();
-            if($this->avatar){
+        // create user id is auto increment frist number is not used
+        // $this->dispatch('closeModal');
+        $avatar = null;
+        $user_id = $this->IdGenration();
+        if ($this->avatar) {
             $avatar = $this->avatar->store('users/avatar');
-            if(!$avatar){
-                $this->addError('avatar','error in upload image');
+            if (!$avatar) {
+                $this->addError('avatar', 'error in upload image');
                 return;
             }
-            }
-            $name = $lest_name = null ;
-            if(strpos($this->name,' ') !== false){
-               $full_name = explode(' ',$this->name);
-                $lest_name = $full_name[count($full_name) - 1];
-                unset($full_name[count($full_name) - 1]);
-                $name = implode(' ',$full_name);
-                // dd($name,$lest_name);
-            }else{
-                $name = $this->name;
-            }
-            // dd($this->department);
-            $academic = [
-                'id' => $user_id,
-                'name' => $name,
-                'last_name' => $lest_name??'',
-                'username' => $this->username,
-                'password' => $this->password,
-                'email' => $this->email??null,
-                'phone' => $this->phone??null,
-                'gender' => $this->gender,
-                'photo' => $avatar,
-                'birthday' => $this->date??null,
-                'academic_name' => $this->academic_name,
-                'department_id' => $this->department->id,
-            ];
-
-
-            AcademicModel::create($academic);
-            $this->dispatch('closeModal');
-
-
         }
+        $name = $lest_name = null;
+        if (strpos($this->name, ' ') !== false) {
+            $full_name = explode(' ', $this->name);
+            $lest_name = $full_name[count($full_name) - 1];
+            unset($full_name[count($full_name) - 1]);
+            $name = implode(' ', $full_name);
+            // dd($name,$lest_name);
+        } else {
+            $name = $this->name;
+        }
+        // dd($this->department);
+        $academic = [
+            'id' => $user_id,
+            'name' => $name,
+            'last_name' => $lest_name ?? '',
+            'username' => $this->username,
+            'password' => $this->password,
+            'email' => $this->email ?? null,
+            'phone' => $this->phone ?? null,
+            'gender' => $this->gender,
+            'photo' => $avatar,
+            'birthday' => $this->date ?? null,
+            'academic_name' => $this->academic_name,
+            'department_id' => $this->department->id,
+        ];
+
+
+        AcademicModel::create($academic);
+        $this->dispatch('closeModal');
+    }
 
     public function unselect()
     {
@@ -176,7 +190,7 @@ class Academic extends Component
     {
         $this->restall();
         $this->user_id_selected = $id;
-        $academic = $this->academics->where('user_id',$id)->first();
+        $academic = $this->academics->where('user_id', $id)->first();
         $this->acad = $academic;
         $this->name = $academic->user->name . ' ' . $academic->user->last_name;
         $this->email = $academic->user->email;
@@ -185,8 +199,7 @@ class Academic extends Component
         $this->gender = $academic->user->gender;
         $this->date = $academic->user->birthday;
         $this->academic_name = $academic->academic_name;
-        $this->avatarPreview = $academic->user->photo?asset('storage/'.$academic->user->photo):null;
-
+        $this->avatarPreview = $academic->user->photo ? asset('storage/' . $academic->user->photo) : null;
     }
 
     public function editUser()
@@ -203,18 +216,18 @@ class Academic extends Component
             'password' => 'nullable|min:6',
             'academic_name' => 'required|in:professor,assistant_professor,doctor,associate_professor',
         ]);
-        $academic = $this->academics->where('user_id',$this->user_id_selected)->first();
+        $academic = $this->academics->where('user_id', $this->user_id_selected)->first();
         $user = $academic->user;
 
-        if($this->name != $user->name . ' ' . $user->last_name){
-            $name = $lest_name = null ;
-            if(strpos($this->name,' ') !== false){
-                $full_name = explode(' ',$this->name);
+        if ($this->name != $user->name . ' ' . $user->last_name) {
+            $name = $lest_name = null;
+            if (strpos($this->name, ' ') !== false) {
+                $full_name = explode(' ', $this->name);
                 $lest_name = $full_name[count($full_name) - 1];
                 unset($full_name[count($full_name) - 1]);
-                $name = implode(' ',$full_name);
+                $name = implode(' ', $full_name);
                 // dd($name,$lest_name);
-            }else{
+            } else {
                 $name = $this->name;
             }
             $user->name = $name;
@@ -231,30 +244,30 @@ class Academic extends Component
             'password' => $this->password ?: $user->password,
         ]);
 
-        if($this->avatar){
+        if ($this->avatar) {
 
             $avatar = $this->avatar->store('users/avatar');
-            if(!$avatar){
-                $this->addError('avatar','error in upload image');
+            if (!$avatar) {
+                $this->addError('avatar', 'error in upload image');
                 return;
             }
-            if($user->photo){
+            if ($user->photo) {
                 Storage::delete($user->photo);
             }
             $user->photo = $avatar;
         }
 
-        if($this->academic_name != $academic->academic_name){
+        if ($this->academic_name != $academic->academic_name) {
             $academic->academic_name = $this->academic_name;
         }
-        if($this->schedule){
+        if ($this->schedule) {
 
             $schedule = $this->schedule->store('users/teacher/schedule');
-            if(!$schedule){
-                $this->addError('schedule','error in upload schedule');
+            if (!$schedule) {
+                $this->addError('schedule', 'error in upload schedule');
                 return;
             }
-            if($academic->schedule){
+            if ($academic->schedule) {
                 Storage::delete($academic->schedule);
             }
             $academic->schedule = $schedule;
@@ -264,7 +277,6 @@ class Academic extends Component
         $academic->save();
         $this->dispatch('closeModal');
         $this->unselect();
-
     }
     public function render()
     {
