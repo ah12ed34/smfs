@@ -35,13 +35,11 @@
             </div>
         </div>
 
-        <div class="card  cards-departments" id="">
-            {{-- <img src="{{Vite::image("students.png")}}" class="" width="150px"   onclick="location.href='{{route('students_grades')}}'"> --}}
+        {{-- <div class="card  cards-departments" id="">
             <img src="{{Vite::image("students.png")}}" class="" width="150px"  >
-
             <div class="card-departments-child"> درجات الطلاب
             </div>
-        </div>
+        </div> --}}
 
         <div class="card  cards-departments" id="">
             <img src="{{Vite::image("Groups.png")}}" class="" width="150px" style="margin-top:18px;" onclick="location.href='{{route('students_main_groups', $level->id)}}'">
@@ -49,13 +47,11 @@
             </div>
         </div>
 
-        <div class="card  cards-departments" id="" onclick="location.href='{{route('students_schedule', $level->id)}}'">
-            {{-- <img src="{{Vite::image("students.png")}}" class="" width="150px"   onclick="location.href='{{route('students_grades')}}'"> --}}
+        {{-- <div class="card  cards-departments" id="" onclick="location.href='{{route('students_schedule', $level->id)}}'">
             <img src="{{Vite::image("calendar_students.png")}}" class="" width="150px"  >
-
             <div class="card-departments-child">  جدول الطلاب
             </div>
-        </div>
+        </div> --}}
 
         </div>
 

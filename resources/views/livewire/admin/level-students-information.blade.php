@@ -85,10 +85,113 @@
 </div>
 </div>
 
+<!-- The ModalddaStudents -->
+<div class="modal fade" id="AddaStudentModal" wire:ignore.self>
+    <div class="modal-dialog">
+        <div class="modal-content addacademic" id="modal-content" style="background-color: #F6F7FA; height: 95vh;">
+
+            <!-- Modal Header -->
+            <div class="modal-header addacademic" id="modheader">
+                إضافة طالب
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body modal_body_css">
+                {{-- <form action="/action_page.php" style="display: block;"> --}}
+                    <div class="form-group">
+                        @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger" style="font-size: 12px;">{{ $error }}</div>
+                            @endforeach
+
+                        @endif
+
+                        <img src="{{Vite::image("profile.png")}}"   class="user_profile_modal" width="" >
+
+                        <!-- <label for="usr">Name:</label> -->
+                        <input type="text" class="form-control" id="inputtext" wire:model="SId" placeholder="رقم القيد" style="height: 30px; margin-top:8px">
+                        <input type="text" class="form-control" id="inputtext" wire:model="name" placeholder=" الاسم " style="height: 30px; margin-top:8px">
+                        <input type="date" class="form-control" id="inputtext" wire:model="birthday" placeholder="تاريخ الميلاد" style="height: 30px; margin-top:8px">
+                        <!-- <textarea style="height: 100px;" class="form-control" rows="5" id="comment" placeholder="  التلفون" style=" margin-top:8px"></textarea> -->
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-light gendar dropdown-toggle"  data-toggle="dropdown">
+                                <div class="textdropdown">{{ $gender ?myapp::getGender($gender):__('general.gender') }}</div>
+                            </button>
+                            <div  class="dropdown-menu" style=" color: #0E70F2; ">
+                                @foreach (myapp::getGenders($gender) as $key=>$value)
+                                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; " wire:click='setGender("{{$key}}")'>   {{$value}} </a>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                                    <button type="button" class="btn btn-light deparment_names_dropdown dropdown-toggle"  data-toggle="dropdown" >
+                                        <div class="textdropdown">{{ $department_id ?$departments->find($department_id)->name:__('general.department') }}</div>
+                                    </button>
+                                    <div  class="dropdown-menu" style=" color: #0E70F2; ">
+                                        @foreach ($departments->where('id','!=',$department_id) as $department)
+                                            <a class="dropdown-item" style="padding-left:30px; " wire:click='setDepartment("{{$department->id}}")'>   {{$department->name}} </a>
+                                        @endforeach
+                                        <!-- <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">    الذكاء الصناعي</a>
+                                        <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">      تحليل البيانات</a> -->
+                                    </div>
+                                    </div>
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-light typeSysrtem_studying_dropdown dropdown-toggle"  data-toggle="dropdown">
+                                <div class="textdropdown">{{ $system ?myapp::getSystem($system): __('general.system') }}</div>
+                            </button>
+                            <div  class="dropdown-menu" style=" color: #0E70F2; ">
+                                @foreach (myapp::getSystems($system) as $key=>$value)
+                                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; " wire:click='setSystem("{{$key}}")'>   {{$value}} </a>
+                                @endforeach
+                            </div>
+                        </div>
+                        {{-- <div class="dropdown">
+                            <button type="button" class="btn btn-light Students_typeStatus_dropdown dropdown-toggle"  data-toggle="dropdown">
+                                <div class="textdropdown">  الحالة</div>
+                            </button>
+                            <div  class="dropdown-menu" style=" color: #0E70F2; ">
+                                <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   مستجد </a>
+                                <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   مستجد</a>
+                            </div>
+                        </div> --}}
+                        <select class="form-control" id="inputtext" wire:model='join_date' style="height: 30px; margin-top:8px">
+                            <option value>السنة</option>
+                            <!-- get years -->
+                            @for ($i = date('Y'); $i >= 2000; $i--)
+                                <option value="{{$i}}">{{$i}}</option>
+                            @endfor
+                        </select>
+                        <input type="text" class="form-control" id="inputtext" wire:model="email" placeholder="الايمل الجامعي" style="height: 30px; margin-top:8px">
+                        <input type="text" class="form-control" id="inputtext" wire:model="username" placeholder="(تلقائي :رقم القيد)اسم المستخدم" style="height: 30px; margin-top:8px">
+                        <input type="data" class="form-control" id="inputtext" wire:model="phone" placeholder="التلفون  " style="height: 30px; margin-top:8px; color:black;">
+                        <input type="password" class="form-control" id="inputtext" wire:model="password" placeholder=" كلمة المرور " style="height: 30px; margin-top:8px">
+                        <input type="password" class="form-control" id="inputtext" wire:model="password_confirmation" placeholder=" كلمة المرور " style="height: 30px; margin-top:8px">
+                        <!-- <input type="password" class="form-control" id="inputtext" name="phone" placeholder="تأكيد كلمة المرر  " style="height: 30px; margin-top:8px; color:black;"> -->
+
+                        <!-- <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:8px">
+                        <input type="text" class="form-control" id="inputtext" name="note" placeholder="ملاحظة" style="height: 30px; margin-top:8px"> -->
+                    </div>
+
+                {{-- </form> --}}
+            </div>
+
+            <!-- Modal footer -->
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" wire:click='saveStudent("add")'
+                >حفظ</button>
+                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <!-- The ModalddaStudents -->
-<div class="modal fade" id="AddaStudentModal" wire:ignore.self>
+<div class="modal fade" id="" wire:ignore.self>
 <div class="modal-dialog">
     <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 95vh;">
 
