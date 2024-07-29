@@ -39,6 +39,7 @@ class uploadFileJob implements ShouldQueue
         $this->possition = $data['possition'];
         $this->sizeAll = $data['sizeAll'];
         $this->id = $data['id'];
+        $this->progress = ($this->possition * $this->chunk - $this->chunk) / $this->sizeAll * 100;
         $this->data = $data;
         $this->fileRep = new FileRepository();
     }
@@ -132,10 +133,13 @@ class uploadFileJob implements ShouldQueue
     function uploadStudent($data)
     {
         try {
-            if ($data['id'] == null || $data['error']) {
+            if ($data == null || empty($data)) {
+                return;
+            }
+            if ($data['id'] == null || !empty($data['error'])) {
                 $this->eventPDHQ([
                     'status' => 'warning',
-                    'log' => $data['error'] . ' ' . $data['id'] . ' uploadStudent',
+                    'log' => print_r($data['error'] ?? null, true) . ' ' . $data['id'] . ' uploadStudent',
                 ]);
                 return;
             }

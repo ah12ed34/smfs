@@ -21,7 +21,7 @@ trait EmployeeTrait
 
     protected $EmployeesR;
 
-    public $departments;//departments
+    public $departments; //departments
 
     public $rolesAll;
     //employee edit
@@ -43,7 +43,7 @@ trait EmployeeTrait
     public $weekly_lectures;
     public $quarterly_lectures;
 
-    public $openType ;
+    public $openType;
 
     public function initializeEmployeeTrait()
     {
@@ -93,7 +93,7 @@ trait EmployeeTrait
 
     public function EditEmployee($id)
     {
-        if($this->openType != 'edit' || $this->Eid != $id){
+        if ($this->openType != 'edit' || $this->Eid != $id) {
             $this->resetEmployee();
         }
         $this->selected($id);
@@ -142,25 +142,25 @@ trait EmployeeTrait
     {
         $rules = [
             'name' => 'required|string|min:3|min_words:2|max:255',
-            'photo' => 'nullable|file|mimes:'.MyApp::getMimes('image'),
-            'email' => 'nullable|email|unique:users,email,'.$this->employeeData?->id,
-            'phone' => 'nullable|string|regex:/^([0-9]*)$/|min:6|max:15,unique:users,phone,'.$this->employeeData?->id,
-            'username' => 'required|string|min:3|max:255|unique:users,username,'.$this->employeeData?->id,
+            'photo' => 'nullable|file|mimes:' . MyApp::getMimes('image'),
+            'email' => 'nullable|email|unique:users,email,' . $this->employeeData?->id,
+            'phone' => 'nullable|string|regex:/^([0-9]*)$/|min:6|max:15,unique:users,phone,' . $this->employeeData?->id,
+            'username' => 'required|string|min:3|max:255|unique:users,username,' . $this->employeeData?->id,
             'role_id' => 'nullable|exists:roles,id',
-            'academic_name' => 'nullable|string|min:3|max:255|in:'.implode(',',MyApp::getAcademicNames(only:'key')),
-            'gender' => 'nullable|in:'.implode(',',MyApp::getGenders(only:'key')),
+            'academic_name' => 'nullable|string|min:3|max:255|in:' . implode(',', MyApp::getAcademicNames(only: 'key')),
+            'gender' => 'nullable|in:' . implode(',', MyApp::getGenders(only: 'key')),
             'department_id' => 'nullable|exists:departments,id',
             'stutes' => 'nullable|string|min:3|max:255',
-            'schedule' => 'nullable|file|mimes:'.MyApp::getMimes('image'),
+            'schedule' => 'nullable|file|mimes:' . MyApp::getMimes('image'),
             'password' => 'nullable|string|min:8|confirmed',
             // weekly_lectures minthen quaterly_lectures
             'weekly_lectures' => 'nullable|numeric|min:1|lte:quarterly_lectures',
             'quarterly_lectures' => 'nullable|numeric|min:1|gte:weekly_lectures',
         ];
-        if($type == 'add'){
-            $rules['Eid'] = 'nullable|numeric|unique:users,id,'.$this->employeeData?->id;
+        if ($type == 'add') {
+            $rules['Eid'] = 'nullable|numeric|unique:users,id,' . $this->employeeData?->id;
         }
-        $this->validate($rules,[],[
+        $this->validate($rules, [], [
             'name' => __('general.name'),
             'email' => __('general.email'),
             'photo' => __('general.photo'),
@@ -186,9 +186,9 @@ trait EmployeeTrait
 
     private function IdGenration()
     {
-        if(!$this->Eid){
-            $user_id = 160000000 + Academic::all()->count();
-            while(user::where('id',$user_id)->exists()){
+        if (!$this->Eid) {
+            $user_id = 16 + Academic::all()->count();
+            while (user::where('id', $user_id)->exists()) {
                 $user_id++;
             }
             return $user_id;
@@ -198,7 +198,7 @@ trait EmployeeTrait
 
     private function uploadPhoto()
     {
-       try {
+        try {
             if ($this->photo) {
                 return $this->photo->store('users/avatar');
             }
@@ -211,7 +211,7 @@ trait EmployeeTrait
 
     private function uploadSchedule()
     {
-       try {
+        try {
             if ($this->schedule) {
                 return $this->schedule->store('users\teacher\schedule');
             }
@@ -234,25 +234,26 @@ trait EmployeeTrait
             'last_name' => $last_name,
         ];
     }
-    public function save(){
+    public function save()
+    {
         $this->validation();
-        if(!$this->department_id && $this->role_id && $this->role_id == $this->rolesAll->where('name','HeadOfDepartment')->first()->id){
-            $this->addError('role_id',__('sysmass.add_in_department_first'));
+        if (!$this->department_id && $this->role_id && $this->role_id == $this->rolesAll->where('name', 'HeadOfDepartment')->first()->id) {
+            $this->addError('role_id', __('sysmass.add_in_department_first'));
             return;
         }
         $data = $this->prepareName();
         $photo = $this->uploadPhoto();
 
-        if($data){
+        if ($data) {
             $this->employeeData->name = $data['name'];
             $this->employeeData->last_name = $data['last_name'];
         }
 
-        if($photo){
+        if ($photo) {
             $this->employeeData->photo = $photo;
         }
 
-        if($this->Eid){
+        if ($this->Eid) {
             $this->employeeData->update([
                 'email' => $this->email,
                 'phone' => $this->phone,
@@ -267,22 +268,22 @@ trait EmployeeTrait
                 'Quarterly_lectures' => $this->quarterly_lectures,
             ]);
 
-            if($this->password){
+            if ($this->password) {
                 $this->employeeData->update([
                     'password' => bcrypt($this->password),
                 ]);
             }
 
-            if($this->role_id){
+            if ($this->role_id) {
                 $this->employeeData->Roles()->sync($this->role_id);
-            }else{
+            } else {
                 $this->employeeData->Roles()->sync([]);
             }
 
             $this->employeeData->save();
             $this->dispatch('closeModal');
             $this->resetEmployee();
-        }else{
+        } else {
             $this->employeeData = User::create([
                 'id' => $this->IdGenration(),
                 'email' => $this->email,
@@ -305,25 +306,20 @@ trait EmployeeTrait
             $this->dispatch('closeModal');
             $this->resetEmployee();
         }
-
-
-
     }
 
-    public function getLevels() : \Illuminate\Support\Collection
+    public function getLevels(): \Illuminate\Support\Collection
     {
         return $this->EmployeesR->getLevelsByAcademic($this->employeeData->id);
     }
 
-    public function getSubjects() : \Illuminate\Support\Collection
+    public function getSubjects(): \Illuminate\Support\Collection
     {
-        if($this->employeeData?->academic){
+        if ($this->employeeData?->academic) {
             $subjects = [];
-            foreach ($this->employeeData->academic->groups as $groups)
-            {
-                foreach ($groups->subjects as $subject)
-                {
-                    if(!isset($subjects[$subject->id])){
+            foreach ($this->employeeData->academic->groups as $groups) {
+                foreach ($groups->subjects as $subject) {
+                    if (!isset($subjects[$subject->id])) {
                         $subjects[$subject->id] =
                             $subject;
                     }
@@ -335,7 +331,4 @@ trait EmployeeTrait
         }
         return collect([]);
     }
-
-
-
 }

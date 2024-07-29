@@ -14,7 +14,6 @@
                         <th> التفاصيل </th>
                         <th> التلفون </th>
                         <th>   الأيمل</th>
-                        <th>   الحالة </th>
                         <th> النظام </th>
                         <th> الجندر </th>
                         <th>  اسم الطالب</th>
@@ -29,7 +28,6 @@
                         <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsStudentsModal" wire:click="showStudent({{$student->id}})">التفاصيل</button> </td>
                         <td>{{$student->phone}}</td>
                         <td>{{$student->email}}</td>
-                        <td>{{$student->status}}</td>
                         <td>{{$student->student->system()}}</td>
                         <td>{{$student->gender_ar()}}</td>
                         <td>{{$student->name}}</td>
@@ -149,7 +147,7 @@
                                 @endforeach
                         </div>
                     </div>
-                    <div class="dropdown">
+                    {{-- <div class="dropdown">
                         <button type="button" class="btn btn-light Students_typeStatus_dropdown dropdown-toggle"  data-toggle="dropdown">
                             <div class="textdropdown">  الحالة</div>
                         </button>
@@ -157,7 +155,7 @@
                             <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   مستجد </a>
                             <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   مستجد</a>
                         </div>
-                    </div>
+                    </div> --}}
                     <select class="form-control" id="inputtext" wire:model='join_date' style="height: 30px; margin-top:8px">
                         <option value>السنة</option>
                         <!-- get years -->

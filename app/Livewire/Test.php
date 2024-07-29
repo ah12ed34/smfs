@@ -39,6 +39,7 @@ class Test extends Component
 
         // dd($groups);
         $this->test = new FileRepository();
+        dd($this->test->checkDate('2002-01-08', $s));
         // $keys = $this->test->getArrayHeaderKey(["id",    "midterm_exam"]);
 
         // $s = $this->test->getStudentAndGradeToAcademic(['20163132'], $keys);
