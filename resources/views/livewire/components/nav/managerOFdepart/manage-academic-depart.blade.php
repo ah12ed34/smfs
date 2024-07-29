@@ -2,11 +2,12 @@
     {{-- Stop trying to control. --}}
 
         <div class="hdr2" style=" box-shadow: 10px;">
-            <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;">  الصفحة الرئيسية </label><img src="{{Vite::image("dashboard (1).png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
+            <button class=" spaces" onclick="location.href='{{route('managerDepartment')}}'"> <label  class="subjectname" style="margin-left: -10px;">   {{ auth()->user()?->academic?->department?->name }} </label><img src="{{Vite::image("it.png")}}" id="subject-icon-hdr2" width="40px" style="">
             </button>
 
+            {{-- @include('components.layouts.manager_department.main_header') --}}
 
-        <div class="dropdown">
+     <div class="dropdown">
             <button type="button"  class="btn btn-light departmentNavbar_dropdown academicNavbar_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
                 <div class="textdropdown"> الأكادمين   </div>
             </button>
@@ -14,7 +15,7 @@
 
                 <!-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   الصلاحيات</a> -->
                 <a id="" class="dropdown-item" href='{{route('managerDepartment')}}'style="padding-left:30px; ">  المستويات</a>
-                {{-- <a id="" class="dropdown-item" href='{{route('managerDepartAcademics')}}'style="padding-left:30px; ">  الأكادمين</a> --}}
+                <a id="" class="dropdown-item" href='{{route('managerDepartAcademics')}}'style="padding-left:30px; ">  الأكادمين</a>
                 <a id="" class="dropdown-item" href='{{route('notifications_manageDrpart')}}'style="padding-left:30px; ">   الإشعارات</a>
                 <a id="" class="dropdown-item" href='{{route('managerdepart_Stastistic')}}' style="padding-left:30px; ">  الإحصائيات</a>
 

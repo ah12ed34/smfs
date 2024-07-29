@@ -8,7 +8,9 @@ class ManageDepartStastistic extends Component
 {
     public $statistics ;
     public $department ;
-
+    public $active = [
+        'tab' => 'departmentStatistics',
+];
     public function mount()
     {
         $this->department = auth()->user()->academic->department;

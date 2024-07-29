@@ -1,7 +1,7 @@
 <div>
     {{-- In work, do what you enjoy. --}}
     <div class="hdr2" style=" box-shadow: 10px;">
-        <button class=" spaces"> <label  class="subjectname" style="margin-left: -10px;">  الصفحة الرئيسية </label><img src="{{Vite::image("dashboard (1).png")}}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
+        <button class=" spaces" onclick="location.href='{{route('managerDepartment')}}'"> <label  class="subjectname" style="margin-left: -10px;">   {{ auth()->user()?->academic?->department?->name }} </label><img src="{{Vite::image("it.png")}}" id="subject-icon-hdr2" width="40px" style="">
         </button>
 
 
@@ -33,7 +33,15 @@
         </div> --}}
 @include('components.layouts.manager_department.header')
 
-                <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div>
+        {{-- @forelse ($levels as $level) --}}
+
+                {{-- <div class="dep-name">{{  auth()->user()->academic?->department?->level?->name }}</div> --}}
+                <div class="dep-name"> {{ $level?->name }}</div>
+
+                {{-- @endforelse --}}
+                
+
+
 
         <div id="" class="input-group input_search_manageDepart_students">
             <input type="text" class="form-control" placeholder="Search" wire:model="search" wire:keydown.enter='srch' >

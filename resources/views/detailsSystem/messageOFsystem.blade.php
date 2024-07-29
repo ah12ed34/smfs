@@ -2,6 +2,23 @@
 
 @section('style')
     <style>
+        /* .card.cadr_detals{
+            background: #f8f9fa;
+            display: flex;
+            float: right !important;
+            z-index: -1;
+            width: 80%;
+            height:100%;
+            top:80px;
+
+        }
+        @media screen and (width: 700px) {
+            .card.cadr_detals{
+                width: 100%;
+
+        }
+        } */
+
 
     </style>
 @endsection
@@ -9,9 +26,9 @@
 @section('content')
 
     <body class="login_body">
-        <div class="container-fluid p-0">
+        <div class="container-fluid p-0 " style="padding-right:-30px;">
 
-            <div class="overlay">
+            <div class="overlay"  >
                 <div class="card-primary">
                 </div>
                 <nav class="navbar navbar-expand-lg navbar-dark">
@@ -26,16 +43,17 @@
                                     <a class="nav-link" href="#">حول الموقع</a>
                                 </li> --}}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">الرؤية</a>
+                                    <a class="nav-link" href="{{ route('vision_of_system') }}" >الرؤية</a>
+
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">الرسالة</a>
+                                    <a class="nav-link" href="{{ route('messageOFsystem') }}">الرسالة</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">الأهداف</a>
+                                    <a class="nav-link" href="{{ route('targets_of_system') }}">الأهداف</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">دخول</a>
+                                    <a class="nav-link" href="{{ route('login') }}">دخول</a>
                                 </li>
                             </ul>
                         </div>
@@ -46,19 +64,17 @@
                         </div>
                     </div>
                 </nav>
-                <div class="content login" style="background: no-repeat;">
+                <div class="content card_detals " style="background: no-repeat; margin-right:0px; width:100%;">
 
 
-            <div class="container">
+            <div class="container card_detals " >
 
-                <div class="card card-primary">
-                    <div class="card-header">
+                <div class="card card_detals" style="height:100%">
+                    <div class="card-header" style="border-top-left-radius: 20px;border-top-right-radius: 20px;">
                         <h3 class="card-title   text-right">الرسالة</h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body"  >
                         <p class="text-right">
-
-
                             تتمثل مهمتنا في تمكين الطلاب من خلال تقديم لوحة معلومات مركزية توفر رؤية واضحة ومنظمة لالتزاماتهم الأكاديمية.
                             ونهدف إلى تبسيط إدارة المهام والمشاريع والمواعيد النهائية في جميع المواد،
                             ومساعدة الطلاب على البقاء على رأس مسؤولياتهم والتفوق في مساعيهم الأكاديمية.

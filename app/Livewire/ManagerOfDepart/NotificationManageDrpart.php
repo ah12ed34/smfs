@@ -6,7 +6,10 @@ use Livewire\Component;
 
 class NotificationManageDrpart extends Component
 {
-    public function render()
+    public $active_noti = [
+        'tab' => 'departmentNotifications',
+];
+public function render()
     {
         return view('livewire.managerOFdepart.notification-manage-drpart');
     }

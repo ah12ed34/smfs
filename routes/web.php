@@ -120,10 +120,10 @@ Route::group(['prefix' => '/student', 'middleware' => ['role:student']], functio
     });
 
 })->middleware('auth');
- Route::prefix('vision_of_system')->group(function () {
-        Route::get('/', 'MainDetalisOFSystemLoginController@vision_of_system')->name('vision_of_system');
-        Route::get('/', 'MainDetalisOFSystemLoginController@message_of_system')->name('message_of_system');
-        Route::post('/', 'MainDetalisOFSystemLoginController@message_of_system')->name('message_of_system');
+ Route::prefix('/')->group(function () {
+        Route::get('vision_of_system', 'MainDetalisOFSystemLoginController@vision_of_system')->name('vision_of_system');
+        Route::get('targets_of_system', 'MainDetalisOFSystemLoginController@targets_of_system')->name('targets_of_system');
+        Route::post('messageOFsystem', 'MainDetalisOFSystemLoginController@messageOFsystem')->name('messageOFsystem');
 
     });
 Route::get('admin/dashboard', 'AdminController@statistics')->name('admin')->middleware('role:admin');
@@ -163,18 +163,18 @@ Route::group([
 });
 
 Route::prefix('/academic')->group(function () {
-    Route::prefix('student')->group(function () {
-        Route::get('/index', function () {
-            return view('');
-        })->name('student.index');
-        Route::get('/create', 'StudentController@create')->name('student.create')->middleware('perm:addstudent');
-        Route::post('/store', 'StudentController@store')->name('student.store')->middleware('perm:addstudent');
-        Route::get('create-excel', 'StudentController@createExcel')->name('student.create-excel')->middleware('perm:addstudent');
-        Route::post('store-excel', 'StudentController@storeExcel')->name('student.store-excel')->middleware('perm:addstudent');
-        Route::get('/edit/{id}', 'StudentController@edit')->name('student.edit');
-        Route::put('/update/{id}', 'StudentController@update')->name('student.update');
-        Route::delete('/delete/{id}', 'StudentController@delete')->name('student.delete');
-    });
+    // Route::prefix('student')->group(function () {
+    //     Route::get('/index', function () {
+    //         return view('');
+    //     })->name('student.index');
+    //     Route::get('/create', 'StudentController@create')->name('student.create')->middleware('perm:addstudent');
+    //     Route::post('/store', 'StudentController@store')->name('student.store')->middleware('perm:addstudent');
+    //     Route::get('create-excel', 'StudentController@createExcel')->name('student.create-excel')->middleware('perm:addstudent');
+    //     Route::post('store-excel', 'StudentController@storeExcel')->name('student.store-excel')->middleware('perm:addstudent');
+    //     Route::get('/edit/{id}', 'StudentController@edit')->name('student.edit');
+    //     Route::put('/update/{id}', 'StudentController@update')->name('student.update');
+    //     Route::delete('/delete/{id}', 'StudentController@delete')->name('student.delete');
+    // });
     Route::prefix('department')->group(function () {
         Route::get('/', 'DepartmentController@index')->name('department.index');
         Route::get('/create', 'DepartmentController@create')->name('department.create')->middleware('perm:adddepartment');

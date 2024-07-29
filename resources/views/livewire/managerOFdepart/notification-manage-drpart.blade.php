@@ -1,3 +1,8 @@
+<?php
+    if(!isset($active['tab'])){
+        $active['tab'] = null ;
+    }
+?>
 @section('nav')
 @livewire('components.nav.manager_of_depart.manag-depart-main ')
 @endsection
