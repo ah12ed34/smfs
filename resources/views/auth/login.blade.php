@@ -26,7 +26,7 @@
                                     <a class="nav-link" href="#">حول الموقع</a>
                                 </li> --}}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('vision_of_system') }}" >الرؤية</a>
+                                    <a class="nav-link" href="{{ route('vision_of_system') }}">الرؤية</a>
 
                                 </li>
                                 <li class="nav-item">
@@ -55,7 +55,7 @@
                                 @if ($errors->has('email') || $errors->has('username')) is-invalid @endif" name="username"
                                 value="{{ old('email') ?: old('username') }}" required autocomplete="username" autofocus>
                             @if ($errors->has('email') || $errors->has('username'))
-                                <strong>
+                                <strong class="text-danger">
                                     {{ $errors->first('email') ?: $errors->first('username') }}
                                 </strong>
                             @endif

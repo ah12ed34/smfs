@@ -187,7 +187,7 @@ trait EmployeeTrait
     private function IdGenration()
     {
         if (!$this->Eid) {
-            $user_id = 16 + Academic::all()->count();
+            $user_id = 16 . Academic::all()->count();
             while (user::where('id', $user_id)->exists()) {
                 $user_id++;
             }

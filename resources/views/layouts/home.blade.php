@@ -132,11 +132,11 @@
             <button class="button-sidebar" onclick="location.href='{{ route('student-studyingSchedule') }}'"><img
                     src="{{ Vite::image('calendar (3).png') }}" class="sidebaricon" width="26px"><label
                     class="">{{ __('layout.schaudule_std') }} </button>
-            <button class="button-sidebar" onclick="location.href='{{ route('student-archieve') }}'"><img
+            {{-- <button class="button-sidebar" onclick="location.href='{{ route('student-archieve') }}'"><img
                     src="{{ Vite::image('portfolio (2).png') }}" class="sidebaricon" width="26px"><label
                     class="">{{ __('layout.archives') }} </label></button>
             <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png') }}" class="sidebaricon"
-                    width="26px"><label class="">{{ __('layout.settings') }} </label></button>
+                    width="26px"><label class="">{{ __('layout.settings') }} </label></button> --}}
         @endStudent
 
         @Admin()
@@ -145,8 +145,8 @@
                     class="">{{ __('layout.meun_home') }} </label></button>
             {{-- <button class="button-sidebar" onclick="location.href='{{route('student.create')}}'" ><img src="{{ Vite::image('user (4).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.create_student')}}</label></button>
                 <button class="button-sidebar" onclick="location.href='{{route('academic.create')}}'"><img src="{{ Vite::image('user (4).png') }}" class="sidebaricon" width="26px"><label class="" >{{__('layout.create_academic')}} </label></button> --}}
-            <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png') }}" class="sidebaricon"
-                    width="26px"><label class="">{{ __('layout.settings') }} </label></button>
+            {{-- <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png') }}" class="sidebaricon"
+                    width="26px"><label class="">{{ __('layout.settings') }} </label></button> --}}
         @endAdmin
 
         @Role('SechadulesManagement')
@@ -159,8 +159,6 @@
             <button class="button-sidebar" onclick="window.location='{{ route('classes_sechedules') }}'"><img
                     src="{{ Vite::image('calendar (3).png') }}" class="sidebaricon" width="26px"><label
                     class="">{{ __('layout.classes_sechedules') }} </label></button>
-            <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png') }}" class="sidebaricon"
-                    width="26px"><label class="">{{ __('layout.settings') }} </label></button>
             {{-- @endSechadulesManagement --}}
 
 
@@ -316,8 +314,6 @@
         @endAdmin
         @Role('SechadulesManagement')
             {{-- @ManagementOFSechedules() --}}
-            <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon"
-                    width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
             <button class="btn-bottomNavbar" onclick="location.href='{{ route('classes_sechedules') }}'"><img
                     src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label
                     class="bottomNavbartext">جدول القاعات </label></button>

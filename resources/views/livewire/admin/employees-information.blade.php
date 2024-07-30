@@ -87,7 +87,7 @@
 
 
 <!-- The ModalUploadeFile -->
-<div class="modal fade" id="UploadeFileModal">
+{{-- <div class="modal fade" id="UploadeFileModal">
 <div class="modal-dialog">
     <div class="modal-content UploadeFileModal" id="modal-content2" style="height: 250px;">
 
@@ -119,7 +119,7 @@
         </div>
     </div>
 </div>
-</div>
+</div> --}}
 
 
 

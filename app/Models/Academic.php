@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class Academic extends Model
 {
     use HasFactory;
@@ -31,7 +32,7 @@ class Academic extends Model
                 'id' => $parameters['id'] ?? null,
                 'phone' => $parameters['phone'] ?? null,
                 'photo' => $parameters['photo'] ?? null,
-                'gender'=> $parameters['gender'],
+                'gender' => $parameters['gender'],
                 'last_name' => $parameters['last_name'],
                 'username' => $parameters['username'],
                 'email' => $parameters['email'],
@@ -62,31 +63,38 @@ class Academic extends Model
         return false;
     }
 
-    public function user() {
+    public function user()
+    {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
-    public function department() {
+    public function department()
+    {
         return $this->hasOne(Department::class, 'id', 'department_id');
     }
-    public function courses() {
+    public function courses()
+    {
         return $this->hasMany(GroupSubject::class, 'teacher_id', 'user_id')
             ->where('ay_id', AcademicYear::currentAcademicYear()->id);
     }
-    public function subjects() {
+    public function subjects()
+    {
         return $this->hasMany(Subject::class);
     }
 
-    public function groups() {
+    public function groups()
+    {
         return $this->hasManyThrough(Group::class, GroupSubject::class, 'teacher_id', 'id', 'user_id', 'group_id');
     }
-    public function getNameAttribute() {
+    public function getNameAttribute()
+    {
         return MyApp::getAcademicName($this->academic_name);
     }
 
-    public function getFNameAttribute() {
-        return mb_substr($this->name,0,1,'utf-8') .'. '.explode(' ',$this->user->name)[0].' '.$this->user->last_name;
+    public function getFNameAttribute()
+    {
+        return mb_substr($this->name, 0, 1, 'utf-8') . '. ' . explode(' ', $this->user->name)[0] . ' ' . $this->user->last_name;
     }
-
+    protected static $deleting = false;
     protected static function boot()
     {
         parent::boot();
@@ -112,7 +120,12 @@ class Academic extends Model
             }
         });
         static::deleting(function ($academic) {
+            if (self::$deleting) {
+                return;
+            }
+            self::$deleting = true;
             $academic->user->delete();
+            self::$deleting = false;
         });
     }
 }
