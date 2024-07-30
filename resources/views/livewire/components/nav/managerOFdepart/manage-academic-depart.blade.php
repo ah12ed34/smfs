@@ -26,9 +26,10 @@
 
             <div  class="btn-group btn_group_nav_manageDepart" id="">
                 <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('managerdepart_Stastistic')}}'"><label class="proNavbartext">الإحصائيات </label></button>
-                <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('notifications_manageDrpart')}}'"><label class="proNavbartext">  الإشعارات</label></button>
+                {{-- <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('notifications_manageDrpart')}}'"><label class="proNavbartext">  الإشعارات</label></button> --}}
                 <!-- <button class="btn-departments-Navbar"><label class="proNavbartext">  الصلاحيات </label></button> -->
-                <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('managerDepartAcademics')}}'"><label class="proNavbartext"> الأكادمين</label></button>
+                <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('managerDepartAcademics')}}'" style="background-color: #a9cbf7;text-decoration: none;
+                 border-bottom: 4px solid #2f81ec;"><label class="proNavbartext"> الأكادمين</label></button>
                 <button class="btn-manageDepart-Navbar" onclick="location.href='{{route('managerDepartment')}}'"><label class="proNavbartext"> المستويات</label></button>
 
 
@@ -36,7 +37,7 @@
             <!-- <div class="dep-name">تقنية معلومات</div> -->
         </div>
 
-        <div class="dropdown">
+        {{-- <div class="dropdown">
             <button type="button"  class="btn btn-light departmentTypeAcademic_dropdown   dropdown-toggle" data-toggle="dropdown" dir="rtl">
                     <div class="textdropdown">    النظري</div>
                 </button>
@@ -47,8 +48,10 @@
                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  الكل</a>
 
                 </div>
-            </div>
-        <div class="dep-name">{{ auth()->user()->academic->department->name }}</div>
+            </div> --}}
+        {{-- <div class="dep-name">{{ auth()->user()->academic->department->name }}</div> --}}
+        <div class="dep-name" style="border: none;box-shadow:none; "></div>
+
 
         <div id="" class="input-group input-search-manageDepart">
             <input type="text" class="form-control" placeholder="Search" wire:model="search" wire:keydown.enter="srch">

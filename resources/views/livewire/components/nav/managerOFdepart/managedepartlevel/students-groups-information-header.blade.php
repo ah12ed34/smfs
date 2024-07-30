@@ -32,8 +32,8 @@
         </div> --}}
 
 
-                <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div>
-
+                {{-- <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div> --}}
+                <div class="dep-name" style="border: none;box-shadow:none; "></div>
 
 
         <div id="" class="input-group input_search_manageDepart_students">

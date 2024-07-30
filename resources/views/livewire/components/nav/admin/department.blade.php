@@ -13,8 +13,7 @@
 @endsection
 <div>
     <div class="hdr2" style=" box-shadow: 10px;">
-        <button class=" spaces"> <label class="subjectname" style="margin-left: -10px;"> الأدمن </label><img
-                src="{{ Vite::image('admin.png') }}" id="subject-icon-hdr2" width="40px" style="margin-left: -165px;">
+        <button class=" spaces" onclick="window.location='{{ route('admin.department') }}'"> <label class="subjectname" style="margin-left: -10px;"> الأدمن </label><img src="{{ Vite::image('admin.png') }}" id="subject-icon-hdr2" width="40px" style="">
         </button>
 
         @if ($active != 'academic')
@@ -142,27 +141,17 @@
         @if ($active == 'academic')
             <div class="dep-name">{{ $depa->name }}</div>
 
-            <div class="dropdown">
+            {{-- <div class="dropdown">
                 <button type="button" class="btn btn-light departmentAcademic_dropdown  dropdown-toggle"
                     data-toggle="dropdown" dir="rtl" style="padding-left:6px;">
                     <div class="textdropdown" style="margin-top: -10px;margin-right:px5; font-size:12px;"> النظري </div>
-                    {{-- <div class="dropdown">
-            <button type="button"  class="btn btn-light departmentAcademic_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl" style="padding-left:6px;">
-                <div class="textdropdown" style="margin-top: -10px;margin-right:px5; font-size:12px;">   النظري </div>
-
-                </button>
-                <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
-                    <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  الكل </a>
-                    <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   العملي</a>
-                </div>
-            </div> --}}
 
                 </button>
                 <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
                     <a id="" class="dropdown-item" href="#" style="padding-left:30px; "> الكل </a>
                     <a id="" class="dropdown-item" href="#"style="padding-left:30px; "> العملي</a>
                 </div>
-            </div>
+            </div> --}}
         @endif
 
     </div>

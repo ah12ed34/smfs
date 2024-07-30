@@ -5,8 +5,9 @@
         </button>
 
 
-        <div class="dep-name">{{ auth()->user()->academic->department->name }}</div>
-
+        {{-- <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div> --}}
+        <div class="dep-name" style="border: none;box-shadow:none; "></div>
+        
 {{-- <div class="dropdown">
             <button type="button"  class="btn btn-light TypeTerm_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
                     <div class="textdropdown">    ترم اول</div>
@@ -18,7 +19,7 @@
             </div> --}}
 
             {{-- @include('components.navSelect.term') --}}
-            
+
 
             {{-- <div class="dropdown">
                 <button type="button"  class="btn btn-light TypeAcademicsSechedules_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
@@ -40,15 +41,15 @@
                             </div>
                         </button>
                         <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
-                
+
                             @foreach ($types->where('id','!=',$active['type']??null) as $type)
                             <a id="" class="dropdown-item" href="{{ route($routeName,$parameters+array_merge($qurey, ['type' => $type->id])) }}" style="padding-left:30px;">
                             {{ $type->name }}</a>
                             @endforeach
-                
+
                         </div>
                     </div>
-                
+
                     @else
                     <div class="dropdown">
                         <button type="button"  class="btn btn-light TypeAcademicsSechedules_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
