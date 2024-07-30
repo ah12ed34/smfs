@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.admin.employees-information-header', ['leftName' =>'جميع الموظفين'])
+    @livewire('components.nav.admin.employees-information-header', ['leftName' => 'جميع الموظفين'])
 @endsection
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
@@ -14,39 +14,44 @@
                         <th> التفاصيل </th>
                         <th> الصلاحية </th>
                         <th> القسم </th>
-                        <th>  الدرجة العلمية </th>
+                        <th> الدرجة العلمية </th>
                         <th> التلفون </th>
                         <th> الأيمل</th>
                         <th> الجندر </th>
-                        <th>  تاريخ الميلاد </th>
-                        <th style="width: 15%;">  الاسم </th>
+                        <th> تاريخ الميلاد </th>
+                        <th style="width: 15%;"> الاسم </th>
                         <!-- <th>   الرقم الوظيفي</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($employees as $employee)
-                    <tr class="table-light" id="modldetials">
-                        <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal"
-                            wire:click='selected({{ $employee->id }})'
-                            >حذف  <img src="{{ Vite::image('delete (1).png')}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#EditeStudentModal" wire:click='EditEmployee({{ $employee->id }})'>تعديل  <img src="{{ Vite::image('edit.png')}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id="" data-toggle="modal" data-target="#DetailsStudentsModal"
-                            wire:click="showEmployee({{ $employee->id }})"
-                            >التفاصيل</button> </td>
-                        <td>{{ $employee->role()?->description }}</td>
-                        <td>{{ $employee?->academic?->department?->name }}</td>
-                        <td>{{ $employee?->academic?->name }}</td>
-                        <td>{{ $employee->phone }}</td>
-                        <td>{{ $employee->email }}</td>
-                        <td>{{ $employee->gender_ar() }}</td>
-                        <td>{{ $employee->birthday }}</td>
-                        <td style="width: 15%;">{{ $employee->FullName }}</td>
-                    </tr>
+                        <tr class="table-light" id="modldetials">
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id=""
+                                    data-toggle="modal" data-target="#MessageApprovementDeleteModal"
+                                    wire:click='selected({{ $employee->id }})'>حذف <img
+                                        src="{{ Vite::image('delete (1).png') }}" id=""
+                                        width="15px"></button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id=""
+                                    data-toggle="modal" data-target="#EditeStudentModal"
+                                    wire:click='EditEmployee({{ $employee->id }})'>تعديل <img
+                                        src="{{ Vite::image('edit.png') }}" id="" width="15px"></button>
+                            </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm btn_detials" id=""
+                                    data-toggle="modal" data-target="#DetailsStudentsModal"
+                                    wire:click="showEmployee({{ $employee->id }})">التفاصيل</button> </td>
+                            <td>{{ $employee->role()?->description }}</td>
+                            <td>{{ $employee?->academic?->department?->name }}</td>
+                            <td>{{ $employee?->academic?->name }}</td>
+                            <td>{{ $employee->phone }}</td>
+                            <td>{{ $employee->email }}</td>
+                            <td>{{ $employee->gender_ar() }}</td>
+                            <td>{{ $employee->birthday }}</td>
+                            <td style="width: 15%;">{{ $employee->FullName }}</td>
+                        </tr>
                     @empty
-                    <tr class="table-light" id="modldetials">
-                        <td colspan="11" style="text-align: center;">لا يوجد موظفين</td>
-                    </tr>
-
+                        <tr class="table-light" id="modldetials">
+                            <td colspan="11" style="text-align: center;">لا يوجد موظفين</td>
+                        </tr>
                     @endforelse
                     {{-- <tr class="table-light" id="modldetials" style="margin-top:7px;">
                         <td><button type="submit" class="btn btn-primary btn-sm btn_edit" id="" data-toggle="modal" data-target="#MessageApprovementDeleteModal">حذف  <img src="{{ Vite::image('delete (1).png')}}" id=""  width="15px" ></button> </td>
@@ -72,8 +77,8 @@
 
 
 
-<!-- The ModalUploadeFile -->
-<div class="modal fade" id="UploadeFileModal">
+    <!-- The ModalUploadeFile -->
+    {{-- <div class="modal fade" id="UploadeFileModal">
 <div class="modal-dialog">
     <div class="modal-content UploadeFileModal" id="modal-content2" style="height: 250px;">
 
@@ -105,12 +110,12 @@
         </div>
     </div>
 </div>
-</div>
+</div> --}}
 
 
 
-<!-- The ModaladdEmployeer -->
-<div class="modal fade" id="AddEmployeerModal" wire:ignore.self>
+    <!-- The ModaladdEmployeer -->
+    {{-- <div class="modal fade" id="AddEmployeerModal" wire:ignore.self>
 <div class="modal-dialog">
     <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 95vh;">
 
@@ -123,7 +128,6 @@
 
         <!-- Modal body -->
         <div class="modal-body modal_body_css">
-            <form action="/action_page.php" style="display: block;">
                 <div class="form-group">
 
                     <img src="{{ Vite::image('profile.png')}}"  width="" class="user_profile_modal" >
@@ -205,132 +209,272 @@
         </div>
     </div>
 </div>
-</div>
+</div> --}}
+    <div class="modal fade" id="AddEmployeerModal" wire:ignore.self>
+        <div class="modal-dialog">
+            <div class="modal-content modal_content_css" id="modal-content"
+                style="background-color: #F6F7FA; height: 95vh;">
 
+                <!-- Modal Header -->
+                <div class="modal-header modal_header_css" id="modheader">
+                    إضافة موظف
+                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                </div>
 
-<!-- The ModalEditeStudents -->
-<div class="modal fade" id="EditeStudentModal" wire:ignore.self>
-<div class="modal-dialog">
-    <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height: 95vh;">
-
-        <!-- Modal Header -->
-        <div class="modal-header modal_header_css" id="modheader">
-            تعديل موظف
-            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body modal_body_css" >
-            {{-- <form action="/action_page.php" style="display: block;"> --}}
-                <div class="form-group">
+                <!-- Modal body -->
+                <div class="modal-body modal_body_css">
+                    {{-- <form action="/action_page.php" style="display: block;"> --}}
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
-                                    <li style="font-size: 12px;">{{ $error }}</li>
+                                    <li>{{ $error }}</li>
                                 @endforeach
                             </ul>
                         </div>
                     @endif
-                    <img src="{{ Vite::image('profile.png')}}"  width="" class="user_profile_modal" >
+                    <div class="form-group">
 
-                    <!-- <input type="number" class="form-control input_Info" id="" name="projectname" placeholder=" الرقم الوظيفي " style="height: 30px; margin-top:8px"> -->
-                    <input type="text" class="form-control input_Info" id="input_nameuser" wire:model='name' placeholder=" الاسم" style="height: 30px; margin-top:8px">
-                    <input type="date" class="form-control input_Info" id="input_brithdate" wire:model='birthday' placeholder=" تاريح الميلاد" style="height: 30px; margin-top:8px">
+                        <img src="{{ Vite::image('profile.png') }}" width="" class="user_profile_modal">
 
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-light gendar dropdown-toggle"  data-toggle="dropdown">
-                            <div class="textdropdown">{{ $gender ? myapp::getGender($gender) : 'الجندر' }}</div>
-                        </button>
-                        <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                            @foreach (myapp::getGenders($gender) as $key => $value)
-                                <a  class="dropdown-item"  style="padding-left:30px;" wire:click="setGender('{{ $key }}')">   {{ $value }} </a>
-
-                            @endforeach
-                            {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   ذكر </a>
-                            <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   انثى</a> --}}
+                        <input type="number" class="form-control" id="inputtext" wire:model='Eid'
+                            placeholder=" الرقم الوظيفي " style="height: 30px; margin-top:8px">
+                        <input type="text" class="form-control" id="inputtext" wire:model='name' placeholder=" الاسم"
+                            style="height: 30px; margin-top:8px">
+                        <input type="date" class="form-control" id="inputtext" wire:model='birthday'
+                            placeholder=" تاريح الميلاد" style="height: 30px; margin-top:8px">
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-light gendar_employee  dropdown-toggle"
+                                data-toggle="dropdown">
+                                <div class="textdropdown">
+                                    {{ $gender ? MyApp::getGender($gender) : __('general.gender') }}</div>
+                            </button>
+                            <div class="dropdown-menu" style=" color: #0E70F2; ">
+                                @forelse (MyApp::getGenders($gender) as $key => $value)
+                                    <a id="" class="dropdown-item" style="padding-left:30px;"
+                                        wire:click='setGender("{{ $key }}")'>{{ $value }}</a>
+                                @empty
+                                    <a id="" class="dropdown-item" style="padding-left:30px;">لا يوجد أنواع
+                                        جندر</a>
+                                @endforelse
+                                {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   طلاب </a>
+                                <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   طالبات</a> --}}
+                            </div>
                         </div>
+
+                        <!-- <div class="dropdown">
+                            <button type="button" class="btn btn-light TypePermission_employee_dropdown dropdown-toggle"  data-toggle="dropdown">
+                                <div class="textdropdown">  الصلاحية</div>
+                            </button>
+                            <div  class="dropdown-menu" style=" color: #0E70F2; ">
+                                <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">  ****** </a>
+                                <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   ******</a>
+                                <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   ****** </a>
+                            </div>
+                        </div> -->
+
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-light employeeDegree_dropdown dropdown-toggle"
+                                data-toggle="dropdown">
+                                <div class="textdropdown">
+                                    {{ $academic_name ? MyApp::getAcademicName($academic_name) : __('general.scientific_degree') }}
+                                </div>
+                            </button>
+                            <div class="dropdown-menu" style=" color: #0E70F2; ">
+                                @forelse (MyApp::getAcademicNames($academic_name) as $key => $value)
+                                    <a id="" class="dropdown-item" style="padding-left:30px;"
+                                        wire:click='setAcademicName("{{ $key }}")'>{{ $value }}</a>
+                                @empty
+                                    <a id="" class="dropdown-item" style="padding-left:30px;">لا يوجد درجات
+                                        علمية</a>
+                                @endforelse
+                                {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px;">   دكتور</a>
+                                <a id="" class="dropdown-item" href="#" style="padding-left:30px;">   استاذ</a>
+                                <a id="" class="dropdown-item" href="#"style="padding-left:30px;">    معيد </a>
+                                <a id="" class="dropdown-item" href="#"style="padding-left:30px;">    موظف </a> --}}
+                            </div>
+                        </div>
+
+                        <select class="form-control selectOption" id="sel1" wire:model='role_id'
+                            style="height: 30px; margin-top:8px">
+                            <option>الصلاحية</option>
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->description }}</option>
+                            @endforeach
+                        </select>
+
+                        <input type="text" class="form-control" id="inputtext" wire:model="username"
+                            placeholder="{{ __('general.username') }}" style="height: 30px; margin-top:8px">
+                        <input type="text" class="form-control" id="inputtext" wire:model="email"
+                            placeholder="الايمل الجامعي" style="height: 30px; margin-top:8px">
+                        <input type="data" class="form-control" id="inputtext" wire:model="phone"
+                            placeholder="التلفون  " style="height: 30px; margin-top:8px; color:black;">
+                        <input type="password" class="form-control" id="inputtext" wire:model="password"
+                            placeholder=" كلمة المرور " style="height: 30px; margin-top:8px">
+                        <input type="password" class="form-control" id="inputtext"
+                            wire:model="password_confirmation" placeholder="تأكيد كلمة المرر  "
+                            style="height: 30px; margin-top:8px; color:black;">
+                        <!-- <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:8px">
+                        <input type="text" class="form-control" id="inputtext" name="note" placeholder="ملاحظة" style="height: 30px; margin-top:8px"> -->
                     </div>
 
-                    <div class="dropdown">
-                                <button type="button" class="btn btn-light deparment_names_dropdown dropdown-toggle"  data-toggle="dropdown" >
-                                    <div class="textdropdown">{{ $academic_name ? myapp::getAcademicName($academic_name) : 'الدرجةالعلمية' }}</div>
-                            </button>
-                        <div  class="dropdown-menu" style=" color: #0E70F2; ">
-                            @foreach (myapp::getAcademicNames($academic_name) as $key => $value)
-                                <a  class="dropdown-item"  style="padding-left:30px;" wire:click="setAcademicName('{{ $key }}')">   {{ $value }} </a>
+                    {{-- </form> --}}
+                </div>
 
-                            @endforeach
-                            {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px;">   دكتور</a>
+                <!-- Modal footer -->
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id=""
+                        wire:click='addEmployee()'>حفظ</button>
+                    <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal"
+                        id="">إلغاء</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- The ModalEditeStudents -->
+    <div class="modal fade" id="EditeStudentModal" wire:ignore.self>
+        <div class="modal-dialog">
+            <div class="modal-content modal_content_css" id="modal-content"
+                style="background-color: #F6F7FA; height: 95vh;">
+
+                <!-- Modal Header -->
+                <div class="modal-header modal_header_css" id="modheader">
+                    تعديل موظف
+                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body modal_body_css">
+                    {{-- <form action="/action_page.php" style="display: block;"> --}}
+                    <div class="form-group">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li style="font-size: 12px;">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <img src="{{ Vite::image('profile.png') }}" width="" class="user_profile_modal">
+
+                        <!-- <input type="number" class="form-control input_Info" id="" name="projectname" placeholder=" الرقم الوظيفي " style="height: 30px; margin-top:8px"> -->
+                        <input type="text" class="form-control input_Info" id="input_nameuser" wire:model='name'
+                            placeholder=" الاسم" style="height: 30px; margin-top:8px">
+                        <input type="date" class="form-control input_Info" id="input_brithdate"
+                            wire:model='birthday' placeholder=" تاريح الميلاد" style="height: 30px; margin-top:8px">
+
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-light gendar dropdown-toggle"
+                                data-toggle="dropdown">
+                                <div class="textdropdown">{{ $gender ? myapp::getGender($gender) : 'الجندر' }}</div>
+                            </button>
+                            <div class="dropdown-menu" style=" color: #0E70F2; ">
+                                @foreach (myapp::getGenders($gender) as $key => $value)
+                                    <a class="dropdown-item" style="padding-left:30px;"
+                                        wire:click="setGender('{{ $key }}')"> {{ $value }} </a>
+                                @endforeach
+                                {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   ذكر </a>
+                            <a id="" class="dropdown-item" href="#"style="padding-left:30px; ">   انثى</a> --}}
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-light deparment_names_dropdown dropdown-toggle"
+                                data-toggle="dropdown">
+                                <div class="textdropdown">
+                                    {{ $academic_name ? myapp::getAcademicName($academic_name) : 'الدرجةالعلمية' }}
+                                </div>
+                            </button>
+                            <div class="dropdown-menu" style=" color: #0E70F2; ">
+                                @foreach (myapp::getAcademicNames($academic_name) as $key => $value)
+                                    <a class="dropdown-item" style="padding-left:30px;"
+                                        wire:click="setAcademicName('{{ $key }}')"> {{ $value }} </a>
+                                @endforeach
+                                {{-- <a id="" class="dropdown-item" href="#" style="padding-left:30px;">   دكتور</a>
                             <a id="" class="dropdown-item" href="#" style="padding-left:30px;">    استاذ </a>
                             <a id="" class="dropdown-item" href="#" style="padding-left:30px;">    استاذ مشارك</a>
                             <a id="" class="dropdown-item" href="#"style="padding-left:30px;">    استاذ مساعد </a>
                             <a id="" class="dropdown-item" href="#"style="padding-left:30px;">    معيد </a> --}}
+                            </div>
                         </div>
-                    </div>
-                                <select class="form-control selectOption" id="sel1" wire:model='department_id'
-                                 placeholder="القسم" style="height: 30px; margin-top:8px">
-                                    <option value>القسم</option>
-                                    @foreach ($departments as $department)
-                                        <option value="{{ $department->id }}">{{ $department->name }}</option>
-                                    @endforeach
-                                </select>
+                        <select class="form-control selectOption" id="sel1" wire:model='department_id'
+                            placeholder="القسم" style="height: 30px; margin-top:8px">
+                            <option value>القسم</option>
+                            @foreach ($departments as $department)
+                                <option value="{{ $department->id }}">{{ $department->name }}</option>
+                            @endforeach
+                        </select>
 
-                            <select class="form-control selectOption" id="sel1" wire:model='role_id' style="height: 30px; margin-top:8px">
-                                    <option value >الصلاحية</option>
-                                    @foreach ($roles as $role)
-                                        <option value="{{ $role->id }}">{{ $role->description }}</option>
-                                    @endforeach
-                        <!-- <option>مدير قسم الذكاء الصناعي</option>
+                        <select class="form-control selectOption" id="sel1" wire:model='role_id'
+                            style="height: 30px; margin-top:8px">
+                            <option value>الصلاحية</option>
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->description }}</option>
+                            @endforeach
+                            <!-- <option>مدير قسم الذكاء الصناعي</option>
                         <option>مدير قسم تحليل البيانات</option> -->
 
-                    </select>
+                        </select>
 
 
 
-                                <input type="text" class="form-control input_Info" id="input_email" wire:model="email" placeholder="الايمل الجامعي" style="height: 30px; margin-top:8px">
-                                <input type="text" class="form-control input_Info" id="input_email" wire:model="username" placeholder="user name" style="height: 30px; margin-top:8px">
-                                <input type="data" class="form-control input_Info" id="input_phone" wire:model="phone" placeholder="التلفون  " style="height: 30px; margin-top:8px; color:black;">
-                                <input type="password" class="form-control input_Info" id="input_password" wire:model="password" placeholder="  كلمة المرور الجديدة" style="height: 30px; margin-top:8px">
-                                <input type="password" class="form-control input_Info" id="input_enurepassword" wire:model="password_confirmation" placeholder="تأكيد كلمة المرر  " style="height: 30px; margin-top:8px; color:black;">
+                        <input type="text" class="form-control input_Info" id="input_email" wire:model="email"
+                            placeholder="الايمل الجامعي" style="height: 30px; margin-top:8px">
+                        <input type="text" class="form-control input_Info" id="input_email" wire:model="username"
+                            placeholder="user name" style="height: 30px; margin-top:8px">
+                        <input type="data" class="form-control input_Info" id="input_phone" wire:model="phone"
+                            placeholder="التلفون  " style="height: 30px; margin-top:8px; color:black;">
+                        <input type="password" class="form-control input_Info" id="input_password"
+                            wire:model="password" placeholder="  كلمة المرور الجديدة"
+                            style="height: 30px; margin-top:8px">
+                        <input type="password" class="form-control input_Info" id="input_enurepassword"
+                            wire:model="password_confirmation" placeholder="تأكيد كلمة المرر  "
+                            style="height: 30px; margin-top:8px; color:black;">
+                    </div>
+
+                    {{-- </form> --}}
                 </div>
 
-            {{-- </form> --}}
-        </div>
+                <!-- Modal footer -->
 
-        <!-- Modal footer -->
-
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" wire:click='save'>حفظ</button>
-            <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id=""
+                        wire:click='save'>حفظ</button>
+                    <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal"
+                        id="">إلغاء</button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
 
-<!-- The ModalDetailsStudents -->
-<div class="modal fade" id="DetailsStudentsModal" style="overflow-y: scroll;" wire:ignore.self>
-<div class="modal-dialog">
-    <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA; height:95vh;">
+    <!-- The ModalDetailsStudents -->
+    <div class="modal fade" id="DetailsStudentsModal" style="overflow-y: scroll;" wire:ignore.self>
+        <div class="modal-dialog">
+            <div class="modal-content modal_content_css" id="modal-content"
+                style="background-color: #F6F7FA; height:95vh;">
 
-        <!-- Modal Header -->
-        <div class="modal-header modal_header_css" id="modheader">
-            التفاصيل
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
+                <!-- Modal Header -->
+                <div class="modal-header modal_header_css" id="modheader">
+                    التفاصيل
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-        <!-- Modal body -->
-        <div class="modal-body modal_body_css">
-            @if ($openType == 'show')
-                <div class="form-group">
+                <!-- Modal body -->
+                <div class="modal-body modal_body_css">
+                    @if ($openType == 'show')
+                        <div class="form-group">
 
-                    <img src="{{ Vite::image('profile.png')}}"  width="" class="user_profile_modal" >
+                            <img src="{{ Vite::image('profile.png') }}" width="" class="user_profile_modal">
 
-                    <div class="table-responsive ">
-                        <table class="table details-academic " style="width:100%;" dir="rtl">
+                            <div class="table-responsive ">
+                                <table class="table details-academic " style="width:100%;" dir="rtl">
 
                                     <tr class="table-primary" id="modldetials">
-                                        <th style=" width:25%; ">  الاسم</th>
+                                        <th style=" width:25%; "> الاسم</th>
                                         <th style="width: 25%;"> تاريخ الميلاد</th>
                                     </tr>
                                     <tr class="table-light " id="modldetials">
@@ -338,7 +482,7 @@
                                         <td>{{ $employeeData->birthday }}</td>
                                     </tr>
                                     <tr class="table-primary" id="modldetials">
-                                        <th style="width: 25%;" > نوع الجندر</th>
+                                        <th style="width: 25%;"> نوع الجندر</th>
                                         <th style="width: 25%;"> الدرجةالعلمية</th>
                                     </tr>
                                     <tr class="table-light" id="modldetials">
@@ -362,7 +506,7 @@
                                         <td>{{ $employeeData->phone }}</td>
                                     </tr>
                                     <tr class="table-primary" id="modldetials">
-                                        <th colspan="2" style="width: 25%;">{{ __('general.user_name')}} </th>
+                                        <th colspan="2" style="width: 25%;">{{ __('general.user_name') }} </th>
                                     </tr>
                                     <tr class="table-light" id="modldetials">
                                         <td colspan="2">{{ $employeeData->username }}</td>
@@ -371,69 +515,71 @@
                                         <th style="width: 25%;">كلمة المرور  </th>
                                         <td>**********</td>
                                     </tr> -->
-                        </table>
-                    </div>
+                                </table>
+                            </div>
+                        </div>
+                    @endif
                 </div>
-            @endif
-        </div>
 
-        <!-- Modal footer -->
+                <!-- Modal footer -->
 
-        <div class="modal-footer ModaldDetailsAcademic">
-            <!--<button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">حفظ</button>
+                <div class="modal-footer ModaldDetailsAcademic">
+                    <!--<button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">حفظ</button>
             <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button> -->
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
 
 
-<!-- The ModalMessageApprovementDelete -->
-<div class="modal fade" id="MessageApprovementDeleteModal" wire:ignore.self>
-<div class="modal-dialog">
-    <div class="modal-content UploadeFileModal" id="modal-content2" style="height: 170px;">
+    <!-- The ModalMessageApprovementDelete -->
+    <div class="modal fade" id="MessageApprovementDeleteModal" wire:ignore.self>
+        <div class="modal-dialog">
+            <div class="modal-content UploadeFileModal" id="modal-content2" style="height: 170px;">
 
-        <!-- Modal Header -->
-        <div class="modal-header " id="modheader" style="height:40px; background-color:#F6F7FA ;color: rgb(67, 111, 206);">
-            تأكيد الحذف
-            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body" style="text-align: center;">
-            <form action="" style="display: block;">
-                <div class="form-group">
-                    <!-- <label for="usr">Name:</label> -->
-                <label  for="">هل تريد حذف المستخدم بالفعل!</label>
+                <!-- Modal Header -->
+                <div class="modal-header " id="modheader"
+                    style="height:40px; background-color:#F6F7FA ;color: rgb(67, 111, 206);">
+                    تأكيد الحذف
+                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
                 </div>
-                <!-- <div class="form-group">
+
+                <!-- Modal body -->
+                <div class="modal-body" style="text-align: center;">
+                    <form action="" style="display: block;">
+                        <div class="form-group">
+                            <!-- <label for="usr">Name:</label> -->
+                            <label for="">هل تريد حذف المستخدم بالفعل!</label>
+                        </div>
+                        <!-- <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div> -->
-            </form>
-        </div>
+                    </form>
+                </div>
 
-        <!-- Modal footer -->
+                <!-- Modal footer -->
 
-        <div class="modal-footer" style="height: 40px;">
-            <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="" style="height: 30p; width: 80px; font: size 12px;"
-            wire:click="deleteEmployee"
-            >نعم</button>
-            <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="" style="height: 30p; width: 80px; font: size 12px;">لا</button>
+                <div class="modal-footer" style="height: 40px;">
+                    <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id=""
+                        style="height: 30p; width: 80px; font: size 12px;" wire:click="deleteEmployee">نعم</button>
+                    <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal"
+                        id="" style="height: 30p; width: 80px; font: size 12px;">لا</button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
 
-@section('script')
-    <script>
-        window.addEventListener('closeModal', event => {
-            $('#MessageApprovementDeleteModal').modal('hide');
-            $('#EditeStudentModal').modal('hide');
-            $('#DetailsStudentsModal').modal('hide');
-        });
-        $('#AddEmployeerModal').on('show.bs.modal', function (event) {
-            @this.call('addEmployeeModal');
-        });
-    </script>
-@endsection
+    @section('script')
+        <script>
+            window.addEventListener('closeModal', event => {
+                $('#MessageApprovementDeleteModal').modal('hide');
+                $('#EditeStudentModal').modal('hide');
+                $('#DetailsStudentsModal').modal('hide');
+                $('#AddEmployeerModal').modal('hide');
+            });
+            $('#AddEmployeerModal').on('show.bs.modal', function(event) {
+                @this.call('addEmployeeModal');
+            });
+        </script>
+    @endsection
 </div>

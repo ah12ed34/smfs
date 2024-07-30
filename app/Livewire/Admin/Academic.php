@@ -73,6 +73,7 @@ class Academic extends Component
 
     public function set_gender($v)
     {
+        // $this->resetErrorBag();
         if (in_array($v, ['male', 'female'])) {
             $this->gender = $v;
         } else {
@@ -82,6 +83,7 @@ class Academic extends Component
 
     public function set_academic_name($v)
     {
+        // $this->resetErrorBag();
         if (in_array($v, ['professor', 'assistant_professor', 'doctor', 'associate_professor'])) {
             $this->academic_name = $v;
         } else {
@@ -92,14 +94,12 @@ class Academic extends Component
 
     private function IdGenration()
     {
-        if (!$this->Eid) {
-            $user_id = 16 + AcademicModel::all()->count();
-            while (User::where('id', $user_id)->exists()) {
-                $user_id++;
-            }
-            return $user_id;
+
+        $user_id = 16 . AcademicModel::all()->count();
+        while (User::where('id', $user_id)->exists()) {
+            $user_id++;
         }
-        return $this->Eid;
+        return $user_id;
     }
     public function updatedAvatar()
     {
@@ -113,6 +113,8 @@ class Academic extends Component
     }
     public function store()
     {
+        // $this->dispatch('alert', 'message', 'success');
+        // event(new \App\Events\AlertEvent('success', 'تمت العملية بنجاح'));
         $this->validate(
             [
                 'name' => 'required',
@@ -138,6 +140,7 @@ class Academic extends Component
                 'avatar' => 'الصورة الشخصية',
             ]
         );
+
         // create user id is auto increment frist number is not used
         // $this->dispatch('closeModal');
         $avatar = null;
@@ -278,8 +281,31 @@ class Academic extends Component
         $this->dispatch('closeModal');
         $this->unselect();
     }
+    public function resetError(){
+        $this->resetErrorBag();
+    }
     public function render()
     {
         return view('livewire.admin.academic');
     }
+    // public function boot()
+    // {
+    //     $this->withValidator(function ($validator) {
+    //         $validator->after(function ($validator) {
+    //             $er = '';
+    //             if ($validator->errors()->count() == 0) {
+    //                 return;
+    //             }
+    //             foreach ($validator->errors()->messages()
+    //                 as $key => $value) {
+    //                 foreach ($value as $v) {
+    //                     $er .= $v . '
+    //                     ';
+    //                 }
+    //             }
+    //             $this->dispatch('alert', $er, 'error');
+    //             // event(new \App\Events\AlertEvent('error', $er));
+    //         });
+    //     });
+    // }
 }

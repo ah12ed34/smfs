@@ -166,6 +166,8 @@ class User extends Authenticatable
     {
         parent::boot();
         static::deleting(function ($user) {
+            DB::beginTransaction();
+
             try {
                 if ($user->isStudent()) {
                     $user->student->delete();
@@ -174,12 +176,15 @@ class User extends Authenticatable
                     $user->academic->delete();
                 }
 
-                $user->Roles()->detach();
-                $user->Permissions()->detach();
+                $user->roles()->detach();
+                $user->permissions()->detach();
                 $user->tokens()->delete();
+
+                DB::commit();
             } catch (\Exception $e) {
-                throw $e;
-                // Rollback if deletion fails
+                DB::rollBack();
+
+                // استعادة البيانات في حالة حدوث خطأ
                 if ($user->isStudent() && !$user->student->exists) {
                     $user->student()->restore();
                 }
@@ -187,9 +192,11 @@ class User extends Authenticatable
                     $user->academic()->restore();
                 }
 
-                $user->Roles()->attach($user->Roles()->pluck('id')->toArray());
-                $user->Permissions()->attach($user->Permissions()->pluck('id')->toArray());
+                $user->roles()->attach($user->roles()->pluck('id')->toArray());
+                $user->permissions()->attach($user->permissions()->pluck('id')->toArray());
                 $user->tokens()->restore();
+
+                throw $e;
             }
         });
         static::deleted(function ($user) {
