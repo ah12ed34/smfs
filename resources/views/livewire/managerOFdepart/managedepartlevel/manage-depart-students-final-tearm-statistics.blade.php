@@ -2,6 +2,12 @@
 @livewire('components.nav.manager_of_depart.managedepartlevel.manage-depart-students-final-tearm-statistics-header',['level'=>$level
 ,'groups'=>$groups,'subjects'=>$subjects,'active'=>$active,'terms'=>$terms])
 @endsection
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
 

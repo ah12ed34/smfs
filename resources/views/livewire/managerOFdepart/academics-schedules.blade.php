@@ -1,5 +1,11 @@
 @section('nav')
-    @livewire('components.nav.manager_of_depart.academics-schedules-header', ['department' => $department, 'HeadOfDepartment' => $active, 'terms' => $terms, 'types' => $types])
+@livewire('components.nav.manager_of_depart.academics-schedules-header', ['department' => $department, 'HeadOfDepartment' => $active, 'terms' => $terms, 'types' => $types])
+@endsection
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
 @endsection
 <div>
     {{-- Do your work, then step back. --}}

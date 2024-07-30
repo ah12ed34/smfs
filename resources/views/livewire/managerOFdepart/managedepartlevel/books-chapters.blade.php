@@ -1,6 +1,12 @@
 @section('nav')
 @livewire('components.nav.manager_of_depart.managedepartlevel.booksChapters-header')
 @endsection
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 <div>
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
     <div class="container"  style="padding-top:30px;">

@@ -2,6 +2,12 @@
 @livewire('components.nav.manager_of_depart.managedepartlevel.all-sechedules-studyinhg-header',
 ['level'=>$level,'schedules'=>$active,'groups'=>$groups,'teachers'=>$teachers
 ])
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 @endsection
 <div>
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}

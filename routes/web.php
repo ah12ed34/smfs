@@ -123,7 +123,7 @@ Route::group(['prefix' => '/student', 'middleware' => ['role:student']], functio
  Route::prefix('/')->group(function () {
         Route::get('vision_of_system', 'MainDetalisOFSystemLoginController@vision_of_system')->name('vision_of_system');
         Route::get('targets_of_system', 'MainDetalisOFSystemLoginController@targets_of_system')->name('targets_of_system');
-        Route::post('messageOFsystem', 'MainDetalisOFSystemLoginController@messageOFsystem')->name('messageOFsystem');
+        Route::get('messageOFsystem', 'MainDetalisOFSystemLoginController@messageOFsystem')->name('messageOFsystem');
 
     });
 Route::get('admin/dashboard', 'AdminController@statistics')->name('admin')->middleware('role:admin');

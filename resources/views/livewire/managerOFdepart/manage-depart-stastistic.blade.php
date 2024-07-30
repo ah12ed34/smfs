@@ -1,7 +1,12 @@
 {{-- @section('nav')
 @livewire('components.nav.manager_of_depart.manag-depart-main ')
 @endsection --}}
-
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 <div>
     {{-- Nothing in the world is as soft and yielding as water. --}}
 
