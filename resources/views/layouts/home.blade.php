@@ -132,11 +132,11 @@
             <button class="button-sidebar" onclick="location.href='{{ route('student-studyingSchedule') }}'"><img
                     src="{{ Vite::image('calendar (3).png') }}" class="sidebaricon" width="26px"><label
                     class="">{{ __('layout.schaudule_std') }} </button>
-            <button class="button-sidebar" onclick="location.href='{{ route('student-archieve') }}'"><img
+            {{-- <button class="button-sidebar" onclick="location.href='{{ route('student-archieve') }}'"><img
                     src="{{ Vite::image('portfolio (2).png') }}" class="sidebaricon" width="26px"><label
                     class="">{{ __('layout.archives') }} </label></button>
             <button class="button-sidebar"><img src="{{ Vite::image('setting (2).png') }}" class="sidebaricon"
-                    width="26px"><label class="">{{ __('layout.settings') }} </label></button>
+                    width="26px"><label class="">{{ __('layout.settings') }} </label></button> --}}
         @endStudent
 
         @Admin()

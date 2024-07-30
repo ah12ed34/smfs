@@ -10,7 +10,7 @@
                 <table class="table" style="width:100%; right:0%;">
                     <thead class="table-header" style="font-size: 12px;">
                         <tr class="table-light" id="modldetials">
-                            <th>تعديل</th>
+                            {{-- <th>تعديل</th> --}}
                             <th>التفاصيل</th>
                             <th>الصلاحية</th>
                             <th>التلفون</th>
@@ -23,9 +23,9 @@
                     <tbody>
                         @forelse ($academics as $academic)
                         <tr class="table-light" id="modldetials">
-                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite"
+                            {{-- <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite"
 
-                                >تعديل  <img src="{{Vite::image("edit.png")}}"id=""  width="15px" ></button> </td>
+                                >تعديل  <img src="{{Vite::image("edit.png")}}"id=""  width="15px" ></button> </td> --}}
                             <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldDetails" wire:click="showEmployee({{$academic->user->id}})">التفاصيل</button> </td>
                             <td>{{$academic->user?->role()?->name}}</td>
                             <td>{{$academic->user->phone}}</td>
@@ -141,7 +141,7 @@
 
 
 
-
+{{--
                         <div class="table-responsive">
                            <table class="table" style="width:100%;">
                             <tr>
@@ -232,7 +232,7 @@
 
                         </div>
                         <input type="text" class="form-control" id="inputtext" name="totallecturesweekly" placeholder=" اجمالي المحاضرات الأسبوعية " style="height: 30px; margin-top:6px">
-                        <input type="text" class="form-control" id="inputtext" name="totallecturesoftearm" placeholder="   اجمالي محاضرات الفصل الدراسي  " style="height: 30px; margin-top:10px">
+                        <input type="text" class="form-control" id="inputtext" name="totallecturesoftearm" placeholder="   اجمالي محاضرات الفصل الدراسي  " style="height: 30px; margin-top:10px"> --}}
 
                         <!-- <input type="file" class="form-control-file border" id="file" name="uploadefile" style="height: 30px; margin-top:8px">
                         <input type="text" class="form-control" id="inputtext" name="note" placeholder="ملاحظة" style="height: 30px; margin-top:8px"> -->

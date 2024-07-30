@@ -12,7 +12,7 @@
                 <table class="table" style=" width:100%;">
                     <thead class="table-header" style="font-size: 12px;">
                         <tr class="table-light" id="modldetials">
-                            <th>تعديل</th>
+                            {{-- <th>تعديل</th> --}}
                             <th>التفاصيل</th>
                             <th>الصلاحية</th>
                             <th>التلفون</th>
@@ -25,7 +25,7 @@
                     <tbody>
                         @forelse ($academics as $academic)
                             <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                                <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite" wire:click='EditEmployee("{{ $academic->user_id }}")'>تعديل</button> </td>
+                                {{-- <td><button type="submit" class="btn btn-primary btn-sm" id="btn-chat-edit" data-toggle="modal" data-target="#myModalEdite" wire:click='EditEmployee("{{ $academic->user_id }}")'>تعديل</button> </td> --}}
                                 <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#myModaldDetails" wire:click='showEmployee("{{ $academic->user_id }}")'>التفاصيل</button> </td>
                                 <td>{{ $academic?->user?->Role()?->description }}</td>
                                 <td>{{ $academic->user->phone }}</td>

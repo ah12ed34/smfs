@@ -62,7 +62,7 @@
         </div>
 
 
-        <td><button type="submit" class="btn btn-primary btn-sm  manageDepart-addAcademic" id="" data-toggle="modal" data-target="#addacademic">  اضافة اكاديمي  <img  src="{{Vite::image("plus.png")}}" width="20px" style="float: left;"></button> </td>
+        {{-- <td><button type="submit" class="btn btn-primary btn-sm  manageDepart-addAcademic" id="" data-toggle="modal" data-target="#addacademic">  اضافة اكاديمي  <img  src="{{Vite::image("plus.png")}}" width="20px" style="float: left;"></button> </td> --}}
 
 
         </div>
