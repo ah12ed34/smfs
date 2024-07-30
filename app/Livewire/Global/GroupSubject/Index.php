@@ -5,7 +5,7 @@ namespace App\Livewire\Global\GroupSubject;
 use Livewire\Component;
 use App\Models\Group;
 use App\Models\Subject;
-use App\Models\groupSubject;
+use App\Models\GroupSubject;
 use App\Models\Academic as teacher;
 use App\Models\AcademicYear;
 use Illuminate\Support\Facades\Log;
