@@ -11,11 +11,11 @@ use Livewire\Component;
 
 class StudentsSechedules extends Component
 {
-    use Searchable,SchedulesTrait;
+    use Searchable, SchedulesTrait;
     public $parameters;
     public Department $department;
     public Level $level;
-    public $schedule;
+    // public $schedule;
     public function mount()
     {
         $this->parameters = request()->route()->parameters();
@@ -23,13 +23,12 @@ class StudentsSechedules extends Component
 
     public function selectedSchedule($user_id, $delete = false)
     {
-        if ($this?->academicData?->user_id != $user_id&&$this->getErrorBag()->has('schedule'))
-        {
+        if ($this?->academicData?->user_id != $user_id && $this->getErrorBag()->has('schedule')) {
             // reset Errors
             $this->resetErrorBag();
         }
 
-        $this->academicData = $this->groups->where('id',$user_id)->first();
+        $this->academicData = $this->groups->where('id', $user_id)->first();
         $this->openType = 'selected';
         if ($delete) {
             // check if the schedule is not null
@@ -44,16 +43,16 @@ class StudentsSechedules extends Component
     {
         return $this->level->groups()->whereNull('group_id')
 
-        ->where('name', 'like', '%' . $this->search . '%')
-        ->orderBy('name')
-        ->paginate($this->perPage)
-        ;
+            ->where('name', 'like', '%' . $this->search . '%')
+            ->orderBy('name')
+            ->paginate($this->perPage);
     }
     public function render()
     {
         return view('livewire.managementOFsechedules.students-sechedules',
-        [
-            'groups' => $this->groups,
-        ]);
+            [
+                'groups' => $this->groups,
+            ]
+        );
     }
 }

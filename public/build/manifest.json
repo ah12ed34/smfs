@@ -20,7 +20,7 @@
     "src": "public/app/images/faculty.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-kWxqzaTN.css",
+    "file": "assets/app-kYkC3G7z.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -341,7 +341,7 @@
     "src": "resources/images/user.png"
   },
   "resources/js/app.js": {
-    "file": "assets/app-BKglogtV.js",
+    "file": "assets/app-CiBJZZVk.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true
