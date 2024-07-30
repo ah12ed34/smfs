@@ -158,13 +158,16 @@ trait Groupsable
             'gender' => $this->gender,
             'max_students' => $this->max_students,
             'system' => $this->system,
-            'schedule' => $this?->groupDitails?->schedule ?? null,
+            // 'schedule' => $this?->groupDitails?->schedule ?? null,
             'group_id' => $this->group_id,
         ];
+        if ($this?->groupDitails?->schedule) {
+            $data['schedule'] = $this->groupDitails->schedule;
+        }
         if ($type == 'add') {
             Group::create($data);
         } elseif ($type == 'edit') {
-            Group::updated($data);
+            Group::where('id', $this->GId)->update($data);
         }
         $this->dispatch('closeModal');
     }
