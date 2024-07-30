@@ -1,6 +1,12 @@
 @section('nav')
 @livewire('components.nav.manager_of_depart.manage-academic-depart')
 @endsection
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
 

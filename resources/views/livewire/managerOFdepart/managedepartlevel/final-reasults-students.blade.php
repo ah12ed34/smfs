@@ -1,6 +1,12 @@
 @section('nav')
 @livewire('components.nav.manager_of_depart.managedepartlevel.final-reasults-students-header')
 @endsection
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 <div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
 

@@ -1,7 +1,12 @@
 @section('nav')
     @livewire('components.nav.manager_of_depart.manag-depart-main')
 @endsection
-
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 <div>
     {{-- Care about people's approval and you will be their prisoner. --}}
 

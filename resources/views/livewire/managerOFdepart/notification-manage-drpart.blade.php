@@ -6,7 +6,12 @@
 {{-- @section('nav')
 @livewire('components.nav.manager_of_depart.manag-depart-main ')
 @endsection --}}
-
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 <div>
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
     <div class="hdr2" style=" box-shadow: 10px;">

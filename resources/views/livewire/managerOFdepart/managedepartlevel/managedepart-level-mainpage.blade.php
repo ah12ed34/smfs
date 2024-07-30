@@ -2,6 +2,12 @@
 @livewire('components.nav.manager_of_depart.managedepartlevel.depart-level-main-page-header',
 ['level' => $level,'typeGroup' => $typeGroup,])
 @endsection
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
 

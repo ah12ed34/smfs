@@ -3,6 +3,12 @@
 
 @livewire('components.nav.manager_of_depart.managedepartlevel.depart-level-academicl-header', ['level' => $level])
 @endsection
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 <div>
     {{-- Be like water. --}}
 

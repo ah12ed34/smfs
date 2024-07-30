@@ -1,6 +1,12 @@
 @section('nav')
 @livewire('components.nav.manager_of_depart.managedepartlevel.students-groups-information-header', ['level' => $level])
 @endsection
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 <div>
     {{-- The whole world belongs to you. --}}
 

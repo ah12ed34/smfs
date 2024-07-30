@@ -1,6 +1,12 @@
 @section('nav')
 @livewire('components.nav.manager-of-depart.managedepartlevel.books-ofdepart-level-header')
 @endsection
+@section('homeLayout')
+@include('components.sidebar.HOD')
+@endsection
+@section('homeLayoutM')
+@include('components.sidebar.HODMO')
+@endsection
 <div>
     {{-- Success is as dangerous as failure. --}}
 

@@ -7,7 +7,7 @@
 
         {{-- <div class="dep-name">{{ auth()->user()?->academic?->department?->name }}</div> --}}
         <div class="dep-name" style="border: none;box-shadow:none; "></div>
-        
+
 {{-- <div class="dropdown">
             <button type="button"  class="btn btn-light TypeTerm_dropdown  dropdown-toggle" data-toggle="dropdown" dir="rtl">
                     <div class="textdropdown">    ترم اول</div>
@@ -65,7 +65,7 @@
     </div>
 
     <div class="hr3">
-        <button id="spacesbtn" class="spaces"  onclick="window.location='{{ route('main_academic_sechedules') }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
+        {{-- <button id="spacesbtn" class="spaces"  onclick="window.location='{{ route('main_academic_sechedules') }}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button> --}}
 
         @include('components.navSelect.search')
 
