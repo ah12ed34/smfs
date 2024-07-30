@@ -1,65 +1,69 @@
 @extends('layouts.home')
 @section('nav')
-@livewire('components.nav.admin.department', ['active' => 'notification'])
+    @livewire('components.nav.admin.department', ['active' => 'notification'])
 @endsection
 @section('content')
-<div class="container">
+    <div class="container">
 
 
-    {{-- @if ($card_notification == 'StudentNotifictions') --}}
-    <div class="card  cards-departments " id="" wire:click='setSA("student_a")' data-toggle="modal" data-target="#ModalSendNotifictionsStudents">
-        {{-- <div class="card  cards-departments" id=""
+        {{-- @if ($card_notification == 'StudentNotifictions') --}}
+        <div class="card  cards-departments " id="" wire:click='setSA("student_a")' data-toggle="modal"
+            data-target="#ModalSendNotifictionsStudents">
+            {{-- <div class="card  cards-departments" id=""
             onclick="window.location='{{ route('sendNotifications_students') }}'"> --}}
-            <img src="{{ Vite::image('studentnotif.png')}}" class="" width="150px">
+            <img src="{{ Vite::image('studentnotif.png') }}" class="" width="150px">
             <div class="card-departments-child" style="background-color:white; color:#34959C"> إشعارات الطلاب
             </div>
             {{--
         </div> --}}
-    </div>
-    {{-- @endif --}}
+        </div>
+        {{-- @endif --}}
 
-    {{-- @if ($card_notification == 'InstructorsNotifictions') --}}
-    <div class="card  cards-departments" id="" wire:click='setSA("teatcher_a")' data-toggle="modal" data-target="#ModalSendNotifictionsStudents">
-        {{-- <div class="card  cards-departments" id=""
+        {{-- @if ($card_notification == 'InstructorsNotifictions') --}}
+        <div class="card  cards-departments" id="" wire:click='setSA("teatcher_a")' data-toggle="modal"
+            data-target="#ModalSendNotifictionsStudents">
+            {{-- <div class="card  cards-departments" id=""
             onclick="window.location='{{ route('sendNotifications_academics') }}'"> --}}
-            <img src="{{ Vite::image('instructorsnotif.png')}}" class="" width="150px">
+            <img src="{{ Vite::image('instructorsnotif.png') }}" class="" width="150px">
             <div class="card-departments-child" style="background-color:white; color:#34959C"> إشعارات المعلمين
             </div>
             {{--
         </div> --}}
-    </div>
-    {{-- @endif --}}
+        </div>
+        {{-- @endif --}}
 
-    {{-- @if($card_notification == 'ManagersNotifictions') --}}
-    <div class="card  cards-departments" id="" wire:click='setSA("HOD")' data-toggle="modal"  data-target="#ModalSendNotifictionsStudents">
-        {{-- <div class="card  cards-departments" id=""
+        {{-- @if ($card_notification == 'ManagersNotifictions') --}}
+        <div class="card  cards-departments" id="" wire:click='setSA("HOD")' data-toggle="modal"
+            data-target="#ModalSendNotifictionsStudents">
+            {{-- <div class="card  cards-departments" id=""
             onclick="window.location='{{ route('sendNotifications_managers') }}'"> --}}
-            <img src="{{ Vite::image('bossesofdepartmentsnotif.png')}}" class="" width="150px">
+            <img src="{{ Vite::image('bossesofdepartmentsnotif.png') }}" class="" width="150px">
             <div class="card-departments-child" style="background-color:white; color:#34959C"> إشعارات رؤساء الأقسام
             </div>
             {{--
         </div> --}}
-    </div>
-    {{-- @endif --}}
+        </div>
+        {{-- @endif --}}
 
-    {{-- @if($card_notification == 'ManagersNotifictions') --}}
-    <div class="card  cards-departments" id="" wire:click='setSA("employee")' data-toggle="modal" data-target="#ModalSendNotifictionsStudents">
-        {{-- <div class="card  cards-departments" id=""
+        {{-- @if ($card_notification == 'ManagersNotifictions') --}}
+        <div class="card  cards-departments" id="" wire:click='setSA("employee")' data-toggle="modal"
+            data-target="#ModalSendNotifictionsStudents">
+            {{-- <div class="card  cards-departments" id=""
             onclick="window.location='{{ route('sendNotifications_managers') }}'"> --}}
-            <img src="{{ Vite::image('all_employeesNotifications.png')}}" class="" width="150px">
+            <img src="{{ Vite::image('all_employeesNotifications.png') }}" class="" width="150px">
             <div class="card-departments-child" style="background-color:white; color:#34959C"> إشعارات الموظفين
             </div>
             {{--
         </div> --}}
+        </div>
+        {{-- @endif --}}
+
+
+
     </div>
-    {{-- @endif --}}
 
-
-
-</div>
-
-<!-- The ModalSendNotifictions -->
-{{-- <div class="modal fade" id="ModalSendNotifictionsStudents">
+    <!-- The ModalSendNotifictions -->
+    {{-- <div class="modal fade" id="ModalSendNotifictionsStudents">
     <div class="modal-dialog">
         <div class="modal-content modal_content_css" id="modal-content" style="background-color: #F6F7FA;height:95vh;">
             <!-- Modal Header -->
@@ -193,7 +197,7 @@
                     </div>
 
                     <button id="" type="button" class="btn btn-primary specific_students" data-toggle="modal"
-                        data-target="#MoadalspacificStudents"> تحديد الأكادمين </button>
+                        data-target="#MoadalspacificStudents"> تحديد الأكاديميين </button>
 
                 </div>
 
@@ -472,15 +476,15 @@
     </div>
 </div> --}}
 
-{{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="script.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> --}}
 
-@livewire('components.notifications.notifications-sender', key('notifications-sender'))
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
+    @livewire('components.notifications.notifications-sender', key('notifications-sender'))
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
             const sendButton = document.getElementById("sendButton");
             const messageInput = document.getElementById("messageInput");
             const chatbox = document.getElementById("chatbox");
@@ -488,7 +492,7 @@
             sendButton.addEventListener("click", () => {
                 const messageText = messageInput.value.trim();
                 if (messageText !== "") {
-                    addMessage("You", "{{ Vite::image("user.png") }}", messageText, "sender-message");
+                    addMessage("You", "{{ Vite::image('user.png') }}", messageText, "sender-message");
                     messageInput.value = "";
                     messageInput.focus();
                 }
@@ -501,7 +505,10 @@
             });
 
             function addMessage(sender, profilePic, message, messageType) {
-                const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const time = new Date().toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
                 const messageElement = document.createElement("div");
                 messageElement.classList.add("message", messageType);
 
@@ -524,6 +531,5 @@
                 chatbox.scrollTop = chatbox.scrollHeight;
             }
         });
-
-</script>
+    </script>
 @endsection

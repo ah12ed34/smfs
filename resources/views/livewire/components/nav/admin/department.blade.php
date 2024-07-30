@@ -13,7 +13,9 @@
 @endsection
 <div>
     <div class="hdr2" style=" box-shadow: 10px;">
-        <button class=" spaces" onclick="window.location='{{ route('admin.department') }}'"> <label class="subjectname" style="margin-left: -10px;"> الأدمن </label><img src="{{ Vite::image('admin.png') }}" id="subject-icon-hdr2" width="40px" style="">
+        <button class=" spaces" onclick="window.location='{{ route('admin.department') }}'"> <label class="subjectname"
+                style="margin-left: -10px;"> الأدمن </label><img src="{{ Vite::image('admin.png') }}"
+                id="subject-icon-hdr2" width="40px" style="">
         </button>
 
         @if ($active != 'academic')
@@ -77,7 +79,7 @@
                     @endif
                     {{--  @if ($active != 'academic')
                 <a style="padding-left:20px;"> <button type="button" class="btn  dropdown-toggle " data-toggle="dropdown" dir="rtl"  style="background-color:white;" ></a>
-                        الأكادمين
+                        الأكاديميين
                     </button>
                     <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">تقنية المعلومات</a>
@@ -166,8 +168,7 @@
                     wire:keydown.enter='search()'>
                 <div class="input-group-append">
                     <button id="form-control" class="btn btn-light" type="submit" wire:click='search()'><img
-                            src="{{ Vite::image('magnifying-glass (2).png') }}" id="spaces2"
-                            width="20px"></button>
+                            src="{{ Vite::image('magnifying-glass (2).png') }}" id="spaces2" width="20px"></button>
                 </div>
             </div>
 
