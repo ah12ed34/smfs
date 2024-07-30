@@ -25,7 +25,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers ;
+    use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
@@ -40,7 +40,7 @@ class LoginController extends Controller
     //         return '/home';
     //     }
     // }
-    protected $username ;
+    protected $username;
     /**
      * Create a new controller instance.
      *
@@ -52,7 +52,8 @@ class LoginController extends Controller
         request()->merge([$this->username() => request()->input('username')]);
     }
 
-    public function username(){
+    public function username()
+    {
         // $login = request()->input('username');
         // $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         // request()->merge([$field => $login]);
@@ -63,16 +64,16 @@ class LoginController extends Controller
         return $this->username;
     }
 
-protected $redirectTo = '/'; // المسار الافتراضي
+    protected $redirectTo = '/'; // المسار الافتراضي
 
-    public static function redirectTo() : string
+    public static function redirectTo(): string
     {
         // تخصيص المسار بناءً على نوع الحساب
         if (optional(auth::user())->isAdmin()) {
             return '/admin/dashboard';
-        } elseif (optional(auth::user())->isAcademic() ) {
-            if(auth()->user()->academic->courses()->count() == 0){
-                if(optional(auth()->user())->role()->name == 'StudentAffairs'){
+        } elseif (optional(auth::user())->isAcademic()) {
+            if (auth()->user()->academic->courses()->count() == 0) {
+                if (optional(auth()?->user())?->role()?->name == 'StudentAffairs') {
                     return '/StudentSaffairs';
                 }
             }
@@ -81,7 +82,6 @@ protected $redirectTo = '/'; // المسار الافتراضي
             return '/student';
         } else {
             return '/home';
-
         }
     }
 
@@ -96,14 +96,14 @@ protected $redirectTo = '/'; // المسار الافتراضي
     // }
 
 
-//     protected function authenticated(Request $request, $user)
-// {
-//     // إليك مكان إضافة البيانات الإضافية التي تريد
-//     $user->lest_name = $request->lest_name;
-//     $user->save();
+    //     protected function authenticated(Request $request, $user)
+    // {
+    //     // إليك مكان إضافة البيانات الإضافية التي تريد
+    //     $user->lest_name = $request->lest_name;
+    //     $user->save();
 
-//     return redirect()->intended($this->redirectPath());
-// }
+    //     return redirect()->intended($this->redirectPath());
+    // }
 
     // protected function sendFailedLoginResponse(Request $request)
     // {
@@ -123,7 +123,8 @@ protected $redirectTo = '/'; // المسار الافتراضي
     // {
     //     return $this->username;
     // }
-    public function vision_of_system(){
+    public function vision_of_system()
+    {
         // return view('auth.vision_of_system');
     }
 }
