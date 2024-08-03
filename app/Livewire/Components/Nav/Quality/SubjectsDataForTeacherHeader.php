@@ -2,9 +2,10 @@
 
 namespace App\Livewire\Components\Nav\Quality;
 
+use App\Traits\SearchingComponent;
 use Livewire\Component;
 
-class SubjectsDataForTeacherHeader extends Component
+class SubjectsDataForTeacherHeader extends SearchingComponent
 {
     public $level;
     public function render()
