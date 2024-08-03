@@ -81,17 +81,22 @@ class FileRepository extends AcademicYRepository
         $student['name'] = $name['name'] ?? null;;
         $student['last_name'] = $name['last_name'] ?? null;
         $student['email'] = $this->checkEmail($row[$keys['email'] ?? null] ?? null, $error);
-        $student['birthday'] = $this->checkDate($rom[$keys['birthday'] ?? null] ?? null, $error);
+        $student['birthday'] = $this->checkDate($row[$keys['birthday'] ?? null] ?? null, $error);
         $student['phone'] = $this->checkPhone($row[$keys['phone'] ?? null] ?? null, $error);
         $student['system'] = $this->getSystem($row[$keys['system'] ?? null] ?? null, $error);
-        $student['join_date'] = $this->checkYear($row[$key['join_date'] ?? null] ?? null, $error);
+        $student['join_date'] = $this->checkYear($row[$keys['join_date'] ?? null] ?? null, $error)
+            ?? 2000 + (int) str_split($student['id'], 2)[0];
         $student['username'] = $this->checkusername($row[$keys['username'] ?? null] ?? null, $error) ?? $student['id'];
         $student['gender'] = $this->checkgender($row[$keys['gender'] ?? null] ?? null, $error);
         $student['password'] = $this->checkPassowrd($row[$keys['password'] ?? null] ?? null, $error);
 
         // $student['error'] = [$error['id'] ?? null, $error['name'] ?? null] ;
         $student['error'] = array_filter([$error['id'] ?? null, $error['name'] ?? null]);
-        $student['warning'] = [$error['password'] ?? null, $error['lest'] ?? null, $error['email'] ?? null, $error['phone'] ?? null, $error['address'] ?? null];
+        $student['warning'] = array_filter([
+            $error['password'] ?? null, $error['lest'] ?? null, $error['email'] ?? null, $error['phone'] ?? null, $error['address'] ?? null,
+            $error['date'] ?? null, $error['year'] ?? null, $error['username'] ?? null
+        ]);
+        // $student['warning'] = array_filter($student['warning']);
         return $student;
     }
 
@@ -261,15 +266,38 @@ class FileRepository extends AcademicYRepository
         }
         return $phone;
     }
-
+    static $formatsFile = null;
     function checkDate($date, &$error)
     {
-        $supportedFormats = ['d-m-Y', 'd/m/Y', 'd.m.Y', 'Y-m-d', 'Y/m/d'];
+        $supportedFormats = [
+            'Y-m-d',
+            'Y-d-m',
+            'm-d-Y',
+            'd-m-Y',
+            'm-Y-d',
+            'd-Y-m',
+        ];
 
+        $date = str_replace(['/', '.', ' '], '-', $date);
+        $slt = explode('-', $date);
+        $slt = array_map(fn ($value) => strlen($value) == 1 ? '0' . $value : $value, $slt);
+        $date = implode('-', $slt);
+        if (self::$formatsFile) {
+            $d = \DateTime::createFromFormat(self::$formatsFile, $date);
+            if ($d) {
+                if ($d->format(self::$formatsFile) == $date) {
+                    return $d->format('Y-m-d');
+                }
+            }
+        }
         foreach ($supportedFormats as $format) {
             $d = \DateTime::createFromFormat($format, $date);
-            if ($d && $d->format($format) == $date) {
-                return $date;
+            if ($d) {
+
+                if ($d->format($format) == $date) {
+                    self::$formatsFile = $format;
+                    return $d->format('Y-m-d');
+                }
             }
         }
 

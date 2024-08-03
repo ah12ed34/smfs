@@ -92,7 +92,10 @@ class Academic extends Model
 
     public function getFNameAttribute()
     {
-        return mb_substr($this->name, 0, 1, 'utf-8') . '. ' . explode(' ', $this->user->name)[0] . ' ' . $this->user->last_name;
+        if (__('general.unknown') != $this->name)
+            return mb_substr($this->name, 0, 1, 'utf-8') . '. ' . explode(' ', $this->user->name)[0] . ' ' . $this->user->last_name;
+        else
+            return explode(' ', $this->user->name)[0] . ' ' . $this->user->last_name;
     }
     protected static $deleting = false;
     protected static function boot()

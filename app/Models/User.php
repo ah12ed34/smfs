@@ -194,7 +194,6 @@ class User extends Authenticatable
 
                 $user->roles()->attach($user->roles()->pluck('id')->toArray());
                 $user->permissions()->attach($user->permissions()->pluck('id')->toArray());
-                $user->tokens()->restore();
 
                 throw $e;
             }

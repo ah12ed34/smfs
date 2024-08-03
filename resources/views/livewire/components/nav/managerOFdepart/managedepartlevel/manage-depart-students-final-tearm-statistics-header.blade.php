@@ -67,7 +67,7 @@
                 class="btn btn-light MnageDepart_studentsFinalWorks_Statistics_TypeTerm_dropdown  dropdown-toggle"
                 data-toggle="dropdown" dir="rtl">
                 <div class="textdropdown">
-                    {{ $active['term'] != 'all' ? $terms->where('id', $active['term'])->first()->name : 'كل الترام' }}
+                    {{ $active['term'] != 'all' ? $terms->where('id', $active['term'])->first()?->name : 'كل الترام' }}
                 </div>
             </button>
             <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">

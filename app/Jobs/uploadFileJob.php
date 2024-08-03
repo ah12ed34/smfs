@@ -148,6 +148,14 @@ class uploadFileJob implements ShouldQueue
             $this->logs = print_r($data, true);
             $id = User::where('id', $data['id'])?->first()?->id;
             if ($id) {
+                $user_id = Student::where('user_id', $id)->first()?->user_id;
+                if ($user_id) {
+                    $data['user_id'] = $user_id;
+                    Student::where('user_id', $id)->update($data);
+                } else {
+                    $data['user_id'] = $id;
+                    Student::create($data);
+                }
                 $this->eventPDHQ([
                     'status' => 'warning',
                     'log' => 'Student already exist ' . $data['id'],

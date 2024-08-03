@@ -38,4 +38,12 @@ class GroupStudents extends Model
     {
         return $this->hasOne(Delivery::class, 'group_student_id', 'id')->where('group_file_id', $id)->first();
     }
+    public function studyings()
+    {
+        return $this->hasMany(
+            Studying::class,
+            'student_id',
+            'id'
+        );
+    }
 }
