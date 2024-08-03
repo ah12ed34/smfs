@@ -112,7 +112,7 @@ trait Uploadable
                 'user_id' => Auth::user()->id,
                 'upload' => $this->uploadName,
                 'file' => $this->pathFile,
-                'status' => $this->sizeAll > 0 ? 'pneding' : 'failed',
+                'status' => $this->sizeAll > 0 ? 'pending' : 'failed',
                 'Progress' => 0,
                 'log' => $this->sizeAll > 0 ? null : 'File is empty',
             ]);
