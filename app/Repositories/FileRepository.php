@@ -20,7 +20,7 @@ class FileRepository extends AcademicYRepository
 {
 
     private $columnsMap = [
-        'id' => ['الرقم', 'كود الطالب', 'الرقم الاكاديمي', 'الرقم الجامعي', 'الرقم الطلابي', 'الرقم الوظيفي', 'id', 'student_id', 'employee_id', 'user_id', 'id student', 'id employee', 'id user', 'كود الطالب', 'كود الموظف', 'كود المستخدم'],
+        'id' => ['الرقم', 'كود الطالب', 'الرقم الاكاديمي', 'الرقم الجامعي', 'الرقم الطلابي', 'الرقم الوظيفي', 'id', 'student_id', 'employee_id', 'user_id', 'id student', 'id employee', 'id user', 'كود الطالب', 'كود الموظف', 'كود المستخدم', 'رقم القيد'],
         'name' => ['name', 'الاسم', 'اسم الطالب', 'اسم الموظف', 'اسم المستخدم', 'name employee', 'name student', 'name user', 'name_student', 'name_employee', 'name_user'],
         'last_name' => ['last_name', 'اللقب', 'last name', 'last name student', 'last name employee', 'last name user'],
         'birthday' => ['brithday', 'تاريخ الميلاد', 'brithday student', 'brithday employee', 'brithday user', 'birthday'],
@@ -37,7 +37,7 @@ class FileRepository extends AcademicYRepository
         'is_graduated' => ['is_graduated', 'التخرج', 'is_graduated student', 'is_graduated user'],
         'gender' => ['gender', 'الجنس', 'جندر', 'الجندر', 'النوع', 'sex'],
         'username' => ['username', 'اسم المستخدم', 'username student', 'username employee', 'username user'],
-        'midterm_exam' => ['midterm_exam', 'الاختبار النصفي', 'midterm exam', 'midterm_exam', 'midterm exam student', 'midterm exam user'],
+        'midterm_exam' => ['midterm_exam', 'الاختبار النصفي', 'midterm exam', 'midterm_exam', 'midterm exam student', 'midterm exam user', 'درجة الإمتحان النصفي'],
         'final_exam' => ['exam', 'الاختبار النهائي', 'exam student', 'exam user', 'final exam', 'final_exam', 'final exam student', 'final exam user'],
         'participation' => ['participation', 'المشاركة', 'participation student', 'participation user', 'addional_grades', 'addional grades', 'درجات اضافية'],
     ];

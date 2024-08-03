@@ -65,57 +65,64 @@ trait Uploadable
         $this->fileRep = new FileRepository();
         // dd($this->uploadName);
         // dd($this->level);
-        $path = Storage::path($this->pathFile);
-        if (!file_exists($path)) {
-            new \Exception('File not found');
-        }
-        $spreadsheet = IOFactory::load($path);
-        $sheetData = $spreadsheet->getSheet(0)->toArray();
-
-        while (sizeof($sheetData) > 0) {
-            $this->headerRow = array_shift($sheetData);
-            $this->headerRowKeys = $this->fileRep->getArrayHeaderKey($this->headerRow);
-
-            if ($this->headerRowKeys && isset($this->headerRowKeys['id'])) {
-                break;
+        try {
+            $path = Storage::path($this->pathFile);
+            if (!file_exists($path)) {
+                new \Exception('File not found');
             }
-        }
-        // dd($this->headerRowKeys);
-        $this->sizeAll = sizeof($sheetData);
-        $rowsChunk = array_chunk($sheetData, $this->chunk);
-        $this->count = sizeof($rowsChunk);
-        $data = [
-            'file' => $this->pathFile,
-            'count' => $this->count,
-            'chunk' => $this->chunk,
-            'sizeAll' => $this->sizeAll,
-            'id' => Auth::user()->id,
-            'uploadName' => $this->uploadName,
-        ];
-        switch ($this->uploadName) {
-            case 'students_upload_grades':
-                $data['subject_id'] = $this->updateId;
-                break;
-            case 'uploadeNewStudentFile':
-                $data['department_id'] = $this->level->department_id;
-                $data['level_id'] = $this->level->id;
-                break;
-        }
-        foreach ($rowsChunk as $key => $rows) {
-            $data['possition'] = $key + 1;
-            $data['possitionChunk'] = sizeof($rows);
-            uploadFileJob::dispatch($this->headerRowKeys, $rows, $data);
-        }
+            $spreadsheet = IOFactory::load($path);
+            $sheetData = $spreadsheet->getSheet(0)->toArray();
+            // dd($sheetData);
+            while (sizeof($sheetData) > 0) {
+                $this->headerRow = array_shift($sheetData);
+                $this->headerRowKeys = $this->fileRep->getArrayHeaderKey($this->headerRow);
 
-        HistoryQueue::create([
-            'user_id' => Auth::user()->id,
-            'upload' => $this->uploadName,
-            'file' => $this->pathFile,
-            'status' => 'pending',
-            'Progress' => 0,
-        ]);
-        $this->deleteFile($this->pathFile);
-        $this->refreshComponent();
+                if ($this->headerRowKeys && isset($this->headerRowKeys['id'])) {
+                    break;
+                }
+            }
+            // dd($this->headerRowKeys);
+            $this->sizeAll = sizeof($sheetData);
+            $rowsChunk = array_chunk($sheetData, $this->chunk);
+            $this->count = sizeof($rowsChunk);
+            $data = [
+                'file' => $this->pathFile,
+                'count' => $this->count,
+                'chunk' => $this->chunk,
+                'sizeAll' => $this->sizeAll,
+                'id' => Auth::user()->id,
+                'uploadName' => $this->uploadName,
+            ];
+            switch ($this->uploadName) {
+                case 'students_upload_grades':
+                    $data['subject_id'] = $this->updateId;
+                    break;
+                case 'uploadeNewStudentFile':
+                    $data['department_id'] = $this->level->department_id;
+                    $data['level_id'] = $this->level->id;
+                    break;
+            }
+            foreach ($rowsChunk as $key => $rows) {
+                $data['possition'] = $key + 1;
+                $data['possitionChunk'] = sizeof($rows);
+                uploadFileJob::dispatch($this->headerRowKeys, $rows, $data);
+            }
+
+            HistoryQueue::create([
+                'user_id' => Auth::user()->id,
+                'upload' => $this->uploadName,
+                'file' => $this->pathFile,
+                'status' => $this->sizeAll > 0 ? 'pneding' : 'failed',
+                'Progress' => 0,
+                'log' => $this->sizeAll > 0 ? null : 'File is empty',
+            ]);
+            $this->deleteFile($this->pathFile);
+
+            $this->refreshComponent();
+        } catch (\Exception $e) {
+            $this->message = $e->getMessage();
+            $this->status = 'failed';
+        }
     }
 
     public function deleteFile($path)

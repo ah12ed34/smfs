@@ -10,50 +10,45 @@ use App\Traits\Studentsable;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-use function PHPSTORM_META\elementType;
-
 class StudentsInformationInGroups extends Component
 {
-    use Studentsable ,Searchable,Groupsable{
+    use Studentsable, Searchable, Groupsable {
         Groupsable::selected as selectedGroup;
         Studentsable::selected  insteadof Groupsable;
         Studentsable::setGender  insteadof Groupsable;
         Studentsable::setSystem insteadof Groupsable;
         Groupsable::setGender as setGenderGroup;
         Groupsable::setSystem as setSystemGroup;
-
     }
     public $level;
     public $group;
     public $groups;
 
-    public function mount(Level $LId,Group $group)
+    public function mount(Level $LId, Group $group)
     {
         $this->level = $LId;
         $this->group = $group;
         $this->sortField = 'id';
         $this->groups = $this->level->groups;
-        if($group->group_id){
-            $this->groups = $this->groups->where('group_id',$group->group_id);
-        }else{
+        if ($group->group_id) {
+            $this->groups = $this->groups->where('group_id', $group->group_id);
+        } else {
             $this->groups = $this->groups->whereNull('group_id');
         }
     }
 
-    public function moveStudent($id,$group_id)
+    public function moveStudent($id, $group_id)
     {
         // dd($id,$group_id);
         if ($this->students->contains($id)) {
             $student = $this->students->find($id);
             $newGroup = $this->groups->find($group_id);
-            $this->moveStudentToGroup($student,$newGroup,$this->group);
-            }
-            // check if error column not found valdiation error group_id
-            if(!$this->getErrorBag()->has('group_id')){
-                $this->students->forget($this->students->search($student));
-            }
-
-
+            $this->moveStudentToGroup($student, $newGroup, $this->group);
+        }
+        // check if error column not found valdiation error group_id
+        if (!$this->getErrorBag()->has('group_id')) {
+            $this->students->forget($this->students->search($student));
+        }
     }
 
     public function getStudentsProperty()
@@ -84,11 +79,11 @@ class StudentsInformationInGroups extends Component
         // });
         // تنفيذ الاستعلام مع التصفية والفرز
         $students = $studentsQuery->paginate($this->perPage);
-            // dd($students);
+        // dd($students);
         return $students;
     }
     public function render()
     {
-        return view('livewire.admin.students-information-in-groups',['students' => $this->students ]);
+        return view('livewire.admin.students-information-in-groups', ['students' => $this->students]);
     }
 }

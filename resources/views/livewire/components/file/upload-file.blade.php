@@ -17,9 +17,16 @@
                         <div class="form-group">
                             <!-- <label>Name:</label> -->
                             @if (!$polling)
-                                <input type="file" class="form-control-file border" id="file" wire:model="file"
+                                <input type="file"
+                                    class="form-control-file border @if ($errors->has('file')) is-invalid @endif "
+                                    id="file" wire:model="file"
                                     accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
                                     style="height: 30px; margin-top:8px">
+                                @if ($errors->has('file'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('file') }}</strong>
+                                    </span>
+                                @endif
                             @else
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-striped progress-bar-animated @if ($status == 'success') bg-success @elseif($status == 'error') bg-danger @elseif($status == 'warning') bg-warning @endif"
