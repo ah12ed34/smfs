@@ -1,14 +1,23 @@
 @section('nav')
-@livewire('components.nav.quality.quality-departments')
+    @livewire('components.nav.quality.quality-departments')
 @endsection
 <div>
     {{-- Because she competes with no one, no one can compete with her. --}}
 
-        <!-- <div class="responsive"></div> -->
-        <!-- <a href="board.html"> -->
-        <div class="container" style="padding-top: 30px">
+    <!-- <div class="responsive"></div> -->
+    <!-- <a href="board.html"> -->
+    <div class="container" style="padding-top: 30px">
 
-        <div class="card  cards-departments" id="" onclick="window.location='{{ route('departlevelquality')}}'">
+        @foreach ($departments as $department)
+            <div class="card  cards-departments" id=""
+                onclick="window.location='{{ route('departlevelquality', [$department->id]) }}'">
+                <img src="{{ $department->image ? asset('storage/' . $department->image) : Vite::image('it.png') }}"
+                    class="" width="150px">
+                <div class="card-departments-child">{{ $department->name }}
+                </div>
+            </div>
+        @endforeach
+        {{-- <div class="card  cards-departments" id="" onclick="window.location='{{ route('departlevelquality')}}'">
             <img src="{{Vite::image("it.png")}}" class="" width="150px">
             <div class="card-departments-child"> تقنية المعلومات
             </div>
@@ -30,7 +39,7 @@
             <img src="{{Vite::image("security (3).png")}}" class="" width="150px">
             <div class="card-departments-child"> الأمن السيبراني
             </div>
-        </div>
+        </div> --}}
 
     </div>
 </div>

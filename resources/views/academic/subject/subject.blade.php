@@ -1,8 +1,8 @@
 @extends('layouts.home')
 @section('nav')
     <div class="hdr2" style=" box-shadow: 10px;">
-        <button class="spaces" style="padding-left: 10px"> <label class="subjectname">لوحتي التعليمية</label><img
-                src="{{ Vite::image('left-arrow.png')}}"
+        <button class="spaces" style="padding-left: 10px" onclick="location.href='{{ route('academic.home') }}'"> <label
+                class="subjectname">لوحتي التعليمية</label><img src="{{ Vite::image('left-arrow.png') }}"
                 id="subject-icon-hdr2" width="30px" style="top: 10px;;">
         </button>
         <div class="dep-sub-name">{{ $group_subject->subject()->name_ar }}</div>

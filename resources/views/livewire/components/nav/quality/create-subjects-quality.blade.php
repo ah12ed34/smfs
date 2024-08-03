@@ -51,7 +51,7 @@
     </div>
 
     <div class="hr3">
-        <button id="spacesbtn" class="spaces" onclick="window.location='{{ route('quality_board_main')}}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
+        <button id="spacesbtn" class="spaces" onclick="window.location='{{ route('quality_board_main',$level->id)}}'"> <img src="{{Vite::image("left-arrow.png")}}" id="spaces1"  width="30px"></button>
 
 
         @include('components.navSelect.search')

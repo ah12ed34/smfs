@@ -74,7 +74,7 @@
         {{ $students->links(myapp::viewPagination) }}
     </nav>
 
-    @livewire('components.file.upload-file', ['uploadName' => 'students_upload_grades', 'updateId' => $group_subject->id])
+
 
 
     <!-- The ModalDisplaydata -->

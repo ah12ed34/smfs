@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.quality.subjects-data-for-teacher-header')
+@livewire('components.nav.quality.subjects-data-for-teacher-header', ['level' => $level])
 @endsection
 
 <div>

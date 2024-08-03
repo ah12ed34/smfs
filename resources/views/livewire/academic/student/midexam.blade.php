@@ -1,7 +1,7 @@
 <div>
-@section('nav')
-    @livewire('components.nav.academic.students',['group_subject'=>$group_subject,'active'=>'midexam'])
-@endsection
+    @section('nav')
+        @livewire('components.nav.academic.students', ['group_subject' => $group_subject, 'active' => 'midexam'])
+    @endsection
     {{-- In work, do what you enjoy. --}}
 
     <div class="responsive"></div>
@@ -20,18 +20,18 @@
                 </thead>
                 <tbody>
                     @forelse ($students as $student)
-                    <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                        <tr class="table-light" id="modldetials" style="margin-top:7px;">
 
 
-                        <td>{{ $student->helf_grade }}</td>
-                        <td>{{ $student->user->full_name }}</td>
-                        <td>{{ $student->user_id }}</td>
-                    </tr>
+                            <td>{{ $student->helf_grade }}</td>
+                            <td>{{ $student->user->full_name }}</td>
+                            <td>{{ $student->user_id }}</td>
+                        </tr>
                     @empty
 
-                    <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                        <td colspan="4" style="text-align: center;">لا يوجد طلاب</td>
-                    </tr>
+                        <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                            <td colspan="4" style="text-align: center;">لا يوجد طلاب</td>
+                        </tr>
                     @endforelse
 
 
@@ -46,7 +46,7 @@
     </nav>
 
     <!-- The Modal -->
-    <div class="modal fade" id="myModal">
+    {{-- <div class="modal fade" id="myModal">
         <div class="modal-dialog">
             <div class="modal-content modal_content_css" id="modal-content2">
 
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 </div>
