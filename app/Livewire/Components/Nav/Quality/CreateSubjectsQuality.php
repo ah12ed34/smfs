@@ -8,6 +8,11 @@ use Livewire\Component;
 class CreateSubjectsQuality extends SearchingComponent
 {
     public $level;
+    public function mount()
+    {
+        $this->initializeSearching();
+    }
+
     public function render()
     {
         return view('livewire.components.nav.quality.create-subjects-quality');

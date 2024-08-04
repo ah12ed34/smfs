@@ -1,5 +1,5 @@
 @section('nav')
-    @livewire('components.nav.quality.create-subjects-quality', ['level' => $level])
+    @livewire('components.nav.quality.create-subjects-quality', compact('level', 'active', 'terms'))
 @endsection
 
 <div>
@@ -7,7 +7,7 @@
     {{-- <div class="container" style="padding-top: 30px; padding-right:50px; margin-right:50px"> --}}
 
 
-    @livewire('global.levelsubject.add-subject', ['level' => $level])
+    @livewire('global.levelsubject.add-subject', ['level' => $level, 'term' => $active['term'] ?? null])
 
 
     {{-- <div class="card" id="cards-subject-students">

@@ -37,7 +37,7 @@
             </div>
         </div> -->
 
-        <div class="dropdown">
+        {{-- <div class="dropdown">
             <button type="button" class="btn btn-light TypeTerm_dropdown Sechedule  dropdown-toggle"
                 data-toggle="dropdown" dir="rtl">
                 <div class="textdropdown"> ترم اول</div>
@@ -47,7 +47,8 @@
                 <!-- <a id="" class="dropdown-item" href="#" style="padding-left:30px; ">   الصلاحيات</a> -->
                 <a id="" class="dropdown-item" href="#" style="padding-left:30px; "> ترم ثاني</a>
             </div>
-        </div>
+        </div> --}}
+        @include('components.navSelect.term')
         {{-- <button type="submit" class="btn btn-primary btn-sm  btn_Add_Sechedule" id="" data-toggle="modal" data-target="#create-subject"> اضافة مادة<img src="{{Vite::image("plus.png")}}"  width="20px" style="float: left;"></button> --}}
 
 

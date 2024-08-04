@@ -16,6 +16,7 @@ class AddSubject extends Component
 
     public $level;
     public $select = [];
+    public $term = null;
     public $selectAll = false;
     public $semester = [];
     public $isActivated = [];
@@ -218,7 +219,11 @@ class AddSubject extends Component
         $subjects = Subject::leftJoin('subjects_levels', function ($join) {
             $join->on('subjects_levels.subject_id', '=', 'subjects.id')
                 ->where('subjects_levels.level_id', $this->level->id);
-        })->where(function ($query) {
+        })->when($this->term, function ($query) {
+            $query->where('subjects_levels.semester', $this->term)
+                ->orWhereNull('subjects_levels.semester');
+        })
+            ->where(function ($query) {
                 $query->where('subjects.name_ar', 'like', "%$this->search%")
                     ->orWhere('subjects.name_en', 'like', "%$this->search%")
                     ->orWhere('subjects.id', 'like', "%$this->search%");

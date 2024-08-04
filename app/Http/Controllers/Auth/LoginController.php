@@ -73,8 +73,13 @@ class LoginController extends Controller
             return '/admin/dashboard';
         } elseif (optional(auth::user())->isAcademic()) {
             if (auth()->user()->academic->courses()->count() == 0) {
-                if (optional(auth()?->user())?->role()?->name == 'StudentAffairs') {
-                    return '/StudentSaffairs';
+                switch (optional(auth()?->user())?->role()?->name) {
+                    case 'QualityManagement':
+                        return '/qualityMain';
+                        break;
+                    case  'StudentAffairs':
+                        return '/StudentSaffairs';
+                        break;
                 }
             }
             return '/academic';

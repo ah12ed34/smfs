@@ -373,7 +373,7 @@ Route::prefix('/academic')->group(function () {
 })->middleware('auth');
 
 Route::group([
-    'prefix' => 'qualityMain', 'middleware' => 'auth'
+    'prefix' => 'qualityMain', 'middleware' => ['auth', 'role:QualityManagement']
 ], function () {
     route::get('/', '\\' . App\Livewire\Quality\QualityDepartments::class)->name('quality_departments');
     route::get('{department}/departlevelquality', '\\' . DepartLevelsQuality::class)->name('departlevelquality');
