@@ -78,7 +78,9 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="2">{{ __('general.no_data') }}</td>
+                            <td colspan="{{ count($groups) + count($groups->pluck('groups')->flatten()) + 2 }}"
+                                class="text-center">{{ __('general.no_data') }}
+                            </td>
                         </tr>
                     @endforelse
                 </tbody>

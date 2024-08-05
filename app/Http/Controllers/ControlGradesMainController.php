@@ -8,21 +8,31 @@ use app\models\ControlGradesDepartments;
 use app\Models\ControlGradeslevels;
 use app\Models\ControlGradesMain;
 use app\Models\ControlGradesStatistics;
-
+use App\Models\Department;
+use App\Models\Level;
 
 class ControlGradesMainController extends Controller
 {
     //
-    public function ControlGradesDepartments(){
-        return view('control_grades.control_grades_departments');
+    public function ControlGradesDepartments()
+    {
+        $departments = Department::all();
+        return view('control_grades.control_grades_departments', compact('departments'));
     }
-    public function ControlGradeslevels(){
-        return view('control_grades.control_grades_levels');
+    public function ControlGradeslevels(Department  $department)
+    {
+        $levels = $department->levels;
+        return view('control_grades.control_grades_levels', compact('levels'));
     }
-    public function ControlGradesMain(){
-        return view('control_grades.control_grades_main');
+    // {
+    //     return view('control_grades.control_grades_levels');
+    // }
+    public function ControlGradesMain(Level $level)
+    {
+        return view('control_grades.control_grades_main', compact('level'));
     }
-    public function ControlGradesStatistics(){
-        return view('control_grades.control_grades_statistics');
+    public function ControlGradesStatistics(Level $level)
+    {
+        return view('control_grades.control_grades_statistics', compact('level'));
     }
 }

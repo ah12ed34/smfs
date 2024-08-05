@@ -86,7 +86,7 @@
             onclick="location.href='{{ route('projects', [$group_subject->id]) }}'"><img
                 src="{{ Vite::image('project-management.png') }}" class="imgs-boards" width="100px"
                 style="margin-left: -18px; margin-top:10px;">
-            <div class="cards-child-child">المشاريع</div>
+            <div class="cards-child-child">{{ __('general.projects') }}</div>
         </div>
 
 

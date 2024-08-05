@@ -25,10 +25,11 @@ class GroupSubjectsInLevel extends Component
     public ?Level $level = null;
     public $term = null;
     // public $group
-    protected $queryString = ['search'];
 
     public $ay_id;
     public $sup_teacher_subject = [];
+
+    protected $listeners = ['refresh' => '$refresh', 'search'];
     public function mount()
     {
         if (!$this->level) {
@@ -79,6 +80,10 @@ class GroupSubjectsInLevel extends Component
         }
     }
 
+    public function search($v)
+    {
+        $this->search = $v;
+    }
 
     public function updatedSupTeacherSubject($value, $key)
     {
@@ -155,8 +160,7 @@ class GroupSubjectsInLevel extends Component
     }
     public function render()
     {
-        return view(
-            'livewire.components.group-subjects-in-level',
+        return view('livewire.components.group-subjects-in-level',
             [
                 'subjects' => $this->subjects,
                 'groups' => $this->groups,

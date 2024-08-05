@@ -1,5 +1,5 @@
 @section('nav')
-@livewire('components.nav.control-grades.control-students-grade-header')
+    @livewire('components.nav.control-grades.control-students-grade-header', compact('level'))
 @endsection
 <div>
     {{-- The best athlete wants his opponent at his best. --}}
@@ -14,34 +14,57 @@
                         <th>التقدير</th>
                         <th>المعدل</th>
                         <th>المجموع</th>
-                        <th>الرسوب </th>
-                        <th>   مشروع التخرج(2)  </th>
-                        <th>   مشروع التخرج(1)  </th>
-                        <th> التجارة الالكترونية </th>
-                        <th>  التحقيق الرقمي  </th>
-                        <th>   نظم موزعة </th>
+                        @foreach ($subjects as $subject)
+                            {{-- check language --}}
+
+                            <th>{{ $subject->name_ar }}</th>
+                        @endforeach
                         <th>النظام </th>
                         <th>اسم الطالب</th>
                         <th>الرقم الأكاديمي </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal" data-target="#myModalEdite">تعديل  <img src="{{Vite::image("edit.png")}}" id=""  width="15px" ></button> </td>
-                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal" data-target="#ModaldDisplayGradesStudent">عرض</button> </td>
+                    @forelse ($students as $student)
+                        <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal"
+                                    data-target="#myModalEdite">تعديل <img src="{{ Vite::image('edit.png') }}"
+                                        id="" width="15px"></button> </td>
+                            <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials"
+                                    data-toggle="modal" data-target="#ModaldDisplayGradesStudent">عرض</button> </td>
+                            <td>{{ $student->grade }}</td>
+                            <td>{{ $student->average }}</td>
+                            <td>{{ $student->total }}</td>
+                            @foreach ($subjects as $subject)
+                                <td>***</td>
+                            @endforeach
+                            <td>{{ $student->system() }}</td>
+                            <td>{{ $student->name }}</td>
+                            <td>{{ $student->user_id }}</td>
+                        </tr>
+                    @empty
+                        <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                            <td colspan="{{ 8 + count($subjects) }}" style="text-align: center;">لا يوجد طلاب</td>
+                        </tr>
+                    @endforelse
+                    {{-- <tr class="table-light" id="modldetials" style="margin-top:7px;">
+                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-edit" data-toggle="modal"
+                                data-target="#myModalEdite">تعديل <img src="{{ Vite::image('edit.png') }}"
+                                    id="" width="15px"></button> </td>
+                        <td><button type="submit" class="btn btn-primary btn-sm" id="btn-detials" data-toggle="modal"
+                                data-target="#ModaldDisplayGradesStudent">عرض</button> </td>
                         <td>*******</td>
                         <td>*****</td>
                         <td> ****</td>
                         <td>*****</td>
-                        <td> ****</td>
-                        <td>*******</td>
-                        <td>*******</td>
-                        <td>******</td>
-                        <td> ******</td>
+
+                        @foreach ($subjects as $subject)
+                            <td>*******</td>
+                        @endforeach
                         <td>*******</td>
                         <td>احمد الوجيه</td>
                         <td>2164093</td>
-                    </tr>
+                    </tr> --}}
 
 
 
@@ -52,38 +75,41 @@
 
 
     <!-- The ModalUploadeFile -->
-<div class="modal fade" id="UploadeFileModal">
-    <div class="modal-dialog">
-        <div class="modal-content UploadeFileModal" id="modal-content2" style="height: 250px;">
+    <div class="modal fade" id="UploadeFileModal">
+        <div class="modal-dialog">
+            <div class="modal-content UploadeFileModal" id="modal-content2" style="height: 250px;">
 
-            <!-- Modal Header -->
-            <div class="modal-header UploadeFileModal" id="modheader">
-                رفع الدرجات
-                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-            </div>
+                <!-- Modal Header -->
+                <div class="modal-header UploadeFileModal" id="modheader">
+                    رفع الدرجات
+                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                </div>
 
-            <!-- Modal body -->
-            <div class="modal-body">
-                <form action="" style="display: block;">
-                    <div class="form-group">
-                        <!-- <label for="usr">Name:</label> -->
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="" style="display: block;">
+                        <div class="form-group">
+                            <!-- <label for="usr">Name:</label> -->
 
-                        <input type="file" class="form-control-file border" id="file" name="file" style="height: 30px; margin-top:8px">
-                    </div>
-                    <!-- <div class="form-group">
+                            <input type="file" class="form-control-file border" id="file" name="file"
+                                style="height: 30px; margin-top:8px">
+                        </div>
+                        <!-- <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div> -->
-                </form>
-            </div>
+                    </form>
+                </div>
 
-            <!-- Modal footer -->
+                <!-- Modal footer -->
 
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">حفظ</button>
-                <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-sm btn_save_informModal"
+                        id="">حفظ</button>
+                    <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal"
+                        id="">إلغاء</button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
 
@@ -92,7 +118,7 @@
     <!-- The ModalDisplaydata -->
     <div class="modal fade" id="ModaldDisplayGradesStudent">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content modal_content_css" id="modal-content" >
+            <div class="modal-content modal_content_css" id="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header modal_header_css" id="modheader" style="text-align: center;">
@@ -117,11 +143,11 @@
                                             <th>المعدل</th>
                                             <th>المجموع</th>
                                             <th>الرسوب </th>
-                                            <th>   مشروع التخرج(2)  </th>
-                                            <th>   مشروع التخرج(1)  </th>
+                                            <th> مشروع التخرج(2) </th>
+                                            <th> مشروع التخرج(1) </th>
                                             <th> التجارة الالكترونية </th>
-                                            <th>  التحقيق الرقمي  </th>
-                                            <th>   نظم موزعة </th>
+                                            <th> التحقيق الرقمي </th>
+                                            <th> نظم موزعة </th>
 
                                         </tr>
                                     </thead>
@@ -153,7 +179,8 @@
                 <!-- Modal footer -->
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-light" id="print">طباعة  <img src="{{Vite::image("printing.png")}}" id=""  width="15px" ></button>
+                    <button type="submit" class="btn btn-light" id="print">طباعة <img
+                            src="{{ Vite::image('printing.png') }}" id="" width="15px"></button>
                 </div>
             </div>
         </div>
@@ -187,26 +214,47 @@
                                             <th>المعدل</th>
                                             <th>المجموع</th>
                                             <th>الرسوب </th>
-                                            <th>   مشروع التخرج(2)  </th>
-                                            <th>   مشروع التخرج(1)  </th>
+                                            <th> مشروع التخرج(2) </th>
+                                            <th> مشروع التخرج(1) </th>
                                             <th> التجارة الالكترونية </th>
-                                            <th>  التحقيق الرقمي  </th>
-                                            <th>   نظم موزعة </th>
+                                            <th> التحقيق الرقمي </th>
+                                            <th> نظم موزعة </th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="table-light" id="modldetials" style="margin-top:7px;">
-                                            <td colspan="2" style="width:200px;"> <input type="text" class="form-control" id="inputtext" name="username" placeholder="" style="height: 30px; margin-top:-6px;width:200px;"></td>
-                                            <td> <input type="text" class="form-control" id="inputtext" name="username" placeholder="" style="height: 30px; margin-top:-6px"></td>
-                                            <td> <input type="text" class="form-control" id="inputtext" name="username" placeholder="" style="height: 30px; margin-top:-6px"></td>
-                                            <td> <input type="text" class="form-control" id="inputtext" name="username" placeholder="" style="height: 30px; margin-top:-6px"></td>
-                                            <td> <input type="text" class="form-control" id="inputtext" name="username" placeholder="" style="height: 30px; margin-top:-6px"></td>
-                                            <td> <input type="text" class="form-control" id="inputtext" name="username" placeholder="" style="height: 30px; margin-top:-6px"></td>
-                                            <td> <input type="text" class="form-control" id="inputtext" name="username" placeholder="" style="height: 30px; margin-top:-6px"></td>
-                                            <td> <input type="text" class="form-control" id="inputtext" name="username" placeholder="" style="height: 30px; margin-top:-6px"></td>
-                                            <td> <input type="text" class="form-control" id="inputtext" name="username" placeholder="" style="height: 30px; margin-top:-6px"></td>
-                                            <td> <input type="text" class="form-control" id="inputtext" name="username" placeholder="" style="height: 30px; margin-top:-6px"></td>
+                                            <td colspan="2" style="width:200px;"> <input type="text"
+                                                    class="form-control" id="inputtext" name="username"
+                                                    placeholder="" style="height: 30px; margin-top:-6px;width:200px;">
+                                            </td>
+                                            <td> <input type="text" class="form-control" id="inputtext"
+                                                    name="username" placeholder=""
+                                                    style="height: 30px; margin-top:-6px"></td>
+                                            <td> <input type="text" class="form-control" id="inputtext"
+                                                    name="username" placeholder=""
+                                                    style="height: 30px; margin-top:-6px"></td>
+                                            <td> <input type="text" class="form-control" id="inputtext"
+                                                    name="username" placeholder=""
+                                                    style="height: 30px; margin-top:-6px"></td>
+                                            <td> <input type="text" class="form-control" id="inputtext"
+                                                    name="username" placeholder=""
+                                                    style="height: 30px; margin-top:-6px"></td>
+                                            <td> <input type="text" class="form-control" id="inputtext"
+                                                    name="username" placeholder=""
+                                                    style="height: 30px; margin-top:-6px"></td>
+                                            <td> <input type="text" class="form-control" id="inputtext"
+                                                    name="username" placeholder=""
+                                                    style="height: 30px; margin-top:-6px"></td>
+                                            <td> <input type="text" class="form-control" id="inputtext"
+                                                    name="username" placeholder=""
+                                                    style="height: 30px; margin-top:-6px"></td>
+                                            <td> <input type="text" class="form-control" id="inputtext"
+                                                    name="username" placeholder=""
+                                                    style="height: 30px; margin-top:-6px"></td>
+                                            <td> <input type="text" class="form-control" id="inputtext"
+                                                    name="username" placeholder=""
+                                                    style="height: 30px; margin-top:-6px"></td>
 
                                         </tr>
                                     </tbody>
@@ -223,8 +271,10 @@
                 <!-- Modal footer -->
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-sm btn_save_informModal" id="">حفظ</button>
-                    <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal" id="">إلغاء</button>
+                    <button type="submit" class="btn btn-primary btn-sm btn_save_informModal"
+                        id="">حفظ</button>
+                    <button type="button" class="btn btn-danger btn-sm btn_cancel_informModal" data-dismiss="modal"
+                        id="">إلغاء</button>
                 </div>
             </div>
         </div>

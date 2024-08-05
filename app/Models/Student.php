@@ -166,17 +166,17 @@ class Student extends Model
             try {
                 $relatedStudents = $student->students()->get();
 
-            // First, delete all studyings related to each related student
-            foreach ($relatedStudents as $relatedStudent) {
-                $relatedStudent->studyings()->each(function ($studying) {
-                    $studying->delete();
-                });
-            }
+                // First, delete all studyings related to each related student
+                foreach ($relatedStudents as $relatedStudent) {
+                    $relatedStudent->studyings()->each(function ($studying) {
+                        $studying->delete();
+                    });
+                }
 
-            // Then, delete each related student
-            foreach ($relatedStudents as $relatedStudent) {
-                $relatedStudent->delete();
-            }
+                // Then, delete each related student
+                foreach ($relatedStudents as $relatedStudent) {
+                    $relatedStudent->delete();
+                }
                 DB::commit();
             } catch (\Exception $e) {
                 DB::rollBack();

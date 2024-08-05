@@ -55,7 +55,7 @@
                 </button>
                 <div id="dropdown-itemlist" class="dropdown-menu" style=" color: #0E70F2; ">
                     @if ($active != 'department')
-                        <a id="" class="dropdown-item" href="{{ route('department.index') }}"
+                        <a id="" class="dropdown-item" href="{{ route('admin.department') }}"
                             style="padding-left:30px; ">الأقسام</a>
                     @endif
                     @if ($active != 'academic_departments')
@@ -74,7 +74,7 @@
                             href="{{ route('admin.employees') }}"> الموظفين</a>
                     @endif
                     @if ($active != 'statistics')
-                        <a class="dropdown-item" href="{{ route('admin.statistics') }}" style="padding-left:30px; ">
+                        <a class="dropdown-item" href="{{ route('admin') }}" style="padding-left:30px; ">
                             الإحصائيات</a>
                     @endif
                     {{--  @if ($active != 'academic')
@@ -103,7 +103,7 @@
         <div class="btn-group btn_group_nav_departments" id="">
 
             <button class="btn-departments-Navbar @if ($active == 'statistics') active @endif"
-                onclick="window.location='{{ route('admin.statistics') }}'"><label class="proNavbartext">الإحصائيات
+                onclick="window.location='{{ route('admin') }}'"><label class="proNavbartext">الإحصائيات
                 </label></button>
             <button class="btn-departments-Navbar @if ($active == 'notification') active @endif"
                 onclick="window.location='{{ route('admin.notifications') }}'"><label class="proNavbartext">

@@ -188,14 +188,14 @@
                 {{-- @if ($active['tab'] == 'HeadOfDepartment') --}}
                 {{-- @if ($active['tab'] == 'HeadOfDepartment') --}}
                 @section('homeLayout')
-                <button class="button-sidebar " onclick="location.href='{{ route('home') }}'"><img
-                        src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label
-                        class="">{{ __('layout.meun_home') }} </label></button>
-                @if (auth()?->user()?->academic?->department_id)
-                    <button class="button-sidebar " onclick="location.href='{{ route('main_academic_sechedules') }}'"><img
-                            src="{{ Vite::image('calendar (3).png') }}" class="sidebaricon" width="26px"><label
-                            class="">{{ __('layout.schaudule_std') }} </button>
-                @endif
+                    <button class="button-sidebar " onclick="location.href='{{ route('home') }}'"><img
+                            src="{{ Vite::image('home (1).png') }}" class="sidebaricon" width="26px"><label
+                            class="">{{ __('layout.meun_home') }} </label></button>
+                    @if (auth()?->user()?->academic?->department_id)
+                        <button class="button-sidebar " onclick="location.href='{{ route('main_academic_sechedules') }}'"><img
+                                src="{{ Vite::image('calendar (3).png') }}" class="sidebaricon" width="26px"><label
+                                class="">{{ __('layout.schaudule_std') }} </button>
+                    @endif
                 @show
                 {{-- <button class="button-sidebar" onclick="location.href='{{ route('archieve') }}'"><img
                         src="{{ Vite::image('portfolio (2).png') }}" class="sidebaricon" width="26px"><label
@@ -292,11 +292,11 @@
 
 
         @Student()
-            <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon"
+            {{-- <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon"
                     width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
             <button class="btn-bottomNavbar"onclick="location.href='{{ route('student-archieve') }}'"><img
                     src="{{ Vite::image('portfolio (2).png') }}" class="bottombaricon" width="20px"><br><label
-                    class="bottomNavbartext">الأرشيف</label></button>
+                    class="bottomNavbartext">الأرشيف</label></button> --}}
             <button class="btn-bottomNavbar" onclick="location.href='{{ route('student-studyingSchedule') }}'"><img
                     src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label
                     class="bottomNavbartext">الجدول </label></button>
@@ -306,8 +306,8 @@
         @endStudent
 
         @Admin()
-            <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon"
-                    width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button>
+            {{-- <button class="btn-bottomNavbar"><img src="{{ Vite::image('setting (2).png') }}" class="bottombaricon"
+                    width="20px"><br><label class="bottomNavbartext">الإعدادات</label></button> --}}
             {{-- <button class="btn-bottomNavbar"onclick="location.href='{{route('academic.create')}}'"><img src="{{ Vite::image('user (4).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">إنشاءأكاديمي</label></button> --}}
             {{-- <button class="btn-bottomNavbar" onclick="location.href='{{route('student.create')}}'"><img src="{{ Vite::image('user (4).png') }}" class="bottombaricon" width="20px"><br><label class="bottomNavbartext">إنشاء طالب </label></button> --}}
             <button class="btn-bottomNavbar" onclick="location.href='{{ route('home') }}'"><img
@@ -324,32 +324,29 @@
                     class="bottomNavbartext">القائمة</label></button>
             {{-- @endManagementOFSechedules --}}
         @else
+            @section('homeLayoutM')
 
-                @section('homeLayoutM')
+                @Teacher()
+                    @if (auth()?->user()?->academic?->department_id)
+                        <button class="btn-bottomNavbar" onclick="location.href='{{ route('main_academic_sechedules') }}'"><img
+                                src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label
+                                class="bottomNavbartext">الجدول </label></button>
+                    @endif
+                    <button class="btn-bottomNavbar" @section('home') onclick="location.href='{{ route('home') }}'"><img
+                                src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label
+                                class="bottomNavbartext">القائمة</label></button>
+                    @endTeacher
 
-            @Teacher()
+                @show
 
-                @if (auth()?->user()?->academic?->department_id)
-                    <button class="btn-bottomNavbar"  onclick="location.href='{{ route('main_academic_sechedules') }}'"><img
-                            src="{{ Vite::image('calendar (3).png') }}" class="bottombaricon" width="20px"><br><label
-                            class="bottomNavbartext">الجدول </label></button>
-                @endif
-                <button class="btn-bottomNavbar" @section('home') onclick="location.href='{{ route('home') }}'"><img
-                        src="{{ Vite::image('home (1).png') }}" class="bottombaricon" width="20px"><br><label
-                        class="bottomNavbartext">القائمة</label></button>
+            @endRole
 
-                        @endTeacher
-
-                        @show
-
-        @endRole
-
-    </div>
-    {{-- @vite('resources/js/app.js') --}}
-    {{-- <script src="{{ mix('js/sidebar.js') }}" defer></script>
+        </div>
+        {{-- @vite('resources/js/app.js') --}}
+        {{-- <script src="{{ mix('js/sidebar.js') }}" defer></script>
      <script src="sidebar.js"></script> --}}
-    @livewireScripts
-    {{-- <script>
+        @livewireScripts
+        {{-- <script>
         (function() {
             let ipadress = '127.0.0.1';
             // 3000
@@ -387,9 +384,9 @@
             });
         })();
     </script> --}}
-    @yield('script')
-</body>
+        @yield('script')
+    </body>
 
 
 
-</html>
+    </html>
